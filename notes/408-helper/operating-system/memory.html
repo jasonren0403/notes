@@ -1,0 +1,1906 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="信息安全、前端相关" name="description"/>
+<meta content="Jason" name="author"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.3.3" name="generator"/>
+<title>内存管理 - Jason的笔记小屋</title>
+<link href="../../assets/stylesheets/main.5143246d.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../assets/stylesheets/ex.css" rel="stylesheet"/>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-Q0FWVZ6L5Y"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-Q0FWVZ6L5Y",{page_path:t.pathname})})})</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Q0FWVZ6L5Y"></script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Jason的笔记小屋" class="md-header__button md-logo" data-md-component="logo" href="../../index.html" title="Jason的笔记小屋">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Jason的笔记小屋
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              内存管理
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="切换至夜间模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="切换至夜间模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="切换至白天模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="切换至白天模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../index.html">
+      主页
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../web_basic/index.html">
+        web开发技术基础
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../soft_security/index.html">
+        软件安全
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../net_security/index.html">
+        网络安全
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../index.html">
+        408助手
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Jason的笔记小屋" class="md-nav__button md-logo" data-md-component="logo" href="../../index.html" title="Jason的笔记小屋">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97z"></path></svg>
+</a>
+    Jason的笔记小屋
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../index.html">
+        主页
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../web_basic/index.html">web开发技术基础</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="web开发技术基础" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          web开发技术基础
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web_basic/basic-structure.html">
+        Web的基本架构
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web_basic/html.html">
+        HTML
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web_basic/css.html">
+        CSS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web_basic/javascript.html">
+        JavaScript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web_basic/dom.html">
+        DOM
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../soft_security/index.html">软件安全</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="软件安全" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          软件安全
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/basic.html">
+        软件基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/string.html">
+        字符串安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/pointer.html">
+        指针安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/memory-management.html">
+        动态内存管理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/integer-security.html">
+        整数安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/string-format.html">
+        格式化输出
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/concurrency.html">
+        并发
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/io.html">
+        文件输入输出
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../soft_security/practice.html">
+        软件安全实践
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../net_security/index.html">网络安全</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="网络安全" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          网络安全
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/assets.html">
+        网络安全概述
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/networkattack.html">
+        网络攻击
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/firewall.html">
+        防火墙
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/ids.html">
+        入侵检测
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/vpn.html">
+        虚拟专用网
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/application.html">
+        应用安全——PGP为例
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/socialengineering.html">
+        社会工程学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/hook.html">
+        HOOK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../net_security/side-channel.html">
+        侧信道攻击
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../index.html">408助手</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="408助手" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          408助手
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../what-does-408-test.html">
+        408考试大纲（2020版）
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../computer-structure/index.html">计算机组成原理</a>
+<label for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机组成原理" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+          计算机组成原理
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer-structure/operating.html">
+        运算器
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../data-structure/index.html">数据结构</a>
+<label for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="数据结构" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/linear-list.html">
+        线性表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/stack.html">
+        栈
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/queue.html">
+        队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/array.html">
+        数组
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/string.html">
+        字符串
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/tree.html">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/graph.html">
+        图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/searching.html">
+        查找
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-structure/sorting.html">
+        排序
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../computer-network/index.html">计算机网络</a>
+<label for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机网络" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          计算机网络
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer-network/network-layer.html">
+        网络层
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" id="__nav_5_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="index.html">操作系统</a>
+<label for="__nav_5_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="操作系统" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_6">
+<span class="md-nav__icon md-icon"></span>
+          操作系统
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="process.html">
+        进程管理
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          内存管理
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="memory.html">
+        内存管理
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    内存管理基础
+  </a>
+<nav aria-label="内存管理基础" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    内存管理概念
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    交换与覆盖
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    连续分配管理方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    非连续分配管理方式
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    虚拟内存管理
+  </a>
+<nav aria-label="虚拟内存管理" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    请求分页管理方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    页面置换算法
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    页面分配策略
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="file.html">
+        文件管理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="io.html">
+        输入输出(I/O)管理
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">内存管理<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<details class="summary" open="open"><summary>内存管理的功能</summary><ol>
+<li>操作系统负责内存空间的分配与回收</li>
+<li>操作系统提供某种技术，从逻辑上对内存空间进行扩充</li>
+<li>操作系统提供地址转换功能，负责程序的逻辑地址与物理地址的转换</li>
+<li>操作系统提供内存保护功能，保证各个进程在各自存储空间内运行，互不干扰</li>
+</ol>
+</details>
+<h2 id="_2">内存管理基础<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h3 id="_3">内存管理概念<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>程序的装入与链接</p>
+<div class="mermaid">graph LR
+    A(高级语言)--&gt;|编译|B(机器语言)
+    B--&gt;|链接|C(装入模块)
+    C--&gt;|装入|D(内存)
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">编译</label><label for="__tabbed_1_2">链接</label><label for="__tabbed_1_3">装入</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>由编译程序(Complier) 将用户源代码编译成若干个目标模块 (Object Module)</p>
+</div>
+<div class="tabbed-block">
+<p>由链接程序(Linker) 将编译后形成的目标模块以及它们所需要的库函数，链接在一起，形成一个装入模块 (Load Module)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">静态链接</label><label for="__tabbed_2_2">运行时动态链接</label><label for="__tabbed_2_3">装入时动态链接</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>静态链接是在生成可执行文件时进行的。在目标模块中记录符号地址 (symbolic address) ，而在可执行文件中改写为指令直接使用的数字地址。</p>
+</div>
+<div class="tabbed-block">
+<p>将对某些模块的链接推迟到执行时才执行。</p>
+<div class="admonition success">
+<p>凡在执行过程中未被用到的目标模块，都不会被调入内存和被链接到装入模块上，这样不仅可加快程序的装入过程，而且可节省大量的内存空间</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>目标模块是在装入内存时，边装入边链接的。</p>
+<div class="admonition success">
+<ol>
+<li>便于修改和更新</li>
+<li>便于实现对目标模块的共享</li>
+</ol>
+</div>
+</div>
+</div>
+</input></input></input></div>
+</div>
+<div class="tabbed-block">
+<p>由装入程序(Loader) 将装入模块装入内存</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">绝对装入</label><label for="__tabbed_3_2">可重定位装入</label><label for="__tabbed_3_3">动态运行时装入</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>单道程序中，在由编译程序或程序员指定内存地址，装入时直接定位在上述(即文件中记录的地址)内存地址。逻辑地址和物理地址完全相同。</p>
+<div class="admonition success">
+<p>装入过程简单，实现容易</p>
+</div>
+<div class="admonition failure">
+<p>需要有连续的空间，不适于多道程序系统</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>多道程序环境中，单一装入模块中采用逻辑地址，根据当前内存情况，将装入模块装入到适当位置。操作系统装入模块进行地址映射。地址映射（地址转换）是在装入模块装入内存时一次性进行的，即采用静态重定位，以后不能更改。</p>
+<div class="admonition success">
+<p>不需硬件支持，可以装入有限多道程序</p>
+</div>
+<div class="admonition failure">
+<p>程序装入内存后不能移动，不易实现共享</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>将装入模块原样装入内存，而地址映射工作推迟到程序真正执行时才进行，即采用动态重定位</p>
+<div class="admonition success">
+<ol>
+<li>OS 可以将一个程序分散存放于不连续的内存空间，可以移动程序，有利用实现共享。</li>
+<li>能够支持程序执行中产生的地址引用，如指针变量（而不仅是生成可执行文件时的地址引用）。</li>
+</ol>
+</div>
+<div class="admonition failure">
+<p>需要硬件支持， OS实现较复杂</p>
+</div>
+</div>
+</div>
+</input></input></input></div>
+</div>
+</div>
+</input></input></input></div>
+</li>
+<li>
+<p>逻辑地址与物理地址</p>
+</li>
+<li>内存保护</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">采用上下界限寄存器</label><label for="__tabbed_4_2">采用基址、限长寄存器</label><label for="__tabbed_4_3">采用保护键</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="method1" src="asset-img/memory-10.png"/></p>
+<p>OS将分区的上、下界置入上下界寄存器R上，R下。在运行过程中，将作业所形成的每一个访问存储器的物理地址D同上下界限寄存器中的内容相比较，如果不满足：下界&lt;=D&lt;上界，则产生地址中断，由OS进行处理。</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="method2" src="asset-img/memory-11.png"/></p>
+<p>采用上下界限寄存器保护是在物理地址一端设置一对寄存器进行保护，也可以在逻辑地址一端设置一对寄存器实现存储保护， 基址寄存器也起重定位的作用，存放该分区的起始地址，限长寄存器存放分配给作业的分区的大小</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="method3" src="asset-img/memory-12.png"/></p>
+<p>按块分配，一个作业各块相连，并给该作业分配一个键号，填入该作业的各块的保护键中(这个保护键相当于锁)；并把该键号置入PSW的保护键字段(相当于钥匙)。当程序执行时，如所访问的保护键与钥匙不匹配，则产生保护键违例中断</p>
+</div>
+</div>
+</input></input></input></div>
+<h3 id="_4">交换与覆盖<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">交换（对换）</label><label for="__tabbed_5_2">覆盖</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>把内存中暂时不能运行的进程或者暂时不用的程序和数据，调出到外存上，以便腾出足够的内存空间，再把已具备运行条件的进程或进程所需要的程序和数据，调入内存。</p>
+<p><img align="center" alt="swapping" src="asset-img/memory-2.png"/></p>
+<ul>
+<li>原理：暂停执行内存中的进程，将整个进程的地址空间保存到外存的交换区中（换出 swap out ），而将外存中由阻塞变为就绪的进程的地址空间读入到内存中，并将该进程送到就绪队列（换入 swap in ）</li>
+</ul>
+<details class="faq" open="open"><summary>什么时候交换？</summary><p>系统有许多进程运行，且内存吃紧</p>
+</details>
+<details class="faq" open="open"><summary>换出什么进程？</summary><p>首先选择处于阻塞或睡眠状态的进程，若上述进程有多个，则选择优先级最低的（某些系统中，还可能与驻留时间有关）；如果无阻塞进程，内存却不满足要求，则需要选择优先级低或驻留时间短的就绪进程</p>
+</details>
+<details class="note"><summary>例子：UNIX系统</summary><ul>
+<li>空闲区的分配采用最佳适应法</li>
+<li>对换进程就是0号进程，它是一个永远处于核心态的进程。其任务是将进程的映象在内存和对换区之间传递</li>
+</ul>
+</details>
+</div>
+<div class="tabbed-block">
+<p>让不可能同时访问的程序段共享存储区。</p>
+<p><img alt="covering" src="asset-img/memory-1.png"/></p>
+</div>
+</div>
+</input></input></div>
+<h3 id="_5">连续分配管理方式<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><input id="__tabbed_6_4" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">单一连续分配</label><label for="__tabbed_6_2">固定分区分配</label><label for="__tabbed_6_3">动态可变分区分配</label><label for="__tabbed_6_4">动态重定位分配</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>内存分为以下两个分区：系统区和用户区。操作系统使用系统区；应用程序装入到用户区，可使用用户区全部空间</p>
+<ul>
+<li>内存中只能有一道用户程序</li>
+</ul>
+<p><img alt="" src="asset-img/memory-3.png"/></p>
+<div class="admonition success">
+<p>实现简单，易于管理</p>
+</div>
+<div class="admonition failure">
+<p>只适用于单用户、单任务操作系统，对要求内存空间少的程序，造成内存浪费；程序全部装入，很少使用的程序部分也占用内存（内存浪费严重）。</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>将内存空间划分为若干个固定大小的区域。OS 占一区，其余各分区中可以装入一道作业</p>
+<ul>
+<li>为了便于内存分配，系统需建立一张分区使用表。当有一用户程序要装入时，从表中找出一个能满足要求的、尚未分配的分区分配给该程序，然后修改分区使用表</li>
+<li>适用于多道程序系统和分时系统，支持多个程序并发执行</li>
+</ul>
+<p><img alt="" src="asset-img/memory-4.png"/></p>
+<ul>
+<li>分区划分的方法<ul>
+<li>分区大小相等：适合于多个相同程序的并发执行（处理多个类型相同的对象）。缺乏灵活性。</li>
+<li>分区大小不等：多个小分区、适量的中等分区、少量的大分区。根据程序的大小，分配当前空闲的，适当大小的分区</li>
+</ul>
+</li>
+<li>
+<p>数据结构</p>
+<table>
+<thead>
+<tr>
+<th align="center">分区号</th>
+<th align="center">大小</th>
+<th align="center">起始地址</th>
+<th align="center">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">8K</td>
+<td align="center">20K</td>
+<td align="center">已分配</td>
+</tr>
+<tr>
+<td align="center">..</td>
+<td align="center">..</td>
+<td align="center">..</td>
+<td align="center">..</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<div class="admonition success">
+<p>易于实现，开销小</p>
+</div>
+<div class="admonition failure">
+<p>有内部碎片，利用率低；所有分区都不满足时需要依赖覆盖技术</p>
+</div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>固定分区主存利用率不高，使用不灵活，所以出现了可变分区</li>
+<li>按进程的大小动态划分分区大小（分区大小、数目可变）</li>
+<li>数据结构</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">空闲分区表</label><label for="__tabbed_7_2">空闲分区链</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>分区表的表项中包含分区号、分区始址及分区大小等表目</p>
+</div>
+<div class="tabbed-block">
+<p>利用各空闲分区自身的单元组成双向链表</p>
+</div>
+</div>
+</div>
+<ul>
+<li>
+<p>分区分配算法</p>
+<ul>
+<li>把一个新作业装入内存中，须按照一定的分配算法，从空闲分区表或者空闲分区链表中，选择一分区分配给该作业</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">基于顺序搜索的动态分区分配算法</label><label for="__tabbed_8_2">基于索引的动态分区分配算法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="9:4"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><input id="__tabbed_9_3" name="__tabbed_9" type="radio"/><input id="__tabbed_9_4" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">首次适应(first-fit)</label><label for="__tabbed_9_2">下次适应(next-fit)</label><label for="__tabbed_9_3">最佳适应(best-fit)</label><label for="__tabbed_9_4">最坏适应(worst-fit)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="first-fit" src="asset-img/memory-5.png"/></p>
+<p>分配时，按空闲分区表（或空闲分区链）的先后次序，从头查找，找到符合要求的第一个分区</p>
+<div class="admonition success">
+<p>该算法的分配和释放的时间性能较好，较大的空闲分区可以被保留在内存高端</p>
+</div>
+<div class="admonition failure">
+<p>随着低端分区不断划分而产生较多小分区，每次分配时查找时间开销会增大</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>分配空闲空间时，不是从链首（或表头）开始查找，而是从上次找到的空闲分区的下一个空闲分区开始查找</p>
+<div class="admonition note">
+<p>该算法使内存中的空闲区分布较均匀，可减少查找空闲块的开销，但会缺少大的空闲分区</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><img alt="best-fit" src="asset-img/memory-6.png"/></p>
+<p>按空闲分区表（或空闲分区链）的先后次序，从头查找，找到符合要求的第一个分区。就说明它是最适合的（即最佳的）</p>
+<div class="admonition danger">
+<p>分割后的空闲区将会很小，直至无法使用，造成浪费</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><img alt="worst-fit" src="asset-img/memory-7.png"/></p>
+<p>每次分配时，总是将最大的空闲区切去一部分分配给请求者，其依据是当一个很大的空闲区被切割了一部分后可能仍是一个较大的空闲区。避免了空闲区越分越小的问题</p>
+<ul>
+<li>最坏适应算法的空闲分区表（或空闲分区链）是按各空闲分区大小的降序方法组织的（从大到小的顺序）</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><input id="__tabbed_10_3" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">快速适应算法/分类搜索法</label><label for="__tabbed_10_2">伙伴算法</label><label for="__tabbed_10_3">哈希算法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>将空闲分区按容量大小进行分类，每一类具有相同容量，每一类单独设立一个空闲分区链表（空闲分区的分类根据进程常用的空间大小进行划分）</p>
+<ul>
+<li>在内存中设立一张管理索引表，每个表项对应一类空闲分区，并记录该类空闲分区链表表头指针</li>
+</ul>
+<div class="admonition success">
+<p>查找效率高；空闲分区分配时，不产生分割，能保留大分区，也不产生内存碎片</p>
+</div>
+<div class="admonition failure">
+<p>为有效合并分区，分区归还主存算法复杂，系统开销大；分配分区以进程为单位，存在浪费；以空间换取时间</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>分区大小为2的k次幂，k为整数，<span class="arithmatex">\(1\le k\le m\)</span> , <span class="arithmatex">\(2^m\)</span> 是整个可分配内存的大小</p>
+<ul>
+<li>
+<p>当需要为进程分配长度为n的存储空间时，首先计算i值，使 <span class="arithmatex">\(2^{i-1}\le n \le 2^i\)</span> ，然后在空闲分区大小为 <span class="arithmatex">\(2^i\)</span> 的空闲分区双向链表中查找，找到即分配；否则在空闲分区大小为 <span class="arithmatex">\(2^{i+1}\)</span> 的空闲分区双向链表中寻找</p>
+</li>
+<li>
+<p>如存在大小为 <span class="arithmatex">\(2^{i+1}\)</span> 的一个空闲分区，则将各分区分为相等的两个分区（伙伴），其中一个用于分配，另一个加入大小为 <span class="arithmatex">\(2^i\)</span> 的空闲分区双向链表。如大小为 <span class="arithmatex">\(2^{i+1}\)</span> 的空闲分区也不存在，则查找大小为 <span class="arithmatex">\(2^{i+2}\)</span> 的空闲分区，并进行两次分割</p>
+</li>
+<li>
+<p>一次分配可能要进行多次分割，一次回收也可能进行多次合并</p>
+</li>
+</ul>
+<div class="admonition summary">
+<ul>
+<li>
+<p>分配和回收的性能取决于查找空闲分区的位置和分割、合并空闲分区的时间</p>
+</li>
+<li>
+<p>时间性能比分类搜索算法差，比顺序搜索算法好</p>
+</li>
+<li>
+<p>空间性能远优于分类搜索算法，但比顺序搜索算法略差</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<p>建立以空闲分区大小为关键字的哈希表</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>
+<p>拼接/紧凑技术</p>
+<p><img alt="" src="asset-img/memory-8.png"/></p>
+<ul>
+<li>
+<p>可变式分区也有零头问题。在系统不断地分配和回收中，必定会出现一些不连续的小的空闲区，称为外零头。虽然可能所有零头的总和超过某一个作业的要求，但是因为不连续而无法分配</p>
+</li>
+<li>
+<p>解决零头的方法是拼接（或称紧凑），即向一个方向（例如向低地址端）移动已分配的作业，使那些零散的小空闲区在另一方向连成一片</p>
+</li>
+</ul>
+</li>
+<li>
+<p>动态重定位</p>
+<ul>
+<li>需硬件(重定位寄存器 R)支持,该R 中放程序在内存始址。执行时，访问的内存地址是相对地址与重定位寄存器中的地址相加而形成的</li>
+<li>地址变换过程是在程序执行期间，随着对每条指令和数据的访问而自动进行的，故称动态重定位</li>
+<li>进行“紧凑”处理时，不需对程序进行改动，只要修改重定位寄存器的值，即程序在内存中新的起始地址就可以</li>
+</ul>
+<p><img alt="" src="asset-img/memory-9.png"/></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="_6">非连续分配管理方式<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<details class="summary"><summary>分段和分页存储管理的比较</summary><ul>
+<li>共同点：离散分配方式，通过地址映射机构实现地址变换</li>
+<li>不同点：<ol>
+<li>段是信息的逻辑单位，用户可见，长度可变；页是信息的 物理单位，用户透明，长度固定</li>
+<li>段式：若干独立的逻辑空间构成进程的非连续逻辑空间，二维地址空间；页式：一维地址空间。</li>
+<li>段式：物理空间不连续，但段内连续；页式：物理空间不连续。</li>
+<li>分页是系统管理的需要；分段是为了更好满足用户的需要</li>
+</ol>
+</li>
+</ul>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><input id="__tabbed_11_3" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">分页存储管理</label><label for="__tabbed_11_2">分段存储管理</label><label for="__tabbed_11_3">段页式存储管理</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>进程的地址空间划分成大小相等的页（页面）</li>
+<li>内存划分成与页面大小相等的块（物理块、页框）</li>
+<li>程序加载时，每页对应内存中的一块，这些块不必连续</li>
+</ul>
+<p><img alt="" src="asset-img/memory-13.png"/></p>
+<ul>
+<li>
+<p>地址结构</p>
+<ul>
+<li>
+<p>令逻辑地址为A，页面大小（长度）为L，则有</p>
+<div class="arithmatex">\[
+\begin{align}
+P&amp;=[\frac{A}{L}]\\
+W&amp;=A\mod{L}
+\end{align}
+\]</div>
+</li>
+<li>
+<p>物理地址=页面始址+页面偏移量</p>
+</li>
+<li>
+<p>页面大小一般为2的整数倍，如果每个页面的大小为 <span class="arithmatex">\(2^kB\)</span> ，用二进制数表示逻辑地址，则末尾 <span class="arithmatex">\(k\)</span> 位表示页内偏移量，其余部分为页号</p>
+<div class="highlight"><pre><span></span><code>| 页号P  || 位移量W |
+|&lt;- M位 -&gt;|&lt;- K位 -&gt;|
+
+含义：某进程最多允许有2^M个页面，页面大小为2^K个内存单元
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>页表</p>
+<p><img alt="pageTable" src="asset-img/memory-14.png"/></p>
+<ul>
+<li>系统为每个进程建一张页表(页号,物理块号)，其在内存的起始地址和长度记录在该进程的PCB中</li>
+<li>在实际的系统中，为了节省存储空间，在页表中可以省去页号这一项</li>
+</ul>
+</li>
+<li>
+<p>基本地址变换机构</p>
+<ul>
+<li>实现从逻辑地址到物理地址的转换</li>
+<li>借助页表，将逻辑地址中的页号转换为物理地址中的块号</li>
+<li>整个系统中设置一个页表寄存器，存放页表在内存的始址和页表的长度。当调度某进程执行时，将PCB中的页表的始址和长度装入页表寄存器中。</li>
+<li>执行内存访问指令时，逻辑地址至物理地址的地址变换过程由硬件(动态地址变换机构DAT)实现</li>
+<li>每执行一条指令，至少要访问内存两次。一次是到内存中访问页表；一次是形成物理地址后，到该内存单元中取指令或数据。这样，存取速度降低一倍，将会影响整个系统的使用效率</li>
+</ul>
+<p><img alt="" src="asset-img/memory-15.png"/></p>
+</li>
+<li>
+<p>带有快表的地址变换结构</p>
+<ul>
+<li>联想寄存器也叫快表(TLB)，是可按内容并行查找的快速寄存器，比内存贵，容量小</li>
+<li>将作业中最常用的页块号置入高速缓存，提高查表速度</li>
+</ul>
+<p><img alt="" src="asset-img/memory-16.png"/></p>
+<ul>
+<li>
+<p>访问内存的有效时间(EAT)</p>
+<ul>
+<li>
+<p>进程发出指定逻辑地址的访问请求，经过地址变换，在内存中找到实际的物理地址单元并取出数据，所需花费的总时间</p>
+</li>
+<li>
+<p>命中率：使用快表并在其中查找到所需页面表项的比率</p>
+<ul>
+<li>
+<p>假设查找快表时间为 <span class="arithmatex">\(\lambda\)</span> ，<span class="arithmatex">\(a\)</span> 是命中率，则有</p>
+<div class="arithmatex">\[
+EAT = a \times \lambda +(t+\lambda )(1-a)+t
+\]</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>两级页表/多级页表</p>
+<details class="note"><summary>引入两级或多级页表的原因</summary><ul>
+<li>
+<p>现代的计算机系统，都支持非常大的逻辑地址空间</p>
+</li>
+<li>
+<p>页表会变得很大，占用相当大的内存</p>
+</li>
+<li>
+<p>页表所需的内存是连续的，更加难以实现</p>
+</li>
+</ul>
+</details>
+<ul>
+<li>对于两级页表，是将页表再进行分页，并离散地将各个页面分别存放在不同的物理块中，同样也要为离散分配的页表再建立一张页表，称为外层页表。</li>
+</ul>
+<p><img alt="" src="asset-img/memory-17.png"/></p>
+<ul>
+<li>
+<p>至于更多位的系统，由于外层页表可能会过于庞大，要采用多级页表，将外层页表再进行分页，也是将各分页离散地装入到不相邻接的物理块中，再利用第2级的外层页表来映射它们之间的关系。</p>
+</li>
+<li>
+<p>地址变换机构</p>
+</li>
+</ul>
+<p><img alt="" src="asset-img/memory-18.png"/></p>
+<ul>
+<li>N级页表，需要进行N+1次访存</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>引入分段存储管理方式，主要是为了满足用户和程序员更加方便编程的需求。</p>
+<ul>
+<li>一个用户程序往往由几个程序段（主程序、子程序和函数）所组成，当一个程序装入内存时，按段进行分配，每个段的大小是不相等的</li>
+<li>每段都有自己的名字，且都是一段连续的地址空间。</li>
+</ul>
+<p><img alt="" src="asset-img/memory-19.png"/></p>
+<ul>
+<li>
+<p>地址结构</p>
+<div class="highlight"><pre><span></span><code>| 段号S  || 段内地址W |
+|&lt;- M位 -&gt;|&lt;- K位 -&gt;|
+
+含义：某进程最多允许有2^M个段，每个段的最大长度为2^K个内存单元
+</code></pre></div>
+</li>
+<li>
+<p>段表</p>
+<p><img alt="segmentTable" src="asset-img/memory-20.png"/></p>
+<ul>
+<li>
+<p>段映射表，每个作业一个，实现逻辑段到物理内存区的映射</p>
+</li>
+<li>
+<p>本身即可实现越界保护。可在段表中设置存取权限项实现存取控制保护</p>
+</li>
+</ul>
+</li>
+<li>
+<p>地址变换机构</p>
+</li>
+</ul>
+<p><img alt="" src="asset-img/memory-21.png"/></p>
+<ul>
+<li>段的信息共享与保护</li>
+</ul>
+<p><img alt="" src="asset-img/memory-22.png"/></p>
+</div>
+<div class="tabbed-block">
+<p>每个作业仍按逻辑分段，但对每一段不是按单一的连续整体存放到存储器中，而是把每个段再分成若干个页面，每一段不必占据连续的主存空间，可把它按页存放在不连续的主存块中。</p>
+<p><img alt="" src="asset-img/memory-23.png"/></p>
+<ul>
+<li>逻辑地址空间分段，段内分页，内存分块（页框），存储管理的分配单位是：物理块（页框）</li>
+<li>
+<p>地址结构</p>
+<div class="highlight"><pre><span></span><code>| 段号S  |  页号P | 页面偏移量W |
+</code></pre></div>
+</li>
+<li>
+<p>每个作业一张段表，每段一张页表。地址变换：先查段表，再查该段的页表。</p>
+</li>
+</ul>
+<p><img alt="" src="asset-img/memory-24.png"/></p>
+</div>
+</div>
+</div>
+<h2 id="_7">虚拟内存管理<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>基本概念</p>
+<ul>
+<li>常规存储器管理的缺点</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">一次性</label><label for="__tabbed_12_2">驻留性</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>作业必须一次性全部装入内存中方能开始运行</p>
+</div>
+<div class="tabbed-block">
+<p>在进程运行的过程中，始终“驻留”在内存。暂时不用的数据无法释放</p>
+</div>
+</div>
+</div>
+<ul>
+<li><a name="denning-locality-law"></a>局部性原理(Denning.P,1968)</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">时间局部性原理</label><label for="__tabbed_13_2">空间局部性原理</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>时间局部性是指如果程序中的某条指令一旦执行，则不久之后该指令可能再次被执行；如果某数据被访问，则不久之后该数据可能再次被访问。产生时间局限性的典型原因，是由于在程序中存在着大量的循环操作。</p>
+</div>
+<div class="tabbed-block">
+<p>空间局部性是指一旦程序访问了某个存储单元，则不久之后，其附近的存储单元也将被访问。其典型情况便是程序的顺序执行。</p>
+</div>
+</div>
+</div>
+<ul>
+<li>
+<p>虚拟存储器：有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统</p>
+<ul>
+<li>特征</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:4"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><input id="__tabbed_14_2" name="__tabbed_14" type="radio"/><input id="__tabbed_14_3" name="__tabbed_14" type="radio"/><input id="__tabbed_14_4" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">多次性</label><label for="__tabbed_14_2">对换性</label><label for="__tabbed_14_3">离散型</label><label for="__tabbed_14_4">虚拟性</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>一个作业被分成多次地调入内存运行</p>
+</div>
+<div class="tabbed-block">
+<p>允许作业在运行过程中换进、换出</p>
+</div>
+<div class="tabbed-block">
+<p>在内存分配时采用离散分配方式</p>
+</div>
+<div class="tabbed-block">
+<p>从逻辑上扩充内存容量，使用户可使用的内存空间大于实际物理内存</p>
+</div>
+</div>
+</div>
+<ul>
+<li>最大容量与地址结构有关，实际容量由内存+外存总容量和CPU寻址范围的较小值决定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_8">请求分页管理方式<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>（请求）页表机制</p>
+<ul>
+<li>用于将用户逻辑地址空间变换为内存的物理地址空间。在页表中增加若干项，以便于标志程序或数据的状态。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>| 页号 | 物理块号 | 状态位P | 访问字段A | 修改位M | 外存地址 |
+状态位（存在位）P ：表示该页是否调入内存
+访问字段A ：用于记录该页在某段时间内被访问的次数
+修改位M ：表示该页在调入内存后是否被修改过
+外存地址：该页在外存上的地址，通常是物理块号
+</code></pre></div>
+</li>
+<li>
+<p>缺页中断机构</p>
+<ul>
+<li>页表中发现所要访问的页不在内存，则产生缺页中断。操作系统接到此中断信号后，就调出缺页中断处理程序，根据页表中给出的外存地址，将该页调入内存，使进程继续运行下去。<ul>
+<li>如果内存中有空闲块，则分配一页，将新调入页装入内存，并修改页表中相应页表项目的状态位及相应的内存块号。</li>
+<li>若此时内存中没有空闲块，则要淘汰某页，若该页在内存期间被修改过，则要将其写回外存。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>地址变换机构</p>
+<p><img alt="" src="asset-img/memory-25.png"/></p>
+<div class="mermaid">graph TD
+    A([开始])--&gt;B{页号&gt;页表长度?}
+    B--&gt;|是|C([越界中断])
+    B--&gt;|否|D[CPU检索快表]
+    D--&gt;E{页表项在快表中?}
+    E--&gt;|是|I
+    E--&gt;|否|F[访问页表]
+    F--&gt;G{页在内存?}
+    G--&gt;|是|H[修改快表]
+    G--&gt;|产生缺页中断请求调页|a1
+    H--&gt;I[修改访问位和修改位]
+    I--&gt;J[形成物理地址]
+    J--&gt;K([地址变换结束])
+    j1--&gt;D
+    subgraph g2 [缺页中断处理]
+        a1[保留CPU现场]--&gt;b1[从外存中找到缺页]
+        b1--&gt;c1{内存满?}
+        c1--&gt;|是|d1[选择一页换出]
+        c1--&gt;|否|g1
+        d1--&gt;e1{该页被修改否?}
+        e1--&gt;|是|f1[将该页写回外存]
+        e1--&gt;|否|g1
+        f1--&gt;g1[OS命令CPU从外存读取页]
+        g1--&gt;h1[启动I/O硬件]
+        h1--&gt;i1[将一页从外存换入内存]
+        i1--&gt;j1[修改页表]
+    end
+</div>
+</li>
+</ul>
+<h3 id="_9">页面置换算法<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<ul>
+<li>需要调入页面时，选择内存中哪个物理页面被置换</li>
+<li>目标：把未来不再使用的或短期内较少使用的页面调出，尽量降低缺页率</li>
+<li>抖动现象<ul>
+<li>不适当的算法会导致进程发生“抖动”，即刚换出的页很快就要被访问，又需重新调入，应该予以避免。</li>
+<li>产生抖动现象的原因<ul>
+<li>同时运行进程太多，分配给每个进程物理块太少</li>
+<li>进程在运行时频繁缺页，必须请求调页</li>
+<li>等待页面调进调出的进程增多，磁盘访问时间急剧增加</li>
+<li>进程大部分时间用于页面换进换出，处理机利用率急剧下降并趋于0</li>
+</ul>
+</li>
+<li>预防抖动现象发生<ul>
+<li>采取局部置换策略 ：仅允许进程在自身范围内进行置换，不影响其他进程</li>
+<li>在 CPU 调度程序中引入工作集算法：调入新作业时，应该检查每个进程在内存中的驻留集是否足够大</li>
+<li>L=S 准则：产生缺页的平均时间 L= 系统处理进程缺页的平均时间S</li>
+<li>挂起若干进程：使某些低优先级的进程进程挂起，从而腾出内存空间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:4"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><input id="__tabbed_15_2" name="__tabbed_15" type="radio"/><input id="__tabbed_15_3" name="__tabbed_15" type="radio"/><input id="__tabbed_15_4" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1">最佳置换算法(OPT)</label><label for="__tabbed_15_2">先进先出置换算法(FIFO)</label><label for="__tabbed_15_3">最近最久未使用算法(LRU)</label><label for="__tabbed_15_4">时钟置换算法(CLOCK)/最近未用算法(NRU)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>每次淘汰以后永不使用，或是在最长(未来)时间内不再被访问的页面</p>
+<div class="admonition bug">
+<p>这是一种理想情况，因为“未来”情况是无法预知的，所以不可能实现这样的算法，只能用作性能评价的依据</p>
+</div>
+<details class="help"><summary>例子</summary><p>假定系统为某进程分配了三个物理块，并考虑有以下的页面号引用串：7，0，1，2，0，3，0，4，2，3，0，3，2，1，2，0，1，7，0，1。其使用OPT算法的运行情况如下表所示</p>
+<table>
+<thead>
+<tr>
+<th align="center">访问页面</th>
+<th align="center">7</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">0</th>
+<th align="center">3</th>
+<th align="center">0</th>
+<th align="center">4</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">0</th>
+<th align="center">3</th>
+<th align="center">2</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">7</th>
+<th align="center">0</th>
+<th align="center">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">7</td>
+<td align="center">7</td>
+<td align="center">7</td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">7</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">4</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">是否缺页</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>经统计，缺页中断9次，发生页面置换6次，缺页率为 <span class="arithmatex">\(\frac{9}{20}=45 \%\)</span></p>
+</details>
+</div>
+<div class="tabbed-block">
+<p>每次淘汰最早进入内存的页面。可以通过链表来表示各页的建立时间先后。</p>
+<details class="help"><summary>例子</summary><p>假定系统为某进程分配了三个物理块，并考虑有以下的页面号引用串：3，2，1，0，3，2，4，3，2，1，0，4。其使用FIFO算法的运行情况如下表所示</p>
+<table>
+<thead>
+<tr>
+<th align="center">访问页面</th>
+<th align="center">3</th>
+<th align="center">2</th>
+<th align="center">1</th>
+<th align="center">0</th>
+<th align="center">3</th>
+<th align="center">2</th>
+<th align="center">4</th>
+<th align="center">3</th>
+<th align="center">2</th>
+<th align="center">1</th>
+<th align="center">0</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">4</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">是否缺页</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>如果分配了四个物理块呢？运行情况如下</p>
+<table>
+<thead>
+<tr>
+<th align="center">访问页面</th>
+<th align="center">3</th>
+<th align="center">2</th>
+<th align="center">1</th>
+<th align="center">0</th>
+<th align="center">3</th>
+<th align="center">2</th>
+<th align="center">4</th>
+<th align="center">3</th>
+<th align="center">2</th>
+<th align="center">1</th>
+<th align="center">0</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">是否缺页</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="admonition bug">
+<p>性能较差，且会发生抖动和Belady异常</p>
+<details class="faq"><summary>何谓Belady异常</summary><p>Belady 在 1969 年发现，使用 FIFO 算法时，有时候分配给进程的物理块越多，运行时缺页次数反而变多，这种反常的现象称为 Belady 异常</p>
+</details>
+</div>
+</div>
+<div class="tabbed-block">
+<p>每次淘汰最久未使用的页面，在页表中，用访问字段记录该页面自上次被访问以来所经历的时间</p>
+<details class="help"><summary>例子</summary><p>假定系统为某进程分配了四个物理块，并考虑有以下的页面号引用串：1，8，1，7，8，2，7，2，1，8，3，8，2，1，3，1，7，1，3，7。其使用LRU算法的运行情况如下表所示</p>
+<table>
+<thead>
+<tr>
+<th align="center">访问页面</th>
+<th align="center">1</th>
+<th align="center">8</th>
+<th align="center">1</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">2</th>
+<th align="center">7</th>
+<th align="center">2</th>
+<th align="center">1</th>
+<th align="center">8</th>
+<th align="center">3</th>
+<th align="center">8</th>
+<th align="center">2</th>
+<th align="center">1</th>
+<th align="center">3</th>
+<th align="center">1</th>
+<th align="center">7</th>
+<th align="center">1</th>
+<th align="center">3</th>
+<th align="center">7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">8</td>
+<td align="center"></td>
+<td align="center">8</td>
+<td align="center"></td>
+<td align="center">8</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">8</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">7</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">7</td>
+<td align="center"></td>
+<td align="center">7</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">是否缺页</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="admonition bug">
+<p>需要记录页面使用时间的先后关系，硬件开销大</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio"/><input id="__tabbed_16_2" name="__tabbed_16" type="radio"/><div class="tabbed-labels"><label for="__tabbed_16_1">简化型</label><label for="__tabbed_16_2">改进型</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>内存中所有页面通过链接指针形成一个循环队列</li>
+<li>每页有一个使用访问位(use bit)，若该页被访问则置 <code>use_bit=1</code>。</li>
+<li>置换时采用一个指针，从当前指针位置开始按地址先后检查各页，寻找 <code>use_bit=0</code> 的页面作为被置换页。</li>
+<li>指针经过的<code>use_bit=1</code>的页都修改为<code>use_bit=0</code>，最后指针停留在被置换页的下一个页。</li>
+<li>
+<p>算法表示</p>
+<div class="mermaid">graph LR
+  A([入口]) --&gt; B[查询指针前进一步 指向下一个表目]
+  B--&gt;C{页面访问位=0?}
+  C--&gt;|是|D[选择该页面淘汰]
+  C--&gt;|否|E[置页面访问位=0]
+  E--&gt;B
+  D--&gt;F([返回])
+</div>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>改进型的Clock算法为每个页又增加了一个修改位。</li>
+<li>页面（访问位A，修改位M）有四种不同情形：<ul>
+<li>1 类(A=0,M=0)既未访问，又没有修改，尽量选择此类页面淘汰</li>
+<li>2 类(A=0,M=1)未访问，但是有修改，效率低的淘汰页</li>
+<li>3 类(A=1,M=0)被访问，但没有修改</li>
+<li>4 类(A=1,M=1)既被访问，又被修改</li>
+</ul>
+</li>
+<li>算法<ol>
+<li>指针从当前位置开始，开始第一轮扫描循环队列，寻找未使用且没有修改过的页面（第1类页面），找到则可换出。</li>
+<li>如果找不到，则开始第二轮扫描，寻找未使用但修改过的页面（第2类页面），并且每经过一个页面时，将其访问位A设置为0 。如果找到一个第2类页面，则可换出。</li>
+<li>如果仍旧未找到合适的换出页面，则此时指针回到初始位置，且所有页面其访问位A为0 。再转回第一步继续工作</li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="_10">页面分配策略<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<ul>
+<li>工作集<ul>
+<li>某段时间间隔内，进程实际访问页面的集合</li>
+<li>基于程序运行的局部性原理，程序运行时，对页面的访问并不均匀，一段时间仅局限于较少的页面；另一段时间，有可能局限于另一些较少的页面，如果能预知这些页面，并提前调入，将大大减少缺页率</li>
+</ul>
+</li>
+<li>驻留集<ul>
+<li>请求分页存储管理中给进程分配的物理块集合（≥工作集大小）</li>
+</ul>
+</li>
+<li>内存分配策略</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">固定分配局部置换</th>
+<th align="center">可变分配全局置换</th>
+<th align="center">可变分配局部置换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">分配固定数目的内存空间，在整个运行期间都不改变</td>
+<td align="center">每个进程预先分配一定数目的物理块，同时 OS 也保持一个空闲物理块队列</td>
+<td align="center">系统根据缺页率动态调整各进程占有的物理块数目，使其保持在一个比较低的缺页率状态下</td>
+</tr>
+<tr>
+<td align="center">如果缺页，则先从该进程在内存的页面中选中一页，进行换出操作，然后再调入一页</td>
+<td align="center">当缺页时，首先将对 OS 所占有的空闲块进行分配，从而增加了各进程的物理块数。当 OS 的空闲块全部用完，将引起换出操作</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>页面调入策略</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><input id="__tabbed_17_3" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">何时调入页面</label><label for="__tabbed_17_2">从何处调入页面</label><label for="__tabbed_17_3">如何调入页面</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>预调页策略：预先装入主存一页或几页（提前页）</li>
+<li>请求调页策略：当用到某页而不在主存时即缺页时取页</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>外存有两个部分：文件区和对换区。</li>
+<li>对换区 I/O 操作速度比文件区相对快一些，因此一般应当尽量使用对换区来调入页面</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>进程需要的页面不在内存，引起缺页中断</li>
+<li>中断处理程序保留现场环境，转入缺页中断处理程序</li>
+<li>中断处理程序查找页表，得到对应的外存物理块号。如果内存有空闲，则启动磁盘操作，将所缺的页面读入，并修改页表。否则，到4。</li>
+<li>执行置换算法，选出要换出的页面，如果该页修改过，应将其写入磁盘，然后将所缺页调入内存，修改相应表项，将其存在位置为<code>1</code> ，并放入快表。</li>
+<li>利用修改后的页表，形成物理地址，访问内存数据</li>
+</ol>
+</div>
+</div>
+</div>
+<hr/>
+<div class="md-source-date">
+<small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年10月14日 18:08:09</span>
+<br/>创建日期: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年10月14日 18:08:09</span>
+</small>
+</div>
+<!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cyv3MjUJQ';
+var conf = 'prod_d08aaf31e597afb4c33a6f251c4356db';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.charset = 'utf-8';
+script.id = 'changyan_mobile_js';
+script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
+head.appendChild(script);
+} else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="上一页: 进程管理" class="md-footer__link md-footer__link--prev" href="process.html" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                上一页
+              </span>
+              进程管理
+            </div>
+</div>
+</a>
+<a aria-label="下一页: 文件管理" class="md-footer__link md-footer__link--next" href="file.html" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                下一页
+              </span>
+              文件管理
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            copyright © Jason Ren 2019-2021 (<a href="https://www.fantasyroom.cn" target="_blank">fantasyroom</a>) . All rights reserved
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/jasonren0403" rel="noopener" target="_blank" title="Jason's Github">
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="http://wpa.qq.com/msgrd?v=3&amp;uin=727847763&amp;site=qq&amp;menu=yes" rel="noopener" target="_blank" title="在QQ私聊我">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://twitter.com/theRealRev270" rel="noopener" target="_blank" title="J.R on twitter">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://www.facebook.com/renjason1999" rel="noopener" target="_blank" title="My facebook page">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://discord.gg/s33UBWEPxb" rel="noopener" target="_blank" title="Join to my discussion(discord)">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541zM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "header.autohide", "toc.integrate", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+<script src="../../assets/javascripts/mermaid.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script src="../../assets/javascripts/doc_addins.js"></script>
+<script src="../../assets/javascripts/share.js"></script>
+<script>mermaid.initialize({});</script></body>
+</html>
