@@ -81,14 +81,14 @@ theme:
     - navigation.indexes
     - navigation.top
     - navigation.expand
-    # - navigation.tracking
+    - navigation.tracking
     # - navigation.instant fix tex not reloaded at page change
     - header.autohide
     - toc.integrate
     - search.suggest
     - search.highlight
     - search.share
-    # - content.code.annotate
+    - content.code.annotate
   language: 'zh'
 
 copyright: copyright &copy; Jason Ren 2019-2021 (<a href="https://www.fantasyroom.cn" target="_blank">fantasyroom</a>) . All rights reserved
