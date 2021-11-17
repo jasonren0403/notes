@@ -58,9 +58,12 @@ Web开发技术基础——Web的基本架构
 * 面向事务的应用层协议
 * HTTP 1.0协议是无状态的，本身无连接
 * HTTP连接过程
-	![how to make HTTP connection](md-img/9.27-1.png)
-	- 过程描述：DNS查询 → 建立连接 → 发送请求 → 等待响应 → 加载资源 → 关闭连接
+
+    ![how to make HTTP connection](md-img/9.27-1.png)
+
+    - 过程描述：DNS查询 → 建立连接 → 发送请求 → 等待响应 → 加载资源 → 关闭连接
 	- Serial HTTP Connection vs Persistent HTTP Transactions：是否每次都需要三次握手连接
+
 * HTTP报文
 
     === "请求报文"

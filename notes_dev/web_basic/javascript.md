@@ -9,11 +9,15 @@ Web开发技术基础——JavaScript
 
     === "变量提升"
         所有的声明语句都会被提升到代码的头部（这与JavaScript<a href="#how-javascript-compiles">解析代码的方式</a>有关）
+
 		```javascript
-		console.log(a); //a is still unassigned here
-		var a=1;
-		// outputs undefined
+		console.log(a); // (1)
+		var a=1;// (2)
 		```
+
+        1. a is still unassigned here
+        2. outputs undefined
+
 		一个很好的规避方法是使用<a href="#using-let">let</a>来声明代码！
 
     === "这样注释也行？"
@@ -83,9 +87,9 @@ Web开发技术基础——JavaScript
 
 <a name="how-javascript-compiles"></a>
 ??? note "理解JavaScript的编译过程"
-	JavaScript是一种解释型语言，通过词法分析和语法分析得到语法树后，就可以开始解释执行。
-	JavaScript引擎解析脚本时，会预声明变量（var → undefined），预定义函数
-	- 词法分析：字符流（char stream） → 记号流（token stream）
+	JavaScript是一种解释型语言，通过词法分析和语法分析得到语法树后，就可以开始解释执行。JavaScript引擎解析脚本时，会预声明变量（var → undefined），预定义函数
+
+    - 词法分析：字符流（char stream） → 记号流（token stream）
 	- 语法分析：构造语法树
 
 ### 语句和表达式
@@ -107,24 +111,29 @@ Web开发技术基础——JavaScript
 	* 变量的作用域
 
 		!!! info "作用域"
-			变量在程序中有效的范围
-			例如
+			变量在程序中有效的范围，例如
+
 			```javascript
-			var a;          //a 是全局变量，在整个脚本中都有效
+			var a;          // (1)
 			function foo(){
 				a = "bar";
-				var b = "c";   //b 是局部变量，仅在当前函数体有效
+				var b = "c";   // (2)
 				console.log(a + b);
 			}
 			```
+
+            1. `a` 是全局变量，在整个脚本中都有效
+            2. `b` 是局部变量，仅在当前函数体有效
 
 		- JavaScript中，有全局变量和局部变量两种作用域大小。
 			* ES6中，新增了块级作用域概念。由`{}`包括
 
 	??? help "var,let和const"
 		<a name="using-var">var</a>定义的变量，没有块的概念，可以跨块访问，不可以跨函数访问。
-		<a name="using-let">let</a>定义的变量没有预解析过程（也就没有变量提升），不可以重复声明，有块级作用域。ES6标准新增
-		<a name="using-const">const</a>用于声明常量，只可以被声明一次，且必须立即赋值，不能修改。ES6标准新增
+
+        <a name="using-let">let</a>定义的变量没有预解析过程（也就没有变量提升），不可以重复声明，有块级作用域。ES6标准新增
+
+        <a name="using-const">const</a>用于声明常量，只可以被声明一次，且必须立即赋值，不能修改。ES6标准新增
 
 		!!! warning "const不可修改？"
 			```javascript
@@ -133,8 +142,11 @@ Web开发技术基础——JavaScript
 				sex : '男'
 			}
 			person.name = 'test'
-			console.log(person.name)  //outputs 'test' ???
+			console.log(person.name)  // (1)
 			```
+
+            1. 为什么这里会输出"test"？
+
 			对象是引用类型的，person中保存的仅是对象的指针，这就意味着，const仅保证指针不发生改变，修改对象的属性不会改变对象的指针，所以是被允许的。也就是说const定义的引用类型只要指针不发生改变，其他的不论如何改变都是允许的。
 
 
@@ -199,7 +211,7 @@ Web开发技术基础——JavaScript
 		}
 		```
 
-	=== "三元运算符 ?:"
+	=== "三元运算符 `?:`"
 		- `(condition)?expr1:expr2`等价于
 		```javascript
 		if(condition){
@@ -262,14 +274,17 @@ Web开发技术基础——JavaScript
 #### 数值
 - 基于IEEE754标准的双精度64位浮点数
 - 最大值和最小值
+
 	```javascript
 	Number.MAX_VALUE
 	Number.MIN_VALUE
 	/* ECMAScript 6 Standard */
-	Number.isSafeInteger()   //目前，绝对值小于2的53次方的整数都可以精确表示
+	Number.isSafeInteger()   // (1)
 	Number.MAX_SAFE_INTEGER
 	Number.MIN_SAFE_INTEGER
 	```
+
+    1. 目前，绝对值小于2的53次方的整数都可以精确表示
 
 - 表示法
 	* 十进制（没有前导0）、十六进制（前缀0x或0X）、八进制（前缀0o或0O或有前导0，且只用到0~7的数值）、二进制（前缀0b或0B）
@@ -294,10 +309,10 @@ Web开发技术基础——JavaScript
 		- 从左向右，直到遇到不能转换为数字的字符，返回转好的部分，否则返回`NaN`
 		- 参数非字符串，先转为字符串再转换
 		- 类似的方法：`parseFloat(string)`
-			* 将它的字符串参数解析成为浮点数并返回。如果在解析过程中遇到了正负号(+或-)，数字(0-9)，小数点，或者科学记数法中的指数(e或E)以外的字符，则它会忽略该字符以及之后的所有字符, 返回当前已经解析到的浮点数。同时参数字符串首位的空白符会被忽略
+			* 将它的字符串参数解析成为浮点数并返回。如果在解析过程中遇到了正负号(+或-)，数字(0-9)，小数点，或者科学记数法中的指数(e或E)以外的字符，则它会忽略该字符以及之后的所有字符，返回当前已经解析到的浮点数。同时参数字符串首位的空白符会被忽略
 	* `isNaN(value)`方法
-		- 用途：判断一个值是否为NaN
-		- 先将value转换为Number，然后比较
+		- 用途：判断一个值是否为`NaN`
+		- 先将`value`转换为Number，然后比较
 
 		!!! tip "更加可靠的方法"
 			```javascript
@@ -329,10 +344,13 @@ Web开发技术基础——JavaScript
 - Unicode
 	* 每个字符在JavaScript内部都是以16位（即2个字节）的UTF-16格式储存。
 	* 可以在JavaScript程序中直接用来表示字符
+
 		```javascript
 		var f\u006f\u006f = "a";
-		foo  //outputs "a"
+		foo  // (1)
 		```
+
+        1. 也会输出字符"a"
 
 - Base64相关方法
 	* `btoa()`：任意值转换为Base64编码
@@ -402,40 +420,45 @@ Web开发技术基础——JavaScript
 
 ??? faq "表达式还是语句？"
 	经过前面的学习后，现在可以发现`{foo:123}`可能具有两种含义：
+
 	1. 表达式：一个包含foo属性的对象
 	2. 语句：一个代码区块，里面有一个标签foo，指向表达式123
-	到底是哪种呢？V8 引擎规定，如果行首是大括号，一律解释为对象。为了避免歧义，最好在大括号前加上圆括号，明确其为对象。
+
+    到底是哪种呢？V8 引擎规定，如果行首是大括号，一律解释为对象。为了避免歧义，最好在大括号前加上圆括号，明确其为对象。
 
 - `with`语句：绑定对象
+
 	```javascript
 	with(object){
-		 statements;
-		//foo="bar" equvalent to object.foo="bar"
+		// (1)
 	}
 	```
+
+    1. `foo="bar"` 等价于 `object.foo="bar"`
+
 	* 如果`with`区块内部有变量的赋值操作，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量
 		- 所以，应该先定义对象的属性，然后在`with`区块内操作它
 
 #### 函数
 * 声明函数：`function`命令
-	- function 命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数，函数体放在大括号里面
+	- `function` 命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数，函数体放在大括号里面
 	```javascript
 	function fun_name(arguments){
 		//function body
 	}
 	```
 * 函数表达式：`var var_name = function [fun_name](arguments){};`
-	- 不加fun_name，函数为匿名函数
-	- 加上fun_name，函数名仅在函数体内部有效
+	- 不加`fun_name`，函数为匿名函数
+	- 加上`fun_name`，函数名仅在函数体内部有效
 	- 末尾要加上分号
-* Function构造函数
-	- 可以传递任意数量的参数给Function构造函数，只有最后一个参数会被当做函数体。
+* `Function`构造函数
+	- 可以传递任意数量的参数给`Function`构造函数，只有最后一个参数会被当做函数体。
 	- 如果只有一个参数，该参数就是函数体。
 	- 可以不使用`new`命令，返回结果完全相同。
 * 函数名提升
 	- 采用`function`命令声明函数时，整个函数会像变量声明一样，被提升到代码头部
 	- 重复声明函数，前一次的声明会无效。
-	- 如果同时采用function 命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义
+	- 如果同时采用 `function` 命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义
 * 调用函数：圆括号运算符`()`
 	- 圆括号之间是函数参数
 	- 内部的`return`语句表示函数返回，非必需
@@ -443,8 +466,8 @@ Web开发技术基础——JavaScript
 * 属性
 	- `name`：函数的名字
 		* 通过变量复制定义的函数，如果：
-			* 变量的值是一个匿名函数，那么name属性返回变量名
-			* 变量的值是一个具名函数，那么name属性返回函数表达式的名字
+			* 变量的值是一个匿名函数，那么`name`属性返回变量名
+			* 变量的值是一个具名函数，那么`name`属性返回函数表达式的名字
 	- `length`：参数个数的多少
 	- `toString()`方法：函数的源码，包含注释
 	- 作用域
@@ -463,10 +486,7 @@ Web开发技术基础——JavaScript
 	- `arguments`对象
 		* 只能在函数体内使用，包含了函数运行时的所有参数
 		* `arguments.length`：函数调用时传入了多少个参数
-		* 正常模式下可修改，严格模式下修改无效，但不报错
-
-		!!! info ""
-			严格模式 = `'use strict'`
+		* 正常模式下可修改，严格模式 下修改无效，但不报错
 
 * 闭包（Closures）[^1]
 	- 嵌套的内部函数引用了嵌套的外部函数的数据（变量或函数），就产生了闭包
@@ -478,7 +498,8 @@ Web开发技术基础——JavaScript
 	- 闭包 = 函数 + 被创建函数的作用域对象
 		* 原理
 			1. 外部函数的局部变量若会被闭包函数调用，就不会在外部函数执行完毕之后立即被回收，如下述例子的变量`i`。
-				```javascript
+
+                ```javascript hl_lines="2" linenums="1"
 				function A() {
 				  var i = 2;
 				  return function() {
@@ -487,26 +508,34 @@ Web开发技术基础——JavaScript
 				}
 
 				var a = A();
-				a(); // i = 2
+				a(); // (1)
 				```
 
+                1. 输出`i = 2`
+
 				!!! info "解释"
-					调用A的时候就创建了一个作用域对象，我们姑且称之为Aa，那么这个Aa应该是这样的： `Aa = { i: 2 };`  在A函数返回一个函数之后，A执行完毕。Aa对象本应该被回收，但是由于返回的函数使用了Aa的属性i，所以返回的函数保存了一个指向Aa的引用，所以Aa不会被回收。
+					调用`A`的时候就创建了一个作用域对象，我们姑且称之为`Aa`，那么这个`Aa`应该是这样的： `Aa = { i: 2 };`  在`A`函数返回一个函数之后，`A`执行完毕。`Aa`对象本应该被回收，但是由于返回的函数使用了`Aa`的属性`i`，所以返回的函数保存了一个指向`Aa`的引用，所以`Aa`不会被回收。
 
 			2. 每调用一次外部函数就产生一个新的闭包，以前的闭包依旧存在且互不影响。
 			3. 同一个闭包会保留上一次的状态，当它被再次调用时会在上一次的基础上进行。
-				```javascript
+
+                ```javascript hl_lines="2" linenums="1"
 				function A() {
 				  var num = 42;
 				  return function() { console.log(num++); }
 				}
 				var a = A();
-				a(); // 42
-				a(); // 43
+				a(); // (1)
+				a(); // (2)
 
-				var b = A();  // 重新调用A()，形成新闭包
-				b(); // 42
+				var b = A();  // (3)
+				b(); // (4)
 				```
+
+                1. 42
+                2. 43
+                3. 重新调用`A()`，形成新闭包
+                4. 42
 
 				!!! info "解释"
 					1. 当我们连续调用两次`a();`，`num`会在原基础上自加。说明同一个闭包会保留上一次的状态，当它被再次调用时会在上一次的基础上进行。
@@ -514,7 +543,8 @@ Web开发技术基础——JavaScript
 
 			4. 在外部函数中存在的多个函数“同生共死”
 				- `fun1` `fun2` `fun3`被同时声明并且都可以对作用域对象的属性（局部变量）进行访问与操作。
-					```javascript
+
+                    ```javascript hl_lines="3" linenums="1"
 					var fun1, fun2, fun3;
 					function A() {
 					  var num = 42;
@@ -524,19 +554,25 @@ Web开发技术基础——JavaScript
 					}
 
 					A();
-					fun1();   // 42
+					fun1();   // (1)
 					fun2();
 					fun2();
-					fun1();    // 44
+					fun1();    // (2)
 					fun3();
-					fun1();   //43
+					fun1();   // (3)
 
 					var old = fun1;
 
 					A();
-					fun1();   // 42
-					old();   // 43   上一个闭包的fun1()
+					fun1();   // (4)
+					old();   // (5)
 					```
+
+                    1. 42
+                    2. 44
+                    3. 43
+                    4. 42
+                    5. 43，上一个闭包的`fun1()`
 
 			!!! warning "当闭包遇见循环变量"
 				看这个例子：
@@ -562,9 +598,9 @@ Web开发技术基础——JavaScript
 				   arr: [1,2,3]
 				}
 				```
-				当循环全部结束的时候作用域对象中的属性`i`正好是`i++`之后的3，而`arr[3]`是没有值的，所以为undefined。但是在最后一次循环，也就是`i = 2`的时候，`item`的值为`item2`，当 i++，i = 3循环条件不满足循环结束，此时的`item`的值已经被保存下来了，所以此时的`arr[i]`为`arr[3]`，而`item`为`item2`。
-				怎么输出`item0 1，  item1 2，  item2 3`呢？要点是存储`i`的每一个状态！
-				```javascript
+				当循环全部结束的时候作用域对象中的属性`i`正好是`i++`之后的3，而`arr[3]`是没有值的，所以为`undefined`。但是在最后一次循环，也就是`i = 2`的时候，`item`的值为`item2`，当 i++，i = 3循环条件不满足循环结束，此时的`item`的值已经被保存下来了，所以此时的`arr[i]`为`arr[3]`，而`item`为`item2`。
+				怎么输出`item0 1  item1 2  item2 3`呢？要点是存储`i`的每一个状态！
+				```javascript hl_lines="4-9"
 				function buildArr(arr) {
 					var result = [];
 					for (var i = 0; i < arr.length; i++) {
@@ -583,7 +619,7 @@ Web开发技术基础——JavaScript
 				fnlist[2]();  //  item2 3
 				```
 				或者使用`let`关键字声明循环变量
-				```javascript
+				```javascript hl_lines="3"
 				function buildArr(arr) {
 					var result = [];
 					for (let i = 0; i < arr.length; i++) {
@@ -594,6 +630,8 @@ Web开发技术基础——JavaScript
 				}
 				var fnlist = buildArr([1,2,3]);
 				fnlist[0](); // item0 1
+                fnlist[1]();  //  item1 2
+                fnlist[2]();  //  item2 3
 				```
 
 		* 典型应用场景
@@ -640,11 +678,18 @@ Web开发技术基础——JavaScript
 
 * 立即调用的函数表达式（IIFE）
 	- 不可以直接在定义末尾加入圆括号`()`来调用，会报错。
-		![](md-img/11.29-1.png)
-		* 产生报错，与JavaScript的解析方式相关。JavaScript 引擎规定，如果`function`关键字出现在行首，一律解释成语句，此时这一段都是函数的定义，不应该以圆括号结尾，于是报错
+        <figure>
+		![SyntaxError](md-img/11.29-1.png)
+        <figcaption>报错如图所示</figcaption>
+        </figure>
+
+        * 产生报错，与 JavaScript 的解析方式相关。JavaScript 引擎规定，如果`function`关键字出现在行首，一律解释成语句，此时这一段都是函数的定义，不应该以圆括号结尾，于是报错
 		* 不要让`function`出现在行首，让引擎将其理解成一个表达式
-		![](md-img/11.29-2.png)
-	- 综上：让解释器以表达式来处理函数定义
+            <figure>
+            ![就像这样](md-img/11.29-2.png)
+            </figure>
+
+    - 综上：让解释器以表达式来处理函数定义
 
 	!!! summary "IIFE表达式"
 		* 只要行首不为`function`关键字，令引擎理解为一个表达式，就可以正常使用`()`来立即调用
@@ -654,7 +699,7 @@ Web开发技术基础——JavaScript
 		    1. `var i = function(){return 114514;}();`
 		    2. `true && function(){/*code*/}();`
             3. `0, function(){/*code*/}();`
-            4. `!function(){/*code*/}();`  此处可以换为`~` `-` `+`
+            4. `!function(){/*code*/}();`  此处可以将`!`换为`~` `-` `+`
 
 #### 数组
 数组（array）是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号(`[]`)表示。
@@ -669,8 +714,7 @@ Web开发技术基础——JavaScript
 	var arr = ['a',{b:4},[1,2,3]];
 	typeof arr;   //object
 	```
-	数组的特殊性体现在它的键名是按次序排列的一组整数
-		其实本质还是字符串，但是在读取时非字符串键名会被转换为字符串
+	数组的特殊性体现在它的键名是按次序排列的一组整数，本质还是字符串，但是在读取时非字符串键名会被转换为字符串
 
 * 数组的属性
 	- `length`：数组长度（数组成员数量）
@@ -678,10 +722,10 @@ Web开发技术基础——JavaScript
 		* 可以通过修改`length`属性值随时增减数组的成员
 			- 可以通过修改`length`属性值为0来删除所有的数组成员
 			- 当`length`属性设为大于当前数组长度时，读取新增的位置都会返回`undefined`
-			- JavaScript使用32位整数来保存数组元素个数，`length`的最大值也就是4294967295（=2<sup>32</sup> - 1）
+			- JavaScript 使用32位整数来保存数组元素个数，`length`的最大值也就是4294967295（=2<sup>32</sup> - 1）
 			- 只要不为空数组添加整数键，数组的`length`值保持为零
 
-* `in`运算符：检查某个键名是否存在
+* `in` 运算符：检查某个键名是否存在
 	- 如果数组的某个位置是空位，`in` 运算符返回`false`
 
 * 数组遍历<!--（`for key in collaboration`）-->
@@ -705,7 +749,7 @@ Web开发技术基础——JavaScript
 		```
 
 	=== "forEach方法"
-		- 为数组中的每一个有效元素执行一次callback函数。遍历数组让数组中的每一个元素做一件事情。那些已经被删除（使用delete方法等情况）或者未初始化的项将被跳过（但不包含那些值为`undefined`的项目）。
+		- 为数组中的每一个有效元素执行一次`callback`函数。遍历数组让数组中的每一个元素做一件事情。那些已经被删除（使用`delete`方法等情况）或者未初始化的项将被跳过（但不包含那些值为`undefined`的项目）。
 			```javascript
 			var arr = [];
 			arr[0] = "a";
@@ -817,11 +861,12 @@ Web开发技术基础——JavaScript
 	=== "非相等比较"
 		* 都是字符串，字典序比较
 			- 实际上比较的是Unicode码点大小
-				![](md-img/11.29-str_compare.png)
-				注：“大”的 Unicode 码点是22823，“小”是23567
+                <figure>
+				![](md-img/11.29-str_compare.png){ loading=lazy }
+                <figcaption>一些比较结果，其中“大”的 Unicode 码点是22823，“小”是23567</figcaption>
+                </figure>
 		* 否则，均转换为数值，比较数值大小
 			- 对象转为原始类型的值，再比较：先调用`valueOf`方法；如果返回的还是对象，再接着调用`toString`方法
-
 
 * 布尔运算符
 	- 用于将表达式转为布尔值
@@ -908,19 +953,25 @@ Web开发技术基础——JavaScript
 * `try-throw-catch-finally`
 
     === "基本结构"
+
         ```javascript
         try{
-            tryCode - 尝试执行的代码块
+            tryCode // (1)
         }
         catch(err){
-            catchCode - 捕获错误的代码块
+            catchCode // (2)
         }
         finally{
-            finallyCode - 无论try/catch结果如何都会执行的代码块
+            finallyCode // (3)
         }
         ```
 
+        1. 尝试执行的代码块
+        2. 捕获错误的代码块
+        3. 无论`try`/`catch`结果如何都会执行的代码块
+
     === "运行示例"
+
         ```javascript
         function f(){
             try{
@@ -928,20 +979,27 @@ Web开发技术基础——JavaScript
                 throw('bug');
             }catch(e){
                 console.log(1);
-                return true;    //原本会延迟到finally代码块结束再执行
-                console.log(2); //不会执行
+                return true;    // (1)
+                console.log(2); // (2)
             }finally{
                 console.log(3);
-                return false;   //覆盖了上面的return
-                console.log(4); //不会执行
+                return false;   // (3)
+                console.log(4); // (4)
             }
-            console.log(5);     //不会执行
+            console.log(5);     // (5)
         }
 
-        var result = f();
-        //outputs 0 1 3
-        result  //false
+        var result = f(); // (6)
+        result  // (7)
         ```
+
+        1. 原本会延迟到`finally`代码块结束再执行
+        2. 不会执行
+        3. 覆盖了上面的`return`
+        4. 不会执行
+        5. 不会执行
+        6. 输出`0 1 3`
+        7. 输出`false`
 
 ## JavaScript标准库
 ### 标准内置对象
@@ -949,38 +1007,65 @@ Web开发技术基础——JavaScript
 - 函数属性
 	* 全局函数可以直接调用，不需要在调用时指定所属对象，执行结束后会将结果直接返回给调用
 
-        === "eval()"
+        === "`eval()`"
 			- 在当前作用域中，注入代码
 			- 参数为字符串
 				* 非字符串则原样返回
 			- 对参数尝试调用JS解释器进行求值
 			- 参数会作为语句执行，小心使用！
 
-		=== "isFinite()"
+		=== "`isFinite()`"
+            - 判断被传入的参数值是否为一个有限数值
+            - 在必要情况下，参数会首先转为一个数值
 
-        === "isNaN()"
+            !!! info ""
+                在`Number`对象上的`Number.isFinite()`方法，不会转换参数为数值
 
-		=== "parseInt(string,radix)"
+        === "`isNaN()`"
+            - 判断一个值是否为`NaN`
+            - 在必要情况下，参数会首先转为一个数值
+            - 因为`NaN` 不能通过相等操作符来判断，所以这个函数是有必要的
+            - 算术运算返回一个未定义或无法表示的值，或不能强制转化为数值的非数值转化为数值时，会得到`NaN`
 
-        === "parseFloat(value)"
+            !!! info ""
+                在`Number`对象上的`Number.isNaN()`方法，不会转换参数为数值
+
+		=== "`parseInt(string,radix)`"
+            - 解析一个字符串`string`并返回指定基数的十进制整数，`radix` 是2-36之间的整数，表示被解析字符串的基数。
+            - 当 `radix` 不符合范围要求，或第一个非空格字符不能转换为数字时，返回`NaN`
+            - `radix` 的默认值不一定是10，需要看字符串结构而定
+
+        === "`parseFloat(string)`"
+            - 解析一个字符串参数并返回一个浮点数
 
 		=== "URI编解码函数"
 
 			!!! notice "使用URI编解码函数的必要性"
-				 URI 由组件分隔符分割的组件序列组成，一般形式如`<scheme>://<authority><path>?<query>`
-				 其中scheme 表示协议，比如http，ftp；authority 用:// 来和scheme 分割，常见的authority格式如下：`<userinfo>@<host>:<port>`；path在scheme 和 authority 确定下来的情况下标识资源，path由几个段组成，每个段用 / 来分隔；query 查询串，用 ?和path分隔
-				 如果这些分隔符出现在某个组件内，就会破坏组件原本的含义，所以要转义。
-				 RFC2396规定，path的保留字符集为"/" | "?" | ";" | "="，query的保留字符集为";" | "/" | "?" | ":" | "@" | "&" | "=" | "+" | "," | "$“
+				 URI 由组件分隔符分割的组件序列组成，一般形式如
+
+                 ```html
+                 <scheme> <!-- (1) -->
+                   ://<authority> <!-- (2) -->
+                      <path>?<query> <!-- (3) -->
+                 ```
+
+                 1. scheme 表示协议，比如http，ftp
+                 2. authority 用`:// `来和scheme 分割，常见的authority格式如下：`<userinfo>@<host>:<port>`
+                 3. path在 scheme 和 authority 确定下来的情况下标识资源，path由几个段组成，每个段用 `/` 来分隔；query 查询串，用 `?` 和 `path` 分隔
+
+                 如果这些分隔符出现在某个组件内，就会破坏组件原本的含义，所以要转义。
+
+                 RFC2396规定，path的保留字符集为"/" | "?" | ";" | "="，query的保留字符集为";" | "/" | "?" | ":" | "@" | "&" | "=" | "+" | "," | "$“
 
 			- ASCII码0-31，127-255会被转义；有一部分不安全的符号也会被转义
 			- `encodeURI()` `decodeURI()`
 				* `;/?:@&=+$,#- _ . ! ~ * ' ( )` 不会被转义
-				* 操作的是完整的 URI，这俩函数假定 URI 中的任何保留字符都有特殊意义，所以不会编码它们
+				* 操作的是完整的 URI，这两个函数假定 URI 中的任何保留字符都有特殊意义，所以不会编码它们
 			- `encodeURIComponent()` `decodeURIComponent()`
 				* 转义除了字母、数字、`- _ . ! ~ * ' ( )` 外的所有所有字符
-				* 操作的是组成 URI 的组件，这俩函数假定任何保留字符都代表普通文本，所以必须编码它们
+				* 操作的是组成 URI 的组件，这两个函数假定任何保留字符都代表普通文本，所以必须编码它们
 
-		=== "escape()"
+		=== "`escape()`"
 			* 对字符串进行编码，这样就可以在所有的计算机上读取该字符串
 			* 除了 `*` `@` `-` `_` `+` `.` `/` ASCII字母和数字外均进行编码
 
@@ -990,24 +1075,38 @@ Web开发技术基础——JavaScript
 - 数字和日期对象：用来表示数字、日期和执行数学计算的对象
 
     === "Number"
+        - 经过封装，可以处理数字值的对象
+        - JavaScript 的 `Number` 类型为双精度IEEE754 64位浮点类型，能够准确表示的整数范围在`-2^53~2^53`之间。
+
+        !!! info ""
+            `BigInt` 任意精度数字类型已进入 `stage3` 规范中
+
+        - 静态属性：`Number.MAX_VALUE` `Number.MIN_VALUE` `Number.NaN`等
+        - 静态方法
+
+            1. 是否为`NaN`：`Number.isNaN()`
+            2. 是否为有限数：`Number.isFinite()`
+            3. 是否类型为`Number`且为整数：`Number.isInteger()`
+            4. 是否为安全表示的整数：`Number.isSafeInteger()`
+            5. 数字转换：`Number.parse[Float|Int]()`
 
     === "Math"
         - 提供各种数学功能
-		- 不可被实例化，所有的属性和方法都必须在Math对象上调用
-		- 静态属性：Math.E Math.PI Math.SQRT2等
+		- 不可被实例化，所有的属性和方法都必须在`Math`对象上调用
+		- 静态属性：`Math.E` `Math.PI` `Math.SQRT2`等
 		- 静态方法
 
-            1. `Math.random()`：返回\[0,1)之间的伪随机数
+            1. `Math.random()`：返回`[0,1)`之间的伪随机数
 
                 !!! tip "任意范围的随机数生成"
-				```javascript
-					function getRandom(min,max){
-						return Math.random()*(max-min)+min;
-					}
-					function getRandomInt(min,max){
-						return Math.floor(Math.random()*(max-min+1))+min;
-					}
-				```
+    				```javascript
+    					function getRandom(min,max){
+    						return Math.random()*(max-min)+min;
+    					}
+    					function getRandomInt(min,max){
+    						return Math.floor(Math.random()*(max-min+1))+min;
+    					}
+    				```
 
             2. 三角函数
             3. 最大值、最小值
@@ -1040,45 +1139,45 @@ Web开发技术基础——JavaScript
             3. setter方法：`setFullYear(year[,month,date])`、`setMonth()`、`setDate(date)`、`setHours(hour[,min,sec,ms])`、`setMinutes(min[,sec,ms])`、`setSeconds(sec[,ms])`等
 
 - 字符串对象：用来表示和操作字符串的对象
-    * String的实例方法
+    * `String`的实例方法
 
-        === "match"
+        === "`match`"
             * 使用：`str.match(dest)`
-            * 确定原字符串是否匹配某个子字符串，返回一个数组，成员为匹配的第一个字符串。如果没有找到匹配，则返回null
+            * 确定原字符串是否匹配某个子字符串，返回一个数组，成员为匹配的第一个字符串。如果没有找到匹配，则返回`null`
 				- 返回的数组有`index`和`input`属性，分别表示匹配字符串开始的位置和原始字符串
             * 可以使用正则表达式作为参数
 
-        === "search"
+        === "`search`"
             * 使用：`str.search(dest)`
-            * 返回值为匹配的第一个位置，如果没有找到匹配，则返回-1
+            * 返回值为匹配的第一个位置，如果没有找到匹配，则返回`-1`
 
-        === "replace"
+        === "`replace`"
             * 使用：`str.replace(src,dest)`
-            * 用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有g修饰符的正则表达式）
+            * 用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有`g`修饰符的正则表达式）
 
-        === "charAt"
+        === "`charAt`"
             * 使用：`str.charAt(index)`
             * 返回指定位置的字符，参数是从0开始编号的位置
             * 如果参数为负数，或大于等于字符串的长度，返回空字符串
 
-        === "concat"
+        === "`concat`"
             * 使用：`str.concat(str1[,str2,...])`
             * 用于连接两个字符串，返回一个新字符串，不改变原字符串
             * 如果参数不是字符串，`concat` 方法会将其先转为字符串，然后再连接
 
-        === "slice"
+        === "`slice`"
             * 使用：`str.slice(start[,stop])`
             * 从原字符串取出子字符串并返回，不改变原字符串
                 - 如果省略第二个参数，表示子字符串一直到字符串结束
                 - 如果参数是负值，表示从结尾开始倒数计算的位置，即该负值加上字符串长度
                 - 如果第一个参数大于第二个参数，返回一个空字符串
 
-        === "indexOf"
+        === "`indexOf`"
             * 使用：`str.indexOf(Charsequnce)`
             * 从头部开始确定一个字符串在另一个字符串中第一次出现的位置，返回结果是匹配开始的位置。如果返回-1，就表示不匹配
             * `lastIndexOf()`：从尾部开始匹配
 
-        === "trim"
+        === "`trim`"
             * 使用：`str.trim()`
             * 去除字符串两端的空字符（空格+制表符、换行符、回车符），返回一个新字符串，不改变原字符串
 
@@ -1086,7 +1185,7 @@ Web开发技术基础——JavaScript
             * 转换为小写`toLowerCase()`
             * 转换为大写`toUpperCase()`
 
-        === "split"
+        === "`split`"
             * 使用：`str.split(delimiter[,maxMemberCount])`
             * 按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组
 				- 如果分割规则为空字符串，则返回数组的成员是原字符串的每一个字符
@@ -1094,11 +1193,11 @@ Web开发技术基础——JavaScript
 				- 如果满足分割规则的两个部分紧邻着或位于开头结尾，则返回数组之中会有一个空字符串
 				- 可以接受第二个参数，限定返回数组的最大成员数
 
-        === "localCompare"
+        === "`localCompare`"
             * 使用：`str1.localCompare(str2)`
             * 在考虑自然语言顺序的情况下，用于比较两个字符串，返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串
 
-    * RegExp
+    * `RegExp`：将文本与一个模式匹配，正则表达式
 
 - 可索引的集合对象：这些对象表示按照索引值来排序的数据集合，包括数组和类型数组，以及类数组结构的对象
     * Array、Int8Array、Uint8Array、UintClampedArray、Int16Array、Uint16Array、Int32Array、Uint32Array、Float32Array、Float64Array
@@ -1194,4 +1293,5 @@ Web开发技术基础——JavaScript
 - 结构化数据：这些对象用来表示和操作结构化的缓冲区数据，或使用 JSON（JavaScript Object Notation）编码的数据
     * ArrayBuffer、SharedArrayBuffer、Atomics、DataView、JSON
 
-[^1]:本部分参考https://www.cnblogs.com/wind-lanyan/p/6080160.html 和课件pdf共同整理
+[^1]: 本部分参考https://www.cnblogs.com/wind-lanyan/p/6080160.html 和课件pdf共同整理
+*[严格模式]: ECMAScript 5中采用限制性Javascript变体的模式，在脚本所有语句之前需要放置特定语句'use strict'

@@ -26,29 +26,46 @@ Web开发技术基础——CSS[^1]
 
     === "外部样式表"
         - 在文件中定义，并在`head`元素中使用`<link>`元素引用
-		`<link rel = "stylesheet" href = "style.css">`
-		- 样式需要在多个页面中生效时，推荐此种方式
+
+            ```html
+            <link rel="stylesheet" href="style.css">
+            ```
+
+        - 样式需要在多个页面中生效时，推荐此种方式
 
     === "内部样式表"
         - 将CSS放在HTML文件`head`元素的`<style>`标签中
-		`<style> /*your style*/ </style>`
+
+            ```html
+            <style> /*your style*/ </style>
+            ```
+
 		- 某些内容管理系统不能直接编辑CSS文件，用此方法
 
     === "内联样式"
         - HTML元素中的`style`属性，如
-		`<h1 style="color:blue;border:...">Some contents...</h1>`
+
+    		```html
+            <h1 style="color:blue;border:...">Some contents...</h1>
+            ```
+
 		- 每个CSS仅影响一个元素
 		- 难以维护，不建议使用
 
 ### CSS语法
 * 基本语法
 	* CSS文件构成：选择器+声明块
+
 		```css
-		p{                             /* 选择p元素 */
-			color:red;                   /* inblock:p元素的颜色是红色的 */
+		p/* (1) */{
+			color:red; /* (2) */
 		}
 		```
-	* 利用CSS控制样式
+
+        1. 选择`p`元素
+        2. 定义`p`元素的颜色是红色
+
+    * 利用CSS控制样式
 		- 利用不可见的container
 		- 利用父子节点（<a href="#cascadeinheritance">层叠和继承</a>）
 	* 规则：
@@ -69,11 +86,12 @@ Web开发技术基础——CSS[^1]
 
         !!! summary ""
 		    选中所有元素名和选择器名匹配的元素（不区分大小写）
-    		```css
-    		div {/* css样式 */}
-    		 ↑
-    		元素符号（即<div>标签本身名称）
+
+            ```css
+            div/* (1) */ {/* css样式 */}
     		```
+
+            1. 元素符号（即`<div>`标签本身名称）
 
     * 直接选择class或id
 
@@ -83,22 +101,22 @@ Web开发技术基础——CSS[^1]
         === "id/name属性"
 
             * 标识网页元素的唯一身份
-            	```css
-                <div id="first">aaa</div>
-               	相应的id选择器：
-               	#first{ /* css样式 */}
-               	↑ 井号 id选择器符号
+
+                ```css
+                #first /* (1) */ { /* css样式 */}
                 ```
+
+                1. 井号`#`是id选择器符号，选择了`id=first`的元素
 
         === "class属性"
 
             * 元素的分类（“标签”）
-        		```css
-        		<div class="first">bbb</div>
-        		相应的class选择器：
+
+                ```css
         		.first{ /* css样式 */}
-        		↑ 点号 class选择器符号
         		```
+
+                1. 点号`.` 是class选择器符号，选择了`class=first`的元素
 
         !!! info ""
             可以为同一页面的不同元素设置相同的`class`，但是只能设置一个`id`
@@ -230,7 +248,7 @@ Web开发技术基础——CSS[^1]
 		1. `first-letter`只对块级元素生效，而`before`和`after`没有限制
 		2. 可以像操作正常html文档元素一样来操作它们。
 
-* 组合&多重选择器
+* 组合&amp; 多重选择器
 
     以下，A和B是前述任意选择器
 
@@ -252,11 +270,13 @@ Web开发技术基础——CSS[^1]
 * 通配选择器（*）：匹配任意类型的HTML元素。
 * 多重选择器：从右向左读，从上往下找（树）
 
-> 例子
-```css
-#main li.important strong{color:red;}
-/* 含义：将id为main的li标签下所有important类的strong标签的内容设为红色。*/
-```
+??? faq "例子"
+
+    ```css
+    #main li.important strong{color:red;} /* (1) */
+    ```
+
+    1. 含义：将`id`为`main`的`li`标签下所有`important`类的`strong`标签的内容设为红色。
 
 #### 语法详解：样式
 * <a name="text-and-paragraph-style"></a>文本和段落
@@ -301,8 +321,7 @@ Web开发技术基础——CSS[^1]
         === "装饰线"
 			- 语法：` text-decoration:属性值; `
 			- 文本装饰：下划线(`underline`)、删除线(`line-through`)、顶划线(`overline`)、none（去掉`<a>`标签默认的下划线）
-			- 组合效果：`text-decoration-style + text-decoration-line + text-decoration-color = text-decoration`
-			也可一次指定多个值
+			- 组合效果：`text-decoration-style + text-decoration-line + text-decoration-color = text-decoration`，也可一次指定多个值
 
         === "阴影"
 			- 语法：`text-shadow:水平偏移 垂直偏移 模糊半径 颜色;`
@@ -384,10 +403,10 @@ Web开发技术基础——CSS[^1]
 	* 请按正确顺序设置链接样式！（LoVe Fear HAte）
 	* `:hover`伪类的高级用法
 		- 不仅可以用于链接，还可用于任意元素在鼠标经过的样式
-	* cursor
+	* `cursor`
 		* 语法：`cursor:属性值;`
 		* 为链接设置鼠标样式
-			- 常用的：default、pointer（小手）、text（I字形，编辑文本常用）、crosshair（十字）等
+			- 常用的：`default`、`pointer`（小手）、`text`（I字形，编辑文本常用）、`crosshair`（十字）等
 	* 去除默认的下划线 `text-decoration:none`
 	* 为链接添加图标：`background:[image] [color] [repeat] [size] [position]`
 
@@ -395,16 +414,26 @@ Web开发技术基础——CSS[^1]
 	* width height：图片的宽度和高度
 	* border
 		- 语法：
+
 			```css
-			border-width:属性值;   //图片边框宽度
-			border-style:属性值;   //图片边框样式
-			border-color:颜色值;   //图片边框颜色
-			或 border:width style color; //简写
+			border-width:属性值;   /* (1) */
+			border-style:属性值;   /* (2) */
+			border-color:颜色值;   /* (3) */
+
+            border:width style color; /* (4) */
 			```
-		- 具体见<a href="#border">边框高级用法</a>
-	* text-align：水平对齐
+
+            1. 图片边框宽度
+            2. 图片边框样式
+            3. 图片边框颜色
+            4. 简写
+
+        - 具体见<a href="#border">边框高级用法</a>
+
+    * text-align：水平对齐
 		* 在图片的父元素上定义（详见上方<a href="#text-align">文本与段落样式</a>部分）
-	* vertical-align：垂直对齐
+
+    * vertical-align：垂直对齐
 		* 只对内联元素、表格单元格元素生效
 		* 属性值：`top|middle|baseline|bottom`
 
@@ -412,7 +441,11 @@ Web开发技术基础——CSS[^1]
 				是英文字母x的下端线，而不是汉字的下端线
 
 	* float：文字环绕，图文混排
-		- 属性值：`left（元素向左浮动）|right（元素向右浮动）|none（默认）|inherit（从父元素继承float属性的值）`
+		- 属性值：
+            * 默认：`none`
+            * 元素向左浮动：`left`
+            * 元素向右浮动：`right`
+            * 从父元素继承`float`属性的值：`inherit`
 
 * <a name="bg-style"></a>背景样式
 	* <a name="bg-color"></a>background-color
@@ -585,8 +618,8 @@ Web开发技术基础——CSS[^1]
     </figure>
 
     === "内容区content<a name='content'></a>"
-		* 属性：width、height、overflow
-		* 内联元素设定width、height无效
+		* 属性：`width`、`height`、`overflow`
+		* 内联元素设定`width`、`height`无效
 		* 盒子模型的必备部分
 		* `overflow`属性：内容过多超过`width`和`height`时，溢出处理的方法
 
@@ -674,34 +707,35 @@ Web开发技术基础——CSS[^1]
 			- 清除浮动：`clear:left|right|both`
 				* 接下来的部分会以正常流形式绘制在其后
 * position
-    - 固定定位：`position:fixed`
+
+    === "静态定位`position:static`"
+        * 默认状态下元素的定位值
+        * 含义：不会被特殊的定位
+
+    === "固定定位`position:fixed`"
         * 被固定的元素不会随滚动条拖动而改变位置
             - 用于“回顶部”特效，固定栏目
 
-				!!! tip
-					可以配合`top` `left` `bottom` `right`属性定义元素相对浏览器四个边的位置
+                !!! tip
+                    可以配合`top` `left` `bottom` `right`属性定义元素相对浏览器四个边的位置
 
-    - 相对定位：`position:relative`
-        * 位置相对于原始位置计算而来
+    === "相对定位`position:relative`"
+        位置相对于原始位置计算而来
 
-            !!! warning ""
-                所以该元素在原始文档流中还占有位置！
+        !!! warning ""
+            所以该元素在原始文档流中还占有位置！
 
-            !!! tip
-                可以配合`top` `left` `bottom` `right`属性设置元素相对原始位置的位移
+        !!! tip
+            可以配合`top` `left` `bottom` `right`属性设置元素相对原始位置的位移
 
-    - 绝对定位：`position:absolute`
-        * 绝对定位元素会脱离正常文档流
+    === "绝对定位`position:absolute`"
+        绝对定位元素会脱离正常文档流
 
-            !!! warning ""
-				所以该元素在原始文档流中占据的空间会被移除
+        !!! warning ""
+            所以该元素在原始文档流中占据的空间会被移除
 
-            !!! tip
-				可以配合`top` `left` `bottom` `right`属性定义元素相对浏览器四个边的位置
-
-    - 静态定位：`position:static`
-        * 默认状态下元素的定位值
-        * 含义：不会被特殊的定位
+        !!! tip
+            可以配合`top` `left` `bottom` `right`属性定义元素相对浏览器四个边的位置
 
 * display
     - 隐藏元素：`display:none`

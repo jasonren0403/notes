@@ -98,10 +98,12 @@ use_directory_urls: false
 docs_dir: 'notes_dev'
 site_dir: 'notes'
 extra:
-  analytics:
-    provider: google
-    property: G-Q0FWVZ6L5Y
-  #disqus: 'something' #uncomment before publish
+  ## uncommenet before publish ##
+  # analytics:
+  #   provider: google
+  #   property: G-Q0FWVZ6L5Y
+  # disqus: 'something'
+  ## uncomment before publish ##
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/jasonren0403
