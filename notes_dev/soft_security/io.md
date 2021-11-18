@@ -150,8 +150,7 @@
 			- `clog`用于缓冲标准错误，缓冲区满或者遇到`endl`时才输出在屏幕上
 			- 对于宽字符流(`wchar_t`)，使用`wcout`、`wcin`、`wcerr`、`wclog`
 
-		```c++ linenums="1" hl_lines="2 8-9 13"
-		/* 从一个文件test.txt中读取字符数据，并将其写入到标准输出 */
+		```c++ linenums="1" hl_lines="1 7-8 12" title="从一个文件test.txt中读取字符数据，并将其写入到标准输出"
 		#include <iostream>
 		#include <fstream>
 
@@ -225,8 +224,7 @@
 	- 对于依赖于一个不同的访问控制机制的文件系统，这种方式仍然可能导致不安全的程序
 	- 例子：OpenSSH特权提升漏洞
 
-		```c linenums="1" hl_lines="2-3"
-		/* 以root 特权运行，但并不总是在打开文件之前删除特权 */
+		```c linenums="1" hl_lines="1-2" title="以root 特权运行，但并不总是在打开文件之前删除特权"
 		fname = login_getcapstr(lc, "copyright",NULL,NULL);
 		if(fname != NULL && (f = fopen(fname,"r")) != NULL) {
 			while (fgets(buf, sizeof(buf), f) != NULL)
@@ -276,7 +274,7 @@
 			else abort();
 			```
 
-			如果该程序所需的文件名参数fn来自非受信的来源(如用户)，那么攻击者可以提供如下的文件名来绕过这些检查：
+			如果该程序所需的文件名参数`fn`来自非受信的来源(如用户)，那么攻击者可以提供如下的文件名来绕过这些检查：
 			```text
 			即令fn="/usr/lib/safefile/../../../etc/shadow"
 			```
@@ -286,7 +284,7 @@
 	- 然而，攻击者仍然可以绕过此机制
 		* 向文件名中注入"."，当净化过后，就会产生有效的文件名
 		* 双写净化字符，净化一次后，恰好构成攻击条件
-			- 如净化机制`path = replace(path,"../","");`，攻击者可以令path为"....//"来绕过
+			- 如净化机制`path = replace(path,"../","");`，攻击者可以令`path`为`....//`来绕过
 
 ### 等价错误
 * 当一个攻击者提供不同但等效名字的资源来绕过安全检查时，就会发生路径等价漏洞
@@ -331,7 +329,7 @@
 
 ## 竞争条件
 * 例子：GNU 实用文件工具（4.1版）中的竞争条件
-	```shell
+	```bash
 	...
 	chdir("/tmp/a");
 	chdir("b");
@@ -402,8 +400,7 @@
 
 ### 创建而不替换
 
-```c
-/* 下面的代码使用POSIX open()函数打开一个文件用于写入 */
+```c title="下面的代码使用POSIX open()函数打开一个文件用于写入"
 char *file_name;
 int new_file_mode;
 /* 初始化 file_name 和 new_file_mode */
@@ -427,14 +424,15 @@ if (fd == -1) {
 
 ### 独占访问
 - 锁机制：把文件当作锁使用
-	```c linenums="1" hl_lines="6-7 9"
-	/* 简单Linux文件锁机制实现。对lock()的调用用于获得锁，而对unlock()的调用则可以释放锁 */
+
+    ```c linenums="1" hl_lines="6-7 9" title="简单Linux文件锁机制实现"
+	/* 对lock()的调用用于获得锁，而对unlock()的调用则可以释放锁 */
 	/* 锁文件(lock file)用作锁的代理。如果文件存在，则锁被获得；如果文件不存在，则锁被释放 */
 	int lock(char *fn) {
 		int fd;
 		int sleep_time = 100;
 		while (((fd = open(fn, O_WRONLY | O_EXCL |
-		   O_CREAT, 0)) == -1) && errno ==EEXIST)  //open()函数不会阻塞。因此，lock()函数必须反复调用open()函数，直到可以创建文件为止。这种重复有时称为忙等(busy form of waiting)或自旋锁(spinlock)。
+		   O_CREAT, 0)) == -1) && errno ==EEXIST)  //(1)
 		{
 			usleep(sleep_time);
 			sleep_time *= 2;
@@ -449,6 +447,8 @@ if (fd == -1) {
 		}
 	}
 	```
+
+    1. 函数不会阻塞。因此，`lock()`函数必须反复调用`open()`函数，直到可以创建文件为止。这种重复有时称为忙等(busy form of waiting)或自旋锁(spinlock)。
 
 	* 实现缺陷：如果持有锁的进程调用`unlock()`失败，则文件锁将一直被保持。
 		- 修补方案：修改`lock()`函数，将锁定进程的ID(PID)写到锁文件中。
@@ -508,97 +508,116 @@ if (fd == -1) {
             ```c++
             struct stat orig_st;
             struct stat new_st;
-            char *file_name;
-            /* 初始化file_name */
+            char *file_name; /* (1) */
             int fd = open(file_name, O_WRONLY);
             if (fd == -1) {
-                /* 处理错误 */
+                /* (2) */
             }
-            /* 写入文件 */
+            /* (3) */
             if (fstat(fd, &orig_st) == -1) {
-                 /* 处理错误 */
+                 /* (2) */
             }
             close(fd);
             fd = -1;
-                /* … */
             fd = open(file_name, O_RDONLY);
             if (fd == -1) {
-                /* 处理错误 */
+                /* (2) */
             }
             if (fstat(fd, &new_st) == -1) {
-                 /* 处理错误 */
+                 /* (2) */
             }
             if ((orig_st.st_dev != new_st.st_dev) || (orig_st.st_ino != new_st.st_ino)) {
-               /* 文件被篡改了！ */
+               /* (4) */
             }
-            /* 从文件中读取 */
+            /* (5) */
             close(fd);
             fd = -1;
             ```
 
-            * 使用`open()`函数打开该文件。如果成功地打开了文件，则用`fstat()`函数把有关该文件的信息读入到`orig_st`结构。在关闭文件，然后重新打开该文件后，把有关该文件的信息读入`new_st`结构，并对`orig_st`和`new_st`中的`st_dev`和`st_ino`域进行比较，以提高识别的正确性
-            * 这使得程序能够识别出一个攻击者是否在第一次`close()`和第二次`open()`之间交换了文件。但是，这个程序不识别该文件是否已被修改
+            1. 初始化file_name
+            2. 处理错误
+            3. 写入文件
+            4. 文件被篡改了！
+            5. 从文件中读取
+
+            !!! info
+                * 使用`open()`函数打开该文件。如果成功地打开了文件，则用`fstat()`函数把有关该文件的信息读入到`orig_st`结构。在关闭文件，然后重新打开该文件后，把有关该文件的信息读入`new_st`结构，并对`orig_st`和`new_st`中的`st_dev`和`st_ino`域进行比较，以提高识别的正确性
+                * 这使得程序能够识别出一个攻击者是否在第一次`close()`和第二次`open()`之间交换了文件。但是，这个程序不识别该文件是否已被修改
 
         === "检查符号链接"
 
             ```c hl_lines="8 12"
-            char *filename = /* 文件名 */;
-            char *userbuf = /* 用户数据 */;
-            unsigned int userlen = /* userbuf 字符串长度 */;
+            char *filename = /* (1) */;
+            char *userbuf = /* (2) */;
+            unsigned int userlen = /* (3) */;
 
             struct stat lstat_info;
             int fd;
 
             if (lstat(filename, &lstat_info) == -1) {
-                /* 处理错误 */
+                /* (4) */
             }
 
             if(!S_ISLNK(lstat_info.st_mode)) {
                 fd = open(filename, O_RDWR);
                 if (fd == -1) {
-                    /* 处理错误 */
+                    /* (4) */
                 }
             }
             if (write(fd, userbuf, userlen) < userlen) {
-                /* 处理错误 */
+                /* (4) */
             }
             ```
 
-            - 该示例使用`lstat()`函数来收集有关文件的信息，检查`st_mode`域，以确定该文件是否是一个符号链接，如果它不是一个符号链接，那么打开该文件
-            - 但是，在`lstat()`调用和随后的`open()`调用之间包含一个TOCTOU竞争条件，因为这两个函数都对同一个文件名进行操作，而该程序的执行可以对此文件名进行异步操作
+            1. 文件名
+            2. 用户数据
+            3. userbuf 字符串长度
+            4. 处理错误
+
+            !!! info
+                - 该示例使用`lstat()`函数来收集有关文件的信息，检查`st_mode`域，以确定该文件是否是一个符号链接，如果它不是一个符号链接，那么打开该文件
+                - 但是，在`lstat()`调用和随后的`open()`调用之间包含一个TOCTOU竞争条件，因为这两个函数都对同一个文件名进行操作，而该程序的执行可以对此文件名进行异步操作
 
         === "检测竞争条件"
 
             ```c hl_lines="9 13 18 22-24"
-            char *filename = /* 文件名 */;
-            char *userbuf = /* 用户数据 */;
-            unsigned int userlen = /* userbuf 字符串长度 */;
+            char *filename = /* (1) */;
+            char *userbuf = /* (2) */;
+            unsigned int userlen = /* (3) */;
 
             struct stat lstat_info;
             struct stat fstat_info;
             int fd;
 
             if (lstat(filename, &lstat_info) == -1) {
-                /* 处理错误 */
+                /* (4) */
             }
 
             fd = open(filename, O_RDWR);
             if (fd == -1) {
-                /* 处理错误 */
+                /* (5) */
             }
 
             if (fstat(fd, &fstat_info) == -1) {
-                /* 处理错误 */
+                /* (6) */
             }
 
             if(lstat_info.st_mode == fstat_info.st_mode &&
                 lstat_info.st_ino == fstat_info.st_ino &&
-                lstat_info.st_dev == fstat_info.st_dev) {
+                lstat_in(fo.st_dev == fstat_info.st_dev) {
                 if (write(fd, userbuf, userlen) < userlen) {
-                    /* 处理错误 */
+                    /* (7) */
                 }
             }
             ```
+
+            1. 文件名
+            2. 用户数据
+            3. `userbuf` 字符串长度
+            4. 处理错误
+            5. 处理错误
+            6. 处理错误
+            7. 处理错误
 
 ### 消除竞争对象
 * 消除对系统资源不必要的使用，以尽量减小漏洞的暴露

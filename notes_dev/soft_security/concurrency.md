@@ -7,7 +7,8 @@
 * 多线程安全
 	- 多线程因执行次序易产生潜在灾难性问题
 	- 单线程程序可能有并发问题
-		```c linenums="1" hl_lines="8 9"
+
+        ```c linenums="1" hl_lines="8 9"
 		char *err_msg;
 		#define MAX_MSG_SIZE = 24;
 		void handler(int signum) {
@@ -18,13 +19,17 @@
 			signal(SIGINT, handler);
 			err_msg = (char*)malloc(MAX_MSG_SIZE);
 			if(err_msg == NULL){
-			/* 处理错误条件 */
+			/* (1) */
 			}
 			strcpy(err_msg , "No errors yet.");
-			/* 主代码循环*/
+			/* (2) */
 			return 0;
 		}
 		```
+
+        1. 处理错误条件
+        2. 主代码可能会循环
+
 * 并行与并发
 	- 并发和并行不等价，所有的并行程序都是并发的，但不是所有的并发程序都是并行的（还有并发交错的）
 		* 并发并行：需要多核或多处理器
@@ -46,9 +51,9 @@
 ## 竞争条件
 * 不受控制的并发可能会导致不确定的行为（即对相同的一组输入，一个程序可能表现出不同的行为）
 * 竞争条件存在的三个属性
-	1. 并发属性：至少有两个必须同时执行的控制流。
-	2. 共享对象属性：两个并发流都必须访问一个共享的竞争对象。
-	3. 改变状态属性：至少有一个控制流一定会改变竞争对象的状态。
+	- [x] 并发属性：至少有两个必须同时执行的控制流。
+	- [x] 共享对象属性：两个并发流都必须访问一个共享的竞争对象。
+	- [x] 改变状态属性：至少有一个控制流一定会改变竞争对象的状态。
 * 特点：难以察觉、重现和消除，并可能导致错误，如数据损坏或崩溃
 * 成因：竞争条件是运行时环境导致的，这个运行时环境包括必须对共享资源的访问进行控制的操作系统，特别是通过进程调度进行控制的。
 
@@ -67,27 +72,35 @@
 
 ### 易变的对象
 * 编译器优化机制：下列程序中，对`interrupted`的读取可能被编译器优化掉，导致尽管在信号处理程序中对该变量赋了值，而循环可能永远不会终止
-	```c hl_lines="3 6 10"
+
+    ```c hl_lines="3 6 10"
 	#include <signal.h>
 
-	sig_atomic_t interrupted; /* 错误 - 未声明为volatile */
+	sig_atomic_t interrupted; /* (1) */
 
 	void sigint_handler(int signum) {
-		interrupted = 1; /* 赋值可能是在main()不可见的 */
+		interrupted = 1; /* (2) */
 	}
 	int main(void) {
 		signal(SIGINT, sigint_handler);
-		while (!interrupted) { /* 循环可能永远不会终止 */
-		/* 做一些工作*/
+		while (!interrupted) { /* (3) */
+		/* (4) */
 		}
 		return 0;
 	}
 	```
-	- 通过在`interrupted`变量声明中加入`volatile`限定，就保证`while`循环的每次迭代以及信号处理程序都从原来的地址访问它
-	- `volatile`声明风险
-		* 具有`volatile`类型限定符的对象不保证多个线程之间的同步，不防止并发内存访问，也不保证对对象的原子性访问
-		* 当一个变量被声明为`volatile`时就会禁止编译器对该内存位置的读取和写入顺序进行重新排列
-		* 编译器可能对这些读取、写入和对其他的内存位置的读取和写入的相对顺序进行重新排列
+
+    1. 错误 - 未声明为`volatile`
+    2. 赋值可能是在`main()`不可见的
+    3. 循环可能永远不会终止
+    4. 做一些工作
+
+    !!! info
+        - 通过在`interrupted`变量声明中加入`volatile`限定，就保证`while`循环的每次迭代以及信号处理程序都从原来的地址访问它
+        - `volatile`声明风险
+            * 具有`volatile`类型限定符的对象不保证多个线程之间的同步，不防止并发内存访问，也不保证对对象的原子性访问
+            * 当一个变量被声明为`volatile`时就会禁止编译器对该内存位置的读取和写入顺序进行重新排列
+            * 编译器可能对这些读取、写入和对其他的内存位置的读取和写入的相对顺序进行重新排列
 
 ## 内存模型
 * C/C++ 的内存模型必须提供线程安全性，同时仍然允许细粒度访问硬件，特别是一个平台可能会提供的任何低级别的线程原语。
@@ -129,16 +142,17 @@
 
 #### 锁机制
 * 防止临界区并发执行
-	```c++ hl_lines="1 3 5 10"
+
+    ```c++ hl_lines="1 3 5 10"
 	int shared_lock = 0;
 	void thread_function(int id){
-		while(shared_lock)          // shared_lock start
+		while(shared_lock)          // (1)
 			sleep(1);
-		shared_lock = 1;            // shared_lock end
-		shared_data = id;           // shared_data start
+		shared_lock = 1;            // (2)
+		shared_data = id;           // (3)
 		cout << "Thread id:" << id << " set shared value to " << shared_data << endl;
 		usleep(id * 100);
-		cout << "Thread id:" << id << " has shared value as " << shared_data << endl;    //shared_data end
+		cout << "Thread id:" << id << " has shared value as " << shared_data << endl;    // (4)
 		shared_lock = 0;
 	}
 	int main(void){
@@ -152,6 +166,12 @@
 		}
 	}
 	```
+
+    1. shared_lock start
+    2. shared_lock end
+    3. shared_data start
+    4. shared_data end
+
 * 导致一个或多个线程等待，直到另一个线程退出临界区
 
 #### 互斥量（mutex）
@@ -193,9 +213,10 @@
 ## 并发代码属性
 * 可重入函数一定也是线程安全的，但线程安全的函数却可能无法重入
 	- 从多个线程调用时，下面的函数是线程安全的，但不可重入
-		```c++  hl_lines="4 5 8"
+
+        ```c++  hl_lines="4 5 8"
 		#include <pthread.h>
-		int increment_counter(){            //使用互斥量同步访问count变量
+		int increment_counter(){            //(1)
 			static int count = 0;
 			static pthread mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 			pthread_mutex_lock(&mutex);
@@ -205,6 +226,9 @@
 			return result;
 		}
 		```
+
+        1. 使用互斥量同步访问`count`变量
+
 ### 线程安全
 * 线程安全函数的使用可以帮助消除竞争条件
 * 如果一个函数不使用静态数据或共享资源，它明显是线程安全的。
@@ -232,7 +256,8 @@
 * 通过使冲突的竞争窗口互斥，使得一旦一个临界区开始执行时，没有额外的线程可以执行，直到前一个线程退出临界区为止，从而消除竞争条件。
 * 当两个或多个控制流以彼此都不可以继续执行的方式阻止对方时，就会发生死锁
 * 特别是，对于一个并发执行流的循环，如果其中在循环中的每个流都已经获得了导致在循环中随后的流悬停的同步对象，则会发生死锁。
-	```c++ linenums="1" hl_lines="12-13 17-18"
+
+    ```c++ linenums="1" hl_lines="12-13 17-18"
 	#include <iostream>
 	#include <thread>
 	#include <mutex>
@@ -242,8 +267,7 @@
 	mutex *locks = NULL;
 	int thread_size;
 
-	void thread_function(int id){
-	//每个线程都以同一顺序获取锁，可以消除潜在的死锁
+	void thread_function(int id){  //(1)
 		for(int i=0;i<thread_size;i++)
 			locks[i].lock();
 		shared_data = id;
@@ -267,6 +291,9 @@
 		return 0;
 	}
 	```
+
+    1. 每个线程都以同一顺序获取锁，可以消除潜在的死锁
+
 * 死锁对以下条件敏感
 	- 处理器速度
 	- 进程或线程调度算法的变动

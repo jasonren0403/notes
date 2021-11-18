@@ -30,9 +30,9 @@
 
 - 扩展整型
 	* 由具体实现定义的类型：宽度相关
-	> `int#_t,uint#_t int_least#_t,uint_least#_t`等
+	> `int#_t`,`uint#_t` `int_least#_t`,`uint_least#_t`等
 	* 平台相关的整型
-	> Windows API带有`__int8, __int16, __int32, __int64`等整型定义
+	> Windows API带有`__int8` `__int16` `__int32` `__int64`等整型定义
 
 ??? summary "一个整数类型的最大值和最小值取决于"
 	1. 该类型的表示法
@@ -48,7 +48,14 @@
 	* 比`int`小的整型进行操作时，它们会被：
 		- 转换为一个`int`
 		- 或者转换为一个`unsigned int`
-		例子：`char c1,c2; c1 = c1 + c2;`中，`c1、c2`都会被提升至`int`，结果会进行截断
+
+        !!! faq "例子"
+            ```c
+            char c1,c2;
+            c1 = c1 + c2;
+            ```
+
+            - `c1`,`c2`都会被提升至`int`，结果会进行截断
 
 	!!! info "这样做的意义"
 		防止运算过程中中间结果发生溢出而导致算术错误
@@ -93,19 +100,24 @@
 		5. 否则，两个操作数都被转换为与带符号整型操作数类型相对应的无符号整型。
 
 - 转换例子
-	```c linenums="1" hl_lines="1 3"
+
+    ```c linenums="1" hl_lines="1 3"
 	unsigned int num = ULONG_MAX;
 	char c = -1;
-	if (c == num) {  /* (1) 由于整型提升，c被提升为无符号整数，其值为0xFFFFFFFF 或 4294967295，从而这里可以执行！*/
+	if (c == num) {  /* (1) */
 		// codes...
 	}
 	```
-	* 启示：当处理值可能会大于127（0x7F）的字符数据时，对于涉及的字符缓冲区、指针，最好用`unsigned char`代替`char`或`signed char`
+
+    1. 由于整型提升，`c`被提升为无符号整数，其值为`0xFFFFFFFF` 或 `4294967295`，从而这里可以执行！
+
+    !!! tip "启示"
+        当处理值可能会大于`127`（`0x7F`）的字符数据时，对于涉及的字符缓冲区、指针，最好用`unsigned char`代替`char`或`signed char`
 
 ### 其他C99整数类型
 - `ptrdiff_t`为表示两指针相减的结果的带符号整型
 - `size_t`是表示`sizeof`操作符结果的无符号整型。
-- `wchar_t`的取值范围可以表示所支持的现场（locales）中最大扩展字符集中的所有字符代码
+- `wchar_t`的取值范围可以表示所支持的本地化环境中最大扩展字符集中的所有字符代码
 
 ## 整数错误
 ### 溢出
@@ -114,48 +126,62 @@
 	!!! note
 		前者为“上溢”，后者为“下溢”。
 
-```c
+```c linenums="1" hl_lines="1 2"
 int i;
 unsigned int j;
 
-i = INT_MAX;  // 2147483647
+i = INT_MAX;  // (1)
 i++;
-printf("i = %d\n", i);  // i = -2147483648
+printf("i = %d\n", i);  // (2)
 
-j = UINT_MAX; // 4294967295
+j = UINT_MAX; // (3)
 j++;
-printf("j = %u\n", j);  // j = 0
+printf("j = %u\n", j);  // (4)
 
-i = INT_MIN; // -2147483648
+i = INT_MIN; // (5)
 i--;
-printf("i = %d\n", i); //i = 2147483647
+printf("i = %d\n", i); // (6)
 
 j = 0;
 j--;
-printf("j = %u\n", j); //j = 4294967295
+printf("j = %u\n", j); // (7)
 ```
+
+1. 2147483647
+2. `i = -2147483648`
+3. 4294967295
+4. `j = 0`
+5. -2147483648
+6. `i = 2147483647`
+7. `j = 4294967295`
 
 ### 符号错误
 * 带符号整型 → 无符号整型：带符号整数为负的，则变为很大的正值
 * 无符号整型 → 带符号整型：无符号整数最高位被设置（为1），变为负值
 * 例子
-	```c
+
+    ```c
 	int i = -3;
 	unsigned short u;
-	u = i;     //隐式转换为较小的无符号整数
-	printf("u = %hu\n", u);  // u = 65533
+	u = i;     // (1)
+	printf("u = %hu\n", u);  // (2)
 	```
+
+    1. 隐式转换为较小的无符号整数
+    2. u = `65533`
 
 ### 截断错误
 - 将较大整型转换为较小整型，原值超过较小类型的范围
 - 例子
-	```c
+
+    ```c
 	char cresult,c1,c2;
 	c1 = 100;
 	c2 = 90;
-	cresult = c1 + c2;
-	/* 190>127，超过signed char的范围（+127），截断错误！*/
+	cresult = c1 + c2; /* (1) */
 	```
+
+    1. $190\gt 127$ ，超过`signed char`的范围（+127），截断错误！
 
 ### 错误侦测
 #### 通过硬件
@@ -170,19 +196,25 @@ printf("j = %u\n", j); //j = 4294967295
 	- 两个`long long int`相减，sub指令先把它们的低32位相减，然后使用sbb
 * IA-32 乘法指令：`mul（无符号乘） imul（带符号乘）`
 	- 无符号乘伪代码
-		```c
-		if (OperandSize == 8) { //8位操作数，存储在16位的目的寄存器中
+
+        ```c
+		if (OperandSize == 8) { //(1)
 			AX = AL * SRC;
-		else {
-			if (OperandSize == 16) { //16位操作数存储在32位目的寄存器中
+		}else {
+			if (OperandSize == 16) { //(2)
 				DX:AX = AX * SRC;
 			}
 			else {  // OperandSize == 32
-				EDX:EAX = EAX * SRC;  //32位操作数存储在64位目的寄存器中
+				EDX:EAX = EAX * SRC;  //(3)
 			}
 		}
 		```
-	- 进位标志和整数溢出标志：如果需要高位来表示两个操作数的积，则进位标志和溢出标志都被置位
+
+        1. 8位操作数，存储在16位的目的寄存器中
+        2. 16位操作数存储在32位目的寄存器中
+        3. 32位操作数存储在64位目的寄存器中
+
+    - 进位标志和整数溢出标志：如果需要高位来表示两个操作数的积，则进位标志和溢出标志都被置位
 	- 字符乘法
 		* 不管`char`是否带符号， g++对`char`类型的整数都使用`mul`指令的字节形式
 	- 整数乘法
@@ -210,11 +242,12 @@ printf("j = %u\n", j); //j = 4294967295
     === "减法"
         - 对于两个无符号整数而言，只需检验是否 LHS < RHS。
         - 对于两个有符号数而言：
-            具有相同符号的两个数不会发生异常情况。
-            具有不同符号的两个数，如果LHS为负，而RHS为正，对signed int类型检查LHS >= INT_MIN + RHS；如果LHS非负，且RHS为负，检查LHS <= INT_MAX + RHS。
+            * 具有相同符号的两个数不会发生异常情况。
+            * 具有不同符号的两个数，如果LHS为负，而RHS为正，对signed int类型检查LHS >= INT_MIN + RHS；如果LHS非负，且RHS为负，检查LHS <= INT_MAX + RHS。
 
     === "乘法"
         将两个操作数放到下一个更大的数据类型上，然后相乘。
+
         - 对于无符号整数，检查下一个大整数的高阶位，如果被设置了，抛出错误。
         - 对带符号整数，如果结果的高半部分及低半部分的符号位全为0或1，则没有发生整数溢出。
 
@@ -250,20 +283,26 @@ printf("j = %u\n", j); //j = 4294967295
 ### 漏洞利用
 
 === "JPEG注释域解析"
-	```c linenums="1" hl_lines="4"
+
+    ```c linenums="1" hl_lines="4"
 	void getComment(unsigned int len, char *src) {
 	   unsigned int size;
 	   size = len - 2;
-	   char *comment = (char *)malloc(size + 1);    //(1) len = 1时，此处将成为malloc(0)，也可分配成功
-	   memcpy(comment, src, size);                  //(2) size in memcpy is unsigned int (or unsigned long in 64 bit systems)
-       // size会是一个非常大的正整数，0xffffffff
+	   char *comment = (char *)malloc(size + 1);    //(1)
+	   memcpy(comment, src, size);                  //(2)
+       // (3)
 	   return;
 	}
 	int _tmain(int argc, _TCHAR* argv[]) {
-	  getComment(1, "Comment "); //(3) will cause some trouble if len=1....
+	  getComment(1, "Comment "); //(4)
 	  return 0;
 	}
 	```
+
+    1. `len = 1`时，此处将成为`malloc(0)`，也可分配成功
+    2. size in memcpy is unsigned int (or unsigned long in 64 bit systems)
+    3. 此处的`size`会是一个非常大的正整数，`0xffffffff`
+    4. will cause some trouble if `len=1`....
 
 === "内存分配"
 
@@ -280,25 +319,30 @@ printf("j = %u\n", j); //j = 4294967295
 	- 涉及乘法运算，可能会溢出。（实际分配结果小于预期）
 
 === "符号错误"
-	```c linenums="1" hl_lines="3 5"
+
+    ```c linenums="1" hl_lines="3 5"
 	#define BUFF_SIZE 10
 	int main(int argc, char* argv[]){
-	   int len;                   //(1) len is signed
+	   int len;                   //(1)
 	   char buf[BUFF_SIZE];
-	   len = atoi(argv[1]);       //(2) argv[1] can be negative
+	   len = atoi(argv[1]);       //(2)
 	   if (len < BUFF_SIZE){
 		  memcpy(buf, argv[2], len);
 	   }
 	}
 	```
 
+    1. `len` is signed
+    2. `argv[1]` can be negative
+
 === "截断"
-	```c linenums="1" hl_lines="1-2 5"
-	bool func(char *name, long cbBuf) { 		//(1) cbBuf is long, and max is 2 147 483 647
-		unsigned short bufSize = cbBuf;          //(2) the range of bufSize(unsigned short) is 0~65535 if complier is based on IA-32
+
+    ```c linenums="1" hl_lines="1-2 5"
+	bool func(char *name, long cbBuf) { 		//(1)
+		unsigned short bufSize = cbBuf;          //(2)
 		char *buf = (char *)malloc(bufSize);
 		if (buf) {
-			memcpy(buf, name, cbBuf);            //(3) cbBuf in memcpy is unsigned int (or unsigned long in 64 bit systems)
+			memcpy(buf, name, cbBuf);            //(3)
 			if (buf) free(buf);
 			return true;
 		}
@@ -306,16 +350,21 @@ printf("j = %u\n", j); //j = 4294967295
  	}
 	```
 
+    1. `cbBuf` is `long`, and max is `2147483647`
+    2. the range of bufSize(`unsigned short`) is 0~65535 if complier is based on IA-32
+    3. `cbBuf` in `memcpy` is `unsigned int` (or `unsigned long` in 64 bit systems)
+
 === "整数逻辑错误"
 
     === "负数索引"
-		```c hl_lines="6" linenums="1"
+
+        ```c hl_lines="6" linenums="1"
 		int *table = NULL;
 		int insert_in_table(int pos, int value){
 			if (!table) {
 			   table = (int *)malloc(sizeof(int) * 100);
 			}
-			if (pos > 99) {            //没有检查下界，导致pos可负
+			if (pos > 99) {            // (1)
 			   return -1;
 			}
 			table[pos] = value;
@@ -323,17 +372,23 @@ printf("j = %u\n", j); //j = 4294967295
 		}
 		```
 
+        1. 没有检查下界，导致`pos`可负
+
 	=== "类型溢出"
+
         ```c linenums="1" hl_lines="3-4"
         int main(int argc, char *argv[]) {
-           unsigned short int total; //(1) total 取值范围0~65535
+           unsigned short int total; //(1)
            total = strlen(argv[1])+
-                    strlen(argv[2])+1;  //(2) 可能造成total值溢出
+                    strlen(argv[2])+1;  //(2)
            char *buff = (char *)malloc(total);
            strcpy(buff, argv[1]);
            strcat(buff, argv[2]);
         }
         ```
+
+        1. `total` 取值范围0~65535
+        2. 可能造成`total`值溢出
 
 #### 具体例子
 * NetBSD范围检查漏洞
@@ -380,14 +435,17 @@ printf("j = %u\n", j); //j = 4294967295
 		#define BUFF_SIZE 10
 
 		int main(int argc, char* argv[]){
-		   unsigned int len;    //隐式的检查：len为非负数
+		   unsigned int len;    //(1)
 		   char buf[BUFF_SIZE];
 		   len = atoi(argv[1]);
-		   if ((0<len) && (len<BUFF_SIZE)){  //显式的检查：len为0~BUFF_SIZE之间
+		   if ((0<len) && (len<BUFF_SIZE)){  // (2)
 			 memcpy(buf, argv[2], len);
 		   }else printf("too much data\n");
 		}
 		```
+
+        1. 隐式的检查：`len`为非负数
+        2. 显式的检查：`len`为`0`~`BUFF_SIZE`之间
 
 * 强类型
 	- 提供更好的类型定义，有助于编译器更有效地识别与范围相关的问题
@@ -404,7 +462,8 @@ printf("j = %u\n", j); //j = 4294967295
 	- C语言兼容库
 		* 使用IA-32特定机制侦测整数溢出条件
 		* 例子：无符号加
-			```c linenums="1" hl_lines="18-19"
+
+            ```c linenums="1" hl_lines="18-19"
 			bool UAdd(size_t a, size_t b, size_t *r) {
 			   asm {
 				 mov eax, dword ptr [a]
@@ -412,10 +471,10 @@ printf("j = %u\n", j); //j = 4294967295
 				 mov ecx, dword ptr [r]
 				 mov dword ptr [ecx], eax
 				 jc  short j1
-				 mov al, 1 // 1 is success
+				 mov al, 1 // (2)
 				 jmp short j2
 				 j1:
-				 xor al, al // 0 is failure
+				 xor al, al // (3)
 				 j2:
 			   };
 			}
@@ -423,7 +482,7 @@ printf("j = %u\n", j); //j = 4294967295
 			int main(int argc, char *const *argv) {
 			   unsigned int total;
 			   if (UAdd(strlen(argv[1]), 1, &total) &&
-				   UAdd(total, strlen(argv[2]), &total)) {    //complete check for total length of two strings
+				   UAdd(total, strlen(argv[2]), &total)) {    //(1)
 					char *buff = (char *)malloc(total);
 					strcpy(buff, argv[1]);
 					strcat(buff, argv[2]);
@@ -433,15 +492,20 @@ printf("j = %u\n", j); //j = 4294967295
 			}
 			```
 
+            1. complete check for total length of two strings
+            2. `1` is success
+            3. `0` is failure
+
 	- `SafeInt`类
 		* 是C++模板类，在执行操作之前对操作数的值进行测试，以决定是否会导致错误
 		* 例子：
-			```c++ linenums="1" hl_lines="5"
+
+            ```c++ linenums="1" hl_lines="5"
 			int main(int argc, char const *argv) {
 				try{
 					SafeInt<unsigned long> s1(strlen(argv[1]));
 					SafeInt<unsigned long> s2(strlen(argv[2]));
-					char *buff = (char *) malloc(s1 + s2 + 1);   //这里的+运算符是由SafeInt类提供的安全版本，它保证结果无效则抛出一个异常
+					char *buff = (char *) malloc(s1 + s2 + 1);   //(1)
 					strcpy(buff, argv[1]);
 					strcat(buff, argv[2]);
 				}
@@ -450,6 +514,8 @@ printf("j = %u\n", j); //j = 4294967295
 				}
 			}
 			```
+
+            1. 这里的`+`运算符是由`SafeInt`类提供的安全版本，它保证结果无效则抛出一个异常
 
 * 测试
 	- 整数漏洞测试应该涵盖所有整型变量的边界条件

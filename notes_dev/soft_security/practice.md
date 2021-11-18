@@ -123,9 +123,11 @@ id7 --> id8(排定需求的优先次序) --> id9(需求审查)
 	- C和C++编译器对于类型检查通常都不严格，但是一般可以提升检查级别，从而能够自动侦测到某些错误
     - 例如，利用gcc编译c或c++程序时，利用以下标记并尝试消除所有警告
 
-	```shell
-	gcc -Wall -Wpointer-arith -Wstrict-prototypes -O2 # (1)使用-W-pedantic(允许发出ANSI C标准所列的全部警告信息)或更专门的标记(如-Wstrict-verflow=3)可诊断可能导致边界检查错误的代数简化
+	```bash
+	gcc -Wall -Wpointer-arith -Wstrict-prototypes -O2 # (1)
 	```
+
+    1. 使用`-W-pedantic`(允许发出ANSI C标准所列的全部警告信息)或更专门的标记(如`-Wstrict-verflow=3`)可诊断可能导致边界检查错误的代数简化
 
 * 有安全保证的C和C++
 	- CERT开发，开放源码的编译器

