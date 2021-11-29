@@ -73,7 +73,7 @@ theme:
         name: 切换至白天模式
   icon:
     logo: material/cloud
-    repo: fontawesome/brands/github-alt
+    repo: fontawesome/brands/github
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -97,6 +97,9 @@ site_author: 'Jason'
 use_directory_urls: false
 docs_dir: 'notes_dev'
 site_dir: 'notes'
+repo_url: https://github.com/jasonren0403/notes
+repo_name: jasonren0403/notes
+edit_uri: edit/main/notes_dev/
 extra:
   ## uncomment before publish ##
   analytics:
@@ -186,7 +189,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid_custom
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tabbed:
