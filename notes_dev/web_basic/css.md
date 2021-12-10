@@ -1,4 +1,4 @@
-Web开发技术基础——CSS[^1]
+CSS[^1]
 ===
 
 ## Cascading Style Sheet层叠样式表

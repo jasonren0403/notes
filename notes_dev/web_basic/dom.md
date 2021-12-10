@@ -1,4 +1,4 @@
-Web开发技术基础——JavaScript与DOM
+JavaScript与DOM
 ===
 
 !!! info "DOM的必要性"

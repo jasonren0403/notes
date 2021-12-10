@@ -149,7 +149,7 @@ plugins:
 extra_javascript:
   - assets/javascripts/mermaid_config.js
   - assets/javascripts/mathjax.js
-  # - https://unpkg.com/mermaid@8.13.3/dist/mermaid.min.js
+  - https://unpkg.com/mermaid@8.13.3/dist/mermaid.min.js
   - assets/javascripts/loader.js
   # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0/highlight.min.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -165,6 +165,8 @@ markdown_extensions:
   - md_in_html
   - markdown.extensions.admonition
   - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
       linenums_style: pymdownx-inline
   - markdown.extensions.toc:
       permalink: true

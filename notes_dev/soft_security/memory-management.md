@@ -3,21 +3,21 @@
 
 === "C标准"
 
-	=== "malloc"
+	=== "`malloc`"
 		* `malloc(size_t size)`：分配给定大小内存，返回一个指向该内存的指针。
 			- 此内存没有被初始化！
 
-	=== "realloc"
+	=== "`realloc`"
 		* `realloc(void *p, size_t size)`：把p所指向的内存块大小调整为size个字节
 			- size=0 等价于`free(p)`
 			- p是空指针 等价于`malloc(size)`
 			- 新分配的内存未做初始化
 
-	=== "calloc"
+	=== "`calloc`"
 		* `calloc(size_t nmemb, size_t size)`：为数组分配内存，该数组共有`nmemb`个元素，每个元素的大小为`size`个字节
 			- 所分配的内存的内容全部设为0
 
-	=== "free"
+	=== "`free`"
 		* `free(void *p)`释放
 			- 重复调用`free(p)`会导致未定义行为
 			- 如果p是空指针，则不执行任何操作
@@ -141,7 +141,9 @@
 	free(x);    //oops...
 	```
 	* 数据结构包含指向同一项的链接
+        <figure markdown>
 		![pointer points the same structure](md-img/20191021_01.png)
+        </figure>
 		- 类似于`free(a->stru); free(b->stru);`
 	* 作为错误处理的结果，内存块被释放，但在正常处理过程中再次被释放
 5. 不正确配对内存管理函数
@@ -156,8 +158,11 @@
 	* `new[]`，`delete[]` 数组
 
 ### dlmalloc
-大部分Linux版本默认内存分配器
+
+<figure markdown>
 ![chunks](md-img/20191021_02.png)
+<figcaption>dlmalloc是大部分Linux版本默认内存分配器</figcaption>
+</figure>
 
 * chunk的数据结构
 
@@ -202,7 +207,12 @@
 		BK->fd = FD;	\
 	}
 	```
-![unlink示意](md-img/20191021_04.png)
+
+    <figure markdown>
+    ![unlink示意](md-img/20191021_04.png)
+    <figcaption>unlink示意</figcaption>
+    </figure>
+
 * 本质：任意写（欺骗unlink宏向任意位置写入4字节数据）
 
     ```c linenums="1" hl_lines="5-7"
@@ -315,7 +325,7 @@
 		- 利用困难：已释放的内存没有立即放入筐中，而是被缓存；双重释放块可能和其他块合并
 
             <figure markdown>
-			![corrupted bin](md-img/20191021_07.png){ loading="lazy" }
+			![corrupted bin](md-img/20191021_07.png){ width="300" loading="lazy" }
             <figcaption>损坏的筐结构</figcaption>
             </figure>
 
@@ -395,7 +405,7 @@
 		- 加速对小块内存的分配操作（<1016字节）
 		- 先于空闲链表被检查
 	* 边界标志
-        <figure>
+        <figure markdown>
 		![块边界结构](md-img/20191021_08.png)
         <figcaption>块边界结构</figcaption>
         </figure>
@@ -536,32 +546,32 @@
     5. 控制权转移到shellcode
 
 - 双重释放
-	* 基于Windows 2000漏洞
-		```c linenums="1" hl_lines="16-17"
-		int main(int argc, char *argv[]) {
-			HANDLE hp;
-			HLOCAL h1, h2, h3, h4, h5, h6, h7, h8, h9;
-			hp = HeapCreate(0,0x1000,0x10000);
-			h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
-			memset(h1, 'a', 16);
-			h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
-			memset(h2, 'b', 16);
-			h3 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);
-			memset(h3, 'c', 32);
-			h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
-			memset(h4, 'd', 16);
-			h5 = HeapAlloc(hp, HEAP_ZERO_MEMORY,8)
-			memset(h5, 'e', 8);
-			HeapFree(hp, 0, h2);
-			HeapFree(hp, 0, h3);
-			HeapFree(hp, 0, h3);
-			h6 = HeapAlloc(hp, 0, 64);
-			memset(h6, 'f', 64);
-			strcpy((char *)h4, buffer);
-			h7 = HeapAlloc(hp, 0, 16);
-			printf("Never gets here.\n");
-		}
-		```
+
+    ```c linenums="1" hl_lines="16-17" title="基于Windows 2000漏洞"
+	int main(int argc, char *argv[]) {
+		HANDLE hp;
+		HLOCAL h1, h2, h3, h4, h5, h6, h7, h8, h9;
+		hp = HeapCreate(0,0x1000,0x10000);
+		h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
+		memset(h1, 'a', 16);
+		h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
+		memset(h2, 'b', 16);
+		h3 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);
+		memset(h3, 'c', 32);
+		h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
+		memset(h4, 'd', 16);
+		h5 = HeapAlloc(hp, HEAP_ZERO_MEMORY,8)
+		memset(h5, 'e', 8);
+		HeapFree(hp, 0, h2);
+		HeapFree(hp, 0, h3);
+		HeapFree(hp, 0, h3);
+		h6 = HeapAlloc(hp, 0, 64);
+		memset(h6, 'f', 64);
+		strcpy((char *)h4, buffer);
+		h7 = HeapAlloc(hp, 0, 16);
+		printf("Never gets here.\n");
+	}
+	```
 
 ## 缓解漏洞：空指针
 - 完成对`free()`的调用后，将指针置为NULL

@@ -34,7 +34,7 @@
 	=== "指针函数"
 		![1](md-img/20191014_01.png)
 
-		```c linenums="1" hl_lines="13-14"
+		```c linenums="1" hl_lines="13-14" title="vuln1.c"
 		void good_function(const char *str) {
 			//do something
 		}
@@ -60,7 +60,7 @@
 	=== "指针对象"
 		![2](md-img/20191014_02.png)
 
-		```c linenums="1" hl_lines="5-6"
+		```c linenums="1" hl_lines="5-6" title="vuln2.c"
 		void foo(void* arg, size_t len)	{
 			char buff[100];
 			long val = ...;
@@ -77,26 +77,25 @@
 
 * 指针调用和直接调用：指针调用地址可以改（`call dword ptr xxx`）直接调用不行（`call good_function`）
 
-    === "函数指针调用`(void)(*funcPtr)("hi")`"
-		```asm
-		;(void)(*funcPtr)("hi")
-		00424178 mov esi, esp
-		0042417A push offset string "hi" (46802Ch)
-		0042417F call dword ptr [funcPtr (478400h)]
-		00424185 add  esp, 4
-		00424188 cmp  esi, esp
+    === "函数指针调用"
+		```asm title="(void)(*funcPtr)(params)"
+        ; params = "hi"
+		mov esi, esp
+		push offset string "hi" (46802Ch)
+		call dword ptr [funcPtr (478400h)]
+		add  esp, 4
+		cmp  esi, esp
 		```
 
 		- IC的下一个值，存储在内存中，其可以被改变
 		- 间接的函数引用与无法在编译期间决定的函数调用可以被利用，从而使程序的控制权转移到任意代码
 
-	=== "直接调用`good_function("there!\n")`"
-
-        ```asm
-		;good_function("there!\n")
-		0042418F push offset string "there!\n" (468020h)
-		00424194 call good_function (422479h)
-		00424199 add  esp, 4
+	=== "直接调用"
+        ```asm title="good_function(params)"
+        ; params = "there!\n"
+		push offset string "there!\n" (468020h)
+		call good_function (422479h)
+		add  esp, 4
 		```
 
 		- 静态调用对于函数地址使用立即数
