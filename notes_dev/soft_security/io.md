@@ -604,7 +604,7 @@ if (fd == -1) {
 
             if(lstat_info.st_mode == fstat_info.st_mode &&
                 lstat_info.st_ino == fstat_info.st_ino &&
-                lstat_in(fo.st_dev == fstat_info.st_dev) {
+                lstat_info.st_dev == fstat_info.st_dev) {
                 if (write(fd, userbuf, userlen) < userlen) {
                     /* (7) */
                 }
