@@ -1,3 +1,9 @@
+---
+tags:
+  - 408考研复习
+  - 数据结构
+---
+
 图
 ===
 
@@ -355,7 +361,7 @@ typedef struct{
 
     * 时间复杂度：
         * 邻接矩阵：$O(\left | V \right | ^2)$
-        * 邻接表：$O(\left | V \right | + \left | E \right |)$ 
+        * 邻接表：$O(\left | V \right | + \left | E \right |)$
     * 空间复杂度：$O(\left | V \right |)$
 
 ## 图的基本应用

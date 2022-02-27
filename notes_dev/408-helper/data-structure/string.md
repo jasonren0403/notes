@@ -1,3 +1,9 @@
+---
+tags:
+  - 408考研复习
+  - 数据结构
+---
+
 串与字符串
 ===
 
@@ -292,7 +298,7 @@ $$
                 ```
 
             === "依赖next数组"
-            
+
                 ```c++
                 void get_nextval(SString T,int next[],int nextval[])
                 {
