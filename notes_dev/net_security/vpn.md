@@ -1,3 +1,7 @@
+---
+tags:
+  - 网络安全
+---
 虚拟专用网
 ===
 ## VPN简介
@@ -340,14 +344,14 @@
 #### SSL记录层协议
 
 * 第一步，fragmentation
-	- 上层消息的数据被分片成2<sup>14</sup>字节大小的块，或者更小
+	- 上层消息的数据被分片成 $2^{14}$ 字节大小的块，或者更小
 * 第二步，compression(可选)
 	- 必须是无损压缩，如果数据增加（这些主要是压缩状态信息）的话，则增加部分的长度不超过1024字节
 * 第三步，计算消息认证码(MAC)
 	- 计算公式：`HMAC_hash(MAC_write_secret, seq_num ||TLSCompressed.type ||TLSCompressed.version ||TLSCompressed.length|| TLSCompressed.fragment)`
 * 第四步，encryption
 	- 采用CBC，算法由CipherSpec指定
-	- 数据长度不超过2<sup>14</sup> +2048字节
+	- 数据长度不超过 $2^{14} +2048$ 字节
 * 结果可作如下表示
 	```c
 	struct {
@@ -360,7 +364,7 @@
 
     1. 8位，上层协议类型
     2. 16位，主次版本
-    3. 加密后数据的长度，不超过2<sup>14</sup> +2048字节
+    3. 加密后数据的长度，不超过 $2^{14} +2048$ 字节
     4. 密文数据
 
 #### SSL高层协议
@@ -411,14 +415,14 @@
     participant s as SSLServer
     c->>s:client_hello
     s->>c:server_hello
-    par
+    par Step 2
     rect rgba(205,51,0,.2)
     c->>+s:change_cipher_spec
     end
     and
     c->>+s:finished
     end
-    par
+    par Step 3
     rect rgba(205,51,0,.2)
     s->>+c:change_cipher_spec
     end
@@ -428,7 +432,7 @@
     end
     ```
 * 密钥生成
-	- TLS记录协议需要：CipherSuite, master secret和 client、server端的随机值
+	- TLS记录协议需要：CipherSuite，master secret和 client、server端的随机值
 	- 在hello消息中，交换随机数以及各种算法
 	- 对于各种密钥交换算法，从pre_master_secret计算得到master_secret，然后从内存中删除
 	- Master_secret总是48字节长，而pre_master_secret长度不定，取决于密钥交换算法
@@ -460,7 +464,7 @@ s->>c:ServerHello
 sequenceDiagram
 participant c as SSLClient
 participant s as SSLServer
-par
+par Step 2
 s->>c:certificate
 and
 s->>c:server_key_exchange
@@ -486,7 +490,7 @@ end
 sequenceDiagram
 participant c as SSLClient
 participant s as SSLServer
-par
+par Step 3
 c->>s:certificate
 and
 c->>s:client_key_exchange
@@ -505,12 +509,12 @@ end
 sequenceDiagram
 participant c as SSLClient
 participant s as SSLServer
-par
+par Client to Server
 c->>s:change_cipher_spec
 and
 c->>s:finished
 end
-par
+par Server to Client
 s->>c:change_cipher_spec
 and
 s->>c:finished

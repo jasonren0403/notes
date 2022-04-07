@@ -1,3 +1,7 @@
+---
+tags:
+  - Web前端基础
+---
 JavaScript
 ===
 ## JavaScript简介

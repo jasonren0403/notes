@@ -4,14 +4,14 @@ site_name: Jason的笔记小屋
 nav:
 - '主页': index.md
 - 'web开发技术基础':
-  - 'web_basic/index.md'
+  - 'Web开发绪论': 'web_basic/index.md'
   - 'Web的基本架构': 'web_basic/basic-structure.md'
   - 'HTML': 'web_basic/html.md'
   - 'CSS': 'web_basic/css.md'
   - 'JavaScript': 'web_basic/javascript.md'
   - 'DOM': 'web_basic/dom.md'
 - '软件安全':
-  - 'soft_security/index.md'
+  - '软件安全绪论': 'soft_security/index.md'
   - '软件基础': 'soft_security/basic.md'
   - '字符串安全': 'soft_security/string.md'
   - '指针安全': 'soft_security/pointer.md'
@@ -22,7 +22,7 @@ nav:
   - '文件输入输出': 'soft_security/io.md'
   - '软件安全实践': 'soft_security/practice.md'
 - '网络安全':
-  - 'net_security/index.md'
+  - '网络安全绪论': 'net_security/index.md'
   - '网络安全概述': 'net_security/assets.md'
   - '网络攻击的特征': 'net_security/characteristics.md'
   - '网络攻击': 'net_security/networkattack.md'
@@ -37,10 +37,10 @@ nav:
   - '408-helper/index.md'
   - '408考试大纲（2020版）': '408-helper/what-does-408-test.md'
   - '计算机组成原理':
-    - '408-helper/computer-structure/index.md'
+    - '计组绪论': '408-helper/computer-structure/index.md'
     - '运算器': '408-helper/computer-structure/operating.md'
   - '数据结构':
-    - '408-helper/data-structure/index.md'
+    - '数据结构绪论': '408-helper/data-structure/index.md'
     - '线性表': '408-helper/data-structure/linear-list.md'
     - '栈': '408-helper/data-structure/stack.md'
     - '队列': '408-helper/data-structure/queue.md'
@@ -51,14 +51,15 @@ nav:
     - '查找': '408-helper/data-structure/searching.md'
     - '排序': '408-helper/data-structure/sorting.md'
   - '计算机网络':
-    - '408-helper/computer-network/index.md'
+    - '计网绪论': '408-helper/computer-network/index.md'
     - '网络层': '408-helper/computer-network/network-layer.md'
   - '操作系统':
-    - '408-helper/operating-system/index.md'
+    - '操作系统绪论': '408-helper/operating-system/index.md'
     - '进程管理': '408-helper/operating-system/process.md'
     - '内存管理': '408-helper/operating-system/memory.md'
     - '文件管理': '408-helper/operating-system/file.md'
     - '输入输出(I/O)管理': '408-helper/operating-system/io.md'
+- '按标签查找': 'tags.md'
 
 theme:
   name: material
