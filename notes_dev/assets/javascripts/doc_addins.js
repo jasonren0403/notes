@@ -1,5 +1,3 @@
-
-
 document$.subscribe(()=>{
     // window.hljs ? hljs.highlightAll():alert$.next("highlightjs load error!") highlight.js
     // tableSort
@@ -19,4 +17,7 @@ document$.subscribe(()=>{
     paletteSwitcher2.addEventListener("change", function () {
       location.reload();
     });
+    // pangu.js
+    // listen to any DOM change and automatically perform spacing via MutationObserver()
+    pangu.autoSpacingPage();
 });

@@ -147,6 +147,7 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+  - https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js
   - assets/javascripts/doc_addins.js
   - assets/javascripts/share.js
 extra_css:
