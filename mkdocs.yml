@@ -85,16 +85,17 @@ theme:
     - navigation.top
     - navigation.expand
     - navigation.tracking
-    # - navigation.instant fix tex not reloaded at page change
     - header.autohide
     - toc.integrate
+    - announce.dismiss
     - search.suggest
     - search.highlight
     - search.share
     - content.code.annotate
   language: 'zh'
 
-copyright: copyright &copy; Jason Ren 2019-2022 (<a href="https://www.fantasyroom.cn" target="_blank">fantasyroom</a>) . All rights reserved
+copyright: > 
+  copyright &copy; Jason Ren 2019-2022 (<a href="https://www.jason0743.space" target="_blank">fantasyroom</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
 site_description: '信息安全、前端相关'
 site_author: 'Jason'
 use_directory_urls: false
@@ -123,6 +124,10 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/s33UBWEPxb
       name: Join to my discussion(discord)
+  consent:
+    title: Cookie 约定
+    description: >-
+      嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请参与我的网站。
 plugins:
   # - social:
   #     cards: !ENV [SOCIAL_CARDS, false]
