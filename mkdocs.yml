@@ -27,6 +27,9 @@ nav:
   - '网络攻击的特征': 'net_security/characteristics.md'
   - '网络攻击': 'net_security/networkattack.md'
   - 'HOOK': 'net_security/hook.md'
+  - 'APT': 'net_security/apt.md'
+  - '内生安全与拟态防御': 'net_security/defense.md'
+  - '软件定义网络': 'net_security/sdn.md'
   - '侧信道攻击': 'net_security/side-channel.md'
   - '防火墙': 'net_security/firewall.md'
   - '入侵检测': 'net_security/ids.md'
@@ -53,6 +56,7 @@ nav:
   - '计算机网络':
     - '计网绪论': '408-helper/computer-network/index.md'
     - '网络层': '408-helper/computer-network/network-layer.md'
+    - '物理层': '408-helper/computer-network/physical-layer.md'
   - '操作系统':
     - '操作系统绪论': '408-helper/operating-system/index.md'
     - '进程管理': '408-helper/operating-system/process.md'
@@ -63,6 +67,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -85,6 +90,7 @@ theme:
     - navigation.top
     - navigation.expand
     - navigation.tracking
+    - navigation.instant
     - header.autohide
     - toc.integrate
     - announce.dismiss
@@ -94,8 +100,8 @@ theme:
     - content.code.annotate
   language: 'zh'
 
-copyright: > 
-  copyright &copy; Jason Ren 2019-2022 (<a href="https://www.jason0743.space" target="_blank">fantasyroom</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+copyright: >-
+  copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2022</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
 site_description: '信息安全、前端相关'
 site_author: 'Jason'
 use_directory_urls: false
@@ -106,9 +112,9 @@ repo_name: jasonren0403/notes
 edit_uri: edit/main/notes_dev/
 extra:
   ## uncomment before publish ##
-  analytics:
-    provider: google
-    property: G-Q0FWVZ6L5Y
+#  analytics:
+#    provider: google
+#    property: G-Q0FWVZ6L5Y
   disqus: 'something'
   ## uncomment before publish ##
   social:
@@ -127,7 +133,7 @@ extra:
   consent:
     title: Cookie 约定
     description: >-
-      嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请参与我的网站。
+      嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的网站。
 plugins:
   # - social:
   #     cards: !ENV [SOCIAL_CARDS, false]
@@ -135,9 +141,6 @@ plugins:
       tags_file: tags.md
   - search:
       separator: '[\s\-\.]+'
-  #     lang:
-  #       - en
-  #       - jp
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
@@ -145,7 +148,7 @@ plugins:
       fallback_to_build_date: true
       enable_creation_date: true
       exclude:
-          - notes_dev/index.md
+        - notes_dev/index.md
 extra_javascript:
   - assets/javascripts/mathjax.js
   # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0/highlight.min.js

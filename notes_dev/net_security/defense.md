@@ -9,6 +9,7 @@ tags:
 ![](md-img/defense-1.png){ width="350" }
 <figcaption>拟态括号单向联系机制</figcaption>
 </figure>
+
 ### 基础理论与原理
 * 生物内生的拟态行为成为拟态伪装(Mimic Disguise,MD)
 * 相对正确公理

@@ -36,4 +36,4 @@ disqus: ""
 * 2021.11.29 更新至mkdocs-material 8.0.1版本，可以用代码注释功能咯！
 * 2022.2.27 更新至mkdocs-material 8.2.2版本，内置了mermaidJS支持
 * 2022.4.7 更新至mkdocs-material 8.2.8版本
-* 2022.7.28 更新至mkdocs-material 8.4.0版本
+* 2022.8.15 更新至mkdocs-material 8.4.0版本

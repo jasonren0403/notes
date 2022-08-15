@@ -39,7 +39,7 @@ tags:
 
 ### 功能
 1. 流量迁移
-    * FlowTable表：(flow,from,to,action)
+    * FlowTable表：`(flow,from,to,action)`
 
 2. 攻击检测
     * 使用southbound接口收集流量特征
