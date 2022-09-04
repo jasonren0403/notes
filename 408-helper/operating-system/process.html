@@ -1,0 +1,3425 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="信息安全、前端相关">
+      
+      
+        <meta name="author" content="Jason">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>进程管理 - Jason的笔记小屋</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/ex.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="Jason的笔记小屋" class="md-header__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jason的笔记小屋
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              进程管理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至白天模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至白天模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../web_basic/index.html" class="md-tabs__link">
+        web开发技术基础
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../soft_security/index.html" class="md-tabs__link">
+        软件安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../net_security/index.html" class="md-tabs__link">
+        网络安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        408助手
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../tags.html" class="md-tabs__link">
+      按标签查找
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Jason的笔记小屋" class="md-nav__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    Jason的笔记小屋
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../web_basic/index.html">web开发技术基础</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="web开发技术基础" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          web开发技术基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web_basic/basic-structure.html" class="md-nav__link">
+        Web的基本架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web_basic/html.html" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web_basic/css.html" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web_basic/javascript.html" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web_basic/dom.html" class="md-nav__link">
+        DOM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../soft_security/index.html">软件安全</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="软件安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          软件安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/basic.html" class="md-nav__link">
+        软件基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/string.html" class="md-nav__link">
+        字符串安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/pointer.html" class="md-nav__link">
+        指针安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/memory-management.html" class="md-nav__link">
+        动态内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/integer-security.html" class="md-nav__link">
+        整数安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/string-format.html" class="md-nav__link">
+        格式化输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/concurrency.html" class="md-nav__link">
+        并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/io.html" class="md-nav__link">
+        文件输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft_security/practice.html" class="md-nav__link">
+        软件安全实践
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../net_security/index.html">网络安全</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="网络安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          网络安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/assets.html" class="md-nav__link">
+        网络安全概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/characteristics.html" class="md-nav__link">
+        网络攻击的特征
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/networkattack.html" class="md-nav__link">
+        网络攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/hook.html" class="md-nav__link">
+        HOOK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/apt.html" class="md-nav__link">
+        APT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/defense.html" class="md-nav__link">
+        内生安全与拟态防御
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/sdn.html" class="md-nav__link">
+        软件定义网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/side-channel.html" class="md-nav__link">
+        侧信道攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/firewall.html" class="md-nav__link">
+        防火墙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/ids.html" class="md-nav__link">
+        入侵检测
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/vpn.html" class="md-nav__link">
+        虚拟专用网
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/application.html" class="md-nav__link">
+        应用安全——PGP为例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../net_security/socialengineering.html" class="md-nav__link">
+        社会工程学
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../index.html">408助手</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="408助手" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          408助手
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-does-408-test.html" class="md-nav__link">
+        408考试大纲（2020版）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../computer-structure/index.html">计算机组成原理</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机组成原理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          计算机组成原理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-structure/operating.html" class="md-nav__link">
+        运算器
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../data-structure/index.html">数据结构</a>
+          
+            <label for="__nav_5_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/linear-list.html" class="md-nav__link">
+        线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/stack.html" class="md-nav__link">
+        栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/queue.html" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/array.html" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/string.html" class="md-nav__link">
+        字符串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/tree.html" class="md-nav__link">
+        树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/graph.html" class="md-nav__link">
+        图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/searching.html" class="md-nav__link">
+        查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-structure/sorting.html" class="md-nav__link">
+        排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../computer-network/index.html">计算机网络</a>
+          
+            <label for="__nav_5_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机网络" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          计算机网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-network/network-layer.html" class="md-nav__link">
+        网络层
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-network/physical-layer.html" class="md-nav__link">
+        物理层
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html">操作系统</a>
+          
+            <label for="__nav_5_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="操作系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          进程管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="process.html" class="md-nav__link md-nav__link--active">
+        进程管理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    进程与线程
+  </a>
+  
+    <nav class="md-nav" aria-label="进程与线程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcb" class="md-nav__link">
+    PCB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    进程的状态与转换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    进程控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    进程通信
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    线程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    处理机调度
+  </a>
+  
+    <nav class="md-nav" aria-label="处理机调度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    调度算法的指标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    典型的调度算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    同步与互斥
+  </a>
+  
+    <nav class="md-nav" aria-label="同步与互斥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    信号量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    管程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    经典同步问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    死锁
+  </a>
+  
+    <nav class="md-nav" aria-label="死锁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    死锁的处理策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="memory.html" class="md-nav__link">
+        内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="file.html" class="md-nav__link">
+        文件管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="io.html" class="md-nav__link">
+        输入输出(I/O)管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags.html" class="md-nav__link">
+        按标签查找
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+                
+  <a href="https://github.com/jasonren0403/notes/edit/main/notes_dev/408-helper/operating-system/process.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  
+
+  <nav class="md-tags" >
+    
+      
+        <a href="../../tags.html#408" class="md-tag">
+          408考研复习
+        </a>
+      
+    
+      
+        <a href="../../tags.html#" class="md-tag">
+          操作系统
+        </a>
+      
+    
+  </nav>
+
+
+
+<h1 id="_1">进程管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">进程与线程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="admonition summary">
+<p>进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位</p>
+</div>
+<ul>
+<li>特征</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">动态性</label><label for="__tabbed_1_2">并发性</label><label for="__tabbed_1_3">独立性</label><label for="__tabbed_1_4">异步性</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>由创建而产生，由调度而执行，由撤销而消亡</p>
+</div>
+<div class="tabbed-block">
+<p>进程的重要特征，操作系统的重要特征</p>
+</div>
+<div class="tabbed-block">
+<p>独立运行、独立分配资源、独立接受调度</p>
+</div>
+<div class="tabbed-block">
+<p>按各自独立、不可预知的速度向前推进</p>
+</div>
+</div>
+</div>
+<h3 id="pcb">PCB<a class="headerlink" href="#pcb" title="Permanent link">&para;</a></h3>
+<p>为描述和控制进程的运行，系统为每个进程定义了一个数据结构——进程控制块（Process Control Block），OS是根据PCB来对并发执行的进程进行控制和管理的</p>
+<ul>
+<li><span class="stressed">进程=程序+数据+PCB</span></li>
+<li><span class="stressed">PCB是进程存在的唯一标志</span></li>
+<li>PCB的组织方式</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">线性方式</label><label for="__tabbed_2_2">链接方式</label><label for="__tabbed_2_3">索引方式</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>所有 PCB 组织在一张线形表，表的首址放在内存专用区域</li>
+<li>实现简单</li>
+<li>查找效率低</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><img alt="link" src="asset-img/process-1.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="index" src="asset-img/process-2.png" /></p>
+</div>
+</div>
+</div>
+<h3 id="_3">进程的状态与转换<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">五状态图</label><label for="__tabbed_3_2">七状态图</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>stateDiagram-v2
+    [*]--&gt;创建态
+    创建态--&gt;就绪态
+    note right of 就绪态
+        处理机 ✖
+        其他 ✔
+    end note
+    就绪态--&gt;运行态: CPU调度
+    note left of 运行态
+        处理机 ✔
+        其他 ✔
+    end note
+    运行态--&gt;终止态
+    运行态--&gt;阻塞态:申请资源 请求等待
+    note right of 阻塞态
+        处理机 ✖
+        其他 ✖
+    end note
+    阻塞态--&gt;就绪态:资源分配 期待的事件发生
+    运行态--&gt;就绪态:时间片到
+    终止态--&gt;[*]</code></pre>
+</div>
+<div class="tabbed-block">
+<p><a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoic3RhdGVEaWFncmFtLXYyXG4gICAgWypdLS0-5Yib5bu6XG4gICAg5Yib5bu6LS0-5bCx57uqXG4gICAg5Yib5bu6LS0-5bCx57uq5oyC6LW3XG4gICAg5bCx57uq5oyC6LW3LS0-5bCx57uqOua_gOa0u1xuICAgIOWwsee7qi0tPuWwsee7quaMgui1tzrmjILotbdcbiAgICDpmLvloZ7mjILotbctLT7lsLHnu6rmjILotbc65LqL5Lu25Ye6546wXG4gICAg5bCx57uqLS0-6L-Q6KGMXG4gICAg6L-Q6KGMLS0-57uI5q2iXG4gICAg6L-Q6KGMLS0-6Zi75aGeXG4gICAg6L-Q6KGMLS0-5bCx57uq5oyC6LW3XG4gICAg6Zi75aGeLS0-5bCx57uqXG4gICAg6Zi75aGeLS0-6Zi75aGe5oyC6LW3OuaMgui1t1xuICAgIOmYu-WhnuaMgui1ty0tPumYu-Whnjrmv4DmtLtcbiAgICDov5DooYwtLT7lsLHnu6pcbiAgICDnu4jmraItLT5bKl1cbiAgICAgICAgICAgICIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0IiwidGhlbWVWYXJpYWJsZXMiOnsiYmFja2dyb3VuZCI6IndoaXRlIiwicHJpbWFyeUNvbG9yIjoiI0VDRUNGRiIsInNlY29uZGFyeUNvbG9yIjoiI2ZmZmZkZSIsInRlcnRpYXJ5Q29sb3IiOiJoc2woODAsIDEwMCUsIDk2LjI3NDUwOTgwMzklKSIsInByaW1hcnlCb3JkZXJDb2xvciI6ImhzbCgyNDAsIDYwJSwgODYuMjc0NTA5ODAzOSUpIiwic2Vjb25kYXJ5Qm9yZGVyQ29sb3IiOiJoc2woNjAsIDYwJSwgODMuNTI5NDExNzY0NyUpIiwidGVydGlhcnlCb3JkZXJDb2xvciI6ImhzbCg4MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJwcmltYXJ5VGV4dENvbG9yIjoiIzEzMTMwMCIsInNlY29uZGFyeVRleHRDb2xvciI6IiMwMDAwMjEiLCJ0ZXJ0aWFyeVRleHRDb2xvciI6InJnYig5LjUwMDAwMDAwMDEsIDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxKSIsImxpbmVDb2xvciI6IiMzMzMzMzMiLCJ0ZXh0Q29sb3IiOiIjMzMzIiwibWFpbkJrZyI6IiNFQ0VDRkYiLCJzZWNvbmRCa2ciOiIjZmZmZmRlIiwiYm9yZGVyMSI6IiM5MzcwREIiLCJib3JkZXIyIjoiI2FhYWEzMyIsImFycm93aGVhZENvbG9yIjoiIzMzMzMzMyIsImZvbnRGYW1pbHkiOiJcInRyZWJ1Y2hldCBtc1wiLCB2ZXJkYW5hLCBhcmlhbCIsImZvbnRTaXplIjoiMTZweCIsImxhYmVsQmFja2dyb3VuZCI6IiNlOGU4ZTgiLCJub2RlQmtnIjoiI0VDRUNGRiIsIm5vZGVCb3JkZXIiOiIjOTM3MERCIiwiY2x1c3RlckJrZyI6IiNmZmZmZGUiLCJjbHVzdGVyQm9yZGVyIjoiI2FhYWEzMyIsImRlZmF1bHRMaW5rQ29sb3IiOiIjMzMzMzMzIiwidGl0bGVDb2xvciI6IiMzMzMiLCJlZGdlTGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsImFjdG9yQm9yZGVyIjoiaHNsKDI1OS42MjYxNjgyMjQzLCA1OS43NzY1MzYzMTI4JSwgODcuOTAxOTYwNzg0MyUpIiwiYWN0b3JCa2ciOiIjRUNFQ0ZGIiwiYWN0b3JUZXh0Q29sb3IiOiJibGFjayIsImFjdG9yTGluZUNvbG9yIjoiZ3JleSIsInNpZ25hbENvbG9yIjoiIzMzMyIsInNpZ25hbFRleHRDb2xvciI6IiMzMzMiLCJsYWJlbEJveEJrZ0NvbG9yIjoiI0VDRUNGRiIsImxhYmVsQm94Qm9yZGVyQ29sb3IiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJsYWJlbFRleHRDb2xvciI6ImJsYWNrIiwibG9vcFRleHRDb2xvciI6ImJsYWNrIiwibm90ZUJvcmRlckNvbG9yIjoiI2FhYWEzMyIsIm5vdGVCa2dDb2xvciI6IiNmZmY1YWQiLCJub3RlVGV4dENvbG9yIjoiYmxhY2siLCJhY3RpdmF0aW9uQm9yZGVyQ29sb3IiOiIjNjY2IiwiYWN0aXZhdGlvbkJrZ0NvbG9yIjoiI2Y0ZjRmNCIsInNlcXVlbmNlTnVtYmVyQ29sb3IiOiJ3aGl0ZSIsInNlY3Rpb25Ca2dDb2xvciI6InJnYmEoMTAyLCAxMDIsIDI1NSwgMC40OSkiLCJhbHRTZWN0aW9uQmtnQ29sb3IiOiJ3aGl0ZSIsInNlY3Rpb25Ca2dDb2xvcjIiOiIjZmZmNDAwIiwidGFza0JvcmRlckNvbG9yIjoiIzUzNGZiYyIsInRhc2tCa2dDb2xvciI6IiM4YTkwZGQiLCJ0YXNrVGV4dExpZ2h0Q29sb3IiOiJ3aGl0ZSIsInRhc2tUZXh0Q29sb3IiOiJ3aGl0ZSIsInRhc2tUZXh0RGFya0NvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dE91dHNpZGVDb2xvciI6ImJsYWNrIiwidGFza1RleHRDbGlja2FibGVDb2xvciI6IiMwMDMxNjMiLCJhY3RpdmVUYXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwiYWN0aXZlVGFza0JrZ0NvbG9yIjoiI2JmYzdmZiIsImdyaWRDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQmtnQ29sb3IiOiJsaWdodGdyZXkiLCJkb25lVGFza0JvcmRlckNvbG9yIjoiZ3JleSIsImNyaXRCb3JkZXJDb2xvciI6IiNmZjg4ODgiLCJjcml0QmtnQ29sb3IiOiJyZWQiLCJ0b2RheUxpbmVDb2xvciI6InJlZCIsImxhYmVsQ29sb3IiOiJibGFjayIsImVycm9yQmtnQ29sb3IiOiIjNTUyMjIyIiwiZXJyb3JUZXh0Q29sb3IiOiIjNTUyMjIyIiwiY2xhc3NUZXh0IjoiIzEzMTMwMCIsImZpbGxUeXBlMCI6IiNFQ0VDRkYiLCJmaWxsVHlwZTEiOiIjZmZmZmRlIiwiZmlsbFR5cGUyIjoiaHNsKDMwNCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwiZmlsbFR5cGUzIjoiaHNsKDEyNCwgMTAwJSwgOTMuNTI5NDExNzY0NyUpIiwiZmlsbFR5cGU0IjoiaHNsKDE3NiwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwiZmlsbFR5cGU1IjoiaHNsKC00LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTYiOiJoc2woOCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwiZmlsbFR5cGU3IjoiaHNsKDE4OCwgMTAwJSwgOTMuNTI5NDExNzY0NyUpIn19LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ"><img alt="7-state" src="https://mermaid.ink/img/eyJjb2RlIjoic3RhdGVEaWFncmFtLXYyXG4gICAgWypdLS0-5Yib5bu6XG4gICAg5Yib5bu6LS0-5bCx57uqXG4gICAg5Yib5bu6LS0-5bCx57uq5oyC6LW3XG4gICAg5bCx57uq5oyC6LW3LS0-5bCx57uqOua_gOa0u1xuICAgIOWwsee7qi0tPuWwsee7quaMgui1tzrmjILotbdcbiAgICDpmLvloZ7mjILotbctLT7lsLHnu6rmjILotbc65LqL5Lu25Ye6546wXG4gICAg5bCx57uqLS0-6L-Q6KGMXG4gICAg6L-Q6KGMLS0-57uI5q2iXG4gICAg6L-Q6KGMLS0-6Zi75aGeXG4gICAg6L-Q6KGMLS0-5bCx57uq5oyC6LW3XG4gICAg6Zi75aGeLS0-5bCx57uqXG4gICAg6Zi75aGeLS0-6Zi75aGe5oyC6LW3OuaMgui1t1xuICAgIOmYu-WhnuaMgui1ty0tPumYu-Whnjrmv4DmtLtcbiAgICDov5DooYwtLT7lsLHnu6pcbiAgICDnu4jmraItLT5bKl1cbiAgICAgICAgICAgICIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0IiwidGhlbWVWYXJpYWJsZXMiOnsiYmFja2dyb3VuZCI6IndoaXRlIiwicHJpbWFyeUNvbG9yIjoiI0VDRUNGRiIsInNlY29uZGFyeUNvbG9yIjoiI2ZmZmZkZSIsInRlcnRpYXJ5Q29sb3IiOiJoc2woODAsIDEwMCUsIDk2LjI3NDUwOTgwMzklKSIsInByaW1hcnlCb3JkZXJDb2xvciI6ImhzbCgyNDAsIDYwJSwgODYuMjc0NTA5ODAzOSUpIiwic2Vjb25kYXJ5Qm9yZGVyQ29sb3IiOiJoc2woNjAsIDYwJSwgODMuNTI5NDExNzY0NyUpIiwidGVydGlhcnlCb3JkZXJDb2xvciI6ImhzbCg4MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJwcmltYXJ5VGV4dENvbG9yIjoiIzEzMTMwMCIsInNlY29uZGFyeVRleHRDb2xvciI6IiMwMDAwMjEiLCJ0ZXJ0aWFyeVRleHRDb2xvciI6InJnYig5LjUwMDAwMDAwMDEsIDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxKSIsImxpbmVDb2xvciI6IiMzMzMzMzMiLCJ0ZXh0Q29sb3IiOiIjMzMzIiwibWFpbkJrZyI6IiNFQ0VDRkYiLCJzZWNvbmRCa2ciOiIjZmZmZmRlIiwiYm9yZGVyMSI6IiM5MzcwREIiLCJib3JkZXIyIjoiI2FhYWEzMyIsImFycm93aGVhZENvbG9yIjoiIzMzMzMzMyIsImZvbnRGYW1pbHkiOiJcInRyZWJ1Y2hldCBtc1wiLCB2ZXJkYW5hLCBhcmlhbCIsImZvbnRTaXplIjoiMTZweCIsImxhYmVsQmFja2dyb3VuZCI6IiNlOGU4ZTgiLCJub2RlQmtnIjoiI0VDRUNGRiIsIm5vZGVCb3JkZXIiOiIjOTM3MERCIiwiY2x1c3RlckJrZyI6IiNmZmZmZGUiLCJjbHVzdGVyQm9yZGVyIjoiI2FhYWEzMyIsImRlZmF1bHRMaW5rQ29sb3IiOiIjMzMzMzMzIiwidGl0bGVDb2xvciI6IiMzMzMiLCJlZGdlTGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsImFjdG9yQm9yZGVyIjoiaHNsKDI1OS42MjYxNjgyMjQzLCA1OS43NzY1MzYzMTI4JSwgODcuOTAxOTYwNzg0MyUpIiwiYWN0b3JCa2ciOiIjRUNFQ0ZGIiwiYWN0b3JUZXh0Q29sb3IiOiJibGFjayIsImFjdG9yTGluZUNvbG9yIjoiZ3JleSIsInNpZ25hbENvbG9yIjoiIzMzMyIsInNpZ25hbFRleHRDb2xvciI6IiMzMzMiLCJsYWJlbEJveEJrZ0NvbG9yIjoiI0VDRUNGRiIsImxhYmVsQm94Qm9yZGVyQ29sb3IiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJsYWJlbFRleHRDb2xvciI6ImJsYWNrIiwibG9vcFRleHRDb2xvciI6ImJsYWNrIiwibm90ZUJvcmRlckNvbG9yIjoiI2FhYWEzMyIsIm5vdGVCa2dDb2xvciI6IiNmZmY1YWQiLCJub3RlVGV4dENvbG9yIjoiYmxhY2siLCJhY3RpdmF0aW9uQm9yZGVyQ29sb3IiOiIjNjY2IiwiYWN0aXZhdGlvbkJrZ0NvbG9yIjoiI2Y0ZjRmNCIsInNlcXVlbmNlTnVtYmVyQ29sb3IiOiJ3aGl0ZSIsInNlY3Rpb25Ca2dDb2xvciI6InJnYmEoMTAyLCAxMDIsIDI1NSwgMC40OSkiLCJhbHRTZWN0aW9uQmtnQ29sb3IiOiJ3aGl0ZSIsInNlY3Rpb25Ca2dDb2xvcjIiOiIjZmZmNDAwIiwidGFza0JvcmRlckNvbG9yIjoiIzUzNGZiYyIsInRhc2tCa2dDb2xvciI6IiM4YTkwZGQiLCJ0YXNrVGV4dExpZ2h0Q29sb3IiOiJ3aGl0ZSIsInRhc2tUZXh0Q29sb3IiOiJ3aGl0ZSIsInRhc2tUZXh0RGFya0NvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dE91dHNpZGVDb2xvciI6ImJsYWNrIiwidGFza1RleHRDbGlja2FibGVDb2xvciI6IiMwMDMxNjMiLCJhY3RpdmVUYXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwiYWN0aXZlVGFza0JrZ0NvbG9yIjoiI2JmYzdmZiIsImdyaWRDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQmtnQ29sb3IiOiJsaWdodGdyZXkiLCJkb25lVGFza0JvcmRlckNvbG9yIjoiZ3JleSIsImNyaXRCb3JkZXJDb2xvciI6IiNmZjg4ODgiLCJjcml0QmtnQ29sb3IiOiJyZWQiLCJ0b2RheUxpbmVDb2xvciI6InJlZCIsImxhYmVsQ29sb3IiOiJibGFjayIsImVycm9yQmtnQ29sb3IiOiIjNTUyMjIyIiwiZXJyb3JUZXh0Q29sb3IiOiIjNTUyMjIyIiwiY2xhc3NUZXh0IjoiIzEzMTMwMCIsImZpbGxUeXBlMCI6IiNFQ0VDRkYiLCJmaWxsVHlwZTEiOiIjZmZmZmRlIiwiZmlsbFR5cGUyIjoiaHNsKDMwNCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwiZmlsbFR5cGUzIjoiaHNsKDEyNCwgMTAwJSwgOTMuNTI5NDExNzY0NyUpIiwiZmlsbFR5cGU0IjoiaHNsKDE3NiwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwiZmlsbFR5cGU1IjoiaHNsKC00LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTYiOiJoc2woOCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwiZmlsbFR5cGU3IjoiaHNsKDE4OCwgMTAwJSwgOTMuNTI5NDExNzY0NyUpIn19LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ" /></a></p>
+</div>
+</div>
+</div>
+<ul>
+<li>挂起操作：暂时不执行的进程会被调到外存从而转为“挂起态”</li>
+</ul>
+<h3 id="_4">进程控制<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>进程控制是指：进程的创建、终止，进程状态转换的控制，是由操作系统内核中的原语实现的</p>
+<ul>
+<li>原语在执行期间是不可分割的，一个操作中的所有动作要么全做，要么全不做。</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">创建</label><label for="__tabbed_4_2">终止</label><label for="__tabbed_4_3">阻塞与唤醒</label><label for="__tabbed_4_4">挂起</label><label for="__tabbed_4_5">激活</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>调用进程创建原语<code>create()</code></li>
+</ul>
+<pre class="mermaid"><code>graph LR
+D(start)--&gt;E[申请空白PCB]
+E --&gt;|申请不到| B(出错)
+E --&gt;|申请到|F[申请内存空间]
+F --&gt;|申请不到| B(出错)
+F --&gt;|申请到|G[装入程序和数据]
+G --&gt;H[分配其他资源]
+H --&gt;I[填写PCB的相关项]
+I --&gt;A[将PCB链入就绪队列]
+A --&gt;C(end)</code></pre>
+</div>
+<div class="tabbed-block">
+<div class="admonition summary">
+<p class="admonition-title">引起进程终止(Termination of Process)的事件</p>
+<ol>
+<li>正常结束</li>
+<li>异常结束： 越界错误、保护错、非法指令、特权指令错、运行超时、等待超时、算术运算错、I/O故障</li>
+<li>外界干预： 操作员或操作系统干预（如死锁）、父进程请求、父进程中止</li>
+</ol>
+</div>
+<ul>
+<li>根据被终止进程的标识符，从PCB集合中检索出该进程的PCB，从中读出该进程的状态</li>
+<li>若被终止进程正处于执行状态，应立即终止该进程的执行，并置调度标志为真，用于指示该进程被终止后应重新进行调度</li>
+<li>若该进程还有子孙进程，还应将其所有子孙进程予以终止，以防他们成为不可控的进程</li>
+<li>将被终止进程所拥有的全部资源，或者归还给其父进程，或者归还给系统</li>
+<li>将被终止进程(它的PCB)从所在队列(或链表)中移出</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="admonition summary">
+<p class="admonition-title">引起进程阻塞与唤醒的事件</p>
+<ol>
+<li>请求系统服务</li>
+<li>启动某种操作</li>
+<li>新数据尚未到达</li>
+<li>无新工作可做</li>
+</ol>
+</div>
+<ul>
+<li>
+<p>正在执行的进程，当发现上述某事件时，由于无法继续执行，于是进程便通过调用阻塞原语<code>block()</code>把自己阻塞</p>
+<ol>
+<li>立即停止执行，把进程控制块中的现行状态由“执行”改为阻塞</li>
+<li>将PCB插入阻塞队列</li>
+<li>转调度程序进行重新调度，将处理机分配给另一就绪进程，并进行切换</li>
+</ol>
+</li>
+<li>
+<p>当被阻塞进程所期待的事件出现时，则由有关进程调用唤醒原语<code>wakeup()</code>，将等待该事件的进程唤醒</p>
+<ol>
+<li>把被阻塞的进程从阻塞队列中移出</li>
+<li>将其PCB中的现行状态由阻塞改为就绪</li>
+<li>然后再将该PCB插入到就绪队列中</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>当出现了引起进程挂起的事件时，系统将利用挂起原语<code>suspend()</code>将指定进程挂起。<ol>
+<li>检查被挂起进程的状态，活动就绪改为静止就绪；活动阻塞改为静止阻塞。</li>
+<li>把该进程的PCB复制到指定内存区域。</li>
+<li>若被挂起的进程正在执行，则转向调度程序重新调度。</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>当发生激活进程的事件时，系统将利用激活原语<code>active()</code>将指定进程激活<ol>
+<li>将进程从外存调入内存，检查其现行状态，静止就绪改为活动就绪；静止阻塞改为活动阻塞</li>
+<li>假如采用的是抢占调度策略，则每当有新进程进入就绪队列时，应检查是否要进行重新调度</li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="_5">进程通信<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="admonition summary">
+<p>进程通信是指进程之间的信息交换。 (各进程为了保持联系而换信息)</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">共享存储</label><label for="__tabbed_5_2">管道通信</label><label for="__tabbed_5_3">消息传递</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>进程之间通过共享某些数据结构或存储区实现信息传送，有两种类型：</p>
+<ol>
+<li>基于共享数据结构的通信方式（属于低级通信）</li>
+<li>基于共享存储区的通信方式（传输大量数据，属于高级通信）</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>所谓“管道”，是指用于连接一个读进程和一个写进程以实现他们之间通信的一个共享文件，又名pipe文件；</p>
+<ul>
+<li>向管道提供输入的发送进程(即写进程) ，以字符流形式将大量的数据送入管道；而接收进程(即读进程)，可从管道中接收数据</li>
+<li>管道机制必须提供的协调能力：互斥、同步、确定对方是否存在</li>
+<li>一段时间内，一个管道内只能单向传输</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>系统提供发送消息 <code>Send(message)</code>与接收消息 <code>Receive(message)</code> 两个操作，进程间则通过使用这两个操作进行通讯，无需共享任何变量</p>
+<ul>
+<li>根据实现方式的不同分成直接通信方式和间接通信方式两种</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">直接消息传递系统</label><label for="__tabbed_6_2">间接消息传递系统（信箱通信）</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>发送进程利用OS所提供的发送命令，直接把消息发送给目标进程</li>
+<li>要求发送进程和接收进程都以显式方式提供对方的标识符</li>
+<li>系统提供下述两条通信命令(原语)：<ul>
+<li><code>Send(Receiver, message)</code></li>
+<li><code>Receive(Sender, message)</code></li>
+</ul>
+</li>
+<li>消息的组成：消息头（控制信息）+消息正文（实际数据）</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>进程不把消息直接发给接收者进程，而把消息放在某个双方约定的信箱中</li>
+<li>系统提供若干原语，分别用于信箱的创建、撤销和消息的发送、接收</li>
+<li>
+<p>信箱分为以下三类</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">私用信箱</label><label for="__tabbed_7_2">公用信箱</label><label for="__tabbed_7_3">共享信箱</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>用户进程可为自己建立一个新信箱，并作为该进程的一部分。信箱的拥有者有权从信箱中读取消息，其他用户则只能将自己构成的消息发送到该信箱中。</p>
+</div>
+<div class="tabbed-block">
+<p>它由操作系统创建，并提供给系统中的所有核准进程使用。核准进程既可把消息发送到该信箱中，也可从信箱中读取发送给自己的消息。</p>
+</div>
+<div class="tabbed-block">
+<p>它由某进程创建，在创建时或创建后，指明它是可共享的，同时须指出共享进程(用户)的名字。信箱的拥有者和共享者，都有权从信箱中取走发送给自己的消息。</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="_6">线程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="admonition summary">
+<p>引入进程，是为了使多个程序能并发执行，以提高资源利用率和系统吞吐量；引入线程，是为了减少程序在并发执行时的时空开销，使OS有更好的并行性。</p>
+</div>
+<ul>
+<li>线程是进程内一个相对独立的、可调度的执行单元，是处理机调度的基本单位。</li>
+<li>
+<p>对于多线程机制而言，一个进程可以有多个线程</p>
+<ul>
+<li>这些线程共享该进程资源</li>
+</ul>
+</li>
+<li>
+<p>线程的状态</p>
+<ul>
+<li>线程状态间的转换和<a href="#_3">进程状态间的转换</a>是一样的</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">执行</label><label for="__tabbed_8_2">就绪</label><label for="__tabbed_8_3">阻塞</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>线程已获得处理机而正在运行</p>
+</div>
+<div class="tabbed-block">
+<p>线程已具备了各种执行条件，只需再获得CPU便可立即执行</p>
+</div>
+<div class="tabbed-block">
+<p>线程在执行中因某事件受阻而处于暂停状态</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>线程控制块TCB</p>
+<ul>
+<li>系统为每一个线程配置了线程控制块TCB，将所有用于控制和管理线程的信息记录在线程控制块中。包含以下信息：</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:7"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><input id="__tabbed_9_6" name="__tabbed_9" type="radio" /><input id="__tabbed_9_7" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">线程标识符</label><label for="__tabbed_9_2">一组寄存器</label><label for="__tabbed_9_3">线程运行状态</label><label for="__tabbed_9_4">优先级</label><label for="__tabbed_9_5">线程专有存储区</label><label for="__tabbed_9_6">信号屏蔽</label><label for="__tabbed_9_7">堆栈指针</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>为每个线程赋予一个唯一的线程标识符</p>
+</div>
+<div class="tabbed-block">
+<p>包括程序计数器PC、状态寄存器和通用寄存器的内容</p>
+</div>
+<div class="tabbed-block">
+<p>描述线程正处于何种运行状态</p>
+</div>
+<div class="tabbed-block">
+<p>描述线程执行的优先程度</p>
+</div>
+<div class="tabbed-block">
+<p>用于线程切换时存放现场保护信息和与该线程相关的统计信息等</p>
+</div>
+<div class="tabbed-block">
+<p>对某些信号加以屏蔽</p>
+</div>
+<div class="tabbed-block">
+<p>在堆栈中，保存局部变量和返回地址，同时在TCB中设立指向用户自己堆栈的指针和指向核心栈的指针</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>线程实现</p>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">内核支持线程KST</label><label for="__tabbed_10_2">用户级线程ULT</label><label for="__tabbed_10_3">组合方式</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>无论用户进程中的线程，还是系统进程中的线程，其创建、撤销和切换都依靠内核，在内核空间通过系统调用实现</p>
+</div>
+<div class="tabbed-block">
+<p>用户级线程仅在用户空间中，与内核无关，所有对线程的操作(创建、撤销、同步、互斥等)也在用户空间中由线程库的函数（过程）完成，而无需内核帮助</p>
+</div>
+<div class="tabbed-block">
+<p>内核支持多个内核支持线程的建立、调度和管理，同时，也允许用户应用程序建立、调度和管理用户级线程</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">多对一模型</label><label for="__tabbed_11_2">一对一模型</label><label for="__tabbed_11_3">多对多模型</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>将许多用户级线程映射到一个内核线程</p>
+<p><img alt="mul-to-1" src="asset-img/process-3.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>将每一个用户级线程映射到一个内核线程</p>
+<p><img alt="1-to-1" src="asset-img/process-4.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>多路复用了很多用户级线程到同样数量或更小数量的内核线程上</p>
+<p><img alt="mul-to-mul" src="asset-img/process-5.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="_7">处理机调度<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="admonition summary">
+<p>在多道程序系统中，调度的实质是一种资源分配</p>
+</div>
+<details class="faq">
+<summary>什么时候发生调度？</summary>
+<p>运行进程主动或被动放弃处理机</p>
+</details>
+<details class="faq">
+<summary>什么时候不发生调度？</summary>
+<ol>
+<li>处理中断</li>
+<li>操作系统内核程序临界区</li>
+<li>原子操作</li>
+</ol>
+</details>
+<ul>
+<li>层次</li>
+</ul>
+<div class="admonition summary">
+<p class="admonition-title">三种调度层次的比较</p>
+<table>
+<thead>
+<tr>
+<th align="center">调度类型</th>
+<th align="center">运行频率</th>
+<th align="center">运行时间</th>
+<th align="center">算法复杂性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">低级调度</td>
+<td align="center">高</td>
+<td align="center">短</td>
+<td align="center">低</td>
+</tr>
+<tr>
+<td align="center">中级调度</td>
+<td align="center">中等</td>
+<td align="center">较短</td>
+<td align="center">中等</td>
+</tr>
+<tr>
+<td align="center">高级调度</td>
+<td align="center">低</td>
+<td align="center">长</td>
+<td align="center">高</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">高级调度</label><label for="__tabbed_12_2">中级调度</label><label for="__tabbed_12_3">低级调度</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>也称宏观（作业）调度，决定哪些程序可以进入系统</p>
+<ul>
+<li>作业（JOB）是用户在一次算题过程中或一次事务处理中，要求计算机系统所做的工作的集合</li>
+<li>作业不仅包含了通常的程序和数据，而且还配有一份作业说明书</li>
+<li>作业控制块JCB是一个作业在系统中存在的惟一标志，包含了对作业进行管理的必要信息</li>
+<li>作业运行的三个阶段和三种状态<ul>
+<li>收容阶段：后备状态</li>
+<li>运行阶段：运行状态</li>
+<li>完成阶段：完成状态</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>也称内存调度，决定内存中程序的位置和状态</p>
+</div>
+<div class="tabbed-block">
+<p>也称微观（进程）调度，决定 CPU 资源在就绪进程间的分配</p>
+<ul>
+<li>进程调度机制</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">排队器</label><label for="__tabbed_13_2">分派器</label><label for="__tabbed_13_3">上下文切换器</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>将就绪进程按一定方式排成队列</p>
+</div>
+<div class="tabbed-block">
+<p>把进程调度程序选定的进程，从就绪队列中取出，进行上下文切换，把处理器分配给它</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>保存当前进程上下文，装入分派程序上下文，分派程序运行</li>
+<li>移出分派程序，装入新选进程上下文</li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>进程调度方式</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">非抢占方式</label><label for="__tabbed_14_2">抢占方式</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>一旦处理机分配，便让进程一直执行，直至该进程完成或发生某事件而被阻塞时，才再把处理机分配给其它进程</p>
+<div class="admonition summary">
+<p class="admonition-title">该情况下可能引起进程调度的因素</p>
+<ul>
+<li>正在执行的进程执行完毕，或因发生某事件而不能再继续执行</li>
+<li>执行中的进程因提出 I/O 请求而暂停执行</li>
+<li>在进程通信或同步过程中执行了某种原语操作，如P操作(wait 操作)、 Block 原语、Wakeup</li>
+</ul>
+</div>
+<div class="admonition success">
+<p>实现简单、系统开销小，适用于大多数的批处理系统环境</p>
+</div>
+<div class="admonition fail">
+<p>难于满足需要立即执行的紧急任务，在要求比较严格的实时系统中不宜采用</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>允许调度程序停止正在执行的进程，将已分配给该进程的处理机，重新分配给另一进程</p>
+<ul>
+<li>抢占的原则有时间片原则、优先权原则、短作业(进程)优先原则</li>
+</ul>
+<div class="admonition success">
+<p>可防止长进程长时间占有处理机，为多数进程提供公平服务</p>
+</div>
+<div class="admonition fail">
+<p>系统开销较大</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>实时调度</li>
+</ul>
+<!--非考研内容，待填坑-->
+
+<h3 id="_8">调度算法的指标<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:4"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><input id="__tabbed_15_4" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">CPU利用率</label><label for="__tabbed_15_2">周转时间</label><label for="__tabbed_15_3">系统吞吐量</label><label for="__tabbed_15_4">响应时间</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="arithmatex">\[
+\begin{align}
+\operatorname{CPU利用率}  &amp; = \frac{t_{有效}}{t_总} \\
+t_总 &amp; = t_{有效}+t_{空闲}
+\end{align}
+\]</div>
+</div>
+<div class="tabbed-block">
+<p>从作业提交给系统开始，到作业完成为止的这段时间间隔，包括：</p>
+<ol>
+<li>作业在外存后备队列上等待(作业) 调度的时间</li>
+<li>进程在就绪队列上等待进程调度的时间</li>
+<li>进程在 CPU 上执行的时间</li>
+<li>等待I/O 操作完成的时间</li>
+</ol>
+<div class="arithmatex">\[
+\begin{align}
+平均周转时间T &amp; = \frac{1}{n}[\sum_{i=1}^{n}T_i ] \\
+若系统为作业提供的实际服务时间为&amp;T_s，W=\frac {T}{T_s}称为带权周转时间，则\\
+平均带权周转时间W &amp; = \frac{1}{n}[\sum_{i=1}^{n}\frac{T_i}{T_{si}}]
+\end{align}
+\]</div>
+</div>
+<div class="tabbed-block">
+<p>单位时间内所完成的作业数</p>
+</div>
+<div class="tabbed-block">
+<p>从用户通过键盘提交一个请求开始，直至系统首次产生响应为止的时间，包括：</p>
+<ol>
+<li>从键盘输入的请求信息传送到处理机的时间</li>
+<li>处理机对请求信息进行处理的时间</li>
+<li>将所形成的响应回送到终端显示器的时间</li>
+</ol>
+</div>
+</div>
+</div>
+<h3 id="_9">典型的调度算法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:6"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><input id="__tabbed_16_4" name="__tabbed_16" type="radio" /><input id="__tabbed_16_5" name="__tabbed_16" type="radio" /><input id="__tabbed_16_6" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">FCFS(先来先服务)</label><label for="__tabbed_16_2">SJF(短作业优先)/SPF(短进程优先)</label><label for="__tabbed_16_3">RR(时间片轮转)</label><label for="__tabbed_16_4">PSA(优先级)</label><label for="__tabbed_16_5">HRRN(高响应比优先)</label><label for="__tabbed_16_6">多队列及多级反馈队列</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>每次调度都是选择一个或多个最先进入队列的作业或进程，为它们分配资源，创建进程或分配CPU，使之投入运行。</p>
+<ul>
+<li>既可用于作业调度，也可用于进程调度</li>
+<li>特点<ul>
+<li>作业调度和进程调度均可，最简单，本质上属非剥夺方式</li>
+<li>有利于长作业/进程，不利于短作业</li>
+<li>有利于CPU 繁忙型的作业(如通常的科学计算)，而不利于I/O 繁忙的作业/进程（如大多数的事务处理)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>短作业(进程)优先调度算法 SJ(P)F，是指对短作业或短进程优先调度的算法。分别用于作业调度和进程调度</p>
+<ul>
+<li>以作业或进程的长短计算优先级，作业或进程越短，优先级越高</li>
+<li>特点<ul>
+<li>SJ(P)F 调度算法有利于短作业，与 FCFS 算法相比，大大降低短作业的周转时间，平均周转时间短，系统吞吐量高</li>
+<li>SJ(P)F 调度算法对长作业不利。甚至可能导致长作业(进程)长期不被调度，发生“饥饿”现象</li>
+<li>该算法完全未考虑作业的紧迫程度，因而不能保证紧迫性作业(进程)会被及时处理</li>
+<li>此外，由于作业(进程)的长短只是根据用户所提供的估计执行时间而定的，而用户又可能会有意或无意地缩短其作业的估计运行时间，致使该算法不一定能真正做到短作业优先调度</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>就绪进程按照先来先服务策略排成一个队列，每次调度时将CPU分配给队首进程，并令其执行一个时间片，当执行时间片用完时，停止该进程的执行，并将其送往就绪队列的末尾，然后把处理机分配给就绪队列新的队首，令其执行一个时间片……如此循环，直至时间片用完即可</p>
+<ul>
+<li>分时系统普遍采用</li>
+<li>何时切换进程：时间片用完；或者时间片未用完，且正在运行的进程已完成</li>
+<li>确定时间片大小：略大于一次典型的交互所需要的时间</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>按照进程的优先级大小来调度，使高优先级进程得到优先的处理的高度策略称为优先级调度算法</p>
+<ul>
+<li>既可用于作业调度，也可用于进程调度</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">非抢占式优先级调度法</label><label for="__tabbed_17_2">抢占式优先级调度法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>一旦某个高优先级的进程占有了处理机，就一直运行下去，直到由于其自身的原因而主动让出处理机时(任务完成或等待事件)才让另一高优先级进程运行</p>
+</div>
+<div class="tabbed-block">
+<p>任何时刻都严格按照高优先级进程在处理机上运行的原则进行进程的调度</p>
+</div>
+</div>
+</div>
+<ul>
+<li>优先权的确定</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">静态优先级</label><label for="__tabbed_18_2">动态优先级</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>静态优先权是在创建进程时确定的，且在进程的整个运行期间保持不变</p>
+<ul>
+<li>确定进程优先权的依据有如下三个方面</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">进程类型</label><label for="__tabbed_19_2">进程对资源的需求</label><label for="__tabbed_19_3">用户要求</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>通常系统进程的优先级高于一般用户进程的优先级</p>
+</div>
+<div class="tabbed-block">
+<p>对资源要求少的进程应赋予较高的优先级</p>
+</div>
+<div class="tabbed-block">
+<p>根据进程的紧迫程度及用户所付费用的多少确定优先级</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>在创建进程时所赋予的优先权，是可以随进程的推进或随其等待时间的增加而改变的，以便获得更好的调度性能。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>短作业优先算法的不足之处是长作业的运行得不到保证，为每个作业引入动态优先权，使长作业在等待一段时间后，有机会分配到处理机</p>
+<div class="arithmatex">\[
+优先级 = R_p = \frac {等待时间+要求服务时间}{要求服务时间}=\frac{响应时间}{要求服务时间}
+\]</div>
+<ul>
+<li>特点<ul>
+<li>如果作业的等待时间相同，则要求服务的时间愈短，其优先权愈高，因而该算法有利于短作业。</li>
+<li>当要求服务的时间相同时，作业的优先权决定于其等待时间，等待时间愈长，其优先权愈高，因而它实现的是先来先服务。</li>
+<li>对于长作业，作业的优先级可以随等待时间的增加而提高，当其等待时间足够长时，其优先级便可升到很高，从而也可获得处理机</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">多队列</label><label for="__tabbed_20_2">多级反馈队列</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>设置多个就绪队列，不同队列采用不同算法</p>
+<ul>
+<li>同一队列不同进程可设置不同优先级</li>
+<li>不同队列也可设置不同优先级</li>
+<li>调度策略灵活</li>
+<li>对多处理机系统能很好支持</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>设置多个就绪队列，每个队列赋予不同的优先级。队列按FCFS原则排列，各队列时间片不同</p>
+<ul>
+<li>当一个新进程进入内存后，首先放在第一队列尾，按FCFS原则调度；如果该时间片内未结束，转入第二队队列尾；直到最后的第N队列，在第N队列采取按时间片轮转方式调度</li>
+<li>仅当第 <code>i</code> 队列空闲时，才调度第<code>i+1</code>队列</li>
+<li>如有新进程进入优先级较高的队列，则剥夺CPU执行新进程，旧进程放入原队列尾</li>
+<li>不必事先知道各进程所需执行时间，可满足各种进程需要，是目前被公认较好的调度算法</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="_10">同步与互斥<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>进程同步<ul>
+<li>并发性带来了异步性，有时需要通过进程同步解决这种异步问题。有的进程之间需要相互配合完成工作，各进程的工作推进需要遵循一定的先后顺序。</li>
+</ul>
+</li>
+<li>
+<p>进程互斥</p>
+<ul>
+<li>对临界资源（只能排它使用的资源）的访问需要互斥的进行，同一时间段内只能允许一个进程访问该资源。</li>
+</ul>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>do{
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    entry section; //进入区，检查并上锁
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    critical section; //临界区，访问临界资源
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    exit section; //退出区，解锁
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    remainder section; //剩余区，其余代码部分
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>}while(true);
+</code></pre></div>
+<ul>
+<li>
+<p>同步机制原则</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:4"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><input id="__tabbed_21_3" name="__tabbed_21" type="radio" /><input id="__tabbed_21_4" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">空闲让进</label><label for="__tabbed_21_2">忙则等待</label><label for="__tabbed_21_3">有限等待</label><label for="__tabbed_21_4">让权等待</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>临界区空闲时，应允许一个进程访问。</p>
+</div>
+<div class="tabbed-block">
+<p>临界区忙碌时，其他试图访问的进程需等待。</p>
+</div>
+<div class="tabbed-block">
+<p>要在有限的时间内进入临界区，保证不会饥饿。</p>
+</div>
+<div class="tabbed-block">
+<p>进程不能进入临界区时，应释放处理机，防止忙等。</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>互斥机制的实现</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">软件</label><label for="__tabbed_22_2">硬件</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="23:4"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><input id="__tabbed_23_3" name="__tabbed_23" type="radio" /><input id="__tabbed_23_4" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">单标志法</label><label for="__tabbed_23_2">双标志先检查</label><label for="__tabbed_23_3">双标志后检查</label><label for="__tabbed_23_4">Peterson算法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>访问完临界区后把使用临界区的权限交给另外一个进程，在进入区只检查不上锁</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//表示当前允许进入临界区的进程号</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm">/* P0 */</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">while</span><span class="p">(</span><span class="n">turn</span><span class="o">!=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">turn</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="cm">/* P1 */</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">while</span><span class="p">(</span><span class="n">turn</span><span class="o">!=</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">turn</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+</code></pre></div>
+<div class="admonition danger">
+<p>违反“空闲让进”原则</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>在进入区先检查后上锁，退出区解锁<!--linenums="1" hl_lines="4 5 11 12"--></p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">flag</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">//flag[i]表示当前进程是否想进入临界区</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cm">/* P0 */</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">while</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="cm">/* P1 */</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">while</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+</code></pre></div>
+<div class="admonition danger">
+<p>违反“忙则等待”原则</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>在进入区先上锁后检查，退出区解锁<!--linenums="1" hl_lines="4 5 11 12"--></p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">flag</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">//flag[i]表示当前进程是否想进入临界区</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cm">/* P0 */</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">while</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="cm">/* P1 */</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">while</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+</code></pre></div>
+<div class="admonition danger">
+<p>违反“空闲让进”和“有限等待”原则，可能导致饥饿</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>在进入区主动争取——主动谦让——检查对方是否想进、己方是否谦让<!--linenums="1" hl_lines="4 5 6 12 13 14"--></p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">flag</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">//flag[i]表示当前进程是否想进入临界区</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//表示当前允许进入临界区的进程号</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cm">/* P0 */</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">turn</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">while</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">turn</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="cm">/* P1 */</span><span class="w"></span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">turn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">while</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">turn</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w">  </span><span class="c1">//临界区</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="p">;</span><span class="w"> </span><span class="c1">//剩余区</span>
+</code></pre></div>
+<div class="admonition danger">
+<p>违反“让权等待”原则，可能导致忙等</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="24:3"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><input id="__tabbed_24_3" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">中断屏蔽法</label><label for="__tabbed_24_2">TestAndSet(TS/TSL指令)</label><label for="__tabbed_24_3">Swap指令(XCHG/Exchange指令)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>进入测试之前关闭中断，完成测试直至上锁之后才能打开中断</p>
+<div class="admonition danger">
+<p>不适用于多处理机，不适用于用户进程</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>为每类临界区设置一把锁。在程序中锁可以用一个变量<code>lock</code>来表示</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* C语言逻辑 */</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">TestAndSet</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">lock</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">old</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">lock</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="o">*</span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">old</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">while</span><span class="p">(</span><span class="n">TestAndSet</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">临界区代码</span><span class="w"></span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">lock</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">剩余区代码</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition success">
+<p>可以用于多处理机环境</p>
+</div>
+<div class="admonition danger">
+<p>不满足让权等待</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>利用Swap实现进程互斥时，可为临界资源设置一个全局布尔变量<code>lock</code>，其初值为<code>false</code>，在每个进程中再利用一个局部布尔变量<code>key</code>。</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* C语言逻辑 */</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="kt">bool</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">while</span><span class="p">(</span><span class="n">old</span><span class="o">==</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span><span class="o">&amp;</span><span class="n">old</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">临界区代码</span><span class="w"></span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">剩余区代码</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition danger">
+<p>违背了“让权等待”原则</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_11">信号量<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>信号量机制是荷兰计算机科学家Dijkstra于1965年提出的一种卓有成效的进程同步工具。</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/**/</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">resource</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="cm">/**/</span><span class="w"></span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:2"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">整型信号量</label><label for="__tabbed_25_2">记录型信号量</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>最初Dijkstra把整型信号量定义为一个整型量，除初始化外，仅能通过两个标准的原子操作(Atomic Operation) <code>wait(S)</code>和<code>signal(S)</code>来访问，这两个操作一直被分别称为P、V操作。这个整型量的值表示资源的数量</p>
+<details class="faq">
+<summary>为什么称为PV操作</summary>
+<p>来自荷兰语 passeren(通过)和vrijgeven(释放)</p>
+</details>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* P operation */</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">S</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="n">S</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="cm">/* V operation */</span><span class="w"></span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">signal</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="n">S</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition bug">
+<p>wait操作，只要信号量<code>S</code>≤0，就会不断测试，忙等，违背让权等待。</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">  </span><span class="c1">//剩余资源数，&lt;0时，其绝对值表示处在等待状态的进程数量</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">process</span><span class="w"> </span><span class="o">*</span><span class="n">L</span><span class="p">;</span><span class="w">  </span><span class="c1">//等待队列</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span><span class="n">semaphore</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="cm">/* P operation */</span><span class="w"></span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="n">semaphore</span><span class="w"> </span><span class="n">S</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">value</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="n">block</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">L</span><span class="p">);</span><span class="w"> </span><span class="c1">//运行态→阻塞态</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="cm">/* V operation */</span><span class="w"></span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="kt">void</span><span class="w"> </span><span class="nf">signal</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">value</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="n">wakeup</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">L</span><span class="p">);</span><span class="w"> </span><span class="c1">//唤醒等待列表中第一个进程，使其从阻塞态进入就绪态</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition bug">
+<p>会出现多个进程等待访问同一临界资源的问题</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>信号量的使用</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="26:3"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><input id="__tabbed_26_2" name="__tabbed_26" type="radio" /><input id="__tabbed_26_3" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">互斥</label><label for="__tabbed_26_2">同步</label><label for="__tabbed_26_3">前趋关系</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>为使多个进程能互斥地访问某临界资源，只需为该资源设置一互斥信号量<code>mutex</code>，并设其初始值为1，表示无进程进入自己的临界区。然后将各进程的临界区置于<code>wait(mutex)</code>和<code>signal(mutex)</code>操作之间即可</p>
+<ul>
+<li>不同的临界资源需要使用不同的互斥信号量</li>
+<li>互斥信号量初始值为1</li>
+</ul>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition warning">
+<p>PV操作需要在每一个进程中成对使用，且P操作在V操作的前面</p>
+</div>
+<div class="admonition failure">
+<p>缺少wait，系统混乱；缺少signal，资源永不释放</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>让并发进程按要求有序的推进</p>
+<ul>
+<li>同步信号量初值为0</li>
+</ul>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* 保证代码4在代码2之后执行 */</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">P1</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">代码1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">代码2</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">V</span><span class="p">(</span><span class="n">S</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">代码3</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">P2</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="n">P</span><span class="p">(</span><span class="n">S</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="n">代码4</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="n">代码5</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="n">代码6</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition summary">
+<p>在“前操作”之后执行V操作；在“后操作”之前执行P操作</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>分析问题，画出前驱图，把每一对前驱关系看成一个同步问题</p>
+<p><img alt="qianqu-example" src="asset-img/process-9.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="27:6"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio" /><input id="__tabbed_27_2" name="__tabbed_27" type="radio" /><input id="__tabbed_27_3" name="__tabbed_27" type="radio" /><input id="__tabbed_27_4" name="__tabbed_27" type="radio" /><input id="__tabbed_27_5" name="__tabbed_27" type="radio" /><input id="__tabbed_27_6" name="__tabbed_27" type="radio" /><div class="tabbed-labels"><label for="__tabbed_27_1">P1</label><label for="__tabbed_27_2">P2</label><label for="__tabbed_27_3">P3</label><label for="__tabbed_27_4">P4</label><label for="__tabbed_27_5">P5</label><label for="__tabbed_27_6">P6</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">S1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">V</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">V</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="cm">/* ... */</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">P</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">S2</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">V</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">V</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="cm">/* ... */</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">P</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">S3</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">V</span><span class="p">(</span><span class="n">g</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="cm">/* ... */</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">P</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">S4</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">V</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="cm">/* ... */</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">V</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">S5</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">V</span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="cm">/* ... */</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">P</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">P</span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">P</span><span class="p">(</span><span class="n">g</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="cm">/* ... */</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="_12">管程<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p>引入管程，是为了解决信号量机制编程麻烦、易出错的问题</p>
+</div>
+<ul>
+<li>管程是由局部于自己的若干公共变量及其说明和所有访问这些公共变量的过程所组成的软件模块<ul>
+<li>管程由四部分组成，包括管程的名称、局部于管程的共享数据结构说明、对该数据结构操作的一组过程和对局部于管程的共享数据设置初始值的语句</li>
+</ul>
+</li>
+<li>管程包含了面向对象的思想（封装——管程内的数据结构具体实现对外不可见，外部线程需要通过管程提供的特定“入口”操作共享数据），且确保每次仅有一个过程进入管程</li>
+<li>
+<p>使用管程解决生产者——消费者问题</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>monitor ProducerConsumer
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  condition full,empty;
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>  int count = 0; // 可用产品数
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  void insert(Item item){
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    if(count==N) wait(full);
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    count++;
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    insert_item(item);
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    if(count==1) signal(empty);
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>  }
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>  Item remove(){
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>    if(count==0) wait(empty);
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    count--;
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    if(count==N-1) signal(full);
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>    return remove_item();
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>  }
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>  /* ... */
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>end monitor;
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>/* 生产者进程 */
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>producer(){
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>  while(1){
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>    item = produce_item();
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>    ProducerConsumer.insert(item);
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>  }
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>}
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>/* 消费者进程 */
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>consumer(){
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>  while(1){
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>    item = ProducerConsumer.remove();
+<a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>    consume_item();
+<a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>  }
+<a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>}
+</code></pre></div>
+</li>
+<li>
+<p>各进程互斥访问管程的特性是由编译器实现的</p>
+</li>
+<li>Java关键字：<code class="highlight"><span class="n">sychronized</span><span class="w"></span></code><ul>
+<li>可用来给对象和方法或者代码块加锁，当它锁定一个方法或者一个代码块的时候，同一时刻最多只有一个线程执行这段代码。当两个并发线程访问同一个对象object中的这个加锁同步代码块时，一个时间内只能有一个线程得到执行。另一个线程必须等待当前线程执行完这个代码块以后才能执行该代码块</li>
+</ul>
+</li>
+</ul>
+<h3 id="_13">经典同步问题<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="28:3"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio" /><input id="__tabbed_28_2" name="__tabbed_28" type="radio" /><input id="__tabbed_28_3" name="__tabbed_28" type="radio" /><div class="tabbed-labels"><label for="__tabbed_28_1">生产者-消费者问题</label><label for="__tabbed_28_2">读者-写者问题</label><label for="__tabbed_28_3">哲学家进餐问题</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition summary">
+<p class="admonition-title">描述</p>
+<p>有一个有限空间的共享缓冲区，负责存放货物；生产者向缓冲区中放物品，缓冲区满则不能放；消费者从缓冲区中拿物品，缓冲区空则不能拿。</p>
+</div>
+<ul>
+<li>缓冲区<code>buf</code>有空位，生产者才能存放物品，可设计数信号量<code>empty</code>，初值为<code>n</code>（缓冲区容量）</li>
+<li>缓冲区<code>buf</code>只要有物品，消费者就可以取出物品，可设计数信号量<code>full</code>，初值为<code>0</code></li>
+<li>对缓冲区应当互斥使用，设互斥信号量<code>mutex</code>初值为<code>1</code></li>
+</ul>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">mutex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">empty</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">full</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">producer</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="n">生产一个产品</span><span class="w"></span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="nf">P</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span><span class="w"> </span><span class="c1">//消耗一个空闲缓冲区</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="n">P</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="n">将产品放入缓冲区</span><span class="w"></span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="nf">V</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">    </span><span class="n">V</span><span class="p">(</span><span class="n">full</span><span class="p">);</span><span class="w"> </span><span class="c1">//增加一个产品</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="n">consumer</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span><span class="n">P</span><span class="p">(</span><span class="n">full</span><span class="p">);</span><span class="w"> </span><span class="c1">//消耗一个产品</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="n">P</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">    </span><span class="n">从缓冲区中取出产品</span><span class="w"></span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">    </span><span class="nf">V</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="w">    </span><span class="n">V</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="w">    </span><span class="n">使用产品</span><span class="w"></span>
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<details class="note" open="open">
+<summary>多生产者-多消费者问题</summary>
+<details class="summary">
+<summary>问题描述</summary>
+<p>桌子上有一只盘子，每次只能向其中放入一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，儿子专等着吃盘子中的橘子，女儿专等着吃盘子中的苹果。只有盘子空时，爸爸或妈妈才可向盘子中放入一个水果。仅当盘子中有自己需要的水果时，儿子或女儿可以从盘子中取出水果。用PV操作实现上述过程。</p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="29:5"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio" /><input id="__tabbed_29_2" name="__tabbed_29" type="radio" /><input id="__tabbed_29_3" name="__tabbed_29" type="radio" /><input id="__tabbed_29_4" name="__tabbed_29" type="radio" /><input id="__tabbed_29_5" name="__tabbed_29" type="radio" /><div class="tabbed-labels"><label for="__tabbed_29_1">信号量定义</label><label for="__tabbed_29_2">父亲</label><label for="__tabbed_29_3">母亲</label><label for="__tabbed_29_4">女儿</label><label for="__tabbed_29_5">儿子</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>semaphore mutex=1;  //互斥访问盘子（缓冲区）
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>semaphore apple=0; //盘子中有几个苹果
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>semaphore orange=0; //盘子中有几个橘子
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>semaphore plate=1; //盘子中还可以放多少个水果
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>dad(){
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  while(1){
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    准备一个苹果
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    P(plate);
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    P(mutex);
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    把苹果放入盘子
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    V(mutex);
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    V(apple);
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>  }
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>}
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>mom(){
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>  while(1){
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    准备一个橘子
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    P(plate);
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    P(mutex);
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    把橘子放入盘子
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    V(mutex);
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    V(orange);
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>  }
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>}
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>daughter(){
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>  while(1){
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    P(apple);
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    P(mutex);
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    从盘中取出苹果
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    V(mutex);
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    V(plate);
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    吃掉苹果
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>  }
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>}
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>son(){
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  while(1){
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    P(orange);
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    P(mutex);
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    从盘中取出橘子
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    V(mutex);
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>    V(plate);
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    吃掉橘子
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>  }
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>}
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="admonition summary">
+<p class="admonition-title">描述</p>
+<p>有读者和写者两组并发进程，共享一个文件，当两个或以上的读进程同时访问共享数据时不会产生副作用，但若某个写进程和其他进程（读进程或写进程）同时访问共享数据时则可能导致数据不一致的错误。因此要求：</p>
+<ol>
+<li>允许多个读者可以同时对文件执行读操作；</li>
+<li>只允许一个写者往文件中写信息；</li>
+<li>任一写者在完成写操作之前不允许其他读者或写者工作；</li>
+<li>写者执行写操作前，应让已有的读者和写者全部退出。</li>
+</ol>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="30:2"><input checked="checked" id="__tabbed_30_1" name="__tabbed_30" type="radio" /><input id="__tabbed_30_2" name="__tabbed_30" type="radio" /><div class="tabbed-labels"><label for="__tabbed_30_1">读优先</label><label for="__tabbed_30_2">写优先</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">rw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">//实现互斥访问</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//有几个读进程在访问文件</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">//保证对于count变量的互斥访问</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="n">writer</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">        </span><span class="n">P</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//写之前加锁</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">        </span><span class="n">写文件</span><span class="w"></span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">        </span><span class="nf">V</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//写之后解锁</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="n">reader</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="w">        </span><span class="n">P</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//第一个读进程负责加锁</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="w">        </span><span class="n">V</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="w">        </span><span class="n">读文件</span><span class="w"></span>
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a><span class="w">        </span><span class="nf">P</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="w">        </span><span class="n">count</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//最后一个进程负责解锁</span>
+<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="w">        </span><span class="n">V</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">rw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">//实现互斥访问</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//有几个读进程在访问文件</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">//保证对于count变量的互斥访问</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">//实现写优先</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="n">writer</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">        </span><span class="n">P</span><span class="p">(</span><span class="n">w</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">        </span><span class="n">P</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//写之前加锁</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="w">        </span><span class="n">写文件</span><span class="w"></span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="w">        </span><span class="nf">V</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//写之后解锁</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="w">        </span><span class="n">V</span><span class="p">(</span><span class="n">w</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="n">reader</span><span class="p">(){</span><span class="w"></span>
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="w">        </span><span class="n">P</span><span class="p">(</span><span class="n">w</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="w">        </span><span class="n">P</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//第一个读进程负责加锁</span>
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a><span class="w">        </span><span class="n">V</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a><span class="w">        </span><span class="n">V</span><span class="p">(</span><span class="n">w</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a><span class="w">        </span><span class="n">读文件</span><span class="w"></span>
+<a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a><span class="w">        </span><span class="nf">P</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a><span class="w">        </span><span class="n">count</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">rw</span><span class="p">);</span><span class="w"> </span><span class="c1">//最后一个进程负责解锁</span>
+<a id="__codelineno-26-28" name="__codelineno-26-28" href="#__codelineno-26-28"></a><span class="w">        </span><span class="n">V</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-26-29" name="__codelineno-26-29" href="#__codelineno-26-29"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-26-30" name="__codelineno-26-30" href="#__codelineno-26-30"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition summary">
+<p class="admonition-title">描述</p>
+<p>有五个哲学家，他们的生活方式是交替地进行思考和进餐，哲学家们共用一张圆桌，分别坐在周围的五张椅子上，在圆桌上有五个碗和五支筷子，平时哲学家进行思考，饥饿时便试图取其左、右最靠近他的筷子，只有在他拿到两支筷子时才能进餐，该哲学家进餐完毕后，放下左右两只筷子又继续思考。存在以下限制：</p>
+<ol>
+<li>只有拿到两只筷子时，哲学家才能吃饭。</li>
+<li>如果筷子已被别人拿走，则必须等别人吃完之后才能拿到筷子。</li>
+<li>任一哲学家在自己未拿到两只筷子吃完饭前，不会放下手中已经拿到的筷子。</li>
+</ol>
+</div>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">chopstick</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="31:3"><input checked="checked" id="__tabbed_31_1" name="__tabbed_31" type="radio" /><input id="__tabbed_31_2" name="__tabbed_31" type="radio" /><input id="__tabbed_31_3" name="__tabbed_31" type="radio" /><div class="tabbed-labels"><label for="__tabbed_31_1">解法1</label><label for="__tabbed_31_2">解法2</label><label for="__tabbed_31_3">解法3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>只有拿起两支筷子的哲学家才可以进餐，否则，一支筷子也不拿。</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">mutex</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">//互斥地拿筷子</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">philosopher</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">        </span><span class="n">思考</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">stick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span><span class="c1">//拿起左手边筷子</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">stick</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">5</span><span class="p">]);</span><span class="w"> </span><span class="c1">//拿起右手边筷子</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">        </span><span class="n">进餐</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">stick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w">  </span><span class="c1">//放下左手边筷子</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">stick</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">5</span><span class="p">]);</span><span class="w"> </span><span class="c1">//放下右手边筷子</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>奇数号哲学家先拿他左边的筷子，偶数号哲学家先拿他右边的筷子。这样破坏了同方向环路，一个哲学家拿到一只筷子后，就阻止了他邻座的一个哲学家吃饭。</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">philosopher</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">        </span><span class="n">思考</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">            </span><span class="n">wait</span><span class="p">(</span><span class="n">stick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span><span class="c1">//拿起左手边筷子</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">            </span><span class="n">wait</span><span class="p">(</span><span class="n">stick</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">5</span><span class="p">]);</span><span class="w"> </span><span class="c1">//拿起右手边筷子</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w">            </span><span class="n">进餐</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w">            </span><span class="n">signal</span><span class="p">(</span><span class="n">stick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w">  </span><span class="c1">//放下左手边筷子</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">            </span><span class="n">signal</span><span class="p">(</span><span class="n">stick</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">5</span><span class="p">]);</span><span class="w"> </span><span class="c1">//放下右手边筷子</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="w">        </span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="w">            </span><span class="n">wait</span><span class="p">(</span><span class="n">stick</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">5</span><span class="p">]);</span><span class="w"> </span><span class="c1">//拿起右手边筷子</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="w">            </span><span class="n">wait</span><span class="p">(</span><span class="n">stick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span><span class="c1">//拿起左手边筷子</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="w">            </span><span class="n">进餐</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="w">            </span><span class="n">signal</span><span class="p">(</span><span class="n">stick</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">5</span><span class="p">]);</span><span class="w"> </span><span class="c1">//放下右手边筷子</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="w">            </span><span class="n">signal</span><span class="p">(</span><span class="n">stick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span><span class="c1">//放下左手边筷子</span>
+<a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>至多允许四位哲学家进餐。</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="c1">//最大数量</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">philosopher</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">        </span><span class="n">思考</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">count</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">I</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">%</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">        </span><span class="n">进餐</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">I</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">%</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">count</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="_14">死锁<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p>各进程互相等待对方手里的资源，导致各个进程都阻塞，无法向前推进，人们把这种局面称为死锁 (deadlock) 。</p>
+</div>
+<ul>
+<li>
+<p>资源问题</p>
+<ul>
+<li>可重用性资源：可供用户重复使用多次<ul>
+<li>只能分配给一个进程使用，不允许多个进程共享</li>
+<li>使用顺序
+  <pre class="mermaid"><code>graph LR
+    请求资源--&gt;使用资源--&gt;释放资源</code></pre></li>
+<li>系统中资源数目相对固定</li>
+</ul>
+</li>
+<li>可消耗性资源：又称临时性资源，进程运行过程中，动态创建和消耗的<ul>
+<li>资源数目运行期间不断变化</li>
+<li>进程运行过程中，可不断创造资源</li>
+<li>进程运行过程中，可请求消耗资源</li>
+</ul>
+</li>
+<li>可抢占性资源<ul>
+<li>某进程获得后，可以被其他进程或系统抢占。如处理机、主存等。不会引起死锁</li>
+</ul>
+</li>
+<li>不可抢占性资源<ul>
+<li>资源分配给进程后，只能在进程用完后自行释放。如磁带机、打印机、刻录机</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>死锁发生的原因</p>
+<ul>
+<li>对不可剥夺资源的不合理分配，可能导致死锁</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="32:3"><input checked="checked" id="__tabbed_32_1" name="__tabbed_32" type="radio" /><input id="__tabbed_32_2" name="__tabbed_32" type="radio" /><input id="__tabbed_32_3" name="__tabbed_32" type="radio" /><div class="tabbed-labels"><label for="__tabbed_32_1">竞争系统资源</label><label for="__tabbed_32_2">进程推进顺序非法</label><label for="__tabbed_32_3">信号量使用不当</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>各进程对不可剥夺资源的竞争可能导致死锁，对于可剥夺的资源的竞争不会引起死锁</p>
+</div>
+<div class="tabbed-block">
+<p>请求和释放资源顺序不当，可能导致死锁</p>
+</div>
+<div class="tabbed-block"></div>
+</div>
+</div>
+</li>
+<li>
+<p>死锁发生的必要条件</p>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="33:4"><input checked="checked" id="__tabbed_33_1" name="__tabbed_33" type="radio" /><input id="__tabbed_33_2" name="__tabbed_33" type="radio" /><input id="__tabbed_33_3" name="__tabbed_33" type="radio" /><input id="__tabbed_33_4" name="__tabbed_33" type="radio" /><div class="tabbed-labels"><label for="__tabbed_33_1">互斥</label><label for="__tabbed_33_2">请求和保持</label><label for="__tabbed_33_3">不可抢占</label><label for="__tabbed_33_4">循环等待</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>进程对所分配到的资源进行排他性使用，即在某段时间内，某资源只能由一个进程使用</p>
+</div>
+<div class="tabbed-block">
+<p>进程因请求资源而阻塞时，对已分配给它的资源保持不放</p>
+</div>
+<div class="tabbed-block">
+<p>资源在未使用完前，不能被剥夺，由使用进程释放</p>
+</div>
+<div class="tabbed-block">
+<p>发生死锁时，有向图必构成一环路</p>
+</div>
+</div>
+</div>
+<h3 id="_15">死锁的处理策略<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="34:3"><input checked="checked" id="__tabbed_34_1" name="__tabbed_34" type="radio" /><input id="__tabbed_34_2" name="__tabbed_34" type="radio" /><input id="__tabbed_34_3" name="__tabbed_34" type="radio" /><div class="tabbed-labels"><label for="__tabbed_34_1">预防死锁</label><label for="__tabbed_34_2">避免死锁</label><label for="__tabbed_34_3">检测与解除</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>破坏产生死锁的四个必要条件的一个或几个，以避免发生死锁。</p>
+<details class="faq">
+<summary>为什么不能破坏互斥条件？</summary>
+<p>并不是所有的资源都可以改造成可共享的资源（SPOOLing技术），且这种情况下很难保证正确性。另外，对临界资源的访问必须互斥进行。</p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="35:3"><input checked="checked" id="__tabbed_35_1" name="__tabbed_35" type="radio" /><input id="__tabbed_35_2" name="__tabbed_35" type="radio" /><input id="__tabbed_35_3" name="__tabbed_35" type="radio" /><div class="tabbed-labels"><label for="__tabbed_35_1">破坏“请求与保持”条件</label><label for="__tabbed_35_2">破坏“不可抢占”条件</label><label for="__tabbed_35_3">破坏“循环等待”条件</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>静态分配，进程在执行前要一次性地申请运行所需全部资源。只有资源全部到手，进程方可运行，否则进程等待</li>
+<li>允许进程只获得运行初期所需资源，便开始运行。运行过程中逐步释放资源，再请求新的资源</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>保持资源的进程申请新资源失败时，在转为阻塞状态之前，必须释放其占用的全部资源。而该进程自身则必须等到重新获得原有资源及新资源后，才能重新运行</p>
+</div>
+<div class="tabbed-block">
+<p>将系统中所有资源赋予一个全局编号，进程申请资源时，必须按编号递增顺序进行</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>在资源动态分配过程中，防止系统进入不安全状态，以避免发生死锁。</p>
+<ul>
+<li>
+<p>安全状态：指系统能按某种顺序如 <span class="arithmatex">\(\langle P_1 ,P_2,\cdots ,P_n \rangle\)</span> （称序列 <span class="arithmatex">\(\langle P_1 , P_2 ,\cdots , P_n \rangle\)</span> 为安全序列），来为每个进程分配其所需资源，直至最大需求，使每个进程都可顺序完成。若系统不存在这样一个安全序列，则称系统处于不安全状态</p>
+</li>
+<li>
+<p>银行家算法</p>
+<ul>
+<li>
+<p>数据结构</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="36:4"><input checked="checked" id="__tabbed_36_1" name="__tabbed_36" type="radio" /><input id="__tabbed_36_2" name="__tabbed_36" type="radio" /><input id="__tabbed_36_3" name="__tabbed_36" type="radio" /><input id="__tabbed_36_4" name="__tabbed_36" type="radio" /><div class="tabbed-labels"><label for="__tabbed_36_1">Available</label><label for="__tabbed_36_2">Max</label><label for="__tabbed_36_3">Allocation</label><label for="__tabbed_36_4">Need</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>这是一个含有<code>m</code>个元素的数组，其中的每一个元素代表一类可利用的资源数目，其初始值是系统中所配置的该类全部可用资源的数目</p>
+</div>
+<div class="tabbed-block">
+<p>这是一个 <span class="arithmatex">\(n\times m\)</span> 的矩阵，它定义了系统中 <span class="arithmatex">\(n\)</span> 个进程中的每一个进程对 <span class="arithmatex">\(m\)</span> 类资源的最大需求</p>
+</div>
+<div class="tabbed-block">
+<p>这也是一个 <span class="arithmatex">\(n\times m\)</span> 的矩阵，它定义了系统中每一类资源当前已分配给每一进程的资源数</p>
+</div>
+<div class="tabbed-block">
+<p>这也是一个 <span class="arithmatex">\(n\times m\)</span> 的矩阵，用以表示每一个进程尚需的各类资源数</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<div class="admonition tip">
+<p>其中 <code>Need[i,j]=Max[i,j]-Allocation[i,j]</code></p>
+</div>
+<ul>
+<li>
+<p>银行家算法</p>
+<p><a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBBW1JlcXVlc3RfaV0gLS0-QntcIlJlcXVlc3RfaVtqXeKJpE5lZWRbaSxqXT9cIn1cbiAgICBCIC0tPiB8Tm98QyhbZXJyb3JdKVxuICAgIEIgLS0-fFllc3wgRHtcIlJlcXVlc3RfaVtqXeKJpEF2YWlsYWJsZVtqXT9cIn1cbiAgICBEIC0tPnxOb3wgRShbd2FpdF0pXG4gICAgRCAtLT58WWVzfCBGW1wi6K-V5o6i5YiG6YWN6LWE5rqQXCJdXG4gICAgRiAtLT5HW1wi5omn6KGM5a6J5YWo5oCn566X5rOV77yM55yL5YiG6YWN5ZCO57O757uf54q25oCBXCJdXG4gICAgRyAtLT5854q25oCB5LiN5a6J5YWofEhbXCLmkqTplIDor5XliIbphY3vvIzorqlQX2nnrYnlvoVcIl1cbiAgICBHIC0tPnznirbmgIHlronlhah8SVtcIuato-W8j-WIhumFjei1hOa6kFwiXVxuICAgICAgICAgICAgIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQiLCJ0aGVtZVZhcmlhYmxlcyI6eyJiYWNrZ3JvdW5kIjoid2hpdGUiLCJwcmltYXJ5Q29sb3IiOiIjRUNFQ0ZGIiwic2Vjb25kYXJ5Q29sb3IiOiIjZmZmZmRlIiwidGVydGlhcnlDb2xvciI6ImhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwicHJpbWFyeUJvcmRlckNvbG9yIjoiaHNsKDI0MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJzZWNvbmRhcnlCb3JkZXJDb2xvciI6ImhzbCg2MCwgNjAlLCA4My41Mjk0MTE3NjQ3JSkiLCJ0ZXJ0aWFyeUJvcmRlckNvbG9yIjoiaHNsKDgwLCA2MCUsIDg2LjI3NDUwOTgwMzklKSIsInByaW1hcnlUZXh0Q29sb3IiOiIjMTMxMzAwIiwic2Vjb25kYXJ5VGV4dENvbG9yIjoiIzAwMDAyMSIsInRlcnRpYXJ5VGV4dENvbG9yIjoicmdiKDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxLCA5LjUwMDAwMDAwMDEpIiwibGluZUNvbG9yIjoiIzMzMzMzMyIsInRleHRDb2xvciI6IiMzMzMiLCJtYWluQmtnIjoiI0VDRUNGRiIsInNlY29uZEJrZyI6IiNmZmZmZGUiLCJib3JkZXIxIjoiIzkzNzBEQiIsImJvcmRlcjIiOiIjYWFhYTMzIiwiYXJyb3doZWFkQ29sb3IiOiIjMzMzMzMzIiwiZm9udEZhbWlseSI6IlwidHJlYnVjaGV0IG1zXCIsIHZlcmRhbmEsIGFyaWFsIiwiZm9udFNpemUiOiIxNnB4IiwibGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsIm5vZGVCa2ciOiIjRUNFQ0ZGIiwibm9kZUJvcmRlciI6IiM5MzcwREIiLCJjbHVzdGVyQmtnIjoiI2ZmZmZkZSIsImNsdXN0ZXJCb3JkZXIiOiIjYWFhYTMzIiwiZGVmYXVsdExpbmtDb2xvciI6IiMzMzMzMzMiLCJ0aXRsZUNvbG9yIjoiIzMzMyIsImVkZ2VMYWJlbEJhY2tncm91bmQiOiIjZThlOGU4IiwiYWN0b3JCb3JkZXIiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJhY3RvckJrZyI6IiNFQ0VDRkYiLCJhY3RvclRleHRDb2xvciI6ImJsYWNrIiwiYWN0b3JMaW5lQ29sb3IiOiJncmV5Iiwic2lnbmFsQ29sb3IiOiIjMzMzIiwic2lnbmFsVGV4dENvbG9yIjoiIzMzMyIsImxhYmVsQm94QmtnQ29sb3IiOiIjRUNFQ0ZGIiwibGFiZWxCb3hCb3JkZXJDb2xvciI6ImhzbCgyNTkuNjI2MTY4MjI0MywgNTkuNzc2NTM2MzEyOCUsIDg3LjkwMTk2MDc4NDMlKSIsImxhYmVsVGV4dENvbG9yIjoiYmxhY2siLCJsb29wVGV4dENvbG9yIjoiYmxhY2siLCJub3RlQm9yZGVyQ29sb3IiOiIjYWFhYTMzIiwibm90ZUJrZ0NvbG9yIjoiI2ZmZjVhZCIsIm5vdGVUZXh0Q29sb3IiOiJibGFjayIsImFjdGl2YXRpb25Cb3JkZXJDb2xvciI6IiM2NjYiLCJhY3RpdmF0aW9uQmtnQ29sb3IiOiIjZjRmNGY0Iiwic2VxdWVuY2VOdW1iZXJDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yIjoicmdiYSgxMDIsIDEwMiwgMjU1LCAwLjQ5KSIsImFsdFNlY3Rpb25Ca2dDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yMiI6IiNmZmY0MDAiLCJ0YXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwidGFza0JrZ0NvbG9yIjoiIzhhOTBkZCIsInRhc2tUZXh0TGlnaHRDb2xvciI6IndoaXRlIiwidGFza1RleHRDb2xvciI6IndoaXRlIiwidGFza1RleHREYXJrQ29sb3IiOiJibGFjayIsInRhc2tUZXh0T3V0c2lkZUNvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dENsaWNrYWJsZUNvbG9yIjoiIzAwMzE2MyIsImFjdGl2ZVRhc2tCb3JkZXJDb2xvciI6IiM1MzRmYmMiLCJhY3RpdmVUYXNrQmtnQ29sb3IiOiIjYmZjN2ZmIiwiZ3JpZENvbG9yIjoibGlnaHRncmV5IiwiZG9uZVRhc2tCa2dDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQm9yZGVyQ29sb3IiOiJncmV5IiwiY3JpdEJvcmRlckNvbG9yIjoiI2ZmODg4OCIsImNyaXRCa2dDb2xvciI6InJlZCIsInRvZGF5TGluZUNvbG9yIjoicmVkIiwibGFiZWxDb2xvciI6ImJsYWNrIiwiZXJyb3JCa2dDb2xvciI6IiM1NTIyMjIiLCJlcnJvclRleHRDb2xvciI6IiM1NTIyMjIiLCJjbGFzc1RleHQiOiIjMTMxMzAwIiwiZmlsbFR5cGUwIjoiI0VDRUNGRiIsImZpbGxUeXBlMSI6IiNmZmZmZGUiLCJmaWxsVHlwZTIiOiJoc2woMzA0LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTMiOiJoc2woMTI0LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTQiOiJoc2woMTc2LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTUiOiJoc2woLTQsIDEwMCUsIDkzLjUyOTQxMTc2NDclKSIsImZpbGxUeXBlNiI6ImhzbCg4LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTciOiJoc2woMTg4LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkifX0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9"><img alt="" src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBBW1JlcXVlc3RfaV0gLS0-QntcIlJlcXVlc3RfaVtqXeKJpE5lZWRbaSxqXT9cIn1cbiAgICBCIC0tPiB8Tm98QyhbZXJyb3JdKVxuICAgIEIgLS0-fFllc3wgRHtcIlJlcXVlc3RfaVtqXeKJpEF2YWlsYWJsZVtqXT9cIn1cbiAgICBEIC0tPnxOb3wgRShbd2FpdF0pXG4gICAgRCAtLT58WWVzfCBGW1wi6K-V5o6i5YiG6YWN6LWE5rqQXCJdXG4gICAgRiAtLT5HW1wi5omn6KGM5a6J5YWo5oCn566X5rOV77yM55yL5YiG6YWN5ZCO57O757uf54q25oCBXCJdXG4gICAgRyAtLT5854q25oCB5LiN5a6J5YWofEhbXCLmkqTplIDor5XliIbphY3vvIzorqlQX2nnrYnlvoVcIl1cbiAgICBHIC0tPnznirbmgIHlronlhah8SVtcIuato-W8j-WIhumFjei1hOa6kFwiXVxuICAgICAgICAgICAgIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQiLCJ0aGVtZVZhcmlhYmxlcyI6eyJiYWNrZ3JvdW5kIjoid2hpdGUiLCJwcmltYXJ5Q29sb3IiOiIjRUNFQ0ZGIiwic2Vjb25kYXJ5Q29sb3IiOiIjZmZmZmRlIiwidGVydGlhcnlDb2xvciI6ImhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwicHJpbWFyeUJvcmRlckNvbG9yIjoiaHNsKDI0MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJzZWNvbmRhcnlCb3JkZXJDb2xvciI6ImhzbCg2MCwgNjAlLCA4My41Mjk0MTE3NjQ3JSkiLCJ0ZXJ0aWFyeUJvcmRlckNvbG9yIjoiaHNsKDgwLCA2MCUsIDg2LjI3NDUwOTgwMzklKSIsInByaW1hcnlUZXh0Q29sb3IiOiIjMTMxMzAwIiwic2Vjb25kYXJ5VGV4dENvbG9yIjoiIzAwMDAyMSIsInRlcnRpYXJ5VGV4dENvbG9yIjoicmdiKDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxLCA5LjUwMDAwMDAwMDEpIiwibGluZUNvbG9yIjoiIzMzMzMzMyIsInRleHRDb2xvciI6IiMzMzMiLCJtYWluQmtnIjoiI0VDRUNGRiIsInNlY29uZEJrZyI6IiNmZmZmZGUiLCJib3JkZXIxIjoiIzkzNzBEQiIsImJvcmRlcjIiOiIjYWFhYTMzIiwiYXJyb3doZWFkQ29sb3IiOiIjMzMzMzMzIiwiZm9udEZhbWlseSI6IlwidHJlYnVjaGV0IG1zXCIsIHZlcmRhbmEsIGFyaWFsIiwiZm9udFNpemUiOiIxNnB4IiwibGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsIm5vZGVCa2ciOiIjRUNFQ0ZGIiwibm9kZUJvcmRlciI6IiM5MzcwREIiLCJjbHVzdGVyQmtnIjoiI2ZmZmZkZSIsImNsdXN0ZXJCb3JkZXIiOiIjYWFhYTMzIiwiZGVmYXVsdExpbmtDb2xvciI6IiMzMzMzMzMiLCJ0aXRsZUNvbG9yIjoiIzMzMyIsImVkZ2VMYWJlbEJhY2tncm91bmQiOiIjZThlOGU4IiwiYWN0b3JCb3JkZXIiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJhY3RvckJrZyI6IiNFQ0VDRkYiLCJhY3RvclRleHRDb2xvciI6ImJsYWNrIiwiYWN0b3JMaW5lQ29sb3IiOiJncmV5Iiwic2lnbmFsQ29sb3IiOiIjMzMzIiwic2lnbmFsVGV4dENvbG9yIjoiIzMzMyIsImxhYmVsQm94QmtnQ29sb3IiOiIjRUNFQ0ZGIiwibGFiZWxCb3hCb3JkZXJDb2xvciI6ImhzbCgyNTkuNjI2MTY4MjI0MywgNTkuNzc2NTM2MzEyOCUsIDg3LjkwMTk2MDc4NDMlKSIsImxhYmVsVGV4dENvbG9yIjoiYmxhY2siLCJsb29wVGV4dENvbG9yIjoiYmxhY2siLCJub3RlQm9yZGVyQ29sb3IiOiIjYWFhYTMzIiwibm90ZUJrZ0NvbG9yIjoiI2ZmZjVhZCIsIm5vdGVUZXh0Q29sb3IiOiJibGFjayIsImFjdGl2YXRpb25Cb3JkZXJDb2xvciI6IiM2NjYiLCJhY3RpdmF0aW9uQmtnQ29sb3IiOiIjZjRmNGY0Iiwic2VxdWVuY2VOdW1iZXJDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yIjoicmdiYSgxMDIsIDEwMiwgMjU1LCAwLjQ5KSIsImFsdFNlY3Rpb25Ca2dDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yMiI6IiNmZmY0MDAiLCJ0YXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwidGFza0JrZ0NvbG9yIjoiIzhhOTBkZCIsInRhc2tUZXh0TGlnaHRDb2xvciI6IndoaXRlIiwidGFza1RleHRDb2xvciI6IndoaXRlIiwidGFza1RleHREYXJrQ29sb3IiOiJibGFjayIsInRhc2tUZXh0T3V0c2lkZUNvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dENsaWNrYWJsZUNvbG9yIjoiIzAwMzE2MyIsImFjdGl2ZVRhc2tCb3JkZXJDb2xvciI6IiM1MzRmYmMiLCJhY3RpdmVUYXNrQmtnQ29sb3IiOiIjYmZjN2ZmIiwiZ3JpZENvbG9yIjoibGlnaHRncmV5IiwiZG9uZVRhc2tCa2dDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQm9yZGVyQ29sb3IiOiJncmV5IiwiY3JpdEJvcmRlckNvbG9yIjoiI2ZmODg4OCIsImNyaXRCa2dDb2xvciI6InJlZCIsInRvZGF5TGluZUNvbG9yIjoicmVkIiwibGFiZWxDb2xvciI6ImJsYWNrIiwiZXJyb3JCa2dDb2xvciI6IiM1NTIyMjIiLCJlcnJvclRleHRDb2xvciI6IiM1NTIyMjIiLCJjbGFzc1RleHQiOiIjMTMxMzAwIiwiZmlsbFR5cGUwIjoiI0VDRUNGRiIsImZpbGxUeXBlMSI6IiNmZmZmZGUiLCJmaWxsVHlwZTIiOiJoc2woMzA0LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTMiOiJoc2woMTI0LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTQiOiJoc2woMTc2LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTUiOiJoc2woLTQsIDEwMCUsIDkzLjUyOTQxMTc2NDclKSIsImZpbGxUeXBlNiI6ImhzbCg4LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTciOiJoc2woMTg4LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkifX0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9" /></a></p>
+</li>
+<li>
+<p>安全性算法</p>
+<ol>
+<li>
+<p>设置两个向量<code>Work</code>和<code>Finish</code>，<code>Work</code>表示系统可提供给进程继续运行所需的各类资源数目，初始值为<code>Available</code>；<code>Finish</code>表示系统是否有足够的资源分配给进程使之运行完成，初始值为<code>false</code></p>
+</li>
+<li>
+<p>从进程集合中找到一个能满足下述条件的进程：<code>Finish[i]=false</code>且<code>Need[i,j]&lt;=Work[j]</code></p>
+</li>
+<li>
+<p>当进程 <span class="arithmatex">\(P_i\)</span> 获得资源后，可顺利执行，直至完成并释放资源，更新<code>Work[j]</code>和<code>Finish[i]</code>的值，返回上一步</p>
+</li>
+<li>
+<p>如果所有进程都满足<code>Finish[i]=true</code>，则系统处于安全状态，否则，系统处于不安全状态</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p>系统必须提供检测和解除死锁的手段，为此，需要达成的条件是：</p>
+<ol>
+<li>保存有关资源的请求和分配信息</li>
+<li>提供一种算法，利用这些信息检测系统是否进入死锁状态</li>
+<li>提供死锁解除算法</li>
+</ol>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="37:2"><input checked="checked" id="__tabbed_37_1" name="__tabbed_37" type="radio" /><input id="__tabbed_37_2" name="__tabbed_37" type="radio" /><div class="tabbed-labels"><label for="__tabbed_37_1">检测死锁：资源分配图</label><label for="__tabbed_37_2">消除死锁</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="RAG" src="asset-img/process-6.png" /></p>
+<p><img alt="RAG-sim" src="asset-img/process-7.png" /></p>
+<ul>
+<li>死锁定理：S为死锁状态当且仅当S的资源分配图是不可完全简化的</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">简化算法</p>
+<ol>
+<li>找只有分配边而没有请求边相连的进程结点，将其分配边删掉。</li>
+<li>找虽有请求边，但请求边可立即全部转化成分配边的进程结点，将其请求边转化为分配边，再将分配边删掉。</li>
+<li>经过1 和2 后，如果进程结点和资源结点全部成为孤立结点（即没有边相连），则该RAG是可完全简化的；否则，图中必定存在环路，说该RAG是不可完全简化的</li>
+</ol>
+</div>
+</div>
+<div class="tabbed-block">
+<p><img alt="has-loop" src="asset-img/process-8.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="38:3"><input checked="checked" id="__tabbed_38_1" name="__tabbed_38" type="radio" /><input id="__tabbed_38_2" name="__tabbed_38" type="radio" /><input id="__tabbed_38_3" name="__tabbed_38" type="radio" /><div class="tabbed-labels"><label for="__tabbed_38_1">抢占资源法</label><label for="__tabbed_38_2">撤销进程法</label><label for="__tabbed_38_3">进程回退法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>从一个或多个进程中抢占足够数量的资源，分配给死锁进程，以解除死锁状态</p>
+</div>
+<div class="tabbed-block">
+<p>撤销系统中一个或多个死锁进程，直到打破循环环路，从死锁状态中解脱出来</p>
+</div>
+<div class="tabbed-block">
+<p>将每个死锁进程回退到先前定义的某个检查点（checkpoint）， 再重新启动所有进程</p>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">选择哪个进程呢？</p>
+<p>综合考虑已占用处理器的时间、已产生的输出、所估计的剩余运行时间、所占用的资源、优先权五个方面</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年2月27日 16:16:28</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+              
+
+<!-- Giscus -->
+<h2 id="__comments">评论</h2>
+<!-- Replace with generated snippet -->
+<script src="https://giscus.app/client.js"
+        data-repo="jasonren0403/notes"
+        data-repo-id="R_kgDOGXfwBg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]")
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette")
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) // (1)!
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+      var palette = __md_get("__palette")
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+                { giscus: { setConfig: { theme } } },
+                "https://giscus.app"
+        )
+      }
+    })
+  })
+</script>
+
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 操作系统绪论" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              操作系统绪论
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="memory.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 内存管理" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              内存管理
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2022</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason&#39;s Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://twitter.com/theRealRev270" target="_blank" rel="noopener" title="J.R on twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.facebook.com/renjason1999" target="_blank" rel="noopener" title="My facebook page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://discord.gg/s33UBWEPxb" target="_blank" rel="noopener" title="Join to my discussion(discord)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+  
+
+<h4>Cookie 约定</h4>
+<p>嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的网站。</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">同意</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">管理设定</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+      
+        <script src="../../assets/javascripts/doc_addins.js"></script>
+      
+        <script src="../../assets/javascripts/share.js"></script>
+      
+    
+  </body>
+</html>

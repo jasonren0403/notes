@@ -1,0 +1,2507 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="信息安全、前端相关">
+      
+      
+        <meta name="author" content="Jason">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>防火墙 - Jason的笔记小屋</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/ex.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="Jason的笔记小屋" class="md-header__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jason的笔记小屋
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              防火墙
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至白天模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至白天模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../web_basic/index.html" class="md-tabs__link">
+        web开发技术基础
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../soft_security/index.html" class="md-tabs__link">
+        软件安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        网络安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../408-helper/index.html" class="md-tabs__link">
+        408助手
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../tags.html" class="md-tabs__link">
+      按标签查找
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Jason的笔记小屋" class="md-nav__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    Jason的笔记小屋
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../web_basic/index.html">web开发技术基础</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="web开发技术基础" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          web开发技术基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/basic-structure.html" class="md-nav__link">
+        Web的基本架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/html.html" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/css.html" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/javascript.html" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/dom.html" class="md-nav__link">
+        DOM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../soft_security/index.html">软件安全</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="软件安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          软件安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/basic.html" class="md-nav__link">
+        软件基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/string.html" class="md-nav__link">
+        字符串安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/pointer.html" class="md-nav__link">
+        指针安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/memory-management.html" class="md-nav__link">
+        动态内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/integer-security.html" class="md-nav__link">
+        整数安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/string-format.html" class="md-nav__link">
+        格式化输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/concurrency.html" class="md-nav__link">
+        并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/io.html" class="md-nav__link">
+        文件输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/practice.html" class="md-nav__link">
+        软件安全实践
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html">网络安全</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="网络安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          网络安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assets.html" class="md-nav__link">
+        网络安全概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="characteristics.html" class="md-nav__link">
+        网络攻击的特征
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="networkattack.html" class="md-nav__link">
+        网络攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hook.html" class="md-nav__link">
+        HOOK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apt.html" class="md-nav__link">
+        APT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="defense.html" class="md-nav__link">
+        内生安全与拟态防御
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sdn.html" class="md-nav__link">
+        软件定义网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="side-channel.html" class="md-nav__link">
+        侧信道攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          防火墙
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="firewall.html" class="md-nav__link md-nav__link--active">
+        防火墙
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    访问控制
+  </a>
+  
+    <nav class="md-nav" aria-label="访问控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    访问控制三要素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    实施原则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    访问控制模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    防火墙
+  </a>
+  
+    <nav class="md-nav" aria-label="防火墙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    防火墙技术
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    防火墙的结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    应用实例
+  </a>
+  
+    <nav class="md-nav" aria-label="应用实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iptables" class="md-nav__link">
+    iptables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    应用控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sso1" class="md-nav__link">
+    单点登录(SSO)1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    边界控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    手机权限控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    网络隔离技术
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ids.html" class="md-nav__link">
+        入侵检测
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vpn.html" class="md-nav__link">
+        虚拟专用网
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="application.html" class="md-nav__link">
+        应用安全——PGP为例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="socialengineering.html" class="md-nav__link">
+        社会工程学
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/index.html">408助手</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="408助手" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          408助手
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/what-does-408-test.html" class="md-nav__link">
+        408考试大纲（2020版）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/computer-structure/index.html">计算机组成原理</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机组成原理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          计算机组成原理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-structure/operating.html" class="md-nav__link">
+        运算器
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/data-structure/index.html">数据结构</a>
+          
+            <label for="__nav_5_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/linear-list.html" class="md-nav__link">
+        线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/stack.html" class="md-nav__link">
+        栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/queue.html" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/array.html" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/string.html" class="md-nav__link">
+        字符串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/tree.html" class="md-nav__link">
+        树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/graph.html" class="md-nav__link">
+        图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/searching.html" class="md-nav__link">
+        查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/sorting.html" class="md-nav__link">
+        排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/computer-network/index.html">计算机网络</a>
+          
+            <label for="__nav_5_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机网络" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          计算机网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-network/network-layer.html" class="md-nav__link">
+        网络层
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-network/physical-layer.html" class="md-nav__link">
+        物理层
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/operating-system/index.html">操作系统</a>
+          
+            <label for="__nav_5_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="操作系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/process.html" class="md-nav__link">
+        进程管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/memory.html" class="md-nav__link">
+        内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/file.html" class="md-nav__link">
+        文件管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/io.html" class="md-nav__link">
+        输入输出(I/O)管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        按标签查找
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+                
+  <a href="https://github.com/jasonren0403/notes/edit/main/notes_dev/net_security/firewall.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  
+
+  <nav class="md-tags" >
+    
+      
+        <a href="../tags.html#" class="md-tag">
+          网络安全
+        </a>
+      
+    
+  </nav>
+
+
+
+<h1 id="_1">防火墙<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">访问控制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>系统对用户身份及其所属的预先定义的策略组限制其使用数据资源能力的手段。</li>
+</ul>
+<h3 id="_3">访问控制三要素<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<dl>
+<dt><code>主体(Subject)</code></dt>
+<dd>提出访问资源的具体请求</dd>
+<dt><code>客体(Object)</code></dt>
+<dd>被访问资源的实体</dd>
+<dt><code>策略(Attribution)</code></dt>
+<dd>主体对客体的相关规则集合</dd>
+</dl>
+<h3 id="_4">实施原则<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<dl>
+<dt><code>最小特权原则</code></dt>
+<dd>主体执行操作时，按照主题所需权利的最小化原则分配给主体权力。</dd>
+<dt><code>最小泄露原则</code></dt>
+<dd>主体执行任务时，按照主体所知道的信息最小化的原则分配给主体权力。</dd>
+<dt><code>多级安全策略</code></dt>
+<dd>主体与客体间的数据流向和权限控制按照安全级别分为TS，S，C，RS，U五级：绝密级别（Top Secret），秘密级别（Secret），机密级别（Confidential），限制级别（Restricted）和无级别级（Unclassified）</dd>
+</dl>
+<details class="info">
+<summary>主体对客体的访问方式</summary>
+<ol>
+<li>向下读（rd，read down）：主体安全级别高于客体信息资源的安全级别时允许查阅的读操作；</li>
+<li>向上读（ru，read up）：主体安全级别低于客体信息资源的安全级别时允许的读操作；</li>
+<li>向下写（wd，write down）：主体安全级别高于客体信息资源的安全级别时允许执行的动作或是写操作；</li>
+<li>向上写（wu，write up）：主体安全级别低于客体信息资源的安全级别时允许执行的动作或是写操作。</li>
+</ol>
+</details>
+<h3 id="_5">访问控制模型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>自主访问控制模型（DAC）<ul>
+<li>允许合法用户以用户或用户组的身份访问策略规定的客体，同时阻止非授权用户访问客体。</li>
+<li>一般采用访问控制矩阵和访问控制列表来存放不同主体的访问控制信息</li>
+</ul>
+</li>
+<li>强制访问控制模型（MAC）<ul>
+<li>一种多级访问控制策略，系统先对访问主体和受控对象的安全级别属性进行比较，再决定访问主体能否访问该受控对象。</li>
+<li>Lattice模型（实现安全分级）<ul>
+<li>每个资源和用户都服从于一个安全类别。这些安全类别我们称为安全级别。</li>
+<li>在整个安全模型中，信息资源对应一个安全类别，用户所对应的安全级别必须比可以使用的客体资源高才能进行访问。</li>
+</ul>
+</li>
+<li>Bell-LaPadula模型（1976,保密性 → 军事系统）<ul>
+<li>无上读，无下写</li>
+</ul>
+</li>
+<li>Biba模型（1977,完整性）<ul>
+<li>禁止向上写，没有向下读</li>
+</ul>
+</li>
+<li>RBAC Model（基于角色）<ul>
+<li>从控制主体的角度出发，根据管理中相对稳定的职权和责任来划分角色，将访问权限与角色相联系。</li>
+<li>RBAC0 = User + Role + Session（一个用户和一组激活的角色） + Permission<ul>
+<li>用户分配（User Assignment)，用户集合到角色集合的多对多映射。</li>
+<li>权限分配（Permission Assignment）权限集合到角色集合的多对多映射。</li>
+</ul>
+</li>
+<li>RBAC1 = RBAC0 + 角色继承<ul>
+<li>角色层次（RH，Role Hierarchy）反映层次结构，支持成员和权限继承以方便权限管理。</li>
+</ul>
+</li>
+<li>RBAC2 = RBAC0 + 约束<ul>
+<li>约束是角色之间及角色与权限之间的一种限制关系。</li>
+<li>不同的约束规则：<ul>
+<li>互斥角色：角色静态互斥是限制某些角色不能同时分配给一个用户，角色动态互斥是一个用户开始会话，不能同时激活某些角色。</li>
+<li>基数约束：可以限制一个角色可以分配的最大和最小用户数。</li>
+<li>先决角色：用户为获得某些高级角色必须先拥有低等级角色。</li>
+<li>会话约束：限制仅在特定会话中才允许激活某个角色，还可以限制一个用户在同一时间可以激活的会话数量。</li>
+<li>等级约束：限制角色的层次不能超过多少层。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RBAC3 = RBAC0 + 角色继承 + 约束</li>
+</ul>
+</li>
+<li>TBAC Model（基于任务）<ul>
+<li>对象的访问权限控制并不是静止不变的，而是随着执行任务的上下文环境发生变化。</li>
+<li>由工作流、授权结构体、受托人集、许可集四部分组成。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>模型实现</p>
+<ul>
+<li>访问控制表（ACLs）<ul>
+<li>以文件为中心建立的访问权限表</li>
+</ul>
+</li>
+<li>访问控制矩阵（ACM）<ul>
+<li>通过矩阵形式表示访问控制规则和授权用户权限的方法</li>
+<li>对每个主体而言，都拥有对哪些客体的哪些访问权限；而对客体而言，又有哪些主体对他可以实施访问</li>
+</ul>
+</li>
+<li>
+<p>访问控制能力列表（ACCLs）</p>
+<ul>
+<li>以用户为中心建立访问权限表</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">能力</p>
+<p>能力是访问控制中的一个重要概念，它是指请求访问的发起者所拥有的一个有效标签(ticket)。</p>
+</div>
+</li>
+<li>
+<p>访问控制标签列表（ACSLLs）</p>
+<ul>
+<li>限定一个用户对一个客体目标访问的安全属性集合</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">标签</p>
+<p>安全标签是限制和附属在主体或客体上的一组安全属性信息。</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_6">防火墙<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>传统意义：防止火从大厦的一部分传播到另一部分</li>
+<li>
+<p>定义：位于两个(或多个)网络间实施网间访问控制的一组组件的集合</p>
+<div class="admonition warning">
+<p class="admonition-title">防火墙应满足的条件</p>
+<ul>
+<li>所有进出被保护网络的通信必须通过防火墙</li>
+<li>所有通过防火墙的通信必须经过安全策略的过滤或者防火墙的授权</li>
+<li>防火墙自身应对渗透(penetration)免疫</li>
+</ul>
+</div>
+</li>
+<li>
+<p>必要性
+保护内部不受Internet的攻击</p>
+</li>
+<li>功能<ol>
+<li>访问控制<ul>
+<li>服务控制
+    能访问什么</li>
+<li>方向控制
+    哪些特定的服务请求可以发起并允许通过防火墙（访问“方向”）</li>
+<li>用户控制
+    谁可以访问，谁不可以访问</li>
+<li>行为控制
+    怎么访问</li>
+</ul>
+</li>
+<li>应用程序代理</li>
+<li>用户认证</li>
+<li>VPN</li>
+<li>日志</li>
+<li>NAT</li>
+<li>IDS与报警</li>
+<li>内容过滤</li>
+</ol>
+</li>
+<li>局限性
+无法做到绝对的安全</li>
+<li>分类<ul>
+<li>形态：软/硬件防火墙</li>
+<li>实现技术：包过滤防火墙、应用网关防火墙、代理防火墙、状态检测防火墙、电路级网关</li>
+<li>部署位置：主机/网络防火墙</li>
+</ul>
+</li>
+</ul>
+<h3 id="_7">防火墙技术<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>包过滤防火墙</p>
+<ul>
+<li>对所接收的每一个数据包做允许、拒绝的决定</li>
+<li>分为静态包过滤和动态包过滤两类</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">静态包过滤和动态包过滤的区别</p>
+<p>静态包过滤 ~ 单个数据包，根据固定的规则和每个包头的信息
+动态包过滤 ~ 捕获一个“连接”，是一段会话（Session）</p>
+</div>
+<ul>
+<li>原理：防火墙拆开数据包，根据策略处理并作出相应的操作<ul>
+<li>过滤依据主要是TCP/IP报头里面的信息，不能对应用层数据进行处理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>电路级网关</p>
+<ul>
+<li>是一个通用代理服务器</li>
+<li>工作于OSI互联模型的会话层或是TCP/IP协议的TCP层</li>
+<li>不能抵御应用层攻击</li>
+<li>实现：简单重定向</li>
+</ul>
+</li>
+<li>应用网关（AGF）<ul>
+<li>在应用层处理信息</li>
+<li>对数据也做解析</li>
+<li>先验证用户身份</li>
+</ul>
+</li>
+<li>状态检测防火墙<ul>
+<li>在动态包过滤防火墙基础上，增加了状态检测机制</li>
+<li>具有连接的跟踪能力</li>
+<li>结合前后数据包里的数据信息进行综合分析决定是否允许该包通过</li>
+</ul>
+</li>
+<li>
+<p>网络地址翻译（NAT）</p>
+<ul>
+<li>
+<p>NAT的意义</p>
+<ul>
+<li>
+<p>解决IP地址空间不足问题</p>
+<div class="admonition hint">
+<p class="admonition-title">三种解决方式</p>
+<p>多对一（多个内部网址对应1个IP地址）、一对一（简单翻译）、多对多（地址池）</p>
+</div>
+</li>
+<li>
+<p>向外界隐藏内部网结构</p>
+</li>
+</ul>
+</li>
+<li>
+<p>NAT的三种类型</p>
+<ul>
+<li>静态NAT<ul>
+<li>内部网络每个主机都永久映射成外部合法的地址</li>
+</ul>
+</li>
+<li>NAT池<ul>
+<li>在外部网络中定义了一系列合法地址，采用动态分配的方法映射到内部网络</li>
+</ul>
+</li>
+<li>
+<p>端口NAT</p>
+<ul>
+<li>PNAT：把内部地址映射到外部网络的一个IP地址的不同端口上</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">虚拟IP模式</p>
+<p>相同的Untrusted IP，不同端口对应不同的Trusted IP</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_8">防火墙的结构<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>双重宿主主机体系</p>
+<p><img alt="双重宿主主机体系" loading="lazy" src="md-img/chap5_firewall01.jpg" /></p>
+<ul>
+<li>围绕双重宿主主机构成，双重宿主主机至少有两个网络接口</li>
+<li>网络间的通信可通过应用层数据共享和应用层代理服务的方法实现。一般情况下采用代理服务的方法。</li>
+</ul>
+<div class="admonition fail">
+<p class="admonition-title">缺点</p>
+<p>双重宿主主机是隔开内外网络的唯一屏障，一旦它被入侵，内部网络便向入侵者敞开大门。</p>
+</div>
+</li>
+<li>
+<p>屏蔽主机体系</p>
+<p><img alt="屏蔽主机体系" loading="lazy" src="md-img/chap5_firewall02.jpg" /></p>
+<ul>
+<li>由防火墙和内部网络的堡垒主机承担安全责任。<ul>
+<li>一般这种防火墙较简单，可能就是简单的路由器。</li>
+</ul>
+</li>
+<li>典型构成：包过滤路由器＋堡垒主机</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">优点</p>
+<p>安全性更高，双重保护：实现了网络层安全（包过滤）和应用层安全（代理服务）。</p>
+</div>
+<div class="admonition fail">
+<p class="admonition-title">缺点</p>
+<p>过滤路由器能否正确配置是安全与否的关键。如果路由器被损害，堡垒主机将被穿过，整个网络对侵袭者是开放的。</p>
+</div>
+</li>
+<li>
+<p>屏蔽子网体系</p>
+<p><img alt="屏蔽子网体系" loading="lazy" src="md-img/chap5_firewall03.jpg" /></p>
+<ul>
+<li>本质上与屏蔽主机体系结构一样，但添加了额外的一层保护体系——周边网络。<ul>
+<li>堡垒主机位于周边网络上，周边网络和内部网络被内部路由器分开。</li>
+</ul>
+</li>
+<li>结构：堡垒主机-外部路由器-内部路由器<ul>
+<li>壁垒机运行各种代理程序<ul>
+<li>入站服务必须经过壁垒主机</li>
+</ul>
+</li>
+<li>访问路由器（外部路由器）<ul>
+<li>作用：保护周边网络和内部不受不受外部网络的侵犯。</li>
+</ul>
+</li>
+<li>阻塞路由器（内部路由器）<ul>
+<li>作用：保护内部网络不受外部网络和周边网络的侵害，它执行大部分过滤工作。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">优点</p>
+<ol>
+<li>入侵者需突破3个不同的设备才能入侵内部网络。</li>
+<li>只对外通告DMZ区的网络，保证内部网络不可见。</li>
+<li>内部网络用户通过堡垒主机或代理服务器访问外部网络。</li>
+</ol>
+</div>
+<details class="info">
+<summary>其他结构</summary>
+<p>(1) 合并“非军事区”的外部路由器和堡垒主机结构
+(2) 合并内部路由器和堡垒主机结构
+(3) 合并DMZ的内部路由器和外部路由器结构
+(4) 两个堡垒主机和两个非军事区结构
+(5) 牺牲主机结构
+(6) 使用多台外部路由器的体系结构</p>
+</details>
+</li>
+</ul>
+<h2 id="_9">应用实例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>与Linux内核集成的包过滤工具，Iptables信息包过滤系统由两个组件netfilter和Iptables组成。</p>
+<ul>
+<li>netfilter组件也被称为“内核空间”</li>
+<li>数据包沿链传播<ul>
+<li>路径<ul>
+<li>进入本机
+    <pre class="mermaid"><code>graph LR
+    PREROUTING链 --&gt; INPUT链 --&gt; OUTPUT链 --&gt; POSTROUTING链</code></pre></li>
+<li>转发
+    <pre class="mermaid"><code>graph LR
+    PREROUTING链 --&gt; FORWARD链 --&gt; POSTROUTING链</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">iptables中的规则表和规则链</p>
+<ul>
+<li>主要的规则表有四个，分别是mangle表、filter表、nat表和raw表<ul>
+<li>mangle表主要用来修改数据包；</li>
+<li>filter表是专门过滤包的；</li>
+<li>nat表的主要用处是网络地址转换，做过NAT操作的数据包的地址就被改变了，当然这种改变是根据我们的规则进行的；</li>
+<li>raw表主要用作数据跟踪处理。</li>
+</ul>
+</li>
+<li>主要的规则链有五个，分别是：<ul>
+<li>INPUT——进来的数据包应用此规则链中的策略；</li>
+<li>OUTPUT——外出的数据包应用此规则链中的策略；</li>
+<li>FORWARD——转发数据包时应用此规则链中的策略；</li>
+<li>PREROUTING— —对数据包作路由选择前应用此链中的规则；</li>
+<li>POSTROUTING——对数据包作路由选择后应用此链中的规则。</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>命令：<code>iptables [-A|-I 链][-io 网卡接口][-p 协议][-s 源ip/网段][-d 目标ip/网段] [-j 操作]</code></p>
+<ul>
+<li><code>-AI</code> 链：针对某条链进行规则的“插入”或“添加”（影响规则生效顺序）<ul>
+<li><code>-A</code>：新增加一条规则</li>
+<li><code>-I</code>：插入一条规则</li>
+</ul>
+</li>
+<li><code>-io</code> 网络接口：<code>-i</code>：进入口 <code>-o</code>：传出口</li>
+<li><code>-p</code> 协议：tcp或udp或icmp或all</li>
+<li><code>-s</code> 源IP/网段：设置此规则的数据包来源地址，可以是IP，也可以是一个网段</li>
+<li><code>-d</code> 目标IP/网段：同<code>-s</code>一样，只是这里指的是目标IP/网段</li>
+<li><code>-j</code>后接操作，主要有接受ACCEPT，丢弃DROP和记录LOG</li>
+</ul>
+</li>
+<li>
+<p>保护例子</p>
+<ul>
+<li>拒绝其他主机访问本机Telnet服务（TCP 23端口）：<code>iptables -A INPUT -p tcp --dport 23 -j DROP</code></li>
+<li>防御SYN Flood：<code>iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT</code></li>
+<li>防御ping of death拒绝服务攻击：<code>iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT</code></li>
+<li>防御端口扫描(Furtive port scanner)：<code>iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT</code></li>
+</ul>
+<div class="admonition warning">
+<p>iptables的检测存在延迟——需要使用<code>--limit</code>和<code>--limit-burst</code></p>
+</div>
+</li>
+</ul>
+<h3 id="_10">应用控制<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<!--for 手机恶意应用-->
+<ul>
+<li>手机系统恶意应用的防止，需要可靠的应用发布机制保障</li>
+<li>
+<p>目前常见的控制方法：代码签名和DRM(数字版权管理)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">代码签名</label><label for="__tabbed_1_2">DRM</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="代码签名示意" loading="lazy" src="md-img/code_sign.png" /></p>
+</div>
+<div class="tabbed-block"></div>
+</div>
+</div>
+</li>
+<li>
+<p>应用发布流程</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">安卓应用发布流程</label><label for="__tabbed_2_2">iOS应用发布流程</label><label for="__tabbed_2_3">Windows Phone应用发布流程</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="iOS" loading="lazy" src="md-img/ios_publish.png" />
+<figcaption>iOS应用发布流程示意</figcaption>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Windows Phone" loading.lazy="loading.lazy" src="md-img/winphone_publish.png" />
+<figcaption>Windows Phone应用发布流程示意</figcaption>
+</figure></p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h3 id="sso1">单点登录(SSO)<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#sso1" title="Permanent link">&para;</a></h3>
+<div class="admonition summary">
+<p>在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统</p>
+</div>
+<ul>
+<li>要点在于存储信任以及验证信任上</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">使用Cookie</label><label for="__tabbed_3_2">使用JSONP</label><label for="__tabbed_3_3">使用页面重定向</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>sequenceDiagram
+    User-&gt;&gt;System: Login
+    activate System
+    activate User
+    System-&gt;&gt;User: Generate Cookie
+    deactivate System
+    User-&gt;&gt;Subsystem: request session
+    activate Subsystem
+    Subsystem-&gt;&gt;Subsystem: verify cookie
+    Subsystem-&gt;&gt;User: request success
+    deactivate User
+    deactivate Subsystem</code></pre>
+<div class="admonition fail">
+<p class="admonition-title">缺点</p>
+<ol>
+<li>Cookie不够安全，源代码泄露更是可以伪造特定用户身份</li>
+<li>不能跨域免登录</li>
+</ol>
+</div>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>sequenceDiagram
+    User-&gt;&gt;System: Login
+    activate System
+    activate User
+    System-&gt;&gt;User: Login success
+    deactivate System
+    User-&gt;&gt;Subsystem: request session
+    activate Subsystem
+    Subsystem-&gt;&gt;+System: access JSONP interfaces
+    System-&gt;&gt;-Subsystem: return encrypted credentials
+    Subsystem-&gt;&gt;Subsystem: verfiy credentials
+    Subsystem-&gt;&gt;User: request success
+    deactivate User
+    deactivate Subsystem</code></pre>
+<div class="admonition fail">
+<p class="admonition-title">缺点</p>
+<p>虽然解决了跨域问题，但依然可以伪造父应用，以登录特定用户</p>
+</div>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>sequenceDiagram
+    User-&gt;&gt;System: Login
+    activate System
+    activate User
+    System-&gt;&gt;User: Login success
+    deactivate System
+    User-&gt;&gt;Subsystem: request session
+    activate Subsystem
+    Subsystem-&gt;&gt;+System: redirect request
+    System-&gt;&gt;System: check if user has logged in
+    System-&gt;&gt;-Subsystem: redirect response with token
+    Subsystem-&gt;&gt;Subsystem: verfiy token
+    Subsystem-&gt;&gt;User: request success
+    deactivate User
+    deactivate Subsystem</code></pre>
+</div>
+</div>
+</div>
+<h3 id="_11">边界控制<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>解决溢出漏洞，需要进行边界控制</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ASLR</label><label for="__tabbed_4_2">DEP</label><label for="__tabbed_4_3">SafeSEH</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>对堆、栈、共享库映射等布局的随机化，增加攻击者预测目的地址的难度</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>数据执行保护，是一套软硬件技术，阻止恶意代码插入与执行</li>
+<li>具体来说，DEP将阻止应用程序从标记为NX的内存位置执行代码</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>检验异常函数的有效性，不可靠会阻止其调用</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="_12">手机权限控制<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<!-- title: 常见的android手机权限 -->
+<table>
+<thead>
+<tr>
+<th align="center">值(android.permission.*)</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">INTERNET</td>
+<td align="center">访问网络</td>
+</tr>
+<tr>
+<td align="center">ACCESS_FINE_LOCATION</td>
+<td align="center">通过GPS获取位置</td>
+</tr>
+<tr>
+<td align="center">BLUETOOTH</td>
+<td align="center">使用蓝牙</td>
+</tr>
+<tr>
+<td align="center">CALL_PHONE</td>
+<td align="center">拨打电话</td>
+</tr>
+<tr>
+<td align="center">PROCESS_OUTGOING_CALLS</td>
+<td align="center">获得打出电话状态</td>
+</tr>
+<tr>
+<td align="center">READ_CONTACTS</td>
+<td align="center">读取联系人</td>
+</tr>
+<tr>
+<td align="center">READ_SMS</td>
+<td align="center">读取短信</td>
+</tr>
+<tr>
+<td align="center">RECEIVE_SMS</td>
+<td align="center">接收短信</td>
+</tr>
+<tr>
+<td align="center">SEND_SMS</td>
+<td align="center">发送短信</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Android的权限授予</p>
+<pre class="mermaid"><code>graph TD
+A("配置文件、代码资源等")--&gt;B("提取、解析Permisson")--&gt;C(为Package分配UID)
+C--&gt;D(建立PackageSetting数据结构)--&gt;E(Package轮询对Permission授权)</code></pre>
+</li>
+</ul>
+<h3 id="_13">网络隔离技术<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>防火墙：保障互联互通的情况下，尽可能安全</li>
+<li>物理隔离：保证必须安全的前提下，尽可能互联互通<ul>
+<li>安全要求<ol>
+<li>物理传导上隔断内外网</li>
+<li>物理辐射上隔断内外网</li>
+<li>物理存储上隔断内外网</li>
+</ol>
+</li>
+<li>实现原理<ol>
+<li>数据二极管技术</li>
+<li>存储池交换技术</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>网络隔离技术分类<ul>
+<li>第一代隔离技术：完全的隔离</li>
+<li>第二代隔离技术：硬件卡隔离</li>
+<li>第三代隔离技术：数据转播隔离</li>
+<li>第四代隔离技术：空气开关隔离</li>
+<li>第五代隔离技术：安全通道隔离（网闸技术）</li>
+</ul>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.jianshu.com/p/613e44d4a464">https://www.jianshu.com/p/613e44d4a464</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+              
+
+<!-- Giscus -->
+<h2 id="__comments">评论</h2>
+<!-- Replace with generated snippet -->
+<script src="https://giscus.app/client.js"
+        data-repo="jasonren0403/notes"
+        data-repo-id="R_kgDOGXfwBg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]")
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette")
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) // (1)!
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+      var palette = __md_get("__palette")
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+                { giscus: { setConfig: { theme } } },
+                "https://giscus.app"
+        )
+      }
+    })
+  })
+</script>
+
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="side-channel.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 侧信道攻击" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              侧信道攻击
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="ids.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 入侵检测" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              入侵检测
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2022</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason&#39;s Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://twitter.com/theRealRev270" target="_blank" rel="noopener" title="J.R on twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.facebook.com/renjason1999" target="_blank" rel="noopener" title="My facebook page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://discord.gg/s33UBWEPxb" target="_blank" rel="noopener" title="Join to my discussion(discord)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+  
+
+<h4>Cookie 约定</h4>
+<p>嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的网站。</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">同意</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">管理设定</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+      
+        <script src="../assets/javascripts/doc_addins.js"></script>
+      
+        <script src="../assets/javascripts/share.js"></script>
+      
+    
+  </body>
+</html>

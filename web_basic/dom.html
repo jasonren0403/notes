@@ -1,0 +1,3001 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="信息安全、前端相关">
+      
+      
+        <meta name="author" content="Jason">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>DOM - Jason的笔记小屋</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/ex.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascriptdom" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="Jason的笔记小屋" class="md-header__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jason的笔记小屋
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DOM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="切换至白天模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至白天模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        web开发技术基础
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../soft_security/index.html" class="md-tabs__link">
+        软件安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../net_security/index.html" class="md-tabs__link">
+        网络安全
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../408-helper/index.html" class="md-tabs__link">
+        408助手
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../tags.html" class="md-tabs__link">
+      按标签查找
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Jason的笔记小屋" class="md-nav__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"/></svg>
+
+    </a>
+    Jason的笔记小屋
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jasonren0403/notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html">web开发技术基础</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="web开发技术基础" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          web开发技术基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="basic-structure.html" class="md-nav__link">
+        Web的基本架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="html.html" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="css.html" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="javascript.html" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          DOM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="dom.html" class="md-nav__link md-nav__link--active">
+        DOM
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dom" class="md-nav__link">
+    DOM
+  </a>
+  
+    <nav class="md-nav" aria-label="DOM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom_1" class="md-nav__link">
+    DOM节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_2" class="md-nav__link">
+    DOM树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_3" class="md-nav__link">
+    DOM的对象与接口
+  </a>
+  
+    <nav class="md-nav" aria-label="DOM的对象与接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    Node接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parentnode" class="md-nav__link">
+    ParentNode接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childnode" class="md-nav__link">
+    ChildNode接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_4" class="md-nav__link">
+    DOM的主要对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    事件
+  </a>
+  
+    <nav class="md-nav" aria-label="事件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    为事件绑定监听函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dom_5" class="md-nav__link">
+    DOM事件操作
+  </a>
+  
+    <nav class="md-nav" aria-label="DOM事件操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    鼠标事件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    键盘事件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    表单事件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    load 事件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    窗口事件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    浏览器对象模型（BOM）
+  </a>
+  
+    <nav class="md-nav" aria-label="浏览器对象模型（BOM）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#window" class="md-nav__link">
+    Window对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigator" class="md-nav__link">
+    Navigator对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screen" class="md-nav__link">
+    Screen对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    Location对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../soft_security/index.html">软件安全</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="软件安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          软件安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/basic.html" class="md-nav__link">
+        软件基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/string.html" class="md-nav__link">
+        字符串安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/pointer.html" class="md-nav__link">
+        指针安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/memory-management.html" class="md-nav__link">
+        动态内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/integer-security.html" class="md-nav__link">
+        整数安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/string-format.html" class="md-nav__link">
+        格式化输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/concurrency.html" class="md-nav__link">
+        并发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/io.html" class="md-nav__link">
+        文件输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soft_security/practice.html" class="md-nav__link">
+        软件安全实践
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../net_security/index.html">网络安全</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="网络安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          网络安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/assets.html" class="md-nav__link">
+        网络安全概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/characteristics.html" class="md-nav__link">
+        网络攻击的特征
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/networkattack.html" class="md-nav__link">
+        网络攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/hook.html" class="md-nav__link">
+        HOOK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/apt.html" class="md-nav__link">
+        APT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/defense.html" class="md-nav__link">
+        内生安全与拟态防御
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/sdn.html" class="md-nav__link">
+        软件定义网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/side-channel.html" class="md-nav__link">
+        侧信道攻击
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/firewall.html" class="md-nav__link">
+        防火墙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/ids.html" class="md-nav__link">
+        入侵检测
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/vpn.html" class="md-nav__link">
+        虚拟专用网
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/application.html" class="md-nav__link">
+        应用安全——PGP为例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_security/socialengineering.html" class="md-nav__link">
+        社会工程学
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/index.html">408助手</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="408助手" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          408助手
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/what-does-408-test.html" class="md-nav__link">
+        408考试大纲（2020版）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/computer-structure/index.html">计算机组成原理</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机组成原理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          计算机组成原理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-structure/operating.html" class="md-nav__link">
+        运算器
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/data-structure/index.html">数据结构</a>
+          
+            <label for="__nav_5_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/linear-list.html" class="md-nav__link">
+        线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/stack.html" class="md-nav__link">
+        栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/queue.html" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/array.html" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/string.html" class="md-nav__link">
+        字符串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/tree.html" class="md-nav__link">
+        树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/graph.html" class="md-nav__link">
+        图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/searching.html" class="md-nav__link">
+        查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/data-structure/sorting.html" class="md-nav__link">
+        排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/computer-network/index.html">计算机网络</a>
+          
+            <label for="__nav_5_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="计算机网络" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          计算机网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-network/network-layer.html" class="md-nav__link">
+        网络层
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/computer-network/physical-layer.html" class="md-nav__link">
+        物理层
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../408-helper/operating-system/index.html">操作系统</a>
+          
+            <label for="__nav_5_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="操作系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/process.html" class="md-nav__link">
+        进程管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/memory.html" class="md-nav__link">
+        内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/file.html" class="md-nav__link">
+        文件管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../408-helper/operating-system/io.html" class="md-nav__link">
+        输入输出(I/O)管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        按标签查找
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+                
+  <a href="https://github.com/jasonren0403/notes/edit/main/notes_dev/web_basic/dom.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  
+
+  <nav class="md-tags" >
+    
+      
+        <a href="../tags.html#web" class="md-tag">
+          Web前端基础
+        </a>
+      
+    
+  </nav>
+
+
+
+<h1 id="javascriptdom">JavaScript与DOM<a class="headerlink" href="#javascriptdom" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">DOM的必要性</p>
+<p>DOM：Document Object Model ，文档对象模型
+DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScript 赋予HTML 具备动态交互效果的能力的核心地位上，与特定编程语言相独立
+各种实现：JavaScript、Python（<code>xml.dom</code>库等）</p>
+</div>
+<h2 id="dom">DOM<a class="headerlink" href="#dom" title="Permanent link">&para;</a></h2>
+<ul>
+<li>观点：在HTML DOM中，所有事物都是节点</li>
+<li>文档结构类似于树，但不一定使用树实现<ul>
+<li>这个树型表示使用<b>结构模型</b>一词来描述<ul>
+<li>一个重要属性：结构同构</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DOM标准<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">DOM Level 0</label><label for="__tabbed_1_2">DOM Level 1</label><label for="__tabbed_1_3">DOM Level 2</label><label for="__tabbed_1_4">DOM Level 3</label><label for="__tabbed_1_5">DOM Level 4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>JavaScript 在早期版本中提供了查询和操作Web 文档内容的API，比如图像和表单。</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>由DOM 核心与DOM HTML 两个模块组成</li>
+<li>以映射文档结构为目标，DOM 核心能映射以XML 为基础的文档结构，允许获取和操作文档的任意部分</li>
+<li>DOM HTML 通过添加HTML 专用的对象与函数对DOM 核心进行了扩展</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>增强了交互能力，也支持更高级的XML 特性</li>
+<li>又扩充了鼠标、用户界面事件、范围、遍历等细分模块，而且通过对象接口增加了对CSS 的支持</li>
+<li>引入了下列模块，包含了众多新类型和新接口<ul>
+<li>DOM 视图（DOM Views）：定义了跟踪不同文档视图的接口</li>
+<li>DOM 事件（DOM Events）：定义了事件和事件处理的接口</li>
+<li>DOM 样式（DOM Styles）：定义了基于CSS 为元素应用样式的接口</li>
+<li>DOM 遍历和范围（DOM Traversal and Range）：定义了遍历和操作文档树的接口</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>通过引入统一方式载入和保存文档和文档验证方法对DOM进行进一步扩展，引入了以下模块<ul>
+<li>DOM 加载和保存模块（DOM Load and Save）：引入了以统一方式加载和保存文档的方法</li>
+<li>DOM 验证模块（DOM Validation）：定义了验证文档的方法</li>
+<li>DOM 核心的扩展（DOM Styles）：支持XML1.0 规范，涉及到XML Infoset 、XPath 和XML Base</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>仍然处于草案阶段</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h3 id="dom_1">DOM节点<a class="headerlink" href="#dom_1" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">元素节点</label><label for="__tabbed_2_2">属性节点</label><label for="__tabbed_2_3">文本节点</label><label for="__tabbed_2_4">注释节点</label><label for="__tabbed_2_5">文档节点</label><label for="__tabbed_2_6">文档类型节点</label><label for="__tabbed_2_7">文档片段节点</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>通常元素有子元素、文本节点或者两者的结合，元素节点是唯一能够拥有属性的节点类型</li>
+<li><code>html</code> 、<code>head</code> 、<code>title</code> 、<code>body</code> 、<code>div</code> 、<code>ul</code> 、<code>li</code> 等都属于Element（元素节点）</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>属性节点代表了元素中的属性，因为属性实际上是附属于元素的 ，属性节点其实被看做是包含它的元素节点的一部分，它并不作为单独的一个节点在文档中出现。</li>
+<li>HTML 元素的属性如<code>id</code> 、<code>class</code> 、<code>href</code> 等都属于Attr（属性节点）</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>文本节点是只包含文本内容的节点，文本节点可以只包含空格。</li>
+<li>在文档树中元素的文本内容和属性的文本内容都是由文本节点来表示</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>注释节点（Comment）是包含文档注释的节点</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>文档节点（Document）是文档树的根节点，它是文档中其他所有节点的父节点</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>每个Document 都有一个<code>DocumentType</code> 属性，它的值或是<code>null</code> ，或者是<code>DocumentType</code> 对象</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>文档片段节点（Document Fragment）是轻量级的或最小的Document 对象，它表示文档的一部分或者是一段，不属于文档树。</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="dom_2">DOM树<a class="headerlink" href="#dom_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>浏览器提供<code>document</code>节点代表整个文档</li>
+<li>第一层节点/根节点：<code>&lt;html&gt;</code></li>
+<li>其他节点：三种层级关系<ol>
+<li>父节点关系：直接上级节点</li>
+<li>子节点关系：直接下级节点</li>
+<li>兄弟节点关系：拥有同一个父节点</li>
+</ol>
+</li>
+</ul>
+<h3 id="dom_3">DOM的对象与接口<a class="headerlink" href="#dom_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>当浏览器解析完HTML 文档后，每个节点并非只是一个单纯的<code>Element</code> 对象，而是继承了很多属性和方法，<code>Element</code> 对象继承了<code>Node</code> 对象的所有属性和方法</li>
+</ul>
+<h4 id="node">Node接口<a class="headerlink" href="#node" title="Permanent link">&para;</a></h4>
+<ul>
+<li>所有DOM对象都继承了DOM接口，拥有共同的属性和操作方法</li>
+<li>
+<p>DOM API</p>
+<ul>
+<li>属性<ul>
+<li><code>nodeType</code>：<code>Number</code>，节点类型<ul>
+<li>document: <code>Node.DOCUMENT_NODE(9)</code></li>
+<li>element: <code>Node.ELEMENT_NODE(1)</code></li>
+<li>attr: <code>Node.ATTRIBUTE_NODE(2)</code></li>
+<li>text: <code>Node.TEXT_NODE(3)</code></li>
+<li>document fragment: <code>Node.DOCUMENT_FRAGMENT_NODE(11)</code></li>
+<li>document type: <code>Node.DOCUMENT_TYPE_NODE(10)</code></li>
+<li>comment: <code>Node.COMMENT_NODE(8)</code></li>
+</ul>
+</li>
+<li><code>nodeName</code>：<code>string</code>，节点名称<ul>
+<li>document: <code>#document</code></li>
+<li>element: 大写的标签名</li>
+<li>attr: 属性名称</li>
+<li>text: <code>#text</code></li>
+<li>document fragment: <code>#document-fragment</code></li>
+<li>document type: 文档的类型</li>
+<li>comment: <code>#comment</code></li>
+</ul>
+</li>
+<li><code>nodeValue</code>：<code>string</code>，该节点本身的文本值，可以读写<ul>
+<li>只有<code>text</code>、<code>comment</code>、<code>attr</code>节点有文本值，有返回结果，可设置属性。</li>
+<li>其余返回<code>null</code>，不可设置<code>nodeValue</code>属性</li>
+</ul>
+</li>
+<li><code>textContent</code>：<code>string</code>，返回当前节点和它的所有后代节点的文本<ul>
+<li>text、comment、attr节点的该属性与<code>nodeValue</code>属性相同</li>
+<li>其他类型节点，会将每个子节点（不包括注释节点）的内容连接在一起返回。如果一个节点没有子节点，则返回空字符串</li>
+<li>可读写，可自动对HTML标签转义</li>
+</ul>
+</li>
+<li><code>baseURI</code>：<code>string</code>，当前网页的绝对路径<ul>
+<li>只读，返回URI编码过的路径值，获取真实值需要用<code>decodeURI()</code>解码</li>
+<li>该属性的值一般由当前网址的 URL（即<code>window.location</code>属性）决定，但是可以使用 HTML 的<code>&lt;base&gt;</code>标签，改变该属性的值。设置了以后，<code>baseURI</code> 属性就返回<code>&lt;base&gt;</code> 标签设置的值</li>
+</ul>
+</li>
+<li><code>ownerDocument</code>：<code>Document</code>，返回当前节点所在的顶层文档对象，即<code>document</code> 对象</li>
+<li><code>nextSibling</code>和<code>previousSibling</code>：<code>Node</code><ul>
+<li><code>nextSibling</code>：返回紧跟在当前节点后面的第一个同级节点，如果当前节点后面没有同级节点，则返回<code>null</code><ul>
+<li>如果当前节点后面有空格，该属性会返回一个文本节点，内容为空格</li>
+<li>遍历所有节点
+    <div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementbyId</span><span class="p">(</span><span class="s1">&#39;divA&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">while</span><span class="p">(</span><span class="nx">e1</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="cm">/* do some operations to element */</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e1</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></li>
+</ul>
+</li>
+<li><code>previousSibling</code>：返回当前节点前面的、距离最近的一个同级节点。如果当前节点前面没有同级节点，则返回<code>null</code><ul>
+<li>如果当前节点前面有空格，该属性会返回一个文本节点，内容为空格</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>parentNode</code>和<code>parentElement</code>：<code>Node</code><ul>
+<li><code>parentNode</code>，当前节点的父节点，只可能是元素节点、文档节点、文档片段节点之一</li>
+<li><code>parentElement</code>，当前节点的父<b>元素</b>节点</li>
+</ul>
+</li>
+<li><code>firstChild</code>和<code>lastChild</code>：<code>Node</code><ul>
+<li><code>firstChild</code>：返回当前节点的第一个子节点，返回的可能是元素节点、文本节点或注释节点，如果当前节点没有子节点，则返回<code>null</code></li>
+<li><code>lastChild</code>：返回当前节点的最后一个子节点，用法与<code>firstChild</code>相同</li>
+</ul>
+</li>
+<li><code>childNodes</code>：<code>NodeList</code>，包括当前节点的所有子节点</li>
+<li><code>isConnected</code>：<code>boolean</code>，当前节点是否在文档中<ul>
+<li>使用<code>createElement()</code>生成的节点默认不在文档中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DOM节点常用操作</p>
+<ul>
+<li><code>appendChild(new)</code>：<code>Node</code>，将传入的<code>Node</code>对象作为最后一个子节点插入当前节点，若已经存在，则将其移动到新位置<ul>
+<li>若参数是<code>DocumentFragment</code>节点，该方法将插入<code>DocumentFragment</code>的所有子节点，不仅仅是<code>DocumentFragment</code>本身</li>
+</ul>
+</li>
+<li><code>hasChildNodes()</code>：<code>boolean</code>，当前节点是否有子节点<ul>
+<li>这里的子节点包括所有类型的节点</li>
+<li>还有两种方法可以做相同判断<ol>
+<li><code>node.firstChild !== null</code></li>
+<li><code>node.childNodes &amp;&amp; node.childNodes.length &gt; 0</code></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><code>cloneNode(cloneChild)</code>：<code>Node</code>，克隆一个节点<ul>
+<li>接受一个布尔值作为参数，表示是否克隆子节点</li>
+<li>会拷贝该节点的所有属性，但是会失去<code>addEventListener</code> 方法和<code>on-</code> 属性（例如<code>node.onclick = fn</code>）添加在这个节点上的事件回调函数。</li>
+<li>返回的节点不在文档中，要使用<code>appendChild()</code>等方法插入</li>
+<li>调用后，可能出现两个<code>id</code>属性相同的元素，需要修改其中一个元素的该属性</li>
+</ul>
+</li>
+<li>
+<p><code>insertBefore(new,reference)</code>：<code>Node</code>，将某个节点插入父节点内部的指定位置</p>
+<ul>
+<li>将插入节点放在参考子节点的前面，若已经存在，则将其移动到新位置</li>
+<li>如果<code>reference</code>为<code>null</code>，插入最后方</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>如果新节点要插在父节点的某个子节点后面，可以使用<code>insertBefore</code>方法结合<code>nextSibling</code>属性来模拟：</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">divA</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</li>
+<li>
+<p><code>removeChild(delete)</code>：<code>Node</code>，从当前节点移除该子节点。</p>
+<ul>
+<li>参数节点不是当前节点的子节点，将报错</li>
+</ul>
+</li>
+<li><code>replaceChild(new,old)</code>：<code>Node</code>，将一个新的节点，替换当前节点的某一个子节点</li>
+<li><code>contains()</code>：<code>boolean</code>，判断参数节点是否满足以下三个条件：<ol>
+<li>参数节点为当前节点</li>
+<li>参数节点为当前节点的子节点</li>
+<li>参数节点为当前节点的后代节点</li>
+</ol>
+</li>
+<li>
+<p><code>compareDocumentPosition()</code>：<code>Number</code></p>
+<ul>
+<li>与<code>contains()</code>用法基本相同，返回的是七个比特位的二进制值，表示参数节点与当前节点的关系</li>
+</ul>
+<div class="admonition summary">
+<p class="admonition-title"><code>compareDocumentPosition()</code>的返回值和含义</p>
+<table>
+<thead>
+<tr>
+<th align="center">二进制值</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">000000</td>
+<td align="center">两个节点相同</td>
+</tr>
+<tr>
+<td align="center">000001</td>
+<td align="center">两个节点不在同一个文档</td>
+</tr>
+<tr>
+<td align="center">000010</td>
+<td align="center">参数节点在当前节点的前面</td>
+</tr>
+<tr>
+<td align="center">000100</td>
+<td align="center">参数节点在当前节点的后面</td>
+</tr>
+<tr>
+<td align="center">001000</td>
+<td align="center">参数节点包含当前节点</td>
+</tr>
+<tr>
+<td align="center">010000</td>
+<td align="center">当前节点包含参数节点</td>
+</tr>
+<tr>
+<td align="center">100000</td>
+<td align="center">浏览器内部使用</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧：判断文档结构是否正确</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">compareDocumentPosition</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mf">4</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;structure right&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Do not put &lt;body&gt; before &lt;head&gt;&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</li>
+<li>
+<p><code>isEqualNode()</code>和<code>isSameNode()</code>：<code>boolean</code></p>
+<ul>
+<li><code>isEqualNode()</code>：用于检查两个节点是否相等<ul>
+<li>所谓相等，指的是两个节点的类型相同、属性相同、子节点相同</li>
+</ul>
+</li>
+<li><code>isSameNode()</code>：表示两个节点是否为同一个节点</li>
+</ul>
+</li>
+<li>
+<p><code>normalize()</code></p>
+<ul>
+<li>将当前节点和它的后代节点”规范化“</li>
+<li>在一个"规范化"后的DOM树中，不存在一个空的文本节点，或者两个相邻的文本节点。</li>
+</ul>
+</li>
+<li>
+<p><code>getRootNode()</code>：<code>Node</code>，返回当前节点所在文档的根节点</p>
+<ul>
+<li>与<code>ownerDocument</code>属性的作用相同</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>节点集合接口：<code>NodeList</code>和<code>HTMLCollection</code></p>
+<div class="admonition tip">
+<p class="admonition-title">它们之间的本质区别</p>
+<ul>
+<li><code>NodeList</code>可以包含各种类型的节点</li>
+<li><code>HTMLCollection</code> 只能包含 HTML 元素</li>
+</ul>
+</div>
+<ul>
+<li>
+<p><code>NodeList</code>接口</p>
+<ul>
+<li>
+<p>得到<code>NodeList</code>实例：</p>
+<ol>
+<li>
+<p><code>Node.childNodes</code></p>
+<div class="admonition warning">
+<p>注意：IE8之前的版本不会将空白文本当为子节点，故返回的<code>childNodes</code>值会偏小</p>
+</div>
+</li>
+<li>
+<p>节点搜索方法，比如<code>document.querySelectorAll()</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p><code>NodeList</code> 实例很像数组</p>
+<ul>
+<li>但是它并不是数组！</li>
+<li>存在<code>length</code>属性和<code>forEach</code>方法</li>
+<li><code>item(index)</code>：返回该位置的成员</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>HTMLCollection</code>接口</p>
+<ul>
+<li>只能包含元素（element）节点</li>
+<li><code>length</code>属性返回<code>HTMLCollection</code> 实例的成员数量</li>
+<li><code>item(index)</code>：返回该位置的成员</li>
+<li><code>namedItem(val)</code>：返回<code>val</code>指定的<code>id</code>或<code>name</code>属性对应的元素节点，没有则返回<code>null</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="parentnode"><code>ParentNode</code>接口<a class="headerlink" href="#parentnode" title="Permanent link">&para;</a></h4>
+<ul>
+<li>如果当前节点是父节点，就会继承<code>ParentNode</code>接口</li>
+<li>只有元素节点（element）、 文档节点（document）和文档片段节点（documentFragment）拥有子节点，因此只有这三类节点会继承ParentNode接口</li>
+<li>方法与属性<ul>
+<li><code>children</code> 属性返回一个<code>HTMLCollection</code> 实例，成员是当前节点所有元素子节点，该属性只读</li>
+<li><code>children</code> 属性只包括元素子节点，不包括其他类型的子节点（比如文本子节点）</li>
+<li><code>firstElementChild</code> 属性返回当前节点的第一个元素子节点。如果没有任何元素子节点，则返回<code>null</code><ul>
+<li><code>firstElementChild</code>不兼容IE8以下版本浏览器，慎用</li>
+</ul>
+</li>
+<li><code>lastElementChild</code> 属性返回当前节点的最后一个元素子节点，如果不存在任何元素子节点，则返回<code>null</code></li>
+<li><code>childElementCount</code> 属性返回一个整数，表示当前节点的所有元素子节点的数目。如果不包含任何元素子节点，则返回0</li>
+<li><code>append</code> 方法为当前节点追加一个或多个子节点，位置是最后一个元素子节点的后面</li>
+<li><code>prepend</code> 方法为当前节点追加一个或多个子节点，位置是第一个元素子节点的前面</li>
+</ul>
+</li>
+</ul>
+<h4 id="childnode"><code>ChildNode</code>接口<a class="headerlink" href="#childnode" title="Permanent link">&para;</a></h4>
+<ul>
+<li>如果一个节点有父节点，那么该节点就继承了<code>ChildNode</code>接口</li>
+<li>方法与属性<ul>
+<li><code>remove</code> 方法用于从父节点移除当前节点</li>
+<li><code>before</code> 方法 /<code>after</code> 方法用于在当前节点的前面/后面，插入一个或多个同级节点。两者拥有相同的父节点。<ul>
+<li>该方法不仅可以插入元素节点，还可以插入文本节点</li>
+</ul>
+</li>
+<li><code>replaceWith</code> 方法使用参数节点，替换当前节点。参数可以是元素节点，也可以是文本</li>
+</ul>
+</li>
+</ul>
+<h4 id="dom_4">DOM的主要对象<a class="headerlink" href="#dom_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Document 节点对象，代表整个文档</p>
+<ul>
+<li><code>window.document</code>指向网页自身的<code>document</code>对象</li>
+<li>只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:6"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">便捷访问文档内部的某个节点：快捷方式属性</label><label for="__tabbed_3_2">节点集合属性</label><label for="__tabbed_3_3">文档静态信息属性</label><label for="__tabbed_3_4">文档状态属性</label><label for="__tabbed_3_5">对象方法</label><label for="__tabbed_3_6">事件</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><code>document.body</code></label><label for="__tabbed_4_2"><code>document.head</code></label><label for="__tabbed_4_3"><code>document.activeElement</code></label><label for="__tabbed_4_4"><code>document.fullscreenElement</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>指向<code>&lt;body&gt;</code>节点</p>
+</div>
+<div class="tabbed-block">
+<p>指向<code>&lt;head&gt;</code>节点</p>
+</div>
+<div class="tabbed-block">
+<p>返回获得当前焦点（focus）的 DOM 元素</p>
+</div>
+<div class="tabbed-block">
+<p>返回当前以全屏状态展示的 DOM 元素</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>均返回<code>HTMLCollection</code>实例</li>
+<li>
+<p>一些属性</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:6"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1"><code>document.links</code></label><label for="__tabbed_5_2"><code>document.forms</code></label><label for="__tabbed_5_3"><code>document.images</code></label><label for="__tabbed_5_4"><code>document.embeds</code>, <code>plugins</code></label><label for="__tabbed_5_5"><code>document.scripts</code></label><label for="__tabbed_5_6"><code>document.styleSheets</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>返回所有设定了<code>href</code>属性的<code>&lt;a&gt;</code>及<code>&lt;area&gt;</code>节点</p>
+</div>
+<div class="tabbed-block">
+<p>返回所有<code>&lt;form&gt;</code>表单节点</p>
+</div>
+<div class="tabbed-block">
+<p>返回页面所有<code>&lt;img&gt;</code>图片节点</p>
+</div>
+<div class="tabbed-block">
+<p>返回所有<code>&lt;embed&gt;</code>节点</p>
+</div>
+<div class="tabbed-block">
+<p>返回所有<code>&lt;script&gt;</code>节点</p>
+</div>
+<div class="tabbed-block">
+<p>返回文档内嵌或引入的样式表</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:5"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1"><code>document.documentURI</code>, <code>document.URL</code></label><label for="__tabbed_6_2"><code>document.domain</code></label><label for="__tabbed_6_3"><code>document.lastModified</code></label><label for="__tabbed_6_4"><code>document.title</code></label><label for="__tabbed_6_5"><code>document.characterSet</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>返回一个字符串，表示当前文档的网址</p>
+</div>
+<div class="tabbed-block">
+<p>返回当前文档的域名，不包含协议和接口</p>
+</div>
+<div class="tabbed-block">
+<p>返回当前文档最后修改时间的字符串</p>
+</div>
+<div class="tabbed-block">
+<p>返回当前文档的标题，该属性是可写的</p>
+</div>
+<div class="tabbed-block">
+<p>返回当前文档的编码</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1"><code>document.hidden</code></label><label for="__tabbed_7_2"><code>document.visibilityState</code></label><label for="__tabbed_7_3"><code>document.readyState</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>返回布尔值，表示当前页面是否可见</p>
+</div>
+<div class="tabbed-block">
+<p>返回文档的可见状态</p>
+<ul>
+<li><code>visible</code>：页面可见</li>
+<li><code>hidden</code>：页面不可见</li>
+<li><code>prerender</code>：渲染状态，对用户不可见</li>
+<li><code>unloaded</code>：页面从内存中卸载了</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>返回当前文档的状态</p>
+<ul>
+<li><code>loading</code>：加载HTML代码阶段</li>
+<li><code>interactive</code>：加载外部资源阶段</li>
+<li><code>complete</code>：加载完毕</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:9"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1"><code>document.querySelector</code></label><label for="__tabbed_8_2"><code>document.querySelectorAll</code></label><label for="__tabbed_8_3"><code>document.getElementsByTagName</code></label><label for="__tabbed_8_4"><code>document.getElementsByClassName</code></label><label for="__tabbed_8_5"><code>document.getElementsByName</code></label><label for="__tabbed_8_6"><code>document.getElementById</code></label><label for="__tabbed_8_7"><code>document.elementFromPoint</code></label><label for="__tabbed_8_8"><code>document.elementsFromPoint()</code></label><label for="__tabbed_8_9"><code>document.createElement()</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>接受一个 CSS 选择器作为参数，返回第一个匹配该选择器的元素节点，如果没有则返回<code>null</code></p>
+</div>
+<div class="tabbed-block">
+<p>返回一个<code>NodeList</code>对象，包含所有匹配给定选择器的节点</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>搜索HTML 标签名，返回符合条件的元素<ul>
+<li>返回值是一个类似数组对象（<code>HTMLCollection</code>实例），可以实时反映 HTML 文档的变化</li>
+<li>如果没有任何匹配的元素，就返回一个空集</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>返回所有<code>class</code> 名字符合指定条件的元素，元素的变化实时反映在返回结果中</p>
+</div>
+<div class="tabbed-block">
+<p>选择所有拥有<code>name</code> 属性的 HTML 元素</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>返回匹配指定<code>id</code> 属性的元素节点</li>
+</ul>
+<div class="admonition tip">
+<p>一个网页上一般只有一个指定<code>id</code>属性的元素，故方法名为单数<code>Element</code></p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>返回位于页面指定位置最上层的元素节点</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>返回一个数组，成员是位于指定坐标（相对于视口）的所有元素<ul>
+<li>两个参数，依次是相对于当前视口左上角的横坐标和纵坐标，单位是像素</li>
+<li>如果位于该位置的 HTML 元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）</li>
+<li>如果坐标值无意义（比如负值或超过视口大小），返回<code>null</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>生成元素节点，并返回该节点<ul>
+<li><code>document.createTextNode</code> 方法用来生成文本节点（Text 实例），并返回该节点，参数是文本内容字符串</li>
+<li><code>document.createAttribute</code> 方法用来生成属性节点（Attr 实例），并返回该节点，参数是属性名称</li>
+<li><code>document.createComment</code> 方法用来生成注释节点，并返回该节点，参数是注释内容字符串</li>
+<li><code>document.createDocumentFragment</code> 方法生成一个空的文档片段对象（DocumentFragment）实例</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="9:4"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1"><code>document.createEvent(type)</code></label><label for="__tabbed_9_2"><code>EventTarget.addEventListener(type, listener, options/useCapture)</code></label><label for="__tabbed_9_3"><code>EventTarget.removeEventListener()</code></label><label for="__tabbed_9_4"><code>EventTarget.dispatchEvent()</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>创建一个指定类型事件，参数为事件类型，需要使用<code>initEvent()</code>方法初始化。</p>
+</div>
+<div class="tabbed-block">
+<p>将指定的监听器注册在<code>EventTarget</code>上，当对象触发指定的事件时，指定回调函数会被执行。</p>
+</div>
+<div class="tabbed-block">
+<p>删除使用 <code>EventTarget.addEventListener()</code> 方法添加的事件。</p>
+</div>
+<div class="tabbed-block">
+<p>向一个指定事件目标派发一个事件，并以合适顺序同步调用目标元素相关的事件处理函数。</p>
+</div>
+</div>
+</div>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* 实例代码 */</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s1">&#39;Event&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nx">event</span><span class="p">.</span><span class="nx">initEvent</span><span class="p">(</span><span class="s1">&#39;build&#39;</span><span class="p">,</span><span class="kc">true</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;build&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1)</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">},</span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">document</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2)</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>输出<code>build</code></li>
+<li>触发事件</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>元素节点（Element）对象，代表对应网页的HTML元素</p>
+<ul>
+<li>Element 对象继承了Node 接口，因此Node 的属性和方法在Element 对象都存在</li>
+<li>
+<p>属性</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:7"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><input id="__tabbed_10_4" name="__tabbed_10" type="radio" /><input id="__tabbed_10_5" name="__tabbed_10" type="radio" /><input id="__tabbed_10_6" name="__tabbed_10" type="radio" /><input id="__tabbed_10_7" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1"><code>Element.id</code></label><label for="__tabbed_10_2"><code>Element.tagName</code></label><label for="__tabbed_10_3"><code>class</code>相关属性</label><label for="__tabbed_10_4"><code>Element.innerHTML</code></label><label for="__tabbed_10_5"><code>Element.outerHTML</code></label><label for="__tabbed_10_6">遍历元素子节点</label><label for="__tabbed_10_7">访问HTML属性</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>返回指定元素的<code>id</code>属性，该属性可读写</p>
+</div>
+<div class="tabbed-block">
+<p>返回指定元素的大写标签名，与<code>nodeName</code>属性的值相等</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>className</code> 属性用来读写当前元素节点的<code>class</code>属性。它的值是一个字符串，每个<code>class</code>之间用空格分割</li>
+<li><code>classList</code> 属性返回一个类似数组的对象，当前元素节点的每个<code>class</code>就是这个对象的一个成员<ul>
+<li><code>classList</code>对象方法：增删改查<code>class</code><ul>
+<li>增：<code>add</code></li>
+<li>删：<code>remove</code></li>
+<li>改：<code>toggle</code></li>
+<li>查：<code>contains</code> 或 <code>item(index)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>返回一个字符串，等同于该元素包含的所有HTML 代码，该属性可读写，能改写所有元素节点的内容，常用来设置某个节点的内容，包括<code>&lt;HTML&gt;</code> 和<code>&lt;body&gt;</code> 元素</p>
+</div>
+<div class="tabbed-block">
+<p>返回一个字符串，表示当前元素节点的所有HTML 代码，包括该元素本身和所有子元素，该属性可读写</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>Element.children</code>：返回一个类似数组的对象（HTMLCollection 实例），包括当前元素节点的所有子元素。<ul>
+<li>如果当前元素没有子元素，则返回的对象包含零个成员</li>
+<li>与<code>Node.childNodes</code>属性的区别是，它只包括元素类型的子节点，不包括其他类型的子节点</li>
+</ul>
+</li>
+<li><code>Element.childElementCount</code>：返回当前元素节点包含的子元素节点的个数<ul>
+<li>与<code>Element.children.length</code>的值相同</li>
+</ul>
+</li>
+<li><code>Element.firstElementChild</code>：返回当前元素的第一个元素子节点</li>
+<li><code>Element.lastElementChild</code>：返回最后一个元素子节点</li>
+<li><code>Element.nextElementSibling</code>：返回当前元素节点的后一个同级元素节点，如果没有则返回<code>null</code></li>
+<li><code>Element.previousElementSibling</code>：返回当前元素节点的前一个同级元素节点，如果没有则返回<code>null</code></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>Element.attributes</code>：返回一个类似数组的动态对象，成员是该元素标签的所有属性节点对象，属性的实时变化都会反映在这个节点对象上</li>
+<li>操作属性：<code>getAttribute()</code>、<code>getAttributeNames()</code>、<code>setAttribute()</code>、<code>hasAttribute()</code>、<code>hasAttributes()</code>、<code>removeAttribute()</code></li>
+</ul>
+<div class="admonition summary">
+<p class="admonition-title">使用JavaScript动态操作CSS</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">操作Style属性</label><label for="__tabbed_11_2">操作样式表文件</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p><code>getAttribute</code> 方法、<code>setAttribute</code> 方法和<code>removeAttribute</code> 方法，直接读写或删除网页元素的<code>style</code>属性
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nx">div</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="s1">&#39;style&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="s1">&#39;background-color:red;&#39;</span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;border:1px solid black;&#39;</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+相当于
+<div class="highlight"><span class="filename">HTML</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color:red;border:1px solid black;&quot;</span><span class="p">/&gt;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>document.body.style</code>： <code>CSSStyleDeclaration</code>对象</p>
+<ul>
+<li>这个对象所包含的属性与 CSS 规则一一对应，但是连词号需要变成骆驼拼写法，改写的规则是将横杠从 CSS 属性名中去除，然后将横杠后的第一个字母大写；如果 CSS 属性名是 JavaScript 保留字，则规则名之前需要加上字符串css<ul>
+<li><code>cssText</code> 属性用来读写当前规则的所有样式声明</li>
+<li><code>length</code> 属性返回一个整数值，表示当前规则包含多少条样式声明</li>
+<li><code>getPropertyPriority</code> 方法接受 CSS 样式的属性名作为参数，返回一个字符串，表示有没有设置<code>important</code> 优先级。如果有就返回<code>important</code>，否则返回空字符串</li>
+<li><code>setProperty</code>方法设置CSS属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><code>document.styleSheets</code>：返回当前页面的所有StyleSheet 实例（即所有样式表），一个类似数组的对象</li>
+<li><code>CSSStyleSheet.cssRules</code>：指向一个类似数组的对象（CSSRuleList 实例）<ul>
+<li>每个成员是当前样式表的一条 CSS规则，可以通过<code>rules.item(index)</code> 或者<code>rules[index]</code> 拿到</li>
+<li>CSS 规则的条数通过<code>rules.length</code> 拿到</li>
+</ul>
+</li>
+<li><code>CSSStyleSheet.insertRule</code>方法用于在当前样式表的插入一个新的 CSS 规则</li>
+<li><code>CSSStyleSheet.deleteRule</code>方法用来在样式表里面移除一条规则，参数是该条规则在<code>cssRules</code> 对象中的位置</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<p>属性节点（Attribute）</p>
+<ul>
+<li>属性本身是一个对象（Attr 对象），但实际上 ，这个对象极少使用，一般都是通过元素节点对象（HTMLElement对象）来操作属性</li>
+</ul>
+</li>
+<li>
+<p>文本节点（Text）</p>
+<ul>
+<li>代表元素节点对象和属性节点对象的文本内容</li>
+<li>创建一个文本节点：<code>document.createTextNode()</code></li>
+<li>属性：<code>data</code>（等同于<code>nodeValue</code>属性）——设置或读取文本内容<ul>
+<li>
+<p>编辑<code>Text</code>节点文本内容的方法</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:4"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><input id="__tabbed_12_4" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">增</label><label for="__tabbed_12_2">删</label><label for="__tabbed_12_3">改</label><label for="__tabbed_12_4">查</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><code>appendData()</code>（尾部增加字符串）和<code>insertData()</code>（指定位置插入字符串，第一个参数为插入位置，第二个位置为待插入字符串）</p>
+</div>
+<div class="tabbed-block">
+<p><code>deleteData()</code>（第一个参数为子字符串开始位置，第二个参数为长度）</p>
+</div>
+<div class="tabbed-block">
+<p><code>replaceData()</code>（替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串）</p>
+</div>
+<div class="tabbed-block">
+<p><code>subStringData()</code>（获取子字符串，第一个参数为子字符串在<code>Text</code>节点中的开始位置，第二个参数为子字符串长度）</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DocumentFragment 节点</p>
+<ul>
+<li>本身就是一个完整的 DOM 树形结构</li>
+<li>它没有父节点，parentNode 返回<code>null</code>，但是可以插入任意数量的子节点</li>
+<li>它不属于当前文档，操作DocumentFragment节点，要比直接操作 DOM 树快得多</li>
+<li>
+<p>用于构建一个 DOM 结构，然后插入当前文档</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">docFrag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createDocumentFragment</span><span class="p">();</span><span class="w"> </span><span class="c1">// (1)</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hello world&#39;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nx">docFrag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">docFrag</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2)</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">docFrag</span><span class="p">.</span><span class="nx">cloneNode</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>可以用<code>new</code>创建，也可以用<code>document.createDocumentFragment()</code>来创建</li>
+<li>本行代码运行后，<code>docFrag</code>在添加结束后会被清空(<code>textContent</code>变为<code>''</code>)，如果想保留其中内容，使用<code>cloneNode()</code>方法</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_1">事件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在JavaScript 中，事件往往是页面的一些动作引起的，例如当用户按下鼠标或者提交表单，甚至在页面移动鼠标时，事件都会出现。</p>
+<div class="admonition summary">
+<p class="admonition-title">JavaScript的主要事件</p>
+<p>鼠标事件、键盘事件、表单事件、编辑事件、页面相关</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">浏览器的事件模型</p>
+<p>通过监听函数（listener）对事件做出反应。事件发生后，浏览器监听到了这个事件，就会执行对应的监听函数。</p>
+</div>
+<h3 id="_2">为事件绑定监听函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>在HTML 元素的 <code>on-</code> 属性中直接定义某些事件的监听代码</p>
+<div class="highlight"><span class="filename">HTML</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">&lt;</span><span class="nt">body</span> <span class="na">onload </span><span class="o">=</span> <span class="s">&quot;doSomething()&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+</code></pre></div>
+<ol>
+<li>该事件只在冒泡阶段触发</li>
+</ol>
+</li>
+<li>
+<p>设置元素节点对象的事件属性指定监听函数</p>
+<ul>
+<li>这种方法与 HTML 的<code>on-</code> 属性的差异是，它的值是函数名（<code>doSomething</code>），而不必给出完整的监听代码（<code>doSomething()</code>）</li>
+</ul>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doSomething</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1)</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>该事件只在冒泡阶段触发</li>
+</ol>
+</li>
+<li>
+<p>所有 DOM 节点都有<code>addEventListener</code>方法，用来为该节点定义事件的监听函数</p>
+<div class="admonition success">
+<p class="admonition-title">优点</p>
+<ul>
+<li>同一个事件可以添加多个监听函数</li>
+<li>能够指定在哪个阶段（捕获阶段还是冒泡阶段）触发监听函数</li>
+<li>除了 DOM 节点，其他对象（比如<code>window</code>）也有这个接口，是整个 JavaScript 统一的监听函数接口</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p>IE8无<code>addEventListener</code>方法，但有类似的<code>attachEvent()</code>方法，可以为同一事件绑定多个事件处理函数，但是后绑定的先执行</p>
+</div>
+</li>
+</ol>
+<h3 id="dom_5">DOM事件操作<a class="headerlink" href="#dom_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li class="stressed">DOM 的事件操作（监听和触发），都定义在<code>EventTarget</code> 接口上</li>
+<li>三个实例方法<ul>
+<li><code>addEventListener</code> ：绑定事件的监听函数<ul>
+<li>原型：<code>target.addEventListsner(type,listener[,useCapture])</code></li>
+<li>type ：事件名称，大小写敏感</li>
+<li>listener ：监听函数，事件发生时会调用该监听函数</li>
+<li>属性配置对象：该对象常用属性如下：<ul>
+<li>useCapture ：布尔值，表示监听函数是否在捕获阶段（capture）触发，可选参数，默认为<code>false</code>（监听函数只在冒泡阶段被触发）</li>
+<li>once：布尔值，表示监听函数是否只触发一次，然后就自动移除</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>removeEventListener</code> ：移除事件的监听函数<ul>
+<li>参数与<code>addEventListener</code>完全一致</li>
+</ul>
+</li>
+<li><code>dispatchEvent</code>：触发事件，参数为一个<code>Event</code>对象实例</li>
+</ul>
+</li>
+<li>事件的传播与处理<ul>
+<li>一个事件发生后，会在子元素和父元素之间传播（propagation）</li>
+<li>事件一开始从文档的根节点流向目标对象（所谓捕获阶段），然后在目标对向上被触发（所谓目标阶段），之后再回溯到文档的根节点（所谓冒泡阶段）<ul>
+<li>捕获阶段，事件从document一直向下传播到目标元素，依次检查经历过的节点是否绑定了事件监听函数（事件处理程序），如果有则执行，反之不执行</li>
+<li>目标阶段，事件到达目标元素，触发目标元素的监听函数</li>
+<li>冒泡阶段，事件从目标元素冒泡到document，依次检查经过的节点是否绑定了事件监听函数，如果有则执行，反之不执行</li>
+</ul>
+</li>
+<li>代理（Delegation）<ul>
+<li>把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件</li>
+</ul>
+</li>
+<li>停止传播<ul>
+<li><code>event.stopPropagation()</code></li>
+<li>不要触发节点的其他事件监听函数：<code>event.stopImmediatePropagation()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_3">鼠标事件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>click：按下鼠标（通常是按下主按钮）时触发</li>
+<li>dblclick：在同一个元素上双击鼠标时触发</li>
+<li>mousedown：按下鼠标键时触发</li>
+<li>mouseup：释放按下的鼠标键触发</li>
+<li>mousemove：当鼠标在一个节点内部移动时触发。当鼠标持续移动时，该事件会连续触发，建议限定一段时间内只能运行一次</li>
+<li>mouseenter：鼠标进入节点时触发，进入子节点不会触发这个事件</li>
+<li>mouseover：鼠标进入节点时触发，进入子节点会再一次触发这个事件</li>
+<li>mouseout：鼠标离开节点时触发，离开父节点也会触发这个事件</li>
+<li>mouseleave：鼠标离开节点时触发，离开父节点不会触发这个事件</li>
+<li>contextmenu：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文菜单键”时触发</li>
+<li>
+<p>mousewheel：滚动鼠标的滚轮时触发，该事件继承的是WheelEvent 接口</p>
+<ul>
+<li><code>wheelDelta</code> 或 <code>event.detail</code>（Firefox）: 滚轮滚动的方向，向上滚为正值(<code>wheelDelta</code>)或负值(<code>event.detail</code>)，向下滚为负值(<code>wheelDelta</code>)或正值(<code>event.detail</code>)</li>
+</ul>
+<div class="admonition warning">
+<p>火狐浏览器使用<code>DOMMouseScroll</code>来添加滚动事件，且需要使用<code>addEventListener()</code></p>
+</div>
+</li>
+</ul>
+<h4 id="_4">键盘事件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>keydown：按下键盘时触发<ul>
+<li>通过<code>event.keyCode</code>和<code>event.(alt|ctrl|shift)Key</code>来判断哪一个键被按下</li>
+</ul>
+</li>
+<li>keypress：按下有值的键时触发，即按下 Ctrl、Alt、Shift、Meta这样无值的键，这个事件不会触发。对于有值的键，按下时先触发<code>keydown</code>事件，再触发这个事件</li>
+<li>keyup：松开键盘时触发该事件</li>
+</ul>
+<h4 id="_5">表单事件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>input</code>事件<ul>
+<li>当<code>&lt;input&gt;</code> 、<code>&lt;select&gt;</code> 、<code>&lt;textarea&gt;</code> 的值发生变化时触发，对于复选框（<code>&lt;input type=checkbox&gt;</code>）或单选框（<code>&lt;input type=radio&gt;</code>），用户改变选项时，也会触发这个事件。</li>
+<li><code>input</code> 事件的一个特点，就是会连续触发，比如用户每按下一次按键，就会触发一次<code>input</code></li>
+</ul>
+</li>
+<li><code>select</code>事件<ul>
+<li>在<code>&lt;input&gt;</code> 、<code>&lt;textarea&gt;</code> 里面选中文本时触发</li>
+</ul>
+</li>
+<li><code>change</code>事件<ul>
+<li><code>change</code>事件当<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;textarea&gt;</code>的值发生变化时触发。</li>
+<li>它与<code>input</code>事件的最大不同，就是不会连续触发，只有当全部修改完成时才会触发</li>
+<li><code>input</code>事件必然伴随<code>change</code>事件</li>
+</ul>
+</li>
+<li><code>invalid</code>事件<ul>
+<li>用户提交表单时，如果表单元素的值不满足校验条件，会触发<code>invalid</code>事件</li>
+</ul>
+</li>
+<li><code>reset</code>事件，<code>submit</code>事件<ul>
+<li>这两个事件发生在表单对象<code>&lt;form&gt;</code>上，而不是发生在表单的成员上</li>
+<li><code>reset</code>事件当表单重置（所有表单成员变回默认值）时触发</li>
+<li><code>submit</code>事件当表单数据向服务器提交时触发<ul>
+<li>注意，<code>submit</code>事件的发生对象是<code>&lt;form&gt;</code>元素，而不是<code>&lt;button&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="load"><code>load</code> 事件<a class="headerlink" href="#load" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>load</code>事件在页面或某个资源加载成功时触发。注意，页面或资源从浏览器缓存加载，并不触发<code>load</code>事件</li>
+<li>浏览网页就是一个加载各种资源的过程 ，图像（image）、样式表（stylesheet）、脚本（script）、视频（video）、音频（audio）、Ajax 请求（XMLHttpRequest）等等。这些资源和<code>document</code>对象、<code>window</code>对象都会触发<code>load</code>事件</li>
+</ul>
+<h4 id="_6">窗口事件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>scroll</code>事件在文档或文档元素滚动时连续触发，主要出现在用户拖动滚动条时<ul>
+<li>推荐使用<code>setTimeout</code>控制该事件的触发频率</li>
+</ul>
+</li>
+<li><code>resize</code>事件在改变浏览器窗口大小时连续触发，主要发生在<code>window</code>对象上面</li>
+</ul>
+<h2 id="bom">浏览器对象模型（BOM）<a class="headerlink" href="#bom" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p>Browser Object Model，即“访问和操作浏览器窗口的模型”，把“浏览器”当做一个“对象”来看待</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">对象模型思想</p>
+<p>像操作对象一样来操作这个 X，对象X的属性可以通过 <code>X.attribute</code> 这种形式来访问，对象的方法可以通过<code>X.method(arguments)</code>这种形式来调用</p>
+</div>
+<ul>
+<li>BOM 提供控制浏览器行为的接口，最核心的对象是<code>window</code>对象，没有相关标准</li>
+</ul>
+<h3 id="window"><code>Window</code>对象<a class="headerlink" href="#window" title="Permanent link">&para;</a></h3>
+<ul>
+<li>指当前的浏览器窗口</li>
+<li>窗口关系：<code>window.top</code>，<code>window.parent</code>，<code>window.self</code><ul>
+<li>框架：<code>window.frames[]</code>(index or framename)</li>
+<li>窗口位置：<code>window.screen[Left|Right]</code>，<code>window.screen[X|Y]</code>，<code>window.move[To|By](x,y)</code></li>
+<li>窗口大小：<code>window.[inner|outer][Width|Height]</code>，<code>document.body.client[Width|Height]</code>，<code>resizeTo(width,height)</code>，<code>resizeBy(width,height)</code></li>
+<li>导航和打开窗口：<code>window.open(url[,target,[windowsSettings]])</code>，<code>window.opener</code>，<code>window.close()</code></li>
+<li>系统对话框：<code>alert()</code>，<code>confirm()</code>，<code>prompt()</code>，<code>print()</code>，<code>find()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="navigator"><code>Navigator</code>对象<a class="headerlink" href="#navigator" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>window.navigator</code> → <code>Navigator</code>对象包含浏览器和系统信息，javascript 脚本通过这个对象了解用户的环境信息<ul>
+<li>检测浏览器：<code>navigator.userAgent</code>，<code>navigator.appName</code>，<code>navigator.appVersion</code><ul>
+<li>由于历史原因，<code>navigator.appName</code>已经不足以帮助我们判断浏览器标识了</li>
+</ul>
+</li>
+<li>检测插件：<code>navigator.plugins</code><ul>
+<li><code>window.ActiveXObject</code>仅IE浏览器具有，Edge浏览器也无效<ul>
+<li>使用<code>"ActiveXObject" in window</code>，可以解决这个差异</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="screen"><code>Screen</code>对象<a class="headerlink" href="#screen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>指当前窗口所在的屏幕</li>
+<li>属性<ul>
+<li><code>window.screen</code> → <code>Screen</code>对象表示当前窗口所在的屏幕，提供显示设备的信息</li>
+<li><code>Screen.height</code>：浏览器窗口所在的屏幕的高度（单位像素）</li>
+<li><code>Screen.width</code>：浏览器窗口所在的屏幕的宽度（单位像素）</li>
+<li><code>Screen.availHeight</code>：浏览器窗口可用的屏幕高度（单位像素），等于height减去那些被系统组件（如任务栏区域）的高度</li>
+<li><code>Screen.availWidth</code>：浏览器窗口可用的屏幕宽度（单位像素）</li>
+<li><code>Screen.pixelDepth</code>：整数，表示屏幕的色彩位数，比如24表示屏幕提供24位色彩</li>
+<li><code>Screen.orientation</code>：返回一个对象，表示屏幕的方向</li>
+</ul>
+</li>
+</ul>
+<h3 id="location"><code>Location</code>对象<a class="headerlink" href="#location" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Location</code>对象是浏览器提供的原生对象，提供URL相关的信息和操作<ul>
+<li><code>window.location</code>和<code>document.location</code>都指向这个对象</li>
+<li>直接打印<code>Location</code>对象，可以获取到当前页面的完整路径</li>
+</ul>
+</li>
+<li>字符串属性<ul>
+<li><code>location.href</code>：包含整个URL的一个DOMString</li>
+<li><code>location.search</code>：包含URL参数的一个DOMString，开头有一个<code>?</code></li>
+<li><code>location.hash</code>：包含块标识符的一个DOMString，开头有一个<code>#</code></li>
+<li><code>location.host</code>：包含了域名的一个DOMString，可能在该串最后带有一个<code>:</code>并跟上URL的端口号</li>
+<li><code>location.hostname</code>：包含了URL域名的一个DOMString</li>
+<li><code>location.pathname</code>：包含URL中路径部分的一个DOMString，开头有一个<code>/</code></li>
+<li><code>location.protocol</code>：包含了URL对应协议的一个DOMString，最后有一个<code>:</code></li>
+<li><code>location.port</code>：包含了端口号的一个DOMString</li>
+</ul>
+</li>
+<li>跳转操作<ul>
+<li><code>location.assign(url)</code></li>
+<li><code>location.href=''</code></li>
+<li><code>location= ''</code></li>
+<li><code>location.replace(url)</code><ul>
+<li>与<code>assign</code>的区别：不生成历史记录</li>
+</ul>
+</li>
+<li><code>location.reload([Boolean])</code><ul>
+<li>传递<code>true</code>，则强制清空缓存，并刷新页面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="history"><code>History</code>对象<a class="headerlink" href="#history" title="Permanent link">&para;</a></h3>
+<ul>
+<li>表示当前窗口的浏览历史</li>
+<li><code>window.history</code> → <code>History</code>对象，保存了当前窗口访问过的所有页面<ul>
+<li>由于隐私原因，其中的页面仅在当次访问时有效，具体网址不能获取</li>
+</ul>
+</li>
+<li>前进与后退：<code>history.forward()</code> <code>history.back()</code></li>
+<li>访问特定页面：<code>history.go()</code> ，正数向前跳转，负数向后跳转</li>
+<li><code>history.length</code>是当次访问的链接数量</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+              
+
+<!-- Giscus -->
+<h2 id="__comments">评论</h2>
+<!-- Replace with generated snippet -->
+<script src="https://giscus.app/client.js"
+        data-repo="jasonren0403/notes"
+        data-repo-id="R_kgDOGXfwBg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]")
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette")
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) // (1)!
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+      var palette = __md_get("__palette")
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+                { giscus: { setConfig: { theme } } },
+                "https://giscus.app"
+        )
+      }
+    })
+  })
+</script>
+
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="javascript.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: JavaScript" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              JavaScript
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../soft_security/index.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 软件安全绪论" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              软件安全绪论
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2022</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason&#39;s Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://twitter.com/theRealRev270" target="_blank" rel="noopener" title="J.R on twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.facebook.com/renjason1999" target="_blank" rel="noopener" title="My facebook page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://discord.gg/s33UBWEPxb" target="_blank" rel="noopener" title="Join to my discussion(discord)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+  
+
+<h4>Cookie 约定</h4>
+<p>嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的网站。</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">同意</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">管理设定</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+      
+        <script src="../assets/javascripts/doc_addins.js"></script>
+      
+        <script src="../assets/javascripts/share.js"></script>
+      
+    
+  </body>
+</html>
