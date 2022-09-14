@@ -1,8 +1,3 @@
----
-disqus: ""
----
-
-
 # 欢迎来到Jason的个人笔记站点！
 
 在这里，有一些非常有趣的东西哦~
@@ -30,10 +25,12 @@ disqus: ""
     * Mathjax(https://www.mathjax.org/)
 
 ## New！网站更新
-* 2021.5.20 更新至mkdocs-material 7.1.5版本，增加了夜间模式切换适配
-    * 慎用！部分图片可能不适合在夜间模式下观看，待调整中
-* 2021.7.11 更新至mkdocs-material 7.1.10版本
-* 2021.11.29 更新至mkdocs-material 8.0.1版本，可以用代码注释功能咯！
-* 2022.2.27 更新至mkdocs-material 8.2.2版本，内置了mermaidJS支持
-* 2022.4.7 更新至mkdocs-material 8.2.8版本
-* 2022.8.15 更新至mkdocs-material 8.4.0版本
+|日期|更新描述|备注|
+|:--:|:--:|:--:|
+|2021.5.20 { data-sort='1621440000' } |更新至mkdocs-material 7.1.5版本，增加了夜间模式切换适配|慎用！部分图片可能不适合在夜间模式下观看，待调整中|
+|2021.7.11 { data-sort='1625932800' } |更新至mkdocs-material 7.1.10版本||
+|2021.11.29 { data-sort='1638115200' } |更新至mkdocs-material 8.0.1版本，可以用代码注释功能咯！||
+|2022.2.27 { data-sort='1645891200' } |更新至mkdocs-material 8.2.2版本，内置了mermaidJS支持||
+|2022.4.7 { data-sort='1649260800' } |更新至mkdocs-material 8.2.8版本||
+|2022.8.15 { data-sort='1660492800' } |更新至mkdocs-material 8.4.0版本||
+|2022.9.14 { data-sort='1663084800' } |更新至mkdocs-material 8.5.0版本，有酷炫的social card咯！||

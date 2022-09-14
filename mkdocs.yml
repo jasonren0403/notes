@@ -93,6 +93,7 @@ theme:
     - navigation.instant
     - header.autohide
     - toc.integrate
+    - toc.follow
     - announce.dismiss
     - search.suggest
     - search.highlight
@@ -135,8 +136,8 @@ extra:
     description: >-
       嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的网站。
 plugins:
-  # - social:
-  #     cards: !ENV [SOCIAL_CARDS, false]
+  - social:
+      cards: !ENV [CARDS, false]
   - tags:
       tags_file: tags.md
   - search:
@@ -165,6 +166,7 @@ markdown_extensions:
   - abbr
   - md_in_html
   - meta
+  - tables
   - markdown.extensions.admonition
   - pymdownx.highlight:
       anchor_linenums: true
