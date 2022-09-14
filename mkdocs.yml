@@ -134,7 +134,7 @@ extra:
   consent:
     title: Cookie 约定
     description: >-
-      嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的网站。
+      嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的<a href="https://www.jason0743.space/#/privacy" target="_blank">网站</a>。
 plugins:
   - glightbox
   - social:
