@@ -23,5 +23,9 @@ jobs:
           path: .cache
       - name: Install Python dependencies
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox
+      - name: Setup Deployer
+        run: |
+          git config --global user.email "40999116+jasonren0403@users.noreply.github.com"
+          git config --global user.name "Jason Ren"
       - name: Deploy site
         run: mkdocs gh-deploy --force
