@@ -138,7 +138,8 @@ extra:
 plugins:
   - glightbox
   - social:
-      cards: !ENV [CARDS, false]
+#      cards: !ENV [CARDS, false] comment for local builds
+      cards: true
   - tags:
       tags_file: tags.md
   - search:
