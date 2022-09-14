@@ -22,6 +22,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.cache/**') }}
           path: .cache
       - name: Install Python dependencies
-        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox
       - name: Deploy site
         run: mkdocs gh-deploy --force
