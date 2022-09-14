@@ -1,6 +1,10 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
 site_name: Jason的笔记小屋
+site_url: https://note.jason0743.best/
+site_description: '信息安全、前端相关笔记存放处'
+site_author: 'Jason'
+
 nav:
 - '主页': index.md
 - 'web开发技术基础':
@@ -103,8 +107,7 @@ theme:
 
 copyright: >-
   copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2022</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
-site_description: '信息安全、前端相关'
-site_author: 'Jason'
+
 use_directory_urls: false
 docs_dir: 'notes_dev'
 site_dir: 'notes'
