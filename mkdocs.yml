@@ -141,8 +141,7 @@ extra:
 plugins:
   - glightbox
   - social:
-#      cards: !ENV [CARDS, false] comment for local builds
-      cards: true
+      cards: !ENV [CARDS, false]
       cards_font: Noto Sans SC  # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
   - tags:
       tags_file: tags.md
