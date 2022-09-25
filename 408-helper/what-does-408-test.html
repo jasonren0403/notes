@@ -18,18 +18,6 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../assets/stylesheets/ex.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<meta content="website" property="og:type"/>
-<meta content="408考试大纲（2020版） - Jason的笔记小屋" property="og:title"/>
-<meta content="信息安全、前端相关笔记存放处" property="og:description"/>
-<meta content="https://note.jason0743.best/assets/images/social/408-helper/what-does-408-test.png" property="og:image"/>
-<meta content="image/png" property="og:image:type"/>
-<meta content="1200" property="og:image:width"/>
-<meta content="630" property="og:image:height"/>
-<meta content="https://note.jason0743.best/408-helper/what-does-408-test.html" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="408考试大纲（2020版） - Jason的笔记小屋" name="twitter:title"/>
-<meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
-<meta content="https://note.jason0743.best/assets/images/social/408-helper/what-does-408-test.png" name="twitter:image"/>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -412,6 +400,30 @@
 <a class="md-nav__link" href="#_2">
     考察内容
   </a>
+<nav aria-label="考察内容" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    数据结构
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    计算机组成原理
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    操作系统
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    计算机网络
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -586,15 +598,14 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="408-408">408考些什么-408考纲翻一翻啦~~<a class="headerlink" href="#408-408" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
+<div class="admonition warning"></div>
 <p>以下内容来自2020年的考纲~~如有过期请尽快告诉我</p>
-</div>
 <h2 id="_1">考试形式和试卷结构<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ol>
 <li>试卷满分及考试时间
-    本试卷满分150分，考试时间为180分钟。</li>
+   本试卷满分150分，考试时间为180分钟。</li>
 <li>答题方式
-    答题方式为闭卷、笔试。</li>
+   答题方式为闭卷、笔试。</li>
 <li>
 <p>试卷内容结构</p>
 <pre class="mermaid"><code>pie
@@ -614,9 +625,7 @@
 </li>
 </ol>
 <h2 id="_2">考察内容<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">数据结构</label><label for="__tabbed_1_2">计算机组成原理</label><label for="__tabbed_1_3">操作系统</label><label for="__tabbed_1_4">计算机网络</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<h3 id="_3">数据结构<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <details class="summary">
 <summary>考查目标</summary>
 <ol>
@@ -732,8 +741,7 @@
 </ol>
 </li>
 </ol>
-</div>
-<div class="tabbed-block">
+<h3 id="_4">计算机组成原理<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <details class="summary">
 <summary>考查目标</summary>
 <ol>
@@ -845,11 +853,7 @@
 </ol>
 </li>
 <li>CISC和RISC的基本概念</li>
-</ol>
-</li>
-<li>
-<p>中央处理器(CPU)</p>
-<ol>
+<li>中央处理器(CPU)<ol>
 <li>CPU的功能和基本结构</li>
 <li>指令执行过程</li>
 <li>数据通路的功能和基本结构</li>
@@ -865,6 +869,8 @@
 <li>指令流水线的基本概念</li>
 <li>指令流水线的基本实现</li>
 <li>超标量和动态流水线的基本概念</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -901,7 +907,7 @@
 <li>外存储器：硬盘存储器、磁盘阵列、光盘存储器</li>
 </ol>
 </li>
-<li>I/O接口(I/O控制器)<ol>
+<li>I/O接口（I/O控制器）<ol>
 <li>I/O接口的功能和基本结构</li>
 <li>I/O端口及其编址</li>
 </ol>
@@ -921,8 +927,7 @@
 </ol>
 </li>
 </ol>
-</div>
-<div class="tabbed-block">
+<h3 id="_5">操作系统<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <details class="summary">
 <summary>考查目标</summary>
 <ol>
@@ -970,7 +975,7 @@
 <li>调度方式</li>
 <li>典型调度算法<ul>
 <li>先来先服务调度算法</li>
-<li>短作业(短进程、短线程)优先调度算法</li>
+<li>短作业（短进程、短线程）优先调度算法</li>
 <li>时间片轮转调度算法</li>
 <li>优先级调度算法</li>
 <li>高响应比优先调度算法</li>
@@ -1100,8 +1105,7 @@
 </ol>
 </li>
 </ol>
-</div>
-<div class="tabbed-block">
+<h3 id="_6">计算机网络<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <details class="summary">
 <summary>考查目标</summary>
 <ol>
@@ -1144,23 +1148,15 @@
 <li>
 <p>传输介质</p>
 <ol>
-<li>
-<p>双绞线、同轴电缆、光纤与无线传输介质</p>
-</li>
-<li>
-<p>物理层接口的特性</p>
-</li>
+<li>双绞线、同轴电缆、光纤与无线传输介质</li>
+<li>物理层接口的特性</li>
 </ol>
 </li>
 <li>
 <p>物理层设备</p>
 <ol>
-<li>
-<p>中继器</p>
-</li>
-<li>
-<p>集线器</p>
-</li>
+<li>中继器</li>
+<li>集线器</li>
 </ol>
 </li>
 </ol>
@@ -1177,7 +1173,7 @@
 </li>
 <li>流量控制与可靠传输机制<ol>
 <li>流量控制、可靠传输与滑轮窗口机制</li>
-<li>停止-等待协议</li>
+<li>停止——等待协议</li>
 <li>后退N帧协议(GBN)</li>
 <li>选择重传协议(SR)</li>
 </ol>
@@ -1228,7 +1224,7 @@
 </li>
 <li>路由算法<ol>
 <li>静态路由与动态路由</li>
-<li>距离-向量路由算法</li>
+<li>距离——向量路由算法</li>
 <li>链路状态路由算法</li>
 <li>层次路由</li>
 </ol>
@@ -1326,15 +1322,12 @@
 </ol>
 </li>
 </ol>
-</div>
-</div>
-</input></input></input></input></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年2月27日 16:16:28</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年9月25日 23:02:08</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
