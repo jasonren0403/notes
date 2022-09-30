@@ -9,69 +9,69 @@ JavaScript
 * 性能强大，简单易学
 * 存在一些坑点（！），但不影响其火爆程度
 
-??? warning "JavaScript小坑集合"
-
-    === "变量提升"
-        所有的声明语句都会被提升到代码的头部（这与JavaScript<a href="#how-javascript-compiles">解析代码的方式</a>有关）
-
-		```javascript
-		console.log(a); // (1)
-		var a=1;// (2)
-		```
-
-        1. `a` 在这里还没有被赋值
-        2. 输出 `undefined`
-
-		一个很好的规避方法是使用<a href="#using-let">let</a>来声明代码！
-
-    === "这样注释也行？"
-		由于历史原因，JavaScript也可以支持HTML代码的注释，但仅仅支持单行注释！
-		```javascript
-			var a = 1;<!--a = 4-->
-			a // (1)
-		```
-
-        1. 输出 `1`
-
-    === "switch比较"
-        `switch`语句后面的表达式，与`case`语句后面的表示式比较运行结果时，采用的是严格相等运算符（`===`），而不是相等运算符（`==`），这意味着比较时不会发生类型转换。
-
-    === "null也是一个对象？"
-		怎么解释这个输出结果呢？
-		```javascript
-		typeof null // (1)
-		```
-
-        1. 输出 "object"
-
-		这是JavaScript的历史原因造成的。JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑`null`，只把它当作`object`的一种特殊值。后来`null`独立出来，作为一种单独的数据类型，为了兼容以前的代码，`typeof null`返回`object`就没法改变了
-
-    === "有关`null`和`undefined`"
-        1. 在`if`语句中，`null`和`undefined`都会自动转为`false`，相等运算符（`==`）会报告两者相等。
-        2. `null`是一个表示为“空”的对象，转为数值是0；`undefined`是一个表示"此处无定义"的原始值，转为数值时为`NaN`。
-        3. `null` ~ 此处不该有值 ； `undefined` ~ 缺少值
-
-    === "浮点数"
-		浮点数不是精确的值，所以涉及小数的比较和运算要特别小心！
-		```javascript
-		0.1 + 0.2   // (1)
-		0.3 / 0.2   // (2)
-		```
-
-        1. 输出 `0.3000000000000004`
-        2. 输出 `1.499999999999998`
-
-    === "不完备的UTF-16支持"
-        由于历史原因，JavaScript只支持两字节的字符，不支持四字节的字符，这导致码点在U+10000到U+10FFFF之间的字符，JavaScript总是认为它们是两个字符（`length` 属性为2），实际应该是1
-
-    === "with语句的坑"
-		`with` 区块没有改变作用域，它的内部依然是当前作用域。这造成了`with`语句的一个很大的弊病，就是绑定对象不明确
-		比如说，下方例子中，很难判断`x`到底是一个全局变量，还是obj的一个属性：
-		```javascript
-		with(obj){
-			console.log(x);
-		}
-		```
+	??? warning "JavaScript小坑集合"
+	
+		=== "变量提升"
+			所有的声明语句都会被提升到代码的头部（这与JavaScript<a href="#how-javascript-compiles">解析代码的方式</a>有关）
+	
+			```javascript
+			console.log(a); // (1)
+			var a=1;// (2)
+			```
+	
+			1. `a` 在这里还没有被赋值
+			2. 输出 `undefined`
+	
+			一个很好的规避方法是使用<a href="#using-let">let</a>来声明代码！
+	
+		=== "这样注释也行？"
+			由于历史原因，JavaScript也可以支持HTML代码的注释，但仅仅支持单行注释！
+			```javascript
+				var a = 1;<!--a = 4-->
+				a // (1)
+			```
+	
+			1. 输出 `1`
+	
+		=== "switch比较"
+			`switch`语句后面的表达式，与`case`语句后面的表示式比较运行结果时，采用的是严格相等运算符（`===`），而不是相等运算符（`==`），这意味着比较时不会发生类型转换。
+	
+		=== "null也是一个对象？"
+			怎么解释这个输出结果呢？
+			```javascript
+			typeof null // (1)
+			```
+	
+			1. 输出 "object"
+	
+			这是JavaScript的历史原因造成的。JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑`null`，只把它当作`object`的一种特殊值。后来`null`独立出来，作为一种单独的数据类型，为了兼容以前的代码，`typeof null`返回`object`就没法改变了
+	
+		=== "有关`null`和`undefined`"
+			1. 在`if`语句中，`null`和`undefined`都会自动转为`false`，相等运算符（`==`）会报告两者相等。
+			2. `null`是一个表示为“空”的对象，转为数值是0；`undefined`是一个表示"此处无定义"的原始值，转为数值时为`NaN`。
+			3. `null` ~ 此处不该有值 ； `undefined` ~ 缺少值
+	
+		=== "浮点数"
+			浮点数不是精确的值，所以涉及小数的比较和运算要特别小心！
+			```javascript
+			0.1 + 0.2   // (1)
+			0.3 / 0.2   // (2)
+			```
+	
+			1. 输出 `0.3000000000000004`
+			2. 输出 `1.499999999999998`
+	
+		=== "不完备的UTF-16支持"
+			由于历史原因，JavaScript只支持两字节的字符，不支持四字节的字符，这导致码点在U+10000到U+10FFFF之间的字符，JavaScript总是认为它们是两个字符（`length` 属性为2），实际应该是1
+	
+		=== "with语句的坑"
+			`with` 区块没有改变作用域，它的内部依然是当前作用域。这造成了`with`语句的一个很大的弊病，就是绑定对象不明确
+			比如说，下方例子中，很难判断`x`到底是一个全局变量，还是obj的一个属性：
+			```javascript
+			with(obj){
+				console.log(x);
+			}
+			```
 
 * JavaScript标准：ECMA-262
 
@@ -80,7 +80,7 @@ JavaScript
 	Java需要编译，而JavaScript可以直接解释运行。
 
 	??? info "什么叫基于原型？"
-		https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes（待补充！）
+		具体请阅读 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes
 
 ## JavaScript的引用方式
 * `<head></head>`标签内
@@ -89,17 +89,16 @@ JavaScript
 !!! tip ""
 	以上两种方法中，JavaScript代码均在`<script type="text/javascript"></script>`标签中
 
-* 元素的事件属性（例如`onclick` `onblur`）
+* 元素的事件属性（例如`onclick`、`onblur`）
 * 外部引入
-```html
-<script src="path/to/script.js"></script>
-```
+	```html
+	<script src="path/to/script.js"></script>
+	```
 
-## JavaScript基本语法
+## <a name="how-javascript-compiles"></a>JavaScript基本语法
 
-<a name="how-javascript-compiles"></a>
 ??? note "理解JavaScript的编译过程"
-	JavaScript是一种解释型语言，通过词法分析和语法分析得到语法树后，就可以开始解释执行。JavaScript引擎解析脚本时，会预声明变量（var → undefined），预定义函数
+	JavaScript是一种解释型语言，通过词法分析和语法分析得到语法树后，就可以开始解释执行。JavaScript引擎解析脚本时，会预声明变量（var → `undefined`），预定义函数
 
     - 词法分析：字符流（char stream） → 记号流（token stream）
 	- 语法分析：构造语法树

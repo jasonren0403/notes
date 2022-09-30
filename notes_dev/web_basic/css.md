@@ -5,7 +5,7 @@ tags:
 CSS[^1]
 ===
 
-## Cascading Style Sheet层叠样式表
+## Cascading Style Sheet层叠样式表简介
 * 样式表语言，描述HTML语言的呈现
 	- 在没有CSS的时候，浏览器可以解析标签，使用内部的“默认样式”来渲染页面，来让页面具有基本的可读性，但是略显单薄
 		* 这些默认样式包括：标题比正文字体要大，链接被高亮，段落分开，列表前有列表标识等
@@ -25,7 +25,7 @@ CSS[^1]
 		* 规范被分为若干个独立的模块
 
 * CSS的工作过程
-![How CSS Works](md-img/10.25-1.jpg)
+    ![How CSS Works](md-img/10.25-1.jpg)
 * 三种引用方式
 
     === "外部样式表"
@@ -56,7 +56,7 @@ CSS[^1]
 		- 每个CSS仅影响一个元素
 		- 难以维护，不建议使用
 
-### CSS语法
+## CSS语法
 * 基本语法
 	* CSS文件构成：选择器+声明块
 
@@ -83,7 +83,7 @@ CSS[^1]
 		- 顺时针顺序：上右下左
 	* 大小写不敏感（除`id`和`class`选择器名称）
 
-#### 语法详解：选择器
+### 语法详解：选择器
 * 简单选择器
 
     * 元素选择器
@@ -117,7 +117,7 @@ CSS[^1]
             * 元素的分类（“标签”）
 
                 ```css
-        		.first{ /* css样式 */}
+        		.first /* (1) */ { /* css样式 */}
         		```
 
                 1. 点号`.` 是class选择器符号，选择了`class=first`的元素
@@ -130,18 +130,18 @@ CSS[^1]
     !!! summary ""
         属性选择器是一种特殊类型的选择器，它根据元素的属性和属性值来匹配元素。
 
-	```css
+	```css title="一些属性选择器的例子"
 	p[class='new']{ /* css样式 */}
 	↑    ↑     ↑
 	元素 属性名 属性值
 	匹配方法：
-	[attr]（带有attr命名的属性的元素）
-	[attr=value]（以attr命名的，值为value的元素）
-	[attr~=value]（至少有一个attr命名的属性的元素）
-	[attr|=val]（属性attr的值是val，或以val-打头）
-	[attr^=val]（属性attr的值以val打头，包括val）
-	[attr$=val]（属性attr的值以val结尾，包括val）
-	[attr*=val]（属性attr的值中包含子字符串val）
+	[attr] /* 带有attr命名的属性的元素 */
+	[attr=value] /* 以attr命名的，值为value的元素 */
+	[attr~=value] /* 至少有一个attr命名的属性的元素 */
+	[attr|=val] /* 属性attr的值是val，或以val-打头 */
+	[attr^=val] /* 属性attr的值以val打头，包括val */
+	[attr$=val] /* 属性attr的值以val结尾，包括val */
+	[attr*=val] /* 属性attr的值中包含子字符串val */
 	```
 
 * 伪类（`:x`）
@@ -282,7 +282,7 @@ CSS[^1]
 
     1. 含义：将`id`为`main`的`li`标签下所有`important`类的`strong`标签的内容设为红色。
 
-#### 语法详解：样式
+### 语法详解：样式
 * <a name="text-and-paragraph-style"></a>文本和段落
 
     !!! tip ""
@@ -531,7 +531,7 @@ CSS[^1]
 
         其中，`nth-child(odd)`也可以写成`nth-child(2n-1)`
 
-#### 语法详解：层叠(cascade)与继承(inheritance)
+### 语法详解：层叠(cascade)与继承(inheritance)
 
 !!! question
 	多个选择器作用在同一个元素之上，附加了不同的样式规则，到底哪个规则最终会被作用到这个元素上？
@@ -613,7 +613,7 @@ CSS[^1]
 		* 覆盖CSS中任何的其他样式声明
 		* 同一个样式多条`!important`，根据特殊性和源代码顺序进行比较
 
-#### 语法详解：盒模型
+### 语法详解：盒模型
 * 页面中的每一个元素都可以看做一个“盒子”，占据一定的页面空间
 * 盒模型
     <figure markdown>
@@ -695,7 +695,7 @@ CSS[^1]
 
 * `border-radius`可以为边框设置圆角(IE8-不支持)，四值顺序是左上、右上、右下、左下
 
-#### 语法详解：布局
+### 语法详解：布局
 
 !!! info "CSS页面布局过程"
 	选择网页中的元素，并且控制它们相对正常文档流、周边元素、父容器或者主视口/窗口的位置

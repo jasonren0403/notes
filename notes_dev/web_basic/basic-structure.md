@@ -46,7 +46,7 @@ Web的基本架构
 	```协议类型:[//服务器地址[:端口号]][/资源层级UNIX文件路径]文件名[?查询][#片段ID]```
     - 查询：指请求的参数，一般是指URL中`?`后面的参数
 	- 完整格式：`协议类型:[//[访问资源需要的凭证信息@]服务器地址[:端口号]][/ 资源层级UNIX文件路径]文件名[?查询][#片段ID]`
-* 标准：RFC1738
+* 标准：[RFC1738](https://www.rfc-editor.org/rfc/rfc1738)
 * URL路径
 	- 绝对路径
 		* 由其在Web上的绝对位置定义的位置，包括协议和域名
@@ -71,7 +71,7 @@ Web的基本架构
 * HTTP报文
 
     === "请求报文"
-    	![request header structure](md-img/9.27-2.jpg)
+    	![request header structure](md-img/9.27-2.png)
 
         报文由三个部分组成，即开始行、首部行和实体主体。在请求报文中，开始行就是请求行。
 
@@ -80,7 +80,7 @@ Web的基本架构
     	* 版本：HTTP的版本
 
     === "响应报文"
-    	![response header structure](md-img/9.27-3.jpg)
+    	![response header structure](md-img/9.27-3.png)
 
         报文由三个部分组成，即开始行、首部行和实体主体。在响应报文中，开始行就是状态行。
 
@@ -91,52 +91,61 @@ Web的基本架构
     		- 3xx:表示重定向，表示要完成请求还必须采取进一步的行动
     		- 4xx:表示客户的差错，如请求中有错误的语法
     		- 5xx:表示服务器的差错，如服务器失效无法完成请求
-        	- 常见的：200 OK 请求成功，403 Forbidden 禁止访问，404 Not Found 找不到服务器，500 Internal Server Error 内部错误，301 Moved permanently 永久重定向
+        	- 常见的：200 OK 请求成功，401 Unauthorized 未授权，403 Forbidden 禁止访问，404 Not Found 找不到服务器，500 Internal Server Error 内部错误，301 Moved permanently 永久重定向
     	* 短语：解释状态码
 
 * HTTP包
 
     === "HTTP请求包拆解"
 
-    	```
-    	GET / HTTP/1.1  请求方法GET 请求URL：/（根目录） HTTP版本：1.1
-    	Host: www.bilibili.com 被请求的Internet主机为www.bilibili.com，端口号为缺省的
-    	Connection: keep-alive  持久连接
-    	Upgrade-Insecure-Requests: 1  优先选择安全升级
-    	User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36 浏览器标识，此处为chrome浏览器
-    	Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3 客户端接受xml/html、webp、apng等MIME格式资源
-    	Sec-Fetch-Site: none
-    	Accept-Encoding: gzip, deflate, br  客户端支持gzip、deflate、br三种压缩算法
-    	Accept-Language: zh-CN,zh;q=0.9  客户端支持中文
-    	Cookie: {涉及个人信息，省略}
-    	```
+		=== "源请求包"
+    	    
+	        ```http
+    	    GET / HTTP/1.1  
+    	    Host: www.bilibili.com
+    	    Connection: keep-alive
+    	    Upgrade-Insecure-Requests: 1
+    	    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
+    	    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+    	    Sec-Fetch-Site: none
+    	    Accept-Encoding: gzip, deflate, br
+    	    Accept-Language: zh-CN,zh;q=0.9
+    	    Cookie: xxxxx
+    	    ```
 
-        * 请求方式
-        * URL路径
-        * HTTP协议版本号 当前版本号：1.1（1997年发布）
-    		* 2015年时，HTTP 2.0发布，多路复用机制
-        * Host
-    		* 发送请求时，该报头域是必需的
-    		* 指定被请求的Internet主机和端口号
-        * User-Agent可以进行伪装
-        * Accept Accept-Charset Accept-Encoding Accept-Language用于双方内容协商
-    		* MIME类型：text、image、audio、video、application五种，浏览器使用MIME类型而不是文件扩展名来决定如何处理文档。
-        * Cookie
-    		* 服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie使基于无状态的HTTP协议记录稳定的状态信息成为了可能。
-        * DNT（Do Not Track）
-    		* 用户对于网站追踪的偏好，0表示用户愿意目标站点追踪用户个人信息，1表示用户不愿意目标站点追踪用户个人信息。
-        * Connection
-    		* 决定当前的事务完成后，是否会关闭网络连接。
-    		* HTTP 1.0默认值：close。
-        * Upgrade-Insecure-Requests：优先选择安全性更高的版本
-    		- 访问http网站会重定向至该网站的https版本
+		=== "解释"
+            * 请求方式
+				* 上述请求意义为：请求方法`GET`
+            * URL路径
+				* 上述请求意义为：请求URL：`/`（根目录）
+            * HTTP协议版本号
+				* 上述请求意义为：HTTP版本：`1.1`
+	            * 当前版本号：1.1（1997年发布）
+    		    * 2015年时，HTTP 2.0发布，多路复用机制
+            * Host
+				* 上述请求意义为：被请求的Internet主机为`www.bilibili.com`，端口号为缺省的（80）
+    		    * 发送请求时，该报头域是必需的
+    		    * 指定被请求的Internet主机和端口号
+            * User-Agent可以进行伪装
+            * Accept Accept-Charset Accept-Encoding Accept-Language用于双方内容协商
+    		    * MIME类型：text、image、audio、video、application五种，浏览器使用MIME类型而不是文件扩展名来决定如何处理文档。
+            * Cookie
+    		    * 服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie使基于无状态的HTTP协议记录稳定的状态信息成为了可能。
+            * DNT（Do Not Track）
+    		    * 用户对于网站追踪的偏好，0表示用户愿意目标站点追踪用户个人信息，1表示用户不愿意目标站点追踪用户个人信息。
+            * Connection
+    		    * 决定当前的事务完成后，是否会关闭网络连接。
+	            * keep-alive表示持久连接
+    		    * HTTP 1.0默认值：close。
+            * Upgrade-Insecure-Requests：1 表示优先选择安全性更高的版本
+    		    - 访问http网站会重定向至该网站的https版本
 
     === "HTTP响应包拆解"
 
-    	```
-    	HTTP/1.1 200 OK  HTTP版本：1.1 状态码：200 短语解释：OK
-    	Date: Thu, 31 Oct 2019 13:27:25 GMT  消息生成于GMT时间2019-10-31 13：27：25
-    	Content-Type: text/html; charset=utf-8  资源为html文本类型，字符集为utf-8
+    	```http
+    	HTTP/1.1 200 OK
+    	Date: Thu, 31 Oct 2019 13:27:25 GMT
+    	Content-Type: text/html; charset=utf-8
     	Transfer-Encoding: chunked
     	Connection: keep-alive
     	Cache-Control: max-age=30
@@ -145,8 +154,8 @@ Web的基本架构
     	Vikingr-Cache-TTL: 14644
     	IDC: shjd
     	Vary: Origin,Accept-Encoding
-    	Content-Encoding: gzip  请使用gzip解码以获得text/html类型的信息
-    	Expires: Thu, 31 Oct 2019 13:27:55 GMT  响应于GMT时间2019-10-31 13：27：55过期
+    	Content-Encoding: gzip
+    	Expires: Thu, 31 Oct 2019 13:27:55 GMT
     	X-Cache-Webcdn: BYPASS from ks-bj-bgp-w-05
     	```
 
