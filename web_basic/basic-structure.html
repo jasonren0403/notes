@@ -9,7 +9,7 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/web_basic/basic-structure.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.3.1, mkdocs-material-8.5.3" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.3" name="generator"/>
 <title>Web的基本架构 - Jason的笔记小屋</title>
 <link href="../assets/stylesheets/main.7a952b86.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
@@ -674,7 +674,7 @@
 <li>完整格式：<code>协议类型:[//[访问资源需要的凭证信息@]服务器地址[:端口号]][/ 资源层级UNIX文件路径]文件名[?查询][#片段ID]</code></li>
 </ul>
 </li>
-<li>标准：RFC1738</li>
+<li>标准：<a href="https://www.rfc-editor.org/rfc/rfc1738">RFC1738</a></li>
 <li>URL路径<ul>
 <li>绝对路径<ul>
 <li>由其在Web上的绝对位置定义的位置，包括协议和域名</li>
@@ -711,7 +711,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">请求报文</label><label for="__tabbed_1_2">响应报文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="md-img/9.27-2.jpg"><img alt="request header structure" src="md-img/9.27-2.jpg"/></a></p>
+<p><a class="glightbox" href="md-img/9.27-2.png"><img alt="request header structure" src="md-img/9.27-2.png"/></a></p>
 <p>报文由三个部分组成，即开始行、首部行和实体主体。在请求报文中，开始行就是请求行。</p>
 <ul>
 <li>方法：GET、POST、OPTION、HEAD、PUT、DELETE、TRACE、CONNECT</li>
@@ -720,7 +720,7 @@
 </ul>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="md-img/9.27-3.jpg"><img alt="response header structure" src="md-img/9.27-3.jpg"/></a></p>
+<p><a class="glightbox" href="md-img/9.27-3.png"><img alt="response header structure" src="md-img/9.27-3.png"/></a></p>
 <p>报文由三个部分组成，即开始行、首部行和实体主体。在响应报文中，开始行就是状态行。</p>
 <ul>
 <li>版本：HTTP的版本</li>
@@ -730,7 +730,7 @@
 <li>3xx:表示重定向，表示要完成请求还必须采取进一步的行动</li>
 <li>4xx:表示客户的差错，如请求中有错误的语法</li>
 <li>5xx:表示服务器的差错，如服务器失效无法完成请求</li>
-<li>常见的：200 OK 请求成功，403 Forbidden 禁止访问，404 Not Found 找不到服务器，500 Internal Server Error 内部错误，301 Moved permanently 永久重定向</li>
+<li>常见的：200 OK 请求成功，401 Unauthorized 未授权，403 Forbidden 禁止访问，404 Not Found 找不到服务器，500 Internal Server Error 内部错误，301 Moved permanently 永久重定向</li>
 </ul>
 </li>
 <li>短语：解释状态码</li>
@@ -744,25 +744,39 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">HTTP请求包拆解</label><label for="__tabbed_2_2">HTTP响应包拆解</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>GET / HTTP/1.1  请求方法GET 请求URL：/（根目录） HTTP版本：1.1
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>Host: www.bilibili.com 被请求的Internet主机为www.bilibili.com，端口号为缺省的
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>Connection: keep-alive  持久连接
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>Upgrade-Insecure-Requests: 1  优先选择安全升级
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36 浏览器标识，此处为chrome浏览器
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3 客户端接受xml/html、webp、apng等MIME格式资源
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>Sec-Fetch-Site: none
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>Accept-Encoding: gzip, deflate, br  客户端支持gzip、deflate、br三种压缩算法
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>Accept-Language: zh-CN,zh;q=0.9  客户端支持中文
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>Cookie: {涉及个人信息，省略}
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">源请求包</label><label for="__tabbed_3_2">解释</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">HTTP</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="err">GET / HTTP/1.1  </span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="err">Host: www.bilibili.com</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="err">Connection: keep-alive</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="err">Upgrade-Insecure-Requests: 1</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="err">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="err">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="err">Sec-Fetch-Site: none</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="err">Accept-Encoding: gzip, deflate, br</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="err">Accept-Language: zh-CN,zh;q=0.9</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="err">Cookie: xxxxx</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
 <ul>
-<li>请求方式</li>
-<li>URL路径</li>
-<li>HTTP协议版本号 当前版本号：1.1（1997年发布）<ul>
+<li>请求方式<ul>
+<li>上述请求意义为：请求方法<code>GET</code></li>
+</ul>
+</li>
+<li>URL路径<ul>
+<li>上述请求意义为：请求URL：<code>/</code>（根目录）</li>
+</ul>
+</li>
+<li>HTTP协议版本号<ul>
+<li>上述请求意义为：HTTP版本：<code>1.1</code></li>
+<li>当前版本号：1.1（1997年发布）</li>
 <li>2015年时，HTTP 2.0发布，多路复用机制</li>
 </ul>
 </li>
 <li>Host<ul>
+<li>上述请求意义为：被请求的Internet主机为<code>www.bilibili.com</code>，端口号为缺省的（80）</li>
 <li>发送请求时，该报头域是必需的</li>
 <li>指定被请求的Internet主机和端口号</li>
 </ul>
@@ -782,30 +796,34 @@
 </li>
 <li>Connection<ul>
 <li>决定当前的事务完成后，是否会关闭网络连接。</li>
+<li>keep-alive表示持久连接</li>
 <li>HTTP 1.0默认值：close。</li>
 </ul>
 </li>
-<li>Upgrade-Insecure-Requests：优先选择安全性更高的版本<ul>
+<li>Upgrade-Insecure-Requests：1 表示优先选择安全性更高的版本<ul>
 <li>访问http网站会重定向至该网站的https版本</li>
 </ul>
 </li>
 </ul>
 </div>
+</div>
+</input></input></div>
+</div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>HTTP/1.1 200 OK  HTTP版本：1.1 状态码：200 短语解释：OK
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>Date: Thu, 31 Oct 2019 13:27:25 GMT  消息生成于GMT时间2019-10-31 13：27：25
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>Content-Type: text/html; charset=utf-8  资源为html文本类型，字符集为utf-8
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>Transfer-Encoding: chunked
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>Connection: keep-alive
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>Cache-Control: max-age=30
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>gear: 1
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>vikingrCache: 60000
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>Vikingr-Cache-TTL: 14644
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>IDC: shjd
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>Vary: Origin,Accept-Encoding
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>Content-Encoding: gzip  请使用gzip解码以获得text/html类型的信息
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>Expires: Thu, 31 Oct 2019 13:27:55 GMT  响应于GMT时间2019-10-31 13：27：55过期
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>X-Cache-Webcdn: BYPASS from ks-bj-bgp-w-05
+<div class="highlight"><span class="filename">HTTP</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="na">Date</span><span class="o">:</span> <span class="l">Thu, 31 Oct 2019 13:27:25 GMT</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html; charset=utf-8</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="na">Transfer-Encoding</span><span class="o">:</span> <span class="l">chunked</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="na">Cache-Control</span><span class="o">:</span> <span class="l">max-age=30</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="na">gear</span><span class="o">:</span> <span class="l">1</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="na">vikingrCache</span><span class="o">:</span> <span class="l">60000</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="na">Vikingr-Cache-TTL</span><span class="o">:</span> <span class="l">14644</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="na">IDC</span><span class="o">:</span> <span class="l">shjd</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="na">Vary</span><span class="o">:</span> <span class="l">Origin,Accept-Encoding</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="na">Content-Encoding</span><span class="o">:</span> <span class="l">gzip</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="na">Expires</span><span class="o">:</span> <span class="l">Thu, 31 Oct 2019 13:27:55 GMT</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="na">X-Cache-Webcdn</span><span class="o">:</span> <span class="l">BYPASS from ks-bj-bgp-w-05</span>
 </code></pre></div>
 <ul>
 <li>Header<ul>
@@ -849,7 +867,7 @@
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月1日 01:21:22</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
