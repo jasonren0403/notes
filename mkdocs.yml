@@ -115,11 +115,11 @@ repo_url: https://github.com/jasonren0403/notes
 repo_name: jasonren0403/notes
 edit_uri: edit/main/notes_dev/
 extra:
+  comments: true
   ## uncomment before publish ##
 #  analytics:
 #    provider: google
 #    property: G-Q0FWVZ6L5Y
-  disqus: 'something'
   ## uncomment before publish ##
   social:
     - icon: fontawesome/brands/github-alt
