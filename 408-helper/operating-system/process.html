@@ -673,24 +673,20 @@
 <p>进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位</p>
 </div>
 <ul>
-<li>特征</li>
+<li>
+<p>特征</p>
+<dl>
+<dt>动态性</dt>
+<dd>由创建而产生，由调度而执行，由撤销而消亡</dd>
+<dt>并发性</dt>
+<dd>进程的重要特征，操作系统的重要特征</dd>
+<dt>独立性</dt>
+<dd>独立运行、独立分配资源、独立接受调度</dd>
+<dt>异步性</dt>
+<dd>按各自独立、不可预知的速度向前推进</dd>
+</dl>
+</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">动态性</label><label for="__tabbed_1_2">并发性</label><label for="__tabbed_1_3">独立性</label><label for="__tabbed_1_4">异步性</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>由创建而产生，由调度而执行，由撤销而消亡</p>
-</div>
-<div class="tabbed-block">
-<p>进程的重要特征，操作系统的重要特征</p>
-</div>
-<div class="tabbed-block">
-<p>独立运行、独立分配资源、独立接受调度</p>
-</div>
-<div class="tabbed-block">
-<p>按各自独立、不可预知的速度向前推进</p>
-</div>
-</div>
-</input></input></input></input></div>
 <h3 id="pcb">PCB<a class="headerlink" href="#pcb" title="Permanent link">¶</a></h3>
 <p>为描述和控制进程的运行，系统为每个进程定义了一个数据结构——进程控制块（Process Control Block），OS是根据PCB来对并发执行的进程进行控制和管理的</p>
 <ul>
@@ -698,7 +694,7 @@
 <li><span class="stressed">PCB是进程存在的唯一标志</span></li>
 <li>PCB的组织方式</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">线性方式</label><label for="__tabbed_2_2">链接方式</label><label for="__tabbed_2_3">索引方式</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">线性方式</label><label for="__tabbed_1_2">链接方式</label><label for="__tabbed_1_3">索引方式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -716,7 +712,7 @@
 </div>
 </input></input></input></div>
 <h3 id="_3">进程的状态与转换<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">五状态图</label><label for="__tabbed_3_2">七状态图</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">五状态图</label><label for="__tabbed_2_2">七状态图</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <pre class="mermaid"><code>stateDiagram-v2
@@ -752,9 +748,9 @@
 <h3 id="_4">进程控制<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>进程控制是指：进程的创建、终止，进程状态转换的控制，是由操作系统内核中的原语实现的</p>
 <ul>
-<li>原语在执行期间是不可分割的，一个操作中的所有动作要么全做，要么全不做。</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><input id="__tabbed_4_4" name="__tabbed_4" type="radio"><input id="__tabbed_4_5" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">创建</label><label for="__tabbed_4_2">终止</label><label for="__tabbed_4_3">阻塞与唤醒</label><label for="__tabbed_4_4">挂起</label><label for="__tabbed_4_5">激活</label></div>
+<li>
+<p>原语在执行期间是不可分割的，一个操作中的所有动作要么全做，要么全不做。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><input id="__tabbed_3_5" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">创建</label><label for="__tabbed_3_2">终止</label><label for="__tabbed_3_3">阻塞与唤醒</label><label for="__tabbed_3_4">挂起</label><label for="__tabbed_3_5">激活</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -838,11 +834,13 @@ A --&gt;C(end)</code></pre>
 </div>
 </div>
 </input></input></input></input></input></div>
+</li>
+</ul>
 <h3 id="_5">进程通信<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <div class="admonition summary">
 <p>进程通信是指进程之间的信息交换。 (各进程为了保持联系而换信息)</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><input id="__tabbed_5_3" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">共享存储</label><label for="__tabbed_5_2">管道通信</label><label for="__tabbed_5_3">消息传递</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">共享存储</label><label for="__tabbed_4_2">管道通信</label><label for="__tabbed_4_3">消息传递</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>进程之间通过共享某些数据结构或存储区实现信息传送，有两种类型：</p>
@@ -861,10 +859,8 @@ A --&gt;C(end)</code></pre>
 </div>
 <div class="tabbed-block">
 <p>系统提供发送消息 <code>Send(message)</code>与接收消息 <code>Receive(message)</code> 两个操作，进程间则通过使用这两个操作进行通讯，无需共享任何变量</p>
-<ul>
-<li>根据实现方式的不同分成直接通信方式和间接通信方式两种</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">直接消息传递系统</label><label for="__tabbed_6_2">间接消息传递系统（信箱通信）</label></div>
+<p>根据实现方式的不同分成直接通信方式和间接通信方式两种</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">直接消息传递系统</label><label for="__tabbed_5_2">间接消息传递系统（信箱通信）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -884,7 +880,7 @@ A --&gt;C(end)</code></pre>
 <li>系统提供若干原语，分别用于信箱的创建、撤销和消息的发送、接收</li>
 <li>
 <p>信箱分为以下三类</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><input id="__tabbed_7_3" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">私用信箱</label><label for="__tabbed_7_2">公用信箱</label><label for="__tabbed_7_3">共享信箱</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">私用信箱</label><label for="__tabbed_6_2">公用信箱</label><label for="__tabbed_6_3">共享信箱</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>用户进程可为自己建立一个新信箱，并作为该进程的一部分。信箱的拥有者有权从信箱中读取消息，其他用户则只能将自己构成的消息发送到该信箱中。</p>
@@ -901,47 +897,38 @@ A --&gt;C(end)</code></pre>
 </ul>
 </div>
 </div>
+</input></div>
 </div>
 </div>
-</div>
-</div>
+</input></input></input></div>
 <h3 id="_6">线程<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <div class="admonition summary">
 <p>引入进程，是为了使多个程序能并发执行，以提高资源利用率和系统吞吐量；引入线程，是为了减少程序在并发执行时的时空开销，使OS有更好的并行性。</p>
 </div>
 <ul>
 <li>线程是进程内一个相对独立的、可调度的执行单元，是处理机调度的基本单位。</li>
-<li>
-<p>对于多线程机制而言，一个进程可以有多个线程</p>
-<ul>
+<li>对于多线程机制而言，一个进程可以有多个线程<ul>
 <li>这些线程共享该进程资源</li>
 </ul>
 </li>
 <li>
 <p>线程的状态</p>
-<ul>
-<li>线程状态间的转换和<a href="#_3">进程状态间的转换</a>是一样的</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">执行</label><label for="__tabbed_8_2">就绪</label><label for="__tabbed_8_3">阻塞</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>线程已获得处理机而正在运行</p>
-</div>
-<div class="tabbed-block">
-<p>线程已具备了各种执行条件，只需再获得CPU便可立即执行</p>
-</div>
-<div class="tabbed-block">
-<p>线程在执行中因某事件受阻而处于暂停状态</p>
-</div>
-</div>
-</div>
+<p>线程状态间的转换和<a href="#_3">进程状态间的转换</a>是一样的</p>
+<dl>
+<dt>执行</dt>
+<dd>线程已获得处理机而正在运行</dd>
+<dt>就绪</dt>
+<dd>线程已具备了各种执行条件，只需再获得CPU便可立即执行</dd>
+<dt>阻塞</dt>
+<dd>线程在执行中因某事件受阻而处于暂停状态</dd>
+</dl>
 </li>
 <li>
 <p>线程控制块TCB</p>
 <ul>
 <li>系统为每一个线程配置了线程控制块TCB，将所有用于控制和管理线程的信息记录在线程控制块中。包含以下信息：</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:7"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><input id="__tabbed_9_3" name="__tabbed_9" type="radio"/><input id="__tabbed_9_4" name="__tabbed_9" type="radio"/><input id="__tabbed_9_5" name="__tabbed_9" type="radio"/><input id="__tabbed_9_6" name="__tabbed_9" type="radio"/><input id="__tabbed_9_7" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">线程标识符</label><label for="__tabbed_9_2">一组寄存器</label><label for="__tabbed_9_3">线程运行状态</label><label for="__tabbed_9_4">优先级</label><label for="__tabbed_9_5">线程专有存储区</label><label for="__tabbed_9_6">信号屏蔽</label><label for="__tabbed_9_7">堆栈指针</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:7"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><input id="__tabbed_7_3" name="__tabbed_7" type="radio"/><input id="__tabbed_7_4" name="__tabbed_7" type="radio"/><input id="__tabbed_7_5" name="__tabbed_7" type="radio"/><input id="__tabbed_7_6" name="__tabbed_7" type="radio"/><input id="__tabbed_7_7" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">线程标识符</label><label for="__tabbed_7_2">一组寄存器</label><label for="__tabbed_7_3">线程运行状态</label><label for="__tabbed_7_4">优先级</label><label for="__tabbed_7_5">线程专有存储区</label><label for="__tabbed_7_6">信号屏蔽</label><label for="__tabbed_7_7">堆栈指针</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>为每个线程赋予一个唯一的线程标识符</p>
@@ -969,9 +956,7 @@ A --&gt;C(end)</code></pre>
 </li>
 <li>
 <p>线程实现</p>
-</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><input id="__tabbed_10_3" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">内核支持线程KST</label><label for="__tabbed_10_2">用户级线程ULT</label><label for="__tabbed_10_3">组合方式</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">内核支持线程KST</label><label for="__tabbed_8_2">用户级线程ULT</label><label for="__tabbed_8_3">组合方式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>无论用户进程中的线程，还是系统进程中的线程，其创建、撤销和切换都依靠内核，在内核空间通过系统调用实现</p>
@@ -981,7 +966,7 @@ A --&gt;C(end)</code></pre>
 </div>
 <div class="tabbed-block">
 <p>内核支持多个内核支持线程的建立、调度和管理，同时，也允许用户应用程序建立、调度和管理用户级线程</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><input id="__tabbed_11_3" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">多对一模型</label><label for="__tabbed_11_2">一对一模型</label><label for="__tabbed_11_3">多对多模型</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><input id="__tabbed_9_3" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">多对一模型</label><label for="__tabbed_9_2">一对一模型</label><label for="__tabbed_9_3">多对多模型</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>将许多用户级线程映射到一个内核线程</p>
@@ -1000,6 +985,8 @@ A --&gt;C(end)</code></pre>
 </div>
 </div>
 </div>
+</li>
+</ul>
 <h2 id="_7">处理机调度<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <div class="admonition summary">
 <p>在多道程序系统中，调度的实质是一种资源分配</p>
@@ -1017,8 +1004,8 @@ A --&gt;C(end)</code></pre>
 </ol>
 </details>
 <ul>
-<li>层次</li>
-</ul>
+<li>
+<p>层次</p>
 <div class="admonition summary">
 <p class="admonition-title">三种调度层次的比较</p>
 <table>
@@ -1052,7 +1039,7 @@ A --&gt;C(end)</code></pre>
 </tbody>
 </table>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><input id="__tabbed_12_3" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">高级调度</label><label for="__tabbed_12_2">中级调度</label><label for="__tabbed_12_3">低级调度</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><input id="__tabbed_10_3" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">高级调度</label><label for="__tabbed_10_2">中级调度</label><label for="__tabbed_10_3">低级调度</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>也称宏观（作业）调度，决定哪些程序可以进入系统</p>
@@ -1076,7 +1063,7 @@ A --&gt;C(end)</code></pre>
 <ul>
 <li>进程调度机制</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><input id="__tabbed_13_3" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">排队器</label><label for="__tabbed_13_2">分派器</label><label for="__tabbed_13_3">上下文切换器</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><input id="__tabbed_11_3" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">排队器</label><label for="__tabbed_11_2">分派器</label><label for="__tabbed_11_3">上下文切换器</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>将就绪进程按一定方式排成队列</p>
@@ -1095,7 +1082,7 @@ A --&gt;C(end)</code></pre>
 <ul>
 <li>进程调度方式</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><input id="__tabbed_14_2" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">非抢占方式</label><label for="__tabbed_14_2">抢占方式</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">非抢占方式</label><label for="__tabbed_12_2">抢占方式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>一旦处理机分配，便让进程一直执行，直至该进程完成或发生某事件而被阻塞时，才再把处理机分配给其它进程</p>
@@ -1131,12 +1118,16 @@ A --&gt;C(end)</code></pre>
 </div>
 </div>
 </div>
-<ul>
-<li>实时调度</li>
+</li>
+<li>
+<p>实时调度</p>
+<div class="admonition warning">
+<p>非考研内容，待填坑</p>
+</div>
+</li>
 </ul>
-<!--非考研内容，待填坑-->
 <h3 id="_8">调度算法的指标<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="15:4"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><input id="__tabbed_15_2" name="__tabbed_15" type="radio"/><input id="__tabbed_15_3" name="__tabbed_15" type="radio"/><input id="__tabbed_15_4" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1">CPU利用率</label><label for="__tabbed_15_2">周转时间</label><label for="__tabbed_15_3">系统吞吐量</label><label for="__tabbed_15_4">响应时间</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:4"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><input id="__tabbed_13_3" name="__tabbed_13" type="radio"/><input id="__tabbed_13_4" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">CPU利用率</label><label for="__tabbed_13_2">周转时间</label><label for="__tabbed_13_3">系统吞吐量</label><label for="__tabbed_13_4">响应时间</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="arithmatex">\[
@@ -1176,7 +1167,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 </div>
 <h3 id="_9">典型的调度算法<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="16:6"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio"/><input id="__tabbed_16_2" name="__tabbed_16" type="radio"/><input id="__tabbed_16_3" name="__tabbed_16" type="radio"/><input id="__tabbed_16_4" name="__tabbed_16" type="radio"/><input id="__tabbed_16_5" name="__tabbed_16" type="radio"/><input id="__tabbed_16_6" name="__tabbed_16" type="radio"/><div class="tabbed-labels"><label for="__tabbed_16_1">FCFS(先来先服务)</label><label for="__tabbed_16_2">SJF(短作业优先)/SPF(短进程优先)</label><label for="__tabbed_16_3">RR(时间片轮转)</label><label for="__tabbed_16_4">PSA(优先级)</label><label for="__tabbed_16_5">HRRN(高响应比优先)</label><label for="__tabbed_16_6">多队列及多级反馈队列</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:6"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><input id="__tabbed_14_2" name="__tabbed_14" type="radio"/><input id="__tabbed_14_3" name="__tabbed_14" type="radio"/><input id="__tabbed_14_4" name="__tabbed_14" type="radio"/><input id="__tabbed_14_5" name="__tabbed_14" type="radio"/><input id="__tabbed_14_6" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">FCFS(先来先服务)</label><label for="__tabbed_14_2">SJF(短作业优先)/SPF(短进程优先)</label><label for="__tabbed_14_3">RR(时间片轮转)</label><label for="__tabbed_14_4">PSA(优先级)</label><label for="__tabbed_14_5">HRRN(高响应比优先)</label><label for="__tabbed_14_6">多队列及多级反馈队列</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>每次调度都是选择一个或多个最先进入队列的作业或进程，为它们分配资源，创建进程或分配CPU，使之投入运行。</p>
@@ -1216,7 +1207,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <ul>
 <li>既可用于作业调度，也可用于进程调度</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">非抢占式优先级调度法</label><label for="__tabbed_17_2">抢占式优先级调度法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><input id="__tabbed_15_2" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1">非抢占式优先级调度法</label><label for="__tabbed_15_2">抢占式优先级调度法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>一旦某个高优先级的进程占有了处理机，就一直运行下去，直到由于其自身的原因而主动让出处理机时(任务完成或等待事件)才让另一高优先级进程运行</p>
@@ -1229,14 +1220,14 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <ul>
 <li>优先权的确定</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio"/><input id="__tabbed_18_2" name="__tabbed_18" type="radio"/><div class="tabbed-labels"><label for="__tabbed_18_1">静态优先级</label><label for="__tabbed_18_2">动态优先级</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio"/><input id="__tabbed_16_2" name="__tabbed_16" type="radio"/><div class="tabbed-labels"><label for="__tabbed_16_1">静态优先级</label><label for="__tabbed_16_2">动态优先级</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>静态优先权是在创建进程时确定的，且在进程的整个运行期间保持不变</p>
 <ul>
 <li>确定进程优先权的依据有如下三个方面</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio"/><input id="__tabbed_19_2" name="__tabbed_19" type="radio"/><input id="__tabbed_19_3" name="__tabbed_19" type="radio"/><div class="tabbed-labels"><label for="__tabbed_19_1">进程类型</label><label for="__tabbed_19_2">进程对资源的需求</label><label for="__tabbed_19_3">用户要求</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><input id="__tabbed_17_3" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">进程类型</label><label for="__tabbed_17_2">进程对资源的需求</label><label for="__tabbed_17_3">用户要求</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>通常系统进程的优先级高于一般用户进程的优先级</p>
@@ -1271,7 +1262,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </ul>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio"/><input id="__tabbed_20_2" name="__tabbed_20" type="radio"/><div class="tabbed-labels"><label for="__tabbed_20_1">多队列</label><label for="__tabbed_20_2">多级反馈队列</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio"/><input id="__tabbed_18_2" name="__tabbed_18" type="radio"/><div class="tabbed-labels"><label for="__tabbed_18_1">多队列</label><label for="__tabbed_18_2">多级反馈队列</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>设置多个就绪队列，不同队列采用不同算法</p>
@@ -1307,7 +1298,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <ul>
 <li>对临界资源（只能排它使用的资源）的访问需要互斥的进行，同一时间段内只能允许一个进程访问该资源。</li>
 </ul>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>do{
+<div class="highlight"><span class="filename">伪代码描述</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>do{
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    entry section; //进入区，检查并上锁
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    critical section; //临界区，访问临界资源
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    exit section; //退出区，解锁
@@ -1317,7 +1308,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <ul>
 <li>
 <p>同步机制原则</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="21:4"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio"/><input id="__tabbed_21_2" name="__tabbed_21" type="radio"/><input id="__tabbed_21_3" name="__tabbed_21" type="radio"/><input id="__tabbed_21_4" name="__tabbed_21" type="radio"/><div class="tabbed-labels"><label for="__tabbed_21_1">空闲让进</label><label for="__tabbed_21_2">忙则等待</label><label for="__tabbed_21_3">有限等待</label><label for="__tabbed_21_4">让权等待</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:4"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio"/><input id="__tabbed_19_2" name="__tabbed_19" type="radio"/><input id="__tabbed_19_3" name="__tabbed_19" type="radio"/><input id="__tabbed_19_4" name="__tabbed_19" type="radio"/><div class="tabbed-labels"><label for="__tabbed_19_1">空闲让进</label><label for="__tabbed_19_2">忙则等待</label><label for="__tabbed_19_3">有限等待</label><label for="__tabbed_19_4">让权等待</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>临界区空闲时，应允许一个进程访问。</p>
@@ -1336,10 +1327,10 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </li>
 <li>
 <p>互斥机制的实现</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio"/><input id="__tabbed_22_2" name="__tabbed_22" type="radio"/><div class="tabbed-labels"><label for="__tabbed_22_1">软件</label><label for="__tabbed_22_2">硬件</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio"/><input id="__tabbed_20_2" name="__tabbed_20" type="radio"/><div class="tabbed-labels"><label for="__tabbed_20_1">软件</label><label for="__tabbed_20_2">硬件</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="23:4"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio"/><input id="__tabbed_23_2" name="__tabbed_23" type="radio"/><input id="__tabbed_23_3" name="__tabbed_23" type="radio"/><input id="__tabbed_23_4" name="__tabbed_23" type="radio"/><div class="tabbed-labels"><label for="__tabbed_23_1">单标志法</label><label for="__tabbed_23_2">双标志先检查</label><label for="__tabbed_23_3">双标志后检查</label><label for="__tabbed_23_4">Peterson算法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:4"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio"/><input id="__tabbed_21_2" name="__tabbed_21" type="radio"/><input id="__tabbed_21_3" name="__tabbed_21" type="radio"/><input id="__tabbed_21_4" name="__tabbed_21" type="radio"/><div class="tabbed-labels"><label for="__tabbed_21_1">单标志法</label><label for="__tabbed_21_2">双标志先检查</label><label for="__tabbed_21_3">双标志后检查</label><label for="__tabbed_21_4">Peterson算法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>访问完临界区后把使用临界区的权限交给另外一个进程，在进入区只检查不上锁</p>
@@ -1433,7 +1424,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="24:3"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio"/><input id="__tabbed_24_2" name="__tabbed_24" type="radio"/><input id="__tabbed_24_3" name="__tabbed_24" type="radio"/><div class="tabbed-labels"><label for="__tabbed_24_1">中断屏蔽法</label><label for="__tabbed_24_2">TestAndSet(TS/TSL指令)</label><label for="__tabbed_24_3">Swap指令(XCHG/Exchange指令)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:3"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio"/><input id="__tabbed_22_2" name="__tabbed_22" type="radio"/><input id="__tabbed_22_3" name="__tabbed_22" type="radio"/><div class="tabbed-labels"><label for="__tabbed_22_1">中断屏蔽法</label><label for="__tabbed_22_2">TestAndSet(TS/TSL指令)</label><label for="__tabbed_22_3">Swap指令(XCHG/Exchange指令)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>进入测试之前关闭中断，完成测试直至上锁之后才能打开中断</p>
@@ -1443,18 +1434,17 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 <div class="tabbed-block">
 <p>为每类临界区设置一把锁。在程序中锁可以用一个变量<code>lock</code>来表示</p>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* C语言逻辑 */</span><span class="w"></span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">TestAndSet</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">lock</span><span class="p">){</span><span class="w"></span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">old</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">lock</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="o">*</span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">old</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="k">while</span><span class="p">(</span><span class="n">TestAndSet</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">));</span><span class="w"></span>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">临界区代码</span><span class="w"></span>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">lock</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="n">剩余区代码</span><span class="w"></span>
+<div class="highlight"><span class="filename">C语言逻辑</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">TestAndSet</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">lock</span><span class="p">){</span><span class="w"></span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">old</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">lock</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="o">*</span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">old</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="k">while</span><span class="p">(</span><span class="n">TestAndSet</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">));</span><span class="w"></span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="n">临界区代码</span><span class="w"></span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">lock</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">剩余区代码</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition success">
 <p>可以用于多处理机环境</p>
@@ -1465,20 +1455,19 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 <div class="tabbed-block">
 <p>利用Swap实现进程互斥时，可为临界资源设置一个全局布尔变量<code>lock</code>，其初值为<code>false</code>，在每个进程中再利用一个局部布尔变量<code>key</code>。</p>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* C语言逻辑 */</span><span class="w"></span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="kt">bool</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="k">while</span><span class="p">(</span><span class="n">old</span><span class="o">==</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span><span class="o">&amp;</span><span class="n">old</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">临界区代码</span><span class="w"></span>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">剩余区代码</span><span class="w"></span>
+<div class="highlight"><span class="filename">C语言逻辑</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="kt">bool</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="k">while</span><span class="p">(</span><span class="n">old</span><span class="o">==</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span><span class="o">&amp;</span><span class="n">old</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="n">临界区代码</span><span class="w"></span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="n">剩余区代码</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition danger">
 <p>违背了“让权等待”原则</p>
@@ -1501,7 +1490,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="cm">/**/</span><span class="w"></span>
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="25:2"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio"/><input id="__tabbed_25_2" name="__tabbed_25" type="radio"/><div class="tabbed-labels"><label for="__tabbed_25_1">整型信号量</label><label for="__tabbed_25_2">记录型信号量</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:2"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio"/><input id="__tabbed_23_2" name="__tabbed_23" type="radio"/><div class="tabbed-labels"><label for="__tabbed_23_1">整型信号量</label><label for="__tabbed_23_2">记录型信号量</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>最初Dijkstra把整型信号量定义为一个整型量，除初始化外，仅能通过两个标准的原子操作(Atomic Operation) <code>wait(S)</code>和<code>signal(S)</code>来访问，这两个操作一直被分别称为P、V操作。这个整型量的值表示资源的数量</p>
@@ -1557,7 +1546,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <ul>
 <li>信号量的使用</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="26:3"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio"/><input id="__tabbed_26_2" name="__tabbed_26" type="radio"/><input id="__tabbed_26_3" name="__tabbed_26" type="radio"/><div class="tabbed-labels"><label for="__tabbed_26_1">互斥</label><label for="__tabbed_26_2">同步</label><label for="__tabbed_26_3">前趋关系</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:3"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio"/><input id="__tabbed_24_2" name="__tabbed_24" type="radio"/><input id="__tabbed_24_3" name="__tabbed_24" type="radio"/><div class="tabbed-labels"><label for="__tabbed_24_1">互斥</label><label for="__tabbed_24_2">同步</label><label for="__tabbed_24_3">前趋关系</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>为使多个进程能互斥地访问某临界资源，只需为该资源设置一互斥信号量<code>mutex</code>，并设其初始值为1，表示无进程进入自己的临界区。然后将各进程的临界区置于<code>wait(mutex)</code>和<code>signal(mutex)</code>操作之间即可</p>
@@ -1604,7 +1593,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <div class="tabbed-block">
 <p>分析问题，画出前驱图，把每一对前驱关系看成一个同步问题</p>
 <p><a class="glightbox" href="asset-img/process-9.png"><img alt="qianqu-example" src="asset-img/process-9.png"/></a></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="27:6"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio"/><input id="__tabbed_27_2" name="__tabbed_27" type="radio"/><input id="__tabbed_27_3" name="__tabbed_27" type="radio"/><input id="__tabbed_27_4" name="__tabbed_27" type="radio"/><input id="__tabbed_27_5" name="__tabbed_27" type="radio"/><input id="__tabbed_27_6" name="__tabbed_27" type="radio"/><div class="tabbed-labels"><label for="__tabbed_27_1">P1</label><label for="__tabbed_27_2">P2</label><label for="__tabbed_27_3">P3</label><label for="__tabbed_27_4">P4</label><label for="__tabbed_27_5">P5</label><label for="__tabbed_27_6">P6</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:6"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio"/><input id="__tabbed_25_2" name="__tabbed_25" type="radio"/><input id="__tabbed_25_3" name="__tabbed_25" type="radio"/><input id="__tabbed_25_4" name="__tabbed_25" type="radio"/><input id="__tabbed_25_5" name="__tabbed_25" type="radio"/><input id="__tabbed_25_6" name="__tabbed_25" type="radio"/><div class="tabbed-labels"><label for="__tabbed_25_1">P1</label><label for="__tabbed_25_2">P2</label><label for="__tabbed_25_3">P3</label><label for="__tabbed_25_4">P4</label><label for="__tabbed_25_5">P5</label><label for="__tabbed_25_6">P6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cm">/* ... */</span><span class="w"></span>
@@ -1715,7 +1704,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </li>
 </ul>
 <h3 id="_13">经典同步问题<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="28:3"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio"/><input id="__tabbed_28_2" name="__tabbed_28" type="radio"/><input id="__tabbed_28_3" name="__tabbed_28" type="radio"/><div class="tabbed-labels"><label for="__tabbed_28_1">生产者-消费者问题</label><label for="__tabbed_28_2">读者-写者问题</label><label for="__tabbed_28_3">哲学家进餐问题</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="26:3"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio"/><input id="__tabbed_26_2" name="__tabbed_26" type="radio"/><input id="__tabbed_26_3" name="__tabbed_26" type="radio"/><div class="tabbed-labels"><label for="__tabbed_26_1">生产者-消费者问题</label><label for="__tabbed_26_2">读者-写者问题</label><label for="__tabbed_26_3">哲学家进餐问题</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="admonition summary">
@@ -1753,11 +1742,11 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </code></pre></div>
 <details class="note" open="open">
 <summary>多生产者-多消费者问题</summary>
-<details class="summary">
+<details class="summary" open="open">
 <summary>问题描述</summary>
 <p>桌子上有一只盘子，每次只能向其中放入一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，儿子专等着吃盘子中的橘子，女儿专等着吃盘子中的苹果。只有盘子空时，爸爸或妈妈才可向盘子中放入一个水果。仅当盘子中有自己需要的水果时，儿子或女儿可以从盘子中取出水果。用PV操作实现上述过程。</p>
 </details>
-<div class="tabbed-set tabbed-alternate" data-tabs="29:5"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio"/><input id="__tabbed_29_2" name="__tabbed_29" type="radio"/><input id="__tabbed_29_3" name="__tabbed_29" type="radio"/><input id="__tabbed_29_4" name="__tabbed_29" type="radio"/><input id="__tabbed_29_5" name="__tabbed_29" type="radio"/><div class="tabbed-labels"><label for="__tabbed_29_1">信号量定义</label><label for="__tabbed_29_2">父亲</label><label for="__tabbed_29_3">母亲</label><label for="__tabbed_29_4">女儿</label><label for="__tabbed_29_5">儿子</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="27:5"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio"/><input id="__tabbed_27_2" name="__tabbed_27" type="radio"/><input id="__tabbed_27_3" name="__tabbed_27" type="radio"/><input id="__tabbed_27_4" name="__tabbed_27" type="radio"/><input id="__tabbed_27_5" name="__tabbed_27" type="radio"/><div class="tabbed-labels"><label for="__tabbed_27_1">信号量定义</label><label for="__tabbed_27_2">父亲</label><label for="__tabbed_27_3">母亲</label><label for="__tabbed_27_4">女儿</label><label for="__tabbed_27_5">儿子</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>semaphore mutex=1;  //互斥访问盘子（缓冲区）
@@ -1833,7 +1822,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <li>写者执行写操作前，应让已有的读者和写者全部退出。</li>
 </ol>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="30:2"><input checked="checked" id="__tabbed_30_1" name="__tabbed_30" type="radio"/><input id="__tabbed_30_2" name="__tabbed_30" type="radio"/><div class="tabbed-labels"><label for="__tabbed_30_1">读优先</label><label for="__tabbed_30_2">写优先</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="28:2"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio"/><input id="__tabbed_28_2" name="__tabbed_28" type="radio"/><div class="tabbed-labels"><label for="__tabbed_28_1">读优先</label><label for="__tabbed_28_2">写优先</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">rw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">//实现互斥访问</span>
@@ -1911,7 +1900,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">chopstick</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="31:3"><input checked="checked" id="__tabbed_31_1" name="__tabbed_31" type="radio"/><input id="__tabbed_31_2" name="__tabbed_31" type="radio"/><input id="__tabbed_31_3" name="__tabbed_31" type="radio"/><div class="tabbed-labels"><label for="__tabbed_31_1">解法1</label><label for="__tabbed_31_2">解法2</label><label for="__tabbed_31_3">解法3</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="29:3"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio"/><input id="__tabbed_29_2" name="__tabbed_29" type="radio"/><input id="__tabbed_29_3" name="__tabbed_29" type="radio"/><div class="tabbed-labels"><label for="__tabbed_29_1">解法1</label><label for="__tabbed_29_2">解法2</label><label for="__tabbed_29_3">解法3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>只有拿起两支筷子的哲学家才可以进餐，否则，一支筷子也不拿。</p>
@@ -2015,7 +2004,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <ul>
 <li>对不可剥夺资源的不合理分配，可能导致死锁</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="32:3"><input checked="checked" id="__tabbed_32_1" name="__tabbed_32" type="radio"/><input id="__tabbed_32_2" name="__tabbed_32" type="radio"/><input id="__tabbed_32_3" name="__tabbed_32" type="radio"/><div class="tabbed-labels"><label for="__tabbed_32_1">竞争系统资源</label><label for="__tabbed_32_2">进程推进顺序非法</label><label for="__tabbed_32_3">信号量使用不当</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="30:3"><input checked="checked" id="__tabbed_30_1" name="__tabbed_30" type="radio"/><input id="__tabbed_30_2" name="__tabbed_30" type="radio"/><input id="__tabbed_30_3" name="__tabbed_30" type="radio"/><div class="tabbed-labels"><label for="__tabbed_30_1">竞争系统资源</label><label for="__tabbed_30_2">进程推进顺序非法</label><label for="__tabbed_30_3">信号量使用不当</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>各进程对不可剥夺资源的竞争可能导致死锁，对于可剥夺的资源的竞争不会引起死锁</p>
@@ -2023,32 +2012,28 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <div class="tabbed-block">
 <p>请求和释放资源顺序不当，可能导致死锁</p>
 </div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>如生产者-消费者问题中，如果实现互斥的P操作在实现同步的P操作之前，就有可能导致死锁</p>
+</div>
 </div>
 </div>
 </li>
 <li>
 <p>死锁发生的必要条件</p>
+<dl>
+<dt>互斥</dt>
+<dd>进程对所分配到的资源进行排他性使用，即在某段时间内，某资源只能由一个进程使用</dd>
+<dt>请求和保持</dt>
+<dd>进程因请求资源而阻塞时，对已分配给它的资源保持不放</dd>
+<dt>不可抢占</dt>
+<dd>资源在未使用完前，不能被剥夺，由使用进程释放</dd>
+<dt>循环等待</dt>
+<dd>发生死锁时，有向图必构成一环路</dd>
+</dl>
 </li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="33:4"><input checked="checked" id="__tabbed_33_1" name="__tabbed_33" type="radio"/><input id="__tabbed_33_2" name="__tabbed_33" type="radio"/><input id="__tabbed_33_3" name="__tabbed_33" type="radio"/><input id="__tabbed_33_4" name="__tabbed_33" type="radio"/><div class="tabbed-labels"><label for="__tabbed_33_1">互斥</label><label for="__tabbed_33_2">请求和保持</label><label for="__tabbed_33_3">不可抢占</label><label for="__tabbed_33_4">循环等待</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>进程对所分配到的资源进行排他性使用，即在某段时间内，某资源只能由一个进程使用</p>
-</div>
-<div class="tabbed-block">
-<p>进程因请求资源而阻塞时，对已分配给它的资源保持不放</p>
-</div>
-<div class="tabbed-block">
-<p>资源在未使用完前，不能被剥夺，由使用进程释放</p>
-</div>
-<div class="tabbed-block">
-<p>发生死锁时，有向图必构成一环路</p>
-</div>
-</div>
-</div>
 <h3 id="_15">死锁的处理策略<a class="headerlink" href="#_15" title="Permanent link">¶</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="34:3"><input checked="checked" id="__tabbed_34_1" name="__tabbed_34" type="radio"/><input id="__tabbed_34_2" name="__tabbed_34" type="radio"/><input id="__tabbed_34_3" name="__tabbed_34" type="radio"/><div class="tabbed-labels"><label for="__tabbed_34_1">预防死锁</label><label for="__tabbed_34_2">避免死锁</label><label for="__tabbed_34_3">检测与解除</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="31:3"><input checked="checked" id="__tabbed_31_1" name="__tabbed_31" type="radio"/><input id="__tabbed_31_2" name="__tabbed_31" type="radio"/><input id="__tabbed_31_3" name="__tabbed_31" type="radio"/><div class="tabbed-labels"><label for="__tabbed_31_1">预防死锁</label><label for="__tabbed_31_2">避免死锁</label><label for="__tabbed_31_3">检测与解除</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>破坏产生死锁的四个必要条件的一个或几个，以避免发生死锁。</p>
@@ -2056,7 +2041,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <summary>为什么不能破坏互斥条件？</summary>
 <p>并不是所有的资源都可以改造成可共享的资源（SPOOLing技术），且这种情况下很难保证正确性。另外，对临界资源的访问必须互斥进行。</p>
 </details>
-<div class="tabbed-set tabbed-alternate" data-tabs="35:3"><input checked="checked" id="__tabbed_35_1" name="__tabbed_35" type="radio"/><input id="__tabbed_35_2" name="__tabbed_35" type="radio"/><input id="__tabbed_35_3" name="__tabbed_35" type="radio"/><div class="tabbed-labels"><label for="__tabbed_35_1">破坏“请求与保持”条件</label><label for="__tabbed_35_2">破坏“不可抢占”条件</label><label for="__tabbed_35_3">破坏“循环等待”条件</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="32:3"><input checked="checked" id="__tabbed_32_1" name="__tabbed_32" type="radio"/><input id="__tabbed_32_2" name="__tabbed_32" type="radio"/><input id="__tabbed_32_3" name="__tabbed_32" type="radio"/><div class="tabbed-labels"><label for="__tabbed_32_1">破坏“请求与保持”条件</label><label for="__tabbed_32_2">破坏“不可抢占”条件</label><label for="__tabbed_32_3">破坏“循环等待”条件</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2084,7 +2069,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <ul>
 <li>
 <p>数据结构</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="36:4"><input checked="checked" id="__tabbed_36_1" name="__tabbed_36" type="radio"/><input id="__tabbed_36_2" name="__tabbed_36" type="radio"/><input id="__tabbed_36_3" name="__tabbed_36" type="radio"/><input id="__tabbed_36_4" name="__tabbed_36" type="radio"/><div class="tabbed-labels"><label for="__tabbed_36_1">Available</label><label for="__tabbed_36_2">Max</label><label for="__tabbed_36_3">Allocation</label><label for="__tabbed_36_4">Need</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="33:4"><input checked="checked" id="__tabbed_33_1" name="__tabbed_33" type="radio"/><input id="__tabbed_33_2" name="__tabbed_33" type="radio"/><input id="__tabbed_33_3" name="__tabbed_33" type="radio"/><input id="__tabbed_33_4" name="__tabbed_33" type="radio"/><div class="tabbed-labels"><label for="__tabbed_33_1">Available</label><label for="__tabbed_33_2">Max</label><label for="__tabbed_33_3">Allocation</label><label for="__tabbed_33_4">Need</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>这是一个含有<code>m</code>个元素的数组，其中的每一个元素代表一类可利用的资源数目，其初始值是系统中所配置的该类全部可用资源的数目</p>
@@ -2140,7 +2125,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <li>提供死锁解除算法</li>
 </ol>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="37:2"><input checked="checked" id="__tabbed_37_1" name="__tabbed_37" type="radio"/><input id="__tabbed_37_2" name="__tabbed_37" type="radio"/><div class="tabbed-labels"><label for="__tabbed_37_1">检测死锁：资源分配图</label><label for="__tabbed_37_2">消除死锁</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="34:2"><input checked="checked" id="__tabbed_34_1" name="__tabbed_34" type="radio"/><input id="__tabbed_34_2" name="__tabbed_34" type="radio"/><div class="tabbed-labels"><label for="__tabbed_34_1">检测死锁：资源分配图</label><label for="__tabbed_34_2">消除死锁</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a class="glightbox" href="asset-img/process-6.png"><img alt="RAG" src="asset-img/process-6.png"/></a></p>
@@ -2159,7 +2144,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" href="asset-img/process-8.png"><img alt="has-loop" src="asset-img/process-8.png"/></a></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="38:3"><input checked="checked" id="__tabbed_38_1" name="__tabbed_38" type="radio"/><input id="__tabbed_38_2" name="__tabbed_38" type="radio"/><input id="__tabbed_38_3" name="__tabbed_38" type="radio"/><div class="tabbed-labels"><label for="__tabbed_38_1">抢占资源法</label><label for="__tabbed_38_2">撤销进程法</label><label for="__tabbed_38_3">进程回退法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="35:3"><input checked="checked" id="__tabbed_35_1" name="__tabbed_35" type="radio"/><input id="__tabbed_35_2" name="__tabbed_35" type="radio"/><input id="__tabbed_35_3" name="__tabbed_35" type="radio"/><div class="tabbed-labels"><label for="__tabbed_35_1">抢占资源法</label><label for="__tabbed_35_2">撤销进程法</label><label for="__tabbed_35_3">进程回退法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>从一个或多个进程中抢占足够数量的资源，分配给死锁进程，以解除死锁状态</p>
@@ -2187,12 +2172,45 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年2月27日 16:16:28</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月1日 09:47:11</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
 </small>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 </article>
 </div>
 </div>

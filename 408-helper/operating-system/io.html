@@ -695,15 +695,21 @@
 <li>设备控制器是计算机中的一个实体。它控制一个或多个I/O设备，实现I/O设备和计算机之间的数据交换；它接收从CPU发来的命令，并控制I/O设备工作</li>
 <li>
 <p>组成
-    <a class="glightbox" href="asset-img/io-2.png"><img alt="" src="asset-img/io-2.png"/></a></p>
+    <figure markdown="">
+<a class="glightbox" href="asset-img/io-2.png"><img alt="" src="asset-img/io-2.png"/></a>
+</figure></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">内存映像I/O</label><label for="__tabbed_2_2">寄存器独立编址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/io-4.png"><img alt="" src="asset-img/io-4.png"/></a></p>
+<p><figure markdown="">
+<a class="glightbox" href="asset-img/io-4.png"><img alt="" src="asset-img/io-4.png"/></a>
+</figure></p>
 <p>在编址上不区分内存单元地址和设备控制器中的寄存器地址，当处于0~n-1范围时，是内存地址；大于等于n时，是某个控制器的寄存器地址</p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/io-3.png"><img alt="" src="asset-img/io-3.png"/></a></p>
+<p><figure markdown="">
+<a class="glightbox" href="asset-img/io-3.png"><img alt="" src="asset-img/io-3.png"/></a>
+</figure></p>
 <p>为实现CPU和设备控制器间的通信，为每个控制寄存器分配一个I/O端口，另外还设置一些特定的I/O指令</p>
 <div class="admonition bug">
 <p>访问内存和访问设备需要两种不同的指令</p>
@@ -718,8 +724,6 @@
 </li>
 <li>
 <p>I/O系统接口</p>
-</li>
-</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">块设备接口</label><label for="__tabbed_3_2">流（字符）设备接口</label><label for="__tabbed_3_3">网络通信接口</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -733,6 +737,8 @@
 </div>
 </div>
 </input></input></input></div>
+</li>
+</ul>
 <h3 id="io_2">I/O控制方式<a class="headerlink" href="#io_2" title="Permanent link">¶</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><input id="__tabbed_4_4" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">程序直接控制方式：轮询</label><label for="__tabbed_4_2">中断驱动方式</label><label for="__tabbed_4_3">DMA方式</label><label for="__tabbed_4_4">通道控制方式</label></div>
 <div class="tabbed-content">
@@ -755,8 +761,7 @@
 </div>
 </div>
 <div class="tabbed-block">
-<p><!-- <code>mermaid
-graph LR
+<pre class="mermaid"><code>graph LR
    A[给I/O模块发出读命令] --&gt;B[读I/O模块的状态]
    A-..-&gt;做其他事情
    中断-..-&gt;B
@@ -766,8 +771,7 @@ graph LR
    D --&gt;E[往存储器中写入字]
    E --&gt;F{完成}
    F --&gt;|是|G[下一条指令]
-   F --&gt;|否|A</code> -->
-<a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgQVvnu5lJL0_mqKHlnZflj5Hlh7ror7vlkb3ku6RdIC0tPkJb6K-7SS9P5qih5Z2X55qE54q25oCBXVxuICAgICAgIEEtLi4tPuWBmuWFtuS7luS6i-aDhVxuICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgIEIgLS0-IEN75qOA5p-l54q25oCBfVxuICAgICAgIEMgLS0-fOWHhuWkh-WlvXwgRFvku45JL0_mqKHlnZfor7vlj5blrZddXG4gICAgICAgQyAtLT585pyq5YeG5aSH5aW9fCBCXG4gICAgICAgRCAtLT5FW-W-gOWtmOWCqOWZqOS4reWGmeWFpeWtl11cbiAgICAgICBFIC0tPkZ75a6M5oiQfVxuICAgICAgIEYgLS0-fOaYr3xHW-S4i-S4gOadoeaMh-S7pF1cbiAgICAgICBGIC0tPnzlkKZ8QVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9"><a class="glightbox" href="https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgQVvnu5lJL0_mqKHlnZflj5Hlh7ror7vlkb3ku6RdIC0tPkJb6K-7SS9P5qih5Z2X55qE54q25oCBXVxuICAgICAgIEEtLi4tPuWBmuWFtuS7luS6i-aDhVxuICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgIEIgLS0-IEN75qOA5p-l54q25oCBfVxuICAgICAgIEMgLS0-fOWHhuWkh-WlvXwgRFvku45JL0_mqKHlnZfor7vlj5blrZddXG4gICAgICAgQyAtLT585pyq5YeG5aSH5aW9fCBCXG4gICAgICAgRCAtLT5FW-W-gOWtmOWCqOWZqOS4reWGmeWFpeWtl11cbiAgICAgICBFIC0tPkZ75a6M5oiQfVxuICAgICAgIEYgLS0-fOaYr3xHW-S4i-S4gOadoeaMh-S7pF1cbiAgICAgICBGIC0tPnzlkKZ8QVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9"><img alt="" src="https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgQVvnu5lJL0_mqKHlnZflj5Hlh7ror7vlkb3ku6RdIC0tPkJb6K-7SS9P5qih5Z2X55qE54q25oCBXVxuICAgICAgIEEtLi4tPuWBmuWFtuS7luS6i-aDhVxuICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgIEIgLS0-IEN75qOA5p-l54q25oCBfVxuICAgICAgIEMgLS0-fOWHhuWkh-WlvXwgRFvku45JL0_mqKHlnZfor7vlj5blrZddXG4gICAgICAgQyAtLT585pyq5YeG5aSH5aW9fCBCXG4gICAgICAgRCAtLT5FW-W-gOWtmOWCqOWZqOS4reWGmeWFpeWtl11cbiAgICAgICBFIC0tPkZ75a6M5oiQfVxuICAgICAgIEYgLS0-fOaYr3xHW-S4i-S4gOadoeaMh-S7pF1cbiAgICAgICBGIC0tPnzlkKZ8QVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9"/></a></a></p>
+   F --&gt;|否|A</code></pre>
 <p>在每个指令周期的末尾，CPU检查中断。当有来自I/O控制器的中断时，CPU保存当前正在运行程序的上下文，转去执行中断处理程序处理该中断。这时，CPU从I/O控制器读一个字的数据传送到寄存器，并存入主存。接着，CPU恢复发出I/O命令的程序（或其他程序）的上下文，然后继续运行。</p>
 <div class="admonition success">
 <p>允许I/O设备主动打断CPU的运行并请求服务，从而“解放”CPU，使得其向I/O控制器发送读命令后可以继续做其他有用的工作，CPU与I/O可以并行操作</p>
@@ -777,14 +781,12 @@ graph LR
 </div>
 </div>
 <div class="tabbed-block">
-<p><!-- <code>mermaid
-graph LR
+<pre class="mermaid"><code>graph LR
     A[给I/O模块发出读命令]
     B[读DMA模块的状态]
     A-..-&gt;做其他事情
     中断-..-&gt;B
-    B--&gt;G[下一条指令]</code> -->
-<a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgIEFb57uZSS9P5qih5Z2X5Y-R5Ye66K-75ZG95LukXVxuICAgICAgICBCW-ivu0RNQeaooeWdl-eahOeKtuaAgV1cbiAgICAgICAgQS0uLi0-5YGa5YW25LuW5LqL5oOFXG4gICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgICBCLS0-R1vkuIvkuIDmnaHmjIfku6RdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0"><a class="glightbox" href="https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgIEFb57uZSS9P5qih5Z2X5Y-R5Ye66K-75ZG95LukXVxuICAgICAgICBCW-ivu0RNQeaooeWdl-eahOeKtuaAgV1cbiAgICAgICAgQS0uLi0-5YGa5YW25LuW5LqL5oOFXG4gICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgICBCLS0-R1vkuIvkuIDmnaHmjIfku6RdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0"><img alt="" src="https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgIEFb57uZSS9P5qih5Z2X5Y-R5Ye66K-75ZG95LukXVxuICAgICAgICBCW-ivu0RNQeaooeWdl-eahOeKtuaAgV1cbiAgICAgICAgQS0uLi0-5YGa5YW25LuW5LqL5oOFXG4gICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgICBCLS0-R1vkuIvkuIDmnaHmjIfku6RdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0"/></a></a></p>
+    B--&gt;G[下一条指令]</code></pre>
 <p>DMA（直接存储器存取）方式的基本思想是在I/O设备和内存之间开辟直接的数据交换通路，彻底“解放”CPU。</p>
 <p><a class="glightbox" href="asset-img/io-5.png"><img alt="dma" src="asset-img/io-5.png"/></a></p>
 <ul>
@@ -814,12 +816,10 @@ graph LR
 </input></div>
 </div>
 <div class="tabbed-block">
-<p><!-- <code>mermaid
-graph LR
+<pre class="mermaid"><code>graph LR
       A[CPU给通道发出命令] --&gt;B[CPU进行中断处理]
       中断信号-..-&gt;B
-      B--&gt;G[下一条指令]</code> -->
-<a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgICAgQVtDUFXnu5npgJrpgZPlj5Hlh7rlkb3ku6RdIC0tPkJbQ1BV6L-b6KGM5Lit5pat5aSE55CGXVxuICAgICAgICAgIOS4reaWreS_oeWPty0uLi0-QlxuICAgICAgICAgIEItLT5HW-S4i-S4gOadoeaMh-S7pF0iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ"><a class="glightbox" href="https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgICAgQVtDUFXnu5npgJrpgZPlj5Hlh7rlkb3ku6RdIC0tPkJbQ1BV6L-b6KGM5Lit5pat5aSE55CGXVxuICAgICAgICAgIOS4reaWreS_oeWPty0uLi0-QlxuICAgICAgICAgIEItLT5HW-S4i-S4gOadoeaMh-S7pF0iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ"><img alt="" src="https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgICAgQVtDUFXnu5npgJrpgZPlj5Hlh7rlkb3ku6RdIC0tPkJbQ1BV6L-b6KGM5Lit5pat5aSE55CGXVxuICAgICAgICAgIOS4reaWreS_oeWPty0uLi0-QlxuICAgICAgICAgIEItLT5HW-S4i-S4gOadoeaMh-S7pF0iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ"/></a></a></p>
+      B--&gt;G[下一条指令]</code></pre>
 <p>I/O通道方式是DMA方式的发展，它可以进一步减少CPU的干预，即把对一个数据块的读（或写）为单位的干预，减少为对一组数据块的读（或写）及有关的控制和管理为单位的干预。</p>
 <div class="admonition tip">
 <p class="admonition-title">I/O通道与DMA方式的区别</p>
@@ -849,7 +849,9 @@ graph LR
 </input></input></input></input></div>
 <h3 id="io_3">I/O软件层次结构<a class="headerlink" href="#io_3" title="Permanent link">¶</a></h3>
 <p>I/O软件通常组织成四个层次，低层实现与硬件相关操作，高层为用户提供简洁、友好和规范的接口</p>
+<figure>
 <p><a class="glightbox" href="asset-img/io-1.png"><img alt="" src="asset-img/io-1.png"/></a></p>
+</figure>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><input id="__tabbed_6_4" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">用户层软件</label><label for="__tabbed_6_2">设备独立性软件</label><label for="__tabbed_6_3">设备驱动程序</label><label for="__tabbed_6_4">中断处理程序</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -912,7 +914,9 @@ graph LR
 <p>实现两台机器之间的通信时，一般为每一台机器配置成双缓冲模式，易于实现双向数据传输。</p>
 </li>
 </ul>
-<p><a class="glightbox" href="asset-img/io-9.png"><img alt="dbl-buf" src="asset-img/io-9.png"/></a></p>
+<p><figure markdown="">
+<a class="glightbox" href="asset-img/io-9.png"><img alt="dbl-buf" src="asset-img/io-9.png"/></a>
+</figure></p>
 </div>
 <div class="tabbed-block">
 <p>将大小相等的缓冲区连接成一个循环队列。循环队列中有两种缓冲区，一种是没有数据的空闲缓冲区，一种是由数据的满缓冲区。又有两个指针分别指向空缓冲区和满缓冲区。</p>
@@ -932,7 +936,9 @@ graph LR
 <ul>
 <li>在用于设备分配的数据结构中，记录了对设备或控制器进行控制所需的信息</li>
 </ul>
-<p><a class="glightbox" href="asset-img/io-8.png"><img alt="device-alloc" src="asset-img/io-8.png"/></a></p>
+<p><figure markdown="">
+<a class="glightbox" href="asset-img/io-8.png"><img alt="device-alloc" src="asset-img/io-8.png"/></a>
+</figure></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:4"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><input id="__tabbed_8_4" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">设备控制表DCT</label><label for="__tabbed_8_2">控制器控制表COCT</label><label for="__tabbed_8_3">通道控制表CHCT</label><label for="__tabbed_8_4">系统设备表SDT</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1032,7 +1038,9 @@ graph LR
 <li>实现了虚拟设备功能</li>
 </ul>
 </div>
+<figure>
 <p><a class="glightbox" href="asset-img/io-6.png"><img alt="spooling" src="asset-img/io-6.png"/></a></p>
+</figure>
 <ul>
 <li>SPOOLing系统主要由以下四部分组成</li>
 </ul>
@@ -1055,7 +1063,9 @@ graph LR
 <ul>
 <li>
 <p>应用：共享打印机</p>
-<p><a class="glightbox" href="asset-img/io-7.png"><img alt="spooling-printer" src="asset-img/io-7.png"/></a></p>
+<p><figure markdown="">
+<a class="glightbox" href="asset-img/io-7.png"><img alt="spooling-printer" src="asset-img/io-7.png"/></a>
+</figure></p>
 <ul>
 <li>打印机是经常用到的输出设备，属于独占设备。利用假脱机技术，可以将它改造成为一台可供多个用户共享的打印设备，从而提高设备的利用率，也方便了用户。主要分为三部分：</li>
 </ul>
@@ -1079,12 +1089,45 @@ graph LR
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年2月27日 16:16:28</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月1日 09:47:11</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
 </small>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 </article>
 </div>
 </div>
