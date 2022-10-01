@@ -2,6 +2,7 @@
 tags:
   - 408考研复习
   - 操作系统
+comments: true
 ---
 
 文件管理
@@ -383,13 +384,12 @@ tags:
 
             * 分配新盘块
 
-                <!-- ```mermaid
+                ```mermaid
                 graph TD
                   A["顺序扫描位示图，从中找出一个或一组其值为'0(空闲)'的二进制位"]-->B[将所找到的一个或一组二进制位转换为对应的盘块号]
                   B --> C["修改位示图，令map[i,j]=1"]
-                ``` -->
-                [![](https://mermaid.ink/img/eyJjb2RlIjoiICAgICAgICAgICAgICAgIGdyYXBoIFREXG4gICAgICAgICAgICAgICAgICBBW1wi6aG65bqP5omr5o-P5L2N56S65Zu-77yM5LuO5Lit5om-5Ye65LiA5Liq5oiW5LiA57uE5YW25YC85Li6JzAo56m66ZeyKSfnmoTkuozov5vliLbkvY1cIl0tLT5CW-WwhuaJgOaJvuWIsOeahOS4gOS4quaIluS4gOe7hOS6jOi_m-WItuS9jei9rOaNouS4uuWvueW6lOeahOebmOWdl-WPt11cbiAgICAgICAgICAgICAgICAgIEIgLS0-IENbXCLkv67mlLnkvY3npLrlm77vvIzku6RtYXBbaSxqXT0xXCJdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgICAgICAgICAgICAgIGdyYXBoIFREXG4gICAgICAgICAgICAgICAgICBBW1wi6aG65bqP5omr5o-P5L2N56S65Zu-77yM5LuO5Lit5om-5Ye65LiA5Liq5oiW5LiA57uE5YW25YC85Li6JzAo56m66ZeyKSfnmoTkuozov5vliLbkvY1cIl0tLT5CW-WwhuaJgOaJvuWIsOeahOS4gOS4quaIluS4gOe7hOS6jOi_m-WItuS9jei9rOaNouS4uuWvueW6lOeahOebmOWdl-WPt11cbiAgICAgICAgICAgICAgICAgIEIgLS0-IENbXCLkv67mlLnkvY3npLrlm77vvIzku6RtYXBbaSxqXT0xXCJdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
-
+                ```
+                
                 - 假定找到的其值为`0`的二进制位，位于位示图的第`i`行、第`j`列，则其相应的盘块号应按下式计算
 
                     $$
@@ -404,12 +404,11 @@ tags:
 
             * 回收空闲盘块
 
-                <!-- ```mermaid
+                ```mermaid
                 graph TD
                   A["根据回收的盘块号计算出对应的字号、位号"]--> C["将相应二进制位设为0"]
-                ``` -->
-                [![](https://mermaid.ink/img/eyJjb2RlIjoiICAgICAgICAgICAgICAgIGdyYXBoIFREXG4gICAgICAgICAgICAgICAgICBBW1wi5qC55o2u5Zue5pS255qE55uY5Z2X5Y-36K6h566X5Ye65a-55bqU55qE5a2X5Y-344CB5L2N5Y-3XCJdLS0-IENbXCLlsIbnm7jlupTkuozov5vliLbkvY3orr7kuLowXCJdXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgICAgICAgICAgICAgIGdyYXBoIFREXG4gICAgICAgICAgICAgICAgICBBW1wi5qC55o2u5Zue5pS255qE55uY5Z2X5Y-36K6h566X5Ye65a-55bqU55qE5a2X5Y-344CB5L2N5Y-3XCJdLS0-IENbXCLlsIbnm7jlupTkuozov5vliLbkvY3orr7kuLowXCJdXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
-
+                ```
+                
                 - 盘块号`b`转换为位示图行列`(i,j)`的公式如下
 
                     $$
@@ -437,8 +436,8 @@ tags:
                 - 系统启动后，将超级块复制到主存中，并建立空闲盘块号栈，栈顶指针`S_Free=第1组总块数`。
             * UNIX系统使用此方法
 
-            * 分配新盘块(伪代码)
-            ```
+            * 分配新盘块
+            ``` title="伪代码"
             count=当前组空闲盘块总数;
             S_free--;
             b=*S_free;
@@ -460,8 +459,9 @@ tags:
                 }
             }
             ```
-            * 回收空闲盘块(伪代码)
-            ```
+            
+            * 回收空闲盘块
+            ``` title="伪代码"
             count=当前组空闲盘块总数;
             b=回收块号; //如回收50、60号块
             if(count<100)
@@ -614,5 +614,5 @@ tags:
     * 自举程序通常保存在ROM中，为了避免改变自举代码需要改变ROM硬件的问题，故只在ROM中保留很小的自举装入程序，将完整功能的自举程序保存在磁盘的启动块上，启动块位于磁盘的固定位。拥有启动分区的磁盘称为启动磁盘或者系统磁盘。
 * 坏块
     * 由于磁盘有移动部件且容错能力弱，所以容易导致一个或多个扇区损坏。部分磁盘甚至从出厂时就有坏扇区。根据所使用的磁盘和控制器，对这些块有多种处理方式。
-        - 对于简单磁盘，如电子集成驱动器（IDE)。坏扇区可手工处理，如MS-DOS的`Format` 命令执行逻辑格式化时便会扫描磁盘以检查坏扇区。坏扇区在FAT表上会标明，因此程序不会使用。
+        - 对于简单磁盘，如电子集成驱动器（IDE)。坏扇区可手工处理，如MS-DOS的`Format`命令执行逻辑格式化时便会扫描磁盘以检查坏扇区。坏扇区在FAT表上会标明，因此程序不会使用。
         - 对于复杂的磁盘，如小型计算机系统接口（SCSI)，其控制器维护一个磁盘坏块链表。该链表在出厂前进行低级格式化时就初始化了，并在磁盘的整个使用过程中不断更新。低级格式化将一些块保留作为备用，对操作系统透明。控制器可以用备用块来逻辑地替代坏块，这种方案称为扇区备用。

@@ -2,6 +2,7 @@
 tags:
   - 408考研复习
   - 操作系统
+comments: true
 ---
 
 输入输出(I/O)管理
@@ -45,15 +46,21 @@ tags:
     * 设备控制器
         * 设备控制器是计算机中的一个实体。它控制一个或多个I/O设备，实现I/O设备和计算机之间的数据交换；它接收从CPU发来的命令，并控制I/O设备工作
         * 组成
+            <figure markdown>
             ![](asset-img/io-2.png)
+            </figure>
 
             === "内存映像I/O"
+                <figure markdown>
                 ![](asset-img/io-4.png)
+                </figure>
 
                 在编址上不区分内存单元地址和设备控制器中的寄存器地址，当处于0~n-1范围时，是内存地址；大于等于n时，是某个控制器的寄存器地址
 
             === "寄存器独立编址"
+                <figure markdown>
                 ![](asset-img/io-3.png)
+                </figure>
 
                 为实现CPU和设备控制器间的通信，为每个控制寄存器分配一个I/O端口，另外还设置一些特定的I/O指令
 
@@ -62,14 +69,14 @@ tags:
 
 * I/O系统接口
 
-=== "块设备接口"
-    块设备接口是块设备管理程序与高层之间的接口，数据的存取和传输都是以数据块为单位的设备，传输速率高，可寻址。
-
-=== "流（字符）设备接口"
-    流设备接口是流设备管理程序与高层的接口，数据的存取和传输是以字符为单位的设备，传输速率较低，不可寻址，常采用中断驱动方式。
-
-=== "网络通信接口"
-    在现代操作系统中，提供了面向网络的功能，通过某种方式把计算机连接到网络上，使计算机能通过网络与网络上的其他计算机通信。
+    === "块设备接口"
+        块设备接口是块设备管理程序与高层之间的接口，数据的存取和传输都是以数据块为单位的设备，传输速率高，可寻址。
+    
+    === "流（字符）设备接口"
+        流设备接口是流设备管理程序与高层的接口，数据的存取和传输是以字符为单位的设备，传输速率较低，不可寻址，常采用中断驱动方式。
+    
+    === "网络通信接口"
+        在现代操作系统中，提供了面向网络的功能，通过某种方式把计算机连接到网络上，使计算机能通过网络与网络上的其他计算机通信。
 
 ### I/O控制方式
 
@@ -97,7 +104,7 @@ tags:
 
 === "中断驱动方式"
 
-    <!-- ```mermaid
+    ```mermaid
     graph LR
        A[给I/O模块发出读命令] -->B[读I/O模块的状态]
        A-..->做其他事情
@@ -109,8 +116,7 @@ tags:
        E -->F{完成}
        F -->|是|G[下一条指令]
        F -->|否|A
-    ``` -->
-    [![](https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgQVvnu5lJL0_mqKHlnZflj5Hlh7ror7vlkb3ku6RdIC0tPkJb6K-7SS9P5qih5Z2X55qE54q25oCBXVxuICAgICAgIEEtLi4tPuWBmuWFtuS7luS6i-aDhVxuICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgIEIgLS0-IEN75qOA5p-l54q25oCBfVxuICAgICAgIEMgLS0-fOWHhuWkh-WlvXwgRFvku45JL0_mqKHlnZfor7vlj5blrZddXG4gICAgICAgQyAtLT585pyq5YeG5aSH5aW9fCBCXG4gICAgICAgRCAtLT5FW-W-gOWtmOWCqOWZqOS4reWGmeWFpeWtl11cbiAgICAgICBFIC0tPkZ75a6M5oiQfVxuICAgICAgIEYgLS0-fOaYr3xHW-S4i-S4gOadoeaMh-S7pF1cbiAgICAgICBGIC0tPnzlkKZ8QVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgQVvnu5lJL0_mqKHlnZflj5Hlh7ror7vlkb3ku6RdIC0tPkJb6K-7SS9P5qih5Z2X55qE54q25oCBXVxuICAgICAgIEEtLi4tPuWBmuWFtuS7luS6i-aDhVxuICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgIEIgLS0-IEN75qOA5p-l54q25oCBfVxuICAgICAgIEMgLS0-fOWHhuWkh-WlvXwgRFvku45JL0_mqKHlnZfor7vlj5blrZddXG4gICAgICAgQyAtLT585pyq5YeG5aSH5aW9fCBCXG4gICAgICAgRCAtLT5FW-W-gOWtmOWCqOWZqOS4reWGmeWFpeWtl11cbiAgICAgICBFIC0tPkZ75a6M5oiQfVxuICAgICAgIEYgLS0-fOaYr3xHW-S4i-S4gOadoeaMh-S7pF1cbiAgICAgICBGIC0tPnzlkKZ8QVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+    ```
 
     在每个指令周期的末尾，CPU检查中断。当有来自I/O控制器的中断时，CPU保存当前正在运行程序的上下文，转去执行中断处理程序处理该中断。这时，CPU从I/O控制器读一个字的数据传送到寄存器，并存入主存。接着，CPU恢复发出I/O命令的程序（或其他程序）的上下文，然后继续运行。
 
@@ -122,16 +128,15 @@ tags:
 
 === "DMA方式"
 
-    <!-- ```mermaid
+    ```mermaid
     graph LR
         A[给I/O模块发出读命令]
         B[读DMA模块的状态]
         A-..->做其他事情
         中断-..->B
         B-->G[下一条指令]
-    ``` -->
-    [![](https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgIEFb57uZSS9P5qih5Z2X5Y-R5Ye66K-75ZG95LukXVxuICAgICAgICBCW-ivu0RNQeaooeWdl-eahOeKtuaAgV1cbiAgICAgICAgQS0uLi0-5YGa5YW25LuW5LqL5oOFXG4gICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgICBCLS0-R1vkuIvkuIDmnaHmjIfku6RdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgIEFb57uZSS9P5qih5Z2X5Y-R5Ye66K-75ZG95LukXVxuICAgICAgICBCW-ivu0RNQeaooeWdl-eahOeKtuaAgV1cbiAgICAgICAgQS0uLi0-5YGa5YW25LuW5LqL5oOFXG4gICAgICAgIOS4reaWrS0uLi0-QlxuICAgICAgICBCLS0-R1vkuIvkuIDmnaHmjIfku6RdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
-
+    ```
+    
     DMA（直接存储器存取）方式的基本思想是在I/O设备和内存之间开辟直接的数据交换通路，彻底“解放”CPU。
 
     ![dma](asset-img/io-5.png)
@@ -156,13 +161,12 @@ tags:
 
 === "通道控制方式"
 
-    <!-- ```mermaid
+    ```mermaid
     graph LR
           A[CPU给通道发出命令] -->B[CPU进行中断处理]
           中断信号-..->B
           B-->G[下一条指令]
-    ``` -->
-    [![](https://mermaid.ink/img/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgICAgQVtDUFXnu5npgJrpgZPlj5Hlh7rlkb3ku6RdIC0tPkJbQ1BV6L-b6KGM5Lit5pat5aSE55CGXVxuICAgICAgICAgIOS4reaWreS_oeWPty0uLi0-QlxuICAgICAgICAgIEItLT5HW-S4i-S4gOadoeaMh-S7pF0iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICAgIGdyYXBoIExSXG4gICAgICAgICAgQVtDUFXnu5npgJrpgZPlj5Hlh7rlkb3ku6RdIC0tPkJbQ1BV6L-b6KGM5Lit5pat5aSE55CGXVxuICAgICAgICAgIOS4reaWreS_oeWPty0uLi0-QlxuICAgICAgICAgIEItLT5HW-S4i-S4gOadoeaMh-S7pF0iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
+    ```
 
     I/O通道方式是DMA方式的发展，它可以进一步减少CPU的干预，即把对一个数据块的读（或写）为单位的干预，减少为对一组数据块的读（或写）及有关的控制和管理为单位的干预。
 
@@ -184,7 +188,9 @@ tags:
 ### I/O软件层次结构
 I/O软件通常组织成四个层次，低层实现与硬件相关操作，高层为用户提供简洁、友好和规范的接口
 
+<figure markdown>
 ![](asset-img/io-1.png)
+</figure>
 
 === "用户层软件"
     实现与用户交互的接口，用户可直接调用在用户层提供的、与I/O操作有关的库函数，对设备进行操作
@@ -230,7 +236,9 @@ I/O软件通常组织成四个层次，低层实现与硬件相关操作，高�
 
     * 实现两台机器之间的通信时，一般为每一台机器配置成双缓冲模式，易于实现双向数据传输。
 
+    <figure markdown>
     ![dbl-buf](asset-img/io-9.png)
+    </figure>
 
 === "循环缓冲区"
     将大小相等的缓冲区连接成一个循环队列。循环队列中有两种缓冲区，一种是没有数据的空闲缓冲区，一种是由数据的满缓冲区。又有两个指针分别指向空缓冲区和满缓冲区。
@@ -244,7 +252,9 @@ I/O软件通常组织成四个层次，低层实现与硬件相关操作，高�
 * 设备分配中的数据结构
     * 在用于设备分配的数据结构中，记录了对设备或控制器进行控制所需的信息
 
+    <figure markdown>
     ![device-alloc](asset-img/io-8.png)
+    </figure>
 
     === "设备控制表DCT"
         系统为每一个设备都配置了一张设备控制表，用于记录设备的情况。
@@ -311,7 +321,9 @@ I/O软件通常组织成四个层次，低层实现与硬件相关操作，高�
     - 将独占设备改造为共享设备
     - 实现了虚拟设备功能
 
+<figure markdown>
 ![spooling](asset-img/io-6.png)
+</figure>
 
 * SPOOLing系统主要由以下四部分组成
 
@@ -328,8 +340,10 @@ I/O软件通常组织成四个层次，低层实现与硬件相关操作，高�
     用于控制作业与磁盘井之间信息的交换。当作业执行过程中向某台设备发出启动输入或输出操作请求时，由操作系统调用井管理程序，由其控制从输入井读取信息或将信息输出至输出井。
 
 * 应用：共享打印机
-
+    
+    <figure markdown>
     ![spooling-printer](asset-img/io-7.png)
+    </figure>
 
     * 打印机是经常用到的输出设备，属于独占设备。利用假脱机技术，可以将它改造成为一台可供多个用户共享的打印设备，从而提高设备的利用率，也方便了用户。主要分为三部分：
 
