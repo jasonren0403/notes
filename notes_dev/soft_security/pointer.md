@@ -1,6 +1,7 @@
 ---
 tags:
   - 软件安全
+comments: true
 ---
 # 指针安全
 ## 指针安全
@@ -33,7 +34,7 @@ tags:
     7. storage for buff_ptr is stack, local
     8. allocated memory is heap, local
 
-* example
+* 示例
 
 	=== "指针函数"
 		![1](md-img/20191014_01.png)
@@ -84,11 +85,11 @@ tags:
     === "函数指针调用"
 		```asm title="(void)(*funcPtr)(params)"
         ; params = "hi"
-		mov esi, esp
-		push offset string "hi" (46802Ch)
-		call dword ptr [funcPtr (478400h)]
-		add  esp, 4
-		cmp  esi, esp
+		mov esi, esp
+		push offset string "hi" (46802Ch)
+		call dword ptr [funcPtr (478400h)]
+		add esp, 4
+		cmp esi, esp
 		```
 
 		- IC的下一个值，存储在内存中，其可以被改变
@@ -99,7 +100,7 @@ tags:
         ; params = "there!\n"
 		push offset string "there!\n" (468020h)
 		call good_function (422479h)
-		add  esp, 4
+		add esp, 4
 		```
 
 		- 静态调用对于函数地址使用立即数
@@ -163,8 +164,7 @@ tags:
 
 ### <a name="exit"></a>`atexit()`或`on_exit()`
 * `atexit()`是在C99标准定义的通用工具函数，向一个退出时将被调用的已有函数数组中添加指定的函数
-	```c
-	/* 使用atexit一例 */
+	```c title="使用atexit一例"
 	#include <stdio.h>
 	char *glob;
 	void test(void) {
@@ -188,8 +188,7 @@ tags:
 	非局部的跳转到保存的栈环境
 	* `longjmp()`返回控制权给调用`setjmp()`的指针
 
-	```c
-	/* longjmp setjmp使用一例 */
+	```c title="longjmp setjmp使用一例"
 	#include <setjmp.h>
 
 	jmp_buf buf;

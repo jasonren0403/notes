@@ -1,9 +1,11 @@
 ---
 tags:
   - 软件安全
+comments: true
 ---
 # 格式化字符串
 格式化输出：参数由一个格式字符串和可变数目的参数构成
+
 从一个例子入手：
 ```c linenums="1" hl_lines="7"
 #include <stdio.h>
@@ -15,7 +17,7 @@ void usage(char *pname) {
 			"Usage: %s <target>\n",
 			pname);
 	 printf(usageStr);
- }
+}
 
 int main(int argc, char * argv[]) {
 	if (argc < 2) {
@@ -30,8 +32,7 @@ int main(int argc, char * argv[]) {
 
 	=== "stdargs"
 		stdargs是ANSI C标准，通过一个部分参数列表跟一个省略号来声明，例如`int average(int first, ...)`
-			```c
-			/* 使用stdargs实现average函数 */
+			```c title="使用stdargs实现average函数"
 			int average(int first, ...) {
 			   int count = 0, sum = 0, i = first;
 			   va_list marker;
@@ -48,8 +49,7 @@ int main(int argc, char * argv[]) {
 
 	=== "varargs"
 		varargs运行在Unix System V，使用定义于`varargs.h`中的宏，例如`int average(va_list) va_dcl`
-			```c
-			/* 使用varargs实现average函数 */
+			```c title="使用varargs实现average函数"
 			int average(va_alist) va_dcl {
 				int i, count, sum;
 				va_list marker;
@@ -88,7 +88,7 @@ int main(int argc, char * argv[]) {
 	- 原型：`int sprintf(char *string, char *format [,argument,...])`，`snprintf()`多一个参数size，指定可写入字符的最大值n
 	- 当n非零时，输出的字符超过“n-1”的部分会被舍弃而不会写入数组中。并且，在写入数组的字符末尾会添加一个空字符。
 
-=== "syslog()"
+=== "`syslog()`"
 	- 原型：`int syslog(int priority, char *format, ...)`
 	- 并没有定义在C99规范中，但是包含在SUSv2中
 	- Windows不支持
@@ -118,7 +118,7 @@ int main(int argc, char * argv[]) {
 	- 如果使用星号（*）来指定宽度，则宽度将由参数列表中的一个int型的值提供
 
         ```c
-		printf("%0*d", 5, 3); /* (1) */
+		printf("%0*d", 5, 3); // (1)
 		```
 
         1. 输出`00003`
@@ -129,7 +129,7 @@ int main(int argc, char * argv[]) {
 	- 如果精度域是一个星号（*），那么它的值就由参数列表中的一个int参数提供
 
         ```c
-		printf("%.*f", 3, 3.14159265); /* (1)  */
+		printf("%.*f", 3, 3.14159265); // (1)
 		```
 
         1. 输出 `3.142`
@@ -353,8 +353,7 @@ int func(char *user) {
 
     === "例1"
 
-        ```c
-        /* Linux 利用一例 */
+        ```c title="Linux 利用一例"
         #include <stdio.h>
         #include <string.h>
 
@@ -372,17 +371,17 @@ int func(char *user) {
             /* code to write address goes here */
 
             printf(format_str);
-            exit(0);        //控制权被移交至shellcode
+            exit(0);        //(3)
         }
         ```
 
         1. `exit()`函数的GOT入口的地址(`0x08049bb4`)被连接到格式字符串
         2. 该地址被+2后(`0x08049bb6`)也连接到格式字符串
+        3. 控制权被移交至shellcode
 
     === "例2"
 
-        ```c
-        /* Linux覆写内存 */
+        ```c title="Linux 覆写内存"
         static unsigned int already_written, width_field;
         static unsigned int write_word;
         static char convert_spec[256];
@@ -505,7 +504,7 @@ int func(char *user) {
 
             === "`iostream`(安全)"
 
-                ```c++ hl_lines="1"
+                ```c++ hl_lines="1" title="iostream"
                 #include <iostream>
                 #include <fstream>
                 using namespace std;
@@ -522,7 +521,7 @@ int func(char *user) {
                 }
                 ```
 
-            === "`stdio`(不安全)"
+            === "`stdio`(不安全)" title="stdio"
 
                 ```c hl_lines="1"
                 #include <stdio.h>

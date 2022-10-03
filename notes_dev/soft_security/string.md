@@ -1,6 +1,7 @@
 ---
 tags:
   - 软件安全
+comments: true
 ---
 # 字符串安全
 ## 字符串
@@ -51,7 +52,7 @@ tags:
 		=== "复制和连接字符串"
 
 			=== "描述"
-				C语言标准`strcpy()` `strcat()`函数是无界操作，容易出错
+				C语言标准`strcpy()`、`strcat()`函数是无界操作，容易出错
 
 			=== "C"
 				```c
@@ -164,12 +165,11 @@ tags:
 	}                         内存高端地址
 	```
 * 子例程创建：参数由后往前压入(比如`func(4,2)`先压入2再压入4)，把返回地址压入栈并跳到那个地址
-	```asm
-	void function(int arg1, int arg2) 的调用开始
+	```asm title="void function(int arg1, int arg2) 的调用"
 	push ebp    ;存储帧指针
 	mov esp,ebp ;子例程的帧指针被设置为当前栈指针
 	sub esp,44h ;为局部变量分配空间
-	return后
+	;return后
 	mov esp,ebp ;恢复栈指针
 	pop ebp     ;恢复帧指针
 	ret         ;将返回地址从栈弹出，并把控制移交给那个位置
@@ -205,7 +205,7 @@ tags:
 
 	!!! info "一个利用的例子：源码+利用"
 
-        ```c
+        ```c title="password.c源码"
 		bool IsPasswordOK(void) {
 			 char Password[12];
 			 gets(Password);    // (1)
@@ -225,39 +225,39 @@ tags:
 		}
 		```
 
-        1. Get input from keyboard
-        2. Password Good
-        3. Password Invalid
-        4. Password Status
-        5. Get & Check Password
-        6. Terminate Program
+        1. 从键盘中获取输入
+        2. 密码正确
+        3. 密码不正确
+        4. 表示密码的状态
+        5. 获取并检查密码
+        6. 中断程序
 
 		通过构造以下输入，攻击者可以执行任意代码
 
 		```text
-		000  31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 "1234567890123456"
+		000  31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36   "1234567890123456"
 		010  37 38 39 30 31 32 33 34 35 36 37 38 (E0 F9 FF BF) "789012345678a· +"
-		020  31 C0 A3 FF F9 FF BF B0 0B BB 03 FA FF BF B9 FB "1+ú · +¦+· +¦v"
-		030  F9 FF BF 8B 15 FF F9 FF BF CD 80 FF F9 FF BF 31 "· +ï§ · +-Ç · +1"
-		040  31 31 31 2F 75 73 72 2F 62 69 6E 2F 63 61 6C 0A "111/usr/bin/cal "
-		其中第一行16字节的二进制数据将填满分配的密码存储空间（gcc版本的编译器分配堆栈用于16字节的操作）
-		接下来的12字节二进制数据将填充编译器分配的存储空间，以与16字节边界对齐
-		接下来的四个字节（0xbffff9e0）覆盖了原函数的返回地址
-		后面的几行执行了系统shell，它的功能为使用系统调用execve()打开计算器程序，具体细节如下
-		xor %eax,%eax #set eax to zero  ;该利用自始至终都不能包含空字符，必须通过利用代码来设置空指针
+		020  31 C0 A3 FF F9 FF BF B0 0B BB 03 FA FF BF B9 FB   "1+ú · +¦+· +¦v"
+		030  F9 FF BF 8B 15 FF F9 FF BF CD 80 FF F9 FF BF 31   "· +ï§ · +-Ç · +1"
+		040  31 31 31 2F 75 73 72 2F 62 69 6E 2F 63 61 6C 0A   "111/usr/bin/cal "
+		```
+	    
+	    其中第一行16字节的二进制数据将填满分配的密码存储空间（gcc版本的编译器分配堆栈用于16字节的操作），接下来的12字节二进制数据将填充编译器分配的存储空间，以与16字节边界对齐。接下来的四个字节（0xbffff9e0）覆盖了原函数的返回地址，几行执行了系统shell，它的功能为使用系统调用`execve()`打开计算器程序，具体细节如下
+		
+	    ```asm title="打开计算器的具体细节"
+	    xor %eax,%eax #set eax to zero  ;该利用自始至终都不能包含空字符，必须通过利用代码来设置空指针
 		mov %eax,0xbffff9ff #set to NULL word  ;将参数列表末尾用空指针终结，一个系统调用参数包含空指针结束的指针列表
 		mov $0xb,%al #set code for execve ;系统调用设置为0xb, 它等于Linux 中的系统调用execve
 		mov 0xbffffa03,%ebx #ptr to arg 1
 		mov 0xbffff9fb,%ecx #ptr to arg 2
 		mov 0xbffff9ff,%edx #ptr to arg 3 ;设置三个execve()调用参数
-		int $80 # make system call to execve ;execve()系统调用导致了Linux日历程序的执行
-		arg 2 array pointer array
-		char * []={0xbffff9ff, "1111"}; "/usr/bin/cal\0"
+		int $80 # make system call to execve ;execve()系统调用导致了Linux日历程序的执行，参数为两个字符串指针
+		;char * []={0xbffff9ff, "1111"}; "/usr/bin/cal\0"
 		```
 
 ### 弧注入
 * 控制转移到已经存在于程序内存空间中的代码中
-	- 可以安装一个已有函数的地址，如`system()` 或`exec()`，用于执行已存在于本地系统上的程序
+	- 可以安装一个已有函数的地址，如`system()`或`exec()`，用于执行已存在于本地系统上的程序
 * 构建若干个栈帧，连接起来，结束后返回main函数(return-to-libc)
 
 ### 防范缓冲区溢出
@@ -298,8 +298,7 @@ tags:
 		- SafeStr库 & `safestr_t`类型，后者与`char*`兼容
 		- 错误处理：XXL库
 
-            ```c
-			/* 一个使用safestr的例子 */
+            ```c title="一个使用safestr的例子"
 			safestr_t str1;
 			safestr_t str2;
 			XXL_TRY_BEGIN {

