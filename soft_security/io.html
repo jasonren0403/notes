@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/soft_security/io.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>文件输入输出 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="文件输入输出 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/io.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -740,7 +748,7 @@
 <li>路径名包含文件、目录的名称，以及如何浏览文件系统来找到该文件的信息</li>
 <li>路径名区分绝对路径名和相对路径名，多个路径名可以解析到同一个文件</li>
 </ul>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>/home/myhome/.login
+<div class="highlight"><span class="filename">路径分解表示</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>/home/myhome/.login
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>  ↓      ↓      ↓
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>目录名  目录名  文件名
 </code></pre></div>
@@ -779,15 +787,9 @@
 <li>
 <p>标准C程序启动时，预定义了三个文本流，操作前不必打开它们，它们都是<code>FILE*</code>指针类型表达式</p>
 <ul>
-<li>
-<p><code>stdin</code>：标准输入(用于读常规输入)</p>
-</li>
-<li>
-<p><code>stdout</code>：标准输出(用于写常规输出)</p>
-</li>
-<li>
-<p><code>stderr</code>：标准错误(用于写入诊断输出)</p>
-</li>
+<li><code>stdin</code>：标准输入（用于读常规输入）</li>
+<li><code>stdout</code>：标准输出（用于写常规输出）</li>
+<li><code>stderr</code>：标准错误（用于写入诊断输出）</li>
 </ul>
 </li>
 <li>
@@ -799,11 +801,9 @@
 <div class="tabbed-block">
 <dl>
 <dt><code>FILE *fopen(const char* restrict filename, const char* restrict mode);</code></dt>
-<dd>
-<p>以指定模式打开一个文件，并将其与流关联</p>
-</dd>
+<dd>以指定模式打开一个文件，并将其与流关联</dd>
 </dl>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1"><code>mode</code>取值(C99)</label><label for="__tabbed_4_2">独占模式(C11新增)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1"><code>mode</code>取值（C99）</label><label for="__tabbed_4_2">独占模式（C11新增）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <dl>
@@ -820,16 +820,16 @@
 <dt><code>ab</code></dt>
 <dd>追加、打开或创建二进制文件用于在文件结束处写入</dd>
 <dt><code>r+</code></dt>
-<dd>打开文本文件用于更新(读取与写入)</dd>
+<dd>打开文本文件用于更新（读取与写入）</dd>
 <dt><code>w+</code></dt>
 <dd>截断至零长度或创建文本文件用于更新</dd>
 <dt><code>a+</code></dt>
 <dd>追加;打开或创建文本文件用于在文件结束处更新和写入</dd>
-<dt><code>r+b或rb+</code></dt>
-<dd>打开二进制文件用于更新(读取与写入)</dd>
-<dt><code>w+b或wb+</code></dt>
+<dt><code>r+b</code>或<code>rb+</code></dt>
+<dd>打开二进制文件用于更新（读取与写入）</dd>
+<dt><code>w+b</code>或<code>wb+</code></dt>
 <dd>截断至长度为零或创建二进制文件用于更新</dd>
-<dt><code>a+b或ab+</code></dt>
+<dt><code>a+b</code>或<code>ab+</code></dt>
 <dd>追加、打开或创建二进制文件用于在文件结束处更新和写入</dd>
 </dl>
 </div>
@@ -845,7 +845,7 @@
 <dd>创建独占的二进制文件用于写入</dd>
 <dt><code>w+x</code></dt>
 <dd>创建独占的文本文件用于更新</dd>
-<dt><code>w+bx 或wb+x</code></dt>
+<dt><code>w+bx</code>或<code>wb+x</code></dt>
 <dd>创建独占的二进制文件用于更新</dd>
 </dl>
 <div class="admonition info">
@@ -1313,25 +1313,25 @@
 <li>
 <p>综上，使用临时文件函数，它们能够创建不可预见名字的临时文件，并在程序运行结束后及时清除它们</p>
 <dl>
-<dt><code>独特的并且不可预知的文件名</code></dt>
+<dt>独特的并且不可预知的文件名</dt>
 <dd>
-<p>临时文件的名称都必须是唯一的(所以它们不与现有的文件名冲突)并且对攻击者是不可预知的。</p>
+<p>临时文件的名称都必须是唯一的（所以它们不与现有的文件名冲突）并且对攻击者是不可预知的。</p>
 </dd>
-<dt><code>创建而非替换</code></dt>
+<dt>创建而非替换</dt>
 <dd>
 <p>仅当此文件不存在时才应建立临时文件。确定该文件是否存在的测试和打开文件必须作为原子操作执行，以消除任何潜在的竞争条件。</p>
 </dd>
-<dt><code>独占访问</code></dt>
+<dt>独占访问</dt>
 <dd>
 <p>独占访问给予锁定过程无限制的文件访问，而拒绝所有其他进程访问，并消除锁定区域上潜在的竞争条件。</p>
 </dd>
-<dt><code>适当的权限</code></dt>
+<dt>适当的权限</dt>
 <dd>
-<p>应该用执行所需操作(通常由文件的所有者读取和写入)的必要权限的最小集合来打开临时文件。</p>
+<p>应该用执行所需操作（通常由文件的所有者读取和写入）的必要权限的最小集合来打开临时文件。</p>
 </dd>
-<dt><code>终止前删除</code></dt>
+<dt>终止前删除</dt>
 <dd>
-<p>不再需要临时文件时删除它们，允许文件名和其他资源(如辅助存储器)得以回收。</p>
+<p>不再需要临时文件时删除它们，允许文件名和其他资源（如辅助存储器）得以回收。</p>
 </dd>
 </dl>
 </li>
@@ -1632,12 +1632,45 @@
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月3日 12:00:17</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
 </small>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 </article>
 </div>
 </div>
@@ -1744,5 +1777,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

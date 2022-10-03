@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/soft_security/practice.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>软件安全实践 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="软件安全实践 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/practice.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -690,7 +698,7 @@
 </ol>
 </li>
 </ul>
-<p><a class="glightbox" href="md-img/20191224_01.png"><img alt="瀑布模型" src="md-img/20191224_01.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_01.png"><img alt="瀑布模型" src="md-img/20191224_01.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <ul>
@@ -701,7 +709,7 @@
 <ul>
 <li>沿螺线自内向外每旋转一圈便开发出更为完善的一个新的软件版本</li>
 </ul>
-<p><a class="glightbox" href="md-img/20191224_02.png"><img alt="螺旋模型" src="md-img/20191224_02.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_02.png"><img alt="螺旋模型" src="md-img/20191224_02.png"/></a></p>
 </div>
 </div>
 </input></input></input></div>
@@ -710,7 +718,7 @@
 <h3 id="_4">软件安全生命周期<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <ul>
 <li>SDL(Security Development Lifecycle，安全开发周期)
-    <a class="glightbox" href="md-img/20191224_03.png"><img alt="SDL" src="md-img/20191224_03.png"/></a><ul>
+    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_03.png"><img alt="SDL" src="md-img/20191224_03.png"/></a><ul>
 <li>微软提出</li>
 <li>适用于所有符合以下标准的软件：<ol>
 <li>广泛应用于企业、商业机构、政府部门或其他机构的软件；</li>
@@ -721,7 +729,7 @@
 </ul>
 </li>
 <li>Gary McGraw 软件安全过程
-  <a class="glightbox" href="md-img/20191224_04.png"><img alt="Gary McGraw" src="md-img/20191224_04.png"/></a></li>
+  <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_04.png"><img alt="Gary McGraw" src="md-img/20191224_04.png"/></a></li>
 </ul>
 <h2 id="_5">安全需求<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <h3 id="_6">安全编码标准<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
@@ -783,7 +791,7 @@ id7 --&gt; id8(排定需求的优先次序) --&gt; id9(需求审查)</code></pre
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="md-img/20191224_06.png"><img alt="" src="md-img/20191224_06.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_06.png"><img alt="" src="md-img/20191224_06.png"/></a></p>
 <h2 id="_9">安全设计<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <ul>
 <li>
@@ -849,7 +857,7 @@ id1(识别资产) --&gt; id2(创建蓝图) --&gt; id3(分解应用程序) --&gt;
 <p>有安全保证的C和C++</p>
 <ul>
 <li>CERT开发，开放源码的编译器
-<a class="glightbox" href="md-img/20191224_07.png"><img alt="open_source_compiler" src="md-img/20191224_07.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_07.png"><img alt="open_source_compiler" src="md-img/20191224_07.png"/></a></li>
 </ul>
 </li>
 <li>
@@ -901,12 +909,45 @@ id1(识别资产) --&gt; id2(创建蓝图) --&gt; id3(分解应用程序) --&gt;
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月3日 12:00:17</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
 </small>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 </article>
 </div>
 </div>
@@ -1013,5 +1054,5 @@ id1(识别资产) --&gt; id2(创建蓝图) --&gt; id3(分解应用程序) --&gt;
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

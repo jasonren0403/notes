@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/net_security/firewall.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>防火墙 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="防火墙 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/net_security/firewall.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -916,7 +924,7 @@
 <ul>
 <li>
 <p>双重宿主主机体系</p>
-<p><a class="glightbox" href="md-img/chap5_firewall01.jpg"><img alt="双重宿主主机体系" loading="lazy" src="md-img/chap5_firewall01.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap5_firewall01.jpg"><img alt="双重宿主主机体系" loading="lazy" src="md-img/chap5_firewall01.jpg"/></a></p>
 <ul>
 <li>围绕双重宿主主机构成，双重宿主主机至少有两个网络接口</li>
 <li>网络间的通信可通过应用层数据共享和应用层代理服务的方法实现。一般情况下采用代理服务的方法。</li>
@@ -928,7 +936,7 @@
 </li>
 <li>
 <p>屏蔽主机体系</p>
-<p><a class="glightbox" href="md-img/chap5_firewall02.jpg"><img alt="屏蔽主机体系" loading="lazy" src="md-img/chap5_firewall02.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap5_firewall02.jpg"><img alt="屏蔽主机体系" loading="lazy" src="md-img/chap5_firewall02.jpg"/></a></p>
 <ul>
 <li>由防火墙和内部网络的堡垒主机承担安全责任。<ul>
 <li>一般这种防火墙较简单，可能就是简单的路由器。</li>
@@ -947,7 +955,7 @@
 </li>
 <li>
 <p>屏蔽子网体系</p>
-<p><a class="glightbox" href="md-img/chap5_firewall03.jpg"><img alt="屏蔽子网体系" loading="lazy" src="md-img/chap5_firewall03.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap5_firewall03.jpg"><img alt="屏蔽子网体系" loading="lazy" src="md-img/chap5_firewall03.jpg"/></a></p>
 <ul>
 <li>本质上与屏蔽主机体系结构一样，但添加了额外的一层保护体系——周边网络。<ul>
 <li>堡垒主机位于周边网络上，周边网络和内部网络被内部路由器分开。</li>
@@ -1066,7 +1074,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">代码签名</label><label for="__tabbed_1_2">DRM</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="md-img/code_sign.png"><img alt="代码签名示意" loading="lazy" src="md-img/code_sign.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/code_sign.png"><img alt="代码签名示意" loading="lazy" src="md-img/code_sign.png"/></a></p>
 </div>
 <div class="tabbed-block"></div>
 </div>
@@ -1079,13 +1087,13 @@
 <div class="tabbed-block"></div>
 <div class="tabbed-block">
 <p><figure markdown="">
-<a class="glightbox" href="md-img/ios_publish.png"><img alt="iOS" loading="lazy" src="md-img/ios_publish.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/ios_publish.png"><img alt="iOS" loading="lazy" src="md-img/ios_publish.png"/></a>
 <figcaption>iOS应用发布流程示意</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
 <p><figure markdown="">
-<a class="glightbox" href="md-img/winphone_publish.png"><img alt="Windows Phone" loading.lazy="loading.lazy" src="md-img/winphone_publish.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/winphone_publish.png"><img alt="Windows Phone" loading.lazy="loading.lazy" src="md-img/winphone_publish.png"/></a>
 <figcaption>Windows Phone应用发布流程示意</figcaption>
 </figure></p>
 </div>
@@ -1393,5 +1401,5 @@ C--&gt;D(建立PackageSetting数据结构)--&gt;E(Package轮询对Permission授�
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

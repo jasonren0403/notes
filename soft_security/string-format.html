@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/soft_security/string-format.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>格式化输出 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="格式化输出 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/string-format.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -635,8 +643,8 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="_1">格式化字符串<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>格式化输出：参数由一个格式字符串和可变数目的参数构成
-从一个例子入手：
+<p>格式化输出：参数由一个格式字符串和可变数目的参数构成</p>
+<p>从一个例子入手：
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos=" 3 "></span></a>
@@ -646,7 +654,7 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll"><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">            </span><span class="s">"Usage: %s &lt;target&gt;</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"></span>
 </span><a id="__codelineno-0-8" name="__codelineno-0-8"></a><a href="#__codelineno-0-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">            </span><span class="n">pname</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><a href="#__codelineno-0-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">     </span><span class="n">printf</span><span class="p">(</span><span class="n">usageStr</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><a href="#__codelineno-0-11"><span class="linenos" data-linenos="11 "></span></a>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><a href="#__codelineno-0-12"><span class="linenos" data-linenos="12 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><a href="#__codelineno-0-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -662,35 +670,33 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>stdargs是ANSI C标准，通过一个部分参数列表跟一个省略号来声明，例如<code>int average(int first, ...)</code>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 使用stdargs实现average函数 */</span><span class="w"></span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">   </span><span class="kt">va_list</span><span class="w"> </span><span class="n">marker</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">   </span><span class="n">va_start</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">     </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">     </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">     </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">va_arg</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">   </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">   </span><span class="n">va_end</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">   </span><span class="k">return</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><span class="filename">使用stdargs实现average函数</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">   </span><span class="kt">va_list</span><span class="w"> </span><span class="n">marker</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">   </span><span class="n">va_start</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">     </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">     </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">     </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">va_arg</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">   </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">   </span><span class="n">va_end</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">   </span><span class="k">return</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>varargs运行在Unix System V，使用定义于<code>varargs.h</code>中的宏，例如<code>int average(va_list) va_dcl</code>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 使用varargs实现average函数 */</span><span class="w"></span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">va_alist</span><span class="p">)</span><span class="w"> </span><span class="n">va_dcl</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kt">va_list</span><span class="w"> </span><span class="n">marker</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="n">va_start</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">       </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">va_arg</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">          </span><span class="n">count</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">      </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="n">va_end</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="k">return</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><span class="filename">使用varargs实现average函数</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">va_alist</span><span class="p">)</span><span class="w"> </span><span class="n">va_dcl</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kt">va_list</span><span class="w"> </span><span class="n">marker</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">va_start</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">       </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">va_arg</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">          </span><span class="n">count</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">      </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="n">va_end</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 </div>
 </div>
@@ -740,7 +746,7 @@
 <div class="admonition info">
 <p>前四个函数还有带"v"（如<code>vprintf()</code>）的版本，它们的功能完全相同，参数区别仅仅在于带了一个<code>va_list</code>类型的参数</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><code>fprintf()</code>和<code>printf()</code></label><label for="__tabbed_2_2"><code>sprintf()</code>和<code>snprintf()</code></label><label for="__tabbed_2_3">syslog()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><code>fprintf()</code>和<code>printf()</code></label><label for="__tabbed_2_2"><code>sprintf()</code>和<code>snprintf()</code></label><label for="__tabbed_2_3"><code>syslog()</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -797,7 +803,7 @@
 <li>指定输出字符的最小个数的十进制非负整数。如果输出的字符个数比指定的宽度小，就用空白字符补足</li>
 <li>
 <p>如果使用星号（*）来指定宽度，则宽度将由参数列表中的一个int型的值提供</p>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%0*d"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (1) */</span><span class="w"></span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%0*d"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)</span>
 </code></pre></div>
 <ol>
 <li>输出<code>00003</code></li>
@@ -812,7 +818,7 @@
 <li>可能会引起输出的截断或浮点值的舍入</li>
 <li>
 <p>如果精度域是一个星号（*），那么它的值就由参数列表中的一个int参数提供</p>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%.*f"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14159265</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (1)  */</span><span class="w"></span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%.*f"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14159265</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)</span>
 </code></pre></div>
 <ol>
 <li>输出 <code>3.142</code></li>
@@ -881,7 +887,7 @@
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></li>
 </ul>
-<p><a class="glightbox" href="md-img/20191202_03.png"><img alt="" src="md-img/20191202_03.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191202_03.png"><img alt="" src="md-img/20191202_03.png"/></a></p>
 <ul>
 <li>紧邻参数之后的内存中包含有调用函数的自动变量，后者包括format字符数组0x2e253038的内容</li>
 <li>随着每一个参数被相应的格式规范所耗用，参数指针的值也根据参数的长度不断递增</li>
@@ -1081,58 +1087,57 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">例1</label><label for="__tabbed_4_2">例2</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* Linux 利用一例 */</span><span class="w"></span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\x90\x09\x09\x09\x09\x09</span><span class="s">/bin/sh"</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">format_str</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
-<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xb4\x9b\x04\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)</span>
-<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xcc\xcc\xcc\xcc</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xb6\x9b\x04\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)</span>
-<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"%x"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="w">    </span><span class="cm">/* code to write address goes here */</span><span class="w"></span>
-<a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a>
-<a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">format_str</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">        </span><span class="c1">//控制权被移交至shellcode</span>
-<a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="p">}</span><span class="w"></span>
+<div class="highlight"><span class="filename">Linux 利用一例</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\x90\x09\x09\x09\x09\x09</span><span class="s">/bin/sh"</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">format_str</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xb4\x9b\x04\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)</span>
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xcc\xcc\xcc\xcc</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xb6\x9b\x04\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)</span>
+<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"%x"</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">    </span><span class="cm">/* code to write address goes here */</span><span class="w"></span>
+<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a>
+<a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">format_str</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">        </span><span class="c1">//(3)</span>
+<a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li><code>exit()</code>函数的GOT入口的地址(<code>0x08049bb4</code>)被连接到格式字符串</li>
 <li>该地址被+2后(<code>0x08049bb6</code>)也连接到格式字符串</li>
+<li>控制权被移交至shellcode</li>
 </ol>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* Linux覆写内存 */</span><span class="w"></span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">already_written</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">write_word</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>
-<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">already_written</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">28</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a>
-<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1">// first word</span>
-<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="n">write_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x9020</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a>
-<a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-13" id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-14" id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-17-15" id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-17-16" id="__codelineno-17-16" name="__codelineno-17-16"></a>
-<a href="#__codelineno-17-17" id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="c1">// last word</span>
-<a href="#__codelineno-17-18" id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="n">already_written</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">width_field</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-19" id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="n">write_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0804</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-20" id="__codelineno-17-20" name="__codelineno-17-20"></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-21" id="__codelineno-17-21" name="__codelineno-17-21"></a>
-<a href="#__codelineno-17-22" id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-23" id="__codelineno-17-23" name="__codelineno-17-23"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-17-24" id="__codelineno-17-24" name="__codelineno-17-24"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-17-25" id="__codelineno-17-25" name="__codelineno-17-25"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><span class="filename">Linux 覆写内存</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">already_written</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">write_word</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">already_written</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">28</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="c1">// first word</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="n">write_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x9020</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-13" id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-17-14" id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-17-15" id="__codelineno-17-15" name="__codelineno-17-15"></a>
+<a href="#__codelineno-17-16" id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="c1">// last word</span>
+<a href="#__codelineno-17-17" id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="n">already_written</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">width_field</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-18" id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="n">write_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0804</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-19" id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-20" id="__codelineno-17-20" name="__codelineno-17-20"></a>
+<a href="#__codelineno-17-21" id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-22" id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-17-23" id="__codelineno-17-23" name="__codelineno-17-23"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-17-24" id="__codelineno-17-24" name="__codelineno-17-24"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -1243,10 +1248,10 @@
 <li>标准I/O流：<code>cin</code>、<code>cout</code>和<code>cerr</code></li>
 <li>
 <p>安全地打开文件</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1"><code>iostream</code>(安全)</label><label for="__tabbed_6_2"><code>stdio</code>(不安全)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1"><code>iostream</code>(安全)</label><label for="__tabbed_6_2"><code>stdio</code>(不安全)" title="stdio</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">C++</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="hll"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight"><span class="filename">iostream</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="hll"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 </span><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
 <a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1446,12 +1451,45 @@
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月3日 12:00:17</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
 </small>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 </article>
 </div>
 </div>
@@ -1558,5 +1596,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/net_security/application.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>应用安全——PGP为例 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="应用安全——PGP为例 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/net_security/application.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -642,7 +650,7 @@
 </div>
 <ul>
 <li>数字签名（与认证）
-    <a class="glightbox" href="md-img/chap8_identitycheck.jpg"><img alt="认证性" src="md-img/chap8_identitycheck.jpg"/></a><ul>
+    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap8_identitycheck.jpg"><img alt="认证性" src="md-img/chap8_identitycheck.jpg"/></a><ul>
 <li>发送者创建报文</li>
 <li>使用SHA-1生成报文的160位散列码<ul>
 <li>SHA-1的强度保证了签名的有效性</li>
@@ -661,7 +669,7 @@
 </ul>
 </li>
 <li>消息加密
-    <a class="glightbox" href="md-img/chap8_encryption.jpg"><img alt="保密性" src="md-img/chap8_encryption.jpg"/></a><ul>
+    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap8_encryption.jpg"><img alt="保密性" src="md-img/chap8_encryption.jpg"/></a><ul>
 <li>发送方随机生成Session Key加密消息M</li>
 <li>采用CAST-128(或IDEA或3DES)对报文加密</li>
 <li>采用RSA，使用<strong>接收者</strong>的<strong>公开密钥</strong>加密会话密钥，并置到报文前面</li>
@@ -674,7 +682,7 @@
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">保密与验证的结合</p>
-<p><a class="glightbox" href="md-img/chap8_both.jpg"><img alt="" src="md-img/chap8_both.jpg"/></a>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap8_both.jpg"><img alt="" src="md-img/chap8_both.jpg"/></a>
 发送者先用<strong>自己的私钥</strong>签名，然后用<strong>会话密钥</strong>加密消息，再用接收者的公钥加密会话密钥。</p>
 <div class="admonition faq">
 <p class="admonition-title">压缩位置的选择</p>
@@ -712,12 +720,12 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><figure markdown="">
-<a class="glightbox" href="md-img/chap8_pgp_send.jpg"><img alt="发送方" src="md-img/chap8_pgp_send.jpg"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap8_pgp_send.jpg"><img alt="发送方" src="md-img/chap8_pgp_send.jpg"/></a>
 </figure></p>
 </div>
 <div class="tabbed-block">
 <p><figure markdown="">
-<a class="glightbox" href="md-img/chap8_pgp_recv.jpg"><img alt="接收方" src="md-img/chap8_pgp_recv.jpg"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap8_pgp_recv.jpg"><img alt="接收方" src="md-img/chap8_pgp_recv.jpg"/></a>
 </figure></p>
 </div>
 </div>
@@ -768,7 +776,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">发送方</label><label for="__tabbed_3_2">接收方</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="md-img/chap8_pgp_send_with_ring.jpg"><img alt="发送方" src="md-img/chap8_pgp_send_with_ring.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap8_pgp_send_with_ring.jpg"><img alt="发送方" src="md-img/chap8_pgp_send_with_ring.jpg"/></a></p>
 <ul>
 <li>签名<ul>
 <li>从私钥环中得到私钥，利用userid作为索引</li>
@@ -785,7 +793,7 @@
 </ul>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="md-img/chap8_pgp_recv_with_ring.jpg"><img alt="接收方" src="md-img/chap8_pgp_recv_with_ring.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/chap8_pgp_recv_with_ring.jpg"><img alt="接收方" src="md-img/chap8_pgp_recv_with_ring.jpg"/></a></p>
 <ul>
 <li>解密<ul>
 <li>PGP用消息的会话密钥部分中的KeyID作为索引，从私钥环中获取私钥</li>
@@ -960,5 +968,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

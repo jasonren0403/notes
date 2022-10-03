@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/data-structure/sorting.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>排序 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="排序 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/data-structure/sorting.png" name="twitter:image"/>
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -935,10 +943,10 @@ k_i \ge k_{2i+1}
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">小根堆（降序）</label><label for="__tabbed_1_2">大根堆（升序）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/sort-2.png"><img alt="small-heap" src="asset-img/sort-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-2.png"><img alt="small-heap" src="asset-img/sort-2.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/sort-3.png"><img alt="big-heap" src="asset-img/sort-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-3.png"><img alt="big-heap" src="asset-img/sort-3.png"/></a></p>
 </div>
 </div>
 </input></input></div>
@@ -995,7 +1003,7 @@ k_i \ge k_{2i+1}
 </ul>
 <h3 id="2-">2-路归并排序<a class="headerlink" href="#2-" title="Permanent link">¶</a></h3>
 <p>将两个相邻的有序子序列“归并”为一个有序序列。</p>
-<p><a class="glightbox" href="asset-img/sort-4.png"><img alt="merge-sort-2" src="asset-img/sort-4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-4.png"><img alt="merge-sort-2" src="asset-img/sort-4.png"/></a></p>
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Merge</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">)</span><span class="w"></span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="n">ElemType</span><span class="w"> </span><span class="o">*</span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ElemType</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="n">ElemType</span><span class="p">));</span><span class="w"></span>
@@ -1072,8 +1080,8 @@ k_i \ge k_{2i+1}
 <ul>
 <li>其双亲结点存储的是左右孩子比较之后的失败者，而胜利者则继续同其它的胜者去比较</li>
 </ul>
-<p><a class="glightbox" href="asset-img/sort-5.png"><img alt="fail-tree" src="asset-img/sort-5.png"/></a></p>
-<p><a class="glightbox" href="asset-img/sort-6.png"><img alt="fail-tree" src="asset-img/sort-6.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-5.png"><img alt="fail-tree" src="asset-img/sort-5.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-6.png"><img alt="fail-tree" src="asset-img/sort-6.png"/></a></p>
 </li>
 </ul>
 </li>
@@ -1095,7 +1103,7 @@ k_i \ge k_{2i+1}
 <li>仅有度为0或m的结点</li>
 <li>
 <p>带权路径长度之和为归并过程中的总读记录数，总IO次数为 <span class="arithmatex">\(2 \times WPL\)</span></p>
-<p><a class="glightbox" href="asset-img/sort-7.png"><img alt="merge-tree" src="asset-img/sort-7.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-7.png"><img alt="merge-tree" src="asset-img/sort-7.png"/></a></p>
 <ul>
 <li>其对外存的读写次数为</li>
 </ul>
@@ -1109,7 +1117,7 @@ k_i \ge k_{2i+1}
 <li>每次选取最小的若干个权值组成结点，叶子结点不够时，补充权值为0的结点</li>
 <li>若 <span class="arithmatex">\((n_0-1) \% (m-1) = 0\)</span> ，则说明这 <span class="arithmatex">\(n_0\)</span> 个叶结点可以构造 <span class="arithmatex">\(m\)</span> 叉归并树，否则，有 <span class="arithmatex">\((n_0-1) \% (m-1) = u \neq 0\)</span> 个叶结点多余，需要补 <span class="arithmatex">\(m-u-1\)</span> 个结点</li>
 </ul>
-<p><a class="glightbox" href="asset-img/sort-8.png"><img alt="merge-tree-2" src="asset-img/sort-8.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-8.png"><img alt="merge-tree-2" src="asset-img/sort-8.png"/></a></p>
 </li>
 </ul>
 </li>
@@ -1233,5 +1241,5 @@ k_i \ge k_{2i+1}
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../../assets/javascripts/doc_addins.js"></script>
 <script src="../../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

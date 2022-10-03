@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/soft_security/string.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>字符串安全 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="字符串安全 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/string.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -622,7 +630,7 @@
 <li>表示<ul>
 <li>C-风格字符串"hello"（以<code>\0</code>结尾）
     <figure>
-<a class="glightbox" href="md-img/20190923_01.png"><img alt="C-风格字符串" src="md-img/20190923_01.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20190923_01.png"><img alt="C-风格字符串" src="md-img/20190923_01.png"/></a>
 <figcaption>C-风格字符串</figcaption>
 </figure><ul>
 <li>一个指向字符串的指针实际上就是指向该字符串的起始字符。</li>
@@ -672,7 +680,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">描述</label><label for="__tabbed_3_2">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>C语言标准<code>strcpy()</code> <code>strcat()</code>函数是无界操作，容易出错</p>
+<p>C语言标准<code>strcpy()</code>、<code>strcat()</code>函数是无界操作，容易出错</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -812,14 +820,13 @@
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>}                         内存高端地址
 </code></pre></div></li>
 <li>子例程创建：参数由后往前压入(比如<code>func(4,2)</code>先压入2再压入4)，把返回地址压入栈并跳到那个地址
-    <div class="highlight"><span class="filename">GAS</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nf">void</span><span class="w"> </span><span class="no">function</span><span class="p">(</span><span class="no">int</span><span class="w"> </span><span class="no">arg1</span><span class="p">,</span><span class="w"> </span><span class="no">int</span><span class="w"> </span><span class="no">arg2</span><span class="p">)</span><span class="w"> </span><span class="err">的调用开始</span><span class="w"></span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span><span class="w">    </span><span class="c1">;存储帧指针</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nf">mov</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">ebp</span><span class="w"> </span><span class="c1">;子例程的帧指针被设置为当前栈指针</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="nf">sub</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="mi">44</span><span class="no">h</span><span class="w"> </span><span class="c1">;为局部变量分配空间</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nf">return后</span><span class="w"></span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="nf">mov</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">ebp</span><span class="w"> </span><span class="c1">;恢复栈指针</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="nf">pop</span><span class="w"> </span><span class="no">ebp</span><span class="w">     </span><span class="c1">;恢复帧指针</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="nf">ret</span><span class="w">         </span><span class="c1">;将返回地址从栈弹出，并把控制移交给那个位置</span>
+    <div class="highlight"><span class="filename">void function(int arg1, int arg2) 的调用</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span><span class="w">    </span><span class="c1">;存储帧指针</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">ebp</span><span class="w"> </span><span class="c1">;子例程的帧指针被设置为当前栈指针</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nf">sub</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="mi">44</span><span class="no">h</span><span class="w"> </span><span class="c1">;为局部变量分配空间</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1">;return后</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nf">mov</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">ebp</span><span class="w"> </span><span class="c1">;恢复栈指针</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="nf">pop</span><span class="w"> </span><span class="no">ebp</span><span class="w">     </span><span class="c1">;恢复帧指针</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="nf">ret</span><span class="w">         </span><span class="c1">;将返回地址从栈弹出，并把控制移交给那个位置</span>
 </code></pre></div></li>
 </ul>
 <h2 id="_4">字符串漏洞<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
@@ -868,7 +875,7 @@
 <p>以<code>root</code>或其他较高权限执行的程序是攻击者的目标</p>
 <div class="admonition info">
 <p class="admonition-title">一个利用的例子：源码+利用</p>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">IsPasswordOK</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><span class="filename">password.c源码</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">IsPasswordOK</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">     </span><span class="kt">char</span><span class="w"> </span><span class="n">Password</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span><span class="w"></span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">     </span><span class="n">gets</span><span class="p">(</span><span class="n">Password</span><span class="p">);</span><span class="w">    </span><span class="c1">// (1)</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">Password</span><span class="p">,</span><span class="s">"goodpass"</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)</span>
@@ -887,32 +894,29 @@
 <a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ol>
-<li>Get input from keyboard</li>
-<li>Password Good</li>
-<li>Password Invalid</li>
-<li>Password Status</li>
-<li>Get &amp; Check Password</li>
-<li>Terminate Program</li>
+<li>从键盘中获取输入</li>
+<li>密码正确</li>
+<li>密码不正确</li>
+<li>表示密码的状态</li>
+<li>获取并检查密码</li>
+<li>中断程序</li>
 </ol>
 <p>通过构造以下输入，攻击者可以执行任意代码</p>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>000  31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 "1234567890123456"
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>000  31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36   "1234567890123456"
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>010  37 38 39 30 31 32 33 34 35 36 37 38 (E0 F9 FF BF) "789012345678a· +"
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>020  31 C0 A3 FF F9 FF BF B0 0B BB 03 FA FF BF B9 FB "1+ú · +¦+· +¦v"
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>030  F9 FF BF 8B 15 FF F9 FF BF CD 80 FF F9 FF BF 31 "· +ï§ · +-Ç · +1"
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>040  31 31 31 2F 75 73 72 2F 62 69 6E 2F 63 61 6C 0A "111/usr/bin/cal "
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>其中第一行16字节的二进制数据将填满分配的密码存储空间（gcc版本的编译器分配堆栈用于16字节的操作）
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>接下来的12字节二进制数据将填充编译器分配的存储空间，以与16字节边界对齐
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>接下来的四个字节（0xbffff9e0）覆盖了原函数的返回地址
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>后面的几行执行了系统shell，它的功能为使用系统调用execve()打开计算器程序，具体细节如下
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>xor %eax,%eax #set eax to zero  ;该利用自始至终都不能包含空字符，必须通过利用代码来设置空指针
-<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>mov %eax,0xbffff9ff #set to NULL word  ;将参数列表末尾用空指针终结，一个系统调用参数包含空指针结束的指针列表
-<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>mov $0xb,%al #set code for execve ;系统调用设置为0xb, 它等于Linux 中的系统调用execve
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>mov 0xbffffa03,%ebx #ptr to arg 1
-<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>mov 0xbffff9fb,%ecx #ptr to arg 2
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>mov 0xbffff9ff,%edx #ptr to arg 3 ;设置三个execve()调用参数
-<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a>int $80 # make system call to execve ;execve()系统调用导致了Linux日历程序的执行
-<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a>arg 2 array pointer array
-<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>char * []={0xbffff9ff, "1111"}; "/usr/bin/cal\0"
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>020  31 C0 A3 FF F9 FF BF B0 0B BB 03 FA FF BF B9 FB   "1+ú · +¦+· +¦v"
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>030  F9 FF BF 8B 15 FF F9 FF BF CD 80 FF F9 FF BF 31   "· +ï§ · +-Ç · +1"
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>040  31 31 31 2F 75 73 72 2F 62 69 6E 2F 63 61 6C 0A   "111/usr/bin/cal "
+</code></pre></div>
+<p>其中第一行16字节的二进制数据将填满分配的密码存储空间（gcc版本的编译器分配堆栈用于16字节的操作），接下来的12字节二进制数据将填充编译器分配的存储空间，以与16字节边界对齐。接下来的四个字节（0xbffff9e0）覆盖了原函数的返回地址，几行执行了系统shell，它的功能为使用系统调用<code>execve()</code>打开计算器程序，具体细节如下</p>
+<div class="highlight"><span class="filename">打开计算器的具体细节</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nf">xor</span><span class="w"> </span><span class="nv">%eax</span><span class="p">,</span><span class="nv">%eax</span><span class="w"> </span><span class="c1">#set eax to zero  ;该利用自始至终都不能包含空字符，必须通过利用代码来设置空指针</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nf">mov</span><span class="w"> </span><span class="nv">%eax</span><span class="p">,</span><span class="mi">0xbffff9ff</span><span class="w"> </span><span class="c1">#set to NULL word  ;将参数列表末尾用空指针终结，一个系统调用参数包含空指针结束的指针列表</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nf">mov</span><span class="w"> </span><span class="no">$0xb</span><span class="p">,</span><span class="nv">%al</span><span class="w"> </span><span class="c1">#set code for execve ;系统调用设置为0xb, 它等于Linux 中的系统调用execve</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="nf">mov</span><span class="w"> </span><span class="mi">0xbffffa03</span><span class="p">,</span><span class="nv">%ebx</span><span class="w"> </span><span class="c1">#ptr to arg 1</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="nf">mov</span><span class="w"> </span><span class="mi">0xbffff9fb</span><span class="p">,</span><span class="nv">%ecx</span><span class="w"> </span><span class="c1">#ptr to arg 2</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="nf">mov</span><span class="w"> </span><span class="mi">0xbffff9ff</span><span class="p">,</span><span class="nv">%edx</span><span class="w"> </span><span class="c1">#ptr to arg 3 ;设置三个execve()调用参数</span>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="nf">int</span><span class="w"> </span><span class="no">$80</span><span class="w"> </span><span class="c1"># make system call to execve ;execve()系统调用导致了Linux日历程序的执行，参数为两个字符串指针</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="c1">;char * []={0xbffff9ff, "1111"}; "/usr/bin/cal\0"</span>
 </code></pre></div>
 </div>
 </li>
@@ -920,7 +924,7 @@
 <h3 id="_7">弧注入<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <ul>
 <li>控制转移到已经存在于程序内存空间中的代码中<ul>
-<li>可以安装一个已有函数的地址，如<code>system()</code> 或<code>exec()</code>，用于执行已存在于本地系统上的程序</li>
+<li>可以安装一个已有函数的地址，如<code>system()</code>或<code>exec()</code>，用于执行已存在于本地系统上的程序</li>
 </ul>
 </li>
 <li>构建若干个栈帧，连接起来，结束后返回main函数(return-to-libc)</li>
@@ -932,12 +936,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><input id="__tabbed_10_3" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">输入验证</label><label for="__tabbed_10_2">安全函数</label><label for="__tabbed_10_3">ISO/IEC “Security” TR 24731</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buff</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">      </span><span class="n">abort</span><span class="p">();</span><span class="w"></span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">}</span><span class="w"></span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buff</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">      </span><span class="n">abort</span><span class="p">();</span><span class="w"></span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -983,23 +987,22 @@
 <li>SafeStr库 &amp; <code>safestr_t</code>类型，后者与<code>char*</code>兼容</li>
 <li>
 <p>错误处理：XXL库</p>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cm">/* 一个使用safestr的例子 */</span><span class="w"></span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">safestr_t</span><span class="w"> </span><span class="n">str1</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">safestr_t</span><span class="w"> </span><span class="n">str2</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">XXL_TRY_BEGIN</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safestr_alloc</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1)</span>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safestr_create</span><span class="p">(</span><span class="s">"hello, world</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">    </span><span class="n">safestr_copy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">str1</span><span class="p">,</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2)</span>
-<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="n">safestr_printf</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="n">safestr_printf</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="n">XXL_CATCH</span><span class="w"> </span><span class="p">(</span><span class="n">SAFESTR_ERROR_OUT_OF_MEMORY</span><span class="p">){</span><span class="w">  </span><span class="c1">// (3)</span>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"safestr out of memory.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="n">XXL_EXCEPT</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (4)</span>
-<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"string operation failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="n">XXL_TRY_END</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><span class="filename">一个使用safestr的例子</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">safestr_t</span><span class="w"> </span><span class="n">str1</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">safestr_t</span><span class="w"> </span><span class="n">str2</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">XXL_TRY_BEGIN</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safestr_alloc</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1)</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safestr_create</span><span class="p">(</span><span class="s">"hello, world</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="n">safestr_copy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">str1</span><span class="p">,</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2)</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="n">safestr_printf</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="n">safestr_printf</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">XXL_CATCH</span><span class="w"> </span><span class="p">(</span><span class="n">SAFESTR_ERROR_OUT_OF_MEMORY</span><span class="p">){</span><span class="w">  </span><span class="c1">// (3)</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"safestr out of memory.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="n">XXL_EXCEPT</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (4)</span>
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"string operation failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="n">XXL_TRY_END</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li>为字符串分配内存空间</li>
@@ -1016,20 +1019,20 @@
 <li>利用状态码返回值</li>
 <li>
 <p>使用例</p>
-<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">errno_t</span><span class="w"> </span><span class="n">retValue</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cstr</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1)</span>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">string_m</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">retValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strcreate_m</span><span class="p">(</span><span class="o">&amp;</span><span class="n">str1</span><span class="p">,</span><span class="w"> </span><span class="s">"hello, world"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error %d from strcreate_m.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">retValue</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (2)</span>
-<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">retValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getstr_m</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cstr</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"error %d from getstr_m.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">retValue</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">cstr</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">  </span><span class="n">free</span><span class="p">(</span><span class="n">cstr</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
-<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="p">}</span><span class="w"></span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">errno_t</span><span class="w"> </span><span class="n">retValue</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cstr</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1)</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">string_m</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">retValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strcreate_m</span><span class="p">(</span><span class="o">&amp;</span><span class="n">str1</span><span class="p">,</span><span class="w"> </span><span class="s">"hello, world"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error %d from strcreate_m.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">retValue</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (2)</span>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">retValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getstr_m</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cstr</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"error %d from getstr_m.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">retValue</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">cstr</span><span class="p">);</span><span class="w"></span>
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="w">  </span><span class="n">free</span><span class="p">(</span><span class="n">cstr</span><span class="p">);</span><span class="w"> </span><span class="c1">// (3)</span>
+<a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li>c-style string</li>
@@ -1076,10 +1079,10 @@
 <p>数据处理</p>
 <ul>
 <li>字符串管理库通过(可选)确保字符串中的所有字符属于一组预定义的“安全”字符，来提供一种处理数据的机制
-    <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">errno_t</span><span class="w"> </span><span class="nf">setcharset</span><span class="p">(</span><span class="w"></span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="n">string_m</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">string_m</span><span class="w"> </span><span class="n">safeset</span><span class="w"></span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">);</span><span class="w"></span>
+    <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">errno_t</span><span class="w"> </span><span class="nf">setcharset</span><span class="p">(</span><span class="w"></span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="n">string_m</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">string_m</span><span class="w"> </span><span class="n">safeset</span><span class="w"></span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div></li>
 </ul>
 </li>
@@ -1089,12 +1092,45 @@
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月3日 12:00:17</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
 </small>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 </article>
 </div>
 </div>
@@ -1201,5 +1237,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

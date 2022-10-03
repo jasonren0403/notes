@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/data-structure/searching.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>查找 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="查找 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/data-structure/searching.png" name="twitter:image"/>
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -798,7 +806,7 @@ n+1&amp;,查找失败
 <li>查找失败时，不一定要遍历整个线性表</li>
 <li>判定树：描述查找过程的二叉排序树</li>
 </ul>
-<p><a class="glightbox" href="asset-img/sort-1.png"><img alt="sort" src="asset-img/sort-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/sort-1.png"><img alt="sort" src="asset-img/sort-1.png"/></a></p>
 <div class="admonition summary">
 <p>令 <span class="arithmatex">\(P_i=\frac {1}{n}\)</span>，则平均查找长度的表达式为：</p>
 <div class="arithmatex">\[
@@ -871,7 +879,7 @@ ASL_{成功}=L_i+L_s=
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>B-树中所有结点中孩子结点个数的最大值成为B-树的阶，通常用m表示。
-<a class="glightbox" href="asset-img/tree-b-tree-1.png"><img alt="b-tree-example" src="asset-img/tree-b-tree-1.png"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-b-tree-1.png"><img alt="b-tree-example" src="asset-img/tree-b-tree-1.png"/></a></p>
 <ul>
 <li>一棵m阶B树或为空树，或为满足以下特性的m叉树：<ol>
 <li>树中每个结点至多有m棵子树</li>
@@ -925,7 +933,7 @@ ASL_{成功}=L_i+L_s=
 <li>若<code>k[i]&lt;key&lt;k[i+1]</code>，则沿着指针<code>p[i]</code>所指示的子树继续查找。</li>
 <li>如果最后遇到空指针，则证明查找不成功。</li>
 </ol>
-<p><a class="glightbox" href="asset-img/tree-b-tree-2.png"><img alt="b-tree-example-search" src="asset-img/tree-b-tree-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-b-tree-2.png"><img alt="b-tree-example-search" src="asset-img/tree-b-tree-2.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <ul>
@@ -951,7 +959,7 @@ ASL_{成功}=L_i+L_s=
 </div>
 <div class="tabbed-block">
 <p>B+树的特点是能够保持数据稳定有序，其插入与修改拥有较稳定的对数时间复杂度。</p>
-<p><a class="glightbox" href="asset-img/tree-b-tree-3.png"><img alt="bplus-tree-example" src="asset-img/tree-b-tree-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-b-tree-3.png"><img alt="bplus-tree-example" src="asset-img/tree-b-tree-3.png"/></a></p>
 <ul>
 <li>一个m阶的B+树具有如下几个特征：<ol>
 <li>每个分支结点最多有m棵子树。</li>
@@ -1190,5 +1198,5 @@ d_i = 伪随机序列
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../../assets/javascripts/doc_addins.js"></script>
 <script src="../../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

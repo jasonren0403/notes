@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/data-structure/linear-list.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>线性表 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="线性表 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/data-structure/linear-list.png" name="twitter:image"/>
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -744,7 +752,7 @@
 </ul>
 <h2 id="_4">存储结构<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <h3 id="_5">顺序表<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" href="asset-img/linear-list-1.png"><img alt="顺序表" src="asset-img/linear-list-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/linear-list-1.png"><img alt="顺序表" src="asset-img/linear-list-1.png"/></a></p>
 <ul>
 <li>用一组地址连续的存储单元，依次存放线性表中的数据元素</li>
 <li>以"存储位置相邻"表示位序相继的两个数据元素之间的前驱和后继的关系</li>
@@ -913,8 +921,8 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </li>
 </ul>
 <h3 id="_6">链表<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" href="asset-img/linear-list-2.png"><img alt="单链表" loading="lazy" src="asset-img/linear-list-2.png"/></a></p>
-<p><a class="glightbox" href="asset-img/linear-list-3.png"><img alt="带头结点的单链表" loading="lazy" src="asset-img/linear-list-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/linear-list-2.png"><img alt="单链表" loading="lazy" src="asset-img/linear-list-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/linear-list-3.png"><img alt="带头结点的单链表" loading="lazy" src="asset-img/linear-list-3.png"/></a></p>
 <ul>
 <li>用一组任意的存储单元存储线性表的数据元素</li>
 <li>对数据元素 <span class="arithmatex">\(a_i\)</span> 来说，除了存储其本身的信息之外，还需存储一个指示其直接后继的信息（指针）</li>
@@ -1231,7 +1239,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </code></pre></div></li>
 </ul>
 <h4 id="_8">循环链表<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
-<p><a class="glightbox" href="asset-img/linear-list-4.png"><img alt="循环列表" loading="lazy" src="asset-img/linear-list-4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/linear-list-4.png"><img alt="循环列表" loading="lazy" src="asset-img/linear-list-4.png"/></a></p>
 <ul>
 <li>表中最后一个结点的指针域指向头结点，整个链表成为一个由链指针相链接的环，并且设立尾指针设成指向最后一个结点。</li>
 <li>空的循环链表由只含一个自成循环的头结点表示。</li>
@@ -1244,7 +1252,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </ul>
 </div>
 <h4 id="_9">双链表<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
-<p><a class="glightbox" href="asset-img/linear-list-5.png"><img alt="双链表" loading="lazy" src="asset-img/linear-list-5.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/linear-list-5.png"><img alt="双链表" loading="lazy" src="asset-img/linear-list-5.png"/></a></p>
 <ul>
 <li>双向链表也是由指向头结点的头指针唯一确定，若将头尾结点链接起来则构成双向循环链表</li>
 <li>其结点结构中含有两个指针域，其一指向数据元素的“直接后继”，另一指向数据元素的“直接前驱”</li>
@@ -1442,5 +1450,5 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../../assets/javascripts/doc_addins.js"></script>
 <script src="../../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>

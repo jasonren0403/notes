@@ -9,9 +9,9 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/data-structure/graph.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.4" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>图 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.80dcb947.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -30,7 +30,15 @@
 <meta content="图 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/data-structure/graph.png" name="twitter:image"/>
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -658,7 +666,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">无向图</label><label for="__tabbed_1_2">有向图</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/graph-1.png"><img alt="undigraph" src="asset-img/graph-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/graph-1.png"><img alt="undigraph" src="asset-img/graph-1.png"/></a></p>
 <ul>
 <li>若 <span class="arithmatex">\(\langle w,v \rangle \in E\)</span> 且 <span class="arithmatex">\(\langle v,w \rangle \in E\)</span>，以无序对 <span class="arithmatex">\((v, w)\)</span> 代替这两个有序对，表示v和w之间的一条边(Edge)<ul>
 <li>称v为弧尾(Tail)或初始点(Initial Node)，称w为 弧头(Head)或终端点(Terminal Node)</li>
@@ -675,7 +683,7 @@ E_1 &amp;= \{(A,B),(A,C),(A,E),(B,C),(C,D),(C,E),(D,E)\}
 \]</div>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/graph-2.png"><img alt="digraph" src="asset-img/graph-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/graph-2.png"><img alt="digraph" src="asset-img/graph-2.png"/></a></p>
 <ul>
 <li>若 <span class="arithmatex">\(\langle w,v \rangle \in E\)</span>，则 <span class="arithmatex">\(\langle w,v \rangle\)</span> 表示从v到w的一条弧(Arc)</li>
 <li>例如，上图可表示为</li>
@@ -1098,8 +1106,8 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </ul>
 <details class="example">
 <summary>生成过程</summary>
-<p><a class="glightbox" href="asset-img/tree-17.png"><img alt="example" src="asset-img/tree-17.png"/></a></p>
-<p><a class="glightbox" href="asset-img/tree-18.png"><img alt="step-1" src="asset-img/tree-18.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-17.png"><img alt="example" src="asset-img/tree-17.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-18.png"><img alt="step-1" src="asset-img/tree-18.png"/></a></p>
 <table>
 <thead>
 <tr>
@@ -1136,7 +1144,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="asset-img/tree-19.png"><img alt="step-2" src="asset-img/tree-19.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-19.png"><img alt="step-2" src="asset-img/tree-19.png"/></a></p>
 <table>
 <thead>
 <tr>
@@ -1173,7 +1181,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="asset-img/tree-20.png"><img alt="step-3" src="asset-img/tree-20.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-20.png"><img alt="step-3" src="asset-img/tree-20.png"/></a></p>
 <table>
 <thead>
 <tr>
@@ -1210,7 +1218,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="asset-img/tree-21.png"><img alt="step-4" src="asset-img/tree-21.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-21.png"><img alt="step-4" src="asset-img/tree-21.png"/></a></p>
 <table>
 <thead>
 <tr>
@@ -1247,7 +1255,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="asset-img/tree-22.png"><img alt="step-5" src="asset-img/tree-22.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-22.png"><img alt="step-5" src="asset-img/tree-22.png"/></a></p>
 <table>
 <thead>
 <tr>
@@ -1300,12 +1308,12 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </ul>
 <details class="example">
 <summary>生成过程</summary>
-<p><a class="glightbox" href="asset-img/tree-17.png"><img alt="example" src="asset-img/tree-17.png"/></a></p>
-<p><a class="glightbox" href="asset-img/tree-23.png"><img alt="step-1" src="asset-img/tree-23.png"/></a></p>
-<p><a class="glightbox" href="asset-img/tree-24.png"><img alt="step-2" src="asset-img/tree-24.png"/></a></p>
-<p><a class="glightbox" href="asset-img/tree-25.png"><img alt="step-3" src="asset-img/tree-25.png"/></a></p>
-<p><a class="glightbox" href="asset-img/tree-26.png"><img alt="step-4" src="asset-img/tree-26.png"/></a></p>
-<p><a class="glightbox" href="asset-img/tree-27.png"><img alt="step-5" src="asset-img/tree-27.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-17.png"><img alt="example" src="asset-img/tree-17.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-23.png"><img alt="step-1" src="asset-img/tree-23.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-24.png"><img alt="step-2" src="asset-img/tree-24.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-25.png"><img alt="step-3" src="asset-img/tree-25.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-26.png"><img alt="step-4" src="asset-img/tree-26.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-27.png"><img alt="step-5" src="asset-img/tree-27.png"/></a></p>
 </details>
 </div>
 </div>
@@ -1403,7 +1411,7 @@ path[i]=
 </li>
 </ul>
 <h3 id="aoe">关键路径(AOE网)<a class="headerlink" href="#aoe" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" href="asset-img/tree-28.png"><img alt="aoe" src="asset-img/tree-28.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-28.png"><img alt="aoe" src="asset-img/tree-28.png"/></a></p>
 <ul>
 <li>从源点到汇点最大长度的路径称为关键路径，其上的活动是关键活动</li>
 <li><span class="arithmatex">\(V_k\)</span> 最早发生时间 <span class="arithmatex">\(V_e(k)\)</span></li>
@@ -1560,5 +1568,5 @@ min\{V_e(k)-w(v_j,v_k)\}&amp;,其他情况
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../../assets/javascripts/doc_addins.js"></script>
 <script src="../../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>
