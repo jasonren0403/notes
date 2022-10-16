@@ -9,7 +9,7 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/what-does-408-test.html" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
+<meta content="mkdocs-1.4.1, mkdocs-material-8.5.6" name="generator"/>
 <title>408考试大纲（2020版） - Jason的笔记小屋</title>
 <link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
@@ -467,6 +467,26 @@
         运算器
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="computer-structure/memory.html">
+        存储器
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="computer-structure/instruction.html">
+        指令系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="computer-structure/cpu.html">
+        中央处理器（CPU）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="computer-structure/bus-and-io.html">
+        总线和输入输出系统
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -547,13 +567,28 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="computer-network/physical-layer.html">
+        物理层
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="computer-network/data-link-layer.html">
+        数据链路层
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="computer-network/network-layer.html">
         网络层
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="computer-network/physical-layer.html">
-        物理层
+<a class="md-nav__link" href="computer-network/transportation-layer.html">
+        传输层
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="computer-network/application-layer.html">
+        应用层
       </a>
 </li>
 </ul>
@@ -619,7 +654,7 @@
 </a>
 <h1 id="408-408">408考些什么-408考纲翻一翻啦~~<a class="headerlink" href="#408-408" title="Permanent link">¶</a></h1>
 <div class="admonition warning">
-<p>以下内容来自2020年的考纲~~如有过期请尽快告诉我</p>
+<p>以下内容来自2022年的考纲~~如有过期请尽快告诉我</p>
 </div>
 <h2 id="_1">考试形式和试卷结构<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ol>
@@ -663,9 +698,9 @@
 <li>线性表的实现<ol>
 <li>顺序存储</li>
 <li>链式存储</li>
-<li>线性表的应用</li>
 </ol>
 </li>
+<li>线性表的应用</li>
 </ol>
 </li>
 <li>
@@ -674,8 +709,9 @@
 <li>栈和队列的基本概念</li>
 <li>栈和队列的顺序存储结构</li>
 <li>栈和队列的链式存储结构</li>
-<li>栈和队列的应用</li>
+<li>多维数组的存储</li>
 <li>特殊矩阵的压缩存储</li>
+<li>栈、队列和数组的应用</li>
 </ol>
 </li>
 <li>
@@ -696,9 +732,8 @@
 </ol>
 </li>
 <li>树与二叉树的应用<ol>
-<li>二叉排序树</li>
-<li>平衡二叉树</li>
 <li>哈夫曼(Huffman)树和哈夫曼编码</li>
+<li>并查集及其应用</li>
 </ol>
 </li>
 </ol>
@@ -736,8 +771,12 @@
 <li>折半查找法</li>
 <li>B树及其基本操作、B+树的基本概念</li>
 <li>散列(Hash)表</li>
-<li>字符串模式匹配</li>
-<li>查找算法的分析及应用</li>
+<li>树型查找<ol>
+<li>二叉搜索树</li>
+<li>平衡二叉树</li>
+<li>红黑树</li>
+</ol>
+</li>
 </ol>
 </li>
 <li>
@@ -757,8 +796,7 @@
 <li>二路归并排序(merge sort)</li>
 <li>基数排序</li>
 <li>外部排序</li>
-<li>各种内部排序算法的比较</li>
-<li>排序算法的应用</li>
+<li>排序算法的分析与应用</li>
 </ol>
 </li>
 </ol>
@@ -768,19 +806,21 @@
 <ol>
 <li>理解单处理器计算机系统中各部件的内部工作原理、组成结构以及相互连接方式，具有完整的计算机系统的整机概念。</li>
 <li>理解计算机系统层次化结构概念，熟悉硬件与软件之间的界面，掌握指令集体系结构的基本知识和基本实现方法。</li>
-<li>能够综合运用计算机组成的基本原理和基本方法，对有关计算机硬件系统中的理论和实际问题进行计算、分析，对一些基本部件进行简单设计;并能对高级程序设计语言(如C语言)中的相关问题进行分析。</li>
+<li>能够综合运用计算机组成的基本原理和基本方法，对有关计算机硬件系统中的理论和实际问题进行计算、分析，对一些基本部件进行简单设计；并能对高级程序设计语言(如C语言)中的相关问题进行分析。</li>
 </ol>
 </details>
 <ol>
 <li>
 <p>计算机系统概述</p>
 <ol>
-<li>计算机发展历程</li>
 <li>计算机系统层次结构<ol>
 <li>计算机系统的基本组成</li>
 <li>计算机硬件的基本组成</li>
 <li>计算机软件和硬件的关系</li>
-<li>计算机的工作过程</li>
+<li>计算机的工作过程<ul>
+<li>“存储程序"工作方式，高级语言程序与机器语言程序之间的转换，程序和指令的执行过程</li>
+</ul>
+</li>
 </ol>
 </li>
 <li>计算机性能指标<ul>
@@ -795,9 +835,7 @@
 <li>数制与编码<ol>
 <li>进位计数制及其相互转换</li>
 <li>真值和机器数</li>
-<li>BCD码</li>
 <li>字符与字符串</li>
-<li>校验码</li>
 </ol>
 </li>
 <li>定点数的表示和运算<ol>
@@ -820,9 +858,10 @@
 <li>浮点数的加/减运算</li>
 </ol>
 </li>
-<li>算术逻辑单元ALU<ol>
-<li>串行加法器和并行加法器</li>
-<li>算术逻辑单元ALU的功能和结构</li>
+<li>运算方法和运算电路<ol>
+<li>基本运算部件：加法器、算术逻辑部件ALU</li>
+<li>减法运算：补码加减运算器，标志位的生成</li>
+<li>乘除运算的基本原理，乘除法电路的基本结构</li>
 </ol>
 </li>
 </ol>
@@ -835,12 +874,20 @@
 <li>半导体随机存取存储器<ol>
 <li>SRAM存储器</li>
 <li>DRAM存储器</li>
-<li>只读存储器</li>
 <li>Flash存储器</li>
 </ol>
 </li>
-<li>主存储器与CPU的连接</li>
-<li>双口RAM和多模块存储器</li>
+<li>主存储器<ol>
+<li>DRAM芯片和内存条</li>
+<li>多模块存储器</li>
+<li>主存和CPU之间的连接</li>
+</ol>
+</li>
+<li>外部存储器<ol>
+<li>磁盘存储器</li>
+<li>固态硬盘（SSD）</li>
+</ol>
+</li>
 <li>高速缓冲存储器(Cache)<ol>
 <li>Cache的基本工作原理</li>
 <li>Cache和主存之间的映射方式</li>
@@ -850,10 +897,12 @@
 </li>
 <li>虚拟存储器<ol>
 <li>虚拟存储器的基本概念</li>
-<li>页式虚拟存储器</li>
+<li>页式虚拟存储器<ul>
+<li>基本原理、页表、地址转换、TLB（快表）</li>
+</ul>
+</li>
 <li>段式虚拟存储器</li>
 <li>段页式虚拟存储器</li>
-<li>TLB(快表)</li>
 </ol>
 </li>
 </ol>
@@ -861,20 +910,23 @@
 <li>
 <p>指令系统</p>
 <ol>
-<li>指令格式<ol>
-<li>指令的基本格式</li>
-<li>定长操作码指令格式</li>
-<li>扩展操作码指令格式</li>
-</ol>
-</li>
-<li>指令的寻址方式<ol>
-<li>有效地址的概念</li>
-<li>数据寻址和指令寻址</li>
-<li>常见寻址方式</li>
-</ol>
-</li>
+<li>指令系统的基本概念</li>
+<li>指令格式</li>
+<li>指令的寻址方式</li>
+<li>数据的对齐和大/小端存放方式 </li>
 <li>CISC和RISC的基本概念</li>
-<li>中央处理器(CPU)<ol>
+<li>高级语言与机器级代码之间的对应关系<ol>
+<li>编译器、汇编器和链接器的基本概念</li>
+<li>选择结构语句的机器级表示</li>
+<li>循环结构语句的机器级表示</li>
+<li>过程（函数）调用的机器级表示</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>中央处理器(CPU)</p>
+<ol>
 <li>CPU的功能和基本结构</li>
 <li>指令执行过程</li>
 <li>数据通路的功能和基本结构</li>
@@ -886,49 +938,38 @@
 </li>
 </ol>
 </li>
+<li>异常和中断机制<ol>
+<li>异常和中断的基本概念</li>
+<li>异常和中断的分类</li>
+<li>异常和中断的检测与响应</li>
+</ol>
+</li>
 <li>指令流水线<ol>
 <li>指令流水线的基本概念</li>
 <li>指令流水线的基本实现</li>
+<li>结构冒险、数据冒险和控制冒险的处理</li>
 <li>超标量和动态流水线的基本概念</li>
 </ol>
 </li>
+<li>多处理器基本概念<ol>
+<li>SISD、SIMD、MIMD、向量处理器的基本概念</li>
+<li>硬件多线程的基本概念</li>
+<li>多核处理器（multi-core）的基本概念</li>
+<li>共享内存多处理器（SMP）的基本概念</li>
 </ol>
 </li>
 </ol>
 </li>
 <li>
-<p>总线</p>
+<p>总线和输入输出系统</p>
 <ol>
 <li>总线概述<ol>
 <li>总线的基本概念</li>
-<li>总线的分类</li>
 <li>总线的组成及性能指标</li>
+<li>总线事务和定时</li>
 </ol>
 </li>
-<li>总线仲裁<ol>
-<li>集中仲裁方式</li>
-<li>分布仲裁方式</li>
-</ol>
-</li>
-<li>总线操作和定时<ol>
-<li>同步定时方式</li>
-<li>异步定时方式</li>
-</ol>
-</li>
-<li>总线标准</li>
-</ol>
-</li>
-<li>
-<p>输入输出(I/O)系统</p>
-<ol>
-<li>I/O系统基本概念</li>
-<li>外部设备<ol>
-<li>输入设备：键盘、鼠标</li>
-<li>输出设备：显示器、打印机</li>
-<li>外存储器：硬盘存储器、磁盘阵列、光盘存储器</li>
-</ol>
-</li>
-<li>I/O接口（I/O控制器）<ol>
+<li>I/O 接口（I/O 控制器）<ol>
 <li>I/O接口的功能和基本结构</li>
 <li>I/O端口及其编址</li>
 </ol>
@@ -961,15 +1002,22 @@
 <li>
 <p>操作系统概述</p>
 <ol>
-<li>操作系统的概念、特征、功能和提供的服务</li>
-<li>操作系统的发展与分类</li>
-<li>操作系统的运行环境<ol>
-<li>内核态与用户态</li>
-<li>中断、异常</li>
+<li>操作系统的基本概念</li>
+<li>操作系统的发展</li>
+<li>程序运行环境<ol>
+<li>CPU运行模式 内核模式与用户模式</li>
+<li>中断和异常的处理</li>
 <li>系统调用</li>
+<li>程序的链接与装入</li>
+<li>程序运行时内存映像与地址空间</li>
 </ol>
 </li>
-<li>操作系统体系结构</li>
+<li>操作系统结构<ul>
+<li>分层、模块化、宏内核、微内核、外核</li>
+</ul>
+</li>
+<li>操作系统引导</li>
+<li>虚拟机</li>
 </ol>
 </li>
 <li>
@@ -978,22 +1026,27 @@
 <li>进程与线程<ol>
 <li>进程概念</li>
 <li>进程的状态与转换</li>
-<li>进程控制</li>
-<li>进程组织</li>
-<li>进程通信<ul>
-<li>共享存储系统</li>
-<li>消息传递系统</li>
+<li>线程的实现<ul>
+<li>内核支持的线程</li>
+<li>线程库支持的线程</li>
+</ul>
+</li>
+<li>进程与线程的组织与控制</li>
+<li>进程间通信<ul>
+<li>共享内存</li>
+<li>消息传递</li>
 <li>管道通信</li>
 </ul>
 </li>
-<li>线程概念与多线程模型</li>
 </ol>
 </li>
-<li>处理机调度<ol>
+<li>CPU调度与上下文切换<ol>
 <li>调度的基本概念</li>
-<li>调度时机、切换与过程</li>
-<li>调度的基本准则</li>
-<li>调度方式</li>
+<li>调度的目标</li>
+<li>调度的实现<ul>
+<li>调度器/调度程序(scheduler)，调度的时机与调度方式(抢占式/非抢占式)，闲逛进程，内核级线程与用户级线程调度。</li>
+</ul>
+</li>
 <li>典型调度算法<ul>
 <li>先来先服务调度算法</li>
 <li>短作业（短进程、短线程）优先调度算法</li>
@@ -1003,6 +1056,7 @@
 <li>多级反馈队列调度算法</li>
 </ul>
 </li>
+<li>上下文及其切换机制</li>
 </ol>
 </li>
 <li>同步与互斥<ol>
@@ -1012,8 +1066,9 @@
 <li>硬件实现方法</li>
 </ul>
 </li>
+<li>锁</li>
 <li>信号量</li>
-<li>管程</li>
+<li>条件变量</li>
 <li>经典同步问题<ul>
 <li>生产者-消费者问题</li>
 <li>读者-写者问题</li>
@@ -1024,12 +1079,8 @@
 </li>
 <li>死锁<ol>
 <li>死锁的概念</li>
-<li>死锁处理策略</li>
 <li>死锁预防</li>
-<li>死锁避免<ul>
-<li>系统安全状态，银行家算法。</li>
-</ul>
-</li>
+<li>死锁避免</li>
 <li>死锁检测和解除</li>
 </ol>
 </li>
@@ -1040,22 +1091,19 @@
 <ol>
 <li>内存管理基础<ol>
 <li>内存管理概念<ul>
-<li>程序装入与链接;逻辑地址与物理地址空间;内存保护。</li>
+<li>程序装入与链接;逻辑地址与物理地址空间;内存保护。内存分配与回收</li>
 </ul>
 </li>
-<li>交换与覆盖</li>
 <li>连续分配管理方式</li>
-<li>非连续分配管理方式<ul>
 <li>分页管理方式</li>
 <li>分段管理方式</li>
 <li>段页式管理方式</li>
-</ul>
-</li>
 </ol>
 </li>
 <li>虚拟内存管理<ol>
 <li>虚拟内存基本概念</li>
 <li>请求分页管理方式</li>
+<li>页框分配</li>
 <li>页面置换算法<ul>
 <li>最佳置换算法(OPT)</li>
 <li>先进先出置换算法(FIFO)</li>
@@ -1063,9 +1111,8 @@
 <li>时钟置换算法(CLOCK)</li>
 </ul>
 </li>
-<li>页面分配策略</li>
-<li>工作集</li>
-<li>抖动</li>
+<li>内存映射文件（Memory-Mapped Files）</li>
+<li>虚拟存储器性能的影响因素及改进方法</li>
 </ol>
 </li>
 </ol>
@@ -1075,35 +1122,31 @@
 <ol>
 <li>文件系统基础<ol>
 <li>文件概念</li>
-<li>文件的逻辑结构<ul>
-<li>顺序文件</li>
-<li>索引文件</li>
-<li>索引顺序文件</li>
-</ul>
-</li>
-<li>目录结构<ul>
-<li>文件控制块和索引节点</li>
-<li>单级目录结构和两级目录结构;树形目录结构;图形目录结构。</li>
+<li>文件元数据和索引节点</li>
+<li>目录的操作<ul>
+<li>建立、删除、打开、关闭、读、写</li>
 </ul>
 </li>
 <li>文件共享</li>
-<li>文件保护<ul>
-<li>访问类型</li>
-<li>访问控制</li>
+<li>文件的逻辑结构</li>
+<li>文件的物理结构</li>
+</ol>
+</li>
+<li>目录<ol>
+<li>目录的基本概念</li>
+<li>树形目录</li>
+<li>目录的操作</li>
+<li>硬链接与软连接</li>
+</ol>
+</li>
+<li>文件系统<ol>
+<li>文件系统的全局结构（layout）<ul>
+<li>文件系统在外存中的结构，文件系统在内存中的结构。</li>
 </ul>
 </li>
-</ol>
-</li>
-<li>文件系统实现<ol>
-<li>文件系统层次结构</li>
-<li>目录实现</li>
-<li>文件实现</li>
-</ol>
-</li>
-<li>磁盘组织与管理<ol>
-<li>磁盘的结构</li>
-<li>磁盘调度算法</li>
-<li>磁盘的管理</li>
+<li>外村空闲空间管理方法</li>
+<li>虚拟文件系统</li>
+<li>文件系统挂载（mounting）</li>
 </ol>
 </li>
 </ol>
@@ -1111,16 +1154,41 @@
 <li>
 <p>输入输出(I/O)管理</p>
 <ol>
-<li>I/O管理概述<ol>
-<li>I/O控制方式</li>
-<li>I/O软件层次结构</li>
+<li>I/O管理基础<ol>
+<li>设备<ul>
+<li>设备的基本概念，设备的分类，I/O接口，I/O端口</li>
+</ul>
+</li>
+<li>I/O控制方式<ul>
+<li>轮询方式，中断方式，DMA方式</li>
+</ul>
+</li>
+<li>I/O软件层次结构<ul>
+<li>中断处理程序，驱动程序，设备独立软件，用户层 I/O 软件。</li>
+</ul>
+</li>
+<li>输入输出应用程序接口<ul>
+<li>字符设备接口，块设备接口，网络设备接口，阻塞/非阻塞 I/O。</li>
+</ul>
+</li>
 </ol>
 </li>
-<li>I/O核心子系统<ol>
-<li>I/O调度概念</li>
-<li>高速缓存与缓冲区</li>
+<li>设备独立软件<ol>
+<li>缓冲区管理</li>
 <li>设备分配与回收</li>
 <li>假脱机技术(SPOOLing)</li>
+<li>设备驱动程序接口</li>
+</ol>
+</li>
+<li>外存管理<ol>
+<li>磁盘<ul>
+<li>磁盘结构，格式化，分区，磁盘调度方法。</li>
+</ul>
+</li>
+<li>固态硬盘<ul>
+<li>读写性能特性，磨损均衡。</li>
+</ul>
+</li>
 </ol>
 </li>
 </ol>
@@ -1142,7 +1210,7 @@
 <li>计算机网络概述<ol>
 <li>计算机网络的概念、组成与功能</li>
 <li>计算机网络的分类</li>
-<li>计算机网络的标准化工作及相关组织</li>
+<li>计算机网络主要性能指标</li>
 </ol>
 </li>
 <li>计算机网络体系结构与参考模型<ol>
@@ -1218,18 +1286,16 @@
 <li>局域网的基本概念与体系结构</li>
 <li>以太网与IEEE 802.3</li>
 <li>IEEE 802.11</li>
-<li>令牌环网的基本原理</li>
+<li>VLAN 基本概念和基本原理</li>
 </ol>
 </li>
 <li>广域网<ol>
 <li>广域网的基本概念</li>
 <li>PPP协议</li>
-<li>HDLC协议</li>
 </ol>
 </li>
 <li>数据链路层设备<ol>
-<li>网桥的概念和基本原理</li>
-<li>局域网交换机及其工作原理</li>
+<li>以太网交换机及其工作原理。</li>
 </ol>
 </li>
 </ol>
@@ -1240,6 +1306,7 @@
 <li>网络层的功能<ol>
 <li>异构网络互联</li>
 <li>路由与转发</li>
+<li>SDN 基本概念</li>
 <li>拥塞控制</li>
 </ol>
 </li>
@@ -1348,7 +1415,7 @@
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月10日 20:21:51</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月16日 09:58:44</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>

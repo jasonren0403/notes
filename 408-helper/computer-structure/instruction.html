@@ -9,8 +9,8 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/computer-structure/instruction.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
-<title>Instruction - Jason的笔记小屋</title>
+<meta content="mkdocs-1.4.1, mkdocs-material-8.5.6" name="generator"/>
+<title>指令系统 - Jason的笔记小屋</title>
 <link href="../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -19,7 +19,7 @@
 <link href="../../assets/stylesheets/ex.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <meta content="website" property="og:type"/>
-<meta content="Instruction - Jason的笔记小屋" property="og:title"/>
+<meta content="指令系统 - Jason的笔记小屋" property="og:title"/>
 <meta content="信息安全、前端相关笔记存放处" property="og:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/computer-structure/instruction.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
@@ -27,7 +27,7 @@
 <meta content="630" property="og:image:height"/>
 <meta content="https://note.jason0743.best/408-helper/computer-structure/instruction.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Instruction - Jason的笔记小屋" name="twitter:title"/>
+<meta content="指令系统 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/computer-structure/instruction.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -69,7 +69,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Instruction
+              指令系统
             
           </span>
 </div>
@@ -154,7 +154,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../index.html">
+<a class="md-tabs__link md-tabs__link--active" href="../index.html">
         408助手
       </a>
 </li>
@@ -382,8 +382,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../index.html">408助手</a>
 <label for="__nav_5">
@@ -401,8 +401,8 @@
         408考试大纲（2020版）
       </a>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="index.html">计算机组成原理</a>
 <label for="__nav_5_3">
@@ -418,6 +418,27 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="operating.html">
         运算器
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="memory.html">
+        存储器
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="instruction.html">
+        指令系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="cpu.html">
+        中央处理器（CPU）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="bus-and-io.html">
+        总线和输入输出系统
       </a>
 </li>
 </ul>
@@ -500,13 +521,28 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../computer-network/physical-layer.html">
+        物理层
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer-network/data-link-layer.html">
+        数据链路层
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../computer-network/network-layer.html">
         网络层
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../computer-network/physical-layer.html">
-        物理层
+<a class="md-nav__link" href="../computer-network/transportation-layer.html">
+        传输层
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer-network/application-layer.html">
+        应用层
       </a>
 </li>
 </ul>
@@ -568,15 +604,14 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="_1">指令系统<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
+<div class="admonition warning"></div>
 <p>本章节暂未完成，请查看其他内容。</p>
-</div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月10日 20:21:51</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月16日 09:58:44</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月10日 20:21:51</span>
@@ -591,6 +626,34 @@
           </a>
 </main>
 <footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 存储器" class="md-footer__link md-footer__link--prev" href="memory.html" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                上一页
+              </span>
+              存储器
+            </div>
+</div>
+</a>
+<a aria-label="下一页: 中央处理器（CPU）" class="md-footer__link md-footer__link--next" href="cpu.html" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                下一页
+              </span>
+              中央处理器（CPU）
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
