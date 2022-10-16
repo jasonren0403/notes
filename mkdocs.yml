@@ -46,6 +46,10 @@ nav:
   - '计算机组成原理':
     - '计组绪论': '408-helper/computer-structure/index.md'
     - '运算器': '408-helper/computer-structure/operating.md'
+    - '存储器': '408-helper/computer-structure/memory.md'
+    - '指令系统': '408-helper/computer-structure/instruction.md'
+    - '中央处理器（CPU）': '408-helper/computer-structure/cpu.md'
+    - '总线和输入输出系统': '408-helper/computer-structure/bus-and-io.md'
   - '数据结构':
     - '数据结构绪论': '408-helper/data-structure/index.md'
     - '线性表': '408-helper/data-structure/linear-list.md'
@@ -59,8 +63,11 @@ nav:
     - '排序': '408-helper/data-structure/sorting.md'
   - '计算机网络':
     - '计网绪论': '408-helper/computer-network/index.md'
-    - '网络层': '408-helper/computer-network/network-layer.md'
     - '物理层': '408-helper/computer-network/physical-layer.md'
+    - '数据链路层': '408-helper/computer-network/data-link-layer.md'
+    - '网络层': '408-helper/computer-network/network-layer.md'
+    - '传输层': '408-helper/computer-network/transportation-layer.md'
+    - '应用层': '408-helper/computer-network/application-layer.md'
   - '操作系统':
     - '操作系统绪论': '408-helper/operating-system/index.md'
     - '进程管理': '408-helper/operating-system/process.md'
