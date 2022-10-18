@@ -42,7 +42,7 @@ nav:
   - '社会工程学': 'net_security/socialengineering.md'
 - '408助手':
   - '408-helper/index.md'
-  - '408考试大纲（2020版）': '408-helper/what-does-408-test.md'
+  - '408考试大纲（2022版）': '408-helper/what-does-408-test.md'
   - '计算机组成原理':
     - '计组绪论': '408-helper/computer-structure/index.md'
     - '运算器': '408-helper/computer-structure/operating.md'
