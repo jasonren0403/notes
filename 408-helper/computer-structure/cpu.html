@@ -9,7 +9,7 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/computer-structure/cpu.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.1, mkdocs-material-8.5.6" name="generator"/>
+<meta content="mkdocs-1.4.1, mkdocs-material-8.5.7" name="generator"/>
 <title>中央处理器（CPU） - Jason的笔记小屋</title>
 <link href="../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
@@ -398,7 +398,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../what-does-408-test.html">
-        408考试大纲（2020版）
+        408考试大纲（2022版）
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
@@ -432,9 +432,346 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          中央处理器（CPU）
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="cpu.html">
         中央处理器（CPU）
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu_1">
+    CPU 的功能和基本结构
+  </a>
+<nav aria-label="CPU 的功能和基本结构" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu_2">
+    CPU的功能
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu_3">
+    CPU 的基本结构
+  </a>
+<nav aria-label="CPU 的基本结构" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    运算器
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    控制器
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    指令周期的数据流
+  </a>
+<nav aria-label="指令周期的数据流" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    指令周期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    指令周期流程
+  </a>
+<nav aria-label="指令周期流程" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    取指周期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    间址周期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    执行周期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    中断周期
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    指令执行方案
+  </a>
+<nav aria-label="指令执行方案" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    单指令周期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    多指令周期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    流水线方案
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    数据通路的功能和基本结构
+  </a>
+<nav aria-label="数据通路的功能和基本结构" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu_4">
+    CPU内部总线方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+    专用数据通路方式
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+    控制器的结构和功能
+  </a>
+<nav aria-label="控制器的结构和功能" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+    控制器的功能
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_18">
+    控制器的结构
+  </a>
+<nav aria-label="控制器的结构" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+    硬布线（组合逻辑电路+触发器实现）
+  </a>
+<nav aria-label="硬布线（组合逻辑电路+触发器实现）" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
+    设计步骤
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_21">
+    微程序
+  </a>
+<nav aria-label="微程序" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_22">
+    微程序控制器结构
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_23">
+    地址形成方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_24">
+    设计步骤
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_25">
+    指令流水线
+  </a>
+<nav aria-label="指令流水线" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_26">
+    顺序执行方式（串行执行方式）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_27">
+    一次重叠执行方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_28">
+    二次重叠执行方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_29">
+    流水线表示方法
+  </a>
+<nav aria-label="流水线表示方法" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_30">
+    指令执行过程图
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_31">
+    时空图
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_32">
+    性能指标
+  </a>
+<nav aria-label="性能指标" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_33">
+    吞吐率
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_34">
+    加速比
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_35">
+    效率
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_36">
+    影响流水线的因素
+  </a>
+<nav aria-label="影响流水线的因素" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_37">
+    结构相关（资源冲突）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_38">
+    数据相关（数据冲突）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_39">
+    控制相关（控制冲突）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_40">
+    流水线分类
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_41">
+    多发技术
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_42">
+    多处理器
+  </a>
+<nav aria-label="多处理器" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sisd">
+    SISD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#simd">
+    SIMD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mimd">
+    MIMD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_43">
+    向量处理器
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_44">
+    硬件多线程
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_45">
+    多核处理器
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_46">
+    共享内存多处理器
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="bus-and-io.html">
@@ -604,15 +941,583 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="cpu">中央处理器（CPU）<a class="headerlink" href="#cpu" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
-<p>本章节暂未完成，请查看其他内容。</p>
+<h2 id="cpu_1">CPU 的功能和基本结构<a class="headerlink" href="#cpu_1" title="Permanent link">¶</a></h2>
+<h3 id="cpu_2">CPU的功能<a class="headerlink" href="#cpu_2" title="Permanent link">¶</a></h3>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-cpu-basic-structure.png"><img alt="" src="asset-img/5-cpu-basic-structure.png"/></a></p>
+<figcaption>CPU的基本结构</figcaption>
+</figure>
+<dl>
+<dt>指令控制</dt>
+<dd>程序是一个指令序列，这些指令的相互顺序不能任意颠倒，必须严格按程序规定的顺序进行，因此，保证指令按顺序执行程序是CPU的首要任务。</dd>
+<dt>操作控制</dt>
+<dd>CPU管理并产生由内存取出的每条指令的操作信号，把各种操作信号送往相应的部件，从而控制这些部件按指令的要求进行动作。</dd>
+<dt>时间控制</dt>
+<dd>对各种操作实施时间上的定时。</dd>
+<dt>数据加工</dt>
+<dd>对数据进行算术运算和逻辑运算处理，是CPU的根本任务。</dd>
+<dt>中断处理</dt>
+<dd>由于接收到来自外围硬件（相对于中央处理器和内存）的异步信号或来自软件的同步信号，而进行相应的硬件／软件处理。发出这样的信号称为进行中断请求（interrupt request，IRQ）。</dd>
+</dl>
+<h3 id="cpu_3">CPU 的基本结构<a class="headerlink" href="#cpu_3" title="Permanent link">¶</a></h3>
+<h4 id="_1">运算器<a class="headerlink" href="#_1" title="Permanent link">¶</a></h4>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-arithmetic-structure.png"><img alt="运算器对数据进行加工" src="asset-img/5-arithmetic-structure.png"/></a></p>
+<figcaption>运算器对数据进行加工</figcaption>
+</figure>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">算术逻辑单元 ALU</label><label for="__tabbed_1_2">通用寄存器组</label><label for="__tabbed_1_3">暂存寄存器</label><label for="__tabbed_1_4">累加寄存器 ACC</label><label for="__tabbed_1_5">程序状态字寄存器 PSW</label><label for="__tabbed_1_6">移位器</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>用来执行算术运算和逻辑运算。</p>
 </div>
+<div class="tabbed-block">
+<p>用于存放操作数（源操作数、目的操作数和中间结果）和各种地址信息。</p>
+</div>
+<div class="tabbed-block">
+<p>用于暂存从主存读来的数据，防止破坏原有内容。</p>
+</div>
+<div class="tabbed-block">
+<p>用于暂存ALU运算的结果。</p>
+</div>
+<div class="tabbed-block">
+<p>保存由算术指令和逻辑指令运算或测试结果建立的各种条件代码。</p>
+</div>
+<div class="tabbed-block">
+<p>用于加速移位操作。</p>
+</div>
+</div>
+</input></input></input></input></input></input></div>
+<h4 id="_2">控制器<a class="headerlink" href="#_2" title="Permanent link">¶</a></h4>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-controller-structure.png"><img alt="控制器协调并控制计算机各部件执行程序的指令序列" src="asset-img/5-controller-structure.png"/></a></p>
+<figcaption>控制器协调并控制计算机各部件执行程序的指令序列</figcaption>
+</figure>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">程序计数器PC</label><label for="__tabbed_2_2">指令寄存器IR</label><label for="__tabbed_2_3">指令译码器ID</label><label for="__tabbed_2_4">微操作信号发生器</label><label for="__tabbed_2_5">时序系统</label><label for="__tabbed_2_6">存储器地址寄存器MAR</label><label for="__tabbed_2_7">存储器数据寄存器MDR</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>指出下一条指令在主存中的地址。</p>
+</div>
+<div class="tabbed-block">
+<p>保存当前正在执行的一条指令。</p>
+</div>
+<div class="tabbed-block">
+<p>对操作码字段进行译码。</p>
+</div>
+<div class="tabbed-block">
+<p>称为控制单元CU。</p>
+<blockquote>
+<p>微操作是指令可分解的最基本操作。</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p>产生一定的时序信号，保证机器的各个功能部件有节奏地进行信息传送，加工、信息储存。</p>
+</div>
+<div class="tabbed-block">
+<p>用来保存数据被传输到的位置的地址或者数据来源位置的地址。</p>
+</div>
+<div class="tabbed-block">
+<p>用来保存要被写入地址单元或者从地址单元读入的数据。</p>
+</div>
+</div>
+</input></input></input></input></input></input></input></div>
+<div class="admonition info">
+<p class="admonition-title">用户可见（可编程）的寄存器</p>
+<p>通用寄存器组、PSW、PC</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">用户不可见（不可编程）的寄存器</p>
+<p>MAR、MDR、IF、暂存寄存器</p>
+</div>
+<h2 id="_3">指令周期的数据流<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h3 id="_4">指令周期<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<ul>
+<li>CPU从主存种每取出并执行一条指令所需的全部时间，由若干个机器周期（CPU周期）表示，一个机器周期包含若干时钟周期（节拍/T周期/CPU时钟周期）<ul>
+<li>时钟周期是CPU操作的最基本单位。</li>
+<li>每个指令周期内机器周期数可以不等，每个机器周期内的节拍数也可以不等。</li>
+</ul>
+</li>
+<li>一条指令周期中：<ul>
+<li>空指令NOP包含：取指</li>
+<li>加法指令ADD、乘法指令MUL包含：取指、执行，其中乘法指令执行时间稍长</li>
+<li>间接寻址指令包含：取指、间址、执行</li>
+<li>带中断周期的指令包含：指令执行 + 中断部分</li>
+</ul>
+</li>
+</ul>
+<h3 id="_5">指令周期流程<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<pre class="mermaid"><code>graph LR
+A["取指周期"]--&gt;B{"间址？"}--&gt;|N|C["执行周期"]
+B--&gt;|Y|D["间址周期"]--&gt;C
+C--&gt;E{"中断？"}--&gt;|N|A
+E--&gt;|Y|F["中断周期"]--&gt;A
+F---G["保存程序端点"]
+C---H["取操作数"]
+D---I["取有效地址"]
+A---J["取指令"]</code></pre>
+<h4 id="_6">取指周期<a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
+<div class="admonition abstract">
+<p>根据PC中的内容取出指令代码并存放于IR中。</p>
+</div>
+<ol>
+<li>当前指令的地址送至存储器地址寄存器：<code>(PC)-&gt;MAR</code></li>
+<li>CU发出控制信号（读），经控制总线传到主存：<code>1-&gt;R</code></li>
+<li>将MAR所指主存内容经数据总线送入MDR：<code>M(MAR)-&gt;MDR</code></li>
+<li>MDR中的内容（指令）送入IR：<code>(MDR)-&gt;IR</code></li>
+<li>CU发出控制信号，形成下一条指令地址：<code>(PC)+1-&gt;PC</code></li>
+</ol>
+<h4 id="_7">间址周期<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
+<div class="admonition abstract">
+<p>根据IR中指令地址码取得操作数有效地址。</p>
+</div>
+<ol>
+<li>指令地址码送入MAR：<code>Ad(IR)-&gt;MAR</code> 或 <code>Ad(MDR)-&gt;MAR</code></li>
+<li>CU发出控制信号（读），经控制总线传到主存：<code>1-&gt;R</code></li>
+<li>将MAR所指主存内容经数据总线送入MDR：<code>M(MAR)-&gt;MDR</code></li>
+<li>
+<p>【可选】有效地址送入指令地址码字段：<code>MDR-&gt;Ad(IR)</code></p>
+<details class="question">
+<summary>为什么这一步可选？</summary>
+<p>下一步（执行周期）也可以从MDR中取得地址码。</p>
+</details>
+</li>
+</ol>
+<h4 id="_8">执行周期<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
+<div class="admonition abstract">
+<p>根据指令字的操作码和操作数进行相应的操作。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>执行周期的指令有很多种，无法使用统一的数据流图表示。</p>
+</div>
+<h4 id="_9">中断周期<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
+<div class="admonition abstract">
+<p>保存断点，送中断向量，处理中断请求。</p>
+</div>
+<ol>
+<li>CU控制SP地址减1，修改后的地址送入MAR：<code>(SP)-1-&gt;SP,(SP)-&gt;MAR</code> 或 <code>断点地址-&gt;MAR</code></li>
+<li>CU发出控制信号，启动主存写操作：<code>1-&gt;W</code></li>
+<li>断点送入MDR：<code>(PC)-&gt;MDR</code></li>
+<li>CU控制将中断服务程序入口地址送入PC：<code>向量地址-&gt;PC</code></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">tip</p>
+<p>前三步主要进行了断点的保存。</p>
+</div>
+<h3 id="_10">指令执行方案<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<h4 id="_11">单指令周期<a class="headerlink" href="#_11" title="Permanent link">¶</a></h4>
+<p>对所有指令选用相同的执行时间完成，指令周期取决于执行时间最长指令的执行时间。</p>
+<ul>
+<li>串行执行，使用计数器实现</li>
+</ul>
+<h4 id="_12">多指令周期<a class="headerlink" href="#_12" title="Permanent link">¶</a></h4>
+<p>对不同指令选用不同的执行时间完成。</p>
+<ul>
+<li>串行执行，但需要更复杂的硬件设计。</li>
+</ul>
+<h4 id="_13">流水线方案<a class="headerlink" href="#_13" title="Permanent link">¶</a></h4>
+<p>在每一个时钟周期启动一条指令，尽量让多条指令同时运行，但各自处于不同的运行步骤中。</p>
+<ul>
+<li>指令之间并行执行。</li>
+</ul>
+<h2 id="_14">数据通路的功能和基本结构<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
+<h3 id="cpu_4">CPU内部总线方式<a class="headerlink" href="#cpu_4" title="Permanent link">¶</a></h3>
+<p>CPU内部共同通路，同一台计算机系统的各部件共享，可以存在一条或多条。</p>
+<ul>
+<li>寄存器之间数据传送
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>(PC)-&gt;MAR
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>(PC)-&gt;Bus  PCout有效
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>Bus-&gt;MAR   MARin有效
+</code></pre></div></li>
+<li>主存与CPU之间的数据传送
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>读指令：
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>1. (PC)-&gt;Bus-&gt;MAR
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>   PCout, MARin 有效
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>2，1-&gt;R
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>   CU 发出读命令
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>3. MEM(MAR)-&gt;MDR
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>   MDRin 有效
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>4. (MDR)-&gt;Bus-&gt;IR
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>   MDRout, IRin 有效
+</code></pre></div></li>
+<li>执行算术或逻辑运算
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>加法指令
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>1. AD(IR)-&gt;Bus-&gt;MAR
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>   ADout, MARin 有效 / ADIRout, MARin 有效
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>2. 1-&gt;R 读命令
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>3. MEM(MAR)-&gt;Bus-&gt;MDR
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>   MDRin 有效
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>4. (MDR)-&gt;Bus-&gt;Y
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>   MDRout, Yin 有效，操作数 -&gt; Y
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>5. (ACC)+(Y)-&gt;Z
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>   ACCout 和 Yin 有效，操作数 -&gt; Z，CU 向 ALU 发送加命令
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>6， Z(-&gt;Bus-&gt;)ACC
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>   Zout, ACCin 有效，结果 -&gt; ACC
+</code></pre></div></li>
+</ul>
+<h3 id="_15">专用数据通路方式<a class="headerlink" href="#_15" title="Permanent link">¶</a></h3>
+<p>各部件之间有一条直接通路，由控制信号控制。根据运行时数据和地址流动方向安排线路。</p>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-datapath.png"><img alt="" src="asset-img/5-datapath.png"/></a></p>
+<figcaption>注意，图中的小圆点是三态门</figcaption>
+</figure>
+<h2 id="_16">控制器的结构和功能<a class="headerlink" href="#_16" title="Permanent link">¶</a></h2>
+<h3 id="_17">控制器的功能<a class="headerlink" href="#_17" title="Permanent link">¶</a></h3>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-controller-io.png"><img alt="" src="asset-img/5-controller-io.png"/></a></p>
+<figcaption>控制器的输入和输出</figcaption>
+</figure>
+<ul>
+<li>取指和指示下一条指令在主存的位置</li>
+<li>对指令进行译码或测试，产生相应信号</li>
+<li>指挥并控制CPU、主存、输入输出设备之间的数据流动方向</li>
+</ul>
+<h3 id="_18">控制器的结构<a class="headerlink" href="#_18" title="Permanent link">¶</a></h3>
+<h4 id="_19">硬布线（组合逻辑电路+触发器实现）<a class="headerlink" href="#_19" title="Permanent link">¶</a></h4>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-cu-yingbuxian.png"><img alt="" src="asset-img/5-cu-yingbuxian.png"/></a></p>
+<figcaption>硬布线结构简图</figcaption>
+</figure>
+<h5 id="_20">设计步骤<a class="headerlink" href="#_20" title="Permanent link">¶</a></h5>
+<ol>
+<li>分析每个操作的微操作序列</li>
+<li>选择CPU控制方式<ul>
+<li>同步控制方式：来自统一的时钟信号，控制电路简单，运行慢</li>
+<li>异步控制方式：不存在基准时标信号，应答联络方式，控制电路复杂，运行快</li>
+<li>联合控制方式：大部分同步，小部分异步</li>
+</ul>
+</li>
+<li>安排微操作时序<ul>
+<li>安排原则<ol>
+<li>微操作的先后顺序不更改</li>
+<li>被控对象不同的微操作，尽量安排在同一节拍完成</li>
+<li>占用时间较短的微操作，尽量安排在同一节拍完成，可以有先后顺序</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>电路设计<ul>
+<li>列出操作时间表</li>
+<li>写出微操作命令的最简表达式</li>
+<li>画出逻辑图</li>
+</ul>
+</li>
+</ol>
+<h4 id="_21">微程序<a class="headerlink" href="#_21" title="Permanent link">¶</a></h4>
+<p>事先将微操作控制信号存储在专门的存储器（控制存储器）中，将每一条机器指令编写成一个微程序。</p>
+<ul>
+<li>微命令是直接作用于部件或控制门电路的控制命令，是构成控制信号序列的最小单位。</li>
+<li>微操作是微命令的执行过程，微程序是一系列微指令的有序集合。</li>
+<li>从控制存储器中读取一条微指令并执行相应的微操作所需的时间称为微周期。在微程序控制的机器中，微周期是它的主要时序信号。通常一个时钟周期为一个微周期。</li>
+<li>存放微程序的存储器是控制存储器CM。也称为微程序存储器。</li>
+<li>互斥性微命令编码为不同命令，相容性微命令编码为相同命令。</li>
+</ul>
+<h5 id="_22">微程序控制器结构<a class="headerlink" href="#_22" title="Permanent link">¶</a></h5>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-micro-controller.png"><img alt="" src="asset-img/5-micro-controller.png"/></a></p>
+<figcaption>微程序控制器结构</figcaption>
+</figure>
+<p>微指令格式</p>
+<dl>
+<dt>水平型</dt>
+<dd>一次能定义并执行多个并行操作，组成为微操作码和微地址码</dd>
+<dt>垂直型</dt>
+<dd>由微操作码字段规定微指令功能，组成为微操作码、目的地址和源地址</dd>
+</dl>
+<p>混合型：水平型+垂直型</p>
+<div class="admonition info">
+<p class="admonition-title">两种微指令对比</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">微指令</th>
+<th align="center">微程序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">水平型</td>
+<td align="center">长，编写麻烦</td>
+<td align="center">短，执行快</td>
+</tr>
+<tr>
+<td align="left">垂直型</td>
+<td align="center">短，便于编写</td>
+<td align="center">长，执行慢</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>编码方式</p>
+<div class="admonition tip">
+<p class="admonition-title">目标</p>
+<p>保证速度，缩短字长</p>
+</div>
+<dl>
+<dt>直接编码</dt>
+<dd>每一位代表一个微操作命令，某位为 <code>1</code> 表示控制信号有效。执行快，并行性好，但是字长过长。</dd>
+<dt>字段直接编码</dt>
+<dd>
+<p>将微指令操作控制字段划分为若干个子字段，每个子字段内的所有微命令进行统一编码。</p>
+<div class="admonition info">
+<p class="admonition-title">划分原则</p>
+<ul>
+<li>互斥微命令划分在同一字段，相容微命令划分在不同字段。</li>
+<li>留一个编码状态（如<code>000</code>）代表不进行操作。</li>
+<li>每个子字段定义的微命令不要太多。</li>
+</ul>
+</div>
+</dd>
+<dt>字段间接编码</dt>
+<dd>某些微命令由另一个字段中某些微命令解释。进一步缩短了指令字长，但是并行性差。</dd>
+</dl>
+<h5 id="_23">地址形成方式<a class="headerlink" href="#_23" title="Permanent link">¶</a></h5>
+<ol>
+<li>下地址字段指出（断定方式）</li>
+<li>机器指令操作码字段</li>
+<li>增量计数器：<code>(CMAR)+1-&gt;CMAR</code></li>
+<li>分支转移</li>
+<li>测试网络</li>
+<li>由硬件产生入口地址</li>
+</ol>
+<h5 id="_24">设计步骤<a class="headerlink" href="#_24" title="Permanent link">¶</a></h5>
+<ol>
+<li>分析每个操作的微操作序列</li>
+<li>
+<p>写出微操作指令和节拍安排</p>
+<div class="admonition tip">
+<p>在已有指令基础上，需要补充的微操作指令有</p>
+<ul>
+<li>取指阶段：<code>Ad(CMDR)-&gt;CMAR;OP(IR)-&gt;CMAR</code></li>
+<li>执行阶段：<code>Ad(CMDR)-&gt;CMAR</code></li>
+</ul>
+</div>
+</li>
+<li>
+<p>确定微指令格式</p>
+</li>
+<li>编写微指令码点</li>
+</ol>
+<h2 id="_25">指令流水线<a class="headerlink" href="#_25" title="Permanent link">¶</a></h2>
+<p>一条指令的执行过程可以分为多个阶段（或过程），根据计算机的不同，分法也不同。</p>
+<p>一般分为取指、分析、执行三步</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">取指</label><label for="__tabbed_3_2">分析</label><label for="__tabbed_3_3">执行</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>根据PC内容访问主存储器，取出一条指令送到IR中。</p>
+</div>
+<div class="tabbed-block">
+<p>对指令操作码进行译码，按照给定寻址方式和地址字段中的内容形成操作数的有效地址EA，并从有效地址EA中取出操作数。</p>
+</div>
+<div class="tabbed-block">
+<p>根据操作码字段，完成指令规定的功能，即把运算结果写到通用寄存器或主存中。</p>
+</div>
+</div>
+</input></div>
+<div class="admonition info">
+<p class="admonition-title">提示</p>
+<p>也可以把每条指令的执行过程分为4个或5个阶段，分成5个阶段也是常见的做法。</p>
+</div>
+<p>以下设取指、分析、执行3个阶段的时间相等，用t表示，按以下几种执行方式分析n条指令的执行时间。</p>
+<h3 id="_26">顺序执行方式（串行执行方式）<a class="headerlink" href="#_26" title="Permanent link">¶</a></h3>
+<p>传统冯·诺伊曼机采用顺序执行方式，又称串行执行方式。总耗时 <span class="arithmatex">\(T=n\times 3t=3nt\)</span></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-instruction-ex-1.png"><img alt="" src="asset-img/5-instruction-ex-1.png"/></a></p>
+<div class="admonition success">
+<p>控制简单，硬件代价小</p>
+</div>
+<div class="admonition failure">
+<p>执行指令速度慢，各部件利用率低</p>
+</div>
+<h3 id="_27">一次重叠执行方式<a class="headerlink" href="#_27" title="Permanent link">¶</a></h3>
+<p>总耗时 <span class="arithmatex">\(T=3t+(n-1)\times 2t=(2n+1)t\)</span></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-instruction-ex-2.png"><img alt="" src="asset-img/5-instruction-ex-2.png"/></a></p>
+<div class="admonition success">
+<p>程序的执行时间缩短了，各功能部件的利用率明细提高</p>
+</div>
+<div class="admonition failure">
+<p>硬件开销较大，且控制过程也变得复杂</p>
+</div>
+<h3 id="_28">二次重叠执行方式<a class="headerlink" href="#_28" title="Permanent link">¶</a></h3>
+<p>这是一种理想的指令执行方式，处理机中同时有3条指令在执行。总耗时 <span class="arithmatex">\(T=3t+(n-1)\times t=(2+n)t\)</span></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-instruction-ex-3.png"><img alt="" src="asset-img/5-instruction-ex-3.png"/></a></p>
+<h3 id="_29">流水线表示方法<a class="headerlink" href="#_29" title="Permanent link">¶</a></h3>
+<h4 id="_30">指令执行过程图<a class="headerlink" href="#_30" title="Permanent link">¶</a></h4>
+<p>主要用于分析指令执行过程以及影响流水线的因素。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-flow-1.png"><img alt="" src="asset-img/5-flow-1.png"/></a></p>
+<h4 id="_31">时空图<a class="headerlink" href="#_31" title="Permanent link">¶</a></h4>
+<p>主要用于分析流水线的性能。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-flow-2.png"><img alt="" src="asset-img/5-flow-2.png"/></a></p>
+<div class="admonition abstract">
+<p class="admonition-title">什么是空间</p>
+<p>不同阶段所对应的不同的硬件资源</p>
+</div>
+<h3 id="_32">性能指标<a class="headerlink" href="#_32" title="Permanent link">¶</a></h3>
+<p>理想情况下，流水线时空图如下：
+<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-flow.png"><img alt="" src="asset-img/5-flow.png"/></a></p>
+<h4 id="_33">吞吐率<a class="headerlink" href="#_33" title="Permanent link">¶</a></h4>
+<p>吞吐率是在单位时间内流水线所完成的任务数量，即单位时间内流水线所完成的指令条数。</p>
+<p>设任务数为n，处理完成n个任务所用的时间为 <span class="arithmatex">\(T_k\)</span>，则计算流水线吞吐率（TP）最基本的公式为</p>
+<div class="arithmatex">\[
+TP=\dfrac{n}{T_k}
+\]</div>
+<p><span class="arithmatex">\(T_k=(k+n-1)\Delta t\)</span>，实际吞吐率为 <span class="arithmatex">\(TP=\dfrac{n}{(k+n-1)\Delta t}\)</span>。当连续输入的任务 <span class="arithmatex">\(n\to \infty\)</span> 时，最大吞吐率 <span class="arithmatex">\(TP_{max}=\dfrac{1}{\delta t}\)</span></p>
+<p>一条指令执行分为k个阶段，每个阶段耗时 <span class="arithmatex">\(\Delta t\)</span>，一般取 <span class="arithmatex">\(\Delta t\)</span> 为一个时钟周期</p>
+<h4 id="_34">加速比<a class="headerlink" href="#_34" title="Permanent link">¶</a></h4>
+<p>完成同样一批任务，<strong>不使用流水线所用时间</strong> 与 <strong>使用流水线所用时间</strong> 之比。</p>
+<p>设 <span class="arithmatex">\(T_0\)</span> 表示不使用流水线时的执行时间，<span class="arithmatex">\(T_k\)</span> 表示使用流水线时的执行时间，则计算流水线加速比S的基本公式为</p>
+<div class="arithmatex">\[
+S=\dfrac{T_0}{T_k}
+\]</div>
+<p>单独完成一个任务耗时为 <span class="arithmatex">\(k\Delta t\)</span>，则顺序完成n个任务耗时 <span class="arithmatex">\(T_0=nk\Delta t\)</span>，实际加速比为 <span class="arithmatex">\(S=\dfrac{kn\Delta t}{(k+n-1)\Delta t}=\dfrac{kn}{k+n-1}\)</span>。</p>
+<p>当连续输入的任务 <span class="arithmatex">\(n\to \infty\)</span> 时，最大加速比为 <span class="arithmatex">\(S_{max}=k\)</span></p>
+<h4 id="_35">效率<a class="headerlink" href="#_35" title="Permanent link">¶</a></h4>
+<p>流水线的设备利用率称为流水线的效率。在时空图上，定义为 <strong>完成n个任务占用的时空区有效面积</strong> 与 <strong>n个任务所用的时间与k个流水段所围成的时空区总面积</strong> 之比。一般公式为</p>
+<div class="arithmatex">\[
+E=\dfrac{T_0}{kT_k}
+\]</div>
+<p>当连续输入的任务 <span class="arithmatex">\(n\to \infty\)</span> 时，最高效率 <span class="arithmatex">\(E_{max}=1\)</span></p>
+<h3 id="_36">影响流水线的因素<a class="headerlink" href="#_36" title="Permanent link">¶</a></h3>
+<h4 id="_37">结构相关（资源冲突）<a class="headerlink" href="#_37" title="Permanent link">¶</a></h4>
+<p>多条指令在同一时刻争用同一资源。</p>
+<div class="admonition success">
+<p class="admonition-title">解决方案</p>
+<ul>
+<li>后一相关指令暂停一周期</li>
+<li>资源重复配置</li>
+</ul>
+</div>
+<h4 id="_38">数据相关（数据冲突）<a class="headerlink" href="#_38" title="Permanent link">¶</a></h4>
+<p>在一个程序中，存在必须等待前一条指令执行完才能执行后一条指令的情况。</p>
+<div class="admonition success">
+<p class="admonition-title">解决方案</p>
+<ul>
+<li>相关指令及其后续暂停一至几个周期（硬件阻塞stall或软件插入NOP）</li>
+<li>数据旁路技术</li>
+<li>编译优化</li>
+</ul>
+</div>
+<p>类型：RAW、WAR、WAW</p>
+<h4 id="_39">控制相关（控制冲突）<a class="headerlink" href="#_39" title="Permanent link">¶</a></h4>
+<p>同时遇到转移指令和其他改变PC值的指令。</p>
+<div class="admonition success">
+<p class="admonition-title">解决方案</p>
+<ul>
+<li>尽早判别转移</li>
+<li>预取两个方向上的目标指令</li>
+<li>提高目标方向的猜准率</li>
+</ul>
+</div>
+<h3 id="_40">流水线分类<a class="headerlink" href="#_40" title="Permanent link">¶</a></h3>
+<ol>
+<li>流水线使用级别：部件功能级、处理机级和处理机间级流水线<ul>
+<li>部件功能级：将复杂算术逻辑组成流水线工作方式</li>
+<li>处理机级：把一条指令解释过程分成多个子过程</li>
+<li>处理机间级：宏流水，每一个处理机完成某一专门任务，各个处理机所得到的结果需存放在与下一个处理机所共享的存储器中</li>
+</ul>
+</li>
+<li>流水线可以完成的功能：单功能流水线和多功能流水线<ul>
+<li>单功能流水线：只能完成一种固定的专门功能的流水线</li>
+<li>多功能流水线：通过各段间不同的连接方式能完成多种功能的流水线</li>
+</ul>
+</li>
+<li>同一时间内各段之间连接的方式：动态流水线和静态流水线<ul>
+<li>静态流水线：在同一时间内，流水线的各段只能按照同一种功能的连接方式工作</li>
+<li>动态流水线：在同一时间内，当某些段正在实现某种运算时，另一些段正在进行另一种运算</li>
+</ul>
+</li>
+<li>各个功能段之间是否有反馈信号：线性流水线和非线性流水线<ul>
+<li>线性流水线：从输入到输出，每个功能段只经过一次，不存在反馈回路</li>
+<li>非线性流水线：从输入到输出，某些功能段将数次通过流水线，存在反馈回路，适合递归运算</li>
+</ul>
+</li>
+</ol>
+<h3 id="_41">多发技术<a class="headerlink" href="#_41" title="Permanent link">¶</a></h3>
+<ol>
+<li>超标量技术<ul>
+<li>每个时钟周期内并发多条独立指令</li>
+<li>不能调整指令的执行顺序</li>
+</ul>
+</li>
+<li>超流水技术<ul>
+<li>一个时钟周期内再分段，一个功能部件使用多次</li>
+<li>不能调整指令的执行顺序</li>
+</ul>
+</li>
+<li>超长指令字<ul>
+<li>将多条能并行操作的指令组合成一条</li>
+</ul>
+</li>
+</ol>
+<h2 id="_42">多处理器<a class="headerlink" href="#_42" title="Permanent link">¶</a></h2>
+<h3 id="sisd">SISD<a class="headerlink" href="#sisd" title="Permanent link">¶</a></h3>
+<ul>
+<li>单指令流：CPU同一时间段内只能处理一个指令序列</li>
+<li>单数据流：每一条指令只能处理特定的一两个数据</li>
+</ul>
+<h3 id="simd">SIMD<a class="headerlink" href="#simd" title="Permanent link">¶</a></h3>
+<ul>
+<li>单指令流：每一个时刻同样只能执行一条指令</li>
+<li>多数据流：一条指令的执行可以同时处理很多个具有相同特征的数据，对这些数据的处理都是相同的</li>
+</ul>
+<h3 id="mimd">MIMD<a class="headerlink" href="#mimd" title="Permanent link">¶</a></h3>
+<ul>
+<li>多指令流：每个处理器都有自己的指令流</li>
+<li>多数据流：一条指令的执行可以同时处理很多个具有相同特征的数据，对这些数据的处理都是相同的</li>
+<li>可以组成共享存储多处理器SMP系统或多计算机系统（分布式计算系统）</li>
+</ul>
+<h3 id="_43">向量处理器<a class="headerlink" href="#_43" title="Permanent link">¶</a></h3>
+<p>是面向向量型并行计算，以流水线结构为主的并行处理计算机系统</p>
+<h3 id="_44">硬件多线程<a class="headerlink" href="#_44" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">细粒度多线程</th>
+<th align="center">粗粒度多线程</th>
+<th align="center">同时多线程SMT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">指令发射</td>
+<td align="center">轮流发射</td>
+<td align="center">连续几个时钟周期，都发射同一线程的指令序列，流水线阻塞时，切换另一个线程</td>
+<td align="center">一个时钟周期内，同时发射多个线程的指令</td>
+</tr>
+<tr>
+<td align="left">线程切换频率</td>
+<td align="center">每个时钟周期切换一次</td>
+<td align="center">流水线阻塞时切换一次</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">线程切换代价</td>
+<td align="center">低</td>
+<td align="center">高，需要重载</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">并行性</td>
+<td align="center">指令级并行，线程间不并行</td>
+<td align="center">指令级并行，线程间不并行</td>
+<td align="center">指令级并行，线程级并行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_45">多核处理器<a class="headerlink" href="#_45" title="Permanent link">¶</a></h3>
+<p>多个处理单元集成到单个CPU中，每个处理单元称为一个核（core）</p>
+<ul>
+<li>可共用/不共用cache</li>
+<li>线程（多进程）执行，真正的多线程</li>
+</ul>
+<h3 id="_46">共享内存多处理器<a class="headerlink" href="#_46" title="Permanent link">¶</a></h3>
+<p>具有共享的单一物理地址空间的多处理器</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月16日 09:58:44</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月2日 00:21:56</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月16日 09:58:44</span>
@@ -715,8 +1620,8 @@
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
