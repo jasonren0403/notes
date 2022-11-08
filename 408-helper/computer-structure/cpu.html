@@ -9,10 +9,10 @@
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/computer-structure/cpu.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.1, mkdocs-material-8.5.7" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.9" name="generator"/>
 <title>中央处理器（CPU） - Jason的笔记小屋</title>
 <link href="../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -39,7 +39,7 @@
             
                 .gscrollbar-fixer { padding-right: 15px; }
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
-<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -76,11 +76,11 @@
 </div>
 </div>
 <form class="md-header__option" data-md-component="palette">
-<input aria-label="切换至夜间模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<input aria-label="切换至夜间模式" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_2" hidden="" title="切换至夜间模式">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
 </label>
-<input aria-label="切换至白天模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<input aria-label="切换至白天模式" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_1" hidden="" title="切换至白天模式">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
 </label>
@@ -937,6 +937,10 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
+<nav class="md-tags">
+<a class="md-tag" href="../../tags.html#408">408考研复习</a>
+<a class="md-tag" href="../../tags.html#">计算机组成原理</a>
+</nav>
 <a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/edit/main/notes_dev/408-helper/computer-structure/cpu.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
@@ -944,7 +948,7 @@
 <h2 id="cpu_1">CPU 的功能和基本结构<a class="headerlink" href="#cpu_1" title="Permanent link">¶</a></h2>
 <h3 id="cpu_2">CPU的功能<a class="headerlink" href="#cpu_2" title="Permanent link">¶</a></h3>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-cpu-basic-structure.png"><img alt="" src="asset-img/5-cpu-basic-structure.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-cpu-basic-structure.png"><img alt="CPU的基本结构" src="asset-img/5-cpu-basic-structure.png"/></a></p>
 <figcaption>CPU的基本结构</figcaption>
 </figure>
 <dl>
@@ -1157,13 +1161,13 @@ A---J["取指令"]</code></pre>
 <h3 id="_15">专用数据通路方式<a class="headerlink" href="#_15" title="Permanent link">¶</a></h3>
 <p>各部件之间有一条直接通路，由控制信号控制。根据运行时数据和地址流动方向安排线路。</p>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-datapath.png"><img alt="" src="asset-img/5-datapath.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-datapath.png"><img alt="专用数据通路方式示意图" src="asset-img/5-datapath.png"/></a></p>
 <figcaption>注意，图中的小圆点是三态门</figcaption>
 </figure>
 <h2 id="_16">控制器的结构和功能<a class="headerlink" href="#_16" title="Permanent link">¶</a></h2>
 <h3 id="_17">控制器的功能<a class="headerlink" href="#_17" title="Permanent link">¶</a></h3>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-controller-io.png"><img alt="" src="asset-img/5-controller-io.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-controller-io.png"><img alt="控制器的输入和输出" src="asset-img/5-controller-io.png"/></a></p>
 <figcaption>控制器的输入和输出</figcaption>
 </figure>
 <ul>
@@ -1174,7 +1178,7 @@ A---J["取指令"]</code></pre>
 <h3 id="_18">控制器的结构<a class="headerlink" href="#_18" title="Permanent link">¶</a></h3>
 <h4 id="_19">硬布线（组合逻辑电路+触发器实现）<a class="headerlink" href="#_19" title="Permanent link">¶</a></h4>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-cu-yingbuxian.png"><img alt="" src="asset-img/5-cu-yingbuxian.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-cu-yingbuxian.png"><img alt="硬布线结构" src="asset-img/5-cu-yingbuxian.png"/></a></p>
 <figcaption>硬布线结构简图</figcaption>
 </figure>
 <h5 id="_20">设计步骤<a class="headerlink" href="#_20" title="Permanent link">¶</a></h5>
@@ -1213,7 +1217,7 @@ A---J["取指令"]</code></pre>
 </ul>
 <h5 id="_22">微程序控制器结构<a class="headerlink" href="#_22" title="Permanent link">¶</a></h5>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-micro-controller.png"><img alt="" src="asset-img/5-micro-controller.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/5-micro-controller.png"><img alt="微程序控制器结构" src="asset-img/5-micro-controller.png"/></a></p>
 <figcaption>微程序控制器结构</figcaption>
 </figure>
 <p>微指令格式</p>
@@ -1517,7 +1521,7 @@ E=\dfrac{T_0}{kT_k}
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月2日 00:21:56</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月8日 23:26:00</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月16日 09:58:44</span>
@@ -1621,7 +1625,7 @@ E=\dfrac{T_0}{kT_k}
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
