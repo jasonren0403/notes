@@ -1,10 +1,16 @@
+---
+tags:
+  - 408考研复习
+  - 计算机组成原理
+---
+
 中央处理器（CPU）
 ===
 
 ## CPU 的功能和基本结构
 ### CPU的功能
 <figure markdown>
-![](asset-img/5-cpu-basic-structure.png)
+![CPU的基本结构](asset-img/5-cpu-basic-structure.png)
 <figcaption>CPU的基本结构</figcaption>
 </figure>
 
@@ -197,14 +203,14 @@ CPU内部共同通路，同一台计算机系统的各部件共享，可以存�
 各部件之间有一条直接通路，由控制信号控制。根据运行时数据和地址流动方向安排线路。
 
 <figure markdown>
-![](asset-img/5-datapath.png)
+![专用数据通路方式示意图](asset-img/5-datapath.png)
 <figcaption>注意，图中的小圆点是三态门</figcaption>
 </figure>
 
 ## 控制器的结构和功能
 ### 控制器的功能
 <figure markdown>
-![](asset-img/5-controller-io.png)
+![控制器的输入和输出](asset-img/5-controller-io.png)
 <figcaption>控制器的输入和输出</figcaption>
 </figure>
 
@@ -214,7 +220,7 @@ CPU内部共同通路，同一台计算机系统的各部件共享，可以存�
 ### 控制器的结构
 #### 硬布线（组合逻辑电路+触发器实现）
 <figure markdown>
-![](asset-img/5-cu-yingbuxian.png)
+![硬布线结构](asset-img/5-cu-yingbuxian.png)
 <figcaption>硬布线结构简图</figcaption>
 </figure>
 
@@ -243,7 +249,7 @@ CPU内部共同通路，同一台计算机系统的各部件共享，可以存�
 * 互斥性微命令编码为不同命令，相容性微命令编码为相同命令。
 ##### 微程序控制器结构
 <figure markdown>
-![](asset-img/5-micro-controller.png)
+![微程序控制器结构](asset-img/5-micro-controller.png)
 <figcaption>微程序控制器结构</figcaption>
 </figure>
 
@@ -455,12 +461,12 @@ $$
 ### 向量处理器
 是面向向量型并行计算，以流水线结构为主的并行处理计算机系统
 ### 硬件多线程
-||细粒度多线程|粗粒度多线程|同时多线程SMT|
-|:--|:--:|:--:|:--:|
-|指令发射|轮流发射|连续几个时钟周期，都发射同一线程的指令序列，流水线阻塞时，切换另一个线程|一个时钟周期内，同时发射多个线程的指令|
+|     |细粒度多线程|粗粒度多线程|       同时多线程SMT       |
+|:----|:--------:|:-------:|:--------------------:|
+|指令发射|轮流发射|连续几个时钟周期，都发射同一线程的指令序列，流水线阻塞时，切换另一个线程| 一个时钟周期内，同时发射多个线程的指令  |
 |线程切换频率|每个时钟周期切换一次|流水线阻塞时切换一次||
 |线程切换代价|低|高，需要重载||
-|并行性|指令级并行，线程间不并行|指令级并行，线程间不并行|指令级并行，线程级并行|
+|并行性|指令级并行，线程间不并行|指令级并行，线程间不并行|     指令级并行，线程级并行      |
 
 ### 多核处理器
 多个处理单元集成到单个CPU中，每个处理单元称为一个核（core）
