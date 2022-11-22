@@ -45,7 +45,7 @@ nav:
   - '408考试大纲（2022版）': '408-helper/what-does-408-test.md'
   - '计算机组成原理':
     - '计组绪论': '408-helper/computer-structure/index.md'
-    - '运算器': '408-helper/computer-structure/operating.md'
+    - '数据的表示和运算': '408-helper/computer-structure/operating.md'
     - '存储器': '408-helper/computer-structure/memory.md'
     - '指令系统': '408-helper/computer-structure/instruction.md'
     - '中央处理器（CPU）': '408-helper/computer-structure/cpu.md'
