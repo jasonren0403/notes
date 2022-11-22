@@ -32,12 +32,15 @@
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/practice.png" name="twitter:image"/>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -488,7 +491,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../408-helper/computer-structure/operating.html">
-        运算器
+        数据的表示和运算
       </a>
 </li>
 <li class="md-nav__item">
@@ -733,7 +736,7 @@
 </ol>
 </li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_01.png"><img alt="瀑布模型" src="md-img/20191224_01.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191224_01.png"><img alt="瀑布模型" src="md-img/20191224_01.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <ul>
@@ -744,7 +747,7 @@
 <ul>
 <li>沿螺线自内向外每旋转一圈便开发出更为完善的一个新的软件版本</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_02.png"><img alt="螺旋模型" src="md-img/20191224_02.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191224_02.png"><img alt="螺旋模型" src="md-img/20191224_02.png"/></a></p>
 </div>
 </div>
 </input></input></input></div>
@@ -753,7 +756,7 @@
 <h3 id="_4">软件安全生命周期<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <ul>
 <li>SDL(Security Development Lifecycle，安全开发周期)
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_03.png"><img alt="SDL" src="md-img/20191224_03.png"/></a><ul>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191224_03.png"><img alt="SDL" src="md-img/20191224_03.png"/></a><ul>
 <li>微软提出</li>
 <li>适用于所有符合以下标准的软件：<ol>
 <li>广泛应用于企业、商业机构、政府部门或其他机构的软件；</li>
@@ -764,7 +767,7 @@
 </ul>
 </li>
 <li>Gary McGraw 软件安全过程
-  <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_04.png"><img alt="Gary McGraw" src="md-img/20191224_04.png"/></a></li>
+  <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191224_04.png"><img alt="Gary McGraw" src="md-img/20191224_04.png"/></a></li>
 </ul>
 <h2 id="_5">安全需求<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <h3 id="_6">安全编码标准<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
@@ -826,7 +829,7 @@ id7 --&gt; id8(排定需求的优先次序) --&gt; id9(需求审查)</code></pre
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_06.png"><img alt="" src="md-img/20191224_06.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191224_06.png"><img alt="" src="md-img/20191224_06.png"/></a></p>
 <h2 id="_9">安全设计<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <ul>
 <li>
@@ -892,7 +895,7 @@ id1(识别资产) --&gt; id2(创建蓝图) --&gt; id3(分解应用程序) --&gt;
 <p>有安全保证的C和C++</p>
 <ul>
 <li>CERT开发，开放源码的编译器
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191224_07.png"><img alt="open_source_compiler" src="md-img/20191224_07.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191224_07.png"><img alt="open_source_compiler" src="md-img/20191224_07.png"/></a></li>
 </ul>
 </li>
 <li>
@@ -1089,5 +1092,5 @@ id1(识别资产) --&gt; id2(创建蓝图) --&gt; id3(分解应用程序) --&gt;
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

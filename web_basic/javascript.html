@@ -32,12 +32,15 @@
 <meta content="https://note.jason0743.best/assets/images/social/web_basic/javascript.png" name="twitter:image"/>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -522,7 +525,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../408-helper/computer-structure/operating.html">
-        运算器
+        数据的表示和运算
       </a>
 </li>
 <li class="md-nav__item">
@@ -1607,14 +1610,14 @@ Java需要编译，而JavaScript可以直接解释运行。</p>
 <li>
 <p>不可以直接在定义末尾加入圆括号<code>()</code>来调用，会报错。
     <figure>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/11.29-1.png"><img alt="SyntaxError" src="md-img/11.29-1.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/11.29-1.png"><img alt="SyntaxError" src="md-img/11.29-1.png"/></a>
 <figcaption>报错如图所示</figcaption>
 </figure></p>
 <ul>
 <li>产生报错，与 JavaScript 的解析方式相关。JavaScript 引擎规定，如果<code>function</code>关键字出现在行首，一律解释成语句，此时这一段都是函数的定义，不应该以圆括号结尾，于是报错</li>
 <li>不要让<code>function</code>出现在行首，让引擎将其理解成一个表达式
     <figure>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/11.29-2.png"><img alt="就像这样" src="md-img/11.29-2.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/11.29-2.png"><img alt="就像这样" src="md-img/11.29-2.png"/></a>
 </figure></li>
 </ul>
 </li>
@@ -1755,12 +1758,12 @@ Java需要编译，而JavaScript可以直接解释运行。</p>
 <ul>
 <li>基本规则：操作数没有字符串，则非数值类型转为数值计算。操作数有字符串，则加法运算符变为连接运算符，任何非字符串操作数转为字符串类型</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/11.29-plus1.png"><img alt="" src="md-img/11.29-plus1.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/11.29-plus2.png"><img alt="" src="md-img/11.29-plus2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/11.29-plus1.png"><img alt="" src="md-img/11.29-plus1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/11.29-plus2.png"><img alt="" src="md-img/11.29-plus2.png"/></a></p>
 <ul>
 <li>加法运算符存在重载现象，在运行时决定，到底是执行相加还是执行连接</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/11.29-plus3.png"><img alt="" src="md-img/11.29-plus3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/11.29-plus3.png"><img alt="" src="md-img/11.29-plus3.png"/></a></p>
 <div class="admonition note">
 <p>这种机制仅加法具有</p>
 </div>
@@ -1873,7 +1876,7 @@ Java需要编译，而JavaScript可以直接解释运行。</p>
 <li>都是字符串，字典序比较<ul>
 <li>实际上比较的是Unicode码点大小
     <figure>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/11.29-str_compare.png"><img alt="" loading="lazy" src="md-img/11.29-str_compare.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/11.29-str_compare.png"><img alt="" loading="lazy" src="md-img/11.29-str_compare.png"/></a>
 <figcaption>一些比较结果，其中“大”的 Unicode 码点是22823，“小”是23567</figcaption>
 </figure></li>
 </ul>
@@ -1904,7 +1907,7 @@ Java需要编译，而JavaScript可以直接解释运行。</p>
 <li>如果第一个运算子的布尔值为<code>false</code>，则直接返回第一个运算子的值，且不再对第二个运算子求值（“短路”）</li>
 <li>多个连用的且运算符，返回第一个布尔值为<code>false</code> 的表达式的值。如果所有表达式的布尔值都为<code>true</code>，返回最后一个表达式的值</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/11.29-multi_and.png"><img alt="" src="md-img/11.29-multi_and.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/11.29-multi_and.png"><img alt="" src="md-img/11.29-multi_and.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <ul>
@@ -2714,5 +2717,5 @@ Java需要编译，而JavaScript可以直接解释运行。</p>
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

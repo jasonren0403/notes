@@ -32,12 +32,15 @@
 <meta content="https://note.jason0743.best/assets/images/social/net_security/defense.png" name="twitter:image"/>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -464,7 +467,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../408-helper/computer-structure/operating.html">
-        运算器
+        数据的表示和运算
       </a>
 </li>
 <li class="md-nav__item">
@@ -655,7 +658,7 @@
 <h1 id="_1">内生安全与拟态防御<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <h2 id="_2">拟态伪装<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/defense-1.png"><img alt="" src="md-img/defense-1.png" width="350"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/defense-1.png"><img alt="" src="md-img/defense-1.png" width="350"/></a></p>
 <figcaption>拟态括号单向联系机制</figcaption>
 </figure>
 <h3 id="_3">基础理论与原理<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
@@ -713,7 +716,7 @@
 <div class="tabbed-block">
 <p>非相似余度构造(Dissimilar Redundancy Structure, DRS)</p>
 <p><figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/defense-2.png"><img alt="" loading="lazy" src="md-img/defense-2.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/defense-2.png"><img alt="" loading="lazy" src="md-img/defense-2.png" width="300"/></a>
 <figcaption>DRS结构示意</figcaption>
 </figure></p>
 <ul>
@@ -723,14 +726,14 @@
 <div class="tabbed-block">
 <p>异构冗余体制称为动态异构冗余构造 (Dynamic Heterogeneous Redundancy,DHR)</p>
 <p><figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/defense-3.png"><img alt="" loading="lazy" src="md-img/defense-3.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/defense-3.png"><img alt="" loading="lazy" src="md-img/defense-3.png" width="300"/></a>
 <figcaption>DHR结构示意</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
 <p>输入代理和多模表决器也称为"拟态括号" (Mimic Bracket)</p>
 <p><figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/defense-4.png"><img alt="" loading="lazy" src="md-img/defense-4.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/defense-4.png"><img alt="" loading="lazy" src="md-img/defense-4.png" width="300"/></a>
 <figcaption>IPO模型</figcaption>
 </figure></p>
 <ul>
@@ -751,14 +754,14 @@
 </ul>
 <h2 id="web2">应用：基于拟态防御的Web服务器<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><a class="headerlink" href="#web2" title="Permanent link">¶</a></h2>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/defense-5.png"><img alt="" loading="lazy" src="md-img/defense-5.png" width="300"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/defense-5.png"><img alt="" loading="lazy" src="md-img/defense-5.png" width="300"/></a></p>
 <figcaption>拟态构造的Web服务器系统架构</figcaption>
 </figure>
 <ul>
 <li>基于 Web 服务器的层次结构，在物理操作系统层、虚拟化层、服务器软件层、应用脚本层和数据层实现拟态防御模型</li>
 </ul>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/defense-6.png"><img alt="" loading="lazy" src="md-img/defense-6.png" width="300"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/defense-6.png"><img alt="" loading="lazy" src="md-img/defense-6.png" width="300"/></a></p>
 </figure>
 <div class="footnote">
 <hr/>
@@ -888,5 +891,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

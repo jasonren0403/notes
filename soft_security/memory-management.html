@@ -32,12 +32,15 @@
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/memory-management.png" name="twitter:image"/>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -507,7 +510,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../408-helper/computer-structure/operating.html">
-        运算器
+        数据的表示和运算
       </a>
 </li>
 <li class="md-nav__item">
@@ -894,7 +897,7 @@
 </span></code></pre></div></li>
 <li>数据结构包含指向同一项的链接
     <figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_01.png"><img alt="pointer points the same structure" src="md-img/20191021_01.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_01.png"><img alt="pointer points the same structure" src="md-img/20191021_01.png"/></a>
 </figure><ul>
 <li>类似于<code>free(a-&gt;stru); free(b-&gt;stru);</code></li>
 </ul>
@@ -923,7 +926,7 @@
 </ol>
 <h3 id="dlmalloc">dlmalloc<a class="headerlink" href="#dlmalloc" title="Permanent link">¶</a></h3>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_02.png"><img alt="chunks" src="md-img/20191021_02.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_02.png"><img alt="chunks" src="md-img/20191021_02.png"/></a></p>
 <figcaption>dlmalloc是大部分Linux版本默认内存分配器</figcaption>
 </figure>
 <ul>
@@ -959,7 +962,7 @@
 </ul>
 </li>
 <li>空闲块被组织成筐
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_03.png"><img alt="chunks2" src="md-img/20191021_03.png"/></a><ul>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_03.png"><img alt="chunks2" src="md-img/20191021_03.png"/></a><ul>
 <li>由头索引</li>
 <li>筐中的块大约同样大小</li>
 <li>还有一个包含最近释放的块的筐作为缓存</li>
@@ -983,7 +986,7 @@
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="cp">}</span>
 </code></pre></div></p>
 <p><figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_04.png"><img alt="unlink示意" src="md-img/20191021_04.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_04.png"><img alt="unlink示意" src="md-img/20191021_04.png"/></a>
 <figcaption>unlink示意</figcaption>
 </figure></p>
 </li>
@@ -1107,8 +1110,8 @@
 <li>
 <p>bin structure</p>
 <p><figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_05.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_05.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_06.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_06.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_05.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_05.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_06.png"><img alt="bin structure" loading="lazy" src="md-img/20191021_06.png" width="300"/></a>
 <figcaption>一般筐结构</figcaption>
 </figure></p>
 <ul>
@@ -1127,7 +1130,7 @@
 <li>
 <p>利用困难：已释放的内存没有立即放入筐中，而是被缓存；双重释放块可能和其他块合并</p>
 <p><figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_07.png"><img alt="corrupted bin" loading="lazy" src="md-img/20191021_07.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_07.png"><img alt="corrupted bin" loading="lazy" src="md-img/20191021_07.png" width="300"/></a>
 <figcaption>损坏的筐结构</figcaption>
 </figure></p>
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">GOT_LOCATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mh">0x0804c98c</span><span class="p">;</span><span class="w"></span>
@@ -1230,7 +1233,7 @@
 <li>
 <p>边界标志
     <figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20191021_08.png"><img alt="块边界结构" src="md-img/20191021_08.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20191021_08.png"><img alt="块边界结构" src="md-img/20191021_08.png"/></a>
 <figcaption>块边界结构</figcaption>
 </figure></p>
 <ul>
@@ -1637,5 +1640,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

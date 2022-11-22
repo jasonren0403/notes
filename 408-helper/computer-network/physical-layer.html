@@ -32,12 +32,15 @@
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/computer-network/physical-layer.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -417,7 +420,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../computer-structure/operating.html">
-        运算器
+        数据的表示和运算
       </a>
 </li>
 <li class="md-nav__item">
@@ -826,7 +829,7 @@
 </dl>
 <h4 id="_4">三种通信方式<a class="headerlink" href="#_4" title="Permanent link">¶</a></h4>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/phylayer_communication_types.webp"><img alt="三种通信方式：单工、半双工、全双工" src="asset-img/phylayer_communication_types.webp"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/phylayer_communication_types.webp"><img alt="三种通信方式：单工、半双工、全双工" src="asset-img/phylayer_communication_types.webp"/></a></p>
 <figcaption>三种通信方式：单工、半双工、全双工</figcaption>
 </figure>
 <dl>
@@ -839,7 +842,7 @@
 </dl>
 <h4 id="_5">两种数据传输方式<a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/phylayer_transfer_type.png"><img alt="两种数据传输方式：串行传输、并行传输" src="asset-img/phylayer_transfer_type.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/phylayer_transfer_type.png"><img alt="两种数据传输方式：串行传输、并行传输" src="asset-img/phylayer_transfer_type.png"/></a></p>
 <figcaption>两种数据传输方式：串行传输、并行传输</figcaption>
 </figure>
 <dl>
@@ -899,7 +902,7 @@ dB（值）=10\log_{10}{(S/N)}
 </ol>
 <h3 id="_7">编码与调制<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/phylayer_communication_general.png"><img alt="两台计算机的数据通信过程" src="asset-img/phylayer_communication_general.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/phylayer_communication_general.png"><img alt="两台计算机的数据通信过程" src="asset-img/phylayer_communication_general.png"/></a></p>
 <figcaption>两台计算机的数据通信过程</figcaption>
 </figure>
 <div class="admonition quote">
@@ -973,7 +976,7 @@ dB（值）=10\log_{10}{(S/N)}
 <p class="admonition-title">什么是数据交换</p>
 <p>数据交换（Data Switching）是指在多个数据终端设备之间，为任意两个终端设备建立数据通信临时互连通路的过程。</p>
 <p><figure markdown="">
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/phylayer_data-switching.png"><img alt="电路交换、报文交换和分组交换的比较" src="asset-img/phylayer_data-switching.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/phylayer_data-switching.png"><img alt="电路交换、报文交换和分组交换的比较" src="asset-img/phylayer_data-switching.png"/></a>
 <figcaption>电路交换、报文交换和分组交换的比较</figcaption>
 </figure></p>
 </div>
@@ -1273,5 +1276,5 @@ dB（值）=10\log_{10}{(S/N)}
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../../assets/javascripts/doc_addins.js"></script>
 <script src="../../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

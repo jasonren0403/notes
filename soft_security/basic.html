@@ -32,12 +32,15 @@
 <meta content="https://note.jason0743.best/assets/images/social/soft_security/basic.png" name="twitter:image"/>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -464,7 +467,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../408-helper/computer-structure/operating.html">
-        运算器
+        数据的表示和运算
       </a>
 </li>
 <li class="md-nav__item">
@@ -654,7 +657,7 @@
 </a>
 <h1 id="_1">软件安全——软件基础<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <h2 id="_2">冯诺依曼体系<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20190916_00.png"><img alt="冯诺依曼体系" src="md-img/20190916_00.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20190916_00.png"><img alt="冯诺依曼体系" src="md-img/20190916_00.png"/></a></p>
 <pre class="mermaid"><code>graph LR
   A[Input]
   B[存储器]
@@ -723,7 +726,7 @@ id1(系统初始化 /etc/rc.d/rc.sysinit) --&gt; id2(启动服务 /etc/rc.d/rcX.
 <ul>
 <li>
 <p>存储体系示意图</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20190916_01.png"><img alt="存储体系" src="md-img/20190916_01.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20190916_01.png"><img alt="存储体系" src="md-img/20190916_01.png"/></a></p>
 <ul>
 <li>高速缓存：Data Cache、TLB(Translation Lookaside Buffer)</li>
 <li>内存：DRAM, SDRAM等</li>
@@ -877,7 +880,7 @@ A["系统栈栈顶为当前正在执行的main函数栈帧"]--&gt;B["为配合fu
 <ul>
 <li>EBP：基址指针寄存器(extended base pointer)，其内存放着一个指针，该指针永远指向系统栈最上面的一个栈帧的底部。</li>
 <li>ESP：栈指针寄存器(extended stack pointer)，其内存放着一个指针，该指针永远指向系统栈最上面的一个栈帧的栈顶。
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="md-img/20190916_02.png"><img alt="registers" src="md-img/20190916_02.png"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/20190916_02.png"><img alt="registers" src="md-img/20190916_02.png"/></a></li>
 <li>EIP：指令寄存器(Extended Instruction Pointer)，其内存放着一个指针，该指针永远指向一条等待执行的指令地址。</li>
 </ul>
 </li>
@@ -1096,5 +1099,5 @@ id1(参数入栈)--&gt; id2(返回地址入栈)--&gt; id3(代码区跳转) --&gt
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../assets/javascripts/doc_addins.js"></script>
 <script src="../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

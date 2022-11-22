@@ -10,7 +10,7 @@
 <link href="https://note.jason0743.best/408-helper/computer-structure/operating.html" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>运算器 - Jason的笔记小屋</title>
+<title>数据的表示和运算 - Jason的笔记小屋</title>
 <link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -19,7 +19,7 @@
 <link href="../../assets/stylesheets/ex.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <meta content="website" property="og:type"/>
-<meta content="运算器 - Jason的笔记小屋" property="og:title"/>
+<meta content="数据的表示和运算 - Jason的笔记小屋" property="og:title"/>
 <meta content="信息安全、前端相关笔记存放处" property="og:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/computer-structure/operating.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
@@ -27,17 +27,20 @@
 <meta content="630" property="og:image:height"/>
 <meta content="https://note.jason0743.best/408-helper/computer-structure/operating.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="运算器 - Jason的笔记小屋" name="twitter:title"/>
+<meta content="数据的表示和运算 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/computer-structure/operating.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -69,7 +72,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              运算器
+              数据的表示和运算
             
           </span>
 </div>
@@ -417,9 +420,288 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          数据的表示和运算
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="operating.html">
-        运算器
+        数据的表示和运算
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    数制与编码
+  </a>
+<nav aria-label="数制与编码" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    进位计数制及相互转换
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    真值和机器数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    字符和字符串
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    定点数的表示和运算
+  </a>
+<nav aria-label="定点数的表示和运算" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    定点数的表示
+  </a>
+<nav aria-label="定点数的表示" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    无符号数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    有符号数
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    定点数的运算
+  </a>
+<nav aria-label="定点数的运算" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    移位运算
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    符号扩展
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    加减运算
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    乘除运算
+  </a>
+<nav aria-label="乘除运算" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+    乘法
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+    除法
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+    溢出判断
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_18">
+    浮点数的表示和运算
+  </a>
+<nav aria-label="浮点数的表示和运算" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+    浮点数的表示
+  </a>
+<nav aria-label="浮点数的表示" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
+    规格化
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ieee-754">
+    IEEE 754标准
+  </a>
+<nav aria-label="IEEE 754标准" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_21">
+    表示范围
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_22">
+    特殊表示
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_23">
+    浮点数的加减运算
+  </a>
+<nav aria-label="浮点数的加减运算" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_24">
+    对阶
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_25">
+    尾数求和
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_26">
+    规格化
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_27">
+    舍入
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_28">
+    溢出判断
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_29">
+    运算方法和运算电路
+  </a>
+<nav aria-label="运算方法和运算电路" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alu">
+    基本运算部件(算术逻辑单元ALU)
+  </a>
+<nav aria-label="基本运算部件(算术逻辑单元ALU)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_30">
+    功能
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alu_1">
+    ALU的结构（抽象）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alu_2">
+    ALU的结构（实例）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_31">
+    一位全加器
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_32">
+    串行加法器
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_33">
+    并行加法器
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_34">
+    标志位生成
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_35">
+    加减运算
+  </a>
+<nav aria-label="加减运算" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#xy">
+    加法X+Y
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#x-y">
+    减法X-Y
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_36">
+    乘除运算
+  </a>
+<nav aria-label="乘除运算" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_37">
+    乘法
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_38">
+    除法
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="memory.html">
@@ -604,15 +886,783 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="_1">数据的表示与运算<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
-<p>本章节暂未完成，请查看其他内容。</p>
+<h2 id="_2">数制与编码<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h3 id="_3">进位计数制及相互转换<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<dl>
+<dt>基数</dt>
+<dd>每个数码位所用到的不同符号的个数，r进制的基数为r</dd>
+</dl>
+<div class="admonition info">
+<p class="admonition-title">常见进制使用的符号</p>
+<ul>
+<li>二进制：0、1（计算机的选择），用b（binary）表示</li>
+<li>八进制：0、1、2、3、4、5、6、7</li>
+<li>十进制：0、1、2、3、4、5、6、7、8、9，用D（decimal）表示</li>
+<li>十六进制：0、1、2、3、4、5、6、7、8、9、A、B、C、D、E、F，用H（hexadecimal）表示，也可以用0x作为前缀</li>
+</ul>
+<details class="qa">
+<summary>为什么计算机选择了二进制</summary>
+<ul>
+<li>可使用两个稳定状态的物理器件表示</li>
+<li>0、1正好对应逻辑假、真，方便实现逻辑运算</li>
+<li>可以很方便地使用逻辑门电路实现算术运算</li>
+</ul>
+</details>
 </div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">其他进制转十进制</label><label for="__tabbed_1_2">二进制与八进制、十六进制互转</label><label for="__tabbed_1_3">十进制转任意进制</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="arithmatex">\[
+\overline{K_nK_{n-1}\cdots K_2K_1K_0K_{-1}K_{-2}\cdots K_{-m}} =K_nr^n+K_{n-1}r^{n-1}+\cdots+K_2r^2+K_1r^1+K_0r^0+K_{-1}r^{-1}+K_{-2}r^{-2}+\cdots +K_{-m}r^{-m}
+\]</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">二进制转换为八进制、十六进制</label><label for="__tabbed_2_2">八进制、十六进制转换为二进制</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>在二进制转八进制时，3位一组，每组转换成对应的八进制符号
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>1111000010.01101   二进制
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>     ↓
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>001 111 000 010.011 010
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a> 1   7   0   2 . 3   2   八进制
+</code></pre></div></li>
+<li>在二进制转十六进制时，4位一组，每组转换成对应的十六进制符号
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>1111000010.01101   二进制
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>     ↓
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>0011 1100 0010.0110 1000
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>  3    C    2 . 6    8    十六进制
+</code></pre></div></li>
+</ul>
+<div class="admonition info">
+<p>小数点前在二进制最前面补0凑齐组，小数点后在最后面补0凑齐组</p>
+</div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>
+<p>在八进制转二进制时，每位八进制对应3位二进制
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>  1  7   2 . 3   2   八进制
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>     ↓
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>001 110 010.010 000   二进制
+</code></pre></div></p>
+</li>
+<li>
+<p>在十六进制转二进制时，每位十六进制对应4位二进制
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>  A    E   8    6  . 1  十六进制
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>   ↓
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>1010 1110 1000 0110.0001 二进制
+</code></pre></div></p>
+</li>
+</ul>
+</div>
+</div>
+</input></input></div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">整数</label><label for="__tabbed_3_2">小数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>除基取余法，将整数部分不断除以基数r，得到从低位到高位的余数
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>(75.3)10 整数部分为75
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>75 / 2 = 37 ... 1
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>37 / 2 = 18 ... 1
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>18 / 2 = 9  ... 0
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>9  / 2 = 4  ... 1
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>4  / 2 = 2  ... 0
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>2  / 2 = 1  ... 0
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>1  / 2 = 1  ... 1   ↑
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>(75)10=(1001011)2
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>乘基取整法，将小数部分不断乘以基数r，得到从高位到低位的余数
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>(75.3)10 整数部分为75
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>75 / 2 = 37 ... 1
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>37 / 2 = 18 ... 1
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>18 / 2 = 9  ... 0
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>9  / 2 = 4  ... 1
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>4  / 2 = 2  ... 0
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>2  / 2 = 1  ... 0
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>1  / 2 = 1  ... 1   ↑
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>(75)10=(1001011)2
+</code></pre></div></p>
+</div>
+</div>
+</input></input></div>
+</div>
+</div>
+</input></input></input></div>
+<h3 id="_4">真值和机器数<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<dl>
+<dt>真值</dt>
+<dd>符合人类习惯的数字，实际带正负号</dd>
+<dt>机器数</dt>
+<dd>数字实际存在机器里的形式，把正负号数字化了</dd>
+</dl>
+<h3 id="_5">字符和字符串<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<ul>
+<li>英文字符在计算机内的表示：ASCII码（8位）<ul>
+<li>可印刷字符：32~126，其余为控制、通信字符</li>
+<li>数字：48（0011 0000）~57（0011 1001）</li>
+<li>大写字母：65（0100 0001）~90（0101 1010）</li>
+<li>小写字母：97（0110 0001）~122（0111 1010）</li>
+<li>后四位恰好是8421码</li>
+</ul>
+</li>
+<li>中文字符在计算机内的表示<ul>
+<li>GB2312-80：汉字+各种符号共7445个</li>
+<li>GB18030-2005：变长字节编码，共收录汉字70244个</li>
+<li>区位码：94个区，每区94个位置</li>
+<li>国标码：区位码+<code>2020H</code>，防止信息交换时与“控制/通信字符”冲突</li>
+<li>汉字内码：国标码+<code>8080H</code>，防止信息交换时与ASCII码冲突</li>
+</ul>
+</li>
+<li>字符串的存储<ul>
+<li>按字节编址，<code>s="abc"</code> 的存储
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>+------+-------+-------+-------+--------+-------
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>|      |  61H  |  62H  |  63H  |   00H  |  ... 
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>+------+-------+-------+-------+--------+-------
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>           a        b      c        \0（字符串结束符）
+</code></pre></div></li>
+<li>
+<p>按字节编址，<code>s="abc啊"</code> 的存储</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">大端模式</label><label for="__tabbed_4_2">小端模式</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>数据的最高有效字节存放在低地址单元中。
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>+------+-------+-------+-------+-------+--------+--------+-------
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>|      |  61H  |  62H  |  63H  |   B0H |  A1H   |   00H  |  ... 
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>+------+-------+-------+-------+-------+--------+--------+-------
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>           a        b      c           啊            \0（字符串结束符）
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>将数据的最高有效字节存放在高地址单元中。
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>+------+------+-------+-------+-------+-------+--------+-------
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>|      | 61H  |  62H  |  63H  |   A1H |  B0H  |   00H  |  ...
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>+------+------+-------+-------+-------+-------+--------+-------
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>          a        b      c           啊            \0（字符串结束符）
+</code></pre></div></p>
+</div>
+</div>
+</input></input></div>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_6">定点数的表示和运算<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h3 id="_7">定点数的表示<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<h4 id="_8">无符号数<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
+<ul>
+<li>计算机通用寄存器的字长决定了计算机无符号位数的上限</li>
+<li>全部二进制位是数值位，没有符号位</li>
+<li>最小数字全0，最大数字全1</li>
+</ul>
+<h4 id="_9">有符号数<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
+<p>对有符号数而言，符号的“正”、“负”机器是无法识别的，但由于“正”、“负”恰好是两种截然不同的状态，如果用“0”表示“正”，用“1”表示负，这样符号也被数字化了，并且规定将它放在有效数字的前面，即组成了有符号数。</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>+----+-----------------+
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>| x0 |       x         |
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>+----+-----------------+
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a> 符号位     数值位
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><input id="__tabbed_5_3" name="__tabbed_5" type="radio"><input id="__tabbed_5_4" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">原码</label><label for="__tabbed_5_2">反码</label><label for="__tabbed_5_3">补码</label><label for="__tabbed_5_4">移码</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>符号位为0表示整数，符号位为1表示负数，数值位即真值的绝对值。</li>
+<li>更便于人类理解</li>
+</ul>
+<div class="admonition info">
+<p>原码存在+0(<code>0,0000000</code>)和-0(<code>1,0000000</code>)两种表示</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">整数</label><label for="__tabbed_6_2">小数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>表示范围：<span class="arithmatex">\(-(2^n-1)\le x \le 2^n-1\)</span>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>+----+------------------+
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>| 符 | 2^n ...  2^1  2^0|
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>+----+------------------+
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a> 用 , 隔开
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>表示范围：<span class="arithmatex">\(-(1-2^{-n})\le x \le 1-2^{-n}\)</span>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>+----+------------------+
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>| 符 | 2^-1 2^-2 ...2^-n|
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>+----+------------------+
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a> 用 . 隔开
+</code></pre></div></p>
+</div>
+</div>
+</input></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>符号位为0时，反码与原码相同；符号位为1时，反码为原码除符号位外各位取反。</li>
+<li>中间状态</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>正数补码=原码，负数补码=反码末位+1（考虑进位）。真值0只有一种形式。</li>
+<li>
+<p>更便于计算机运算</p>
+</li>
+<li>
+<p>定点整数补码<code>1,0000000</code>表示 <span class="arithmatex">\(x=2^{-7}\)</span></p>
+<ul>
+<li>n+1位字长表示范围 <span class="arithmatex">\(-2^n\le x \le 2^n-1\)</span></li>
+</ul>
+</li>
+<li>定点小数补码<code>1.0000000</code>表示 <span class="arithmatex">\(x=-1\)</span><ul>
+<li>n+1位字长表示范围 <span class="arithmatex">\(-1\le x\le 1-2^{-n}\)</span></li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p>补码尾数取反，末位加一可以得到相应原码</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>补码符号位取反，只能表示整数，真值0只有一种。</p>
+</div>
+</div>
+</input></input></input></input></div>
+<p>定点整数和定点小数表示范围</p>
+<table>
+<thead>
+<tr>
+<th align="center">码制</th>
+<th align="center">定点整数</th>
+<th align="center">定点小数</th>
+<th align="center">数码个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">原码</td>
+<td align="center">-(2<sup n-1="n-1">{n-1}-1)~+2</sup>-1</td>
+<td align="center">-(1-2<sup -_n-1_="-(n-1)">{-(n-1)})~+(1-2</sup>)</td>
+<td align="center">2^n-1</td>
+</tr>
+<tr>
+<td align="center">反码</td>
+<td align="center">-(2<sup n-1="n-1">{n-1}-1)~+2</sup>-1</td>
+<td align="center">-(1-2<sup -_n-1_="-(n-1)">{-(n-1)})~+(1-2</sup>)</td>
+<td align="center">2^n-1</td>
+</tr>
+<tr>
+<td align="center">补码</td>
+<td align="center">-2<sup n-1="n-1">{n-1}~+2</sup>-1</td>
+<td align="center">-1~+(1-2^{-(n-1)})</td>
+<td align="center">2^n</td>
+</tr>
+<tr>
+<td align="center">移码</td>
+<td align="center">-2<sup n-1="n-1">{n-1}~+2</sup>-1</td>
+<td align="center">-1~+(1-2^{-(n-1)})</td>
+<td align="center">2^n</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">定点数的运算<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<h4 id="_11">移位运算<a class="headerlink" href="#_11" title="Permanent link">¶</a></h4>
+<ul>
+<li>算术移位<ul>
+<li>移位过程中符号位保持不变，对象为有符号数</li>
+<li>正数：移位后的空位补0</li>
+<li>负数<ul>
+<li>原码：空位补0，若不产生溢出，左移相当于乘上2，右移相当于除以2</li>
+<li>补码：左移空位补0，右移空位补1</li>
+<li>反码：空位补1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>逻辑移位<ul>
+<li>操作数作为无符号数看待</li>
+<li>右移：高位补0，低位舍弃</li>
+<li>左移：低位补0，高位舍弃</li>
+</ul>
+</li>
+<li>循环移位
+    <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>  n         32-n
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>+----+-----------------+
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>|    |                 |
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>+----+-----------------+
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>          ↓
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>+-----------------+----+
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>|                 |    |
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>+-----------------+----+
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a>     32-n           n
+</code></pre></div><ul>
+<li>假设是对32bit整数进行操作，有以下循环移动公式<ul>
+<li>循环左移：<code>y=(val&gt;&gt;(N-n)) | (val &lt;&lt; n))</code></li>
+<li>循环右移：<code>y=(val&lt;&lt;(32-n) | (val &gt;&gt; n))</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_12">符号扩展<a class="headerlink" href="#_12" title="Permanent link">¶</a></h4>
+<p>将有符号数扩展到更长位数。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">正数</label><label for="__tabbed_7_2">负数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>将符号位0移动到最高位，其他空位补0</p>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">原码</label><label for="__tabbed_8_2">补码</label><label for="__tabbed_8_3">反码</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>将符号位1移动到最高位，其他空位补0</p>
+</div>
+<div class="tabbed-block">
+<p>将符号位1移动到最高位，整数其他空位补1，小数其他空位补0</p>
+</div>
+<div class="tabbed-block">
+<p>将符号位1移动到最高位，其他空位补1</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h4 id="_13">加减运算<a class="headerlink" href="#_13" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>原码加减</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">加法</label><label for="__tabbed_9_2">减法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>两个数的符号位相同，结果的符号位与两个数的符号位相同</li>
+<li>两个数的符号位不同，结果的符号位与绝对值较大的数的符号位相同</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>减数符号取反转换为加法</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>补码加减（计算机常用）</p>
+<div class="arithmatex">\[
+\begin{align*}
+[A+B]_补&amp;=[A]_补+[B]_补 \\
+[A-B]_补&amp;=[A]_补-[B]_补=[A]_补+[(-B)]_补
+\end{align*}
+\]</div>
+<ul>
+<li>因此，只需加法器。符号位也来运算</li>
+</ul>
+</li>
+</ul>
+<h4 id="_14">乘除运算<a class="headerlink" href="#_14" title="Permanent link">¶</a></h4>
+<h5 id="_15">乘法<a class="headerlink" href="#_15" title="Permanent link">¶</a></h5>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">原码一位乘法</label><label for="__tabbed_10_2">补码一位乘法（Booth算法）</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>欲计算原码表示的 <span class="arithmatex">\(x_sx_1x_2\cdots x_n \times y_sy_1y_2\cdots y_n\)</span>：</p>
+<ol>
+<li>乘积符号位为两数符号位异或</li>
+<li>从乘数y的最低位开始，若其值为 1，则将x的数值位（n位）加到乘积数值位的高n位；若其值为 0，则不加。</li>
+<li>乘积的数值位逻辑右移一位，乘数y逻辑右移一位。若上一步产生了进位，需要将进位也移动到乘积最高位。</li>
+<li>将步骤2、3重复n次，即可得到乘积的数值位</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>欲计算补码表示的 <span class="arithmatex">\(x_sx_1x_2\cdots x_n \times y_sy_1y_2\cdots y_n\)</span>：</p>
+<ol>
+<li>采用双符号位，符号位也参与运算</li>
+<li>乘积m的高 <span class="arithmatex">\((n+1)\)</span> 位要加上 <span class="arithmatex">\((y_{i+1}−y_i)x\)</span>，也即根据乘数y的最后两位来确定对乘积的操作。进位舍去。</li>
+<li>对乘积进行算术右移一位，乘数右移一位。</li>
+<li>将步骤2、3重复 <span class="arithmatex">\((n+1)\)</span> 次，最后一次不进行右移，即可得到乘积的数值位</li>
+</ol>
+</div>
+</div>
+</div>
+<h5 id="_16">除法<a class="headerlink" href="#_16" title="Permanent link">¶</a></h5>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">原码</label><label for="__tabbed_11_2">补码</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">恢复余数法</label><label for="__tabbed_12_2">加减交替法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>商的初始值为 0，余数的初始值为被除数的数值位（<span class="arithmatex">\(0.x_1x_2\cdots x_n\)</span>）。由于减去除数可以改为加上除数相反数的补码，为 <span class="arithmatex">\([0.y_1y_2\cdots y_n]_补\)</span>。</li>
+<li>余数 = 余数 - 除数。若余数为负，商最低位置 0，同时余数 = 余数 + 除数；若余数为正，商最低位置 1。</li>
+<li>将余数左移一位，空位置 0；商左移一位。</li>
+<li>将步骤 2、3 重复进行 <span class="arithmatex">\((n+1)\)</span> 次，最后一次循环商不再左移。首商为 1 时除法溢出；首商为 0 时舍去首商，得到最终的商和余数。</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>商的初始值为 0，余数的初始值为被除数的数值位（<span class="arithmatex">\(0.x_1x_2\cdots x_n\)</span>）。加除数时为 <span class="arithmatex">\(0.y_1y_2\cdots y_n\)</span>，而减除数用加除数相反数的补码作为替换，为 <span class="arithmatex">\([0.y_1y_2\cdots y_n]_补\)</span>。</li>
+<li>余数 = 余数 - 除数。若余数小于 0，商最低位置 0；若余数大于 0，商最低位置 1。将商左移一位。</li>
+<li>若余数为负，则余数左移一位后，余数 = 余数 + 除数；若余数为正，则余数左移一位后，余数 = 余数 - 除数。</li>
+<li>将步骤 2、3 重复进行 <span class="arithmatex">\((n+1)\)</span> 次，最后一次循环商不再左移。首商为 1 时除法溢出；首商为 0 时舍去首商，得到最终的商和余数。</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>加减交替法</p>
+<ol>
+<li>符号位参加运算，商初始值为 0。对除数的减法改为加上除数相反数的补码。</li>
+<li>若被除数与除数同号，余数 = 被除数 - 除数；若被除数与除数异号，余数 = 被除数 + 除数。</li>
+<li>若余数与除数同号，商最低位置 1，余数左移一位后，余数 = 余数 - 除数；若余数与除数异号，商最低位置 0，余数左移一位后，余数 = 余数 + 除数。</li>
+<li>商左移一位。</li>
+<li>将步骤 3、4 重复进行 <span class="arithmatex">\((n+1)\)</span> 次，最后一次余数和商不再左移，同时末位恒置 1。首商为 1 时除法溢出；首商为 0 时舍去首商，得到最终的商和余数。</li>
+</ol>
+</div>
+</div>
+</div>
+<h4 id="_17">溢出判断<a class="headerlink" href="#_17" title="Permanent link">¶</a></h4>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>下溢 |                | 上溢
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>&lt;-----+-------0-------+----&gt;
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>负+负                   正+正
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><input id="__tabbed_13_3" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">一位符号位</label><label for="__tabbed_13_2">数据位进位</label><label for="__tabbed_13_3">双符号位（模4补码）</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>实际参与操作的两个数符号相同，结果与原操作数符号不同，即溢出</p>
+</div>
+<div class="tabbed-block">
+<p>符号位向高位进位记为 <span class="arithmatex">\(C_s\)</span>，最高数值位进位记为 <span class="arithmatex">\(C_1\)</span>，则如果 <span class="arithmatex">\(C_s\)</span> 和 <span class="arithmatex">\(C_1\)</span> 不同，即发生溢出</p>
+</div>
+<div class="tabbed-block">
+<p>正数使用00，负数使用11，运算结果的两个符号位若不相同，则有溢出</p>
+<ul>
+<li><code>01</code> 为上溢，<code>10</code>为下溢</li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="_18">浮点数的表示和运算<a class="headerlink" href="#_18" title="Permanent link">¶</a></h2>
+<h3 id="_19">浮点数的表示<a class="headerlink" href="#_19" title="Permanent link">¶</a></h3>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>+-----+---------------+-----+---------------+
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>| Jf  |  J1J2....Jm   | Sf  |  S1S2....Sn   |
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>+-----+---------------+-----+---------------+
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>  阶符     阶码数值       数符      尾数数值
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>| &lt;-   阶码 E     -&gt;  | &lt;-   尾数 M        -&gt;|
+</code></pre></div>
+<dl>
+<dt>阶码</dt>
+<dd>反映浮点数的表示范围及小数点的实际位置，是常用补码或移码表示的定点整数</dd>
+<dt>尾数</dt>
+<dd>其数值部分的位数n反映浮点数的精度，是常用原码或补码表示的定点小数</dd>
+</dl>
+<h4 id="_20">规格化<a class="headerlink" href="#_20" title="Permanent link">¶</a></h4>
+<div class="admonition summary">
+<p>规定尾数的最高数值位必须是一个有效值。</p>
+</div>
+<ul>
+<li>左规和右规<ul>
+<li>左规：尾数算术左移1位，阶码减1</li>
+<li>右规：尾数算术右移1位，阶码加1（浮点数运算结果尾数出现溢出，双符号位01或10）</li>
+</ul>
+</li>
+<li>
+<p>规格化尾数</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><input id="__tabbed_14_2" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">原码</label><label for="__tabbed_14_2">补码</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>正数：<code>0.10...0 ~ 0.11...1</code>，尾数表示范围为 <span class="arithmatex">\([\dfrac{1}{2},1-2^{-n}]\)</span></li>
+<li>负数：<code>1.11...1 ~ 1.10...0</code>，尾数表示范围为 <span class="arithmatex">\([-(1-2^{-n}),-\dfrac{1}{2}]\)</span></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>正数：<code>0.10...0 ~ 0.11...1</code>，尾数表示范围为 <span class="arithmatex">\([\dfrac{1}{2},1-2^{-n}]\)</span></li>
+<li>负数：<code>1.00...0 ~ 1.01...1</code>，尾数表示范围为 <span class="arithmatex">\([-1,-(\dfrac{1}{2}+2^{-n})]\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="ieee-754">IEEE 754标准<a class="headerlink" href="#ieee-754" title="Permanent link">¶</a></h4>
+<p>移码=真值+偏置值，在IEEE754标准中，偏置值取的是 <span class="arithmatex">\(2^{n-1}-1\)</span></p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>+------+------------------+----------------+
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>| ms   |        E         |        M       |
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>+------+------------------+----------------+
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>  数符      阶码（移码）        尾数（原码）隐藏最高位1
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">数符</th>
+<th align="center">阶码位数</th>
+<th align="center">尾数位数</th>
+<th align="center">总位数</th>
+<th align="center">偏置值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">短浮点数float</td>
+<td align="center">1</td>
+<td align="center">8</td>
+<td align="center">23</td>
+<td align="center">32</td>
+<td align="center">127(7FH)</td>
+</tr>
+<tr>
+<td align="center">长浮点数double</td>
+<td align="center">1</td>
+<td align="center">11</td>
+<td align="center">52</td>
+<td align="center">64</td>
+<td align="center">1023(3FFH)</td>
+</tr>
+<tr>
+<td align="center">临时浮点数long double</td>
+<td align="center">1</td>
+<td align="center">15</td>
+<td align="center">112</td>
+<td align="center">128</td>
+<td align="center">16383(3FFFH)</td>
+</tr>
+</tbody>
+</table>
+<p>规格化float真值：<span class="arithmatex">\((-1)^S\times 1.M\times 2^{E-127}\)</span></p>
+<p>规格化double真值：<span class="arithmatex">\((-1)^S\times 1.M\times 2^{E-1023}\)</span></p>
+<h5 id="_21">表示范围<a class="headerlink" href="#_21" title="Permanent link">¶</a></h5>
+<dl>
+<dt>最小绝对值</dt>
+<dd>尾数全为0，阶码真值最小-126，此时整体真值为 <span class="arithmatex">\((1.0)_2\times 2^{-126}\)</span></dd>
+<dt>最大绝对值</dt>
+<dd>尾数全为1，阶码真值最大127，此时整体真值为 <span class="arithmatex">\((1.111...1)_2\times 2^{127}\)</span></dd>
+</dl>
+<h5 id="_22">特殊表示<a class="headerlink" href="#_22" title="Permanent link">¶</a></h5>
+<ul>
+<li>阶码E全为0，尾数M不全为0时，表示非规格化小数</li>
+<li>阶码E全为0，尾数M全为0时，表示真值 <span class="arithmatex">\(\pm 0\)</span></li>
+<li>阶码E全为1，尾数M全为0时，表示无穷大 <span class="arithmatex">\(\pm \infty\)</span></li>
+<li>阶码E全为1，尾数M不全为0时，表示非数值<code>NaN</code></li>
+</ul>
+<h3 id="_23">浮点数的加减运算<a class="headerlink" href="#_23" title="Permanent link">¶</a></h3>
+<div class="admonition tip">
+<p>在计算机中，加减法运算用补码实现，两个浮点数如果要进行加减法运算，它们的阶或者指数必须相等</p>
+</div>
+<pre class="mermaid"><code>graph LR
+  对阶--&gt;尾数加减--&gt;规格化--&gt;舍入--&gt;判溢出</code></pre>
+<h4 id="_24">对阶<a class="headerlink" href="#_24" title="Permanent link">¶</a></h4>
+<p>在计算机中，采用小阶向大阶看齐的方法，实现对阶。</p>
+<h4 id="_25">尾数求和<a class="headerlink" href="#_25" title="Permanent link">¶</a></h4>
+<p>采用补码加法。</p>
+<h4 id="_26">规格化<a class="headerlink" href="#_26" title="Permanent link">¶</a></h4>
+<dl>
+<dt>左规</dt>
+<dd>尾数左移一位，阶码减1，直到数符和第一数位不同为止（机器数表示方式是补码）。</dd>
+<dt>右规</dt>
+<dd>尾数右移一位，阶码加1。</dd>
+</dl>
+<h4 id="_27">舍入<a class="headerlink" href="#_27" title="Permanent link">¶</a></h4>
+<dl>
+<dt>截断</dt>
+<dd>将移出的数据一律舍去。</dd>
+<dt>0舍1入</dt>
+<dd>移掉的是1，则尾数末尾加1；移掉的是0，则不加。</dd>
+<dt>（末位）恒置1法</dt>
+<dd>将要保留的末位数据恒置1，无论右移掉的是1还是0，末位是1还是0。</dd>
+</dl>
+<h4 id="_28">溢出判断<a class="headerlink" href="#_28" title="Permanent link">¶</a></h4>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>|  上溢   |    负浮点数   | 下溢  |     正浮点数     |  上溢   |
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>+--------+--------------+------+-----------------+--------+
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>01,xxxx                 10,xxxx                   01,xxxxx
+</code></pre></div>
+<h2 id="_29">运算方法和运算电路<a class="headerlink" href="#_29" title="Permanent link">¶</a></h2>
+<h3 id="alu">基本运算部件(算术逻辑单元ALU)<a class="headerlink" href="#alu" title="Permanent link">¶</a></h3>
+<h4 id="_30">功能<a class="headerlink" href="#_30" title="Permanent link">¶</a></h4>
+<ol>
+<li>算术运算：加减乘除</li>
+<li>逻辑运算：与或非</li>
+<li>辅助功能：移位、求补</li>
+</ol>
+<h4 id="alu_1">ALU的结构（抽象）<a class="headerlink" href="#alu_1" title="Permanent link">¶</a></h4>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>输入1       输入2
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>  |          |
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>  ↓          ↓
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>+----+     +----+
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>|    |     |    |
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>+    +-----+    +
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a>|               | &lt;--- 控制信号
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a>+---------------+
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a>       ↓
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a>      输出
+</code></pre></div>
+<ul>
+<li>输入信号（操作数）</li>
+<li>控制信号（指令译码产生）</li>
+<li>输出信号（运算结果）</li>
+</ul>
+<h4 id="alu_2">ALU的结构（实例）<a class="headerlink" href="#alu_2" title="Permanent link">¶</a></h4>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>       F3-F0
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>         ↑
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>+--------------------+
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>|                    |
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>|        74181       |&lt;- S0-S3, M
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a>|        4位ALU      |
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a>+--------------------+
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a>   ↑      ↑      ↑
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a>  B3-B0  A3-A0  C-1
+</code></pre></div>
+<ul>
+<li>S0-S3和M：来自CU控制单元的控制信号。CU分析指令的操作是什么（加减乘除/逻辑运算），CU根据其分析结果发出控制信号<ul>
+<li>M表示的是该操作是逻辑运算还是算术运算：M = 1为逻辑运算，M = 0为算术运算</li>
+<li>S0 - S3表示的是将要进行哪一种逻辑运算或者算术运算：有4个bit，可以表示16种不同的运算</li>
+</ul>
+</li>
+<li>A0 - A3 和 B0 - B3：表示两个4bit的数据，分别从A0 - A3和B0 - B3输入</li>
+<li>F0 - F3：经过ALU运算后，得到4bit的数据，通过F0 - F3输出</li>
+</ul>
+<h4 id="_31">一位全加器<a class="headerlink" href="#_31" title="Permanent link">¶</a></h4>
+<div class="arithmatex">\[
+\begin{align*}
+C_i&amp;=A_iB_i+(A_i\oplus B_i)C_{i-1}\\
+S_i&amp;=A_i\oplus B_i\oplus C_{i-1}
+\end{align*}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(C_{i-1}\)</span>：低位的进位</li>
+<li><span class="arithmatex">\(S_i\)</span>：本位和</li>
+</ul>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>          Si
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>           ↑
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>     +------------+
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>Ci &lt;-|            |&lt;-Ci-1
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>     |    FA      |
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>     |            |
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>     +------------+
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>          ↑  ↑
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>         Ai  Bi
+</code></pre></div>
+<h4 id="_32">串行加法器<a class="headerlink" href="#_32" title="Permanent link">¶</a></h4>
+<p>每次的产生的进位保存到进位触发器中，作为下次加法的进位</p>
+<ul>
+<li>操作数n位，则进行n次加法</li>
+</ul>
+<h4 id="_33">并行加法器<a class="headerlink" href="#_33" title="Permanent link">¶</a></h4>
+<p>将n个全加器串联起来，第 <span class="arithmatex">\(i\)</span> 个全加器输出的进位会作为第 <span class="arithmatex">\(i + 1\)</span> 个全加器的进位输入</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><input id="__tabbed_15_2" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1">串行进位并行加法器</label><label for="__tabbed_15_2">并行进位并行加法器</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>       Sn               S2          S1
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>       ↑                ↑           ↑
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>    +-----+           +-----+    +------+
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a> Cn←| FA  |←Cn-1...C2←| FA  |←C1-|  FA  |←C0
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>    +-----+           +-----+    +------+
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>     ↑  ↑               ↑ ↑        ↑  ↑
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>     An Bn              A2 B2      A1 B1   
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>只与 <span class="arithmatex">\(C_0\)</span> 有关    </p>
+<div class="arithmatex">\[
+\begin{align*}
+C_i=G_i+P_iC_{i-1}(G_i=A_iB_i, P_i=A_i\oplus B_i)
+\end{align*}
+\]</div>
+</div>
+</div>
+</div>
+<h4 id="_34">标志位生成<a class="headerlink" href="#_34" title="Permanent link">¶</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:4"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio"/><input id="__tabbed_16_2" name="__tabbed_16" type="radio"/><input id="__tabbed_16_3" name="__tabbed_16" type="radio"/><input id="__tabbed_16_4" name="__tabbed_16" type="radio"/><div class="tabbed-labels"><label for="__tabbed_16_1">OF</label><label for="__tabbed_16_2">SF</label><label for="__tabbed_16_3">ZF</label><label for="__tabbed_16_4">CF</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>溢出：最高位（n + 1位）的进位和次高位（第 n 位）的进位进行异或，对有符号数加减有意义</p>
+</div>
+<div class="tabbed-block">
+<p>符号：输出结果的最高位（第n位），0正1负，对有符号数加减有意义</p>
+</div>
+<div class="tabbed-block">
+<p>零：运算结果为0，则为1；结果非0，则为0</p>
+</div>
+<div class="tabbed-block">
+<p>进位/借位：最高位（n + 1位）的进位和sub（1为减法，0为加法）进行异或，对无符号数加减有意义</p>
+</div>
+</div>
+</div>
+<h3 id="_35">加减运算<a class="headerlink" href="#_35" title="Permanent link">¶</a></h3>
+<h4 id="xy">加法X+Y<a class="headerlink" href="#xy" title="Permanent link">¶</a></h4>
+<p>X直接输入，Y经过多路选择器的0输入，sub的输入为0→cin为0
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>       X          Y
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>       |          |(MUX=0)&lt;--Sub=0
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>       A          B
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a>       ↓          ↓
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>     +----+     +----+
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a>Cout←|    |     |    |
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a>     +    +-----+    +
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a>     |               | &lt;--- Cin=0
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>     +---------------+
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a>            ↓
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a>           输出
+</code></pre></div></p>
+<h4 id="x-y">减法X-Y<a class="headerlink" href="#x-y" title="Permanent link">¶</a></h4>
+<p>X直接输入，Y经过多路选择器的1输入，此时，Y的数据需要经过非门（按位取反），sub的输入为1（末位+1）→cin为1
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>                  Y
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>                  ↓(not)
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>       X          ~Y
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a>       |          |(MUX=1)&lt;--Sub=1
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>       A          B
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>       ↓          ↓
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a>     +----+     +----+
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a>Cout←|    |     |    |
+<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a>     +    +-----+    +
+<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>     |               | &lt;--- Cin=1
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a>     +---------------+
+<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a>            ↓
+<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>           输出
+</code></pre></div></p>
+<h3 id="_36">乘除运算<a class="headerlink" href="#_36" title="Permanent link">¶</a></h3>
+<h4 id="_37">乘法<a class="headerlink" href="#_37" title="Permanent link">¶</a></h4>
+<p>被乘数存放在被乘数寄存器X中，乘数存放在乘数寄存器Y中。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">无符号数乘法</label><label for="__tabbed_17_2">补码一位乘法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/2-unsigned-mul.png"><img alt="" src="asset-img/2-unsigned-mul.png"/></a></p>
+<ul>
+<li>乘积寄存器位P数和被乘数寄存器X、乘数寄存器Y相同，逻辑上乘积寄存器P、乘数寄存器Y和进位C是连在一起使用的（即逻辑右移时，原来的C作为现乘积寄存器的最高位，原乘积寄存器的最低位作为现乘数寄存器的最高位，原乘数寄存器的最低位舍弃）</li>
+<li>ALU主要实现加法运算，C是两个数相加可能产生的进位：若当前乘数寄存器的最低位为0，则ALU左边输入乘积寄存器，右边输入0，计算结果输出到乘积寄存器中；若当前乘数寄存器的最低位为1，则ALU左边输入乘积寄存器，右边输入被乘数寄存器，计算结果输入到乘积寄存器中</li>
+<li>ALU计算完成并输出数据后，进行逻辑右移</li>
+<li>控制逻辑发出加、右移和写使能控制信号；设乘数和被乘数位n位，则计数器从n开始计数，进行n轮加法、右移，每进行一轮加法和右移后，计数器 - 1</li>
+<li>两个n位数相乘，结果用2n位暂存，结果最终保留的是乘数寄存器中n bit，乘积寄存器舍弃。若乘积寄存器全0，则不发生溢出；只要有1，则发生溢出</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/2-signed-mul.png"><img alt="" src="asset-img/2-signed-mul.png"/></a></p>
+<ul>
+<li>乘积寄存器位P数和被乘数寄存器X、乘数寄存器Y相同，逻辑上乘积寄存器P、乘数寄存器Y和辅助位是连在一起使用的（即算术右移时，原乘积寄存器的最低位作为现乘数寄存器的最高位，原乘数寄存器的最低位作为现辅助位，辅助位舍弃）</li>
+<li>ALU主要实现加法运算：根据辅助位和乘数寄存器的最低位进行加/减法<ul>
+<li>辅助位 - 乘数寄存器最低位 = 1，乘积寄存器 + X的补码</li>
+<li>辅助位 - 乘数寄存器最低位 = 0，不做加法</li>
+<li>辅助位 - 乘数寄存器最低位 = -1，乘积寄存器 + （-X）的补码（逻辑减法，实际加法）</li>
+</ul>
+</li>
+<li>ALU计算完成并输出数据后，进行算术右移（用符号位补空位）</li>
+<li>控制逻辑发出加、右移和写使能控制信号；设乘数和被乘数位n位，则计数器从n开始计数，进行n轮加法、右移，每进行一轮加法和右移后，计数器 - 1</li>
+<li>两个n位数相乘，结果用2n位暂存，结果最终保留的是乘数寄存器中的n bit，乘积寄存器舍弃。若高n + 1 bit为全0或全1，则不溢出；否则，溢出</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="_38">除法<a class="headerlink" href="#_38" title="Permanent link">¶</a></h4>
+<p>n位定点数的除法运算，实际上是用一个2n位的数去除以一个n位的数，得到一个n位的商，因此需要对被除数进行扩展。</p>
+<p>对于n位定点正小数，只要在被除数低位添n个0即可；对于n位定点正整数，只要在被除数的高位添n个0即可。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/2-division.png"><img alt="" src="asset-img/2-division.png"/></a></p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年9月25日 23:29:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月22日 22:05:49</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
@@ -724,5 +1774,5 @@
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../../assets/javascripts/doc_addins.js"></script>
 <script src="../../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

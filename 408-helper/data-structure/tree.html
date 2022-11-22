@@ -32,12 +32,15 @@
 <meta content="https://note.jason0743.best/assets/images/social/408-helper/data-structure/tree.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -417,7 +420,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../computer-structure/operating.html">
-        运算器
+        数据的表示和运算
       </a>
 </li>
 <li class="md-nav__item">
@@ -1086,10 +1089,10 @@ n_0 &amp;=n_2 +1
 </ul>
 <h3 id="_5">满二叉树<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>深度为 <span class="arithmatex">\(k\)</span> ，且含有 <span class="arithmatex">\(2^k-1\)</span>个结点的二叉树。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-1.png"><img alt="满二叉树" src="asset-img/tree-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-1.png"><img alt="满二叉树" src="asset-img/tree-1.png"/></a></p>
 <h3 id="_6">完全二叉树<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>如果深度为k、有n个结点的二叉树中，当且仅当其每一个结点能够与深度为k的顺序编号的满二叉树从1 到n标号的结点相对应，则称这样的二叉树为完全二叉树。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-2.png"><img alt="完全二叉树" src="asset-img/tree-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-2.png"><img alt="完全二叉树" src="asset-img/tree-2.png"/></a></p>
 <ul>
 <li>
 <p>性质</p>
@@ -1254,13 +1257,13 @@ n_0 &amp;=n_2 +1
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><input id="__tabbed_7_3" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">先序线索树</label><label for="__tabbed_7_2">中序线索树</label><label for="__tabbed_7_3">后序线索树</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-3.png"><img alt="先序线索树" src="asset-img/tree-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-3.png"><img alt="先序线索树" src="asset-img/tree-3.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-4.png"><img alt="中序线索树" src="asset-img/tree-4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-4.png"><img alt="中序线索树" src="asset-img/tree-4.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-5.png"><img alt="后序线索树" src="asset-img/tree-5.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-5.png"><img alt="后序线索树" src="asset-img/tree-5.png"/></a></p>
 </div>
 </div>
 </div>
@@ -1328,7 +1331,7 @@ n_0 &amp;=n_2 +1
 RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 \]</div>
 <p>例如，某树结构如图所示：
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-6.png"><img alt="example-tree" src="asset-img/tree-6.png"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-6.png"><img alt="example-tree" src="asset-img/tree-6.png"/></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">双亲表示法</label><label for="__tabbed_8_2">孩子表示法</label><label for="__tabbed_8_3">孩子兄弟表示法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1344,7 +1347,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="p">}</span><span class="w"> </span><span class="n">PTree</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>上述例子可以表示为</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-7.png"><img alt="example-1" src="asset-img/tree-7.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-7.png"><img alt="example-1" src="asset-img/tree-7.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>由于树中每个结点可能有多棵子树，可用多重链表来表示，即每个结点有多个指针域，其中每个指针指向一个子树的根结点。</p>
@@ -1365,7 +1368,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="p">}</span><span class="w"> </span><span class="n">CTree</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>上述例子可以表示为</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-8.png"><img alt="example-1" src="asset-img/tree-8.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-8.png"><img alt="example-1" src="asset-img/tree-8.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>树中每个结点都设有两个指针，firstchild 指向该结点的“第一个”子树根结点，nextsibling 指向它的“下一个”兄弟结点。（二叉链表）</p>
@@ -1375,7 +1378,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="p">}</span><span class="w"> </span><span class="n">CSNode</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">CSTree</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>上述例子可以表示为</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-9.png"><img alt="example-1" src="asset-img/tree-9.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-9.png"><img alt="example-1" src="asset-img/tree-9.png"/></a></p>
 </div>
 </div>
 </div>
@@ -1384,7 +1387,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>每个结点左指针指向它的第一个孩子结点，右指针指向它在树中相邻的兄弟结点。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-11.png"><img alt="tree-2-bitree" src="asset-img/tree-11.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-11.png"><img alt="tree-2-bitree" src="asset-img/tree-11.png"/></a></p>
 </div>
 </div>
 </div>
@@ -1412,8 +1415,8 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 </div>
 </div>
 <h3 id="_15">树和森林的遍历<a class="headerlink" href="#_15" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-6.png"><img alt="example-tree" src="asset-img/tree-6.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-10.png"><img alt="example-forest" src="asset-img/tree-10.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-6.png"><img alt="example-tree" src="asset-img/tree-6.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-10.png"><img alt="example-forest" src="asset-img/tree-10.png"/></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:4"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><input id="__tabbed_11_3" name="__tabbed_11" type="radio"/><input id="__tabbed_11_4" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">先根遍历树</label><label for="__tabbed_11_2">后根遍历树</label><label for="__tabbed_11_3">先序遍历森林</label><label for="__tabbed_11_4">中序遍历森林</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1585,7 +1588,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <li>将原来的根结点A降为B的右孩子</li>
 <li>各子树按大小关系连接(BL和AR不变，BR调整为A的左子树)。</li>
 </ol>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-13.png"><img alt="ll" src="asset-img/tree-13.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-13.png"><img alt="ll" src="asset-img/tree-13.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>由于在A的右孩子B的右子树BR(不一定为空)中插入结点(图中阴影部分所示)而导致不平衡(h 表示子树的深度)。（双左旋）调整方法如下：</p>
@@ -1594,7 +1597,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <li>将原来的根结点A降为B的左孩子</li>
 <li>各子树按大小关系连接(AL和BR不变，BL调整为A的右子树)。</li>
 </ol>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-14.png"><img alt="rr" src="asset-img/tree-14.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-14.png"><img alt="rr" src="asset-img/tree-14.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>由于在A的左孩子B的右子树(根结点为C，不一定为空)中插入结点(图中两个阴影部分之一)而导致不平衡(h表示子树的深度)。（先左旋再右旋）调整方法如下：</p>
@@ -1603,7 +1606,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <li>将原来的根结点A降为C的右孩子</li>
 <li>各子树按大小关系连接(BL和AR不变，CL和CR分别调整为B的右子树和A的左子树)。</li>
 </ol>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-15.png"><img alt="lr" src="asset-img/tree-15.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-15.png"><img alt="lr" src="asset-img/tree-15.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>由于在A的右孩子B的左子树(根结点为C，不一定为空)中插入结点(图中两个阴影部分之一)而导致不平衡(h表示子树的深度)。（先右旋再左旋）调整方法如下：</p>
@@ -1612,7 +1615,7 @@ RF=\{&lt;root，r_i&gt; | i=1,2,\cdots ,m, m&gt;0\}
 <li>将原来的根结点A降为C的左孩子</li>
 <li>各子树按大小关系连接(AL和BR不变，CL和CR分别调整为A的右子树和B的左子树)。</li>
 </ol>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="asset-img/tree-16.png"><img alt="rl" src="asset-img/tree-16.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/tree-16.png"><img alt="rl" src="asset-img/tree-16.png"/></a></p>
 </div>
 </div>
 </div>
@@ -1751,5 +1754,5 @@ WPL = \sum_{i=0}^nW_iL_i
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="../../assets/javascripts/doc_addins.js"></script>
 <script src="../../assets/javascripts/share.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
