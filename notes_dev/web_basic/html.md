@@ -33,7 +33,7 @@ some other text.
 * 属性
 	- 键值对，用`=`连接
         ```html
-        <p class = "editor-note"></p>
+        <p class="editor-note"></p>
         ```
 
     - 布尔属性
@@ -62,7 +62,7 @@ html5的文档声明为`<!DOCTYPE html>` 必须位于第一行
 	- 意义：方便搜索引擎索引
 	- 可分段设置
 	- 常用lang代码
-		* 中文：zh-CN
+		* 简体中文：zh-CN
 		* 英文：en-US
 
 		!!! tip "lang code的组成"
@@ -95,7 +95,7 @@ html5的文档声明为`<!DOCTYPE html>` 必须位于第一行
 * 站点自定义图标：link元素 `<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">`
 	- 可以在打开的页面的标签页和收藏夹中看到它
 	- gif和png文件也是支持的，使用ico文件是为了确保IE6的兼容性
-	- 手机端（苹果或安卓）的自定义高分辨率图标：`<link rel = "apple-touch-icon-precomposed" href="xxx" sizes="xxx">`
+	- 手机端（苹果或安卓）的自定义高分辨率图标：`<link rel="apple-touch-icon-precomposed" href="xxx" sizes="xxx">`
 
 * <a name="apply-css-and-js-in-webpage"></a>在HTML中应用CSS和JavaScript
 
@@ -108,7 +108,7 @@ html5的文档声明为`<!DOCTYPE html>` 必须位于第一行
 1. 段落与文字
     * 标题 `<h1>` `<h2>` `<h3>` `<h4>` `<h5>` `<h6>`
         - `<h1>`是最大的标题，`<h6>`是最小的标题
-        - 根据语义化要求，尽量不要使用标题元素来决定字体大小，最好使用CSS！
+        - 根据语义化要求，尽量不要使用标题元素来决定字体大小，最好使用[CSS](css.md)！
     * 段落 `<p>` `</p>`
         - `<p>`与`</p>`内部元素的空格和换行将被忽略
         - `<br>`将产生换行（不会产生新段落）
@@ -392,9 +392,10 @@ html5的文档声明为`<!DOCTYPE html>` 必须位于第一行
             * `<optgroup>`设定选项分组
         - 自动补全输入
             * `<datalist>`配合`<input>`的`list`属性，datalist中每一个option项为待选输入
-			> `datalist id = "a"` 要对应于 `input list = "a"`
+			
+            > `datalist` 的 `id` 要对应于 `input` 的 `list`
         - fieldset和legend：控件组及其描述
         - label：设置标签
-		> `input id="xx"` 要对应于 `label for="xx"`
+		    > `input id="xx"` 要对应于 `label for="xx"`
 
 [^1]:本章节参考资料主要来源于MDN开发网：https://developer.mozilla.org/zh-CN/docs/Learn/HTML/ 由Mozilla贡献者基于[CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)及以上版本发布的“HTML——构建Web” 结合相关文字和课件共同整理

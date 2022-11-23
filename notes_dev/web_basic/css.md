@@ -168,8 +168,7 @@ CSS[^1]
             选择被鼠标指针或触摸操作“激活的”元素，只发生在鼠标被按下到被释放的这段时间里
 
         * 上述5个状态伪类（link、visited、focus、hover、active）需要按顺序书写
-			```css
-			/* 一个伪类的例子 */
+			```css title="一个伪类的例子"
 			p:hover{
 				color:red;
 				border: 5px solid #000000;
@@ -242,7 +241,7 @@ CSS[^1]
         匹配元素的某个特定部分
 
     !!! info ""
-	   “伪”指的是只能通过CSS创建，DOM树中不存在
+	    “伪”指的是只能通过CSS创建，DOM树中不存在
 
     1. `::before` `::after`  为其他HTML元素添加内容（文本或图形），添加的内容不实际存在于DOM中，但可以像存在一样操作它们，需要在CSS中声明`content`属性
 	2. `::first-letter`  选择一行文本第一个字符，并且文字所处的行之前没有其他内容（如图片和内联的表格）
@@ -382,13 +381,13 @@ CSS[^1]
 
 * <a name="list-style"></a>列表样式
 	* 以下三个样式，仅针对`<ol>` `<ul>`有效
-	* list-style-type：符号类型
+	* `list-style-type`：符号类型
 		* 属性值：`disc（缺省值）|circle|square|...`
 		* 设置列表符号的类型
-	* list-style-position：符号位置
+	* `list-style-position`：符号位置
 		* 属性值：`outside（缺省值）|inside`
 		* 设置列表项符号位置
-	* list-style-image：符号图片
+	* `list-style-image`：符号图片
 		* 属性值：`url(指定图片地址)`
 
 		!!! info "探究"
@@ -418,34 +417,33 @@ CSS[^1]
 * <a name="img-style"></a>图片样式
 	* width height：图片的宽度和高度
 	* border
-		- 语法：
+		
+        ```css title="语法"
+		border-width:属性值;   /* (1) */
+		border-style:属性值;   /* (2) */
+		border-color:颜色值;   /* (3) */
 
-			```css
-			border-width:属性值;   /* (1) */
-			border-style:属性值;   /* (2) */
-			border-color:颜色值;   /* (3) */
+        border:<width> <style> <color>; /* (4) */
+		```
 
-            border:width style color; /* (4) */
-			```
-
-            1. 图片边框宽度
-            2. 图片边框样式
-            3. 图片边框颜色
-            4. 简写
+        1. 图片边框宽度
+        2. 图片边框样式
+        3. 图片边框颜色
+        4. 简写
 
         - 具体见<a href="#border">边框高级用法</a>
 
-    * text-align：水平对齐
+    * `text-align`：水平对齐
 		* 在图片的父元素上定义（详见上方<a href="#text-align">文本与段落样式</a>部分）
 
-    * vertical-align：垂直对齐
+    * `vertical-align`：垂直对齐
 		* 只对内联元素、表格单元格元素生效
 		* 属性值：`top|middle|baseline|bottom`
 
 			!!! info "基线（Baseline）"
 				是英文字母x的下端线，而不是汉字的下端线
 
-	* float：文字环绕，图文混排
+	* `float`：文字环绕，图文混排
 		- 属性值：
             * 默认：`none`
             * 元素向左浮动：`left`
@@ -459,7 +457,7 @@ CSS[^1]
 
 		!!! attention "注意"
 			1. 请使用合理的背景颜色和文本颜色搭配，这样可以提高文本的可读性。
-			2. 与<a href="#color">```color```</a>属性的区别：文本和背景
+			2. 与<a href="#color">`color`</a>属性的区别：文本和背景
 
 	* <a name="bg-image"></a>background-image
 		- 语法：`background-image:url("背景图像路径");`
@@ -528,7 +526,7 @@ CSS[^1]
 			* 取值：`bottom|top`
 
 	!!! tip "表格的斑马条纹效果"
-		思路：CSS结构伪类的应用。对`tbody tr:nth-child(odd)`,`tbody tr:nth-child(even)`分别指定不同的颜色
+		思路：CSS结构伪类的应用。对`tbody tr:nth-child(odd)`，`tbody tr:nth-child(even)`分别指定不同的颜色
 
         其中，`nth-child(odd)`也可以写成`nth-child(2n-1)`
 
@@ -565,7 +563,8 @@ CSS[^1]
 
 		!!! tip
 			声明重要性和来源优先级排序：用户代理样式表中的声明 < 用户样式表中的普通声明 < 作者样式表的普通声明 < 作者样式表的重要声明（`!important`） < 用户样式表的重要声明
-			<a name="specificity">选择器特殊性</a>：style标签（1000） > ID选择器（100） > 类、属性、伪类选择器（10） > 元素选择器、伪元素选择器（1）
+			
+            <a name="specificity">选择器特殊性</a>：style标签（1000） > ID选择器（100） > 类、属性、伪类选择器（10） > 元素选择器、伪元素选择器（1）
 
             * 优先级计算无进位，例如无论多少个元素选择器权重相加，也比不过一个类选择器
 
@@ -577,21 +576,19 @@ CSS[^1]
 			* 只能由另一个具有相同优先级，或者更高优先级的 `!important`规则改变，而且顺序靠后。
 
 * <a name="inheritance"></a>继承
-	```html
-	<p>aaa<em>bbb</em>ccc</p>
-	<style>p{color:red;}</style>
-	```
 
-	!!! info "上述例子的显示效果"
+    === "示例代码"
+	    ```html title="html 代码示例"
+	    <p>aaa<em>bbb</em>ccc</p>
+	    <style>p{color:red;}</style>
+	    ```
+
+	=== "示例输出"
 		<p id="example1">aaa<em>bbb</em>ccc</p><style>p#example1{color:red;}</style>
 
 	- 继承性是指被包在内部的标签默认拥有外部标签的样式性，即子元素可以继承父元素的属性
 	- 继承可以避免同样的内容重复声明，减少CSS文件大小，提升网页加载速度
-	- 文本相关属性默认继承(`inherited:yes`)，布局相关属性默认不继承(`inherited:no`)
-
-		!!! info
-			所有继承信息详见 https://www.w3.org/TR/CSS21/propidx.html
-
+	- 文本相关属性默认继承(`inherited:yes`)，布局相关属性默认不继承(`inherited:no`)[^2]
 	- 默认继承最近祖先的属性值
 	- CSS控制继承：`inherit|initial|unset|revert|all:[inherit|initial|unset|revert]`
 		* `inherit`：从父类继承值
@@ -759,3 +756,4 @@ CSS[^1]
             设置父元素`font-size`为0。
 
 [^1]:本章节参考资料主要来源于MDN开发网：https://developer.mozilla.org/zh-CN/docs/Learn/CSS/ 由Mozilla贡献者基于[CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)及以上版本发布的“CSS——设计Web” 结合相关文字和课件共同整理
+[^2]:所有继承信息详见 https://www.w3.org/TR/CSS21/propidx.html

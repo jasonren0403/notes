@@ -544,14 +544,14 @@ JavaScript与DOM
 - DOM 的事件操作（监听和触发），都定义在`EventTarget` 接口上
 {: .stressed }
 - 三个实例方法
-	* `addEventListener` ：绑定事件的监听函数
+	* `addEventListener`：绑定事件的监听函数
 		- 原型：`target.addEventListsner(type,listener[,useCapture])`
-		- type ：事件名称，大小写敏感
-		- listener ：监听函数，事件发生时会调用该监听函数
+		- `type`：事件名称，大小写敏感
+		- `listener`：监听函数，事件发生时会调用该监听函数
 		- 属性配置对象：该对象常用属性如下：
-			* useCapture ：布尔值，表示监听函数是否在捕获阶段（capture）触发，可选参数，默认为`false`（监听函数只在冒泡阶段被触发）
-			* once：布尔值，表示监听函数是否只触发一次，然后就自动移除
-	* `removeEventListener` ：移除事件的监听函数
+			* `useCapture`：布尔值，表示监听函数是否在捕获阶段（capture）触发，可选参数，默认为`false`（监听函数只在冒泡阶段被触发）
+			* `once`：布尔值，表示监听函数是否只触发一次，然后就自动移除
+	* `removeEventListener`：移除事件的监听函数
 		- 参数与`addEventListener`完全一致
 	* `dispatchEvent`：触发事件，参数为一个`Event`对象实例
 - 事件的传播与处理
