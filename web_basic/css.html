@@ -891,12 +891,11 @@
 </input></div>
 <ul>
 <li>上述5个状态伪类（link、visited、focus、hover、active）需要按顺序书写
-    <div class="highlight"><span class="filename">CSS</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c">/* 一个伪类的例子 */</span><span class="w"></span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nt">p</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#000000</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">cursor</span><span class="p">:</span><span class="kc">pointer</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="p">}</span><span class="w"></span>
+    <div class="highlight"><span class="filename">一个伪类的例子</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nt">p</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#000000</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">cursor</span><span class="p">:</span><span class="kc">pointer</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></li>
 </ul>
 <p><figure markdown="">
@@ -978,8 +977,9 @@
 <div class="admonition summary">
 <p>匹配元素的某个特定部分</p>
 </div>
-<div class="admonition info"></div>
+<div class="admonition info">
 <p>“伪”指的是只能通过CSS创建，DOM树中不存在</p>
+</div>
 <ol>
 <li><code>::before</code> <code>::after</code>  为其他HTML元素添加内容（文本或图形），添加的内容不实际存在于DOM中，但可以像存在一样操作它们，需要在CSS中声明<code>content</code>属性</li>
 <li><code>::first-letter</code>  选择一行文本第一个字符，并且文字所处的行之前没有其他内容（如图片和内联的表格）</li>
@@ -1205,18 +1205,18 @@
 <p><a name="list-style"></a>列表样式</p>
 <ul>
 <li>以下三个样式，仅针对<code>&lt;ol&gt;</code> <code>&lt;ul&gt;</code>有效</li>
-<li>list-style-type：符号类型<ul>
+<li><code>list-style-type</code>：符号类型<ul>
 <li>属性值：<code>disc（缺省值）|circle|square|...</code></li>
 <li>设置列表符号的类型</li>
 </ul>
 </li>
-<li>list-style-position：符号位置<ul>
+<li><code>list-style-position</code>：符号位置<ul>
 <li>属性值：<code>outside（缺省值）|inside</code></li>
 <li>设置列表项符号位置</li>
 </ul>
 </li>
 <li>
-<p>list-style-image：符号图片</p>
+<p><code>list-style-image</code>：符号图片</p>
 <ul>
 <li>属性值：<code>url(指定图片地址)</code></li>
 </ul>
@@ -1270,35 +1270,32 @@
 <li>width height：图片的宽度和高度</li>
 <li>
 <p>border</p>
-<ul>
-<li>
-<p>语法：</p>
-<div class="highlight"><span class="filename">CSS</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nt">border-width</span><span class="p">:</span><span class="nd">属性值</span><span class="o">;</span><span class="w">   </span><span class="c">/* (1) */</span><span class="w"></span>
+<div class="highlight"><span class="filename">语法</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nt">border-width</span><span class="p">:</span><span class="nd">属性值</span><span class="o">;</span><span class="w">   </span><span class="c">/* (1) */</span><span class="w"></span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nt">border-style</span><span class="p">:</span><span class="nd">属性值</span><span class="o">;</span><span class="w">   </span><span class="c">/* (2) */</span><span class="w"></span>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nt">border-color</span><span class="p">:</span><span class="nd">颜色值</span><span class="o">;</span><span class="w">   </span><span class="c">/* (3) */</span><span class="w"></span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="nt">border</span><span class="p">:</span><span class="nd">width</span><span class="w"> </span><span class="nt">style</span><span class="w"> </span><span class="nt">color</span><span class="o">;</span><span class="w"> </span><span class="c">/* (4) */</span><span class="w"></span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="nt">border</span><span class="o">:&lt;</span><span class="nt">width</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nt">style</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nt">color</span><span class="o">&gt;;</span><span class="w"> </span><span class="c">/* (4) */</span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li>图片边框宽度</li>
 <li>图片边框样式</li>
 <li>图片边框颜色</li>
-<li>简写</li>
-</ol>
+<li>
+<p>简写</p>
 </li>
 <li>
 <p>具体见<a href="#border">边框高级用法</a></p>
 </li>
-</ul>
+</ol>
 </li>
 <li>
-<p>text-align：水平对齐</p>
+<p><code>text-align</code>：水平对齐</p>
 <ul>
 <li>在图片的父元素上定义（详见上方<a href="#text-align">文本与段落样式</a>部分）</li>
 </ul>
 </li>
 <li>
-<p>vertical-align：垂直对齐</p>
+<p><code>vertical-align</code>：垂直对齐</p>
 <ul>
 <li>只对内联元素、表格单元格元素生效</li>
 <li>
@@ -1311,7 +1308,7 @@
 </ul>
 </li>
 <li>
-<p>float：文字环绕，图文混排</p>
+<p><code>float</code>：文字环绕，图文混排</p>
 <ul>
 <li>属性值：<ul>
 <li>默认：<code>none</code></li>
@@ -1455,7 +1452,7 @@
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">表格的斑马条纹效果</p>
-<p>思路：CSS结构伪类的应用。对<code>tbody tr:nth-child(odd)</code>,<code>tbody tr:nth-child(even)</code>分别指定不同的颜色</p>
+<p>思路：CSS结构伪类的应用。对<code>tbody tr:nth-child(odd)</code>，<code>tbody tr:nth-child(even)</code>分别指定不同的颜色</p>
 <p>其中，<code>nth-child(odd)</code>也可以写成<code>nth-child(2n-1)</code></p>
 </div>
 </li>
@@ -1510,8 +1507,8 @@
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>声明重要性和来源优先级排序：用户代理样式表中的声明 &lt; 用户样式表中的普通声明 &lt; 作者样式表的普通声明 &lt; 作者样式表的重要声明（<code>!important</code>） &lt; 用户样式表的重要声明
-<a name="specificity">选择器特殊性</a>：style标签（1000） &gt; ID选择器（100） &gt; 类、属性、伪类选择器（10） &gt; 元素选择器、伪元素选择器（1）</p>
+<p>声明重要性和来源优先级排序：用户代理样式表中的声明 &lt; 用户样式表中的普通声明 &lt; 作者样式表的普通声明 &lt; 作者样式表的重要声明（<code>!important</code>） &lt; 用户样式表的重要声明</p>
+<p><a name="specificity">选择器特殊性</a>：style标签（1000） &gt; ID选择器（100） &gt; 类、属性、伪类选择器（10） &gt; 元素选择器、伪元素选择器（1）</p>
 <ul>
 <li>
 <p>优先级计算无进位，例如无论多少个元素选择器权重相加，也比不过一个类选择器</p>
@@ -1535,27 +1532,24 @@
 </ul>
 </li>
 <li>
-<p><a name="inheritance"></a>继承
-    <div class="highlight"><span class="filename">HTML</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>aaa<span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>bbb<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span>ccc<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<p><a name="inheritance"></a>继承</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">示例代码</label><label for="__tabbed_11_2">示例输出</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">html 代码示例</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>aaa<span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>bbb<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span>ccc<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="nt">p</span><span class="p">{</span><span class="k">color</span><span class="p">:</span><span class="kc">red</span><span class="p">;}&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</code></pre></div></p>
-<div class="admonition info">
-<p class="admonition-title">上述例子的显示效果</p>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <p><p id="example1">aaa<em>bbb</em>ccc</p><style>p#example1{color:red;}</style></p>
+</div>
+</div>
 </div>
 <ul>
 <li>继承性是指被包在内部的标签默认拥有外部标签的样式性，即子元素可以继承父元素的属性</li>
 <li>继承可以避免同样的内容重复声明，减少CSS文件大小，提升网页加载速度</li>
-<li>
-<p>文本相关属性默认继承(<code>inherited:yes</code>)，布局相关属性默认不继承(<code>inherited:no</code>)</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>所有继承信息详见 <a href="https://www.w3.org/TR/CSS21/propidx.html">https://www.w3.org/TR/CSS21/propidx.html</a></p>
-</div>
-</li>
-<li>
-<p>默认继承最近祖先的属性值</p>
-</li>
+<li>文本相关属性默认继承(<code>inherited:yes</code>)，布局相关属性默认不继承(<code>inherited:no</code>)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>默认继承最近祖先的属性值</li>
 <li>CSS控制继承：<code>inherit|initial|unset|revert|all:[inherit|initial|unset|revert]</code><ul>
 <li><code>inherit</code>：从父类继承值</li>
 <li><code>initial</code>：设定为初始值</li>
@@ -1603,7 +1597,7 @@
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="md-img/10.25-4.png"><img alt="box structure" src="md-img/10.25-4.png"/></a>
 <figcaption>盒模型有四属性：border、margin、padding、content</figcaption>
 </figure></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:4"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><input id="__tabbed_11_3" name="__tabbed_11" type="radio"/><input id="__tabbed_11_4" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">内容区content<a name="content"></a></label><label for="__tabbed_11_2">内边距padding<a name="padding"></a></label><label for="__tabbed_11_3">边框border<a name="border"></a></label><label for="__tabbed_11_4">外边距margin<a name="margin"></a></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:4"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><input id="__tabbed_12_3" name="__tabbed_12" type="radio"/><input id="__tabbed_12_4" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">内容区content<a name="content"></a></label><label for="__tabbed_12_2">内边距padding<a name="padding"></a></label><label for="__tabbed_12_3">边框border<a name="border"></a></label><label for="__tabbed_12_4">外边距margin<a name="margin"></a></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1660,7 +1654,7 @@ top先复制到right和bottom，然后right复制到left。
 </li>
 <li>
 <p>块级元素、内联元素和盒模型</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">块级元素<a name="block-element"></a></label><label for="__tabbed_12_2">内联元素<a name="inline-element"></a></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">块级元素<a name="block-element"></a></label><label for="__tabbed_13_2">内联元素<a name="inline-element"></a></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1747,7 +1741,7 @@ top先复制到right和bottom，然后right复制到left。
 </li>
 <li>
 <p>position</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:4"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><input id="__tabbed_13_3" name="__tabbed_13" type="radio"/><input id="__tabbed_13_4" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">静态定位<code>position:static</code></label><label for="__tabbed_13_2">固定定位<code>position:fixed</code></label><label for="__tabbed_13_3">相对定位<code>position:relative</code></label><label for="__tabbed_13_4">绝对定位<code>position:absolute</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:4"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><input id="__tabbed_14_2" name="__tabbed_14" type="radio"/><input id="__tabbed_14_3" name="__tabbed_14" type="radio"/><input id="__tabbed_14_4" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">静态定位<code>position:static</code></label><label for="__tabbed_14_2">固定定位<code>position:fixed</code></label><label for="__tabbed_14_3">相对定位<code>position:relative</code></label><label for="__tabbed_14_4">绝对定位<code>position:absolute</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1827,6 +1821,9 @@ top先复制到right和bottom，然后right复制到left。
 <li id="fn:1">
 <p>本章节参考资料主要来源于MDN开发网：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/</a> 由Mozilla贡献者基于<a href="https://creativecommons.org/licenses/by-sa/2.5/">CC-BY-SA 2.5</a>及以上版本发布的“CSS——设计Web” 结合相关文字和课件共同整理 <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
+<li id="fn:2">
+<p>所有继承信息详见 <a href="https://www.w3.org/TR/CSS21/propidx.html">https://www.w3.org/TR/CSS21/propidx.html</a> <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
 </ol>
 </div>
 <hr/>
@@ -1834,7 +1831,7 @@ top先复制到right和bottom，然后right复制到left。
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月1日 09:47:11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月23日 20:42:20</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>

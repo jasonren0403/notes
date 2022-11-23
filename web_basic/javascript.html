@@ -777,8 +777,8 @@
 <p>由于历史原因，JavaScript只支持两字节的字符，不支持四字节的字符，这导致码点在U+10000到U+10FFFF之间的字符，JavaScript总是认为它们是两个字符（<code>length</code> 属性为2），实际应该是1</p>
 </div>
 <div class="tabbed-block">
-<p><code>with</code> 区块没有改变作用域，它的内部依然是当前作用域。这造成了<code>with</code>语句的一个很大的弊病，就是绑定对象不明确
-比如说，下方例子中，很难判断<code>x</code>到底是一个全局变量，还是obj的一个属性：
+<p><code>with</code> 区块没有改变作用域，它的内部依然是当前作用域。这造成了<code>with</code>语句的一个很大的弊病，就是绑定对象不明确</p>
+<p>比如说，下方例子中，很难判断<code>x</code>到底是一个全局变量，还是obj的一个属性：
 <div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">with</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span><span class="w"></span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"></span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">}</span><span class="w"></span>
@@ -2572,7 +2572,7 @@ Java需要编译，而JavaScript可以直接解释运行。</p>
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月1日 09:47:11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月23日 20:42:20</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>

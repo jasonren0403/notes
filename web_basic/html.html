@@ -700,7 +700,7 @@
 <ul>
 <li>
 <p>键值对，用<code>=</code>连接
-    <div class="highlight"><span class="filename">HTML</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class </span><span class="o">=</span> <span class="s">"editor-note"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <div class="highlight"><span class="filename">HTML</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"editor-note"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -737,7 +737,7 @@ html元素 = head元素 + body元素</p>
 <li>
 <p>常用lang代码</p>
 <ul>
-<li>中文：zh-CN</li>
+<li>简体中文：zh-CN</li>
 <li>英文：en-US</li>
 </ul>
 <div class="admonition tip">
@@ -795,7 +795,7 @@ html元素 = head元素 + body元素</p>
 <ul>
 <li>可以在打开的页面的标签页和收藏夹中看到它</li>
 <li>gif和png文件也是支持的，使用ico文件是为了确保IE6的兼容性</li>
-<li>手机端（苹果或安卓）的自定义高分辨率图标：<code>&lt;link rel = "apple-touch-icon-precomposed" href="xxx" sizes="xxx"&gt;</code></li>
+<li>手机端（苹果或安卓）的自定义高分辨率图标：<code>&lt;link rel="apple-touch-icon-precomposed" href="xxx" sizes="xxx"&gt;</code></li>
 </ul>
 </li>
 <li>
@@ -830,7 +830,7 @@ html元素 = head元素 + body元素</p>
 <ul>
 <li>标题 <code>&lt;h1&gt;</code> <code>&lt;h2&gt;</code> <code>&lt;h3&gt;</code> <code>&lt;h4&gt;</code> <code>&lt;h5&gt;</code> <code>&lt;h6&gt;</code><ul>
 <li><code>&lt;h1&gt;</code>是最大的标题，<code>&lt;h6&gt;</code>是最小的标题</li>
-<li>根据语义化要求，尽量不要使用标题元素来决定字体大小，最好使用CSS！</li>
+<li>根据语义化要求，尽量不要使用标题元素来决定字体大小，最好使用<a href="css.html">CSS</a>！</li>
 </ul>
 </li>
 <li>段落 <code>&lt;p&gt;</code> <code>&lt;/p&gt;</code><ul>
@@ -1275,16 +1275,16 @@ html元素 = head元素 + body元素</p>
 <li><code>&lt;optgroup&gt;</code>设定选项分组</li>
 </ul>
 </li>
-<li>自动补全输入<ul>
-<li><code>&lt;datalist&gt;</code>配合<code>&lt;input&gt;</code>的<code>list</code>属性，datalist中每一个option项为待选输入<blockquote>
-<p><code>datalist id = "a"</code> 要对应于 <code>input list = "a"</code></p>
-</blockquote>
-</li>
+<li>
+<p>自动补全输入</p>
+<ul>
+<li><code>&lt;datalist&gt;</code>配合<code>&lt;input&gt;</code>的<code>list</code>属性，datalist中每一个option项为待选输入</li>
 </ul>
-</li>
-<li>fieldset和legend：控件组及其描述</li>
-<li>label：设置标签<blockquote>
-<p><code>input id="xx"</code> 要对应于 <code>label for="xx"</code></p>
+<blockquote>
+<p><code>datalist</code> 的 <code>id</code> 要对应于 <code>input</code> 的 <code>list</code>
+        - fieldset和legend：控件组及其描述
+        - label：设置标签
+<code>input id="xx"</code> 要对应于 <code>label for="xx"</code></p>
 </blockquote>
 </li>
 </ul>
@@ -1305,7 +1305,7 @@ html元素 = head元素 + body元素</p>
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月1日 09:47:11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月23日 20:42:20</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2021年11月4日 16:44:46</span>
