@@ -21,7 +21,7 @@ jobs:
       - name: Setup build cache
         uses: actions/cache@v3
         with:
-          key: ${{ runner.os }}-cache-v2-${{ hashFiles('.cache/**') }}
+          key: ${{ runner.os }}-cache-v2
           path: .cache
       - name: Install Python dependencies
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox pillow cairosvg

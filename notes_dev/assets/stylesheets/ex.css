@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 .date-pull-right {
     float: right;
     padding-bottom: 0;
@@ -32,25 +34,26 @@
     clear: both;
 }
 
+/* todo: temp not useful */
 /* Enhance tag page style */
-#\34 08 + ul, #web + ul {
-    -moz-column-count: 3; /* Firefox */
-    -webkit-column-count: 3; /* Safari and Chrome */
-    column-count: 3
-}
+/*.md-typeset h2+ul {*/
+/*    -moz-column-count: 3; !* Firefox *!*/
+/*    -webkit-column-count: 3; !* Safari and Chrome *!*/
+/*    column-count: 3*/
+/*}*/
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
-    #\34 08 + ul, #web + ul {
-        -moz-column-count: 2; /* Firefox */
-        -webkit-column-count: 2; /* Safari and Chrome */
-        column-count: 2
-    }
-}
+/*@media screen and (min-width: 480px) and (max-width: 768px) {*/
+/*    .md-typeset h2+ul {*/
+/*        -moz-column-count: 2; !* Firefox *!*/
+/*        -webkit-column-count: 2; !* Safari and Chrome *!*/
+/*        column-count: 2*/
+/*    }*/
+/*}*/
 
-@media screen and (max-width: 480px) {
-    #\34 08 + ul, #web + ul {
-        -moz-column-count: 1; /* Firefox */
-        -webkit-column-count: 1; /* Safari and Chrome */
-        column-count: 1
-    }
-}
+/*@media screen and (max-width: 480px) {*/
+/*    .md-typeset h2+ul {*/
+/*        -moz-column-count: 1; !* Firefox *!*/
+/*        -webkit-column-count: 1; !* Safari and Chrome *!*/
+/*        column-count: 1*/
+/*    }*/
+/*}*/

@@ -99,6 +99,7 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.top
+    - navigation.footer
     - navigation.expand
     - navigation.tracking
     - navigation.instant
@@ -110,6 +111,9 @@ theme:
     - search.highlight
     - search.share
     - content.code.annotate
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
   language: 'zh'
 
 copyright: >-
@@ -153,7 +157,7 @@ plugins:
   - tags:
       tags_file: tags.md
   - search:
-      separator: '[\s\-\.]+'
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
@@ -185,7 +189,9 @@ markdown_extensions:
       auto_title: true
       linenums_style: pymdownx-inline
   - markdown.extensions.toc:
-      permalink: true
+      # https://github.com/squidfunk/mkdocs-material/discussions/4682
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds: {}
   - markdown.extensions.footnotes
   - markdown.extensions.attr_list
   - markdown.extensions.def_list

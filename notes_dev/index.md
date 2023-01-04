@@ -37,4 +37,5 @@ glightbox: false
 |2022.2.27 { data-sort='1645891200' } |更新至mkdocs-material 8.2.2版本，内置了mermaidJS支持||
 |2022.4.7 { data-sort='1649260800' } |更新至mkdocs-material 8.2.8版本||
 |2022.8.15 { data-sort='1660492800' } |更新至mkdocs-material 8.4.0版本||
-|2022.9.14 { data-sort='1663084800' } |更新至mkdocs-material 8.5.0版本，有酷炫的social card咯！||
+|2022.9.14 { data-sort='1663084800' } |更新至mkdocs-material 8.5.0版本|有酷炫的social card咯！|
+|2023.1.4 { data-sort='1672761600' } |更新至mkdocs-material 9.0.2版本|主要是搜索方面的大更新|
