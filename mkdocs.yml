@@ -128,9 +128,9 @@ edit_uri: edit/main/notes_dev/
 extra:
   comments: true
   ## uncomment before publish ##
-#  analytics:
-#    provider: google
-#    property: G-Q0FWVZ6L5Y
+  analytics:
+    provider: google
+    property: G-Q0FWVZ6L5Y
   ## uncomment before publish ##
   social:
     - icon: fontawesome/brands/github-alt
