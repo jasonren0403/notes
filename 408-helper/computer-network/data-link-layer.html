@@ -8,16 +8,20 @@
 <meta content="信息安全、前端相关笔记存放处" name="description"/>
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/408-helper/computer-network/data-link-layer.html" rel="canonical"/>
+<link href="physical-layer.html" rel="prev"/>
+<link href="network-layer.html" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.2" name="generator"/>
 <title>数据链路层 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../../assets/stylesheets/ex.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-Q0FWVZ6L5Y"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-Q0FWVZ6L5Y",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-Q0FWVZ6L5Y",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
 <meta content="数据链路层 - Jason的笔记小屋" property="og:title"/>
 <meta content="信息安全、前端相关笔记存放处" property="og:description"/>
@@ -48,7 +52,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#数据链路层">
           跳转至
         </a>
 </div>
@@ -57,7 +61,7 @@
 <header class="md-header md-header--lifted" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
 <a aria-label="Jason的笔记小屋" class="md-header__button md-logo" data-md-component="logo" href="../../index.html" title="Jason的笔记小屋">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -125,7 +129,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/jasonren0403/notes" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </div>
 <div class="md-source__repository">
     jasonren0403/notes
@@ -179,14 +183,14 @@
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="Jason的笔记小屋" class="md-nav__button md-logo" data-md-component="logo" href="../../index.html" title="Jason的笔记小屋">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 </a>
     Jason的笔记小屋
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/jasonren0403/notes" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </div>
 <div class="md-source__repository">
     jasonren0403/notes
@@ -543,24 +547,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#基本概念">
     基本概念
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#链路层功能">
     链路层功能
   </a>
 <nav aria-label="链路层功能" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#封装为帧">
     封装为帧
   </a>
 <nav aria-label="封装为帧" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#组帧方法">
     组帧方法
   </a>
 </li>
@@ -568,28 +572,28 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#透明传输">
     透明传输
   </a>
 <nav aria-label="透明传输" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#字符计数法">
     字符计数法
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#字符填充法">
     字符填充法
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#零比特填充法">
     零比特填充法
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#违规编码法">
     违规编码法
   </a>
 </li>
@@ -597,29 +601,29 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#差错控制">
     差错控制
   </a>
 <nav aria-label="差错控制" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#差错的分类">
     差错的分类
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
+<a class="md-nav__link" href="#检错编码">
     检错编码
   </a>
 <nav aria-label="检错编码" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
+<a class="md-nav__link" href="#奇偶校验码">
     奇偶校验码
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#crc">
+<a class="md-nav__link" href="#循环冗余码CRC">
     循环冗余码CRC
   </a>
 </li>
@@ -627,7 +631,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
+<a class="md-nav__link" href="#纠错编码海明码">
     纠错编码——海明码
   </a>
 </li>
@@ -635,29 +639,29 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_16">
+<a class="md-nav__link" href="#流量控制与可靠传输">
     流量控制与可靠传输
   </a>
 <nav aria-label="流量控制与可靠传输" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-">
+<a class="md-nav__link" href="#停止-等待协议">
     停止-等待协议
   </a>
 <nav aria-label="停止-等待协议" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_17">
+<a class="md-nav__link" href="#无差错">
     无差错
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_18">
+<a class="md-nav__link" href="#有差错">
     有差错
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_19">
+<a class="md-nav__link" href="#性能分析">
     性能分析
   </a>
 </li>
@@ -665,23 +669,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ngbn">
+<a class="md-nav__link" href="#后退N帧协议GBN">
     后退N帧协议GBN
   </a>
 <nav aria-label="后退N帧协议GBN" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_20">
+<a class="md-nav__link" href="#发送方处理">
     发送方处理
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_21">
+<a class="md-nav__link" href="#接收方处理">
     接收方处理
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_22">
+<a class="md-nav__link" href="#性能分析_1">
     性能分析
   </a>
 </li>
@@ -689,18 +693,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sr">
+<a class="md-nav__link" href="#选择重传协议SR">
     选择重传协议SR
   </a>
 <nav aria-label="选择重传协议SR" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_23">
+<a class="md-nav__link" href="#发送方处理_1">
     发送方处理
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_24">
+<a class="md-nav__link" href="#接收方处理_1">
     接收方处理
   </a>
 </li>
@@ -714,39 +718,39 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_25">
+<a class="md-nav__link" href="#介质访问控制">
     介质访问控制
   </a>
 <nav aria-label="介质访问控制" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_26">
+<a class="md-nav__link" href="#传输数据使用的两种链路">
     传输数据使用的两种链路
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_27">
+<a class="md-nav__link" href="#静态划分信道信道划分介质访问控制">
     静态划分信道——信道划分介质访问控制
   </a>
 <nav aria-label="静态划分信道——信道划分介质访问控制" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#fdm">
+<a class="md-nav__link" href="#频分多路复用FDM">
     频分多路复用FDM
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#tdm">
+<a class="md-nav__link" href="#时分多路复用TDM">
     时分多路复用TDM
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#wdm">
+<a class="md-nav__link" href="#波分多路复用WDM">
     波分多路复用WDM
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cdm">
+<a class="md-nav__link" href="#码分多路复用CDM">
     码分多路复用CDM
   </a>
 </li>
@@ -754,34 +758,34 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_28">
+<a class="md-nav__link" href="#动态划分信道">
     动态划分信道
   </a>
 <nav aria-label="动态划分信道" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_29">
+<a class="md-nav__link" href="#随机访问介质控制">
     随机访问介质控制
   </a>
 <nav aria-label="随机访问介质控制" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#aloha">
+<a class="md-nav__link" href="#ALOHA协议不听就说">
     ALOHA协议（不听就说）
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#csma">
+<a class="md-nav__link" href="#CSMA协议先听再说">
     CSMA协议（先听再说）
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#csmaca">
+<a class="md-nav__link" href="#CSMACA协议先听再说边听边说">
     CSMA/CA协议（先听再说，边听边说）
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#csmacd">
+<a class="md-nav__link" href="#CSMACD协议先听再说边听边说">
     CSMA/CD协议（先听再说，边听边说）
   </a>
 </li>
@@ -789,18 +793,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_30">
+<a class="md-nav__link" href="#轮询访问介质访问控制">
     轮询访问介质访问控制
   </a>
 <nav aria-label="轮询访问介质访问控制" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_31">
+<a class="md-nav__link" href="#轮询协议">
     轮询协议
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_32">
+<a class="md-nav__link" href="#令牌传递协议">
     令牌传递协议
   </a>
 </li>
@@ -814,34 +818,34 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_33">
+<a class="md-nav__link" href="#局域网">
     局域网
   </a>
 <nav aria-label="局域网" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_34">
+<a class="md-nav__link" href="#基本概念_1">
     基本概念
   </a>
 <nav aria-label="基本概念" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_35">
+<a class="md-nav__link" href="#特点">
     特点
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_36">
+<a class="md-nav__link" href="#主要要素">
     主要要素
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_37">
+<a class="md-nav__link" href="#局域网分类">
     局域网分类
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ieee-802">
+<a class="md-nav__link" href="#IEEE-802标准">
     IEEE 802标准
   </a>
 </li>
@@ -849,43 +853,43 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_38">
+<a class="md-nav__link" href="#以太网">
     以太网
   </a>
 <nav aria-label="以太网" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_39">
+<a class="md-nav__link" href="#特点_1">
     特点
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_40">
+<a class="md-nav__link" href="#标准">
     标准
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_41">
+<a class="md-nav__link" href="#服务">
     服务
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#10base-t">
+<a class="md-nav__link" href="#10Base-T以太网">
     10Base-T以太网
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#mac">
+<a class="md-nav__link" href="#适配器和MAC地址">
     适配器和MAC地址
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#macv2">
+<a class="md-nav__link" href="#以太网MAC帧格式V2">
     以太网MAC帧格式（V2）
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_42">
+<a class="md-nav__link" href="#高速以太网">
     高速以太网
   </a>
 </li>
@@ -893,18 +897,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_43">
+<a class="md-nav__link" href="#无线局域网">
     无线局域网
   </a>
 <nav aria-label="无线局域网" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ieee80211">
+<a class="md-nav__link" href="#IEEE80211标准">
     IEEE802.11标准
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_44">
+<a class="md-nav__link" href="#无线局域网的分类">
     无线局域网的分类
   </a>
 </li>
@@ -915,28 +919,28 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_45">
+<a class="md-nav__link" href="#广域网">
     广域网
   </a>
 <nav aria-label="广域网" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_46">
+<a class="md-nav__link" href="#基本概念_2">
     基本概念
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ppp">
+<a class="md-nav__link" href="#PPP协议">
     PPP协议
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_47">
+<a class="md-nav__link" href="#三个组成部分">
     三个组成部分
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ppp_1">
+<a class="md-nav__link" href="#PPP帧格式">
     PPP帧格式
   </a>
 </li>
@@ -944,35 +948,35 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_48">
+<a class="md-nav__link" href="#链路层设备">
     链路层设备
   </a>
 <nav aria-label="链路层设备" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_49">
+<a class="md-nav__link" href="#集线器">
     集线器
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_50">
+<a class="md-nav__link" href="#网桥交换机">
     网桥&amp;交换机
   </a>
 <nav aria-label="网桥&amp;交换机" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_51">
+<a class="md-nav__link" href="#网桥的分类">
     网桥的分类
   </a>
 <nav aria-label="网桥的分类" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_52">
+<a class="md-nav__link" href="#透明网桥">
     透明网桥
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_53">
+<a class="md-nav__link" href="#源路由网桥">
     源路由网桥
   </a>
 </li>
@@ -980,7 +984,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_54">
+<a class="md-nav__link" href="#以太网交换机">
     以太网交换机
   </a>
 </li>
@@ -1068,9 +1072,12 @@
 <a class="md-tag" href="../../tags.html#">计算机网络</a>
 </nav>
 <a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/edit/main/notes_dev/408-helper/computer-network/data-link-layer.md" title="编辑此页">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="_1">数据链路层<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/raw/main/notes_dev/408-helper/computer-network/data-link-layer.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="数据链路层">数据链路层</h1>
 <details class="summary">
 <summary>数据链路层的功能</summary>
 <ol>
@@ -1081,7 +1088,7 @@
 <li>差错控制</li>
 </ol>
 </details>
-<h2 id="_2">基本概念<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h2 id="基本概念">基本概念</h2>
 <p>数据链路层负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。</p>
 <dl>
 <dt>结点</dt>
@@ -1093,7 +1100,7 @@
 <dt>帧</dt>
 <dd>链路层的协议数据单元，封装网络层数据报</dd>
 </dl>
-<h2 id="_3">链路层功能<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h2 id="链路层功能">链路层功能</h2>
 <p>数据链路层有五大功能：</p>
 <ol>
 <li>为网络层提供服务<ul>
@@ -1107,7 +1114,7 @@
 <li>流量控制</li>
 <li>差错控制（帧错/位错）</li>
 </ol>
-<h3 id="_4">封装为帧<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h3 id="封装为帧">封装为帧</h3>
 <p>将网络层的IP数据报添加头部和尾部，形成链路层数据传送单元 <em>帧</em>。接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从收到的比特流中识别帧的开始和结束。</p>
 <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>  +--------+-----------+---------+
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>  |  首部   |  数据部分  |  尾部   |
@@ -1117,7 +1124,7 @@
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>  |&lt;-          帧长             -&gt;|
 </code></pre></div>
 <p>帧同步：接收端能够从接收到的二进制比特流中区分出帧的起始和终止位置。</p>
-<h4 id="_5">组帧方法<a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
+<h4 id="组帧方法">组帧方法</h4>
 <ul>
 <li>字符计数法</li>
 <li>字符（节）填充法</li>
@@ -1128,19 +1135,19 @@
 <p class="admonition-title">提示</p>
 <p>在“透明传输”一节中，将进一步介绍这些方法</p>
 </div>
-<h3 id="_6">透明传输<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h3 id="透明传输">透明传输</h3>
 <p>不管所传数据是什么样的比特组合，都应当能够在链路上进行传送。当所传数据中比特组合恰好与控制信息一样时，就必须采取适当措施，使得接收方不会将这样的数据误认为是控制信息。</p>
-<h4 id="_7">字符计数法<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
+<h4 id="字符计数法">字符计数法</h4>
 <p>帧首部使用一个计数字段（第一个字节，8位）来标明帧内字符数。</p>
 <div class="admonition bug">
 <p>如果计数字段错误，则会导致该帧结束位错误，又会导致后面所有的帧都发生错误。双方失去同步。</p>
 </div>
-<h4 id="_8">字符填充法<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
+<h4 id="字符填充法">字符填充法</h4>
 <p>以<code>SOH</code>和<code>EOT</code>（均为一个字节）标记帧的开始和结束。如果帧内数据中包含<code>SOH</code>或<code>EOT</code>，则在其前面添加一个<code>ESC</code>（转义字符）。</p>
 <div class="admonition bug">
 <p>实现较复杂，兼容性差</p>
 </div>
-<h4 id="_9">零比特填充法<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
+<h4 id="零比特填充法">零比特填充法</h4>
 <p>首部和尾部的标志相同，均为<code>01111110</code>。</p>
 <ul>
 <li>发送时，只要发现连续的5个1，就立即填入1个0。</li>
@@ -1149,15 +1156,15 @@
 <div class="admonition success">
 <p>保证了透明传输</p>
 </div>
-<h4 id="_10">违规编码法<a class="headerlink" href="#_10" title="Permanent link">¶</a></h4>
+<h4 id="违规编码法">违规编码法</h4>
 <p>曼彻斯特编码不会出现高-高或低-低的情况，因此可以利用这一特性，使用这两种组合界定帧起始/帧终止。</p>
-<h3 id="_11">差错控制<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
+<h3 id="差错控制">差错控制</h3>
 <p>差错总是由于噪声引起的。</p>
 <ul>
 <li>全局性：线路本身电气特性造成的热噪声，解决：提高信噪比</li>
 <li>局部性：外界特定的短暂原因造成的冲击噪声，解决：利用编码技术解决</li>
 </ul>
-<h4 id="_12">差错的分类<a class="headerlink" href="#_12" title="Permanent link">¶</a></h4>
+<h4 id="差错的分类">差错的分类</h4>
 <ul>
 <li>位错：比特位出错，1变0，0变1</li>
 <li>
@@ -1181,22 +1188,28 @@
 </li>
 </ul>
 <p>数据链路层的差错控制主要强调的是 <em>比特错</em></p>
-<h4 id="_13">检错编码<a class="headerlink" href="#_13" title="Permanent link">¶</a></h4>
-<h5 id="_14">奇偶校验码<a class="headerlink" href="#_14" title="Permanent link">¶</a></h5>
+<h4 id="检错编码">检错编码</h4>
+<h5 id="奇偶校验码">奇偶校验码</h5>
 <p>使用<code>n-1</code>位信息元和<code>1</code>位校验元，在接收到数据的首位添加一个校验元，使得<code>1</code>的个数为奇数（寄校验码）或偶数（偶校验码）。</p>
 <div class="admonition info">
 <p class="admonition-title">特点</p>
 <p>只能检验出奇数个比特错误，检错能力为50%。</p>
 </div>
-<h5 id="crc">循环冗余码CRC<a class="headerlink" href="#crc" title="Permanent link">¶</a></h5>
-<p>计算冗余码
-1. 加0
-    * 若生成多项式 <span class="arithmatex">\(G(x)\)</span> 的阶为 <span class="arithmatex">\(r\)</span>，则加 <span class="arithmatex">\(r\)</span> 个0
-2. 模2除法
-    * 数据加0后除以多项式，余数为所求冗余码（FCS/CRC检验码）的比特序列。</p>
+<h5 id="循环冗余码CRC">循环冗余码CRC</h5>
+<p>计算冗余码</p>
+<ol>
+<li>加0<ul>
+<li>若生成多项式 <span class="arithmatex">\(G(x)\)</span> 的阶为 <span class="arithmatex">\(r\)</span>，则加 <span class="arithmatex">\(r\)</span> 个0</li>
+</ul>
+</li>
+<li>模2除法<ul>
+<li>数据加0后除以多项式，余数为所求冗余码（FCS/CRC检验码）的比特序列。</li>
+</ul>
+</li>
+</ol>
 <p>最终发送的数据：<code>数据||检验序列FCS</code></p>
 <p>接收端：<code>数据||检验序列FCS</code>除以多项式，余数为0，则无差错，否则有差错。无差错帧可以接收，有差错帧需要丢弃。</p>
-<h4 id="_15">纠错编码——海明码<a class="headerlink" href="#_15" title="Permanent link">¶</a></h4>
+<h4 id="纠错编码海明码">纠错编码——海明码</h4>
 <div class="admonition abstract">
 <p class="admonition-title">工作原理</p>
 <p>“牵一发而动全身”，通过增加冗余位，使得任意一个比特的改变都会导致整个比特序列的改变。</p>
@@ -1224,7 +1237,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="_16">流量控制与可靠传输<a class="headerlink" href="#_16" title="Permanent link">¶</a></h3>
+<h3 id="流量控制与可靠传输">流量控制与可靠传输</h3>
 <p>较高发送速度和较低接收能力不匹配，会造成传输出错。因此流量控制是非常必要的一项工作。</p>
 <table>
 <thead>
@@ -1255,11 +1268,11 @@
 <div class="admonition tip">
 <p>GBN和SR都属于 <strong>滑动窗口协议</strong>，停止-等待协议也可以看作窗口为1的滑动窗口协议。</p>
 </div>
-<h4 id="-">停止-等待协议<a class="headerlink" href="#-" title="Permanent link">¶</a></h4>
-<h5 id="_17">无差错<a class="headerlink" href="#_17" title="Permanent link">¶</a></h5>
+<h4 id="停止-等待协议">停止-等待协议</h4>
+<h5 id="无差错">无差错</h5>
 <p>每发送1个数据帧就停止并等待，因此只需使用1个bit来编号。</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_sw_1.png"><img alt="无差错的运行情况" src="asset-img/dllayer_sw_1.png"/></a></p>
-<h5 id="_18">有差错<a class="headerlink" href="#_18" title="Permanent link">¶</a></h5>
+<h5 id="有差错">有差错</h5>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">帧丢失/帧出错</label><label for="__tabbed_2_2">ACK丢失</label><label for="__tabbed_2_3">ACK迟到</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1273,7 +1286,7 @@
 </div>
 </div>
 </input></input></input></div>
-<h5 id="_19">性能分析<a class="headerlink" href="#_19" title="Permanent link">¶</a></h5>
+<h5 id="性能分析">性能分析</h5>
 <ul>
 <li>信道利用率：<span class="arithmatex">\((\dfrac{L/C}{T})\)</span>，T为发送周期，L为发送数据总比特量，C为发送方数据传输率<ul>
 <li>停止-等待协议的信道利用率很低，<span class="arithmatex">\(U=\dfrac{T_D}{T_D+RTT+T_A}\)</span></li>
@@ -1281,7 +1294,7 @@
 </li>
 <li>信道吞吐率=信道利用率×发送方的发送速率</li>
 </ul>
-<h4 id="ngbn">后退N帧协议GBN<a class="headerlink" href="#ngbn" title="Permanent link">¶</a></h4>
+<h4 id="后退N帧协议GBN">后退N帧协议GBN</h4>
 <div class="admonition info">
 <p class="admonition-title">停等协议的弊端</p>
 <p>太闲了，停等协议一次只发1个帧，等到接收方回复一个确认帧，发送方才会发送新的帧。</p>
@@ -1291,13 +1304,13 @@
 <p class="admonition-title">窗口长度不能为无限</p>
 <p>n 个比特对帧编号，则发送窗口尺寸 <span class="arithmatex">\(W_T\)</span> 应满足 <span class="arithmatex">\(1\le W_T\le 2^n-1\)</span>，否则接收方无法区别新帧和旧帧。</p>
 </div>
-<h5 id="_20">发送方处理<a class="headerlink" href="#_20" title="Permanent link">¶</a></h5>
+<h5 id="发送方处理">发送方处理</h5>
 <ul>
 <li>上层调用：检查窗口是否已满，若未满则发送新帧，否则等待。</li>
 <li>收到ACK：GBN是累积确认方式，表明接收方已经收到n号帧和它之前的全部帧。</li>
 <li>超时事件：一段时间内如果没有收到ACK，则重传所有已发送但未被确认的帧。</li>
 </ul>
-<h5 id="_21">接收方处理<a class="headerlink" href="#_21" title="Permanent link">¶</a></h5>
+<h5 id="接收方处理">接收方处理</h5>
 <ul>
 <li>如果正确有序地收到n号帧，则发送ACK，且交付其中的数据给上层。</li>
 <li>否则，丢弃该帧，为最近按序接收的帧重新发送ACK。<ul>
@@ -1305,7 +1318,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="_22">性能分析<a class="headerlink" href="#_22" title="Permanent link">¶</a></h5>
+<h5 id="性能分析_1">性能分析</h5>
 <ul>
 <li>因连续发送数据帧而提高了信道利用率</li>
 <li>在重传时必须把原来已经正确传送的数据帧重传，使传送效率低</li>
@@ -1319,7 +1332,7 @@
 <li>发送窗口最大 <span class="arithmatex">\(2^n-1\)</span>，接收窗口为1</li>
 </ol>
 </div>
-<h4 id="sr">选择重传协议SR<a class="headerlink" href="#sr" title="Permanent link">¶</a></h4>
+<h4 id="选择重传协议SR">选择重传协议SR</h4>
 <div class="admonition info">
 <p>能不能只重传出错的帧？设置单个确认，设置接收窗口</p>
 </div>
@@ -1327,13 +1340,13 @@
 <p class="admonition-title">窗口长度不能为无限</p>
 <p>n 个比特对帧编号，则发送窗口和接收窗口尺寸应满足 <span class="arithmatex">\(W_T\le 2^{n-1},W_R\le 2^{n-1}\)</span>，且发送窗口最好等于接收窗口，否则接收方无法区别新帧和旧帧。</p>
 </div>
-<h5 id="_23">发送方处理<a class="headerlink" href="#_23" title="Permanent link">¶</a></h5>
+<h5 id="发送方处理_1">发送方处理</h5>
 <ul>
 <li>上层调用：检查下一个可用于该帧的序号。</li>
 <li>收到ACK：窗口向前移动至未确认地址的最小序号。</li>
 <li>超时事件：每个帧都有自己的定时器，一个超时事件发生后只重传一个帧。</li>
 </ul>
-<h5 id="_24">接收方处理<a class="headerlink" href="#_24" title="Permanent link">¶</a></h5>
+<h5 id="接收方处理_1">接收方处理</h5>
 <ul>
 <li>接收窗口内的帧 <strong>来者不拒</strong>。失序帧缓存，且立即向发送方发送ACK确认该帧。</li>
 <li>收集一批连续帧后交付给上层，然后向前移动滑动窗口。</li>
@@ -1347,12 +1360,12 @@
 <li>发送窗口和接收窗口最大为 <span class="arithmatex">\(2^n-1\)</span></li>
 </ol>
 </div>
-<h2 id="_25">介质访问控制<a class="headerlink" href="#_25" title="Permanent link">¶</a></h2>
+<h2 id="介质访问控制">介质访问控制</h2>
 <div class="admonition summary">
 <p class="admonition-title">总结</p>
 <p>介质访问控制就是采用一定的措施，让两对节点之间通信不会相互干扰。</p>
 </div>
-<h3 id="_26">传输数据使用的两种链路<a class="headerlink" href="#_26" title="Permanent link">¶</a></h3>
+<h3 id="传输数据使用的两种链路">传输数据使用的两种链路</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">点对点</label><label for="__tabbed_3_2">广播式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1363,7 +1376,7 @@
 </div>
 </div>
 </input></input></div>
-<h3 id="_27">静态划分信道——信道划分介质访问控制<a class="headerlink" href="#_27" title="Permanent link">¶</a></h3>
+<h3 id="静态划分信道信道划分介质访问控制">静态划分信道——信道划分介质访问控制</h3>
 <div class="admonition summary">
 <p>基于多路复用技术划分资源。</p>
 </div>
@@ -1374,15 +1387,15 @@
 </ul>
 </div>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/multiplexing.png"><img alt="多路复用" src="asset-img/multiplexing.png"/></a></p>
-<h4 id="fdm">频分多路复用FDM<a class="headerlink" href="#fdm" title="Permanent link">¶</a></h4>
+<h4 id="频分多路复用FDM">频分多路复用FDM</h4>
 <p>各用户占用不同的带宽资源（频率带宽Hz），用户在分配到一定频带后，在通信过程中自始至终占用这个频带。
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/FDM.png"><img alt="频分多路复用示意图" src="asset-img/FDM.png"/></a></p>
-<h4 id="tdm">时分多路复用TDM<a class="headerlink" href="#tdm" title="Permanent link">¶</a></h4>
+<h4 id="时分多路复用TDM">时分多路复用TDM</h4>
 <p>将时间划分为一段段等长的时分复用帧（TDM帧），每个用户在每个TDM帧中占用固定序号的时隙。
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/TDM.png"><img alt="时分多路复用示意图" src="asset-img/TDM.png"/></a></p>
-<h4 id="wdm">波分多路复用WDM<a class="headerlink" href="#wdm" title="Permanent link">¶</a></h4>
+<h4 id="波分多路复用WDM">波分多路复用WDM</h4>
 <p>波分多路复用是光的频分复用，在光纤中传输各种不同波长（频率）的光信号。</p>
-<h4 id="cdm">码分多路复用CDM<a class="headerlink" href="#cdm" title="Permanent link">¶</a></h4>
+<h4 id="码分多路复用CDM">码分多路复用CDM</h4>
 <p>每个用户分配一个唯一的m bit码片序列，0用<code>-1</code>表示，1用<code>+1</code>表示。</p>
 <ul>
 <li>编码信号为原始数据与码片序列的点积。如发送比特1（+1），则发送自己的m bit码片序列；如发送比特0（-1），则发送自己的m bit码片序列的反码。</li>
@@ -1394,11 +1407,11 @@
 <li>分离：合并数据与源站规格化内积</li>
 </ul>
 </div>
-<h3 id="_28">动态划分信道<a class="headerlink" href="#_28" title="Permanent link">¶</a></h3>
+<h3 id="动态划分信道">动态划分信道</h3>
 <div class="admonition summary">
 <p>信道并非在用户通信时固定分配给用户。又称多点接入。</p>
 </div>
-<h4 id="_29">随机访问介质控制<a class="headerlink" href="#_29" title="Permanent link">¶</a></h4>
+<h4 id="随机访问介质控制">随机访问介质控制</h4>
 <div class="admonition summary">
 <p>用户根据随机意愿发送信息，发送信息时，可以独占信道带宽。</p>
 </div>
@@ -1408,7 +1421,7 @@
 <li>网络负载轻时，共享信道效率高，单个站点可使用全部信道带宽。</li>
 </ul>
 </div>
-<h5 id="aloha">ALOHA协议（不听就说）<a class="headerlink" href="#aloha" title="Permanent link">¶</a></h5>
+<h5 id="ALOHA协议不听就说">ALOHA协议（不听就说）</h5>
 <ul>
 <li>纯ALOHA协议：想发就发<ul>
 <li>每个站点可在任意时间发送数据，不关心信道是否被占用</li>
@@ -1422,7 +1435,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="csma">CSMA协议（先听再说）<a class="headerlink" href="#csma" title="Permanent link">¶</a></h5>
+<h5 id="CSMA协议先听再说">CSMA协议（先听再说）</h5>
 <div class="admonition summary">
 <p class="admonition-title">协议思想</p>
 <p>发送帧之前，监听信道。</p>
@@ -1468,7 +1481,7 @@
 </div>
 </div>
 </input></input></input></div>
-<h5 id="csmaca">CSMA/CA协议（先听再说，边听边说）<a class="headerlink" href="#csmaca" title="Permanent link">¶</a></h5>
+<h5 id="CSMACA协议先听再说边听边说">CSMA/CA协议（先听再说，边听边说）</h5>
 <div class="admonition summary">
 <p>CA(Collision Avoidance)：碰撞避免</p>
 </div>
@@ -1485,7 +1498,7 @@
 <li>接收端接收到数据后，使用CRC校验数据是否正确，如果数据正确，则响应ACK帧</li>
 <li>发送方接受到ACK后，进行下一帧发送；如果没有收到，则一直重传，直到规定次数位置（二进制指数退避算法）</li>
 </ul>
-<h5 id="csmacd">CSMA/CD协议（先听再说，边听边说）<a class="headerlink" href="#csmacd" title="Permanent link">¶</a></h5>
+<h5 id="CSMACD协议先听再说边听边说">CSMA/CD协议（先听再说，边听边说）</h5>
 <div class="admonition summary">
 <p>CD(Collision Detection)：碰撞检测</p>
 </div>
@@ -1522,11 +1535,11 @@
 \]</div>
 <p>以太网的最短帧长为64B。</p>
 </details>
-<h4 id="_30">轮询访问介质访问控制<a class="headerlink" href="#_30" title="Permanent link">¶</a></h4>
+<h4 id="轮询访问介质访问控制">轮询访问介质访问控制</h4>
 <div class="admonition summary">
 <p>既不产生冲突，又占用全部带宽。</p>
 </div>
-<h5 id="_31">轮询协议<a class="headerlink" href="#_31" title="Permanent link">¶</a></h5>
+<h5 id="轮询协议">轮询协议</h5>
 <p>主结点轮流邀请从属节点是否发送数据。</p>
 <div class="admonition success">
 <p>每一次只允许一台主机发送数据，不会产生冲突</p>
@@ -1534,7 +1547,7 @@
 <div class="admonition fail">
 <p>轮询开销，等待延迟，单点故障</p>
 </div>
-<h5 id="_32">令牌传递协议<a class="headerlink" href="#_32" title="Permanent link">¶</a></h5>
+<h5 id="令牌传递协议">令牌传递协议</h5>
 <p>每个结点在一定时间内拥有发送数据的权利（令牌）。应用于令牌环网（物理星型逻辑环形）。</p>
 <div class="admonition info">
 <p class="admonition-title">令牌</p>
@@ -1546,10 +1559,10 @@
 <div class="admonition fail">
 <p>令牌开销，等待延迟，单点故障</p>
 </div>
-<h2 id="_33">局域网<a class="headerlink" href="#_33" title="Permanent link">¶</a></h2>
-<h3 id="_34">基本概念<a class="headerlink" href="#_34" title="Permanent link">¶</a></h3>
+<h2 id="局域网">局域网</h2>
+<h3 id="基本概念_1">基本概念</h3>
 <p>局域网（Local Area Network，LAN）是指在某一区域内由多台计算机互联成的计算机组，使用广播信道。</p>
-<h4 id="_35">特点<a class="headerlink" href="#_35" title="Permanent link">¶</a></h4>
+<h4 id="特点">特点</h4>
 <ul>
 <li>覆盖地理范围小</li>
 <li>使用专门传输介质联网，数据传输速率高（10Mb/s~10Gb/s）</li>
@@ -1557,7 +1570,7 @@
 <li>各站为平等关系，共享传输信道</li>
 <li>多采用分布式控制和广播式通信，能进行广播和组播</li>
 </ul>
-<h4 id="_36">主要要素<a class="headerlink" href="#_36" title="Permanent link">¶</a></h4>
+<h4 id="主要要素">主要要素</h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><input id="__tabbed_5_3" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">网络拓扑</label><label for="__tabbed_5_2">传输介质</label><label for="__tabbed_5_3">介质访问控制方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1611,7 +1624,7 @@
 </div>
 </div>
 </input></input></input></div>
-<h4 id="_37">局域网分类<a class="headerlink" href="#_37" title="Permanent link">¶</a></h4>
+<h4 id="局域网分类">局域网分类</h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:5"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><input id="__tabbed_9_3" name="__tabbed_9" type="radio"/><input id="__tabbed_9_4" name="__tabbed_9" type="radio"/><input id="__tabbed_9_5" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">以太网</label><label for="__tabbed_9_2">令牌环网</label><label for="__tabbed_9_3">FDDI网</label><label for="__tabbed_9_4">ATM网</label><label for="__tabbed_9_5">无线局域网</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1631,7 +1644,7 @@
 </div>
 </div>
 </div>
-<h4 id="ieee-802">IEEE 802标准<a class="headerlink" href="#ieee-802" title="Permanent link">¶</a></h4>
+<h4 id="IEEE-802标准">IEEE 802标准</h4>
 <p>IEEE 802标准是IEEE组织制定的一系列标准，用于定义局域网的物理层、数据链路层和网络层的通信协议。</p>
 <ul>
 <li>MAC子层和LLC子层<ul>
@@ -1642,16 +1655,16 @@
 </li>
 </ul>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_llc-and-mac.png"><img alt="MAC与LLC子层在OSI中的位置" src="asset-img/dllayer_llc-and-mac.png"/></a></p>
-<h3 id="_38">以太网<a class="headerlink" href="#_38" title="Permanent link">¶</a></h3>
+<h3 id="以太网">以太网</h3>
 <p>以太网（Ethernet）是由Xerox公司创建并由Xerox、Intel和DEC公司联合开发的基带总线局域网规范，使用CSMA/CD技术。</p>
-<h4 id="_39">特点<a class="headerlink" href="#_39" title="Permanent link">¶</a></h4>
+<h4 id="特点_1">特点</h4>
 <ul>
 <li>造价低廉</li>
 <li>应用最广泛</li>
 <li>组网简单</li>
 <li>满足网络速率要求</li>
 </ul>
-<h4 id="_40">标准<a class="headerlink" href="#_40" title="Permanent link">¶</a></h4>
+<h4 id="标准">标准</h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">DIX Ethernet V2</label><label for="__tabbed_10_2">IEEE 802.3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1662,7 +1675,7 @@
 </div>
 </div>
 </div>
-<h4 id="_41">服务<a class="headerlink" href="#_41" title="Permanent link">¶</a></h4>
+<h4 id="服务">服务</h4>
 <p>以太网提供无连接，不可靠服务</p>
 <dl>
 <dt>无连接</dt>
@@ -1673,7 +1686,7 @@
 <div class="admonition note">
 <p>以太网只实现无差错接受，不实现可靠传输</p>
 </div>
-<h4 id="10base-t">10Base-T以太网<a class="headerlink" href="#10base-t" title="Permanent link">¶</a></h4>
+<h4 id="10Base-T以太网">10Base-T以太网</h4>
 <ul>
 <li>Base：基带信号</li>
 <li>10：速率10Mb/s</li>
@@ -1682,12 +1695,12 @@
 <li>采用曼彻斯特编码</li>
 <li>采用CSMA/CD协议</li>
 </ul>
-<h4 id="mac">适配器和MAC地址<a class="headerlink" href="#mac" title="Permanent link">¶</a></h4>
+<h4 id="适配器和MAC地址">适配器和MAC地址</h4>
 <p>计算机通过通信适配器与外界局域网连接。适配器上的ROM存储器中包含了计算机硬件地址MAC地址。</p>
 <ul>
 <li>MAC地址是全球唯一的48位二进制地址，前24位代表厂家，后24位厂家自行指定，使用6个十六进制数表示。</li>
 </ul>
-<h4 id="macv2">以太网MAC帧格式（V2）<a class="headerlink" href="#macv2" title="Permanent link">¶</a></h4>
+<h4 id="以太网MAC帧格式V2">以太网MAC帧格式（V2）</h4>
 <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>               6        6      2       46~1500         4
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>           +--------+--------+----+------------------+----+
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>           | 目的地址| 源地址  |类型 |     数据          |FCS |       MAC层
@@ -1701,7 +1714,7 @@
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>|    前同步码 7B         |  定界符1B |
 <a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>+-----------------------+----------+
 </code></pre></div>
-<h4 id="_42">高速以太网<a class="headerlink" href="#_42" title="Permanent link">¶</a></h4>
+<h4 id="高速以太网">高速以太网</h4>
 <div class="admonition abstract">
 <p>速率不小于100Mb/s的以太网称为高速以太网</p>
 </div>
@@ -1718,9 +1731,9 @@
 </div>
 </div>
 </div>
-<h3 id="_43">无线局域网<a class="headerlink" href="#_43" title="Permanent link">¶</a></h3>
+<h3 id="无线局域网">无线局域网</h3>
 <p>无线局域网（Wireless LAN，WLAN）是指利用无线电波传输数据的局域网。</p>
-<h4 id="ieee80211">IEEE802.11标准<a class="headerlink" href="#ieee80211" title="Permanent link">¶</a></h4>
+<h4 id="IEEE80211标准">IEEE802.11标准</h4>
 <p>IEE802.11是无线局域网通用的标准，它是由IEEE所定义的无线网络通信的标准。</p>
 <ul>
 <li>
@@ -1792,7 +1805,7 @@
 </table>
 </li>
 </ul>
-<h4 id="_44">无线局域网的分类<a class="headerlink" href="#_44" title="Permanent link">¶</a></h4>
+<h4 id="无线局域网的分类">无线局域网的分类</h4>
 <ul>
 <li>有固定基础设施的无线局域网<ul>
 <li>服务集标识符也就是我们平常所说的”Wifi名称“</li>
@@ -1800,10 +1813,10 @@
 </li>
 <li>无固定基础设施无线局域网的自组织网络</li>
 </ul>
-<h2 id="_45">广域网<a class="headerlink" href="#_45" title="Permanent link">¶</a></h2>
-<h3 id="_46">基本概念<a class="headerlink" href="#_46" title="Permanent link">¶</a></h3>
+<h2 id="广域网">广域网</h2>
+<h3 id="基本概念_2">基本概念</h3>
 <p>广域网（Wide Area Network，WAN）是指覆盖范围较大的网络，一般指跨越城市、省、国家的网络。其通信子网使用分组交换技术。</p>
-<h3 id="ppp">PPP协议<a class="headerlink" href="#ppp" title="Permanent link">¶</a></h3>
+<h3 id="PPP协议">PPP协议</h3>
 <p>点对点协议PPP是目前使用最广泛的数据链路层协议，用户使用拨号电话接入因特网时一般都使用PPP协议。只支持全双工链路。</p>
 <ul>
 <li>应满足<ul>
@@ -1827,13 +1840,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="_47">三个组成部分<a class="headerlink" href="#_47" title="Permanent link">¶</a></h3>
+<h3 id="三个组成部分">三个组成部分</h3>
 <ul>
 <li>一个将IP数据报封装到串行链路的方法</li>
 <li>链路控制协议LCP：建立并维护数据链路连接，身份验证</li>
 <li>网络控制协议NCP：每个不同的网络层协议需要一个相应的NCP来配置，为网络层协议建立和配置逻辑连接</li>
 </ul>
-<h3 id="ppp_1">PPP帧格式<a class="headerlink" href="#ppp_1" title="Permanent link">¶</a></h3>
+<h3 id="PPP帧格式">PPP帧格式</h3>
 <blockquote>
 <p>帧格式以字节为单位，传输的数据都是整数个字节，因此PPP协议面向字节</p>
 </blockquote>
@@ -1843,8 +1856,8 @@
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>+----+----+----+---------+----------------------+------------+-----+
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>  1    1    1      2            &lt;=1500B               2         1
 </code></pre></div>
-<h2 id="_48">链路层设备<a class="headerlink" href="#_48" title="Permanent link">¶</a></h2>
-<h3 id="_49">集线器<a class="headerlink" href="#_49" title="Permanent link">¶</a></h3>
+<h2 id="链路层设备">链路层设备</h2>
+<h3 id="集线器">集线器</h3>
 <p>物理层通过集线器扩展以太网的两种方法</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">光纤</label><label for="__tabbed_12_2">通过主干集线器</label></div>
 <div class="tabbed-content">
@@ -1860,7 +1873,7 @@
 </div>
 </div>
 </div>
-<h3 id="_50">网桥&amp;交换机<a class="headerlink" href="#_50" title="Permanent link">¶</a></h3>
+<h3 id="网桥交换机">网桥&amp;交换机</h3>
 <div class="admonition info">
 <p>为了解决主干集线器方式的冲突大、效率低问题，出现了网桥（交换机的前身）和交换机</p>
 </div>
@@ -1874,12 +1887,12 @@
 <li>可互连不同物理层</li>
 </ul>
 </div>
-<h4 id="_51">网桥的分类<a class="headerlink" href="#_51" title="Permanent link">¶</a></h4>
-<h5 id="_52">透明网桥<a class="headerlink" href="#_52" title="Permanent link">¶</a></h5>
+<h4 id="网桥的分类">网桥的分类</h4>
+<h5 id="透明网桥">透明网桥</h5>
 <p>通过自学习来构建转发表。每一个通过网桥的数据包都会被记录下网桥收到数据时数据对应的地址和网桥自己的接口，通过许许多多的数据包的构造的缓存，网桥就可以知道哪个数据包在哪个接口，以后如果要穿数据包就知道要往哪个接口发送数据包了。</p>
-<h5 id="_53">源路由网桥<a class="headerlink" href="#_53" title="Permanent link">¶</a></h5>
+<h5 id="源路由网桥">源路由网桥</h5>
 <p>在发送时，直接将最佳路径放到帧首部。那么网桥如何获得最佳路径？通过广播方式想目标地址发送广播，此时可能会经过不同路由产生不同的路径，目标地址收到后再将每一条路径都发一个响应帧给网桥，网桥经过对比就知道哪个接口最快了。</p>
-<h4 id="_54">以太网交换机<a class="headerlink" href="#_54" title="Permanent link">¶</a></h4>
+<h4 id="以太网交换机">以太网交换机</h4>
 <blockquote>
 <p>随着技术的发展，网桥的接口越来越多，就变成了以太网交换机。</p>
 </blockquote>
@@ -1937,7 +1950,7 @@
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月8日 23:23:37</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年1月4日 17:16:37</span>
 <br/>
         创建日期:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月10日 20:21:51</span>
@@ -1960,20 +1973,20 @@
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
-                上一页
-              </span>
-              物理层
-            </div>
+                  上一页
+                </span>
+                物理层
+              </div>
 </div>
 </a>
 <a aria-label="下一页: 网络层" class="md-footer__link md-footer__link--next" href="network-layer.html" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
-                下一页
-              </span>
-              网络层
-            </div>
+                  下一页
+                </span>
+                网络层
+              </div>
 </div>
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
@@ -1995,16 +2008,16 @@
 </div>
 <div class="md-social">
 <a class="md-social__link" href="https://github.com/jasonren0403" rel="noopener" target="_blank" title="Jason's Github">
-<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
 </a>
 <a class="md-social__link" href="https://twitter.com/theRealRev270" rel="noopener" target="_blank" title="J.R on twitter">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
 </a>
 <a class="md-social__link" href="https://www.facebook.com/renjason1999" rel="noopener" target="_blank" title="My facebook page">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
 </a>
 <a class="md-social__link" href="https://discord.gg/s33UBWEPxb" rel="noopener" target="_blank" title="Join to my discussion(discord)">
-<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
 </a>
 </div>
 </div>
@@ -2025,6 +2038,13 @@
 <ul class="task-list">
 <li class="task-list-item">
 <label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+          Google Analytics
+        <label>
+</label></label></li>
+<li class="task-list-item">
+<label class="task-list-control">
 <input checked="" name="github" type="checkbox"/>
 <span class="task-list-indicator"></span>
           GitHub
@@ -2039,9 +2059,9 @@
 </form>
 </aside>
 </div>
-<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.5cf534bf.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>

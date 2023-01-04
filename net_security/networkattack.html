@@ -8,16 +8,20 @@
 <meta content="信息安全、前端相关笔记存放处" name="description"/>
 <meta content="Jason" name="author"/>
 <link href="https://note.jason0743.best/net_security/networkattack.html" rel="canonical"/>
+<link href="characteristics.html" rel="prev"/>
+<link href="hook.html" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.2" name="generator"/>
 <title>网络攻击 - Jason的笔记小屋</title>
-<link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../assets/stylesheets/ex.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-Q0FWVZ6L5Y"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-Q0FWVZ6L5Y",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-Q0FWVZ6L5Y",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
 <meta content="网络攻击 - Jason的笔记小屋" property="og:title"/>
 <meta content="信息安全、前端相关笔记存放处" property="og:description"/>
@@ -48,7 +52,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#网络攻击">
           跳转至
         </a>
 </div>
@@ -57,7 +61,7 @@
 <header class="md-header md-header--lifted" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
 <a aria-label="Jason的笔记小屋" class="md-header__button md-logo" data-md-component="logo" href="../index.html" title="Jason的笔记小屋">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -125,7 +129,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/jasonren0403/notes" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </div>
 <div class="md-source__repository">
     jasonren0403/notes
@@ -179,14 +183,14 @@
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="Jason的笔记小屋" class="md-nav__button md-logo" data-md-component="logo" href="../index.html" title="Jason的笔记小屋">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.03A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 </a>
     Jason的笔记小屋
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/jasonren0403/notes" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </div>
 <div class="md-source__repository">
     jasonren0403/notes
@@ -343,28 +347,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#网络安全扫描">
     网络安全扫描
   </a>
 <nav aria-label="网络安全扫描" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#端口扫描">
     端口扫描
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#操作系统探测">
     操作系统探测
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#漏洞检测">
     漏洞检测
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#网络协议安全">
     网络协议安全
   </a>
 </li>
@@ -372,18 +376,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arp">
+<a class="md-nav__link" href="#ARP攻击">
     ARP攻击
   </a>
 <nav aria-label="ARP攻击" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#嗅探技术">
     嗅探技术
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#攻击">
     攻击
   </a>
 </li>
@@ -391,18 +395,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#denial-of-service">
+<a class="md-nav__link" href="#拒绝服务Denial-of-Service攻击">
     拒绝服务(Denial of Service)攻击
   </a>
 <nav aria-label="拒绝服务(Denial of Service)攻击" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#典型的拒绝服务攻击">
     典型的拒绝服务攻击
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#攻击检测">
     攻击检测
   </a>
 </li>
@@ -410,49 +414,49 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#web">
+<a class="md-nav__link" href="#Web攻击">
     Web攻击
   </a>
 <nav aria-label="Web攻击" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#xsscross-site-scripting">
+<a class="md-nav__link" href="#XSSCross-Site-Scripting攻击">
     XSS(Cross Site Scripting)攻击
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#csrfcross-site-request-forgery">
+<a class="md-nav__link" href="#CSRFCross-Site-Request-Forgery跨站域请求伪造">
     CSRF(Cross Site Request Forgery)跨站域请求伪造
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sql">
+<a class="md-nav__link" href="#SQL注入攻击">
     SQL注入攻击
   </a>
 <nav aria-label="SQL注入攻击" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#本质">
     本质
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#关键条件">
     关键条件
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
+<a class="md-nav__link" href="#具体技巧">
     具体技巧
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sql_1">
+<a class="md-nav__link" href="#SQL注入过程">
     SQL注入过程
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sql_2">
+<a class="md-nav__link" href="#SQL攻击防范">
     SQL攻击防范
   </a>
 </li>
@@ -463,34 +467,34 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dns">
+<a class="md-nav__link" href="#DNS威胁与防范">
     DNS威胁与防范
   </a>
 <nav aria-label="DNS威胁与防范" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dns-vs">
+<a class="md-nav__link" href="#DNS工作流程递归查询-vs-迭代查询">
     DNS工作流程：递归查询 vs 迭代查询
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dns_1">
+<a class="md-nav__link" href="#DNS协议">
     DNS协议
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
+<a class="md-nav__link" href="#安全威胁和防范">
     安全威胁和防范
   </a>
 <nav aria-label="安全威胁和防范" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
+<a class="md-nav__link" href="#安全威胁">
     安全威胁
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_16">
+<a class="md-nav__link" href="#安全防范">
     安全防范
   </a>
 </li>
@@ -501,28 +505,28 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_17">
+<a class="md-nav__link" href="#恶意代码">
     恶意代码
   </a>
 <nav aria-label="恶意代码" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_18">
+<a class="md-nav__link" href="#病毒">
     病毒
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_19">
+<a class="md-nav__link" href="#木马">
     木马
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_20">
+<a class="md-nav__link" href="#蠕虫">
     蠕虫
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_21">
+<a class="md-nav__link" href="#恶意代码技术">
     恶意代码技术
   </a>
 </li>
@@ -806,10 +810,13 @@
 <a class="md-tag" href="../tags.html#">网络安全</a>
 </nav>
 <a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/edit/main/notes_dev/net_security/networkattack.md" title="编辑此页">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="_1">网络攻击<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<h2 id="_2">网络安全扫描<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/raw/main/notes_dev/net_security/networkattack.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="网络攻击">网络攻击</h1>
+<h2 id="网络安全扫描">网络安全扫描</h2>
 <ul>
 <li>网络安全扫描是对计算机网络系统进行相关的安全检测，进而找出安全隐患和漏洞。</li>
 <li>发现目标主机或网络 → 搜集目标信息</li>
@@ -856,7 +863,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_3">端口扫描<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="端口扫描">端口扫描</h3>
 <ul>
 <li>原理：向目标主机的TCP/IP服务端口发送探测数据包，并记录目标主机的响应，通过分析响应来判断服务端口是打开还是关闭，即可得知端口提供的服务或信息<ul>
 <li>分类：全连接扫描、半连接扫描、秘密扫描</li>
@@ -970,7 +977,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="_4">操作系统探测<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h3 id="操作系统探测">操作系统探测</h3>
 <ul>
 <li>目的：有针对性的评估目标机的安全性</li>
 <li>主动探测技术<ul>
@@ -997,7 +1004,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="_5">漏洞检测<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<h3 id="漏洞检测">漏洞检测</h3>
 <ul>
 <li>安全漏洞<ul>
 <li>又称“脆弱性(vulnerability)”</li>
@@ -1040,7 +1047,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="_6">网络协议安全<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h3 id="网络协议安全">网络协议安全</h3>
 <ul>
 <li>
 <p>一些协议本身存在漏洞，这些漏洞是无法通过修改来弥补的。</p>
@@ -1258,8 +1265,8 @@ c -x s: ACK</code></pre></li>
 </input></input></input></input></div>
 </li>
 </ul>
-<h2 id="arp"><a id="arp-attack"></a>ARP攻击<a class="headerlink" href="#arp" title="Permanent link">¶</a></h2>
-<h3 id="_7">嗅探技术<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<h2 id="ARP攻击"><a id="arp-attack"></a>ARP攻击</h2>
+<h3 id="嗅探技术">嗅探技术</h3>
 <ul>
 <li>网卡的四种接收工作模式：广播、多播、直接、混杂<ul>
 <li>广播
@@ -1281,7 +1288,7 @@ c -x s: ACK</code></pre></li>
 </ul>
 </li>
 </ul>
-<h3 id="_8">攻击<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<h3 id="攻击">攻击</h3>
 <ul>
 <li>集线器环境：直接嗅探</li>
 <li>交换机环境：<ol>
@@ -1323,8 +1330,8 @@ ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内�
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"/><input id="__tabbed_4_4" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">减少（缓存）过期时间，使得攻击更加困难</label><label for="__tabbed_4_2">静态ARP表</label><label for="__tabbed_4_3">禁用ARP</label><label for="__tabbed_4_4">ARP防护软件 &amp; 网络设备监测</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>ndd -set /dev/arp arp_cleanup_interval <span class="m">60000</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>ndd -set /dev/ip ip_ire_flush_interval <span class="m">60000</span>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>ndd<span class="w"> </span>-set<span class="w"> </span>/dev/arp<span class="w"> </span>arp_cleanup_interval<span class="w"> </span><span class="m">60000</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>ndd<span class="w"> </span>-set<span class="w"> </span>/dev/ip<span class="w"> </span>ip_ire_flush_interval<span class="w"> </span><span class="m">60000</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># 60000=60000毫秒 默认是300000</span>
 </code></pre></div>
 </div>
@@ -1338,7 +1345,7 @@ ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内�
 </ul>
 </div>
 <div class="tabbed-block">
-<p><div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>ipconfig interface –arp
+<p><div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>ipconfig<span class="w"> </span>interface<span class="w"> </span>–arp
 </code></pre></div>
 网卡不会发送ARP和接受ARP包。但是使用前提是已经使用了静态的ARP表，不在ARP表中的计算机将不能通信。</p>
 </div>
@@ -1347,12 +1354,12 @@ ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内�
 </input></input></div>
 </li>
 </ul>
-<h2 id="denial-of-service">拒绝服务(Denial of Service)攻击<a class="headerlink" href="#denial-of-service" title="Permanent link">¶</a></h2>
+<h2 id="拒绝服务Denial-of-Service攻击">拒绝服务(Denial of Service)攻击</h2>
 <div class="admonition summary">
 <p class="admonition-title">DoS的目标</p>
 <p>使目标计算机或网络无法提供正常的服务</p>
 </div>
-<h3 id="_9">典型的拒绝服务攻击<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<h3 id="典型的拒绝服务攻击">典型的拒绝服务攻击</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:7"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><input id="__tabbed_5_3" name="__tabbed_5" type="radio"/><input id="__tabbed_5_4" name="__tabbed_5" type="radio"/><input id="__tabbed_5_5" name="__tabbed_5" type="radio"/><input id="__tabbed_5_6" name="__tabbed_5" type="radio"/><input id="__tabbed_5_7" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">ping of death</label><label for="__tabbed_5_2">Teardrop</label><label for="__tabbed_5_3">Land攻击</label><label for="__tabbed_5_4">SYN洪水</label><label for="__tabbed_5_5">Smurf</label><label for="__tabbed_5_6">HTTP洪水</label><label for="__tabbed_5_7">传统DoS的升级</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1431,7 +1438,7 @@ ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内�
 </div>
 </div>
 </div>
-<h3 id="_10">攻击检测<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<h3 id="攻击检测">攻击检测</h3>
 <ul>
 <li>按检测模式分类的检测方法<ul>
 <li>基于误用的DDoS检测：找特征<ul>
@@ -1459,8 +1466,8 @@ ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内�
 </ul>
 </li>
 </ul>
-<h2 id="web">Web攻击<a class="headerlink" href="#web" title="Permanent link">¶</a></h2>
-<h3 id="xsscross-site-scripting">XSS(Cross Site Scripting)攻击<a class="headerlink" href="#xsscross-site-scripting" title="Permanent link">¶</a></h3>
+<h2 id="Web攻击">Web攻击</h2>
+<h3 id="XSSCross-Site-Scripting攻击">XSS(Cross Site Scripting)攻击</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">反射性XSS</label><label for="__tabbed_7_2">存储型XSS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1475,7 +1482,7 @@ ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内�
 </div>
 </div>
 </div>
-<h3 id="csrfcross-site-request-forgery">CSRF(Cross Site Request Forgery)跨站域请求伪造<a class="headerlink" href="#csrfcross-site-request-forgery" title="Permanent link">¶</a></h3>
+<h3 id="CSRFCross-Site-Request-Forgery跨站域请求伪造">CSRF(Cross Site Request Forgery)跨站域请求伪造</h3>
 <ul>
 <li>伪装来自受信任用户的请求访问有权限的资源
 <pre class="mermaid"><code>sequenceDiagram
@@ -1489,15 +1496,15 @@ ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内�
     u-&gt;&gt;a: access trusted web(A) with cookie(Ua) from step 2
     Note over a: Trusted web(A) cannot distinguish whether the request come from a normal user or hacked user</code></pre></li>
 </ul>
-<h3 id="sql">SQL注入攻击<a class="headerlink" href="#sql" title="Permanent link">¶</a></h3>
+<h3 id="SQL注入攻击">SQL注入攻击</h3>
 <details class="info">
 <summary>什么是SQL和SQL注入</summary>
 <p>SQL：结构化查询语言，与数据库交互，包含SELECT, INSERT, UPDATE, DELETE, CREATE, 以及DROP在内的命令几乎可以完成所有的数据库工作。
 SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面请求的查询字符串，欺骗服务器执行恶意SQL命令。</p>
 </details>
-<h4 id="_11">本质<a class="headerlink" href="#_11" title="Permanent link">¶</a></h4>
+<h4 id="本质">本质</h4>
 <p>用户输入数据作为代码执行</p>
-<h4 id="_12">关键条件<a class="headerlink" href="#_12" title="Permanent link">¶</a></h4>
+<h4 id="关键条件">关键条件</h4>
 <ol>
 <li>用户能够控制输入</li>
 <li>原本程序要执行的代码，拼接了用户输入的数据</li>
@@ -1507,7 +1514,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <p>sql语句如右：<code>select * from users where username='x' and password='y'</code>
 令username = <code>'or 1=1 [--(mssql)或#(php)]</code>  password = <code>任意值</code>，可跳过用户名密码验证</p>
 </div>
-<h4 id="_13">具体技巧<a class="headerlink" href="#_13" title="Permanent link">¶</a></h4>
+<h4 id="具体技巧">具体技巧</h4>
 <ul>
 <li>
 <p>有错误信息回显——猜测数据库后端和查询语句
@@ -1532,7 +1539,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">mysql</label><label for="__tabbed_8_2">PostgreSQL</label><label for="__tabbed_8_3">MSSQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">benchmark</span><span class="p">(</span><span class="k">count</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">benchmark</span><span class="p">(</span><span class="k">count</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1541,7 +1548,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">WAITFOR</span><span class="w"> </span><span class="n">DELAY</span><span class="w"> </span><span class="s1">'0:0:5'</span><span class="w"></span>
+<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">WAITFOR</span><span class="w"> </span><span class="n">DELAY</span><span class="w"> </span><span class="s1">'0:0:5'</span>
 </code></pre></div>
 </div>
 </div>
@@ -1555,18 +1562,18 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <div class="tabbed-set tabbed-alternate" data-tabs="9:7"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><input id="__tabbed_9_3" name="__tabbed_9" type="radio"/><input id="__tabbed_9_4" name="__tabbed_9" type="radio"/><input id="__tabbed_9_5" name="__tabbed_9" type="radio"/><input id="__tabbed_9_6" name="__tabbed_9" type="radio"/><input id="__tabbed_9_7" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">猜版本</label><label for="__tabbed_9_2">猜列名</label><label for="__tabbed_9_3">读写文件（如果具有相应权限）</label><label for="__tabbed_9_4">执行命令</label><label for="__tabbed_9_5">攻击存储过程</label><label for="__tabbed_9_6">宽字符攻击</label><label for="__tabbed_9_7">字符截断</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">substring</span><span class="p">(</span><span class="o">@@</span><span class="k">version</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="mi">4</span><span class="w"></span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cm">/* Check if mysql's version is 4 */</span><span class="w"></span>
+<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">substring</span><span class="p">(</span><span class="o">@@</span><span class="k">version</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="mi">4</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cm">/* Check if mysql's version is 4 */</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">union</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">passwd</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">admin</span><span class="w"></span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cm">/* Check if 'passwd' field in table 'admin' 's column. */</span><span class="w"></span>
+<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">union</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">passwd</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">admin</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="cm">/* Check if 'passwd' field in table 'admin' 's column. */</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* mysql */</span><span class="w"></span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">load_file</span><span class="p">()</span><span class="err">，</span><span class="k">select</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">dumpfile</span><span class="w"></span>
+<div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* mysql */</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">load_file</span><span class="p">()</span><span class="err">，</span><span class="k">select</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">dumpfile</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1583,14 +1590,14 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <li>mssql server：<code>xp_cmdshell</code> sysadmin权限可以使用<code>sp_configure</code>重新开启</li>
 <li>除此之外，<code>xp_regread</code> <code>xp_regaddmultistring</code> <code>xp_regdeletekey</code> <code>xp_regdeletevalue</code> <code>xp_regenumkeys</code> <code>xp_regenumvalues</code>可以操作注册表。还有很多别的API可以完成更多操作</li>
 <li>存储过程注入
-    <div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">procedure</span><span class="w"> </span><span class="n">get_item</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="n">item_cv</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="n">ItmCurTyp</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">usr</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">itm</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">is</span><span class="w"></span>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="k">open</span><span class="w"> </span><span class="n">itm_cv</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">' SELECT * FROM items WHERE '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'owner = '''</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">usr</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="s1">' AND itemname = '''</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">itm</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">''''</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="k">end</span><span class="w"> </span><span class="n">get_item</span><span class="p">;</span><span class="w"></span>
+    <div class="highlight"><span class="filename">SQL</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">procedure</span><span class="w"> </span><span class="n">get_item</span><span class="w"> </span><span class="p">(</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="n">item_cv</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="n">ItmCurTyp</span><span class="p">,</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">usr</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">,</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">itm</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">)</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">is</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="k">open</span><span class="w"> </span><span class="n">itm_cv</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">' SELECT * FROM items WHERE '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'owner = '''</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">usr</span><span class="w"> </span><span class="o">||</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="s1">' AND itemname = '''</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">itm</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">''''</span><span class="p">;</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="k">end</span><span class="w"> </span><span class="n">get_item</span><span class="p">;</span>
 </code></pre></div></li>
 </ul>
 </div>
@@ -1612,7 +1619,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </div>
 </li>
 </ul>
-<h4 id="sql_1">SQL注入过程<a class="headerlink" href="#sql_1" title="Permanent link">¶</a></h4>
+<h4 id="SQL注入过程">SQL注入过程</h4>
 <ul>
 <li>
 <p>注入点查询</p>
@@ -1714,7 +1721,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h4 id="sql_2">SQL攻击防范<a class="headerlink" href="#sql_2" title="Permanent link">¶</a></h4>
+<h4 id="SQL攻击防范">SQL攻击防范</h4>
 <ul>
 <li>
 <p>服务器安全</p>
@@ -1794,12 +1801,12 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Java</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1">//预编译语句，假设要查询的条件为字符d</span><span class="w"></span>
-<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">String</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"select a from b where c = ?"</span><span class="p">;</span><span class="w">  </span><span class="c1">//用问号表示要填入sql语句的参数</span><span class="w"></span>
-<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">query</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">pstmt</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pstmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span><span class="w"></span>
-<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1">//攻击者无法改变sql语句的结构</span><span class="w"></span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1">//预编译语句，假设要查询的条件为字符d</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">String</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"select a from b where c = ?"</span><span class="p">;</span><span class="w">  </span><span class="c1">//用问号表示要填入sql语句的参数</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">pstmt</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pstmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1">//攻击者无法改变sql语句的结构</span>
 </code></pre></div>
 </div>
 </div>
@@ -1809,9 +1816,9 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <div class="tabbed-set tabbed-alternate" data-tabs="15:1"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1">java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Java</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">CallableStatement</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareCall</span><span class="p">(</span><span class="s">"{call sp_getAccountBalance(?)}"</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">cs</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">custname</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">CallableStatement</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareCall</span><span class="p">(</span><span class="s">"{call sp_getAccountBalance(?)}"</span><span class="p">);</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">cs</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">custname</span><span class="p">);</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span>
 </code></pre></div>
 </div>
 </div>
@@ -1844,7 +1851,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </div>
 </li>
 </ul>
-<h2 id="dns">DNS威胁与防范<a class="headerlink" href="#dns" title="Permanent link">¶</a></h2>
+<h2 id="DNS威胁与防范">DNS威胁与防范</h2>
 <details class="info">
 <summary>何谓DNS</summary>
 <p>域名系统（Domain Name System，DNS)负责在域名和IP地址之间进行转换，是Internet中最重要的基础设施。</p>
@@ -1884,7 +1891,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h3 id="dns-vs">DNS工作流程：递归查询 vs 迭代查询<a class="headerlink" href="#dns-vs" title="Permanent link">¶</a></h3>
+<h3 id="DNS工作流程递归查询-vs-迭代查询">DNS工作流程：递归查询 vs 迭代查询</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">递归</label><label for="__tabbed_17_2">迭代</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1904,7 +1911,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <blockquote>
 <p><code>dig</code>工具可以了解解析过程</p>
 </blockquote>
-<h3 id="dns_1">DNS协议<a class="headerlink" href="#dns_1" title="Permanent link">¶</a></h3>
+<h3 id="DNS协议">DNS协议</h3>
 <ul>
 <li>工作在应用层</li>
 <li>TCP和UDP均可以使用，端口号为53<ul>
@@ -1913,8 +1920,8 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h3 id="_14"><a id="dns-attack"></a>安全威胁和防范<a class="headerlink" href="#_14" title="Permanent link">¶</a></h3>
-<h4 id="_15">安全威胁<a class="headerlink" href="#_15" title="Permanent link">¶</a></h4>
+<h3 id="安全威胁和防范"><a id="dns-attack"></a>安全威胁和防范</h3>
+<h4 id="安全威胁">安全威胁</h4>
 <ul>
 <li>
 <p>安全缺陷</p>
@@ -1996,7 +2003,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h4 id="_16">安全防范<a class="headerlink" href="#_16" title="Permanent link">¶</a></h4>
+<h4 id="安全防范">安全防范</h4>
 <ul>
 <li>选择安全的BIND版本<ul>
 <li>根据调查，V9版本的BIND是最安全的</li>
@@ -2086,12 +2093,12 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h2 id="_17">恶意代码<a class="headerlink" href="#_17" title="Permanent link">¶</a></h2>
+<h2 id="恶意代码">恶意代码</h2>
 <div class="admonition summary">
 <p class="admonition-title">什么是恶意代码</p>
 <p>未经授权，在信息系统中安装、执行并达到不正当目的的程序。</p>
 </div>
-<h3 id="_18">病毒<a class="headerlink" href="#_18" title="Permanent link">¶</a></h3>
+<h3 id="病毒">病毒</h3>
 <p>感染性、潜伏性、破坏性 → 借生物学意义</p>
 <div class="admonition quote">
 <p class="admonition-title">计算机病毒定义</p>
@@ -2205,7 +2212,7 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </div>
 </li>
 </ul>
-<h3 id="_19">木马<a class="headerlink" href="#_19" title="Permanent link">¶</a></h3>
+<h3 id="木马">木马</h3>
 <div class="admonition quote">
 <p class="admonition-title">什么是木马[RFC 1244]</p>
 <p>特洛伊木马程序是这样一种程序，它提供了一些有用的，或仅仅是有意思的功能。但是通常要做一些用户不希望的事，诸如在你不了解的情况下拷贝文件或窃取你的密码</p>
@@ -2218,7 +2225,7 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </li>
 <li>与病毒的最大区别：自我复制不是它的功能所在，或者根本不具有复制性</li>
 </ul>
-<h3 id="_20">蠕虫<a class="headerlink" href="#_20" title="Permanent link">¶</a></h3>
+<h3 id="蠕虫">蠕虫</h3>
 <div class="admonition quote">
 <p class="admonition-title">蠕虫的定义</p>
 <p>“蠕虫可以独立运行，并且自动复制自身并传播到另一台主机。”——Spaford</p>
@@ -2338,7 +2345,7 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </tbody>
 </table>
 </div>
-<h3 id="_21">恶意代码技术<a class="headerlink" href="#_21" title="Permanent link">¶</a></h3>
+<h3 id="恶意代码技术">恶意代码技术</h3>
 <ul>
 <li>
 <p>启动</p>
@@ -2558,20 +2565,20 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
-                上一页
-              </span>
-              网络攻击的特征
-            </div>
+                  上一页
+                </span>
+                网络攻击的特征
+              </div>
 </div>
 </a>
 <a aria-label="下一页: HOOK" class="md-footer__link md-footer__link--next" href="hook.html" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
-                下一页
-              </span>
-              HOOK
-            </div>
+                  下一页
+                </span>
+                HOOK
+              </div>
 </div>
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
@@ -2593,16 +2600,16 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </div>
 <div class="md-social">
 <a class="md-social__link" href="https://github.com/jasonren0403" rel="noopener" target="_blank" title="Jason's Github">
-<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
 </a>
 <a class="md-social__link" href="https://twitter.com/theRealRev270" rel="noopener" target="_blank" title="J.R on twitter">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
 </a>
 <a class="md-social__link" href="https://www.facebook.com/renjason1999" rel="noopener" target="_blank" title="My facebook page">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
 </a>
 <a class="md-social__link" href="https://discord.gg/s33UBWEPxb" rel="noopener" target="_blank" title="Join to my discussion(discord)">
-<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
 </a>
 </div>
 </div>
@@ -2623,6 +2630,13 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 <ul class="task-list">
 <li class="task-list-item">
 <label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+          Google Analytics
+        <label>
+</label></label></li>
+<li class="task-list-item">
+<label class="task-list-control">
 <input checked="" name="github" type="checkbox"/>
 <span class="task-list-indicator"></span>
           GitHub
@@ -2637,9 +2651,9 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </form>
 </aside>
 </div>
-<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
-<script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.expand", "navigation.tracking", "navigation.instant", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../assets/javascripts/bundle.5cf534bf.min.js"></script>
 <script src="../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
