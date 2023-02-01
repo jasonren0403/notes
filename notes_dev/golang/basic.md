@@ -313,10 +313,10 @@ A-..->|go run|D
         * 遍历，逐个删除
         * make一个新的，原来的交给gc回收处理
 
-- 结构体
-- 管道
 - [函数](function.md)
-- 接口
+- [结构体](oop.md#结构体-struct)
+- [接口](oop.md#接口-interface)
+- 管道
 
 ### 自定义数据类型
 ```go 
@@ -387,3 +387,33 @@ Go 支持自定义数据类型 `type <别名> <数据类型>`，相当于C的 `t
     * `time.Sleep(d Duration)`
     * `time.Unix()`
     * `time.UnixNano()`
+
+## 文件操作
+> `os.File` 结构体表示文件
+
+- 打开文件 
+    * `os.Open(name string)(file *File, err error)`
+    * `os.OpenFile(name string, flag int, perm FileMode) (*File, error)`
+- 关闭文件 `func (*File) Close() error`
+    * 函数退出时，及时关闭File（`defer file.Close()`），否则会有内存泄漏
+- 读取文件
+    * `bufio.NewReader(file) *Reader`：创建一个缓冲区（大小4096），用于读取文件
+        - `func (*Reader) ReadString() (string, error)`：读取文件内容，直到遇到换行符
+    * `ioutil.Readfile(filepath string) ([]byte, error)`：一次性读取文件内容
+        - 无需调用 `Open()`、`Close()`
+- 写入文件 
+    * `bufio.NewWriter(file) *Writer`：创建一个缓冲区（大小4096），用于写入文件
+        - `func (*Writer) WriteString() (int, error)`：写入文件内容（到缓冲区）
+        - 注意 `WriteString()` 后内容在缓存中没有进磁盘，一定要紧接调用 `Flush()`
+    * `ioutil.WriteFile(filepath string, data []byte, perm os.FileMode) error`：一次性写入文件内容
+        - 无需调用 `Open()`、`Close()`
+- 文件信息
+    * `os.Stat(name string) (FileInfo, error)`
+    * `os.IsExist(err error) bool`：判断文件是否存在
+    * `os.IsNotExist(err error) bool`：判断文件是否不存在
+- 拷贝文件
+    * `io.Copy(dst Writer, src Reader) (written int64, err error)` 返回第一个参数是已拷贝字节数
+- 命令行参数
+    * `os.Args`，类型为 `[]string`，其中第一个元素为程序名
+    * 解析参数：`flag` 包 `flag.XXXVar(p *XXX, name string, value string ,usage string)`
+    * `flag.Parse()`：解析参数，必须在所有参数定义之后调用

@@ -45,6 +45,7 @@ nav:
   - 'Go语言基础': 'golang/basic.md'
   - 'Go流程控制': 'golang/statement.md'
   - 'Go函数': 'golang/function.md'
+  - 'Go面向对象': 'golang/oop.md'
 - '408助手':
   - '408-helper/index.md'
   - '408考试大纲（2022版）': '408-helper/what-does-408-test.md'
