@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="信息安全、前端相关笔记存放处" name="description"/>
 <meta content="Jason" name="author"/>
-<link href="https://note.jason0743.best/golang/index.html" rel="canonical"/>
-<link href="../net_security/socialengineering.html" rel="prev"/>
-<link href="basic.html" rel="next"/>
+<link href="https://note.jason0743.best/golang/oop.html" rel="canonical"/>
+<link href="function.html" rel="prev"/>
+<link href="../408-helper/index.html" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.9" name="generator"/>
-<title>Go语言绪论 - Jason的笔记小屋</title>
+<title>Go面向对象 - Jason的笔记小屋</title>
 <link href="../assets/stylesheets/main.0d440cfe.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,17 +23,17 @@
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-Q0FWVZ6L5Y"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-Q0FWVZ6L5Y",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-Q0FWVZ6L5Y",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Go语言绪论 - Jason的笔记小屋" property="og:title"/>
+<meta content="Go面向对象 - Jason的笔记小屋" property="og:title"/>
 <meta content="信息安全、前端相关笔记存放处" property="og:description"/>
-<meta content="https://note.jason0743.best/assets/images/social/golang/index.png" property="og:image"/>
+<meta content="https://note.jason0743.best/assets/images/social/golang/oop.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://note.jason0743.best/golang/index.html" property="og:url"/>
+<meta content="https://note.jason0743.best/golang/oop.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Go语言绪论 - Jason的笔记小屋" name="twitter:title"/>
+<meta content="Go面向对象 - Jason的笔记小屋" name="twitter:title"/>
 <meta content="信息安全、前端相关笔记存放处" name="twitter:description"/>
-<meta content="https://note.jason0743.best/assets/images/social/golang/index.png" name="twitter:image"/>
+<meta content="https://note.jason0743.best/assets/images/social/golang/oop.png" name="twitter:image"/>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -52,7 +52,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#Go语言笔记第一篇">
+<a class="md-skip" href="#Go-面向对象">
           跳转至
         </a>
 </div>
@@ -76,7 +76,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Go语言绪论
+              Go面向对象
             
           </span>
 </div>
@@ -396,7 +396,7 @@
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<div class="md-nav__link md-nav__link--index">
 <a href="index.html">Go语言学习</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
@@ -423,10 +423,85 @@
         Go函数
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="oop.html">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Go面向对象
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="oop.html">
         Go面向对象
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#结构体-struct">
+    结构体 struct
+  </a>
+<nav aria-label="结构体 struct" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#方法结构体的行为">
+    方法（结构体的“行为”）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#继承">
+    继承
+  </a>
+<nav aria-label="继承" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#组合">
+    组合
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#匿名基本数据类型字段">
+    匿名基本数据类型字段
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#注意事项">
+    注意事项
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#接口-interface">
+    接口 interface
+  </a>
+<nav aria-label="接口 interface" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#多态">
+    多态
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#应用">
+    应用
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#注意事项_1">
+    注意事项
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -652,78 +727,231 @@
 <a class="md-tag" href="../tags.html#">编程语言</a>
 <a class="md-tag" href="../tags.html#go">Go</a>
 </nav>
-<a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/edit/main/notes_dev/golang/index.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/edit/main/notes_dev/golang/oop.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/raw/main/notes_dev/golang/index.md" title="查看本页的源代码">
+<a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/raw/main/notes_dev/golang/oop.md" title="查看本页的源代码">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
-<h1 id="Go语言笔记第一篇">Go语言笔记第一篇</h1>
-<h2 id="语言特质">语言特质</h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 静态编译语言的性能（如C）</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 动态语言开发维护的效率（如Python）</li>
-</ul>
-<h3 id="指针使用特点">指针使用特点</h3>
-<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">testptr</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="o">*</span><span class="kt">int</span><span class="p">){</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="o">*</span><span class="nx">num</span><span class="p">=</span><span class="mi">20</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">}</span>
+<h1 id="Go-面向对象">Go 面向对象</h1>
+<p>Go 支持面向对象编程特性，以 <code>struct</code> 支持其他语言 <code>class</code> 的位置，面向接口（<code>interface</code>）编程。</p>
+<h2 id="结构体-struct">结构体 struct</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">声明</label><label for="__tabbed_1_2">使用</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">structName</span><span class="w"> </span><span class="kd">struct</span><span class="p">{</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nx">PublicField</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">Type1</span><span class="p">&gt;</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="nx">privateField</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">Type2</span><span class="p">&gt;</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="包概念">包概念</h3>
-<p>每个文件都要归属一个“包”。
-<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">xxx</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="s">"yyy"</span><span class="w"> </span><span class="c1">// 包导入</span>
-</code></pre></div></p>
-<h3 id="自动垃圾回收">自动垃圾回收</h3>
-<p>不容易内存泄漏</p>
-<h3 id="天然并发">“天然”并发</h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 从语言层面支持并发（goroutine）</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 基于CPS并发模型实现</li>
-</ul>
-<h3 id="管道channel通信机制">管道（channel）通信机制</h3>
-<pre class="mermaid"><code>graph LR
-A[goroutine] -- channel --- B[goroutine]</code></pre>
-<h3 id="返回多值函数">返回多值（函数）</h3>
-<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">getSumAndSub</span><span class="p">(</span><span class="nx">n1</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">n2</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">){</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">n1</span><span class="o">+</span><span class="nx">n2</span><span class="p">,</span><span class="w"> </span><span class="nx">n1</span><span class="o">-</span><span class="nx">n2</span>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="nx">structName</span><span class="w"> </span><span class="c1">// 此时字段就有零值（默认值）了</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nx">y</span><span class="p">.&lt;</span><span class="nx">field</span><span class="o">&gt;=...</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">// 声明并初始化</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kd">var</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">Type</span><span class="p">&gt;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[&lt;</span><span class="nx">Type</span><span class="p">&gt;{</span><span class="cm">/* 初值 */</span><span class="p">}]</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kd">var</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="p">&lt;</span><span class="o">*</span><span class="nx">Type</span><span class="p">&gt;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">new</span><span class="p">(&lt;</span><span class="nx">Type</span><span class="p">&gt;)</span><span class="w"> </span><span class="c1">// 指针</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="kd">var</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="p">&lt;</span><span class="o">*</span><span class="nx">Type</span><span class="p">&gt;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">&lt;</span><span class="nx">Type</span><span class="p">&gt;{}</span><span class="w"> </span><span class="c1">// 指针</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1">// 赋值</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p">(</span><span class="o">*</span><span class="nx">name</span><span class="p">).&lt;</span><span class="nx">field</span><span class="p">&gt;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">value</span><span class="p">&gt;</span><span class="w">  </span><span class="c1">// 括号不能去，.的优先级比*高</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="nx">name</span><span class="p">.&lt;</span><span class="nx">field</span><span class="p">&gt;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">value</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h3 id="方法结构体的行为">方法（结构体的“行为”）</h3>
+<blockquote>
+<p>作用在某个数据类型上</p>
+</blockquote>
+<div class="highlight"><span class="filename">为类型Type绑定方法</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">receiverName</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">Type</span><span class="p">&gt;)</span><span class="w"> </span><span class="nx">methodName</span><span class="p">(</span><span class="nx">parameters</span><span class="p">)</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">returnType</span><span class="p">&gt;{</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="c1">// ...</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="切片slice">切片（slice）</h3>
-<h3 id="延时执行defer">延时执行（defer）</h3>
-<div class="admonition summary">
-<p class="admonition-title">意义</p>
-<p>在函数执行完毕后，快速释放资源</p>
-</div>
-<p>执行到 <code>defer</code> 时，将其后语句压入 <code>defer</code> 栈中，暂时不执行，函数执行完毕后，按先入后出方式执行。</p>
-<div class="highlight"><span class="filename">实践</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">// 文件IO</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nx">file</span><span class="p">=</span><span class="nx">openfile</span><span class="p">(</span><span class="nx">文件名</span><span class="p">)</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="k">defer</span><span class="w"> </span><span class="nx">file</span><span class="p">.</span><span class="nb">close</span><span class="p">()</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1">// 数据库链接</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="nx">connect</span><span class="p">=</span><span class="nx">openDatabase</span><span class="p">()</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">defer</span><span class="w"> </span><span class="nx">connect</span><span class="p">.</span><span class="nb">close</span><span class="p">()</span>
-</code></pre></div>
-<h2 id="其它资料">其它资料</h2>
 <ul>
-<li>API文档<ul>
-<li><a href="https://pkg.go.dev/std">国外文档</a></li>
-<li><a href="https://studygolang.com/pkgdoc">国内文档</a></li>
+<li>实现 <code>String()</code> 方法，就可以自定义在 <code>fmt.Println()</code> 中的输出格式</li>
+<li>为了提高效率，方法可与结构体指针类型绑定 <code>func (receiverName *&lt;Type&gt;) ...</code><ul>
+<li>其中访问字段时也可以使用指针访问 <code>(*receiverName).&lt;field&gt;</code></li>
 </ul>
 </li>
-<li>语言学习<ul>
-<li><a href="https://tour.go-zh.org">Go指南</a></li>
+<li>实践<ul>
+<li>工厂模式
+    <div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">New</span><span class="p">&lt;</span><span class="nx">StructName</span><span class="p">&gt;(&lt;</span><span class="nx">parameters</span><span class="p">&gt;)</span><span class="w"> </span><span class="o">*</span><span class="p">&lt;</span><span class="nx">StructName</span><span class="p">&gt;{</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="p">&lt;</span><span class="nx">StructName</span><span class="p">&gt;{&lt;</span><span class="nx">parameters</span><span class="p">&gt;}</span><span class="w"> </span><span class="c1">// 返回实例指针</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>封装
+    <div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">type</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">typeName</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="p">&lt;</span><span class="nx">fields</span><span class="p">&gt;</span><span class="w"> </span><span class="c1">// 小写首字母</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">}</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1">// Getter</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">typeName</span><span class="p">&gt;)</span><span class="w"> </span><span class="nx">Get</span><span class="o">...</span><span class="p">()</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">returnType</span><span class="p">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kd">var</span><span class="p">.&lt;</span><span class="nx">field</span><span class="p">&gt;</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="p">}</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="c1">// Setter</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">typeName</span><span class="p">&gt;)</span><span class="w"> </span><span class="nx">Set</span><span class="o">...</span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">Type</span><span class="p">&gt;)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="kd">var</span><span class="p">.&lt;</span><span class="nx">field</span><span class="p">&gt;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">value</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
+</code></pre></div></li>
 </ul>
 </li>
+</ul>
+<h3 id="继承">继承</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">一级继承</label><label for="__tabbed_2_2">多重继承</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">type</span><span class="w"> </span><span class="nx">B</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="nx">A</span><span class="w"> </span><span class="c1">// 嵌套匿名结构体</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">}</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="cm">/* 就近原则 */</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="kd">var</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="nx">B</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="nx">b</span><span class="p">.</span><span class="nx">A</span><span class="p">.&lt;</span><span class="nx">field</span><span class="p">&gt;</span><span class="w"> </span><span class="c1">// 等价于 b.&lt;field&gt;</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="nx">b</span><span class="p">.</span><span class="nx">A</span><span class="p">.</span><span class="nx">method</span><span class="p">()</span><span class="w"> </span><span class="c1">// 等价于 b.method()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>相同方法或字段需结构体名区分    </p>
+<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="nx">age</span><span class="w"> </span><span class="kt">int</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">  </span><span class="o">...</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">}</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="kd">type</span><span class="w"> </span><span class="nx">B</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">  </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">  </span><span class="nx">Score</span><span class="w"> </span><span class="kt">float64</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">  </span><span class="o">...</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="p">}</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="kd">type</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">  </span><span class="nx">A</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">  </span><span class="nx">B</span>
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">  </span><span class="o">...</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="p">}</span>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="nx">C</span>
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="nx">c</span><span class="p">.</span><span class="nx">Name</span><span class="w"> </span><span class="c1">// 等价于 c.A.Name</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="nx">c1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">{</span><span class="o">&amp;</span><span class="nx">A</span><span class="p">{</span><span class="o">...</span><span class="p">},</span><span class="o">&amp;</span><span class="nx">B</span><span class="p">{</span><span class="o">...</span><span class="p">}}</span><span class="w">  </span><span class="c1">// 直接指定各个匿名结构的字段值</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h4 id="组合">组合</h4>
+<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">  </span><span class="nx">age</span><span class="w"> </span><span class="kt">int</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">  </span><span class="o">...</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="kd">type</span><span class="w"> </span><span class="nx">B</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">  </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">  </span><span class="nx">Score</span><span class="w"> </span><span class="kt">float64</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">  </span><span class="o">...</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="p">}</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="kd">type</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">  </span><span class="nx">a</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="c1">// 此时访问需带名称a</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">  </span><span class="o">...</span>
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="p">}</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="nx">C</span>
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="nx">c</span><span class="p">.</span><span class="nx">Name</span><span class="w"> </span><span class="c1">// 不可访问 </span>
+<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="nx">c</span><span class="p">.</span><span class="nx">A</span><span class="p">.</span><span class="nx">Name</span><span class="w"> </span><span class="c1">// 可以访问</span>
+</code></pre></div>
+<h4 id="匿名基本数据类型字段">匿名基本数据类型字段</h4>
+<p>一个结构体只能有一个
+<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="c1">// 匿名基本数据类型字段</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="p">}</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="nx">C</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="nx">c</span><span class="p">.</span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">...</span>
+</code></pre></div></p>
+<h3 id="注意事项">注意事项</h3>
+<ul>
+<li>结构体所有字段在内存中是连续的</li>
+<li>结构体之间转换，需要有完全相同的字段</li>
+<li>
+<p>每个字段可以写上一个tag，用于序列化和反序列化
+    <div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="o">...</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span><span class="nx">Name</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">Type</span><span class="p">&gt;</span><span class="w"> </span><span class="s">`json:"name"`</span><span class="w"> </span><span class="c1">// 两端为反引号`，name是序列化字段名，内部实质利用了反射机制</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span><span class="o">...</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>常见序列化方式</p>
+<ul>
+<li><code>json</code>（<code>encoding/json</code> 包 <code>json.Marshal(v interface{}) ([]byte, error)</code> 方法）</li>
+</ul>
+</li>
+<li>
+<p>反序列化</p>
+<ul>
+<li><code>json</code>（<code>encoding/json</code> 包 <code>json.Unmarshal([]byte, &amp;type) (error)</code> 方法，前后数据类型需一致）</li>
+</ul>
+<p>!!! info ""
+       如果转化为map或slice类型，无需make，直接传入地址即可</p>
+</li>
+</ul>
+<h2 id="接口-interface">接口 interface</h2>
+<blockquote>
+<p>引用类型，零值为 <code>nil</code></p>
+</blockquote>
+<div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">XXX</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="nx">A</span><span class="p">()</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="nx">B</span><span class="p">()</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">}</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="kd">type</span><span class="w"> </span><span class="nx">A1</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="p">}</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="nx">A1</span><span class="p">)</span><span class="w"> </span><span class="nx">A</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="p">}</span>
+<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="nx">A1</span><span class="p">)</span><span class="w"> </span><span class="nx">B</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="p">}</span>
+<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="nx">C</span><span class="p">)</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">(</span><span class="nx">xxx</span><span class="w"> </span><span class="nx">XXX</span><span class="p">){</span><span class="w">  </span><span class="c1">// 实现XXX接口声明的所有方法</span>
+<a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">    </span><span class="o">...</span>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="多态">多态</h3>
+<p>接口变量可以接收任意实现了该接口的实例</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>     C
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>     |
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>  -------
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>  |     |
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>  A:C   B:C
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>[]C 可以放A和B两种类型的实例
+</code></pre></div>
+<h3 id="应用">应用</h3>
+<ul>
+<li><code>sort.Sort(data interface)</code> 方法需要传入一个实现了 <code>sort.Interface</code> 接口的类型，定义如下
+    <div class="highlight"><span class="filename">Go</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Interface</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="nx">Len</span><span class="p">()</span><span class="w"> </span><span class="kt">int</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="nx">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="nx">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>类型断言 <code>b=a.(Type)</code>、<code>y,ok:=a.(Type)</code></li>
+</ul>
+<h3 id="注意事项_1">注意事项</h3>
+<ul>
+<li>接口不可创建实例，但是可以指向实现该接口的自定义类型变量</li>
+<li>只要是自定义数据类型，都可以实现接口</li>
+<li>所有类型都实现了空接口 <code>interface{}</code></li>
 </ul>
 <hr/>
 <div class="md-source-file">
 <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年1月30日 22:51:18</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年2月1日 15:56:39</span>
 <br/>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年1月30日 22:51:18</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年2月1日 15:56:39</span>
 </small>
 </div>
 </article>
@@ -736,7 +964,7 @@ A[goroutine] -- channel --- B[goroutine]</code></pre>
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 社会工程学" class="md-footer__link md-footer__link--prev" href="../net_security/socialengineering.html" rel="prev">
+<a aria-label="上一页: Go函数" class="md-footer__link md-footer__link--prev" href="function.html" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -745,17 +973,17 @@ A[goroutine] -- channel --- B[goroutine]</code></pre>
 <span class="md-footer__direction">
                   上一页
                 </span>
-                社会工程学
+                Go函数
               </div>
 </div>
 </a>
-<a aria-label="下一页: Go语言基础" class="md-footer__link md-footer__link--next" href="basic.html" rel="next">
+<a aria-label="下一页: Index" class="md-footer__link md-footer__link--next" href="../408-helper/index.html" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                   下一页
                 </span>
-                Go语言基础
+                Index
               </div>
 </div>
 <div class="md-footer__button md-icon">
