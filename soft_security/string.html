@@ -711,7 +711,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<a class="md-tag" href="../tags.html#">软件安全</a>
+<a class="md-tag" href="../tags.html#软件安全">软件安全</a>
 </nav>
 <a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/edit/main/notes_dev/soft_security/string.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
@@ -741,10 +741,10 @@
 </li>
 <li>
 <p>操作</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">无界字符串复制</label><label for="__tabbed_1_2">复制和连接字符串</label><label for="__tabbed_1_3">空结尾错误</label><label for="__tabbed_1_4">字符串截断</label><label for="__tabbed_1_5">数组写入越界</label><label for="__tabbed_1_6">差一错误</label><label for="__tabbed_1_7">不恰当的数据处理</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="无界字符串复制" name="__tabbed_1" type="radio"><input id="复制和连接字符串" name="__tabbed_1" type="radio"><input id="空结尾错误" name="__tabbed_1" type="radio"><input id="字符串截断" name="__tabbed_1" type="radio"><input id="数组写入越界" name="__tabbed_1" type="radio"><input id="差一错误" name="__tabbed_1" type="radio"><input id="不恰当的数据处理" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="无界字符串复制">无界字符串复制</label><label for="复制和连接字符串">复制和连接字符串</label><label for="空结尾错误">空结尾错误</label><label for="字符串截断">字符串截断</label><label for="数组写入越界">数组写入越界</label><label for="差一错误">差一错误</label><label for="不恰当的数据处理">不恰当的数据处理</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">描述</label><label for="__tabbed_2_2">C</label><label for="__tabbed_2_3">C++</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="描述" name="__tabbed_2" type="radio"><input id="C" name="__tabbed_2" type="radio"><input id="C_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="描述">描述</label><label for="C">C</label><label for="C_1">C++</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>无界数据源 → 定长数组</p>
@@ -774,7 +774,7 @@
 </input></input></input></div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">描述</label><label for="__tabbed_3_2">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="描述_1" name="__tabbed_3" type="radio"><input id="C_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="描述_1">描述</label><label for="C_2">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>C语言标准<code>strcpy()</code>、<code>strcat()</code>函数是无界操作，容易出错</p>
@@ -797,7 +797,7 @@
 </input></input></div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">描述</label><label for="__tabbed_4_2">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="描述_2" name="__tabbed_4" type="radio"><input id="C_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="描述_2">描述</label><label for="C_3">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>没有正确以<code>\0</code>结尾字符串</p>
@@ -828,7 +828,7 @@
 </input></input></div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">描述</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="描述_3" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="描述_3">描述</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>目标字符数组长度不足以容纳一个字符串的内容时，容易发生字符串截断</p>
@@ -837,7 +837,7 @@
 </input></div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="C_4" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="C_4">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
@@ -860,7 +860,7 @@
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="C_5" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="C_5">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
@@ -883,7 +883,7 @@
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="C_6" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="C_6">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 应用程序输入一个用户的email 地址，并把地址写入缓冲区  */</span>
@@ -1027,10 +1027,10 @@
 <li>构建若干个栈帧，连接起来，结束后返回main函数(return-to-libc)</li>
 </ul>
 <h3 id="防范缓冲区溢出">防范缓冲区溢出</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">静态方法</label><label for="__tabbed_9_2">动态方法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="静态方法" name="__tabbed_9" type="radio"/><input id="动态方法" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="静态方法">静态方法</label><label for="动态方法">动态方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><input id="__tabbed_10_3" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">输入验证</label><label for="__tabbed_10_2">安全函数</label><label for="__tabbed_10_3">ISO/IEC “Security” TR 24731</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="输入验证" name="__tabbed_10" type="radio"/><input id="安全函数" name="__tabbed_10" type="radio"/><input id="ISOIEC-Security-TR-24731" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="输入验证">输入验证</label><label for="安全函数">安全函数</label><label for="ISOIEC-Security-TR-24731">ISO/IEC “Security” TR 24731</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1077,7 +1077,7 @@
 </ul>
 </li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><input id="__tabbed_11_3" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">SafeStr &amp; XXL</label><label for="__tabbed_11_2">自建数据结构</label><label for="__tabbed_11_3">自己管理动态字符串</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="SafeStr--XXL" name="__tabbed_11" type="radio"/><input id="自建数据结构" name="__tabbed_11" type="radio"/><input id="自己管理动态字符串" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="SafeStr--XXL">SafeStr &amp; XXL</label><label for="自建数据结构">自建数据结构</label><label for="自己管理动态字符串">自己管理动态字符串</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1290,6 +1290,9 @@
 </a>
 <a class="md-social__link" href="https://discord.gg/s33UBWEPxb" rel="noopener" target="_blank" title="Join to my discussion(discord)">
 <svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
+</a>
+<a class="md-social__link" href="https://tea.codes/@jasonpro_114" rel="noopener me" target="_blank" title="tea.codes">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"></path></svg>
 </a>
 </div>
 </div>

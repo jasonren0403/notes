@@ -725,8 +725,8 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<a class="md-tag" href="../../tags.html#408">408考研复习</a>
-<a class="md-tag" href="../../tags.html#">操作系统</a>
+<a class="md-tag" href="../../tags.html#408考研复习">408考研复习</a>
+<a class="md-tag" href="../../tags.html#操作系统">操作系统</a>
 </nav>
 <a class="md-content__button md-icon" href="https://github.com/jasonren0403/notes/edit/main/notes_dev/408-helper/operating-system/memory.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
@@ -753,14 +753,14 @@
     A(高级语言)--&gt;|编译|B(机器语言)
     B--&gt;|链接|C(装入模块)
     C--&gt;|装入|D(内存)</code></pre>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">编译</label><label for="__tabbed_1_2">链接</label><label for="__tabbed_1_3">装入</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="编译" name="__tabbed_1" type="radio"><input id="链接" name="__tabbed_1" type="radio"><input id="装入" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="编译">编译</label><label for="链接">链接</label><label for="装入">装入</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>由编译程序(Complier) 将用户源代码编译成若干个目标模块 (Object Module)</p>
 </div>
 <div class="tabbed-block">
 <p>由链接程序(Linker) 将编译后形成的目标模块以及它们所需要的库函数，链接在一起，形成一个装入模块 (Load Module)</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">静态链接</label><label for="__tabbed_2_2">运行时动态链接</label><label for="__tabbed_2_3">装入时动态链接</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="静态链接" name="__tabbed_2" type="radio"><input id="运行时动态链接" name="__tabbed_2" type="radio"><input id="装入时动态链接" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="静态链接">静态链接</label><label for="运行时动态链接">运行时动态链接</label><label for="装入时动态链接">装入时动态链接</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>静态链接是在生成可执行文件时进行的。在目标模块中记录符号地址 (symbolic address) ，而在可执行文件中改写为指令直接使用的数字地址。</p>
@@ -785,7 +785,7 @@
 </div>
 <div class="tabbed-block">
 <p>由装入程序(Loader) 将装入模块装入内存</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">绝对装入</label><label for="__tabbed_3_2">可重定位装入</label><label for="__tabbed_3_3">动态运行时装入</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="绝对装入" name="__tabbed_3" type="radio"><input id="可重定位装入" name="__tabbed_3" type="radio"><input id="动态运行时装入" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="绝对装入">绝对装入</label><label for="可重定位装入">可重定位装入</label><label for="动态运行时装入">动态运行时装入</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>单道程序中，在由编译程序或程序员指定内存地址，装入时直接定位在上述(即文件中记录的地址)内存地址。逻辑地址和物理地址完全相同。</p>
@@ -828,7 +828,7 @@
 </li>
 <li>
 <p>内存保护</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">采用上下界限寄存器</label><label for="__tabbed_4_2">采用基址、限长寄存器</label><label for="__tabbed_4_3">采用保护键</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="采用上下界限寄存器" name="__tabbed_4" type="radio"><input id="采用基址限长寄存器" name="__tabbed_4" type="radio"><input id="采用保护键" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="采用上下界限寄存器">采用上下界限寄存器</label><label for="采用基址限长寄存器">采用基址、限长寄存器</label><label for="采用保护键">采用保护键</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><figure markdown="">
@@ -853,7 +853,7 @@
 </li>
 </ul>
 <h3 id="交换与覆盖">交换与覆盖</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">交换（对换）</label><label for="__tabbed_5_2">覆盖</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="交换对换" name="__tabbed_5" type="radio"><input id="覆盖" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="交换对换">交换（对换）</label><label for="覆盖">覆盖</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>把内存中暂时不能运行的进程或者暂时不用的程序和数据，调出到外存上，以便腾出足够的内存空间，再把已具备运行条件的进程或进程所需要的程序和数据，调入内存。</p>
@@ -888,7 +888,7 @@
 </div>
 </input></input></div>
 <h3 id="连续分配管理方式">连续分配管理方式</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><input id="__tabbed_6_4" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">单一连续分配</label><label for="__tabbed_6_2">固定分区分配</label><label for="__tabbed_6_3">动态可变分区分配</label><label for="__tabbed_6_4">动态重定位分配</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="单一连续分配" name="__tabbed_6" type="radio"><input id="固定分区分配" name="__tabbed_6" type="radio"/><input id="动态可变分区分配" name="__tabbed_6" type="radio"/><input id="动态重定位分配" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="单一连续分配">单一连续分配</label><label for="固定分区分配">固定分区分配</label><label for="动态可变分区分配">动态可变分区分配</label><label for="动态重定位分配">动态重定位分配</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>内存分为以下两个分区：系统区和用户区。操作系统使用系统区；应用程序装入到用户区，可使用用户区全部空间</p>
@@ -963,7 +963,7 @@
 <li>按进程的大小动态划分分区大小（分区大小、数目可变）</li>
 <li>数据结构</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">空闲分区表</label><label for="__tabbed_7_2">空闲分区链</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="空闲分区表" name="__tabbed_7" type="radio"/><input id="空闲分区链" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="空闲分区表">空闲分区表</label><label for="空闲分区链">空闲分区链</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>分区表的表项中包含分区号、分区始址及分区大小等表目</p>
@@ -979,10 +979,10 @@
 <ul>
 <li>把一个新作业装入内存中，须按照一定的分配算法，从空闲分区表或者空闲分区链表中，选择一分区分配给该作业</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">基于顺序搜索的动态分区分配算法</label><label for="__tabbed_8_2">基于索引的动态分区分配算法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="基于顺序搜索的动态分区分配算法" name="__tabbed_8" type="radio"/><input id="基于索引的动态分区分配算法" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="基于顺序搜索的动态分区分配算法">基于顺序搜索的动态分区分配算法</label><label for="基于索引的动态分区分配算法">基于索引的动态分区分配算法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="9:4"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><input id="__tabbed_9_3" name="__tabbed_9" type="radio"/><input id="__tabbed_9_4" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">首次适应(first-fit)</label><label for="__tabbed_9_2">下次适应(next-fit)</label><label for="__tabbed_9_3">最佳适应(best-fit)</label><label for="__tabbed_9_4">最坏适应(worst-fit)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:4"><input checked="checked" id="首次适应first-fit" name="__tabbed_9" type="radio"/><input id="下次适应next-fit" name="__tabbed_9" type="radio"/><input id="最佳适应best-fit" name="__tabbed_9" type="radio"/><input id="最坏适应worst-fit" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="首次适应first-fit">首次适应(first-fit)</label><label for="下次适应next-fit">下次适应(next-fit)</label><label for="最佳适应best-fit">最佳适应(best-fit)</label><label for="最坏适应worst-fit">最坏适应(worst-fit)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><figure markdown="">
@@ -1024,7 +1024,7 @@
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><input id="__tabbed_10_3" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">快速适应算法/分类搜索法</label><label for="__tabbed_10_2">伙伴算法</label><label for="__tabbed_10_3">哈希算法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="快速适应算法分类搜索法" name="__tabbed_10" type="radio"/><input id="伙伴算法" name="__tabbed_10" type="radio"/><input id="哈希算法" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="快速适应算法分类搜索法">快速适应算法/分类搜索法</label><label for="伙伴算法">伙伴算法</label><label for="哈希算法">哈希算法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>将空闲分区按容量大小进行分类，每一类具有相同容量，每一类单独设立一个空闲分区链表（空闲分区的分类根据进程常用的空间大小进行划分）</p>
@@ -1121,7 +1121,7 @@
 </li>
 </ul>
 </details>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><input id="__tabbed_11_3" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">分页存储管理</label><label for="__tabbed_11_2">分段存储管理</label><label for="__tabbed_11_3">段页式存储管理</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="分页存储管理" name="__tabbed_11" type="radio"/><input id="分段存储管理" name="__tabbed_11" type="radio"/><input id="段页式存储管理" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="分页存储管理">分页存储管理</label><label for="分段存储管理">分段存储管理</label><label for="段页式存储管理">段页式存储管理</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1447,7 +1447,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 </ul>
 </li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:4"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><input id="__tabbed_12_3" name="__tabbed_12" type="radio"/><input id="__tabbed_12_4" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">最佳置换算法(OPT)</label><label for="__tabbed_12_2">先进先出置换算法(FIFO)</label><label for="__tabbed_12_3">最近最久未使用算法(LRU)</label><label for="__tabbed_12_4">时钟置换算法(CLOCK)/最近未用算法(NRU)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:4"><input checked="checked" id="最佳置换算法OPT" name="__tabbed_12" type="radio"/><input id="先进先出置换算法FIFO" name="__tabbed_12" type="radio"/><input id="最近最久未使用算法LRU" name="__tabbed_12" type="radio"/><input id="时钟置换算法CLOCK最近未用算法NRU" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="最佳置换算法OPT">最佳置换算法(OPT)</label><label for="先进先出置换算法FIFO">先进先出置换算法(FIFO)</label><label for="最近最久未使用算法LRU">最近最久未使用算法(LRU)</label><label for="时钟置换算法CLOCK最近未用算法NRU">时钟置换算法(CLOCK)/最近未用算法(NRU)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>每次淘汰以后永不使用，或是在最长(未来)时间内不再被访问的页面</p>
@@ -1928,7 +1928,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">简化型</label><label for="__tabbed_13_2">改进型</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="简化型" name="__tabbed_13" type="radio"/><input id="改进型" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="简化型">简化型</label><label for="改进型">改进型</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2008,7 +2008,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 </li>
 <li>
 <p>页面调入策略</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><input id="__tabbed_14_2" name="__tabbed_14" type="radio"/><input id="__tabbed_14_3" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">何时调入页面</label><label for="__tabbed_14_2">从何处调入页面</label><label for="__tabbed_14_3">如何调入页面</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="何时调入页面" name="__tabbed_14" type="radio"/><input id="从何处调入页面" name="__tabbed_14" type="radio"/><input id="如何调入页面" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="何时调入页面">何时调入页面</label><label for="从何处调入页面">从何处调入页面</label><label for="如何调入页面">如何调入页面</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2141,6 +2141,9 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 </a>
 <a class="md-social__link" href="https://discord.gg/s33UBWEPxb" rel="noopener" target="_blank" title="Join to my discussion(discord)">
 <svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
+</a>
+<a class="md-social__link" href="https://tea.codes/@jasonpro_114" rel="noopener me" target="_blank" title="tea.codes">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"></path></svg>
 </a>
 </div>
 </div>
