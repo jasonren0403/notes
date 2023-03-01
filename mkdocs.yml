@@ -196,10 +196,6 @@ markdown_extensions:
   - md_in_html
   - tables
   - admonition
-  - pymdownx.highlight:
-      anchor_linenums: true
-      auto_title: true
-      linenums_style: pymdownx-inline
   - toc:
       # https://github.com/squidfunk/mkdocs-material/discussions/4682
       slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -217,7 +213,12 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+      linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
+  - pymdownx.keys
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
@@ -230,4 +231,6 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tabbed:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds: {}
   - pymdownx.tilde
