@@ -154,6 +154,8 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/s33UBWEPxb
       name: Join to my discussion(discord)
+    - icon: fontawesome/brands/mastodon
+      link: https://tea.codes/@jasonpro_114
   consent:
     title: Cookie 约定
     description: >-
