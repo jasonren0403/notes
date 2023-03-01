@@ -1,5 +1,7 @@
 ---
 glightbox: false
+hide:
+  - footer
 ---
 
 # 欢迎来到Jason的个人笔记站点！
