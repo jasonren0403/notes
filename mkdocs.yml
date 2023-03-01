@@ -111,6 +111,7 @@ theme:
     - navigation.expand
     - navigation.tracking
     - navigation.instant
+    - navigation.path  # insiders
     - header.autohide
     - toc.integrate
     - toc.follow
@@ -125,7 +126,7 @@ theme:
   language: 'zh'
 
 copyright: >-
-  copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2022</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+  copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2023</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
 
 use_directory_urls: false
 docs_dir: 'notes_dev'
@@ -159,6 +160,8 @@ extra:
       嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的<a href="https://www.jason0743.space/#/privacy" target="_blank">网站</a>。
 plugins:
   - glightbox
+  - typeset  # insiders
+  - meta  # insiders
   - social:
       cards: !ENV [CARDS, false]
       cards_font: Noto Sans SC  # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
@@ -189,7 +192,6 @@ extra_css:
 markdown_extensions:
   - abbr
   - md_in_html
-  - meta
   - tables
   - markdown.extensions.admonition
   - pymdownx.highlight:
