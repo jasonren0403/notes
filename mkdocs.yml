@@ -195,18 +195,18 @@ markdown_extensions:
   - abbr
   - md_in_html
   - tables
-  - markdown.extensions.admonition
+  - admonition
   - pymdownx.highlight:
       anchor_linenums: true
       auto_title: true
       linenums_style: pymdownx-inline
-  - markdown.extensions.toc:
+  - toc:
       # https://github.com/squidfunk/mkdocs-material/discussions/4682
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds: {}
-  - markdown.extensions.footnotes
-  - markdown.extensions.attr_list
-  - markdown.extensions.def_list
+  - footnotes
+  - attr_list
+  - def_list
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
