@@ -11,7 +11,6 @@ JavaScript与DOM
 	DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScript 赋予HTML 具备动态交互效果的能力的核心地位上，与特定编程语言相独立
 	各种实现：JavaScript、Python（`xml.dom`库等）
 
-
 ## DOM
 * 观点：在HTML DOM中，所有事物都是节点
 * 文档结构类似于树，但不一定使用树实现
@@ -60,16 +59,16 @@ JavaScript与DOM
 	- 在文档树中元素的文本内容和属性的文本内容都是由文本节点来表示
 
 === "注释节点"
-    - 注释节点（Comment）是包含文档注释的节点
+    注释节点（Comment）是包含文档注释的节点
 
 === "文档节点"
-	- 文档节点（Document）是文档树的根节点，它是文档中其他所有节点的父节点
+	文档节点（Document）是文档树的根节点，它是文档中其他所有节点的父节点
 
 === "文档类型节点"
-    - 每个Document 都有一个`DocumentType` 属性，它的值或是`null` ，或者是`DocumentType` 对象
+    每个Document 都有一个`DocumentType` 属性，它的值或是`null` ，或者是`DocumentType` 对象
 
 === "文档片段节点"
-	- 文档片段节点（Document Fragment）是轻量级的或最小的Document 对象，它表示文档的一部分或者是一段，不属于文档树。
+	文档片段节点（Document Fragment）是轻量级的或最小的Document 对象，它表示文档的一部分或者是一段，不属于文档树。
 
 ### DOM树
 * 浏览器提供`document`节点代表整个文档
@@ -118,7 +117,7 @@ JavaScript与DOM
 				* 如果当前节点后面有空格，该属性会返回一个文本节点，内容为空格
 				* 遍历所有节点
 					```javascript
-					var e1 = document.getElementbyId('divA').firstChild;
+					let e1 = document.getElementbyId('divA').firstChild;
 					while(e1!=null){
 						/* do some operations to element */
 						e1 = e1.nextSibling;
@@ -577,11 +576,10 @@ JavaScript与DOM
 - mouseout：鼠标离开节点时触发，离开父节点也会触发这个事件
 - mouseleave：鼠标离开节点时触发，离开父节点不会触发这个事件
 - contextmenu：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文菜单键”时触发
-- mousewheel：滚动鼠标的滚轮时触发，该事件继承的是WheelEvent 接口
-	* `wheelDelta` 或 `event.detail`（Firefox）: 滚轮滚动的方向，向上滚为正值(`wheelDelta`)或负值(`event.detail`)，向下滚为负值(`wheelDelta`)或正值(`event.detail`)
+- mousewheel：滚动鼠标的滚轮时触发，该事件继承的是 WheelEvent 接口
 
-    !!! warning ""
-        火狐浏览器使用`DOMMouseScroll`来添加滚动事件，且需要使用`addEventListener()`
+	!!! bug ""
+		`mousewheel` 事件已被废弃，应该使用标准事件接口`WheelEvent`
 
 #### 键盘事件
 - keydown：按下键盘时触发
@@ -659,14 +657,14 @@ JavaScript与DOM
 	- `window.location`和`document.location`都指向这个对象
 	- 直接打印`Location`对象，可以获取到当前页面的完整路径
 * 字符串属性
-	- `location.href`：包含整个URL的一个DOMString
-	- `location.search`：包含URL参数的一个DOMString，开头有一个`?`
-	- `location.hash`：包含块标识符的一个DOMString，开头有一个`#`
-	- `location.host`：包含了域名的一个DOMString，可能在该串最后带有一个`:`并跟上URL的端口号
-	- `location.hostname`：包含了URL域名的一个DOMString
-	- `location.pathname`：包含URL中路径部分的一个DOMString，开头有一个`/`
-	- `location.protocol`：包含了URL对应协议的一个DOMString，最后有一个`:`
-	- `location.port`：包含了端口号的一个DOMString
+	- `location.href`：包含整个URL的字符串
+	- `location.search`：包含URL参数的字符串，开头有一个`?`
+	- `location.hash`：包含块标识符的字符串，开头有一个`#`
+	- `location.host`：包含了域名的字符串，可能在该串最后带有一个`:`并跟上URL的端口号
+	- `location.hostname`：包含了URL域名的字符串
+	- `location.pathname`：包含URL中路径部分的字符串，开头有一个`/`
+	- `location.protocol`：包含了URL对应协议的字符串，最后有一个`:`
+	- `location.port`：包含了端口号的字符串
 * 跳转操作
 	- `location.assign(url)`
 	- `location.href=''`

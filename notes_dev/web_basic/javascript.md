@@ -5,6 +5,7 @@ comments: true
 ---
 JavaScript
 ===
+
 ## JavaScript简介
 * 定位：嵌入式（embedded）语言，通用的浏览器脚本语言
 * 性能强大，简单易学
@@ -89,10 +90,10 @@ JavaScript
 * `<body></body>`标签内
 
 !!! tip ""
-	以上两种方法中，JavaScript代码均在`<script type="text/javascript"></script>`标签中
+	以上两种方法中，JavaScript代码均在`<script></script>`标签中
 
 * 元素的事件属性（例如`onclick`、`onblur`）
-* 外部引入
+* 外部脚本引入
 	```html
 	<script src="path/to/script.js"></script>
 	```
@@ -113,10 +114,13 @@ JavaScript
 	* JavaScript是动态类型语言
     	```javascript
     	var a = 1;
-    	a = 'hello'; // (1)
+        typeof a; // (1)
+        a = 'hello';
+    	typeof a; // (2)
     	```
 
-        1. 不会报错，即使改变成了字符串类型
+        1. 'number'
+        2. 'string'
 
 	* 只声明变量而不赋值（此处针对`var`而言）
     	```javascript
@@ -145,15 +149,15 @@ JavaScript
             1. `a` 是全局变量，在整个脚本中都有效
             2. `b` 是局部变量，仅在当前函数体有效
 
-		- JavaScript中，有全局变量和局部变量两种作用域大小。
-			* ES6中，新增了块级作用域概念。由`{}`包括
+		- JavaScript中，存在三种作用域
+			* 全局作用域：脚本模式运行所有代码的默认作用域
+            * 局部作用域：函数体内部的作用域
+            * 块作用域：仅对 `let` 和 `const` 声明有效，用一对花括号（`{}`）创建的作用域
 
-	??? help "var,let和const"
-		<a name="using-var">var</a>定义的变量，没有块的概念，可以跨块访问，不可以跨函数访问。
-
-        <a name="using-let">let</a>定义的变量没有预解析过程（也就没有变量提升），不可以重复声明，有块级作用域。ES6标准新增
-
-        <a name="using-const">const</a>用于声明常量，只可以被声明一次，且必须立即赋值，不能修改。ES6标准新增
+	??? help "var、let和const"
+		* <a name="using-var">var</a>定义的变量，没有块的概念，可以跨块访问，不可以跨函数访问。
+        * <a name="using-let">let</a>定义的变量没有预解析过程（也就没有变量提升），不可以重复声明，有块级作用域。ES6标准新增
+        * <a name="using-const">const</a>用于声明常量，只可以被声明一次，且必须立即赋值，不能修改。ES6标准新增
 
 		!!! warning "const不可修改？"
 			```javascript
@@ -176,8 +180,12 @@ JavaScript
 	* 第二个字符往后，也可以用数字
 	* 保留字不可以做标识符
 
-		??? info "JavaScript保留字"
-			break、delete、function、return、typeof、case、do、if、switch、var、catch、else、in、this、void、continue、false、instanceof、throw、while、debugger、finally、new、true、const、with、default、for、null、try、class、enum、export、extends、import和super等
+		??? info "JavaScript保留字[^1]"
+			```javascript
+            await break case catch class const continue debugger default delete do else enum export extends 
+            false finally for function if import in instanceof new null return super switch this throw true 
+            try typeof var void while with yield
+            ```
 
 - 注释
 
@@ -232,8 +240,9 @@ JavaScript
 		```
 
 	=== "三元运算符 `?:`"
-		- `(condition)?expr1:expr2`等价于
-		```javascript
+		`(condition)?expr1:expr2`等价于
+		
+        ```javascript
 		if(condition){
 			expr1;
 		}else{
@@ -262,11 +271,14 @@ JavaScript
 !!! info ""
     数值、字符串、布尔值称为<a name="basic-type"></a>统称为原子类型，不可再分
 
-!!! info
-	可以使用`typeof`运算符获得某一值的数据类型
+!!! info ""
+	可以使用`typeof`运算符获得除了 `null` 以外的任何原始类型（string、number、bigint、boolean、undefined、symbol）的值的类型
 
 === "数值(Number)"
     包括整数和小数
+
+=== "大整数(bigint)"
+	以 `n` 结尾的任意精度的整数
 
 === "字符串(string)"
     文本
@@ -286,6 +298,9 @@ JavaScript
 === "null"
     * 作为函数的参数，表示该函数的参数为空
 	* 作为对象原型链的终点
+
+=== "symbol"
+	创建唯一的标识符，每个从 `Symbol()` 返回的 symbol 值都是唯一的
 
 === "object"
     * 各种值组成的集合
@@ -320,12 +335,12 @@ JavaScript
 		- NaN不等于任何值，包括它本身
 			* 任何值（包括`NaN`本身）与`NaN`比较，返回的都是`false`
 	* Infinity：无穷值
-		- `Infinity`大于一切数值，`-Infinity`小于一切数据，除了`NaN`以外
+		- `Infinity`大于一切数值，`-Infinity`小于一切数值，除了`NaN`以外
 		- `Infinity`与`NaN`之间比较总会返回`false`
 
 - <a name="global-number-funcs"></a>与数值有关的全局方法
 	* `parseInt(string[,radix=10])`方法
-		- 用途：字符串 → 整数
+		- 用途：将字符串转换为指定基数的十进制整数
 		- 从左向右，直到遇到不能转换为数字的字符，返回转好的部分，否则返回`NaN`
 		- 参数非字符串，先转为字符串再转换
 		- 类似的方法：`parseFloat(string)`
@@ -342,7 +357,8 @@ JavaScript
 			```
 
 	* `isFinite(value)`方法
-		- 用途：判断某个值是否为正常的数值，除了`Infinity`、`-Infinity`、`NaN`和`undefined`四个值以外，都会返回`true`
+		- 用途：判断某个值是否为有限的数值，除了`Infinity`、`-Infinity`、`NaN`和`undefined`四个值以外，都会返回`true`
+        - 参数会首先转换为数值
 
 #### 字符串
 - 零个或多个排在一起的字符，放在单引号或双引号中
@@ -376,21 +392,24 @@ JavaScript
 	* `btoa()`：任意值转换为Base64编码
 	* `atob()`：Base64编码转换为原来的值
 
-	!!! tip "非ASCII字符（如中文）怎么base64？"
-		请在中间插入一个转码环节（如`encodeURIComponent()`），再使用这两个方法
+	!!! tip "非ASCII字符（如中文）怎么base64？[^3]"
+		- 请在中间插入一个转码环节（如`encodeURIComponent()`），再使用这两个方法
+		- 或使用 `TypedArray` 重写这两种方法
 
 #### 对象
 - 是一组“键值对”（key-value）的集合，是一种无序的复合数据集合
 	* 键名和键值之间用冒号分隔
 	* 两个键值对之间用逗号分隔
 		- 最后一个属性后面可以不加逗号
-	* 一个例子：
-		```javascript
-		var obj = {
-			foo:"hello",
-			bar:"world"
-		};
-		```
+    * 整个对象用花括号括起来
+    
+        ```javascript title="一个例子"
+        const obj = {
+            foo:"hello",
+            bar:"world"
+        };
+        ```
+
 - 对象的键名是字符串
 	* 在ES6标准下，Symbol值也可以用作键名（“加不加引号都可以”）
 	* 键名是数值，会被自动转为字符串
@@ -399,17 +418,17 @@ JavaScript
 	* 对象的键值可以为任何数据类型
 	* 若键值为函数，通常把它称为“方法”，它可以像函数那样调用
 		```javascript
-		var obj = {
+		const obj = {
 			p:function (x){
 				return 2 * x;
 			}
 		};
-		var val = obj.p(1)  //now val = 2
+		const val = obj.p(1)  //now val = 2
 		```
 		* 如果属性的值还是对象，就可以形成链式引用
 	* 属性可以动态创建
 	* 读写属性：点运算符（`.`）或方括号（`[]`）运算符
-	* 属性查看：`Object.keys()` `Object.values()`
+	* 属性查看：`Object.keys()`、`Object.values()`
 	* 属性删除：`delete`
 		- 若删除成功，则返回`true`
 		- 删除一个不存在的属性，`delete`不会报错，而且也会返回`true`！
@@ -423,14 +442,19 @@ JavaScript
 				在属性中设置`configurable`为`false`。
 
 	* 属性是否存在：`in` 运算符
-		- 检查对象是否包含某个属性（检查的是键名，不是键值），如果包含就返回`true` ，否则返回`false`。它的左边是一个字符串，表示属性名，右边是一个对象
+		- 检查对象是否包含某个属性（检查的是键名，不是键值），如果包含就返回`true`，否则返回`false`。它的左边是一个字符串，表示属性名，右边是一个对象
 
 			!!! info "是否为对象自身属性？"
 				`in`无法判断对象的属性是本身的，还是继承而来的，请使用对象的`hasOwnProperty()`方法来判断
 
-	* <a name = "enuming-an-object"></a>属性的遍历：`for..in`循环
-		- 遍历的是对象所有可遍历（enumerable）的属性，会跳过不可遍历的属性
-		- 它不仅遍历对象自身的属性，还遍历继承的属性
+	* <a name = "enuming-an-object"></a>属性的遍历
+
+        === "`for...in`"
+		    - 遍历的是对象所有可枚举的属性
+		    - 它不仅遍历对象自身的属性，还遍历继承的属性（原型方法和属性）
+        === "`for...of`"
+  			- 适用遍历拥有迭代器对象（`iterator`）的集合，而不是对象
+  			- 遍历对象属性可以用`Object.keys()`方法
 
 - 对象的引用
 	* 不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说，它们指向同一个内存地址
@@ -447,6 +471,9 @@ JavaScript
     到底是哪种呢？V8 引擎规定，如果行首是大括号，一律解释为对象。为了避免歧义，最好在大括号前加上圆括号，明确其为对象。
 
 - `with`语句：绑定对象
+	
+	!!! bug ""
+        `with`语句已经被废弃，不建议使用
 
 	```javascript
 	with(object){
@@ -462,15 +489,15 @@ JavaScript
 #### 函数
 * 声明函数：`function`命令
 	- `function` 命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数，函数体放在大括号里面
-	```javascript
-	function fun_name(arguments){
-		//function body
-	}
-	```
+		```javascript
+		function fun_name(arguments){
+			//function body
+		}
+		```
 * 函数表达式：`var var_name = function [fun_name](arguments){};`
 	- 不加`fun_name`，函数为匿名函数
 	- 加上`fun_name`，函数名仅在函数体内部有效
-	- 末尾要加上分号
+	- 末尾分号可有可无
 * `Function`构造函数
 	- 可以传递任意数量的参数给`Function`构造函数，只有最后一个参数会被当做函数体。
 	- 如果只有一个参数，该参数就是函数体。
@@ -482,19 +509,20 @@ JavaScript
 * 调用函数：圆括号运算符`()`
 	- 圆括号之间是函数参数
 	- 内部的`return`语句表示函数返回，非必需
-	- 可以调用自身，这就是递归（recursion）
-* 属性
+	- 可以调用自身，此时称为递归（recursion）
+* 常见属性
 	- `name`：函数的名字
 		* 通过变量复制定义的函数，如果：
 			* 变量的值是一个匿名函数，那么`name`属性返回变量名
 			* 变量的值是一个具名函数，那么`name`属性返回函数表达式的名字
 	- `length`：参数个数的多少
+* 常见方法
 	- `toString()`方法：函数的源码，包含注释
-	- 作用域
-		* 函数外部声明的变量就是全局变量（global variable），它可以在函数内部读取
-		* 在函数内部定义的变量，外部无法读取，称为“局部变量”（local variable）
-		* 函数内部定义的变量，会在该作用域内覆盖同名全局变量
-		* 变量提升：在函数内，`var` 命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部
+* 作用域
+    - 函数外部声明的变量就是全局变量（global variable），它可以在函数内部读取
+    - 在函数内部定义的变量，外部无法读取，称为“局部变量”（local variable）
+    - 函数内部定义的变量，会在该作用域内覆盖同名全局变量
+    - 变量提升：在函数内，`var` 命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部
 * 参数
 	- 如果有同名的参数，则取最后出现的那个值，即使后面的没有值或被省略，也是以其为准
 	- 省略参数值：`undefined`
@@ -508,7 +536,7 @@ JavaScript
 		* `arguments.length`：函数调用时传入了多少个参数
 		* 正常模式下可修改，严格模式 下修改无效，但不报错
 
-* 闭包（Closures）[^1]
+* 闭包（Closures）[^2]
 	- 嵌套的内部函数引用了嵌套的外部函数的数据（变量或函数），就产生了闭包
 		* 闭包存在于嵌套的内部函数中
 		* 在嵌套函数定义执行结束后产生，嵌套函数成为垃圾对象时死亡
@@ -534,7 +562,7 @@ JavaScript
                 1. 输出`i = 2`
 
 				!!! info "解释"
-					调用`A`的时候就创建了一个作用域对象，我们姑且称之为`Aa`，那么这个`Aa`应该是这样的： `Aa = { i: 2 };`  在`A`函数返回一个函数之后，`A`执行完毕。`Aa`对象本应该被回收，但是由于返回的函数使用了`Aa`的属性`i`，所以返回的函数保存了一个指向`Aa`的引用，所以`Aa`不会被回收。
+					调用`A`的时候就创建了一个作用域对象，我们姑且称之为`Aa`，那么这个`Aa`应该是 `Aa = { i: 2 };`。在`A`函数返回一个函数之后，`A`执行完毕。`Aa`对象本应该被回收，但是由于返回的函数使用了`Aa`的属性`i`，所以返回的函数保存了一个指向`Aa`的引用，所以`Aa`不会被回收。
 
 			2. 每调用一次外部函数就产生一个新的闭包，以前的闭包依旧存在且互不影响。
 			3. 同一个闭包会保留上一次的状态，当它被再次调用时会在上一次的基础上进行。
@@ -695,7 +723,6 @@ JavaScript
 				})()
 				```
 
-
 * 立即调用的函数表达式（IIFE）
 	- 不可以直接在定义末尾加入圆括号`()`来调用，会报错。
         <figure>
@@ -731,7 +758,7 @@ JavaScript
 
 !!! tip "array：特殊的object"
 	```javascript
-	var arr = ['a',{b:4},[1,2,3]];
+	const arr = ['a',{b:4},[1,2,3]];
 	typeof arr;   //object
 	```
 	数组的特殊性体现在它的键名是按次序排列的一组整数，本质还是字符串，但是在读取时非字符串键名会被转换为字符串
@@ -787,9 +814,9 @@ JavaScript
 			```
 
 * 数组的空位
-	- 当数组的某个位置是空元素，即两个逗号之间没有任何值，我们称该数组存在空位（hole）
+	- 当数组的某个位置是空元素，即两个逗号之间没有任何值，我们称该数组存在空位（slot）
 		* 数组的空位不影响`length`属性
-		* 如果最后一个元素后面有逗号 ，不会产生空位
+		* 如果最后一个元素后面有逗号，不会产生空位
 	- 删除（`delete`）某个数组元素，会留下一个空位，且不影响`length`属性
 	- 读取空位的值会返回`undefined`
 		* 但是某个位置有无元素与该位置是不是`undefined`无关！
@@ -803,13 +830,16 @@ JavaScript
 	- 加法运算符
 		* 基本规则：操作数没有字符串，则非数值类型转为数值计算。操作数有字符串，则加法运算符变为连接运算符，任何非字符串操作数转为字符串类型
 
-		![](md-img/11.29-plus1.png)
-
-		![](md-img/11.29-plus2.png)
+			<figure>
+		    ![](md-img/11.29-plus1.png)
+		    ![](md-img/11.29-plus2.png)
+		    </figure>
 
 		* 加法运算符存在重载现象，在运行时决定，到底是执行相加还是执行连接
 
-   		![](md-img/11.29-plus3.png)
+			<figure>
+   			![](md-img/11.29-plus3.png)
+		    </figure>
 
 		!!! note ""
             这种机制仅加法具有
@@ -834,10 +864,11 @@ JavaScript
 	- 将右侧运算结果赋值给左侧变量
 
 * 比较运算符
-	- 比较两个值的大小，然后返回一个布尔值，表示是否满足指定的条件
+	
+    比较两个值的大小，然后返回一个布尔值，表示是否满足指定的条件
 
-		!!! summary ""
-			JavaScript提供了8个比较运算符，分为相等比较和非相等比较：大于（`>`）、小于（`<`）、小于或等于（`<=`）、大于或等于（`>=`）、相等（`==`）、严格相等（`===`）、不相等（`!=`）、严格不相等（`!==`）
+    !!! summary ""
+		JavaScript提供了8个比较运算符，分为相等比较和非相等比较：大于（`>`）、小于（`<`）、小于或等于（`<=`）、大于或等于（`>=`）、相等（`==`）、严格相等（`===`）、不相等（`!=`）、严格不相等（`!==`）
 
     === "相等比较"
         涉及到四种运算符：`==` `===` `!==` `!=`
@@ -892,22 +923,22 @@ JavaScript
 	- 用于将表达式转为布尔值
 	- 包含四个运算符：取反（`!`）、且（`&&`）、或（`||`）、三元（`?:`）
 
-    === "取反"
-    	用于将布尔值变为相反值，对于非布尔值，取反会将其转为布尔值
+        === "取反"
+    	    用于将布尔值变为相反值，对于非布尔值，取反会将其转为布尔值
 
-    === "且"
-    	- 如果第一个运算子的布尔值为`true`，则返回第二个运算子的值（注意是值，不是布尔值）
-		- 如果第一个运算子的布尔值为`false`，则直接返回第一个运算子的值，且不再对第二个运算子求值（“短路”）
-		- 多个连用的且运算符，返回第一个布尔值为`false` 的表达式的值。如果所有表达式的布尔值都为`true`，返回最后一个表达式的值
+        === "且"
+    	    - 如果第一个运算子的布尔值为`true`，则返回第二个运算子的值（注意是值，不是布尔值）
+		    - 如果第一个运算子的布尔值为`false`，则直接返回第一个运算子的值，且不再对第二个运算子求值（“短路”）
+		    - 多个连用的且运算符，返回第一个布尔值为`false` 的表达式的值。如果所有表达式的布尔值都为`true`，返回最后一个表达式的值
 
-        ![](md-img/11.29-multi_and.png)
+            ![](md-img/11.29-multi_and.png)
 
-    === "或"
-		- 如果第一个运算子的布尔值为`true`，则返回第一个运算子的值，且不再对第二个运算子求值（“短路”）
-		- 如果第一个运算子的布尔值为`false`，则返回第二个运算子的值
+        === "或"
+		    - 如果第一个运算子的布尔值为`true`，则返回第一个运算子的值，且不再对第二个运算子求值（“短路”）
+		    - 如果第一个运算子的布尔值为`false`，则返回第二个运算子的值
 
-    === "三元"
-		三元条件运算符由问号（?）和冒号（:）组成，分隔三个表达式，如果第一个表达式的布尔值为`true` ，则返回第二个表达式的值，否则返回第三个表达式的值
+        === "三元"
+		    三元条件运算符由问号（?）和冒号（:）组成，分隔三个表达式，如果第一个表达式的布尔值为`true` ，则返回第二个表达式的值，否则返回第三个表达式的值
 
 * 二进制位运算符
 	- 用于直接对二进制位进行计算，只对整数起作用，其他类型会被转为整数后再执行位运算
@@ -1085,10 +1116,6 @@ JavaScript
 				* 转义除了字母、数字、`- _ . ! ~ * ' ( )` 外的所有所有字符
 				* 操作的是组成 URI 的组件，这两个函数假定任何保留字符都代表普通文本，所以必须编码它们
 
-		=== "`escape()`"
-			* 对字符串进行编码，这样就可以在所有的计算机上读取该字符串
-			* 除了 `*` `@` `-` `_` `+` `.` `/` ASCII字母和数字外均进行编码
-
 - 基本对象：定义或使用其他对象的基础。基本对象包括一般对象、函数对象和错误对象
 	* `Object`、`Function`、`Boolean`、`Symbol`、`Error`、`EvalError`、`InternalError`、`RangeError`、`ReferenceError`、`SyntaxError`、`TypeError`、`URIError`
 
@@ -1097,27 +1124,27 @@ JavaScript
     === "Number"
         - 经过封装，可以处理数字值的对象
         - JavaScript 的 `Number` 类型为双精度IEEE754 64位浮点类型，能够准确表示的整数范围在`-2^53~2^53`之间。
-
-        !!! info ""
-            `BigInt` 任意精度数字类型已进入 `stage3` 规范中
-
-        - 静态属性：`Number.MAX_VALUE` `Number.MIN_VALUE` `Number.NaN`等
+        - 静态属性：`Number.MAX_VALUE`、`Number.MIN_VALUE`、`Number.NaN`等
         - 静态方法
+            * 是否为`NaN`：`Number.isNaN()`
+            * 是否为有限数：`Number.isFinite()`
+            * 是否类型为`Number`且为整数：`Number.isInteger()`
+            * 是否为安全表示的整数：`Number.isSafeInteger()`
+            * 数字转换：`Number.parse[Float|Int]()`
 
-            1. 是否为`NaN`：`Number.isNaN()`
-            2. 是否为有限数：`Number.isFinite()`
-            3. 是否类型为`Number`且为整数：`Number.isInteger()`
-            4. 是否为安全表示的整数：`Number.isSafeInteger()`
-            5. 数字转换：`Number.parse[Float|Int]()`
+	=== "BigInt"
+		- 表示任意大的整数，其值可以大于 JavaScript 中可以用 `Number` 表示的最大整数
+		- 使用整数字面量后面加`n`，或者使用`BigInt()`函数来定义一个`BigInt`值
+		- `BigInt`变量转换为`Number`变量可能会丢失精度
+		- `BigInt`变量不能与`Number`变量进行运算，也不能与`Number`变量进行比较
+		- 其`typeof`测试返回`"bigint"`
 
     === "Math"
         - 提供各种数学功能
 		- 不可被实例化，所有的属性和方法都必须在`Math`对象上调用
 		- 静态属性：`Math.E` `Math.PI` `Math.SQRT2`等
 		- 静态方法
-
             1. `Math.random()`：返回`[0,1)`之间的伪随机数
-
                 !!! tip "任意范围的随机数生成"
     				```javascript
     					function getRandom(min,max){
@@ -1127,7 +1154,6 @@ JavaScript
     						return Math.floor(Math.random()*(max-min+1))+min;
     					}
     				```
-
             2. 三角函数
             3. 最大值、最小值
             4. 取整
@@ -1313,5 +1339,7 @@ JavaScript
 - 结构化数据：这些对象用来表示和操作结构化的缓冲区数据，或使用 JSON（JavaScript Object Notation）编码的数据
     * ArrayBuffer、SharedArrayBuffer、Atomics、DataView、JSON
 
-[^1]: 本部分参考https://www.cnblogs.com/wind-lanyan/p/6080160.html 和课件pdf共同整理
+[^1]: 具体请参考提案[ECMA 262](https://262.ecma-international.org/13.0/#sec-keywords-and-reserved-words)
+[^2]: 本部分参考https://www.cnblogs.com/wind-lanyan/p/6080160.html 和课件pdf共同整理
+[^3]: https://developer.mozilla.org/zh-CN/docs/Glossary/Base64
 *[严格模式]: ECMAScript 5中采用限制性Javascript变体的模式，在脚本所有语句之前需要放置特定语句'use strict'
