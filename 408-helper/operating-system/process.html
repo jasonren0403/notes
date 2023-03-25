@@ -11,9 +11,9 @@
 <link href="index.html" rel="prev"/>
 <link href="memory.html" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
 <title>进程管理 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -809,10 +809,10 @@
 </ul>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-1.png"><img alt="link" src="asset-img/process-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-1.png"><img alt="link" src="asset-img/process-1.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-2.png"><img alt="index" src="asset-img/process-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-2.png"><img alt="index" src="asset-img/process-2.png"/></a></p>
 </div>
 </div>
 </input></input></input></div>
@@ -1075,15 +1075,15 @@ A --&gt;C(end)</code></pre>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>将许多用户级线程映射到一个内核线程</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-3.png"><img alt="mul-to-1" src="asset-img/process-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-3.png"><img alt="mul-to-1" src="asset-img/process-3.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>将每一个用户级线程映射到一个内核线程</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-4.png"><img alt="1-to-1" src="asset-img/process-4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-4.png"><img alt="1-to-1" src="asset-img/process-4.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>多路复用了很多用户级线程到同样数量或更小数量的内核线程上</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-5.png"><img alt="mul-to-mul" src="asset-img/process-5.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-5.png"><img alt="mul-to-mul" src="asset-img/process-5.png"/></a></p>
 </div>
 </div>
 </div>
@@ -1697,7 +1697,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 <div class="tabbed-block">
 <p>分析问题，画出前驱图，把每一对前驱关系看成一个同步问题</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-9.png"><img alt="qianqu-example" src="asset-img/process-9.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-9.png"><img alt="qianqu-example" src="asset-img/process-9.png"/></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="25:6"><input checked="checked" id="P1" name="__tabbed_25" type="radio"/><input id="P2" name="__tabbed_25" type="radio"/><input id="P3" name="__tabbed_25" type="radio"/><input id="P4" name="__tabbed_25" type="radio"/><input id="P5" name="__tabbed_25" type="radio"/><input id="P6" name="__tabbed_25" type="radio"/><div class="tabbed-labels"><label for="P1">P1</label><label for="P2">P2</label><label for="P3">P3</label><label for="P4">P4</label><label for="P5">P5</label><label for="P6">P6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2233,8 +2233,8 @@ t_总 &amp; = t_{有效}+t_{空闲}
 <div class="tabbed-set tabbed-alternate" data-tabs="34:2"><input checked="checked" id="检测死锁资源分配图" name="__tabbed_34" type="radio"/><input id="消除死锁" name="__tabbed_34" type="radio"/><div class="tabbed-labels"><label for="检测死锁资源分配图">检测死锁：资源分配图</label><label for="消除死锁">消除死锁</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-6.png"><img alt="RAG" src="asset-img/process-6.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-7.png"><img alt="RAG-sim" src="asset-img/process-7.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-6.png"><img alt="RAG" src="asset-img/process-6.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-7.png"><img alt="RAG-sim" src="asset-img/process-7.png"/></a></p>
 <ul>
 <li>死锁定理：S为死锁状态当且仅当S的资源分配图是不可完全简化的</li>
 </ul>
@@ -2248,7 +2248,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/process-8.png"><img alt="has-loop" src="asset-img/process-8.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/process-8.png"><img alt="has-loop" src="asset-img/process-8.png"/></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="35:3"><input checked="checked" id="抢占资源法" name="__tabbed_35" type="radio"/><input id="撤销进程法" name="__tabbed_35" type="radio"/><input id="进程回退法" name="__tabbed_35" type="radio"/><div class="tabbed-labels"><label for="抢占资源法">抢占资源法</label><label for="撤销进程法">撤销进程法</label><label for="进程回退法">进程回退法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2319,10 +2319,10 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             回到页面顶部
-          </a>
+          </button>
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
@@ -2424,7 +2424,7 @@ t_总 &amp; = t_{有效}+t_{空闲}
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.expand", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+<script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>

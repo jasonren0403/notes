@@ -11,9 +11,9 @@
 <link href="index.html" rel="prev"/>
 <link href="stack.html" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
 <title>线性表 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -849,7 +849,7 @@
 </ul>
 <h2 id="存储结构">存储结构</h2>
 <h3 id="顺序表">顺序表</h3>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/linear-list-1.png"><img alt="顺序表" src="asset-img/linear-list-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/linear-list-1.png"><img alt="顺序表" src="asset-img/linear-list-1.png"/></a></p>
 <ul>
 <li>用一组地址连续的存储单元，依次存放线性表中的数据元素</li>
 <li>以"存储位置相邻"表示位序相继的两个数据元素之间的前驱和后继的关系</li>
@@ -1018,8 +1018,8 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </li>
 </ul>
 <h3 id="链表">链表</h3>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/linear-list-2.png"><img alt="单链表" loading="lazy" src="asset-img/linear-list-2.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/linear-list-3.png"><img alt="带头结点的单链表" loading="lazy" src="asset-img/linear-list-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/linear-list-2.png"><img alt="单链表" loading="lazy" src="asset-img/linear-list-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/linear-list-3.png"><img alt="带头结点的单链表" loading="lazy" src="asset-img/linear-list-3.png"/></a></p>
 <ul>
 <li>用一组任意的存储单元存储线性表的数据元素</li>
 <li>对数据元素 <span class="arithmatex">\(a_i\)</span> 来说，除了存储其本身的信息之外，还需存储一个指示其直接后继的信息（指针）</li>
@@ -1336,7 +1336,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </code></pre></div></li>
 </ul>
 <h4 id="循环链表">循环链表</h4>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/linear-list-4.png"><img alt="循环列表" loading="lazy" src="asset-img/linear-list-4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/linear-list-4.png"><img alt="循环列表" loading="lazy" src="asset-img/linear-list-4.png"/></a></p>
 <ul>
 <li>表中最后一个结点的指针域指向头结点，整个链表成为一个由链指针相链接的环，并且设立尾指针设成指向最后一个结点。</li>
 <li>空的循环链表由只含一个自成循环的头结点表示。</li>
@@ -1349,7 +1349,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </ul>
 </div>
 <h4 id="双链表">双链表</h4>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/linear-list-5.png"><img alt="双链表" loading="lazy" src="asset-img/linear-list-5.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/linear-list-5.png"><img alt="双链表" loading="lazy" src="asset-img/linear-list-5.png"/></a></p>
 <ul>
 <li>双向链表也是由指向头结点的头指针唯一确定，若将头尾结点链接起来则构成双向循环链表</li>
 <li>其结点结构中含有两个指针域，其一指向数据元素的“直接后继”，另一指向数据元素的“直接前驱”</li>
@@ -1444,10 +1444,10 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             回到页面顶部
-          </a>
+          </button>
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
@@ -1549,7 +1549,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.expand", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+<script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>

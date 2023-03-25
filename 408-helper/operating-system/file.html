@@ -11,9 +11,9 @@
 <link href="memory.html" rel="prev"/>
 <link href="io.html" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
 <title>文件管理 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -831,7 +831,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="顺序文件" name="__tabbed_4" type="radio"><input id="索引文件" name="__tabbed_4" type="radio"><input id="索引顺序文件" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="顺序文件">顺序文件</label><label for="索引文件">索引文件</label><label for="索引顺序文件">索引顺序文件</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-1.png"><img alt="seqfile" src="asset-img/file-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-1.png"><img alt="seqfile" src="asset-img/file-1.png"/></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="串结构" name="__tabbed_5" type="radio"><input id="顺序结构" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="串结构">串结构</label><label for="顺序结构">顺序结构</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -857,7 +857,7 @@
 </div>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-2.png"><img alt="indexfile" src="asset-img/file-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-2.png"><img alt="indexfile" src="asset-img/file-2.png"/></a></p>
 <ul>
 <li>为变长记录文件建立一张索引表，为主文件的每个记录在索引表中分别设置一个表项，记录指向记录的指针以及记录的长度L</li>
 </ul>
@@ -872,7 +872,7 @@
 <ul>
 <li>索引顺序文件是对顺序文件的一种改进，克服了变长记录的顺序文件不能随机访问，以及不便于记录的删除和插入的缺点。</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-3.png"><img alt="i-s-file" src="asset-img/file-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-3.png"><img alt="i-s-file" src="asset-img/file-3.png"/></a></p>
 </div>
 </div>
 </input></input></input></div>
@@ -943,7 +943,7 @@
 <ul>
 <li>将除了文件名的信息放入“索引结点”中，称为i结点。每个目录项中仅包含文件名和指向该文件i结点的指针</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-4.png"><img alt="index" src="asset-img/file-4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-4.png"><img alt="index" src="asset-img/file-4.png"/></a></p>
 </li>
 </ul>
 </li>
@@ -1016,7 +1016,7 @@
 </div>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-5.png"><img alt="2-dir" src="asset-img/file-5.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-5.png"><img alt="2-dir" src="asset-img/file-5.png"/></a></p>
 <ul>
 <li>除系统中的主文件目录（MFD）外，为每一个用户再建立一个单独的用户文件目录（UFD）。MFD的每一项包含用户名和指向该用户UFD的指针。</li>
 <li>每当要新建一个文件时，操作系统只需检查该用户的UFD内是否已有重名文件，若有，则必须为新文件重新命名。</li>
@@ -1034,7 +1034,7 @@
 </div>
 <div class="tabbed-block">
 <p>主目录在这里被称为根目录，在每个文件目录中，只能有一个根目录，每个文件和每个目录都只能有一个父目录。把数据文件称为树叶，其他的目录均作为树的结点，或称为子目录。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-6.png"><img alt="tree" src="asset-img/file-6.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-6.png"><img alt="tree" src="asset-img/file-6.png"/></a></p>
 <ul>
 <li>从根目录到任何数据文件只有一条唯一的通路，使用<code>/</code>连接起来，就构成了该数据文件唯一的路径名，这个路径名称是绝对路径名</li>
 <li>可为每一个进程设置一个“当前目录”（或工作目录），进程对所有文件的访问相对于“当前目录”进行，从当前目录开始直到数据文件为止的路径名称被叫做相对路径名</li>
@@ -1042,7 +1042,7 @@
 </div>
 <div class="tabbed-block">
 <p>树形目录结构可便于实现文件分类，但不便于实现文件共享，为此在树形目录结构的基础上增加了一些指向同一结点的有向边，使整个目录成为一个有向无环图。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-7.jpg"><img alt="dag" src="asset-img/file-7.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-7.jpg"><img alt="dag" src="asset-img/file-7.jpg"/></a></p>
 </div>
 </div>
 </div>
@@ -1051,11 +1051,11 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>文件的物理地址及其他的文件属性等信息不再放在目录项中，而是放在索引结点中。在文件目录中只设置文件名及指向相应索引结点的指针。链接计数为0时，正式删除文件。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-8.png"><img alt="index" src="asset-img/file-8.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-8.png"><img alt="index" src="asset-img/file-8.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>允许一个文件或子目录拥有多个父目录，但其中仅有一个作为主（属主）父目录，其他的几个父目录都是通过符号链接方式与之相链接的。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-9.png"><img alt="" src="asset-img/file-9.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-9.png"><img alt="" src="asset-img/file-9.png"/></a></p>
 <ul>
 <li>直接删除源文件，符号链仍然存在，但是会失效</li>
 </ul>
@@ -1103,7 +1103,7 @@
 <h2 id="文件系统实现">文件系统实现</h2>
 <h3 id="文件系统层次结构">文件系统层次结构</h3>
 <figure>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-10.png"><img alt="model" src="asset-img/file-10.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-10.png"><img alt="model" src="asset-img/file-10.png"/></a>
 <figcaption>文件系统模型</figcaption>
 </figure>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="对象及其属性" name="__tabbed_12" type="radio"/><input id="对对象操纵和管理的软件集合" name="__tabbed_12" type="radio"/><input id="文件系统的接口" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="对象及其属性">对象及其属性</label><label for="对对象操纵和管理的软件集合">对对象操纵和管理的软件集合</label><label for="文件系统的接口">文件系统的接口</label></div>
@@ -1157,7 +1157,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>每个文件在磁盘上占有一组连续的块，一个文件的目录条目包括开始块的地址和该文件所分配区域的长度。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-11.png"><img alt="continous" src="asset-img/file-11.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-11.png"><img alt="continous" src="asset-img/file-11.png"/></a></p>
 <ul>
 <li>连续分配支持顺序访问和直接访问。</li>
 </ul>
@@ -1177,7 +1177,7 @@
 <ul>
 <li>仅支持顺序访问</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-12.png"><img alt="lnk-implicit" src="asset-img/file-12.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-12.png"><img alt="lnk-implicit" src="asset-img/file-12.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>把用于链接文件各物理块的指针，显式地存放在内存的一张链接表中。 该表在整个磁盘仅设置一张，每个表项中存放链接指针，即下一个盘块号。</p>
@@ -1187,14 +1187,14 @@
 <li>由于查找记录的过程是在内存中进行的，因而不仅显著地提高了检索速度，而且大大减少了访问磁盘的次数。</li>
 <li>由于分配给文件的所有盘块号都放在该表中，故称该表为文件分配表（File Allocation Table, FAT)。</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-13.png"><img alt="lnk-explicit" src="asset-img/file-13.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-13.png"><img alt="lnk-explicit" src="asset-img/file-13.png"/></a></p>
 </div>
 </div>
 </div>
 </div>
 <div class="tabbed-block">
 <p>系统为每个文件建立一张索引表，记录了文件的各个逻辑块对应的物理块。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-14.png"><img alt="index" src="asset-img/file-14.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-14.png"><img alt="index" src="asset-img/file-14.png"/></a></p>
 <details class="faq" open="open">
 <summary>索引块太小，无法支持大文件的解决方案</summary>
 <div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="链接方案" name="__tabbed_17" type="radio"/><input id="多层索引" name="__tabbed_17" type="radio"/><input id="混合索引" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="链接方案">链接方案</label><label for="多层索引">多层索引</label><label for="混合索引">混合索引</label></div>
@@ -1256,7 +1256,7 @@
 <ul>
 <li>
 <p>划分与初始化</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-15.jpg"><img alt="f" src="asset-img/file-15.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-15.jpg"><img alt="f" src="asset-img/file-15.jpg"/></a></p>
 <ul>
 <li>
 <p>在一个文件卷中，文件数据信息的空间（文件区）和存放文件控制信息FCB的空间（目录区）是分离的。</p>
@@ -1313,7 +1313,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>将磁盘上所有空闲空间以盘块为单位拉成一条链，其中的每一个盘块都有指向后继盘块的指针。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-16.png"><img alt="" src="asset-img/file-16.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-16.png"><img alt="" src="asset-img/file-16.png"/></a></p>
 <ul>
 <li>当用户因创建文件而请求分配存储空间时，系统从链首开始，依次摘下适当数目的空闲盘块分配给用户。</li>
 <li>当用户因删除文件而释放存储空间时，系统将回收的盘块依次挂在空闲盘块链的末尾。</li>
@@ -1321,7 +1321,7 @@
 </div>
 <div class="tabbed-block">
 <p>将磁盘上所有空闲盘区拉成一条链。在每个盘区上除含有用于指示下一个空闲盘区的指针外，还应有能指明本盘区大小（盘块数）的信息。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-17.png"><img alt="" src="asset-img/file-17.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-17.png"><img alt="" src="asset-img/file-17.png"/></a></p>
 </div>
 </div>
 </div>
@@ -1332,7 +1332,7 @@
 <li>通常用 <span class="arithmatex">\(m \times n\)</span> 个位数来构成位示图，并使 <span class="arithmatex">\(m \times n\)</span> 等于磁盘的总块数，也可描述为一个二维数组<code>map[m][n]</code>。</li>
 <li>Linux系统常用</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-18.png"><img alt="" src="asset-img/file-18.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-18.png"><img alt="" src="asset-img/file-18.png"/></a></p>
 <ul>
 <li>
 <p>分配新盘块</p>
@@ -1382,7 +1382,7 @@ j&amp;=
 </div>
 <div class="tabbed-block">
 <p>对所有空闲盘块分组并链接</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-19.png"><img alt="" src="asset-img/file-19.png"/></a> <!--source:https://zhuanlan.zhihu.com/p/31954652--></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-19.png"><img alt="" src="asset-img/file-19.png"/></a> <!--source:https://zhuanlan.zhihu.com/p/31954652--></p>
 <ul>
 <li>链接时，将每组（第1组除外）的总块数及相应的块号记录在前一组的最末块中：<ul>
 <li>对第1组，其总块数和各块块号记录在空闲盘块栈中，放在超级块里。</li>
@@ -1454,11 +1454,11 @@ j&amp;=
 <li>扇区就是磁盘可寻址的最小存储单位</li>
 </ul>
 <figure>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-20.png"><img alt="" src="asset-img/file-20.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-20.png"><img alt="" src="asset-img/file-20.png"/></a>
 <figcaption>磁盘盘片</figcaption>
 </figure>
 <figure>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-21.png"><img alt="" src="asset-img/file-21.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-21.png"><img alt="" src="asset-img/file-21.png"/></a>
 <figcaption>磁盘驱动器</figcaption>
 </figure>
 <ul>
@@ -1531,7 +1531,7 @@ T_t=\frac {b}{rN}
 <ul>
 <li>例如：磁盘请求队列中的请求顺序分别为55、58、39、18、90、160、150、38、184，磁头初始位置是100磁道
 <figure>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-22.png"><img alt="" src="asset-img/file-22.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-22.png"><img alt="" src="asset-img/file-22.png"/></a>
 <figcaption>FCFS算法</figcaption>
 </figure></li>
 </ul>
@@ -1545,7 +1545,7 @@ T_t=\frac {b}{rN}
 <ul>
 <li>例如：磁盘请求队列中的请求顺序分别为55、58、39、18、90、160、150、38、184，磁头初始位置是100磁道
 <figure>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-23.png"><img alt="" src="asset-img/file-23.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-23.png"><img alt="" src="asset-img/file-23.png"/></a>
 <figcaption>SSTF算法</figcaption>
 </figure></li>
 </ul>
@@ -1556,7 +1556,7 @@ T_t=\frac {b}{rN}
 <ul>
 <li>例如：磁盘请求队列中的请求顺序分别为55、58、39、18、90、160、150、38、184，磁头初始位置是100磁道，磁头沿磁道号增大的顺序移动
 <figure>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-24.png"><img alt="" src="asset-img/file-24.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-24.png"><img alt="" src="asset-img/file-24.png"/></a>
 <figcaption>SCAN算法</figcaption>
 </figure></li>
 </ul>
@@ -1568,7 +1568,7 @@ T_t=\frac {b}{rN}
 <li>釆用SCAN算法和C-SCAN算法时磁头总是严格地遵循从盘面的一端到另一端，显然，在实际使用时还可以改进，即磁头移动只需要到达最远端的一个请求即可返回，不需要到达磁盘端点。这种形式的SCAN算法和C-SCAN算法称为LOOK和C-LOOK调度。这是因为它们在朝一个给定方向移动前会查看是否有请求。</li>
 <li>例如：磁盘请求队列中的请求顺序分别为55、58、39、18、90、160、150、38、184，磁头初始位置是100磁道，磁头沿磁道号增大的顺序移动
 <figure>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/file-25.png"><img alt="" src="asset-img/file-25.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/file-25.png"><img alt="" src="asset-img/file-25.png"/></a>
 <figcaption>C-SCAN算法</figcaption>
 </figure></li>
 </ul>
@@ -1689,10 +1689,10 @@ T_t=\frac {b}{rN}
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             回到页面顶部
-          </a>
+          </button>
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
@@ -1794,7 +1794,7 @@ T_t=\frac {b}{rN}
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.expand", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+<script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>

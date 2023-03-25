@@ -11,9 +11,9 @@
 <link href="searching.html" rel="prev"/>
 <link href="../computer-network/index.html" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
 <title>排序 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -1040,10 +1040,10 @@ k_i \ge k_{2i+1}
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="小根堆降序" name="__tabbed_1" type="radio"><input id="大根堆升序" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="小根堆降序">小根堆（降序）</label><label for="大根堆升序">大根堆（升序）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/sort-2.png"><img alt="small-heap" src="asset-img/sort-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/sort-2.png"><img alt="small-heap" src="asset-img/sort-2.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/sort-3.png"><img alt="big-heap" src="asset-img/sort-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/sort-3.png"><img alt="big-heap" src="asset-img/sort-3.png"/></a></p>
 </div>
 </div>
 </input></input></div>
@@ -1100,7 +1100,7 @@ k_i \ge k_{2i+1}
 </ul>
 <h3 id="2-路归并排序">2-路归并排序</h3>
 <p>将两个相邻的有序子序列“归并”为一个有序序列。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/sort-4.png"><img alt="merge-sort-2" src="asset-img/sort-4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/sort-4.png"><img alt="merge-sort-2" src="asset-img/sort-4.png"/></a></p>
 <div class="highlight"><span class="filename">C</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Merge</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">)</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">{</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="n">ElemType</span><span class="w"> </span><span class="o">*</span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ElemType</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="n">ElemType</span><span class="p">));</span>
@@ -1177,8 +1177,8 @@ k_i \ge k_{2i+1}
 <ul>
 <li>其双亲结点存储的是左右孩子比较之后的失败者，而胜利者则继续同其它的胜者去比较</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/sort-5.png"><img alt="fail-tree" src="asset-img/sort-5.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/sort-6.png"><img alt="fail-tree" src="asset-img/sort-6.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/sort-5.png"><img alt="fail-tree" src="asset-img/sort-5.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/sort-6.png"><img alt="fail-tree" src="asset-img/sort-6.png"/></a></p>
 </li>
 </ul>
 </li>
@@ -1200,7 +1200,7 @@ k_i \ge k_{2i+1}
 <li>仅有度为0或m的结点</li>
 <li>
 <p>带权路径长度之和为归并过程中的总读记录数，总IO次数为 <span class="arithmatex">\(2 \times WPL\)</span></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/sort-7.png"><img alt="merge-tree" src="asset-img/sort-7.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/sort-7.png"><img alt="merge-tree" src="asset-img/sort-7.png"/></a></p>
 <ul>
 <li>其对外存的读写次数为</li>
 </ul>
@@ -1214,7 +1214,7 @@ k_i \ge k_{2i+1}
 <li>每次选取最小的若干个权值组成结点，叶子结点不够时，补充权值为0的结点</li>
 <li>若 <span class="arithmatex">\((n_0-1) \% (m-1) = 0\)</span> ，则说明这 <span class="arithmatex">\(n_0\)</span> 个叶结点可以构造 <span class="arithmatex">\(m\)</span> 叉归并树，否则，有 <span class="arithmatex">\((n_0-1) \% (m-1) = u \neq 0\)</span> 个叶结点多余，需要补 <span class="arithmatex">\(m-u-1\)</span> 个结点</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/sort-8.png"><img alt="merge-tree-2" src="asset-img/sort-8.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/sort-8.png"><img alt="merge-tree-2" src="asset-img/sort-8.png"/></a></p>
 </li>
 </ul>
 </li>
@@ -1235,10 +1235,10 @@ k_i \ge k_{2i+1}
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             回到页面顶部
-          </a>
+          </button>
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
@@ -1340,7 +1340,7 @@ k_i \ge k_{2i+1}
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.expand", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+<script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>

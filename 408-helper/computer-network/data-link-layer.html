@@ -11,9 +11,9 @@
 <link href="physical-layer.html" rel="prev"/>
 <link href="network-layer.html" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
 <title>数据链路层 - Jason的笔记小屋</title>
-<link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -1323,18 +1323,18 @@
 <h4 id="停止-等待协议">停止-等待协议</h4>
 <h5 id="无差错">无差错</h5>
 <p>每发送1个数据帧就停止并等待，因此只需使用1个bit来编号。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_sw_1.png"><img alt="无差错的运行情况" src="asset-img/dllayer_sw_1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/dllayer_sw_1.png"><img alt="无差错的运行情况" src="asset-img/dllayer_sw_1.png"/></a></p>
 <h5 id="有差错">有差错</h5>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="帧丢失帧出错" name="__tabbed_2" type="radio"><input id="ACK丢失" name="__tabbed_2" type="radio"><input id="ACK迟到" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="帧丢失帧出错">帧丢失/帧出错</label><label for="ACK丢失">ACK丢失</label><label for="ACK迟到">ACK迟到</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_sw_2.png"><img alt="出现帧丢失或帧出错，会在超时结束后重传" src="asset-img/dllayer_sw_2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/dllayer_sw_2.png"><img alt="出现帧丢失或帧出错，会在超时结束后重传" src="asset-img/dllayer_sw_2.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_sw_3.png"><img alt="ACK丢失，发送方在超时未接收到ACK后会重传出错帧，接收方需要丢弃掉重复的帧" src="asset-img/dllayer_sw_3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/dllayer_sw_3.png"><img alt="ACK丢失，发送方在超时未接收到ACK后会重传出错帧，接收方需要丢弃掉重复的帧" src="asset-img/dllayer_sw_3.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_sw_4.png"><img alt="发送方会丢弃超时返回的ACK帧（因为已经接收过了）" src="asset-img/dllayer_sw_4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/dllayer_sw_4.png"><img alt="发送方会丢弃超时返回的ACK帧（因为已经接收过了）" src="asset-img/dllayer_sw_4.png"/></a></p>
 </div>
 </div>
 </input></input></input></div>
@@ -1351,7 +1351,7 @@
 <p class="admonition-title">停等协议的弊端</p>
 <p>太闲了，停等协议一次只发1个帧，等到接收方回复一个确认帧，发送方才会发送新的帧。</p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_gbn.png"><img alt="运行中的GBN协议" src="asset-img/dllayer_gbn.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/dllayer_gbn.png"><img alt="运行中的GBN协议" src="asset-img/dllayer_gbn.png"/></a></p>
 <div class="admonition warning">
 <p class="admonition-title">窗口长度不能为无限</p>
 <p>n 个比特对帧编号，则发送窗口尺寸 <span class="arithmatex">\(W_T\)</span> 应满足 <span class="arithmatex">\(1\le W_T\le 2^n-1\)</span>，否则接收方无法区别新帧和旧帧。</p>
@@ -1438,13 +1438,13 @@
 <li>网络负载轻时，信道利用率低</li>
 </ul>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/multiplexing.png"><img alt="多路复用" src="asset-img/multiplexing.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/multiplexing.png"><img alt="多路复用" src="asset-img/multiplexing.png"/></a></p>
 <h4 id="频分多路复用FDM">频分多路复用FDM</h4>
 <p>各用户占用不同的带宽资源（频率带宽Hz），用户在分配到一定频带后，在通信过程中自始至终占用这个频带。
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/FDM.png"><img alt="频分多路复用示意图" src="asset-img/FDM.png"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/FDM.png"><img alt="频分多路复用示意图" src="asset-img/FDM.png"/></a></p>
 <h4 id="时分多路复用TDM">时分多路复用TDM</h4>
 <p>将时间划分为一段段等长的时分复用帧（TDM帧），每个用户在每个TDM帧中占用固定序号的时隙。
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/TDM.png"><img alt="时分多路复用示意图" src="asset-img/TDM.png"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/TDM.png"><img alt="时分多路复用示意图" src="asset-img/TDM.png"/></a></p>
 <h4 id="波分多路复用WDM">波分多路复用WDM</h4>
 <p>波分多路复用是光的频分复用，在光纤中传输各种不同波长（频率）的光信号。</p>
 <h4 id="码分多路复用CDM">码分多路复用CDM</h4>
@@ -1630,19 +1630,19 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>中心节点是控制中心，构形简单，建网容易，便于控制和管理。但可靠性低，存在单点故障。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/topology-star.png"><img alt="" src="asset-img/topology-star.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/topology-star.png"><img alt="" src="asset-img/topology-star.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>可靠性高，共享资源能力强。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/topology-bus.png"><img alt="" src="asset-img/topology-bus.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/topology-bus.png"><img alt="" src="asset-img/topology-bus.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>通信设备和线路较节省，但存在单点故障问题，且不便扩充。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/topology-ring.png"><img alt="" src="asset-img/topology-ring.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/topology-ring.png"><img alt="" src="asset-img/topology-ring.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>易于扩展，易于隔离故障，也容易有单点故障。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/topology-tree.png"><img alt="" src="asset-img/topology-tree.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/topology-tree.png"><img alt="" src="asset-img/topology-tree.png"/></a></p>
 </div>
 </div>
 </input></div>
@@ -1706,7 +1706,7 @@
 </ul>
 </li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="asset-img/dllayer_llc-and-mac.png"><img alt="MAC与LLC子层在OSI中的位置" src="asset-img/dllayer_llc-and-mac.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="asset-img/dllayer_llc-and-mac.png"><img alt="MAC与LLC子层在OSI中的位置" src="asset-img/dllayer_llc-and-mac.png"/></a></p>
 <h3 id="以太网">以太网</h3>
 <p>以太网（Ethernet）是由Xerox公司创建并由Xerox、Intel和DEC公司联合开发的基带总线局域网规范，使用CSMA/CD技术。</p>
 <h4 id="特点_1">特点</h4>
@@ -2011,10 +2011,10 @@
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             回到页面顶部
-          </a>
+          </button>
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
@@ -2116,7 +2116,7 @@
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.expand", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+<script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
 <script src="../../assets/javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js"></script>
