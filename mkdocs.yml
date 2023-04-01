@@ -161,6 +161,8 @@ extra:
     description: >-
       嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的<a href="https://www.jason0743.space/#/privacy" target="_blank">网站</a>。
 plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - glightbox
 #  - typeset  # insiders
 #  - meta  # insiders
@@ -169,8 +171,6 @@ plugins:
       cards_font: Noto Sans SC  # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
   - tags:
       tags_file: tags.md
-  - search:
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
@@ -186,8 +186,8 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/tablesort@5.2.1/src/tablesort.min.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
   - https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js
-  - assets/javascripts/doc_addins.js
-  - assets/javascripts/share.js
+  - ./assets/javascripts/doc_addins.js
+  - ./assets/javascripts/share.js
 extra_css:
   # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0/styles/default.min.css
   - assets/stylesheets/ex.css
