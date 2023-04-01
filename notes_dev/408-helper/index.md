@@ -12,7 +12,7 @@ Hi各位~考研季将要来临，你们有没有感觉到发慌呢？或者说�
 
 话不多说，我们立即开始！
 
-[计算机网络 :fontawesome-solid-network-wired:](computer-network/index.md){: .md-button }
-[计算机组成原理与系统结构 :fontawesome-solid-screwdriver-wrench:](computer-structure/index.md){: .md-button }
-[数据结构 :fontawesome-solid-table-list:](data-structure/index.md){: .md-button }
-[操作系统 :material-microsoft-windows:](operating-system/index.md){: .md-button }
+[计算机网络 :fontawesome-solid-network-wired:](./computer-network/index.md){: .md-button }
+[计算机组成原理与系统结构 :fontawesome-solid-screwdriver-wrench:](./computer-structure/index.md){: .md-button }
+[数据结构 :fontawesome-solid-table-list:](./data-structure/index.md){: .md-button }
+[操作系统 :material-microsoft-windows:](./operating-system/index.md){: .md-button }
