@@ -15,7 +15,10 @@ tags:
 
 === "无向图"
 
+    <figure markdown>
     ![undigraph](asset-img/graph-1.png)
+    <figcaption>无向图示例</figcaption>
+    </figure>
 
     * 若 $\langle w,v \rangle \in E$ 且 $\langle v,w \rangle \in E$，以无序对 $(v, w)$ 代替这两个有序对，表示v和w之间的一条边(Edge)
         - 称v为弧尾(Tail)或初始点(Initial Node)，称w为 弧头(Head)或终端点(Terminal Node)
@@ -31,7 +34,10 @@ tags:
 
 === "有向图"
 
+    <figure markdown>
     ![digraph](asset-img/graph-2.png)
+    <figcaption>有向图示例</figcaption>
+    </figure>
 
     * 若 $\langle w,v \rangle \in E$，则 $\langle w,v \rangle$ 表示从v到w的一条弧(Arc)
     * 例如，上图可表示为
@@ -68,25 +74,25 @@ tags:
     * 如果 $v_0$ 和 $v_k$ 是同一个顶点，则是一条由某个顶点出发又回到自身的路径，称这种路径为回路或环。
 * 连通
 
-=== "连通图"
-    若<span class="stressed">无向图</span>中任意两个顶点之间都存在一条<span class="stressed">无向</span>路径，则称该无向图为连通图。
-
-=== "强连通图"
-    若<span class="stressed">有向图</span>中任意两个顶点之间都存在一条<span class="stressed">有向</span>路径，则称该有向图为强连通图。
-
-=== "连通分量"
-    <span class="stressed">非连通图</span>中各个极大连通子图称作该图的连通分量。
-
-=== "强连通分量"
-    非强连通的有向图中的极大强连通子图称作有向图的强连通分量。
+    === "连通图"
+        若<span class="stressed">无向图</span>中任意两个顶点之间都存在一条<span class="stressed">无向</span>路径，则称该无向图为连通图。
+    
+    === "强连通图"
+        若<span class="stressed">有向图</span>中任意两个顶点之间都存在一条<span class="stressed">有向</span>路径，则称该有向图为强连通图。
+    
+    === "连通分量"
+        <span class="stressed">非连通图</span>中各个极大连通子图称作该图的连通分量。
+    
+    === "强连通分量"
+        非强连通的有向图中的极大强连通子图称作有向图的强连通分量。
 
 * 生成树和生成森林
 
-=== "生成树"
-    一个含 n 个顶点的连通图的生成树是该图中的一个极小连通子图。它包含图中 n 个顶点和足以构成一棵树的 n-1 条边。
-
-=== "生成森林"
-    对于非连通图，对其每个连通分量可以构造一棵生成树，合成起来就是一个生成森林。
+    === "生成树"
+        一个含 n 个顶点的连通图的生成树是该图中的一个极小连通子图。它包含图中 n 个顶点和足以构成一棵树的 n-1 条边。
+    
+    === "生成森林"
+        对于非连通图，对其每个连通分量可以构造一棵生成树，合成起来就是一个生成森林。
 
 * 网
     * 在实际应用中，图的弧或边往往与具有一定意义的数相关，称这些数为“权”，带权的图通常称为“网”
@@ -95,12 +101,12 @@ tags:
 * 数据对象 V是具有相同特性的数据元素的集合，称为顶点集
 * 数据关系
 
-$$
-\begin{align}
-R & = \{E \} \\
-E & = \{\langle v,w\rangle| v, w \in V且P(v,w)，\langle v,w\rangle 表示从v到w的弧，谓词P(v,w)定义了弧\langle v,w\rangle 的意义或信息\}
-\end{align}
-$$
+    $$
+    \begin{align}
+    R & = \{E \} \\
+    E & = \{\langle v,w\rangle| v, w \in V且P(v,w)，\langle v,w\rangle 表示从v到w的弧，谓词P(v,w)定义了弧\langle v,w\rangle 的意义或信息\}
+    \end{align}
+    $$
 
 * 基本操作
 
@@ -383,55 +389,60 @@ typedef struct{
     ??? example "生成过程"
         ![example](asset-img/tree-17.png)
 
-        ![step-1](asset-img/tree-18.png)
+        === "第一步"
+            ![step-1](asset-img/tree-18.png)
+    
+            ||min_weight|adjvex|
+            |:--:|:--:|:--:|
+            |A|0|0|
+            |B|3|0|
+            |C|1|0|
+            |D|<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi mathvariant="normal">∞</mi></math>|0|
+            |E|4|0|
 
-        ||min_weight|adjvex|
-        |:--:|:--:|:--:|
-        |A|0|0|
-        |B|3|0|
-        |C|1|0|
-        |D|<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi mathvariant="normal">∞</mi></math>|0|
-        |E|4|0|
+        === "第二步"
+            ![step-2](asset-img/tree-19.png)
+    
+            ||min_weight|adjvex|
+            |:--:|:--:|:--:|
+            |A|0|0|
+            |B|2|0|
+            |C|0|0|
+            |D|5|0|
+            |E|4|0|
 
-        ![step-2](asset-img/tree-19.png)
+        === "第三步"
+            ![step-3](asset-img/tree-20.png)
+    
+            ||min_weight|adjvex|
+            |:--:|:--:|:--:|
+            |A|0|0|
+            |B|0|2|
+            |C|0|0|
+            |D|5|0|
+            |E|4|0|
 
-        ||min_weight|adjvex|
-        |:--:|:--:|:--:|
-        |A|0|0|
-        |B|2|0|
-        |C|0|0|
-        |D|5|0|
-        |E|4|0|
+        === "第四步"
+            ![step-4](asset-img/tree-21.png)
+    
+            ||min_weight|adjvex|
+            |:--:|:--:|:--:|
+            |A|0|0|
+            |B|0|2|
+            |C|0|0|
+            |D|5|0|
+            |E|0|0|
 
-        ![step-3](asset-img/tree-20.png)
-
-        ||min_weight|adjvex|
-        |:--:|:--:|:--:|
-        |A|0|0|
-        |B|0|2|
-        |C|0|0|
-        |D|5|0|
-        |E|4|0|
-
-        ![step-4](asset-img/tree-21.png)
-
-        ||min_weight|adjvex|
-        |:--:|:--:|:--:|
-        |A|0|0|
-        |B|0|2|
-        |C|0|0|
-        |D|5|0|
-        |E|0|0|
-
-        ![step-5](asset-img/tree-22.png)
-
-        ||min_weight|adjvex|
-        |:--:|:--:|:--:|
-        |A|0|0|
-        |B|0|2|
-        |C|0|0|
-        |D|0|2|
-        |E|0|0|
+        === "第五步"
+            ![step-5](asset-img/tree-22.png)
+    
+            ||min_weight|adjvex|
+            |:--:|:--:|:--:|
+            |A|0|0|
+            |B|0|2|
+            |C|0|0|
+            |D|0|2|
+            |E|0|0|
 
 === "Kruskal算法"
 
@@ -444,15 +455,20 @@ typedef struct{
     ??? example "生成过程"
         ![example](asset-img/tree-17.png)
 
-        ![step-1](asset-img/tree-23.png)
+        === "第一步"
+            ![step-1](asset-img/tree-23.png)
 
-        ![step-2](asset-img/tree-24.png)
+        === "第二步"
+            ![step-2](asset-img/tree-24.png)
 
-        ![step-3](asset-img/tree-25.png)
+        === "第三步"
+            ![step-3](asset-img/tree-25.png)
 
-        ![step-4](asset-img/tree-26.png)
+        === "第四步"
+            ![step-4](asset-img/tree-26.png)
 
-        ![step-5](asset-img/tree-27.png)
+        === "第五步"
+            ![step-5](asset-img/tree-27.png)
 
 ### 最短路径
 对于网来说，两个顶点之间的路径长度是路径中 “弧的权值之和”。当两个顶点之间存在多条路径时，必然存在一条 “最短路径”。
@@ -518,7 +534,9 @@ typedef struct{
     3. 重复1与2直到图为空或不存在无前驱结点（图中有环）
 
 ### 关键路径(AOE网)
+<figure markdown>
 ![aoe](asset-img/tree-28.png)
+</figure>
 
 * 从源点到汇点最大长度的路径称为关键路径，其上的活动是关键活动
 * $V_k$ 最早发生时间 $V_e(k)$

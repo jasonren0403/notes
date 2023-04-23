@@ -20,7 +20,7 @@ tags:
 
 ## ADT类型定义
 * 数据对象：$D=\{a_i | a_i \in ElemSet, i=1,2,...,n, n≥0 \}$
-* 数据关系：$R1=\{<a_{i-1},a_i>| a_{i-1},a_i \in D,  i=2,...,n\}$ 约定 $a_n$ 端为队列尾，$a_1$ 端为队列头
+* 数据关系：$R1=\{\left \langle a_{i-1},a_i\right \rangle| a_{i-1},a_i \in D,  i=2,...,n\}$ 约定 $a_n$ 端为队列尾，$a_1$ 端为队列头
 * 基本操作
 
     === "结构建立与销毁"
@@ -188,21 +188,12 @@ tags:
 * 基本操作的实现
 
     === "构造空队列"
-
-        === "C++"
-            ```c++
-            void InitQueue (LinkQueue &Q)
-            {
-                // 构造一个空队列 Q
-
-            }
-            ```
+        构造一个空队列 Q
 
         === "C"
             ```c
             Status InitQueue (LinkQueue &Q)
             {
-                // 构造一个空队列 Q
                 Q.front = Q.rear = (LinkQueuePtr)malloc(sizeof(LinkNode));
                 if (!Q.front) exit(OVERFLOW); // 存储分配失败
                 Q.front->next = NULL;
@@ -211,12 +202,12 @@ tags:
             ```
 
     === "销毁队列"
+        销毁队列 Q
 
         === "C"
             ```c
             Status DestroyQueue(LinkQueue &Q)
             {
-                // 销毁队列 Q
                 while(Q.front)
                 {
                     Q.rear = Q.front->next;
@@ -229,21 +220,13 @@ tags:
             }
             ```
 
-        === "C++"
-            ```c++
-            void DestroyQueue(LinkQueue &Q)
-            {
-
-            }
-            ```
-
     === "入队"
+        在当前队列的尾元素之后，插入元素 e 为新的队列尾元素
 
         === "C"
             ```c
             Status EnQueue(LinkQueue &Q,ElemType e)
             {
-                // 在当前队列的尾元素之后，插入元素 e 为新的队列尾元素
                 p = (LinkQueuePtr) malloc(sizeof(LinkNode));
                 if (!p) exit(OVERFLOW); // 存储分配失败
                 p->data=e; p->next = NULL;
@@ -253,15 +236,13 @@ tags:
             }
             ```
 
-        === "C++"
-
     === "出队"
+        若队列不空 ，则删除当前队列 Q 中的头元素,用 e 返回其值 ，并返回 TRUE，否则返回 FALSE
 
         === "C"
             ```c
             Status DeQueue(LinkQueue &Q, ElemType &e)
             {
-                // 若队列不空 ，则删除当前队列 Q 中的头元素,用 e 返回其值 ，并返回 TRUE，否则返回 FALSE
                 if (Q.front == Q.rear) // 链队列中只有一个头结点
                 return FALSE;
                 p = Q.front->next;
@@ -272,8 +253,6 @@ tags:
                 return OK;
             }
             ```
-
-        === "C++"
 
 ## 应用
 ### 树的层次遍历

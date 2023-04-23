@@ -8,7 +8,7 @@ tags:
 ===
 
 ## 定义
-![栈](asset-img/stack-1.png){: align=left }
+![栈](asset-img/stack-1.png){ align=right }
 
 * 栈(Stack)是限定只能在表的一端进行插入和删除操作的线性表。在表中，允许插入和删除的一端称作“栈顶(top)”，不允许插入和删除的另一端称作“栈底(bottom)”，当表中没有元素时称为空栈
 * 通常称往栈顶插入元素的操作为 “入栈”，称删除栈顶元素的操作为 “出栈”。
@@ -16,7 +16,7 @@ tags:
 
 ## ADT类型定义
 * 数据对象 $D=\{a_i|a_i \in ElemSet, i=1,2,...,n, n \ge 0 \}$
-* 数据关系 $R1=\{<a_{i-1},a_i>|a_{i-1},a_i \in D, i=2,...,n \}$
+* 数据关系 $R1=\{\left \langle a_{i-1},a_i\right \rangle|a_{i-1},a_i \in D, i=2,...,n \}$
     * 约定 $a_n$ 端为栈顶，$a_1$ 端为栈底
 * 基本操作
 
@@ -78,7 +78,7 @@ tags:
         } SqStack;
         ```
 
-    !!! tip
+    !!! tip ""
         之后对于基本操作实现的描述以指针表示法为准。
 
 * 基本操作的实现
@@ -86,15 +86,23 @@ tags:
     === "初始化操作"
 
         === "C"
-
+            ```c
+            Status InitStack(SqStack &S)
+            {
+                S.base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
+                if (!S.base) exit(OVERFLOW); // 存储分配失败
+                S.top = S.base;
+                S.stacksize = STACK_INIT_SIZE;
+                return 1;
+            }
+            ```
 
         === "C++"
             ```c++
             void InitStack (SqStack &S，int maxsize)
             {
             // 构造一个最大存储容量为 maxsize 的空栈 S
-                if (maxsize == 0)
-                maxsize = MAXLISTSIZE;
+                if (maxsize == 0) maxsize = MAXLISTSIZE;
                 S.base = new SElemType[maxsize];
                 if (!S.base) exit(1); // 存储分配失败
                 S.stacksize = maxsize;
@@ -103,14 +111,22 @@ tags:
             ```
 
     === "返回栈顶元素"
+        若栈不空，则用 e 返回S的栈顶元素，并返回TRUE，否则返回FALSE
 
         === "C"
+            ```c
+            Status GetTop (SqStack S, ElemType &e)
+            {
+                if (S.top == S.base) return 0; // 栈空
+                e = *(S.top - 1);
+                return 1;
+            }
+            ```
 
         === "C++"
             ```c++
             bool GetTop (SqStack S, ElemType &e)
             {
-            // 若栈不空，则用 e 返回S的栈顶元素，并返回TRUE，否则返回FALSE
                 if (S.top == 0) return false;
                 e = *(S.base + S.top - 1); // 返回非空栈中栈顶元素
                 return true;
@@ -118,14 +134,23 @@ tags:
             ```
 
     === "进栈"
+        若栈的存储空间不满 ，则插入元素 e 为新的栈顶元素，并返回 TRUE ，否则返回 FALSE
 
         === "C"
+            ```c
+            Status Push (SqStack &S, ElemType e)
+            {
+                if(S.top-S.base>=S.stacksize) return 0; // 栈满
+                *S.top = e;
+                S.top++;
+                return 1;
+            }
+            ```
 
         === "C++"
             ```c++
             bool Push (SqStack &S, ElemType e)
             {
-            // 若栈的存储空间不满 ，则插入元素 e 为新的栈顶元素，并返回 TRUE ，否则返回 FALSE
                 if (S.top == S.stacksize) // 栈已满，无法进行插入
                 return false;
                 *(S.base + S.top) = e; // 插入新的元素
@@ -135,21 +160,29 @@ tags:
             ```
 
     === "出栈"
+        若栈不空，则删除S的栈顶元素，用 e 返回其值，并返回 TRUE，否则返回 FALSE
 
         === "C"
+            ```c
+            Status Pop (SqStack &S, ElemType &e)
+            {
+                if(S.top==S.base) return 0; // 栈空
+                S.top--;
+                e = *S.top;
+                return 1;
+            }
+            ```
 
         === "C++"
             ```c++
             bool Pop(SqStack &S, ElemType &e)
             {
-                // 若栈不空，则删除S的栈顶元素，用 e 返回其值，并返回 TRUE，否则返回 FALSE
                 if (S.top == 0) return false;
                 e = *(S.base + S.top-1); // 返回非空栈中栈顶元素
                 --S.top; // 栈顶指针前移
                 return true;
             }
             ```
-
 
 * 共享栈
 
@@ -182,7 +215,7 @@ tags:
         ```
 
 ### 链栈
-![链栈](asset-img/stack-2.png){: align=right width=200px }
+![链栈](asset-img/stack-2.png){ align=right width=200px }
 
 * 链栈即为栈的链式存储结构
 * 结点结构和[单链表](linear-list.md)中的结点结构相同
@@ -300,20 +333,20 @@ tags:
         ```python
         #-*- coding: utf-8 -*-
 
-        BRANKETS = {'}':'{',']':'[',')':'('}
-        BRANKETS_LEFT, BRANKETS_RIGHT = BRANKETS.values(), BRANKETS.keys()
+        BRACKETS = {'}':'{',']':'[',')':'('}
+        BRACKETS_LEFT, BRACKETS_RIGHT = BRACKETS.values(), BRACKETS.keys()
 
         def bracket_check(string:str):
             stack = []
             for char in string:
                 # 如果是左括号
-                if char in BRANKETS_LEFT:
+                if char in BRACKETS_LEFT:
                     # 入栈
                     stack.append(char)
                 # 右括号
-                elif char in BRANKETS_RIGHT:
+                elif char in BRACKETS_RIGHT:
                     # stack不为空，并且括号匹配成功
-                    if stack and stack[-1] == BRANKETS[char]:
+                    if stack and stack[-1] == BRACKETS[char]:
                         # 出栈
                         stack.pop()
                     # 匹配成功

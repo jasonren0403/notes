@@ -26,7 +26,7 @@ $$
 
 ## ADT类型定义
 * 数据对象 $D=\{a_i|a_i \in ElemSet, i=1,2,...,n, n \ge 0 \}$
-* 数据关系 $R1=\{<a_{i-1},a_i>|a_{i-1},a_i \in D, i=2,...,n \}$
+* 数据关系 $R1=\{\left \langle a_{i-1},a_i\right \rangle|a_{i-1},a_i \in D, i=2,...,n \}$
 * 基本操作
 
     === "结构建立与销毁"
@@ -79,14 +79,17 @@ $$
 
 ## 存储结构
 ### 顺序表
+<figure markdown>
 ![顺序表](asset-img/linear-list-1.png)
+<figcaption>连续存储的顺序表</figcaption>
+</figure>
 
 * 用一组地址连续的存储单元，依次存放线性表中的数据元素
 * 以"存储位置相邻"表示位序相继的两个数据元素之间的前驱和后继的关系
 * 表中第一个元素的存储位置作为线性表的起始地址，称作线性表的基地址
 
 !!! hint "数据元素的存储位置"
-    假设每个数据元素占据的存储量是一个常量 C，则后继元素的存储地址和其前驱元素相隔一个常量，即： $LOC(a_i) = LOC(a_{i-1}) + C$ ，由此，每个数据元素的存储位置均可由第一个元素的基地址来表示，即
+    假设每个数据元素占据的存储量是一个常量 C，则后继元素的存储地址和其前驱元素相隔一个常量，即：$LOC(a_i) = LOC(a_{i-1}) + C$ ，由此，每个数据元素的存储位置均可由第一个元素的基地址来表示，即
 
     $$
     LOC(a_i) = LOC(a_1) + (i-1) \times C
@@ -218,9 +221,11 @@ $$
             ```
 
 ### 链表
+<figure markdown>
 ![单链表](asset-img/linear-list-2.png){: loading=lazy }
-
 ![带头结点的单链表](asset-img/linear-list-3.png){: loading=lazy }
+<figcaption>单链表</figcaption>
+</figure>
 
 * 用一组任意的存储单元存储线性表的数据元素
 * 对数据元素 $a_i$ 来说，除了存储其本身的信息之外，还需存储一个指示其直接后继的信息（指针）
@@ -507,17 +512,23 @@ $$
     ```
 
 #### 循环链表
+<figure markdown>
 ![循环列表](asset-img/linear-list-4.png){: loading=lazy }
+<figcaption>循环链表</figcaption>
+</figure>
 
 * 表中最后一个结点的指针域指向头结点，整个链表成为一个由链指针相链接的环，并且设立尾指针设成指向最后一个结点。
 * 空的循环链表由只含一个自成循环的头结点表示。
 
-!!! summary
+!!! summary ""
     * 循环单链表的判空：`L->next==L`
     * 是否为循环单链表的尾结点：`p->next==L`
 
 #### 双链表
+<figure markdown>
 ![双链表](asset-img/linear-list-5.png){: loading=lazy }
+<figcaption>双链表</figcaption>
+</figure>
 
 * 双向链表也是由指向头结点的头指针唯一确定，若将头尾结点链接起来则构成双向循环链表
 * 其结点结构中含有两个指针域，其一指向数据元素的“直接后继”，另一指向数据元素的“直接前驱”
