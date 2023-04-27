@@ -2703,7 +2703,77 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span><span class="w"> </span><span class="n">PTree</span><span class="p">;</span>
 </code></pre></div>
 <p>上述例子可以表示为</p>
-<p><a class="glightbox" href="asset-img/tree-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="example-1" src="asset-img/tree-7.png" /></a></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">data</th>
+<th align="center">parent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">A</td>
+<td align="center">-1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">B</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">C</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">D</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">E</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">F</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">G</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">H</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">I</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">J</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">K</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">r=0</td>
+<td align="center">n=11</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="tabbed-block">
 <p>由于树中每个结点可能有多棵子树，可用多重链表来表示，即每个结点有多个指针域，其中每个指针指向一个子树的根结点。</p>
@@ -2869,7 +2939,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <p>插入</p>
 <ul>
 <li>
-<p>插入新元素时，可以从根节点开始，遇键值较大者就向左，遇键值较小者就向右，一直到末端，就是插入点。
+<p>插入新元素时，可以从根节点开始，遇键值较大者就向左，遇键值较小者就向右，一直到末端，就是插入点。</p>
 <div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">BST_Insert</span><span class="p">(</span><span class="n">BiTree</span><span class="w"> </span><span class="o">&amp;</span><span class="n">T</span><span class="p">,</span><span class="n">KeyType</span><span class="w"> </span><span class="n">k</span><span class="p">){</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="o">==</span><span class="nb">NULL</span><span class="p">){</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">        </span><span class="n">T</span><span class="o">=</span><span class="p">(</span><span class="n">BiTree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">));</span>
@@ -2881,12 +2951,10 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="o">&lt;</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">BST_Insert</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
 <a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">BST_Insert</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
 <a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
 <p>构建一棵新的二叉排序树</p>
-</li>
-</ul>
 <div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Create_BST</span><span class="p">(</span><span class="n">BiTree</span><span class="w"> </span><span class="o">&amp;</span><span class="n">T</span><span class="p">,</span><span class="n">KeyType</span><span class="w"> </span><span class="n">str</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="n">T</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
@@ -2897,11 +2965,13 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="p">}</span>
 </code></pre></div>
 </li>
+</ul>
+</li>
 <li>
 <p>删除</p>
 <ul>
-<li>分为三种情况</li>
-</ul>
+<li>
+<p>分为三种情况</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="是叶子结点" name="__tabbed_13" type="radio" /><input id="有一个子结点" name="__tabbed_13" type="radio" /><input id="有两个子结点" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="是叶子结点">是叶子结点</label><label for="有一个子结点">有一个子结点</label><label for="有两个子结点">有两个子结点</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2915,6 +2985,8 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </div>
 </div>
 </div>
+</li>
+</ul>
 </li>
 </ul>
 <h3 id="平衡二叉树AVL">平衡二叉树(AVL)</h3>
@@ -2999,7 +3071,7 @@ WPL = \sum_{i=0}^nW_iL_i
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年4月23日 11:59:34</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年4月28日 00:05:12</span>
       
         <br>
         创建日期:

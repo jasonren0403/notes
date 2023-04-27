@@ -1610,6 +1610,26 @@
     图的遍历
   </a>
   
+    <nav class="md-nav" aria-label="图的遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#深度优先搜索" class="md-nav__link">
+    深度优先搜索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#广度优先搜索" class="md-nav__link">
+    广度优先搜索
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2371,16 +2391,14 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </code></pre></div>
 <h2 id="图的遍历">图的遍历</h2>
 <p>图的 “遍历” 是按照某种搜索方法对图中的每个顶点都进行一次访问且仅进行一次访问。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="深度优先搜索" name="__tabbed_5" type="radio" /><input id="广度优先搜索" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="深度优先搜索">深度优先搜索</label><label for="广度优先搜索">广度优先搜索</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<h3 id="深度优先搜索">深度优先搜索</h3>
 <ul>
 <li>首先访问出发点<code>v</code>，并将其标记为已访问过</li>
 <li>然后依次从<code>v</code>出发搜索<code>v</code>的每个邻接点<code>w</code>。若<code>w</code>未曾访问过，则以<code>w</code>为新的出发点继续进行深度优先遍历，直至图中所有和源点<code>v</code>有路径相通的顶点均已被访问为止。</li>
 <li>若此时图中仍有未访问的顶点，则另选一个尚未访问的顶点为新的源点重复上述过程，直至图中所有的顶点均已被访问为止。</li>
-</ul>
+<li>
 <p>算法：
-<div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">visited</span><span class="p">[</span><span class="n">MAX_TREE_SIZE</span><span class="p">];</span>
+    <div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">visited</span><span class="p">[</span><span class="n">MAX_TREE_SIZE</span><span class="p">];</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">DFSTraverse</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">G</span><span class="p">){</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">G</span><span class="p">.</span><span class="n">vexnum</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">G</span><span class="p">.</span><span class="n">vexnum</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -2401,19 +2419,20 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </li>
 <li>空间复杂度：<span class="arithmatex">\(O(\left | V \right |)\)</span></li>
 </ul>
+</li>
+</ul>
+<h3 id="广度优先搜索">广度优先搜索</h3>
+<div class="admonition summary">
+<p>换句话说，广度优先搜索就是以v为起始点，由近至远，依次访问和v有路径相通且最短路径长度为 1,2,... 的顶点</p>
 </div>
-<div class="tabbed-block">
 <p>从图中某个顶点 <code>v</code> 出发：</p>
 <ul>
 <li>在访问了 <code>v</code> 之后依次访问 <code>v</code> 的各个未曾访问过的邻接点。</li>
 <li>然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点”先于“后被访问的顶点的邻接点”进行访问，直至图中所有已被访问的顶点的邻接点都被访问到。</li>
 <li>如若此时图中尚有顶点未被访问，则需另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。</li>
-</ul>
-<div class="admonition summary">
-<p>换句话说，广度优先搜索就是以v为起始点，由近至远，依次访问和v有路径相通且最短路径长度为 1,2,... 的顶点</p>
-</div>
+<li>
 <p>算法：
-<div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">visited</span><span class="p">[</span><span class="n">MAX_TREE_SIZE</span><span class="p">];</span>
+    <div class="highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">visited</span><span class="p">[</span><span class="n">MAX_TREE_SIZE</span><span class="p">];</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">BFSTraverse</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">G</span><span class="p">){</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">G</span><span class="p">.</span><span class="n">vexnum</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">InitQueue</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
@@ -2445,9 +2464,8 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </li>
 <li>空间复杂度：<span class="arithmatex">\(O(\left | V \right |)\)</span></li>
 </ul>
-</div>
-</div>
-</div>
+</li>
+</ul>
 <h2 id="图的基本应用">图的基本应用</h2>
 <h3 id="最小生成树MST">最小生成树(MST)</h3>
 <p>生成树中边的权值（代价）之和最小的树</p>
@@ -2458,7 +2476,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </ul>
 </li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="Prim算法" name="__tabbed_6" type="radio" /><input id="Kruskal算法" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="Prim算法">Prim算法</label><label for="Kruskal算法">Kruskal算法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="Prim算法" name="__tabbed_5" type="radio" /><input id="Kruskal算法" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="Prim算法">Prim算法</label><label for="Kruskal算法">Kruskal算法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2472,7 +2490,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 <details class="example">
 <summary>生成过程</summary>
 <p><a class="glightbox" href="asset-img/tree-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="example" src="asset-img/tree-17.png" /></a></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:5"><input checked="checked" id="第一步" name="__tabbed_7" type="radio" /><input id="第二步" name="__tabbed_7" type="radio" /><input id="第三步" name="__tabbed_7" type="radio" /><input id="第四步" name="__tabbed_7" type="radio" /><input id="第五步" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="第一步">第一步</label><label for="第二步">第二步</label><label for="第三步">第三步</label><label for="第四步">第四步</label><label for="第五步">第五步</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:5"><input checked="checked" id="第一步" name="__tabbed_6" type="radio" /><input id="第二步" name="__tabbed_6" type="radio" /><input id="第三步" name="__tabbed_6" type="radio" /><input id="第四步" name="__tabbed_6" type="radio" /><input id="第五步" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="第一步">第一步</label><label for="第二步">第二步</label><label for="第三步">第三步</label><label for="第四步">第四步</label><label for="第五步">第五步</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a class="glightbox" href="asset-img/tree-18.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="step-1" src="asset-img/tree-18.png" /></a></p>
@@ -2688,7 +2706,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 <details class="example">
 <summary>生成过程</summary>
 <p><a class="glightbox" href="asset-img/tree-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="example" src="asset-img/tree-17.png" /></a></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:5"><input checked="checked" id="第一步_1" name="__tabbed_8" type="radio" /><input id="第二步_1" name="__tabbed_8" type="radio" /><input id="第三步_1" name="__tabbed_8" type="radio" /><input id="第四步_1" name="__tabbed_8" type="radio" /><input id="第五步_1" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="第一步_1">第一步</label><label for="第二步_1">第二步</label><label for="第三步_1">第三步</label><label for="第四步_1">第四步</label><label for="第五步_1">第五步</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:5"><input checked="checked" id="第一步_1" name="__tabbed_7" type="radio" /><input id="第二步_1" name="__tabbed_7" type="radio" /><input id="第三步_1" name="__tabbed_7" type="radio" /><input id="第四步_1" name="__tabbed_7" type="radio" /><input id="第五步_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="第一步_1">第一步</label><label for="第二步_1">第二步</label><label for="第三步_1">第三步</label><label for="第四步_1">第四步</label><label for="第五步_1">第五步</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a class="glightbox" href="asset-img/tree-23.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="step-1" src="asset-img/tree-23.png" /></a></p>
@@ -2732,7 +2750,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 <ul>
 <li>初始化</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="s" name="__tabbed_9" type="radio" /><input id="dist" name="__tabbed_9" type="radio" /><input id="path" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="s">s</label><label for="dist">dist</label><label for="path">path</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="s" name="__tabbed_8" type="radio" /><input id="dist" name="__tabbed_8" type="radio" /><input id="path" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="s">s</label><label for="dist">dist</label><label for="path">path</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>源点的下标为1，其余元素为0</p>
@@ -2809,31 +2827,33 @@ path[i]=
 </figure></p>
 <ul>
 <li>从源点到汇点最大长度的路径称为关键路径，其上的活动是关键活动</li>
-<li><span class="arithmatex">\(V_k\)</span> 最早发生时间 <span class="arithmatex">\(V_e(k)\)</span></li>
-</ul>
+<li>
+<p><span class="arithmatex">\(V_k\)</span> 最早发生时间 <span class="arithmatex">\(V_e(k)\)</span></p>
 <div class="arithmatex">\[
 \begin{align}
 V_e(k)=
 \begin{cases}
-0&amp;，源点 \\
+0&amp;,源点 \\
 max\{V_e(j)+w(v_j,v_k)\}&amp;,其他情况
 \end{cases}
 \end{align}
 \]</div>
-<ul>
-<li><span class="arithmatex">\(V_k\)</span> 最迟发生时间 <span class="arithmatex">\(V_l(k)\)</span></li>
-</ul>
+</li>
+<li>
+<p><span class="arithmatex">\(V_k\)</span> 最迟发生时间 <span class="arithmatex">\(V_l(k)\)</span></p>
 <div class="arithmatex">\[
 \begin{align}
 V_l(k)=
 \begin{cases}
-V_e(k)&amp;，k是汇点 \\
+V_e(k)&amp;,k是汇点 \\
 min\{V_e(k)-w(v_j,v_k)\}&amp;,其他情况
 \end{cases}
 \end{align}
 \]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(a_i\)</span> 最早开始时间 <span class="arithmatex">\(e(i)\)</span></p>
 <ul>
-<li><span class="arithmatex">\(a_i\)</span> 最早开始时间 <span class="arithmatex">\(e(i)\)</span><ul>
 <li>若存在 <span class="arithmatex">\(\langle v_k,v_j \rangle\)</span> 表示 <span class="arithmatex">\(a_i\)</span>，则 <span class="arithmatex">\(e(i)=V_e(k)\)</span></li>
 </ul>
 </li>
@@ -2852,7 +2872,7 @@ min\{V_e(k)-w(v_j,v_k)\}&amp;,其他情况
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年4月23日 11:59:34</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年4月28日 00:05:12</span>
       
         <br>
         创建日期:
@@ -2867,6 +2887,54 @@ min\{V_e(k)-w(v_j,v_k)\}&amp;,其他情况
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script src="https://giscus.app/client.js"
+        data-repo="jasonren0403/notes"
+        data-repo-id="R_kgDOGXfwBg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 
                 
               </article>
