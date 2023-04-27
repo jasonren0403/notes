@@ -2,6 +2,7 @@
 tags:
   - 408考研复习
   - 数据结构
+comments: true
 ---
 
 队列
@@ -256,5 +257,35 @@ tags:
 
 ## 应用
 ### 树的层次遍历
+
+!!! summary "核心思想"
+    每次出队一个元素，就将该元素的孩子节点加入队列中，直到队列中元素个数为0时，出队的顺序就是该二叉树的层次遍历结果。
+
+```c++ title="c++代码写法"
+vector<vector<int>> levelOrder(TreeNode *root) {
+    if (root == nullptr) return {};
+    vector<vector<int>> ans;
+    queue<TreeNode *> q;
+    q.push(root);
+    while (!q.empty()) {
+        vector<int> vals;
+        for (int n = q.size(); n--;) {
+            // 取出队首元素
+            auto node = q.front();
+            q.pop();
+            // 加入至结果集
+            vals.push_back(node->val);
+            // 推入非空左孩子
+            if (node->left)  q.push(node->left);
+            // 推入非空右孩子
+            if (node->right) q.push(node->right);
+        }
+        ans.emplace_back(vals);
+    }
+    return ans;
+}
+```
+
 ### 图的广度优先遍历
-### 操作系统：先来先服务（FCFS）调度算法
+
+具体算法见[图 > 图的广度优先遍历](graph.md#图的遍历)章节。使用了队列+辅助标记数组的方法。

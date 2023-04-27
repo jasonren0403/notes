@@ -487,7 +487,20 @@ typedef struct BiThrNode{
 
     上述例子可以表示为
 
-    ![example-1](asset-img/tree-7.png)
+    |    |data|parent|
+    |:--:|:--:|:----:|
+    | 0  | A  |  -1  |
+    | 1  | B  |  0   |
+    | 2  | C  |  0   |
+    | 3  | D  |  0   |
+    | 4  | E  |  1   |
+    | 5  | F  |  3   |
+    | 6  | G  |  3   |
+    | 7  | H  |  4   |
+    | 8  | I  |  4   |
+    | 9  | J  |  4   |
+    | 10 | K  |  6   |
+    |    |r=0 | n=11 |
 
 === "孩子表示法"
     由于树中每个结点可能有多棵子树，可用多重链表来表示，即每个结点有多个指针域，其中每个指针指向一个子树的根结点。
@@ -643,44 +656,45 @@ typedef struct BiThrNode{
 
 * 插入
     * 插入新元素时，可以从根节点开始，遇键值较大者就向左，遇键值较小者就向右，一直到末端，就是插入点。
-    ```c++
-    bool BST_Insert(BiTree &T,KeyType k){
-        if(T==NULL){
-            T=(BiTree)malloc(sizeof(BSTNode));
-            T->key = k;
-            T->lchild = T->rchild = NULL;
-            return true;
+    
+        ```c++
+        bool BST_Insert(BiTree &T,KeyType k){
+            if(T==NULL){
+                T=(BiTree)malloc(sizeof(BSTNode));
+                T->key = k;
+                T->lchild = T->rchild = NULL;
+                return true;
+            }
+            else if(k==T->key) return false;
+            else if(k<T->key) return BST_Insert(T->lchild,k);
+            else return BST_Insert(T->rchild,k);
         }
-        else if(k==T->key) return false;
-        else if(k<T->key) return BST_Insert(T->lchild,k);
-        else return BST_Insert(T->rchild,k);
-    }
-    ```
+        ```
 
     * 构建一棵新的二叉排序树
 
-    ```c++
-    void Create_BST(BiTree &T,KeyType str[],int n){
-        T=NULL;
-        int i=0;
-        while(i<n){
-            BST_Insert(T,str[i]);
-            i++;
+        ```c++
+        void Create_BST(BiTree &T,KeyType str[],int n){
+            T=NULL;
+            int i=0;
+            while(i<n){
+                BST_Insert(T,str[i]);
+                i++;
+            }
         }
-    }
-    ```
+        ```
 
 * 删除
     * 分为三种情况
 
-    === "是叶子结点"
-        直接删除，原BST不受影响
+        === "是叶子结点"
+            直接删除，原BST不受影响
 
-    === "有一个子结点"
-        将A的子节点连至A的父节点上，并将A删除
+        === "有一个子结点"
+            将A的子节点连至A的父节点上，并将A删除
 
-    === "有两个子结点"
-        以右子树内的最小节点取代A
+        === "有两个子结点"
+            以右子树内的最小节点取代A
 
 ### 平衡二叉树(AVL)
 定义：它或者是一颗空树，或者具有以下性质的二叉排序树
