@@ -40,7 +40,7 @@ nav:
   - '虚拟专用网': 'net_security/vpn.md'
   - '应用安全——PGP为例': 'net_security/application.md'
   - '社会工程学': 'net_security/socialengineering.md'
-- 'Go语言学习':
+- 'Go 语言学习':
   - 'Go语言绪论': 'golang/index.md'
   - 'Go语言基础': 'golang/basic.md'
   - 'Go流程控制': 'golang/statement.md'
@@ -48,6 +48,8 @@ nav:
   - 'Go面向对象': 'golang/oop.md'
   - '协程': 'golang/goroutine.md'
   - '网络编程': 'golang/goweb.md'
+- 'Java 语言学习':
+    - 'Java语言概论': 'java/index.md'
 - '408助手':
   - '408-helper/index.md'
   - '408考试大纲（2022版）': '408-helper/what-does-408-test.md'
