@@ -529,11 +529,9 @@ end
 ### SSL安全性分析
 
 === "信息泄露"
-    * OpenSSL心脏滴血漏洞
+    * OpenSSL心脏滴血漏洞：OpenSSL 有一个叫 Heartbeat（心跳检测）的拓展。它通过建立一个 Client Hello 问询来检测对方服务器是不是正常在线 ，服务器发回 Server hello，表明正常树立SSL通讯。每次问询都会附加一个问询的字符长度 pad length，如果这个 pad length 大于实际的长度，服务器仍是会回来相同规模的字符信息，于是形成了内存里信息的越界访问。就这样，每发起一个心跳，服务器就能泄露一点点数据（理论上最多泄露 64KB），这些数据里可能包括用户的登录账号密码、电子邮件甚至是加密秘钥等信息，也可能并没有包含这些信息，但攻击者可以不断利用 “心跳”来获取更多的信息。就这样，服务器一点一点泄露越来越多的信息，就像是心脏慢慢在出血，心脏出血漏洞的名字由此而来。
 
-    > OpenSSL 有一个叫 Heartbeat（心跳检测）的拓展。它通过建立一个 Client Hello 问询来检测对方服务器是不是正常在线 ，服务器发回 Server hello，表明正常树立SSL通讯。每次问询都会附加一个问询的字符长度 pad length，如果这个 pad length 大于实际的长度，服务器仍是会回来相同规模的字符信息，于是形成了内存里信息的越界访问。就这样，每发起一个心跳，服务器就能泄露一点点数据（理论上最多泄露 64KB），这些数据里可能包括用户的登录账号密码、电子邮件甚至是加密秘钥等信息，也可能并没有包含这些信息，但攻击者可以不断利用 “心跳”来获取更多的信息。就这样，服务器一点一点泄露越来越多的信息，就像是心脏慢慢在出血，心脏出血漏洞的名字由此而来。
-
-    ```mermaid
+	    ```mermaid
         sequenceDiagram
         participant u as User
         participant s as Server
@@ -543,7 +541,7 @@ end
         s->>u:'BIRD........'
         Note over u,s: 这里可能会暴露敏感信息
         %% important information may leak there!
-    ```
+    	```
 
 ### 实现
 - [OpenSSL](https://www.openssl.org/source/)

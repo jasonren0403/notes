@@ -521,9 +521,9 @@ int func(char *user) {
                 }
                 ```
 
-            === "`stdio`(不安全)" title="stdio"
+            === "`stdio`(不安全)"
 
-                ```c hl_lines="1"
+                ```c hl_lines="1" title="stdio"
                 #include <stdio.h>
                 int main(int argc, char * argv[]) {
                     char filename[256];

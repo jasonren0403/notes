@@ -524,7 +524,7 @@ comments: true
     </figure>
 
     ```mermaid
-    graph TD
+    flowchart TD
         A([开始])-->B{页号>页表长度?}
         B-->|是|C([越界中断])
     	B-->|否|D[CPU检索快表]

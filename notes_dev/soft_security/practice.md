@@ -70,7 +70,7 @@ comments: true
 ### 安全质量需求工程
 * 安全质量需求工程过程(Security Quality Requirements Engineering Process, SQUARE)用于引出和分析安全需求，由9个步骤组成：
 ```mermaid
-graph LR
+flowchart LR
 id1(统一定义) --> id2(识别安全目标) --> id3(开发文档) --> id4(进行风险评估)
 id4 --> id5(选择引出技术) --> id6(引出安全需求) --> id7(对需求分类)
 id7 --> id8(排定需求的优先次序) --> id9(需求审查)

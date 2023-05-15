@@ -90,7 +90,6 @@ nav:
     - '内存管理': '408-helper/operating-system/memory.md'
     - '文件管理': '408-helper/operating-system/file.md'
     - '输入输出(I/O)管理': '408-helper/operating-system/io.md'
-- '按标签查找': 'tags.md'
 
 theme:
   name: material

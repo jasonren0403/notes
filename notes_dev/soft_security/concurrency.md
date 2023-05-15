@@ -14,22 +14,22 @@ comments: true
 	- 单线程程序可能有并发问题
 
         ```c linenums="1" hl_lines="8 9"
-		char *err_msg;
-		#define MAX_MSG_SIZE = 24;
-		void handler(int signum) {
-			strcpy(err_msg , "SIGINT encountered.");
+        char *err_msg;
+        #define MAX_MSG_SIZE = 24;
+        void handler(int signum) {
+		    strcpy(err_msg , "SIGINT encountered.");
 		}
 
-		int main(void){
-			signal(SIGINT, handler);
-			err_msg = (char*)malloc(MAX_MSG_SIZE);
-			if(err_msg == NULL){
-			/* (1) */
-			}
-			strcpy(err_msg , "No errors yet.");
-			/* (2) */
-			return 0;
-		}
+        int main(void){
+		    signal(SIGINT, handler);
+		    err_msg = (char*)malloc(MAX_MSG_SIZE);
+		    if(err_msg == NULL){
+		        /* (1) */
+		    }
+		    strcpy(err_msg , "No errors yet.");
+		    /* (2) */
+		    return 0;
+        }
 		```
 
         1. 处理错误条件

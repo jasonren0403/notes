@@ -9,25 +9,25 @@ tags:
 
 ### 访问控制三要素
 
-`主体(Subject)`
-:    提出访问资源的具体请求
+主体(Subject)
+: 提出访问资源的具体请求
 
-`客体(Object)`
-:    被访问资源的实体
+客体(Object)
+: 被访问资源的实体
 
-`策略(Attribution)`
-:    主体对客体的相关规则集合
+策略(Attribution)
+: 主体对客体的相关规则集合
 
 ### 实施原则
 
-`最小特权原则`
-:    主体执行操作时，按照主题所需权利的最小化原则分配给主体权力。
+最小特权原则
+: 主体执行操作时，按照主题所需权利的最小化原则分配给主体权力。
 
-`最小泄露原则`
-:    主体执行任务时，按照主体所知道的信息最小化的原则分配给主体权力。
+最小泄露原则
+: 主体执行任务时，按照主体所知道的信息最小化的原则分配给主体权力。
 
-`多级安全策略`
-:    主体与客体间的数据流向和权限控制按照安全级别分为TS，S，C，RS，U五级：绝密级别（Top Secret），秘密级别（Secret），机密级别（Confidential），限制级别（Restricted）和无级别级（Unclassified）
+多级安全策略
+: 主体与客体间的数据流向和权限控制按照安全级别分为TS，S，C，RS，U五级：绝密级别（Top Secret），秘密级别（Secret），机密级别（Confidential），限制级别（Restricted）和无级别级（Unclassified）
 
 ??? info "主体对客体的访问方式"
 	1. 向下读（rd，read down）：主体安全级别高于客体信息资源的安全级别时允许查阅的读操作；
@@ -95,8 +95,7 @@ tags:
 		* 所有通过防火墙的通信必须经过安全策略的过滤或者防火墙的授权
 		* 防火墙自身应对渗透(penetration)免疫
 
-- 必要性
-保护内部不受Internet的攻击
+- 必要性：保护内部不受Internet的攻击
 - 功能
 	1. 访问控制
 		* 服务控制
@@ -114,8 +113,7 @@ tags:
 	6. NAT
 	7. IDS与报警
 	8. 内容过滤
-- 局限性
-无法做到绝对的安全
+- 局限性：无法做到绝对的安全
 - 分类
 	* 形态：软/硬件防火墙
 	* 实现技术：包过滤防火墙、应用网关防火墙、代理防火墙、状态检测防火墙、电路级网关
@@ -126,9 +124,9 @@ tags:
 	- 对所接收的每一个数据包做允许、拒绝的决定
 	- 分为静态包过滤和动态包过滤两类
 
-	!!! info "静态包过滤和动态包过滤的区别"
-		静态包过滤 ~ 单个数据包，根据固定的规则和每个包头的信息
-		动态包过滤 ~ 捕获一个“连接”，是一段会话（Session）
+		!!! info "静态包过滤和动态包过滤的区别"
+			* 静态包过滤 ~ 单个数据包，根据固定的规则和每个包头的信息
+			* 动态包过滤 ~ 捕获一个“连接”，是一段会话（Session）
 
 	- 原理：防火墙拆开数据包，根据策略处理并作出相应的操作
 		* 过滤依据主要是TCP/IP报头里面的信息，不能对应用层数据进行处理
@@ -226,12 +224,12 @@ tags:
 		* 路径
 			- 进入本机
                 ```mermaid
-                graph LR
+                flowchart LR
                     PREROUTING链 --> INPUT链 --> OUTPUT链 --> POSTROUTING链
                 ```
 			- 转发
                 ```mermaid
-                graph LR
+                flowchart LR
                     PREROUTING链 --> FORWARD链 --> POSTROUTING链
                 ```
 
@@ -299,6 +297,7 @@ tags:
 * 要点在于存储信任以及验证信任上
 
 === "使用Cookie"
+
     ```mermaid
     sequenceDiagram
         User->>System: Login
@@ -313,11 +312,13 @@ tags:
         deactivate User
         deactivate Subsystem
     ```
+
     !!! fail "缺点"
         1. Cookie不够安全，源代码泄露更是可以伪造特定用户身份
         2. 不能跨域免登录
 
 === "使用JSONP"
+
     ```mermaid
     sequenceDiagram
         User->>System: Login
@@ -339,6 +340,7 @@ tags:
         虽然解决了跨域问题，但依然可以伪造父应用，以登录特定用户
 
 === "使用页面重定向"
+
     ```mermaid
     sequenceDiagram
         User->>System: Login
@@ -387,7 +389,7 @@ tags:
 * Android的权限授予
 
     ```mermaid
-    graph TD
+    flowchart TD
     A("配置文件、代码资源等")-->B("提取、解析Permisson")-->C(为Package分配UID)
     C-->D(建立PackageSetting数据结构)-->E(Package轮询对Permission授权)
     ```

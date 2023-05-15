@@ -6,9 +6,11 @@ comments: true
 # 软件安全——软件基础
 
 ## 冯诺依曼体系
-![冯诺依曼体系](md-img/20190916_00.png)
 
 ```mermaid
+---
+title: 以存储器为中心的冯诺依曼结构
+---
 graph LR
   A[Input]
   B[存储器]
@@ -199,8 +201,8 @@ int main()
 	* 过程描述
 
         ```mermaid
-		graph LR
-		id1(参数入栈)--> id2(返回地址入栈)--> id3(代码区跳转) --> id4(栈帧调整)
+        flowchart LR
+		    id1(参数入栈)--> id2(返回地址入栈)--> id3(代码区跳转) --> id4(栈帧调整)
 		```
 
 		- 参数从右向左一次压入系统栈
@@ -209,7 +211,7 @@ int main()
 	* 栈帧调整
 
         ```asm
-		push ebp # (1)
+        push ebp # (1)
 		mov ebp,esp # (2)
 		sub esp,xxx # (3)
 		```
@@ -221,13 +223,13 @@ int main()
 * `_stdcall`调用约定指令序列
 
     ```asm
-	push param3  # (1)
-	push param2
-	push param1
-	call 函数地址  # (2)
-	push ebp # (3)
-	mov ebp,esp # (4)
-	sub esp,xxx # (5)
+    push param3  # (1)
+    push param2
+    push param1
+    call 函数地址  # (2)
+    push ebp # (3)
+    mov ebp,esp # (4)
+    sub esp,xxx # (5)
 	```
 
     1. 假设该函数有三个参数，从右向左依次入栈
@@ -241,9 +243,9 @@ int main()
 * 函数返回(Win32，C语言为例)
 
     ```asm
-	add esp,xxx  # (1)
-	pop ebp   # (2)
-	retn 	  # (3)
+    add esp,xxx  # (1)
+    pop ebp   # (2)
+    retn 	  # (3)
 	```
 
     1. 回收栈顶

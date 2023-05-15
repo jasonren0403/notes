@@ -117,7 +117,7 @@ comments: true
     * 后来，使用外围机控制输入/输出过程。称为脱机I/O方式
 
     ```mermaid
-    graph LR
+    flowchart LR
     id1(人工操作方式)------>|- 人机矛盾<br> - CPU和I/O设备速度不匹配|id2(脱机输入/输出模式)
     ```
 

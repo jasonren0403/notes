@@ -11,17 +11,17 @@ comments: true
 	2. 每种操作系统能支持多种文件系统、文件I/O接口
 * 不同的文件系统
 
-=== "UNIX"
-    * 大多使用UFS（UNIX File System）
-	* 很多厂商都改写过UFS，增加了一些专有扩展
-
-=== "Linux"
-	* 早期：MINIX、MS-DOS、ext2
-	* 较新：ext4、日志文件系统(Journal File System, JFS)和ReiserFS等
-	* 加密文件系统(Cryptographic File System, CFS)和虚拟文件系统
-
-=== "Mac OS X"
-	* HFS+（Hierarchical File System Extended Format，分层文件系统扩展格式）、UPS（BSD标准文件系统格式）、NFS（Network File System，网络文件系统）、AFP（AppleTalk文件协议[Mac OS文件共享]）、UDF（Universal Disk Format，通用磁盘格式）、……
+	=== "UNIX"
+		* 大多使用UFS（UNIX File System）
+		* 很多厂商都改写过UFS，增加了一些专有扩展
+	
+	=== "Linux :simple-linux:"
+		* 早期：MINIX、MS-DOS、ext2
+		* 较新：ext4、日志文件系统(Journal File System, JFS)和ReiserFS等
+		* 加密文件系统(Cryptographic File System, CFS)和虚拟文件系统
+	
+	=== "Mac OS X :simple-macos:"
+		* HFS+（Hierarchical File System Extended Format，分层文件系统扩展格式）、UPS（BSD标准文件系统格式）、NFS（Network File System，网络文件系统）、AFP（AppleTalk文件协议[Mac OS文件共享]）、UDF（Universal Disk Format，通用磁盘格式）、……
 
 * 文件：由块(通常在磁盘上)的集合组成
 	- UFS的块由与文件关联的i节点(i-node)管理

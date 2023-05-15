@@ -196,10 +196,10 @@ printf("j = %u\n", j); // (7)
 	- 两个`unsigned char`相加，它们的值会发生零扩展
 	- 两个`unsigned int`相加，它们为signed int的值生成相同的代码
 	- 两个`long long int`相加，add指令先把它们的低32位相加，然后使用adc指令把高位上的32位和进位标志位的值相加
-* IA-32 减法指令： `sub（减法） sbb（带借位减法）`
+* IA-32 减法指令： `sub`（减法） `sbb`（带借位减法）
 	- 加法指令在标志寄存器中设置标志：溢出标志（带符号溢出）、进位标志（无符号溢出）
 	- 两个`long long int`相减，sub指令先把它们的低32位相减，然后使用sbb
-* IA-32 乘法指令：`mul（无符号乘） imul（带符号乘）`
+* IA-32 乘法指令：`mul`（无符号乘） `imul`（带符号乘）
 	- 无符号乘伪代码
 
         ```c
@@ -209,7 +209,7 @@ printf("j = %u\n", j); // (7)
 			if (OperandSize == 16) { //(2)
 				DX:AX = AX * SRC;
 			}
-			else {  // OperandSize == 32
+			else { // OperandSize == 32
 				EDX:EAX = EAX * SRC;  //(3)
 			}
 		}
@@ -273,8 +273,8 @@ printf("j = %u\n", j); // (7)
 		```c
 		/* 一个乘法运算例子 */
 		void* AllocBlocks(size_t cBlocks) {
-	  		//分配没有 blocks是一个错误
-			if (cBlocks == 0) return NULL; 
+	  		//分配没有blocks是一个错误
+			if (cBlocks == 0) return NULL;
 	 		// 分配足够的内存
 			// 把结果提升到一个64-bit的整数
 	  		// 检查32-bit UINT_MAX
