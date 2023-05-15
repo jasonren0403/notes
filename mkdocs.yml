@@ -53,6 +53,9 @@ nav:
   - '语言基础知识': 'java/basic.md'
   - 'Java面向对象': 'java/oop.md'
   - 'Java异常处理': 'java/exception.md'
+  - 'Java图形程序设计': 'java/graphics.md'
+  - '事件处理': 'java/event.md'
+  - 'Swing用户界面组件': 'java/swing.md'
 - '408助手':
   - '408-helper/index.md'
   - '408考试大纲（2022版）': '408-helper/what-does-408-test.md'
