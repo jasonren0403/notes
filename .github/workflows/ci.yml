@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+permission:
+  contents: write
 jobs:
   deploy:
     name: Build site
@@ -18,11 +20,14 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - name: Setup build cache
         uses: actions/cache@v3
         with:
-          key: ${{ runner.os }}-cache-v2
+          key: jason-note-${{ env.cache_id }}
           path: .cache
+          restore-keys: |
+            jason-note-
       - name: Install Python dependencies
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox pillow cairosvg
       - name: Setup Deployer
