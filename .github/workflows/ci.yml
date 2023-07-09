@@ -30,6 +30,8 @@ jobs:
             jason-note-
       - name: Install Python dependencies
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox pillow cairosvg
+      - name: Install Vue code highlighter
+        run: pip install vue-lexer
       - name: Setup Deployer
         run: |
           git config --global user.email "40999116+jasonren0403@users.noreply.github.com"

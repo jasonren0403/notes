@@ -90,6 +90,19 @@ nav:
     - '内存管理': '408-helper/operating-system/memory.md'
     - '文件管理': '408-helper/operating-system/file.md'
     - '输入输出(I/O)管理': '408-helper/operating-system/io.md'
+- Vue.js 框架学习:
+  - 'Vue.js 框架绪论': 'vuejs/index.md'
+  - '应用实例': 'vuejs/application-instance.md'
+  - '模板语法': 'vuejs/template-syntax.md'
+  - '响应性': 'vuejs/reactivity.md'
+  - '条件渲染': 'vuejs/conditional.md'
+  - '列表渲染': 'vuejs/list.md'
+  - '计算属性': 'vuejs/computed.md'
+  - '事件处理': 'vuejs/event-handling.md'
+  - '表单输入绑定': 'vuejs/form.md'
+  - '生命周期': 'vuejs/lifecycle.md'
+  - '侦听器': 'vuejs/watcher.md'
+  - '组件': 'vuejs/component.md'
 
 theme:
   name: material
