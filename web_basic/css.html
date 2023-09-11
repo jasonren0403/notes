@@ -1193,7 +1193,7 @@
 </li>
 <li>
 <p>三种引用方式</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="外部样式表" name="__tabbed_2" type="radio" /><input id="内部样式表" name="__tabbed_2" type="radio" /><input id="内联样式" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="外部样式表">外部样式表</label><label for="内部样式表">内部样式表</label><label for="内联样式">内联样式</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="外部样式表" name="__tabbed_2" type="radio" /><input id="内部样式表" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="外部样式表">外部样式表</label><label for="内部样式表">内部样式表</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1214,11 +1214,15 @@
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"> </span><span class="c">/*your style*/</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></code></pre></div>
 </li>
-<li>
-<p>某些内容管理系统不能直接编辑CSS文件，用此方法</p>
-</li>
 </ul>
 </div>
+</div>
+</div>
+<ul>
+<li>某些内容管理系统不能直接编辑CSS文件，用此方法</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="内联样式" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="内联样式">内联样式</label></div>
+<div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
 <li>
@@ -1243,8 +1247,8 @@
 <ul>
 <li>
 <p>CSS文件构成：选择器+声明块</p>
-<div class="language-css highlight"><span class="filename">CSS</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">p</span><span class="c">/* (1) */</span><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="kc">red</span><span class="p">;</span><span class="w"> </span><span class="c">/* (2) */</span>
+<div class="language-css highlight"><span class="filename">CSS</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">p</span><span class="c">/* (1) */</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"> </span><span class="c">/* (2) */</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
@@ -1259,7 +1263,9 @@
 <li>利用父子节点（<a href="#cascadeinheritance">层叠和继承</a>）</li>
 </ul>
 </li>
-<li>规则：<ul>
+<li>
+<p>规则：</p>
+<ul>
 <li>规则在大括号中</li>
 <li>冒号分隔属性与属性值</li>
 <li>用分号分隔各个声明（最后一条规则可选）</li>
@@ -1299,7 +1305,7 @@
 <div class="admonition info">
 <p>选择元素的<code>class</code>或<code>id</code>属性</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="idname属性" name="__tabbed_3" type="radio" /><input id="class属性" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="idname属性">id/name属性</label><label for="class属性">class属性</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="idname属性" name="__tabbed_4" type="radio" /><input id="class属性" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="idname属性">id/name属性</label><label for="class属性">class属性</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1338,10 +1344,10 @@
 <div class="admonition summary">
 <p>属性选择器是一种特殊类型的选择器，它根据元素的属性和属性值来匹配元素。</p>
 </div>
-<div class="language-css highlight"><span class="filename">一些属性选择器的例子</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">p</span><span class="o">[</span><span class="nt">class</span><span class="o">=</span><span class="s1">&#39;new&#39;</span><span class="o">]</span><span class="p">{</span><span class="w"> </span><span class="c">/* css样式 */</span><span class="p">}</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="err">↑</span><span class="w">    </span><span class="err">↑</span><span class="w">     </span><span class="err">↑</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">元素</span><span class="w"> </span><span class="nt">属性名</span><span class="w"> </span><span class="nt">属性值</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nt">匹配方法</span><span class="err">：</span>
+<div class="language-css highlight"><span class="filename">一些属性选择器的例子</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="nt">p</span><span class="o">[</span><span class="nt">class</span><span class="o">=</span><span class="s1">&#39;new&#39;</span><span class="o">]</span><span class="p">{</span><span class="w"> </span><span class="c">/* css样式 */</span><span class="p">}</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c">/*  ↑    ↑     ↑</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c">  元素 属性名 属性值</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c">  匹配方法：*/</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="o">[</span><span class="nt">attr</span><span class="o">]</span><span class="w"> </span><span class="c">/* 带有attr命名的属性的元素 */</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="o">[</span><span class="nt">attr</span><span class="o">=</span><span class="nt">value</span><span class="o">]</span><span class="w"> </span><span class="c">/* 以attr命名的，值为value的元素 */</span>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="o">[</span><span class="nt">attr</span><span class="o">~=</span><span class="nt">value</span><span class="o">]</span><span class="w"> </span><span class="c">/* 至少有一个attr命名的属性的元素 */</span>
@@ -1356,10 +1362,10 @@
 <div class="admonition summary">
 <p>匹配处于特定状态的一个或多个元素</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="状态伪类链接" name="__tabbed_4" type="radio" /><input id="结构伪类" name="__tabbed_4" type="radio" /><input id="验证伪类表单" name="__tabbed_4" type="radio" /><input id="语言伪类" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="状态伪类链接">状态伪类（链接）<a name='state'></a></label><label for="结构伪类">结构伪类</label><label for="验证伪类表单">验证伪类（表单）</label><label for="语言伪类">语言伪类</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="状态伪类链接" name="__tabbed_5" type="radio" /><input id="结构伪类" name="__tabbed_5" type="radio" /><input id="验证伪类表单" name="__tabbed_5" type="radio" /><input id="语言伪类" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="状态伪类链接">状态伪类（链接）<a name='state'></a></label><label for="结构伪类">结构伪类</label><label for="验证伪类表单">验证伪类（表单）</label><label for="语言伪类">语言伪类</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="5:5"><input checked="checked" id="link" name="__tabbed_5" type="radio" /><input id="visited" name="__tabbed_5" type="radio" /><input id="focus" name="__tabbed_5" type="radio" /><input id="hover" name="__tabbed_5" type="radio" /><input id="active" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="link"><code>:link</code></label><label for="visited"><code>:visited</code></label><label for="focus"><code>:focus</code></label><label for="hover"><code>:hover</code></label><label for="active"><code>:active</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:5"><input checked="checked" id="link" name="__tabbed_6" type="radio" /><input id="visited" name="__tabbed_6" type="radio" /><input id="focus" name="__tabbed_6" type="radio" /><input id="hover" name="__tabbed_6" type="radio" /><input id="active" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="link"><code>:link</code></label><label for="visited"><code>:visited</code></label><label for="focus"><code>:focus</code></label><label for="hover"><code>:hover</code></label><label for="active"><code>:active</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>表示链接的正常状态，选择那些尚未被点过的链接</p>
@@ -1393,7 +1399,7 @@
 </figure></p>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="6:6"><input checked="checked" id="first-child" name="__tabbed_6" type="radio" /><input id="first-of-type" name="__tabbed_6" type="radio" /><input id="nth-child" name="__tabbed_6" type="radio" /><input id="only-child" name="__tabbed_6" type="radio" /><input id="not" name="__tabbed_6" type="radio" /><input id="其他" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="first-child"><code>:first-child</code></label><label for="first-of-type"><code>:first-of-type</code></label><label for="nth-child"><code>:nth-child</code></label><label for="only-child"><code>:only-child</code></label><label for="not"><code>:not</code></label><label for="其他">其他</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:6"><input checked="checked" id="first-child" name="__tabbed_7" type="radio" /><input id="first-of-type" name="__tabbed_7" type="radio" /><input id="nth-child" name="__tabbed_7" type="radio" /><input id="only-child" name="__tabbed_7" type="radio" /><input id="not" name="__tabbed_7" type="radio" /><input id="其他" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="first-child"><code>:first-child</code></label><label for="first-of-type"><code>:first-of-type</code></label><label for="nth-child"><code>:nth-child</code></label><label for="only-child"><code>:only-child</code></label><label for="not"><code>:not</code></label><label for="其他">其他</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>选择父元素的第一个子元素</p>
@@ -1417,7 +1423,7 @@
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="7:9"><input checked="checked" id="checked" name="__tabbed_7" type="radio" /><input id="default" name="__tabbed_7" type="radio" /><input id="启用状态" name="__tabbed_7" type="radio" /><input id="empty" name="__tabbed_7" type="radio" /><input id="范围选取" name="__tabbed_7" type="radio" /><input id="indeterminate" name="__tabbed_7" type="radio" /><input id="有效性" name="__tabbed_7" type="radio" /><input id="optional" name="__tabbed_7" type="radio" /><input id="读写权限" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="checked"><code>:checked</code></label><label for="default"><code>:default</code></label><label for="启用状态">启用状态</label><label for="empty"><code>:empty</code></label><label for="范围选取">范围选取</label><label for="indeterminate"><code>:indeterminate</code></label><label for="有效性">有效性</label><label for="optional"><code>:optional</code></label><label for="读写权限">读写权限</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:9"><input checked="checked" id="checked" name="__tabbed_8" type="radio" /><input id="default" name="__tabbed_8" type="radio" /><input id="启用状态" name="__tabbed_8" type="radio" /><input id="empty" name="__tabbed_8" type="radio" /><input id="范围选取" name="__tabbed_8" type="radio" /><input id="indeterminate" name="__tabbed_8" type="radio" /><input id="有效性" name="__tabbed_8" type="radio" /><input id="optional" name="__tabbed_8" type="radio" /><input id="读写权限" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="checked"><code>:checked</code></label><label for="default"><code>:default</code></label><label for="启用状态">启用状态</label><label for="empty"><code>:empty</code></label><label for="范围选取">范围选取</label><label for="indeterminate"><code>:indeterminate</code></label><label for="有效性">有效性</label><label for="optional"><code>:optional</code></label><label for="读写权限">读写权限</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>选择被勾选或选中的单选按钮、多选按钮及列表选项</p>
@@ -1485,7 +1491,7 @@
 <li>
 <p>组合&amp; 多重选择器</p>
 <p>以下，A和B是前述任意选择器</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:5"><input checked="checked" id="群组选择器" name="__tabbed_8" type="radio" /><input id="后代选择器" name="__tabbed_8" type="radio" /><input id="子元素选择器" name="__tabbed_8" type="radio" /><input id="相邻元素选择器" name="__tabbed_8" type="radio" /><input id="后继元素选择器" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="群组选择器">群组选择器</label><label for="后代选择器">后代选择器</label><label for="子元素选择器">子元素选择器</label><label for="相邻元素选择器">相邻元素选择器</label><label for="后继元素选择器">后继元素选择器</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:5"><input checked="checked" id="群组选择器" name="__tabbed_9" type="radio" /><input id="后代选择器" name="__tabbed_9" type="radio" /><input id="子元素选择器" name="__tabbed_9" type="radio" /><input id="相邻元素选择器" name="__tabbed_9" type="radio" /><input id="后继元素选择器" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="群组选择器">群组选择器</label><label for="后代选择器">后代选择器</label><label for="子元素选择器">子元素选择器</label><label for="相邻元素选择器">相邻元素选择器</label><label for="后继元素选择器">后继元素选择器</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>形如<code>A,B</code>，匹配满足A（和/或）B的任意元素。</p>
@@ -1528,7 +1534,7 @@
 <ul>
 <li>
 <p><a name="text"></a>文本</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:8"><input checked="checked" id="字体" name="__tabbed_9" type="radio" /><input id="字号" name="__tabbed_9" type="radio" /><input id="大小写" name="__tabbed_9" type="radio" /><input id="粗细" name="__tabbed_9" type="radio" /><input id="斜体" name="__tabbed_9" type="radio" /><input id="装饰线" name="__tabbed_9" type="radio" /><input id="阴影" name="__tabbed_9" type="radio" /><input id="颜色" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="字体">字体</label><label for="字号">字号</label><label for="大小写">大小写</label><label for="粗细">粗细</label><label for="斜体">斜体</label><label for="装饰线">装饰线</label><label for="阴影">阴影</label><label for="颜色">颜色</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:8"><input checked="checked" id="字体" name="__tabbed_10" type="radio" /><input id="字号" name="__tabbed_10" type="radio" /><input id="大小写" name="__tabbed_10" type="radio" /><input id="粗细" name="__tabbed_10" type="radio" /><input id="斜体" name="__tabbed_10" type="radio" /><input id="装饰线" name="__tabbed_10" type="radio" /><input id="阴影" name="__tabbed_10" type="radio" /><input id="颜色" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="字体">字体</label><label for="字号">字号</label><label for="大小写">大小写</label><label for="粗细">粗细</label><label for="斜体">斜体</label><label for="装饰线">装饰线</label><label for="阴影">阴影</label><label for="颜色">颜色</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1641,7 +1647,7 @@
 </li>
 <li>
 <p><a name="text-layout"></a>布局</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:4"><input checked="checked" id="缩进" name="__tabbed_10" type="radio" /><input id="对齐" name="__tabbed_10" type="radio" /><input id="行高" name="__tabbed_10" type="radio" /><input id="间距" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="缩进"><a name="text-indent"></a>缩进</label><label for="对齐"><a name="text-align"></a>对齐</label><label for="行高"><a name="line-height"></a>行高</label><label for="间距"><a name="spacing"></a>间距</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:4"><input checked="checked" id="缩进" name="__tabbed_11" type="radio" /><input id="对齐" name="__tabbed_11" type="radio" /><input id="行高" name="__tabbed_11" type="radio" /><input id="间距" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="缩进"><a name="text-indent"></a>缩进</label><label for="对齐"><a name="text-align"></a>对齐</label><label for="行高"><a name="line-height"></a>行高</label><label for="间距"><a name="spacing"></a>间距</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1850,16 +1856,17 @@
 <li>作用：设定背景图像的起始位置</li>
 <li>属性值<ul>
 <li>关键字
-    <div class="language-css highlight"><span class="filename">CSS</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">param1</span><span class="w"> </span><span class="o">[</span><span class="nt">param2</span><span class="o">]</span><span class="err">，</span><span class="nt">其中param</span><span class="o">=</span><span class="nt">top</span><span class="o">|</span><span class="nt">left</span><span class="o">|</span><span class="nt">center</span><span class="o">|</span><span class="nt">right</span><span class="o">|</span><span class="nt">bottom</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nt">若没有param2</span><span class="err">，</span><span class="nt">则其值为center</span>
+    <div class="language-css highlight"><span class="filename">CSS</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">param1</span><span class="w"> </span><span class="o">[</span><span class="nt">param2</span><span class="o">]</span><span class="w"> </span><span class="c">/* param=top|left|center|right|bottom 若没有param2，则其值为center */</span>
 </span></code></pre></div></li>
-<li>百分比
-    <div class="language-css highlight"><span class="filename">CSS</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">水平位置</span><span class="o">%</span><span class="w"> </span><span class="nt">垂直位置</span><span class="o">%</span><span class="err">，</span><span class="nt">左上角为0</span><span class="o">%</span><span class="w"> </span><span class="nt">0</span><span class="o">%</span><span class="err">，</span><span class="nt">右下角为100</span><span class="o">%</span><span class="w"> </span><span class="nt">100</span><span class="o">%</span><span class="err">，</span><span class="nt">若仅规定了一个值</span><span class="err">，</span><span class="nt">则另一个值是50</span><span class="o">%</span>
-</span></code></pre></div></li>
-<li>position值
-    <div class="language-css highlight"><span class="filename">CSS</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">水平位置pos</span><span class="w"> </span><span class="nt">垂直位置pos</span><span class="err">，</span><span class="nt">左上角位置为</span><span class="err">（</span><span class="nt">0</span><span class="err">，</span><span class="nt">0</span><span class="err">），</span><span class="nt">单位为任何CSS单位</span><span class="err">，</span><span class="nt">若仅规定了一个值</span><span class="err">，</span><span class="nt">则另一个值为50</span><span class="o">%</span>
-</span></code></pre></div><ul>
-<li>position值可以与百分比值混用。</li>
+<li>百分比（<code>水平 垂直</code>）<ul>
+<li>左上角为0% 0%，右下角为100% 100%</li>
+<li>若仅规定了一个值，则另一个值是50%</li>
+</ul>
+</li>
+<li>position值（<code>水平 垂直</code>）<ul>
+<li>左上角位置为（0，0），单位为任何CSS单位</li>
+<li>若仅规定了一个值，则另一个值为50%</li>
+<li>position值可以与百分比值混用</li>
 </ul>
 </li>
 </ul>
@@ -2022,11 +2029,11 @@
 </li>
 <li>
 <p><a name="inheritance"></a>继承</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="示例代码" name="__tabbed_11" type="radio" /><input id="示例输出" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="示例代码">示例代码</label><label for="示例输出">示例输出</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="示例代码" name="__tabbed_12" type="radio" /><input id="示例输出" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="示例代码">示例代码</label><label for="示例输出">示例输出</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-html highlight"><span class="filename">html 代码示例</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>aaa<span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>bbb<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span>ccc<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="nt">p</span><span class="p">{</span><span class="k">color</span><span class="p">:</span><span class="kc">red</span><span class="p">;}&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<div class="language-html highlight"><span class="filename">html 代码示例</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>aaa<span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>bbb<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span>ccc<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="nt">p</span><span class="p">{</span><span class="k">color</span><span class="p">:</span><span class="kc">red</span><span class="p">;}&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2086,7 +2093,7 @@
     <a class="glightbox" href="md-img/10.25-4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="box structure" src="md-img/10.25-4.png" /></a>
     <figcaption>盒模型有四属性：border、margin、padding、content</figcaption>
     </figure></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:4"><input checked="checked" id="内容区content" name="__tabbed_12" type="radio" /><input id="内边距padding" name="__tabbed_12" type="radio" /><input id="边框border" name="__tabbed_12" type="radio" /><input id="外边距margin" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="内容区content">内容区content<a name='content'></a></label><label for="内边距padding">内边距padding<a name='padding'></a></label><label for="边框border">边框border<a name='border'></a></label><label for="外边距margin">外边距margin<a name='margin'></a></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:4"><input checked="checked" id="内容区content" name="__tabbed_13" type="radio" /><input id="内边距padding" name="__tabbed_13" type="radio" /><input id="边框border" name="__tabbed_13" type="radio" /><input id="外边距margin" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="内容区content">内容区content<a name='content'></a></label><label for="内边距padding">内边距padding<a name='padding'></a></label><label for="边框border">边框border<a name='border'></a></label><label for="外边距margin">外边距margin<a name='margin'></a></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2119,10 +2126,10 @@
 </ul>
 <div class="admonition info">
 <p class="admonition-title">css值复制关系</p>
-<p><div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>     ________________
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>     ↑      ↓       ↓
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    top   right  bottom   left
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>            ↓_______________↑
+<p><div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>     ________________
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>     ↑      ↓       ↓
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    top   right  bottom   left
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>            ↓_______________↑
 </span></code></pre></div>
 top先复制到right和bottom，然后right复制到left。
 当有两个值时，top → bottom，right → left，所以最终的属性为(上下，左右)
@@ -2142,8 +2149,8 @@ top先复制到right和bottom，然后right复制到left。
 </div>
 </li>
 <li>
-<p>块级元素、内联元素和盒模型</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="块级元素" name="__tabbed_13" type="radio" /><input id="内联元素" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="块级元素">块级元素<a name='block-element'></a></label><label for="内联元素">内联元素<a name='inline-element'></a></label></div>
+<p>块级元素、行内元素和盒模型</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="块级元素" name="__tabbed_14" type="radio" /><input id="行内元素" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="块级元素">块级元素<a name='block-element'></a></label><label for="行内元素">行内元素<a name='inline-element'></a></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2156,7 +2163,7 @@ top先复制到right和bottom，然后right复制到left。
 <li>没有宽、高，可定义左右两个方向的<code>margin</code></li>
 </ul>
 <div class="admonition info">
-<p>但是内联块元素（inline-block）是有宽和高属性的</p>
+<p>但是行内块元素（inline-block）是有宽和高属性的</p>
 </div>
 <ul>
 <li>默认从左到右排列，占据需要的位置</li>
@@ -2194,14 +2201,14 @@ top先复制到right和bottom，然后right复制到left。
 <li>属性值：<code>default（到边框）|padding-box（填充至内边距）|content-box（填充至内容区域）</code></li>
 </ul>
 </li>
+<li>
+<p><code>border-radius</code>可以为边框设置圆角(IE8-不支持)，四值顺序是左上、右上、右下、左下</p>
+</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">外边距重叠（margin collapsing）</p>
 <p>相邻块级元素的上外边距和下外边距有时会合并为一个外边距，其大小取其中的最大者</p>
 </div>
-<ul>
-<li><code>border-radius</code>可以为边框设置圆角(IE8-不支持)，四值顺序是左上、右上、右下、左下</li>
-</ul>
 <h3 id="语法详解布局">语法详解：布局</h3>
 <div class="admonition info">
 <p class="admonition-title">CSS页面布局过程</p>
@@ -2230,7 +2237,7 @@ top先复制到right和bottom，然后right复制到left。
 </li>
 <li>
 <p>position</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="14:4"><input checked="checked" id="静态定位positionstatic" name="__tabbed_14" type="radio" /><input id="固定定位positionfixed" name="__tabbed_14" type="radio" /><input id="相对定位positionrelative" name="__tabbed_14" type="radio" /><input id="绝对定位positionabsolute" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="静态定位positionstatic">静态定位<code>position:static</code></label><label for="固定定位positionfixed">固定定位<code>position:fixed</code></label><label for="相对定位positionrelative">相对定位<code>position:relative</code></label><label for="绝对定位positionabsolute">绝对定位<code>position:absolute</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:4"><input checked="checked" id="静态定位positionstatic" name="__tabbed_15" type="radio" /><input id="固定定位positionfixed" name="__tabbed_15" type="radio" /><input id="相对定位positionrelative" name="__tabbed_15" type="radio" /><input id="绝对定位positionabsolute" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="静态定位positionstatic">静态定位<code>position:static</code></label><label for="固定定位positionfixed">固定定位<code>position:fixed</code></label><label for="相对定位positionrelative">相对定位<code>position:relative</code></label><label for="绝对定位positionabsolute">绝对定位<code>position:absolute</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2321,7 +2328,7 @@ top先复制到right和bottom，然后right复制到left。
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月23日 20:42:20</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年9月11日 22:23:45</span>
       
         <br>
         创建日期:

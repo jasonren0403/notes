@@ -618,6 +618,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#--开放式的客户服务器结构ClientServer分成Web服务器服务器端Web浏览器客户端以及传输协议HTTP协议三个部分" class="md-nav__link">
+    - 开放式的客户/服务器结构（Client/Server），分成Web服务器（服务器端）、Web浏览器（客户端）以及传输协议（HTTP协议）三个部分。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#Web浏览器" class="md-nav__link">
     Web浏览器
   </a>
@@ -655,6 +662,26 @@
   <a href="#HTTP协议" class="md-nav__link">
     HTTP协议
   </a>
+  
+    <nav class="md-nav" aria-label="HTTP协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#HTTP报文" class="md-nav__link">
+    HTTP报文
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#HTTP包" class="md-nav__link">
+    HTTP包
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1144,11 +1171,9 @@
 
 <h1 id="Web的基本架构">Web的基本架构</h1>
 <h2 id="Web的基本架构_1">Web的基本架构</h2>
-<ul>
-<li>开放式的客户/服务器结构（Client/Server），分成Web服务器（服务器端）、Web浏览器（客户端）以及传输协议（HTTP协议）三个部分。</li>
-<li>用户通过Web客户端应用程序（即浏览器）向Web服务器发出请求，请求通过HTTP协议送到Web服务器；Web服务器根据客户端请求将保存在Web服务器中的某个页面通过HTTP协议返回给Web客户端；浏览器接收到页面后对其进行解释，最终将图文并茂的画面呈现给用户。</li>
-<li>URI解决资源定位问题，HTTP解决文档传输问题，HTML解决超文本文档的表示问题。</li>
-</ul>
+<h2 id="--开放式的客户服务器结构ClientServer分成Web服务器服务器端Web浏览器客户端以及传输协议HTTP协议三个部分">- 开放式的客户/服务器结构（Client/Server），分成Web服务器（服务器端）、Web浏览器（客户端）以及传输协议（HTTP协议）三个部分。</h2>
+<p>用户通过Web客户端应用程序（即浏览器）向Web服务器发出请求，请求通过HTTP协议送到Web服务器；Web服务器根据客户端请求将保存在Web服务器中的某个页面通过HTTP协议返回给Web客户端；浏览器接收到页面后对其进行解释，最终将图文并茂的画面呈现给用户。
+- URI解决资源定位问题，HTTP解决文档传输问题，HTML解决超文本文档的表示问题。</p>
 <h2 id="Web浏览器">Web浏览器</h2>
 <ul>
 <li>结构：用户界面、浏览器引擎、渲染引擎、网络、JS解释器、数据持久层<ul>
@@ -1201,8 +1226,7 @@
 </ul>
 <h3 id="统一资源定位符URL">统一资源定位符URL</h3>
 <ul>
-<li>标准格式
-    <code>协议类型:[//服务器地址[:端口号]][/资源层级UNIX文件路径]文件名[?查询][#片段ID]</code><ul>
+<li>标准格式（<code>协议类型:[//服务器地址[:端口号]][/资源层级UNIX文件路径]文件名[?查询][#片段ID]</code>）<ul>
 <li>查询：指请求的参数，一般是指URL中<code>?</code>后面的参数</li>
 <li>完整格式：<code>协议类型:[//[访问资源需要的凭证信息@]服务器地址[:端口号]][/ 资源层级UNIX文件路径]文件名[?查询][#片段ID]</code></li>
 </ul>
@@ -1231,16 +1255,13 @@
 <ul>
 <li>面向事务的应用层协议</li>
 <li>HTTP 1.0协议是无状态的，本身无连接</li>
-<li>
-<p>HTTP连接过程</p>
-<p><a class="glightbox" href="md-img/9.27-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="how to make HTTP connection" src="md-img/9.27-1.png" /></a></p>
-<ul>
-<li>过程描述：DNS查询 → 建立连接 → 发送请求 → 等待响应 → 加载资源 → 关闭连接</li>
-<li>Serial HTTP Connection vs Persistent HTTP Transactions：是否每次都需要三次握手连接</li>
+<li>HTTP连接过程</li>
 </ul>
-</li>
-<li>
-<p>HTTP报文</p>
+<p><a class="glightbox" href="md-img/9.27-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="how to make HTTP connection" src="md-img/9.27-1.png" /></a></p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code>- 过程描述：DNS查询 → 建立连接 → 发送请求 → 等待响应 → 加载资源 → 关闭连接
+- Serial HTTP Connection vs Persistent HTTP Transactions：是否每次都需要三次握手连接
+</code></pre></div>
+<h3 id="HTTP报文">HTTP报文</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="请求报文" name="__tabbed_1" type="radio" /><input id="响应报文" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="请求报文">请求报文</label><label for="响应报文">响应报文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1256,8 +1277,12 @@
 <p><a class="glightbox" href="md-img/9.27-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="response header structure" src="md-img/9.27-3.png" /></a></p>
 <p>报文由三个部分组成，即开始行、首部行和实体主体。在响应报文中，开始行就是状态行。</p>
 <ul>
-<li>版本：HTTP的版本</li>
-<li>状态码：1xx，2xx，3xx，4xx，5xx<ul>
+<li>
+<p>版本：HTTP的版本</p>
+</li>
+<li>
+<p>状态码：1xx，2xx，3xx，4xx，5xx</p>
+<ul>
 <li>1xx:表示通知信息，如请求收到了或正在进行处理</li>
 <li>2xx:表示成功，如接受或知道了</li>
 <li>3xx:表示重定向，表示要完成请求还必须采取进一步的行动</li>
@@ -1271,9 +1296,7 @@
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>HTTP包</p>
+<h3 id="HTTP包">HTTP包</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="HTTP请求包拆解" name="__tabbed_2" type="radio" /><input id="HTTP响应包拆解" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="HTTP请求包拆解">HTTP请求包拆解</label><label for="HTTP响应包拆解">HTTP响应包拆解</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1285,7 +1308,7 @@
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">Connection: keep-alive</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">Upgrade-Insecure-Requests: 1</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="err">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,_/_;q=0.8,application/signed-exchange;v=b3</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">Sec-Fetch-Site: none</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="err">Accept-Encoding: gzip, deflate, br</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="err">Accept-Language: zh-CN,zh;q=0.9</span>
@@ -1302,11 +1325,15 @@
 <li>上述请求意义为：请求URL：<code>/</code>（根目录）</li>
 </ul>
 </li>
-<li>HTTP协议版本号<ul>
+<li>
+<p>HTTP协议版本号</p>
+<ul>
 <li>上述请求意义为：HTTP版本：<code>1.1</code></li>
 <li>当前版本号：1.1（1997年发布）</li>
-<li>2015年时，HTTP 2.0发布，多路复用机制</li>
 </ul>
+</li>
+<li>
+<p>2015年时，HTTP 2.0发布，多路复用机制</p>
 </li>
 <li>Host<ul>
 <li>上述请求意义为：被请求的Internet主机为<code>www.bilibili.com</code>，端口号为缺省的（80）</li>
@@ -1393,15 +1420,13 @@
 </div>
 </div>
 </div>
-</li>
-</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年10月1日 09:47:11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年9月11日 22:23:45</span>
       
         <br>
         创建日期:

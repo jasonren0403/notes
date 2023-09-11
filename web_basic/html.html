@@ -1178,14 +1178,14 @@
 </ul>
 </li>
 <li>大小写不敏感</li>
-<li>可以嵌套
+<li>可以嵌套</li>
+</ul>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    some text.
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>some other text.
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></code></pre></div></li>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span> some text. <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    some other text.
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ul>
 <li>
 <p>属性</p>
 <ul>
@@ -1193,26 +1193,28 @@
 <p>键值对，用<code>=</code>连接
     <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;editor-note&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </span></code></pre></div></p>
-</li>
-<li>
-<p>布尔属性
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">disabled</span><span class="p">&gt;</span>
-</span></code></pre></div></p>
+<ul>
+<li>布尔属性
+    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">disabled</span> <span class="p">/&gt;</span>
+</span></code></pre></div></li>
+</ul>
 </li>
 </ul>
 </li>
 <li>
-<p>块级元素 vs 内联元素</p>
+<p>块级元素 vs 行级元素</p>
 <ul>
-<li>块级元素 <code>&lt;p&gt;</code> <code>&lt;h1&gt;-&lt;h6&gt;</code> <code>&lt;div&gt;</code> 列表和列表项 <code>&lt;form&gt;</code>等 会导致文本换行</li>
-<li>内联元素 <code>&lt;span&gt;</code> <code>&lt;img&gt;</code> <code>&lt;a&gt;</code>等 不会导致文本换行</li>
+<li>块级元素 <code>&lt;p&gt;</code> <code>&lt;h1&gt;-&lt;h6&gt;</code> <code>&lt;div&gt;</code> 列表和列表项 <code>&lt;form&gt;</code>等，会导致文本换行</li>
+<li>行级元素 <code>&lt;span&gt;</code> <code>&lt;img&gt;</code> <code>&lt;a&gt;</code>等，不会导致文本换行</li>
 </ul>
 </li>
 </ul>
 <h2 id="HTML文档结构">HTML文档结构</h2>
 <div class="admonition summary">
-<p>完整的HTML文档 = 文档声明 + html元素
-html元素 = head元素 + body元素</p>
+<ul>
+<li>完整的HTML文档 = 文档声明 + html元素</li>
+<li>html元素 = head元素 + body元素</li>
+</ul>
 </div>
 <h3 id="文档声明">文档声明</h3>
 <p>html5的文档声明为<code>&lt;!DOCTYPE html&gt;</code> 必须位于第一行</p>
@@ -1222,7 +1224,9 @@ html元素 = head元素 + body元素</p>
 <h3 id="html元素">html元素</h3>
 <ul>
 <li>包含了整个完整的页面，是一个根元素</li>
-<li>为文档设定主语言：<code>lang</code>属性<ul>
+<li>
+<p>为文档设定主语言：<code>lang</code>属性</p>
+<ul>
 <li>意义：方便搜索引擎索引</li>
 <li>可分段设置</li>
 <li>
@@ -1231,12 +1235,10 @@ html元素 = head元素 + body元素</p>
 <li>简体中文：zh-CN</li>
 <li>英文：en-US</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">lang code的组成</p>
-<p>一般的lang code的标识组成为<code>language-extlang-script-region-variant-extension-privateuse</code>，可以在https://<a href="http://www.w3.org/International/articles/language-tags/">www.w3.org/International/articles/language-tags/</a> 网站上了解到关于lang code的更多信息</p>
-</div>
 </li>
 </ul>
+<p>!!! tip "lang code的组成"
+      一般的lang code的标识组成为<code>language-extlang-script-region-variant-extension-privateuse</code>，可以在https://<a href="http://www.w3.org/International/articles/language-tags/">www.w3.org/International/articles/language-tags/</a> 网站上了解到关于lang code的更多信息</p>
 </li>
 </ul>
 <h4 id="head元素">head元素</h4>
@@ -1248,10 +1250,7 @@ html元素 = head元素 + body元素</p>
 <p><code>&lt;title&gt;</code>元素是唯一必需的元素，定义了网页标题</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>标题有三个地方：
-1. 定义浏览器工具栏中的标题
-2. 提供页面被添加到收藏夹时的标题
-3. 显示在搜索引擎结果中的页面标题</p>
+<p>标题有三个地方：1. 定义浏览器工具栏中的标题 2. 提供页面被添加到收藏夹时的标题 3. 显示在搜索引擎结果中的页面标题</p>
 </div>
 </li>
 <li>
@@ -1291,6 +1290,8 @@ html元素 = head元素 + body元素</p>
 </li>
 <li>
 <p><a name="apply-css-and-js-in-webpage"></a>在HTML中应用CSS和JavaScript</p>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1312,8 +1313,6 @@ html元素 = head元素 + body元素</p>
 </tr>
 </tbody>
 </table>
-</li>
-</ul>
 <h4 id="body元素">body元素</h4>
 <ol>
 <li>
@@ -1333,8 +1332,8 @@ html元素 = head元素 + body元素</p>
 <li>
 <p>文本格式化标签 <code>&lt;strong&gt;</code> <code>&lt;em&gt;</code>等</p>
 <ul>
-<li><strong>语义化</strong>：<code>&lt;b&gt;</code> → <code>&lt;strong&gt;</code> <code>&lt;i&gt;</code> → <code>&lt;em&gt;</code> <code>&lt;s&gt;</code> → <code>&lt;del&gt;</code> <code>&lt;u&gt;</code> → <code>&lt;ins&gt;</code></li>
-</ul>
+<li>
+<p><strong>语义化</strong>：<code>&lt;b&gt;</code> → <code>&lt;strong&gt;</code> <code>&lt;i&gt;</code> → <code>&lt;em&gt;</code> <code>&lt;s&gt;</code> → <code>&lt;del&gt;</code> <code>&lt;u&gt;</code> → <code>&lt;ins&gt;</code></p>
 <div class="admonition tip">
 <p class="admonition-title"><code>&lt;em&gt;</code>和<code>&lt;strong&gt;</code>的区别</p>
 <p>一个是粗体，一个是斜体，都表示强调。</p>
@@ -1350,12 +1349,14 @@ html元素 = head元素 + body元素</p>
 </div>
 </div>
 </li>
+</ul>
+</li>
 <li>
 <p>语义文本标签</p>
 <ul>
 <li>引用<ul>
 <li>块引用：<code>&lt;blockquote&gt; &lt;/blockquote&gt;</code><ul>
-<li>如果一个块级内容（一个段落、多个段落、一个列表等）从其他地方被引用，应该把它用<code>&lt;blockquote&gt;</code>元素包裹起来表示，并且在<code>cite</code>属性里用URL来指向引用的资源</li>
+<li>如果一个块级内容（一个段落、多个段落、一个列表等）从其他地方被引用，应该把它用 <code>&lt;blockquote&gt;</code> 元素包裹起来表示，并且在<code>cite</code>属性里用URL来指向引用的资源</li>
 <li>浏览器在渲染块引用时默认会增加缩进，作为引用的一个指示符</li>
 </ul>
 </li>
@@ -1413,36 +1414,23 @@ html元素 = head元素 + body元素</p>
 </ul>
 </li>
 <li>注释 <code>&lt;!--comments--&gt;</code></li>
-<li>特殊字符  &amp; → <code>&amp;amp;</code>   &lt; → <code>&amp;lt;</code>   <code>&gt;</code> → <code>&amp;gt;</code>   ' → <code>&amp;apos;</code>   " → <code>&amp;quot;</code> 空格 → <code>&amp;nbsp;</code></li>
+<li>特殊字符 &amp; → <code>&amp;amp;</code> &lt; → <code>&amp;lt;</code> <code>&gt;</code> → <code>&amp;gt;</code> ' → <code>&amp;apos;</code> " → <code>&amp;quot;</code> 空格 → <code>&amp;nbsp;</code></li>
 </ul>
 </li>
 <li>
 <p>列表</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="有序列表-ordered-listol" name="__tabbed_2" type="radio" /><input id="无序列表-unordered-listul" name="__tabbed_2" type="radio" /><input id="描述列表-description-listdl" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="有序列表-ordered-listol">有序列表 (ordered list)<code>&lt;ol&gt;</code></label><label for="无序列表-unordered-listul">无序列表 (unordered list)<code>&lt;ul&gt;</code></label><label for="描述列表-description-listdl">描述列表 (description list)<code>&lt;dl&gt;</code></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ul>
-<li>用于标记有序的一些项目</li>
-<li>设置编号：<code>start</code>属性</li>
-<li>列表倒计数：<code>reversed</code>属性</li>
-</ul>
-</div>
-<div class="tabbed-block">
-<p>用于标记无序的一些项目</p>
-</div>
-<div class="tabbed-block">
-<p>内部元素：<code>&lt;dt&gt;</code>列表项 <code>&lt;dd&gt;</code>列表内容</p>
-</div>
-</div>
-</div>
-<div class="admonition summary">
-<p class="admonition-title">无序列表和有序列表的一些fact</p>
-<ol>
-<li><code>&lt;ol&gt;</code>和<code>&lt;ul&gt;</code>内部一般有且仅有<code>&lt;li&gt;</code></li>
-<li><code>&lt;ol&gt;</code>和<code>&lt;ul&gt;</code>可以相互嵌套</li>
-<li>以后，可以用css：<a href="css.html#list-style">list-style-type</a>属性代替<code>type</code>属性</li>
-</ol>
-</div>
+<p>=== "有序列表 (ordered list)<code>&lt;ol&gt;</code>" 
+     - 用于标记有序的一些项目 
+     - 设置编号：<code>start</code>属性 
+     - 列表倒计数：<code>reversed</code>属性</p>
+<p>=== "无序列表 (unordered list)<code>&lt;ul&gt;</code>"
+     用于标记无序的一些项目</p>
+<p>=== "描述列表 (description list)<code>&lt;dl&gt;</code>"
+     内部元素：<code>&lt;dt&gt;</code>列表项 <code>&lt;dd&gt;</code>列表内容</p>
+<p>!!! summary "无序列表和有序列表的一些fact" 
+     1. <code>&lt;ol&gt;</code>和<code>&lt;ul&gt;</code>内部一般有且仅有<code>&lt;li&gt;</code> 
+     2. <code>&lt;ol&gt;</code>和<code>&lt;ul&gt;</code>可以相互嵌套
+     3. 以后，可以用css：<a href="css.html#list-style">list-style-type</a>属性代替<code>type</code>属性</p>
 </li>
 <li>
 <p>表格</p>
@@ -1464,7 +1452,7 @@ html元素 = head元素 + body元素</p>
 </li>
 <li>
 <p>多媒体和嵌入</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="图片" name="__tabbed_3" type="radio" /><input id="视频" name="__tabbed_3" type="radio" /><input id="音频" name="__tabbed_3" type="radio" /><input id="嵌入" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="图片"><a name="html-pic"></a>图片</label><label for="视频"><a name="html-video"></a>视频</label><label for="音频"><a name="html-audio"></a>音频</label><label for="嵌入"><a name="html-embedding"></a>嵌入</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="图片" name="__tabbed_2" type="radio" /><input id="视频" name="__tabbed_2" type="radio" /><input id="音频" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="图片"><a name="html-pic"></a>图片</label><label for="视频"><a name="html-video"></a>视频</label><label for="音频"><a name="html-audio"></a>音频</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1551,21 +1539,22 @@ html元素 = head元素 + body元素</p>
 </ul>
 </li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">更进一步——为音视频添加字幕</p>
-<p>使用<code>&lt;track&gt;</code>标签，将其放置在<code>&lt;audio&gt;</code> 或<code>&lt;video&gt;</code>之间，<code>&lt;source&gt;</code>标签之后，用<code>kind</code>属性指定类型，链接vtt文件，用<code>srclang</code>属性告诉浏览器所用语言</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">&lt;</span><span class="nt">track</span> <span class="na">kind</span><span class="o">=</span><span class="s">&quot;subtitles&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;subtitles_en.vtt&quot;</span> <span class="na">srclang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
-</span></code></pre></div>
-<ol>
-<li><code>vtt</code>文件包含了一个音视频的字幕信息</li>
-</ol>
 </div>
 </div>
+</div>
+<p>!!! tip "更进一步——为音视频添加字幕"
+       使用<code>&lt;track&gt;</code>标签，将其放置在<code>&lt;audio&gt;</code> 或<code>&lt;video&gt;</code>之间，<code>&lt;source&gt;</code>标签之后，用<code>kind</code>属性指定类型，链接vtt文件，用<code>srclang</code>属性告诉浏览器所用语言</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code>   ```html
+   &lt;track kind=&quot;subtitles&quot; src=&quot;subtitles_en.vtt&quot; srclang=&quot;en&quot;&gt; &lt;!-- (1) --&gt;
+   ```
+
+   1. `vtt`文件包含了一个音视频的字幕信息
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="嵌入" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="嵌入"><a name="html-embedding"></a>嵌入</label></div>
+<div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
-<li>
-<p><code>&lt;iframe&gt;</code>标签</p>
-<ul>
+<li><code>&lt;iframe&gt;</code>标签<ul>
 <li>属性<ul>
 <li><code>src</code>：要嵌入文档的路径</li>
 <li><code>width</code>和<code>height</code>：框架的宽度和高度</li>
@@ -1579,17 +1568,17 @@ html元素 = head元素 + body元素</p>
 </li>
 </ul>
 </li>
-<li>
-<p><code>&lt;embed&gt;</code>和<code>&lt;object&gt;</code>标签</p>
+</ul>
+</div>
+</div>
+</div>
 <ul>
+<li><code>&lt;embed&gt;</code>和<code>&lt;object&gt;</code>标签<ul>
 <li>嵌入多种类型的外部内容的通用嵌入工具</li>
 <li><code>&lt;embed&gt;</code> 使用<code>src</code>作为资源地址，<code>&lt;object&gt;</code> 使用的是<code>data</code></li>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-</div>
 </li>
 <li>
 <p>超链接</p>
@@ -1633,26 +1622,40 @@ html元素 = head元素 + body元素</p>
 <ul>
 <li>实现用户和web应用的交互，HTML控制内容，CSS控制样式</li>
 <li>
-<p>语法
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;action_page_path&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="err">[</span><span class="na">method</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">accept-charset</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">novalidate</span><span class="err">]</span><span class="p">&gt;</span>
-</span></code></pre></div></p>
+<p>语法</p>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">form</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="na">action</span><span class="o">=</span><span class="s">&quot;action_page_path&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="na">name</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="err">[</span><span class="na">method</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="na">target</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="na">accept-charset</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="na">novalidate</span><span class="err">]</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></code></pre></div>
 <ul>
 <li>
 <p>属性</p>
 <ul>
 <li>action：表单提交到哪个地址，谁来处理</li>
 <li>name：为表单命名，以区分不同的表单</li>
-<li>method：使用哪一种HTTP提交方法发送数据，取值为GET或POST</li>
-</ul>
+<li>
+<p>method：使用哪一种HTTP提交方法发送数据，取值为GET或POST</p>
 <div class="admonition info">
 <p class="admonition-title">GET vs POST</p>
 <ul>
-<li>GET通过URL提交数据，表单数据可见<code>http://someweb/?param1=a&amp;param2=b&amp;...</code>，提交数据量受浏览器和web服务器限制（URL长度相关）</li>
+<li>GET通过URL提交数据，表单数据可见 <code>http://someweb/?param1=a&amp;param2=b&amp;...</code><ul>
+<li>提交数据量受浏览器和web服务器限制（URL长度相关）</li>
+</ul>
+</li>
 <li>POST通过表单数据提交，数据在URL中不可见</li>
 </ul>
 </div>
-<ul>
-<li>target：等价于<code>&lt;a&gt;</code>元素</li>
+</li>
+<li>
+<p>target：等价于<code>&lt;a&gt;</code>元素</p>
+</li>
 <li>accept-charset：服务器处理表单数据所接受的字符集</li>
 <li>enctype：提交内容编码方式（默认url编码，空格变加号，特殊符号变ASCII hex值）</li>
 <li>autocomplete：是否根据用户之前输入的值自动补全</li>
@@ -1667,49 +1670,63 @@ html元素 = head元素 + body元素</p>
 <li>
 <p><code>&lt;input type="xx"&gt;</code>元素</p>
 <ul>
-<li>
-<p>文本框text <input type="text" value="I can see it" style="border:0.5px solid #378888">
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;默认文字&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;文本框长度&quot;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;最多输入字符数&quot;</span><span class="p">&gt;</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>密码文本框password <input type="password" value="Can you see me?" style="border:0.5px solid #378888">
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;默认文字&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;文本框长度&quot;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;最多输入字符数&quot;</span><span class="p">&gt;</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>单选按钮radio  <input type="radio" name="group" value="1" checked>
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;所在组名&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;取值&quot;</span> <span class="err">[</span><span class="na">checked</span><span class="err">]</span><span class="p">&gt;</span>
-</span></code></pre></div></p>
-</li>
+<li>文本框text <input type="text" value="I can see it" style="border:0.5px solid #378888"></li>
 </ul>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">input</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="na">value</span><span class="o">=</span><span class="s">&quot;默认文字&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="na">size</span><span class="o">=</span><span class="s">&quot;文本框长度&quot;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;最多输入字符数&quot;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p>密码文本框password <input type="password" value="Can you see me?" style="border:0.5px solid #378888"></p>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">input</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="na">value</span><span class="o">=</span><span class="s">&quot;默认文字&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="na">size</span><span class="o">=</span><span class="s">&quot;文本框长度&quot;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;最多输入字符数&quot;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>单选按钮radio <input type="radio" name="group" value="1" checked>
+    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;所在组名&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;取值&quot;</span> <span class="err">[</span><span class="na">checked</span><span class="err">]</span> <span class="p">/&gt;</span>
+</span></code></pre></div></p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>同一组按钮要给定相同的<code>name</code>值</p>
 </div>
-<ul>
+</li>
 <li>
-<p>复选框checkbox  <input type="checkbox" value="value" name="group2" checked="checked"/>
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;复选框取值&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;所在组名&quot;</span> <span class="na">checked</span><span class="err">[=&quot;</span><span class="na">checked</span><span class="err">&quot;]</span> <span class="p">/&gt;</span>
-</span></code></pre></div></p>
+<p>复选框checkbox <input type="checkbox" value="value" name="group2" checked="checked"/></p>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">input</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="na">value</span><span class="o">=</span><span class="s">&quot;复选框取值&quot;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="na">name</span><span class="o">=</span><span class="s">&quot;所在组名&quot;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="na">checked</span><span class="err">[=&quot;</span><span class="na">checked</span><span class="err">&quot;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="err">]</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>复选框的文本要加入<code>&lt;label&gt;</code>标签，用<code>for</code>指向该复选框的<code>id</code> (<code>label for="xx"</code>)</p>
 </div>
 </li>
 <li>
-<p>文件选择器 <input type="file" name="file" id="file" accept="image/*" multiple>
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;accept-file-mime&quot;</span> <span class="err">&lt;!</span><span class="na">--</span> <span class="err">(</span><span class="na">1</span><span class="err">)</span> <span class="na">--</span><span class="p">&gt;</span> multiple <span class="cm">&lt;!-- (2) --&gt;</span> &gt;
-</span></code></pre></div></p>
+<p>文件选择器 <input type="file" name="file" id="file" accept="image/*" multiple></p>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;accept-file-mime&quot;</span> <span class="err">&lt;!</span><span class="na">--</span> <span class="err">(</span><span class="na">1</span><span class="err">)</span> <span class="na">--</span><span class="p">&gt;</span> multiple <span class="cm">&lt;!-- (2) --&gt;</span> &gt;
+</span></code></pre></div>
 <ol>
 <li>接受文件类型</li>
 <li>可选多个文件</li>
 </ol>
 </li>
 <li>
-<p>隐藏内容
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;x&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;y&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;z&quot;</span><span class="p">&gt;</span>
-</span></code></pre></div></p>
+<p>隐藏内容</p>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;x&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;y&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;z&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div>
 <ul>
 <li>要求某些数据一同提交给服务器，但不显示给用户</li>
 </ul>
@@ -1738,9 +1755,9 @@ html元素 = head元素 + body元素</p>
 </div>
 </li>
 <li>
-<p>图片域image
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;path/to/image&quot;</span> <span class="p">/&gt;</span>
-</span></code></pre></div></p>
+<p>图片域image</p>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;path/to/image&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div>
 <ul>
 <li>增加了鼠标点击图片时的相对焦点坐标</li>
 </ul>
@@ -1748,9 +1765,9 @@ html元素 = head元素 + body元素</p>
 </ul>
 </li>
 <li>
-<p>多行文本输入：<code>&lt;textarea&gt;</code>元素
-    <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">rows</span><span class="o">=</span><span class="s">&quot;行数&quot;</span> <span class="na">cols</span><span class="o">=</span><span class="s">&quot;列数&quot;</span><span class="p">&gt;</span>多行文本框内容<span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
-</span></code></pre></div></p>
+<p>多行文本输入：<code>&lt;textarea&gt;</code>元素</p>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">rows</span><span class="o">=</span><span class="s">&quot;行数&quot;</span> <span class="na">cols</span><span class="o">=</span><span class="s">&quot;列数&quot;</span><span class="p">&gt;</span>多行文本框内容<span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</span></code></pre></div>
 <ul>
 <li><code>wrap</code>属性：控件如何包装文本</li>
 </ul>
@@ -1772,12 +1789,14 @@ html元素 = head元素 + body元素</p>
 <li><code>&lt;datalist&gt;</code>配合<code>&lt;input&gt;</code>的<code>list</code>属性，datalist中每一个option项为待选输入</li>
 </ul>
 <blockquote>
-<p><code>datalist</code> 的 <code>id</code> 要对应于 <code>input</code> 的 <code>list</code>
-        - fieldset和legend：控件组及其描述
-        - label：设置标签
-<code>input id="xx"</code> 要对应于 <code>label for="xx"</code></p>
+<p><code>datalist</code> 的 <code>id</code> 要对应于 <code>input</code> 的 <code>list</code></p>
 </blockquote>
 </li>
+<li>
+<p>fieldset和legend：控件组及其描述</p>
+</li>
+<li>label：设置标签
+    &gt; <code>input id="xx"</code> 要对应于 <code>label for="xx"</code></li>
 </ul>
 </li>
 </ul>
@@ -1797,7 +1816,7 @@ html元素 = head元素 + body元素</p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年11月23日 20:42:20</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年9月11日 22:23:45</span>
       
         <br>
         创建日期:
