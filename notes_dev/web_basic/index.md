@@ -1,10 +1,11 @@
 ---
 tags:
-  - Web前端基础
+    - Web前端基础
 comments: true
 ---
-Web开发技术基础——引入
-===
+
+# Web开发技术基础——引入
+
 推荐网上资源：
 
 1. [绿叶学习网](http://www.lvyestudy.com) ← 参考书配套学习网站
@@ -12,7 +13,9 @@ Web开发技术基础——引入
 3. [在线工具](https://www.runoob.com)
 
 ## 万维网 互联网
+
 - 万维网之父：Tim Berners-Lee
+
     - 知识互联
     - HTTP 0.9，HTML
 
