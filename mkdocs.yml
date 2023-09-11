@@ -128,7 +128,7 @@ theme:
     - navigation.indexes
     - navigation.top
     - navigation.footer
-    - navigation.expand
+    - navigation.prune
     - navigation.tracking
     - navigation.instant
     - navigation.path  # insiders
@@ -182,13 +182,14 @@ extra:
       嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的<a href="https://www.jason0743.space/#/privacy" target="_blank">网站</a>。
 plugins:
   - search:
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      separator: '[\s\u200b\-]'
   - glightbox
 #  - typeset  # insiders
 #  - meta  # insiders
   - social:
       cards: !ENV [CARDS, false]
-      cards_font: Noto Sans SC  # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
+      cards_layout_options:
+        font_family: Noto Sans SC  # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
   - tags:
       tags_file: tags.md
   - git-revision-date-localized:
