@@ -1,10 +1,10 @@
 ---
 tags:
-  - 编程语言
-  - Java
+    - 编程语言
+    - Java
 ---
-事件处理
-===
+
+# 事件处理
 
 ```mermaid
 ---
@@ -31,8 +31,9 @@ classDiagram
 
 ## 事件处理基础
 
-* 注册监听器对象：`void addXXXListener(XXXListener listener)`
-    - 监听器对象所属的类必须实现相应接口
+-   注册监听器对象：`void addXXXListener(XXXListener listener)`
+
+    -   监听器对象所属的类必须实现相应接口
 
         ```java
         class xxx implements ActionListener{
@@ -43,9 +44,10 @@ classDiagram
         }
         ```
 
-* 监听器类的使用
-    - 事件监听器类通常只在一个类中使用，因此可以将其定义为内部类
-    - 事件监听器类通常只有一个方法，因此可以使用匿名类
+-   监听器类的使用
+
+    -   事件监听器类通常只在一个类中使用，因此可以将其定义为内部类
+    -   事件监听器类通常只有一个方法，因此可以使用匿名类
 
         ```java
         void makeButton(String name, final Color bgColor){
@@ -56,8 +58,8 @@ classDiagram
             });
         }
         ```
-      
-* 组件作为事件监听器：`addActionListener(this)`
+
+-   组件作为事件监听器：`addActionListener(this)`
 
 !!! tip "如何知道事件源"
     ```java
@@ -89,7 +91,7 @@ classDiagram
 
 ```java title="匿名适配器类"
 frame.addWindowListener(
-    new WindowAdapater(){
+    new WindowAdapter(){
         public void windowClosing(WindowEvent event){
             System.exit(0);
         }
@@ -129,12 +131,12 @@ classDiagram
     }
 ```
 
-* key 的常用取值
-    - `Action.NAME`：动作的名称
-    - `Action.SHORT_DESCRIPTION`：动作的简短描述
-    - `Action.SMALL_ICON`：动作的图标
-    - `Action.MNEUMONIC_KEY`：动作的助记符（快捷键）
-* 利用一个实现了 `Action` 接口的对象，可以实例化按钮、菜单项等
+-   key 的常用取值
+    -   `Action.NAME`：动作的名称
+    -   `Action.SHORT_DESCRIPTION`：动作的简短描述
+    -   `Action.SMALL_ICON`：动作的图标
+    -   `Action.MNEUMONIC_KEY`：动作的助记符（快捷键）
+-   利用一个实现了 `Action` 接口的对象，可以实例化按钮、菜单项等
 
 ### 动作与击键关联
 
@@ -173,9 +175,9 @@ classDiagram
 
 虚拟键码 `VK_<key>`
 
-* 得到键码：`getCode()`
-* 判断是否按下相应键：`isShiftDown()`、`isControlDown()`、`isAltDown()`
-* 得到实际字符：`getKeyChar()`
+-   得到键码：`getCode()`
+-   判断是否按下相应键：`isShiftDown()`、`isControlDown()`、`isAltDown()`
+-   得到实际字符：`getKeyChar()`
 
 ### 鼠标事件
 
@@ -208,10 +210,10 @@ classDiagram
 
 #### 设置光标
 
-* java.awt.Component：`setCursor(Cursor cursor)`
-* java.awt.Cursor
-    - `static Cursor getPredefinedCursor(int type)`
-    - `static Cursor getDefaultCursor()`
+-   java.awt.Component：`setCursor(Cursor cursor)`
+-   java.awt.Cursor
+    -   `static Cursor getPredefinedCursor(int type)`
+    -   `static Cursor getDefaultCursor()`
 
 !!! summary "常用光标类型"
     - `Cursor.DEFAULT_CURSOR`

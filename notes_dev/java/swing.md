@@ -1,10 +1,10 @@
 ---
 tags:
-  - 编程语言
-  - Java
+    - 编程语言
+    - Java
 ---
-Swing 用户界面组件
-===
+
+# Swing 用户界面组件
 
 每个组件有三个要素：内容、外观、行为
 
@@ -27,8 +27,8 @@ frame.add(new JButton("East"), BorderLayout.EAST);
 frame.add(new JButton("West"), BorderLayout.WEST);
 ```
 
-* 边框布局会扩展所有组件的尺寸以便填满可用空间
-* 可能需要一个中间容器来把多个组件放在同一部分
+-   边框布局会扩展所有组件的尺寸以便填满可用空间
+-   可能需要一个中间容器来把多个组件放在同一部分
 
 ### 流布局
 
@@ -50,6 +50,7 @@ GridLayout(int rows, int cols[, int hgap, int vgap])
 将容器按行列平均划分。从第一行第一列开始，由左至右，由上至下添加组件
 
 ## 文本输入
+
 ```mermaid
 classDiagram
     JTextField <|-- JPasswordField
@@ -75,13 +76,13 @@ classDiagram
     }
 ```
 
-* 标签和标签组件 JLabel
-    - `JLabel(String text[, int horizontalAlignment])`
-* 文本区
-    - 单行文本输入 `JTextField(String text[, int columns])`
-    - 多行文本输入 `JTextArea(String text[, int rows, int columns])`
-* 密码域 JPasswordField
-    - `JPasswordField(String text[, int columns])`
+-   标签和标签组件 JLabel
+    -   `JLabel(String text[, int horizontalAlignment])`
+-   文本区
+    -   单行文本输入 `JTextField(String text[, int columns])`
+    -   多行文本输入 `JTextArea(String text[, int rows, int columns])`
+-   密码域 JPasswordField
+    -   `JPasswordField(String text[, int columns])`
 
 ## 选择组件
 
@@ -168,7 +169,7 @@ m1.add(mi1);
 m1.addActionListener(new MenuListener(){
     public void actionPerformed(ActionEvent e){
         // 判断 e.getActionCommand() 的值
-    }    
+    }
 })
 ```
 
@@ -200,12 +201,12 @@ JSlider slider = new JSlider(int direction, int min, int max, int initialValue);
 // 垂直滚动条：direction = SwingConstants.VERTICAL
 ```
 
-* 获取当前值 `getValue()`
-* 设置显示标尺 `setPaintTicks(boolean b)`
-    - 标记值 `setMajorTickSpacing(int n)`
-    - 次标记值 `setMinorTickSpacing(int n)`
-* 设置显示标签 `setPaintLabels(boolean b)`
-* 强制对齐 `setSnapToTicks(boolean b)`
+-   获取当前值 `getValue()`
+-   设置显示标尺 `setPaintTicks(boolean b)`
+    -   标记值 `setMajorTickSpacing(int n)`
+    -   次标记值 `setMinorTickSpacing(int n)`
+-   设置显示标签 `setPaintLabels(boolean b)`
+-   强制对齐 `setSnapToTicks(boolean b)`
 
 ### 弹出式菜单 JPopupMenu
 
@@ -249,22 +250,22 @@ exitAction.putValue(Action.SHORT_DESCRIPTION, "Exit");
 
 #### JOptionPane
 
-* 对话框类型（静态方法）
-    - 显示消息并等待用户点击 OK：`showMessageDialog()
-        * 无返回值
-    - 显示消息并等待用户点击 OK 或 Cancel：`showConfirmDialog()`
-        * 返回表示被选项的整数
-        * 底部允许的按钮类型有 `DEFAULT_OPTION`、`YES_NO_OPTION`、`YES_NO_CANCEL_OPTION`、`OK_CANCEL_OPTION` 四种
-    - 显示消息并等待用户输入字符串：`showInputDialog()`
-        * 返回用户输入的字符串
-    - 显示消息并等待用户在一组选项的选择：`showOptionDialog()`
-        * 返回表示被选项的整数
-* 图标类型
-    - `ERROR_MESSAGE`
-    - `INFORMATION_MESSAGE`
-    - `WARNING_MESSAGE`
-    - `QUESTION_MESSAGE`
-    - `PLAIN_MESSAGE`，无图标
+-   对话框类型（静态方法）
+    -   显示消息并等待用户点击 OK：`showMessageDialog()
+        -   无返回值
+    -   显示消息并等待用户点击 OK 或 Cancel：`showConfirmDialog()`
+        -   返回表示被选项的整数
+        -   底部允许的按钮类型有 `DEFAULT_OPTION`、`YES_NO_OPTION`、`YES_NO_CANCEL_OPTION`、`OK_CANCEL_OPTION` 四种
+    -   显示消息并等待用户输入字符串：`showInputDialog()`
+        -   返回用户输入的字符串
+    -   显示消息并等待用户在一组选项的选择：`showOptionDialog()`
+        -   返回表示被选项的整数
+-   图标类型
+    -   `ERROR_MESSAGE`
+    -   `INFORMATION_MESSAGE`
+    -   `WARNING_MESSAGE`
+    -   `QUESTION_MESSAGE`
+    -   `PLAIN_MESSAGE`，无图标
 
 #### JDialog
 
@@ -286,7 +287,7 @@ chooser.setCurrentDirectory(new File(".")); // 设置当前目录
 chooser.setSelectedFile(new File("test.txt")); // 设置默认文件名
 // chooser.setMultiSelectionEnabled(true); // 允许多选
 // chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); // 只允许选择目录
-int result = chooser.showOpenDialog(parent); // 显示对话框 
+int result = chooser.showOpenDialog(parent); // 显示对话框
 // 或 chooser.showDialog(parent, "Select")
 String filename = chooser.getSelectedFile().getPath(); // 获取用户选择的文件名
 chooser.setFileFilter(new FileNameExtensionFilter("Image files", "jpg", "gif", "png")); // 设置文件过滤器
@@ -299,7 +300,7 @@ Color selected = JColorChooser.showDialog(parent, title, initialColor);
 // 或无模式对话框
 chooser = new JColorChooser();
 dialog = JColorChooser.createDialog(
-        parent, 
+        parent,
         "Background Color",
         false,
         chooser,

@@ -1,10 +1,10 @@
 ---
 tags:
-  - 编程语言
-  - Java
+    - 编程语言
+    - Java
 ---
-Java 面向对象特性
-===
+
+# Java 面向对象特性
 
 !!! summary "面向对象程序设计（OOP）"
     使用类、对象、继承、封装、消息等进行程序设计。
@@ -29,46 +29,46 @@ Java 面向对象特性
 }
 ```
 
-* `abstract`：抽象类，不能实例化，只能作为其他类的父类
-* `final`：最终类，不能被继承（重写）
-* `extends`：继承，只能单继承
-* `implements`：实现接口，可多实现
+-   `abstract`：抽象类，不能实例化，只能作为其他类的父类
+-   `final`：最终类，不能被继承（重写）
+-   `extends`：继承，只能单继承
+-   `implements`：实现接口，可多实现
 
 ### 类体
 
-* 成员变量：`[public|private|protected] [static] [final] [transient] [votalie] type varName [= value];`
-    - `static`：静态变量，也叫类变量/实例变量
-    - `final`：常量，只能被赋值一次
-    - `transient`：瞬态变量，不会被序列化
-    - `votalie`：易变变量，多线程中保证变量的同步
-* 成员方法：`[public|private|protected] [static] [final|abstract] [synchronized] [native] [strictfp] [returnType] methodName([paramList]) [throws exceptionList] { // ... }`
-    - `static`：静态方法，也叫类方法，可通过类名调用
-    - `final`：方法不可被重写
-    - `abstract`：抽象方法，只有声明，没有实现
-    - `native`：集成其他语言的代码（多为 C 或 C++）
-    - `synchoronized`：同步方法，多线程中保证方法的同步
-* 继承：特殊类拥有一般类的全部属性和服务
+-   成员变量：`[public|private|protected] [static] [final] [transient] [votalie] type varName [= value];`
+    -   `static`：静态变量，也叫类变量/实例变量
+    -   `final`：常量，只能被赋值一次
+    -   `transient`：瞬态变量，不会被序列化
+    -   `votalie`：易变变量，多线程中保证变量的同步
+-   成员方法：`[public|private|protected] [static] [final|abstract] [synchronized] [native] [strictfp] [returnType] methodName([paramList]) [throws exceptionList] { // ... }`
+    -   `static`：静态方法，也叫类方法，可通过类名调用
+    -   `final`：方法不可被重写
+    -   `abstract`：抽象方法，只有声明，没有实现
+    -   `native`：集成其他语言的代码（多为 C 或 C++）
+    -   `synchoronized`：同步方法，多线程中保证方法的同步
+-   继承：特殊类拥有一般类的全部属性和服务
 
 ### 对象（object）
 
-* Java 使用构造函数构造实例，可以将其传递给方法
+-   Java 使用构造函数构造实例，可以将其传递给方法
 
     !!! tip ""
         Date 类的构造器名为 `Date()`，要新建一个 `Date` 类对象，使用 `#!java new Date();`
 
-* 对象变量：引用一个对象
-    * `Date birthday;`，现在 birthday 为 `null`
-    * `Date birthday = new Date();`
+-   对象变量：引用一个对象
+    -   `Date birthday;`，现在 birthday 为 `null`
+    -   `Date birthday = new Date();`
 
 ### 设计自己的类
 
-* 构造函数（总伴随 `new` 一起使用）
-    - 其名字必须与类名相同
-    - 没有返回值
-* 成员变量
-    - 通常使用 `private` 访问控制（只有所属类自身的方法可以访问）
-* 隐式参数和显式参数
-    ```java 
+-   构造函数（总伴随 `new` 一起使用）
+    -   其名字必须与类名相同
+    -   没有返回值
+-   成员变量
+    -   通常使用 `private` 访问控制（只有所属类自身的方法可以访问）
+-   隐式参数和显式参数
+    ```java
     public void raiseSalary(double byPercent){
         double raise = salary * byPercent / 100;
         // salary == this.salary 被当前调用对象取代
@@ -76,22 +76,22 @@ Java 面向对象特性
     }
     number007.raiseSalary(5); // 隐式参数为 number007，显式参数为 5
     ```
-* 封装
-    - 实例域
-        * 私有的数据域
-        * 公有的域访问器方法 `getxxx() {return xxx;}`
-        * 公有的域更改器方法 `setxxx(a) {this.xxx=a;}`
-* 可以将实例域定义为 `final`，操作如同定义常量
-* 用 `static` 关键字声明类变量和类方法，若不这样做，则为实例变量和实例方法
-* 方法参数：值传递
-    - 不能修改基本数据类型的参数
-    - 不能让对象参数引用一个新的参数
-    - 可以改变对象参数的状态
-* 重载：多个方法享有相同的名字，不同的参数
-* 构造器
-    - 默认为无参构造器，若没有编写构造器，则系统会提供这样的构造器
-    - 实例域初始化：声明式赋值，构造方法中赋值，初始化块中赋值
-    - 调用另一个构造器：`this(...)`，需要是构造器中第一条语句
+-   封装
+    -   实例域
+        -   私有的数据域
+        -   公有的域访问器方法 `getxxx() {return xxx;}`
+        -   公有的域更改器方法 `setxxx(a) {this.xxx=a;}`
+-   可以将实例域定义为 `final`，操作如同定义常量
+-   用 `static` 关键字声明类变量和类方法，若不这样做，则为实例变量和实例方法
+-   方法参数：值传递
+    -   不能修改基本数据类型的参数
+    -   不能让对象参数引用一个新的参数
+    -   可以改变对象参数的状态
+-   重载：多个方法享有相同的名字，不同的参数
+-   构造器
+    -   默认为无参构造器，若没有编写构造器，则系统会提供这样的构造器
+    -   实例域初始化：声明式赋值，构造方法中赋值，初始化块中赋值
+    -   调用另一个构造器：`this(...)`，需要是构造器中第一条语句
 
 ## 继承（inheritance）
 
@@ -132,8 +132,8 @@ public double getSalary(){
     * 不能直接访问超类的 `salary` 域，因为它是私有（`private`）的
     * 不能使用子类的 `getSalary()`，会无限次循环调用自己
 
-* （JDK 5.0 以后）新方法的返回类型可以是原方法返回类型的子类型
-* 覆盖方法的可见性不能低于原方法的可见性，签名（方法名+参数列表）必须和原方法相同
+-   （JDK 5.0 以后）新方法的返回类型可以是原方法返回类型的子类型
+-   覆盖方法的可见性不能低于原方法的可见性，签名（方法名+参数列表）必须和原方法相同
 
 !!! summary "可见性"
     * `public`：所有类可见
@@ -180,7 +180,7 @@ classDiagram
     yyy <|-- xxx
 ```
 
-```java 
+```java
 public final class xxx [extends yyy]
 ```
 
@@ -196,33 +196,33 @@ public final class xxx [extends yyy]
 
 所有的类都是 `Object` 的子类
 
-* `equals` 方法
+-   `equals` 方法
 
     ```java
     public boolean equals(Object obj){
         return this===obj; // (1)
-    } 
+    }
     ```
 
     1. 判断两个对象是否有相同的引用
 
     !!! summary "改写 equals 方法"
 
-        === "超类中改写"
+          === "超类中改写"
 
-            ```java
-            public boolean equals(Object obj){
-                if (this == obj) return true;
-                if (obj == null) return false;
-                if (getClass() != obj.getClass()) return false;
-                // (1)
-            }
-            ```
-            
-            1. 以下强制类型转换后比较实例域，基本类型 `==`，对象域使用 `equals`
+              ```java
+              public boolean equals(Object obj){
+                  if (this == obj) return true;
+                  if (obj == null) return false;
+                  if (getClass() != obj.getClass()) return false;
+                  // (1)
+              }
+              ```
 
-        === "子类中改写"
-            先调用超类的 `equals`，若相等，则比较子类实例域
+              1. 以下强制类型转换后比较实例域，基本类型 `==`，对象域使用 `equals`
+
+          === "子类中改写"
+              先调用超类的 `equals`，若相等，则比较子类实例域
 
     !!! summary "equals 应具有的性质"
         * 自反性：`x.equals(x)` 为 `true`
@@ -231,11 +231,11 @@ public final class xxx [extends yyy]
         * 一致性：如果没有修改所使用的信息，则多次调用 `x.equals(y)` 都应该返回相同的结果
         * 非空性：`x.equals(null)` 应该返回 `false`
 
-* `hashCode` 方法
-    - `x.equals(y)` 为 `true`，则 `x.hashCode() == y.hashCode()` 为 `true`
-* `toString` 方法
-    - 返回对象的字符串表示
-    - 为方便调试，建议重写
+-   `hashCode` 方法
+    -   `x.equals(y)` 为 `true`，则 `x.hashCode() == y.hashCode()` 为 `true`
+-   `toString` 方法
+    -   返回对象的字符串表示
+    -   为方便调试，建议重写
 
 ### 泛型程序设计
 
@@ -263,17 +263,17 @@ classDiagram
 
 ### 对象包装器和自动装箱
 
-* 对象包装器：简单数据类型的包装类
-    - `Integer`、`Double`、`Character`、`Boolean`、`Byte`、`Short`、`Long`、`Float`、`Void`
-    - 不可变，不可定义子类
-* 自动装箱：自动将简单数据类型转换为包装器类型
-    - 如 `list.add(3);` 等效于 `#!java list.add(new Integer(3));`
+-   对象包装器：简单数据类型的包装类
+    -   `Integer`、`Double`、`Character`、`Boolean`、`Byte`、`Short`、`Long`、`Float`、`Void`
+    -   不可变，不可定义子类
+-   自动装箱：自动将简单数据类型转换为包装器类型
+    -   如 `list.add(3);` 等效于 `#!java list.add(new Integer(3));`
 
 ### 可变参数
 
 参数列表中使用 `<type>... args` 表示可变参数，`args` 是一个数组
 
-```java 
+```java
 public class Varargs {
 
     public static void test(String... args) {
@@ -324,23 +324,23 @@ classDiagram
 
 接口不是类，是对类的一组需求描述
 
-* 声明接口：`#!java [public] interface InterfaceName [extends ...]`
-* 接口体
-    - 常量：`type NAME=value`，默认具有 `public static final` 修饰符
-    - 方法：`returnType methodName([paramList])`，默认具有 `public abstract` 修饰符
-* 实现接口：`#!java class A implements InterfaceA[, InterfaceB, ...]`
+-   声明接口：`#!java [public] interface InterfaceName [extends ...]`
+-   接口体
+    -   常量：`type NAME=value`，默认具有 `public static final` 修饰符
+    -   方法：`returnType methodName([paramList])`，默认具有 `public abstract` 修饰符
+-   实现接口：`#!java class A implements InterfaceA[, InterfaceB, ...]`
 
     !!! warning ""
         必须实现接口中的所有方法！
 
-* 注意事项
-    - 接口不可实例化
-    - 可声明接口变量
-    - 可用 `instanceof` 判断对象是否实现了某个接口
-* clone 方法
-    - `#!java public interface Cloneable`
-    - `#!java protected Object clone() throws CloneNotSupportedException`
-    - 若类中实例域有可变对象，需要重写 `clone` 方法
+-   注意事项
+    -   接口不可实例化
+    -   可声明接口变量
+    -   可用 `instanceof` 判断对象是否实现了某个接口
+-   clone 方法
+    -   `#!java public interface Cloneable`
+    -   `#!java protected Object clone() throws CloneNotSupportedException`
+    -   若类中实例域有可变对象，需要重写 `clone` 方法
         ```java
         class xxx implements Cloneable{
          // ...
@@ -352,7 +352,6 @@ classDiagram
             }
         }
         ```
-        
         1. 调用超类的 `clone` 方法（不可变对象）
         2. 重新开辟空间（可变对象）
         3. 返回 clone 过后的对象
@@ -377,11 +376,11 @@ classDiagram
 
 ```java
 new SuperType(params){
-    // (1)    
+    // (1)
 }
 
 new InterfaceType(params){
-    // (2)    
+    // (2)
 }
 ```
 
@@ -393,13 +392,13 @@ new InterfaceType(params){
 ```java
 public class OuterClass{
     public class InnerClass{
-        // ...    
+        // ...
     }
-    
+
     public static class StaticInnerClass{
         // ...
     }
-    
+
     public static void main(String[] args){
         OuterClass outerClass = new OuterClass();  // (1)
         OuterClass.StaticInnerClass staticInnerClass = new OuterClass.StaticInnerClass();  // (2)
