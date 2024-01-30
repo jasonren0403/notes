@@ -2,107 +2,107 @@
 
 site_name: Jason的笔记小屋
 site_url: https://note.jason0743.best/
-site_description: '信息安全、前端相关笔记存放处'
-site_author: 'Jason'
+site_description: "信息安全、前端相关笔记存放处"
+site_author: "Jason"
 
 nav:
-  - '主页': index.md
-  - 'web开发技术基础':
-      - 'Web开发绪论': 'web_basic/index.md'
-      - 'Web的基本架构': 'web_basic/basic-structure.md'
-      - 'HTML': 'web_basic/html.md'
-      - 'CSS': 'web_basic/css.md'
-      - 'JavaScript': 'web_basic/javascript.md'
-      - 'DOM': 'web_basic/dom.md'
-  - '软件安全':
-      - '软件安全绪论': 'soft_security/index.md'
-      - '软件基础': 'soft_security/basic.md'
-      - '字符串安全': 'soft_security/string.md'
-      - '指针安全': 'soft_security/pointer.md'
-      - '动态内存管理': 'soft_security/memory-management.md'
-      - '整数安全': 'soft_security/integer-security.md'
-      - '格式化输出': 'soft_security/string-format.md'
-      - '并发': 'soft_security/concurrency.md'
-      - '文件输入输出': 'soft_security/io.md'
-      - '软件安全实践': 'soft_security/practice.md'
-  - '网络安全':
-      - '网络安全绪论': 'net_security/index.md'
-      - '网络安全概述': 'net_security/assets.md'
-      - '网络攻击的特征': 'net_security/characteristics.md'
-      - '网络攻击': 'net_security/networkattack.md'
-      - 'HOOK': 'net_security/hook.md'
-      - 'APT': 'net_security/apt.md'
-      - '内生安全与拟态防御': 'net_security/defense.md'
-      - '软件定义网络': 'net_security/sdn.md'
-      - '侧信道攻击': 'net_security/side-channel.md'
-      - '防火墙': 'net_security/firewall.md'
-      - '入侵检测': 'net_security/ids.md'
-      - '虚拟专用网': 'net_security/vpn.md'
-      - '应用安全——PGP为例': 'net_security/application.md'
-      - '社会工程学': 'net_security/socialengineering.md'
-  - 'Go 语言学习':
-      - 'Go语言绪论': 'golang/index.md'
-      - 'Go语言基础': 'golang/basic.md'
-      - 'Go流程控制': 'golang/statement.md'
-      - 'Go函数': 'golang/function.md'
-      - 'Go面向对象': 'golang/oop.md'
-      - '协程': 'golang/goroutine.md'
-      - '网络编程': 'golang/goweb.md'
-  - 'Java 语言学习':
-      - 'Java语言概论': 'java/index.md'
-      - '语言基础知识': 'java/basic.md'
-      - 'Java面向对象': 'java/oop.md'
-      - 'Java异常处理': 'java/exception.md'
-      - 'Java图形程序设计': 'java/graphics.md'
-      - '事件处理': 'java/event.md'
-      - 'Swing用户界面组件': 'java/swing.md'
-  - '408助手':
-      - '408-helper/index.md'
-      - '408考试大纲（2022版）': '408-helper/what-does-408-test.md'
-      - '计算机组成原理':
-          - '计组绪论': '408-helper/computer-structure/index.md'
-          - '数据的表示和运算': '408-helper/computer-structure/operating.md'
-          - '存储器': '408-helper/computer-structure/memory.md'
-          - '指令系统': '408-helper/computer-structure/instruction.md'
-          - '中央处理器（CPU）': '408-helper/computer-structure/cpu.md'
-          - '总线和输入输出系统': '408-helper/computer-structure/bus-and-io.md'
-      - '数据结构':
-          - '数据结构绪论': '408-helper/data-structure/index.md'
-          - '线性表': '408-helper/data-structure/linear-list.md'
-          - '栈': '408-helper/data-structure/stack.md'
-          - '队列': '408-helper/data-structure/queue.md'
-          - '数组': '408-helper/data-structure/array.md'
-          - '字符串': '408-helper/data-structure/string.md'
-          - '树': '408-helper/data-structure/tree.md'
-          - '图': '408-helper/data-structure/graph.md'
-          - '查找': '408-helper/data-structure/searching.md'
-          - '排序': '408-helper/data-structure/sorting.md'
-      - '计算机网络':
-          - '计网绪论': '408-helper/computer-network/index.md'
-          - '物理层': '408-helper/computer-network/physical-layer.md'
-          - '数据链路层': '408-helper/computer-network/data-link-layer.md'
-          - '网络层': '408-helper/computer-network/network-layer.md'
-          - '传输层': '408-helper/computer-network/transportation-layer.md'
-          - '应用层': '408-helper/computer-network/application-layer.md'
-      - '操作系统':
-          - '操作系统绪论': '408-helper/operating-system/index.md'
-          - '进程管理': '408-helper/operating-system/process.md'
-          - '内存管理': '408-helper/operating-system/memory.md'
-          - '文件管理': '408-helper/operating-system/file.md'
-          - '输入输出(I/O)管理': '408-helper/operating-system/io.md'
+  - "主页": index.md
+  - "web开发技术基础":
+      - "Web开发绪论": "web_basic/index.md"
+      - "Web的基本架构": "web_basic/basic-structure.md"
+      - "HTML": "web_basic/html.md"
+      - "CSS": "web_basic/css.md"
+      - "JavaScript": "web_basic/javascript.md"
+      - "DOM": "web_basic/dom.md"
+  - "软件安全":
+      - "软件安全绪论": "soft_security/index.md"
+      - "软件基础": "soft_security/basic.md"
+      - "字符串安全": "soft_security/string.md"
+      - "指针安全": "soft_security/pointer.md"
+      - "动态内存管理": "soft_security/memory-management.md"
+      - "整数安全": "soft_security/integer-security.md"
+      - "格式化输出": "soft_security/string-format.md"
+      - "并发": "soft_security/concurrency.md"
+      - "文件输入输出": "soft_security/io.md"
+      - "软件安全实践": "soft_security/practice.md"
+  - "网络安全":
+      - "网络安全绪论": "net_security/index.md"
+      - "网络安全概述": "net_security/assets.md"
+      - "网络攻击的特征": "net_security/characteristics.md"
+      - "网络攻击": "net_security/networkattack.md"
+      - "HOOK": "net_security/hook.md"
+      - "APT": "net_security/apt.md"
+      - "内生安全与拟态防御": "net_security/defense.md"
+      - "软件定义网络": "net_security/sdn.md"
+      - "侧信道攻击": "net_security/side-channel.md"
+      - "防火墙": "net_security/firewall.md"
+      - "入侵检测": "net_security/ids.md"
+      - "虚拟专用网": "net_security/vpn.md"
+      - "应用安全——PGP为例": "net_security/application.md"
+      - "社会工程学": "net_security/socialengineering.md"
+  - "Go 语言学习":
+      - "Go语言绪论": "golang/index.md"
+      - "Go语言基础": "golang/basic.md"
+      - "Go流程控制": "golang/statement.md"
+      - "Go函数": "golang/function.md"
+      - "Go面向对象": "golang/oop.md"
+      - "协程": "golang/goroutine.md"
+      - "网络编程": "golang/goweb.md"
+  - "Java 语言学习":
+      - "Java语言概论": "java/index.md"
+      - "语言基础知识": "java/basic.md"
+      - "Java面向对象": "java/oop.md"
+      - "Java异常处理": "java/exception.md"
+      - "Java图形程序设计": "java/graphics.md"
+      - "事件处理": "java/event.md"
+      - "Swing用户界面组件": "java/swing.md"
+  - "408助手":
+      - "408-helper/index.md"
+      - "408考试大纲（2022版）": "408-helper/what-does-408-test.md"
+      - "计算机组成原理":
+          - "计组绪论": "408-helper/computer-structure/index.md"
+          - "数据的表示和运算": "408-helper/computer-structure/operating.md"
+          - "存储器": "408-helper/computer-structure/memory.md"
+          - "指令系统": "408-helper/computer-structure/instruction.md"
+          - "中央处理器（CPU）": "408-helper/computer-structure/cpu.md"
+          - "总线和输入输出系统": "408-helper/computer-structure/bus-and-io.md"
+      - "数据结构":
+          - "数据结构绪论": "408-helper/data-structure/index.md"
+          - "线性表": "408-helper/data-structure/linear-list.md"
+          - "栈": "408-helper/data-structure/stack.md"
+          - "队列": "408-helper/data-structure/queue.md"
+          - "数组": "408-helper/data-structure/array.md"
+          - "字符串": "408-helper/data-structure/string.md"
+          - "树": "408-helper/data-structure/tree.md"
+          - "图": "408-helper/data-structure/graph.md"
+          - "查找": "408-helper/data-structure/searching.md"
+          - "排序": "408-helper/data-structure/sorting.md"
+      - "计算机网络":
+          - "计网绪论": "408-helper/computer-network/index.md"
+          - "物理层": "408-helper/computer-network/physical-layer.md"
+          - "数据链路层": "408-helper/computer-network/data-link-layer.md"
+          - "网络层": "408-helper/computer-network/network-layer.md"
+          - "传输层": "408-helper/computer-network/transportation-layer.md"
+          - "应用层": "408-helper/computer-network/application-layer.md"
+      - "操作系统":
+          - "操作系统绪论": "408-helper/operating-system/index.md"
+          - "进程管理": "408-helper/operating-system/process.md"
+          - "内存管理": "408-helper/operating-system/memory.md"
+          - "文件管理": "408-helper/operating-system/file.md"
+          - "输入输出(I/O)管理": "408-helper/operating-system/io.md"
   - Vue.js 框架学习:
-      - 'Vue.js 框架绪论': 'vuejs/index.md'
-      - '应用实例': 'vuejs/application-instance.md'
-      - '模板语法': 'vuejs/template-syntax.md'
-      - '响应性': 'vuejs/reactivity.md'
-      - '条件渲染': 'vuejs/conditional.md'
-      - '列表渲染': 'vuejs/list.md'
-      - '计算属性': 'vuejs/computed.md'
-      - '事件处理': 'vuejs/event-handling.md'
-      - '表单输入绑定': 'vuejs/form.md'
-      - '生命周期': 'vuejs/lifecycle.md'
-      - '侦听器': 'vuejs/watcher.md'
-      - '组件': 'vuejs/component.md'
+      - "Vue.js 框架绪论": "vuejs/index.md"
+      - "应用实例": "vuejs/application-instance.md"
+      - "模板语法": "vuejs/template-syntax.md"
+      - "响应性": "vuejs/reactivity.md"
+      - "条件渲染": "vuejs/conditional.md"
+      - "列表渲染": "vuejs/list.md"
+      - "计算属性": "vuejs/computed.md"
+      - "事件处理": "vuejs/event-handling.md"
+      - "表单输入绑定": "vuejs/form.md"
+      - "生命周期": "vuejs/lifecycle.md"
+      - "侦听器": "vuejs/watcher.md"
+      - "组件": "vuejs/component.md"
 
 theme:
   name: material
@@ -135,7 +135,7 @@ theme:
     - navigation.prune
     - navigation.tracking
     - navigation.instant
-    - navigation.path  # insiders
+    - navigation.path # insiders
     - header.autohide
     - toc.integrate
     - toc.follow
@@ -147,14 +147,14 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.view
-  language: 'zh'
+  language: "zh"
 
 copyright: >-
   copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2023</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
 
 use_directory_urls: false
-docs_dir: 'notes_dev'
-site_dir: 'notes'
+docs_dir: "notes_dev"
+site_dir: "notes"
 repo_url: https://github.com/jasonren0403/notes
 repo_name: jasonren0403/notes
 edit_uri: edit/main/notes_dev/
@@ -191,9 +191,9 @@ plugins:
   #  - typeset  # insiders
   #  - meta  # insiders
   - social:
-      cards: !ENV [ CARDS, false ]
+      cards: !ENV [CARDS, false]
       cards_layout_options:
-        font_family: Noto Sans SC  # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
+        font_family: Noto Sans SC # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
   - tags:
       tags_file: tags.md
   - git-revision-date-localized:
@@ -224,7 +224,7 @@ markdown_extensions:
   - toc:
       # https://github.com/squidfunk/mkdocs-material/discussions/4682
       slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds: { }
+        kwds: {}
   - footnotes
   - attr_list
   - def_list
@@ -259,5 +259,5 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds: { }
+        kwds: {}
   - pymdownx.tilde

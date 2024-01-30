@@ -1,5 +1,4 @@
 .cache
-overrides
 
 notes_dev/408-helper/*.md
 notes_dev/golang/*.md

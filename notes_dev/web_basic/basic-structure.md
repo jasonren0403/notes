@@ -9,8 +9,7 @@ comments: true
 ## Web的基本架构
 
 - 开放式的客户/服务器结构（Client/Server），分成Web服务器（服务器端）、Web浏览器（客户端）以及传输协议（HTTP协议）三个部分。
--
-用户通过Web客户端应用程序（即浏览器）向Web服务器发出请求，请求通过HTTP协议送到Web服务器；Web服务器根据客户端请求将保存在Web服务器中的某个页面通过HTTP协议返回给Web客户端；浏览器接收到页面后对其进行解释，最终将图文并茂的画面呈现给用户。
+- 用户通过Web客户端应用程序（即浏览器）向Web服务器发出请求，请求通过HTTP协议送到Web服务器；Web服务器根据客户端请求将保存在Web服务器中的某个页面通过HTTP协议返回给Web客户端；浏览器接收到页面后对其进行解释，最终将图文并茂的画面呈现给用户。
 - URI解决资源定位问题，HTTP解决文档传输问题，HTML解决超文本文档的表示问题。
 
 ## Web浏览器
@@ -70,7 +69,7 @@ comments: true
 - HTTP 1.0协议是无状态的，本身无连接
 - HTTP连接过程
 
-  ![how to make HTTP connection](md-img/9.27-1.png)
+    ![how to make HTTP connection](md-img/9.27-1.png)
 
     - 过程描述：DNS查询 → 建立连接 → 发送请求 → 等待响应 → 加载资源 → 关闭连接
     - Serial HTTP Connection vs Persistent HTTP Transactions：是否每次都需要三次握手连接

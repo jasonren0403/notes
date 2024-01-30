@@ -1,10 +1,5 @@
 {
-    "origins": [
-        "https://note.jason0743.space",
-        "https://jasonren0403.github.io"
-    ],
-    "originsRegex": [
-        "http://localhost:[0-9]+"
-    ],
-    "defaultCommentOrder": "newest"
+  "origins": ["https://note.jason0743.space", "https://jasonren0403.github.io"],
+  "originsRegex": ["http://localhost:[0-9]+"],
+  "defaultCommentOrder": "newest"
 }
