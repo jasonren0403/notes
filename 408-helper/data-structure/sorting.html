@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
     
     
       
@@ -98,17 +98,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3438,10 +3436,10 @@ k_i \ge k_{2i+1}
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="小根堆降序" name="__tabbed_1" type="radio" /><input id="大根堆升序" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="小根堆降序">小根堆（降序）</label><label for="大根堆升序">大根堆（升序）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/sort-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="small-heap" src="asset-img/sort-2.png" /></a></p>
+<p><a class="glightbox" href="asset-img/sort-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="small-heap" src="asset-img/sort-2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/sort-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="big-heap" src="asset-img/sort-3.png" /></a></p>
+<p><a class="glightbox" href="asset-img/sort-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="big-heap" src="asset-img/sort-3.png" /></a></p>
 </div>
 </div>
 </div>
@@ -3498,7 +3496,7 @@ k_i \ge k_{2i+1}
 </ul>
 <h3 id="2-路归并排序">2-路归并排序</h3>
 <p>将两个相邻的有序子序列“归并”为一个有序序列。</p>
-<p><a class="glightbox" href="asset-img/sort-4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="merge-sort-2" src="asset-img/sort-4.png" /></a></p>
+<p><a class="glightbox" href="asset-img/sort-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="merge-sort-2" src="asset-img/sort-4.png" /></a></p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Merge</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">)</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">ElemType</span><span class="w"> </span><span class="o">*</span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ElemType</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="n">ElemType</span><span class="p">));</span>
@@ -3569,8 +3567,8 @@ k_i \ge k_{2i+1}
 <ul>
 <li>其双亲结点存储的是左右孩子比较之后的失败者，而胜利者则继续同其它的胜者去比较</li>
 </ul>
-<p><a class="glightbox" href="asset-img/sort-5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="fail-tree" src="asset-img/sort-5.png" /></a></p>
-<p><a class="glightbox" href="asset-img/sort-6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="fail-tree" src="asset-img/sort-6.png" /></a></p>
+<p><a class="glightbox" href="asset-img/sort-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="fail-tree" src="asset-img/sort-5.png" /></a></p>
+<p><a class="glightbox" href="asset-img/sort-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="fail-tree" src="asset-img/sort-6.png" /></a></p>
 </li>
 </ul>
 </li>
@@ -3592,7 +3590,7 @@ k_i \ge k_{2i+1}
 <li>仅有度为0或m的结点</li>
 <li>
 <p>带权路径长度之和为归并过程中的总读记录数，总IO次数为 <span class="arithmatex">\(2 \times WPL\)</span></p>
-<p><a class="glightbox" href="asset-img/sort-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="merge-tree" src="asset-img/sort-7.png" /></a></p>
+<p><a class="glightbox" href="asset-img/sort-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="merge-tree" src="asset-img/sort-7.png" /></a></p>
 <ul>
 <li>其对外存的读写次数为</li>
 </ul>
@@ -3606,7 +3604,7 @@ k_i \ge k_{2i+1}
 <li>每次选取最小的若干个权值组成结点，叶子结点不够时，补充权值为0的结点</li>
 <li>若 <span class="arithmatex">\((n_0-1) \% (m-1) = 0\)</span> ，则说明这 <span class="arithmatex">\(n_0\)</span> 个叶结点可以构造 <span class="arithmatex">\(m\)</span> 叉归并树，否则，有 <span class="arithmatex">\((n_0-1) \% (m-1) = u \neq 0\)</span> 个叶结点多余，需要补 <span class="arithmatex">\(m-u-1\)</span> 个结点</li>
 </ul>
-<p><a class="glightbox" href="asset-img/sort-8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="merge-tree-2" src="asset-img/sort-8.png" /></a></p>
+<p><a class="glightbox" href="asset-img/sort-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="merge-tree-2" src="asset-img/sort-8.png" /></a></p>
 </li>
 </ul>
 </li>
@@ -3661,50 +3659,51 @@ k_i \ge k_{2i+1}
 
 <h2 id="__comments">评论</h2>
 <!-- Insert generated code here -->
-<script src="https://giscus.app/client.js"
-        data-repo="jasonren0403/notes"
-        data-repo-id="R_kgDOGXfwBg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
 <!-- Synchronize Giscus theme with palette -->
 <script>
-    var giscus = document.querySelector("script[src*=giscus]")
+  var giscus = document.querySelector("script[src*=giscus]");
 
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate" ? "dark" : "light"
-        giscus.setAttribute("data-theme", theme)
-    }
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
 
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-        var ref = document.querySelector("[data-md-component=palette]")
-        ref.addEventListener("change", function() {
-            var palette = __md_get("__palette")
-            if (palette && typeof palette.color === "object") {
-                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
 
-                /* Instruct Giscus to change theme */
-                var frame = document.querySelector(".giscus-frame")
-                frame.contentWindow.postMessage(
-                    { giscus: { setConfig: { theme } } },
-                    "https://giscus.app"
-                )
-            }
-        })
-    })
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
 </script>
 
                 
@@ -3914,10 +3913,10 @@ k_i \ge k_{2i+1}
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       

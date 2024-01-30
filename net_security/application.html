@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
     
     
       
@@ -98,17 +98,15 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3090,7 +3088,7 @@
 </div>
 <ul>
 <li>数字签名（与认证）
-    <a class="glightbox" href="md-img/chap8_identitycheck.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="认证性" src="md-img/chap8_identitycheck.jpg" /></a><ul>
+    <a class="glightbox" href="md-img/chap8_identitycheck.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="认证性" src="md-img/chap8_identitycheck.jpg" /></a><ul>
 <li>发送者创建报文</li>
 <li>使用SHA-1生成报文的160位散列码<ul>
 <li>SHA-1的强度保证了签名的有效性</li>
@@ -3109,7 +3107,7 @@
 </ul>
 </li>
 <li>消息加密
-    <a class="glightbox" href="md-img/chap8_encryption.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="保密性" src="md-img/chap8_encryption.jpg" /></a><ul>
+    <a class="glightbox" href="md-img/chap8_encryption.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="保密性" src="md-img/chap8_encryption.jpg" /></a><ul>
 <li>发送方随机生成Session Key加密消息M</li>
 <li>采用CAST-128(或IDEA或3DES)对报文加密</li>
 <li>采用RSA，使用<strong>接收者</strong>的<strong>公开密钥</strong>加密会话密钥，并置到报文前面</li>
@@ -3122,7 +3120,7 @@
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">保密与验证的结合</p>
-<p><a class="glightbox" href="md-img/chap8_both.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="md-img/chap8_both.jpg" /></a>
+<p><a class="glightbox" href="md-img/chap8_both.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="md-img/chap8_both.jpg" /></a>
 发送者先用<strong>自己的私钥</strong>签名，然后用<strong>会话密钥</strong>加密消息，再用接收者的公钥加密会话密钥。</p>
 <div class="admonition faq">
 <p class="admonition-title">压缩位置的选择</p>
@@ -3160,12 +3158,12 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="md-img/chap8_pgp_send.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="发送方" src="md-img/chap8_pgp_send.jpg" /></a>
+<a class="glightbox" href="md-img/chap8_pgp_send.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="发送方" src="md-img/chap8_pgp_send.jpg" /></a>
 </figure></p>
 </div>
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="md-img/chap8_pgp_recv.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="接收方" src="md-img/chap8_pgp_recv.jpg" /></a>
+<a class="glightbox" href="md-img/chap8_pgp_recv.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="接收方" src="md-img/chap8_pgp_recv.jpg" /></a>
 </figure></p>
 </div>
 </div>
@@ -3216,7 +3214,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="发送方_1" name="__tabbed_3" type="radio" /><input id="接收方_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="发送方_1">发送方</label><label for="接收方_1">接收方</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="md-img/chap8_pgp_send_with_ring.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="发送方" src="md-img/chap8_pgp_send_with_ring.jpg" /></a></p>
+<p><a class="glightbox" href="md-img/chap8_pgp_send_with_ring.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="发送方" src="md-img/chap8_pgp_send_with_ring.jpg" /></a></p>
 <ul>
 <li>签名<ul>
 <li>从私钥环中得到私钥，利用userid作为索引</li>
@@ -3233,7 +3231,7 @@
 </ul>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="md-img/chap8_pgp_recv_with_ring.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="接收方" src="md-img/chap8_pgp_recv_with_ring.jpg" /></a></p>
+<p><a class="glightbox" href="md-img/chap8_pgp_recv_with_ring.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="接收方" src="md-img/chap8_pgp_recv_with_ring.jpg" /></a></p>
 <ul>
 <li>解密<ul>
 <li>PGP用消息的会话密钥部分中的KeyID作为索引，从私钥环中获取私钥</li>
@@ -3544,10 +3542,10 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../assets/javascripts/bundle.e1c3ead8.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       

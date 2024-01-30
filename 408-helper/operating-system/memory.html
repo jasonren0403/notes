@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
     
     
       
@@ -98,17 +98,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3198,19 +3196,19 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="method1" src="asset-img/memory-10.png" /></a>
+<a class="glightbox" href="asset-img/memory-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="method1" src="asset-img/memory-10.png" /></a>
 </figure></p>
 <p>OS将分区的上、下界置入上下界寄存器R上，R下。在运行过程中，将作业所形成的每一个访问存储器的物理地址D同上下界限寄存器中的内容相比较，如果不满足：下界&lt;=D&lt;上界，则产生地址中断，由OS进行处理。</p>
 </div>
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="method2" src="asset-img/memory-11.png" /></a>
+<a class="glightbox" href="asset-img/memory-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="method2" src="asset-img/memory-11.png" /></a>
 </figure></p>
 <p>采用上下界限寄存器保护是在物理地址一端设置一对寄存器进行保护，也可以在逻辑地址一端设置一对寄存器实现存储保护， 基址寄存器也起重定位的作用，存放该分区的起始地址，限长寄存器存放分配给作业的分区的大小</p>
 </div>
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="method3" src="asset-img/memory-12.png" /></a>
+<a class="glightbox" href="asset-img/memory-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="method3" src="asset-img/memory-12.png" /></a>
 </figure></p>
 <p>按块分配，一个作业各块相连，并给该作业分配一个键号，填入该作业的各块的保护键中(这个保护键相当于锁)；并把该键号置入PSW的保护键字段(相当于钥匙)。当程序执行时，如所访问的保护键与钥匙不匹配，则产生保护键违例中断</p>
 </div>
@@ -3224,7 +3222,7 @@
 <div class="tabbed-block">
 <p>把内存中暂时不能运行的进程或者暂时不用的程序和数据，调出到外存上，以便腾出足够的内存空间，再把已具备运行条件的进程或进程所需要的程序和数据，调入内存。</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="swapping" src="asset-img/memory-2.png" /></a>
+<a class="glightbox" href="asset-img/memory-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="swapping" src="asset-img/memory-2.png" /></a>
 </figure></p>
 <ul>
 <li>原理：暂停执行内存中的进程，将整个进程的地址空间保存到外存的交换区中（换出 swap out ），而将外存中由阻塞变为就绪的进程的地址空间读入到内存中，并将该进程送到就绪队列（换入 swap in ）</li>
@@ -3248,7 +3246,7 @@
 <div class="tabbed-block">
 <p>让不可能同时访问的程序段共享存储区。</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="covering" src="asset-img/memory-1.png" /></a>
+<a class="glightbox" href="asset-img/memory-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="covering" src="asset-img/memory-1.png" /></a>
 </figure></p>
 </div>
 </div>
@@ -3261,7 +3259,7 @@
 <ul>
 <li>内存中只能有一道用户程序
     <figure markdown>
-    <a class="glightbox" href="asset-img/memory-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-3.png" /></a>
+    <a class="glightbox" href="asset-img/memory-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-3.png" /></a>
     </figure></li>
 </ul>
 <div class="admonition success">
@@ -3278,7 +3276,7 @@
 <li>
 <p>适用于多道程序系统和分时系统，支持多个程序并发执行</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-4.png" /></a>
+<a class="glightbox" href="asset-img/memory-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-4.png" /></a>
 </figure></p>
 </li>
 <li>
@@ -3352,7 +3350,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="first-fit" src="asset-img/memory-5.png" /></a>
+<a class="glightbox" href="asset-img/memory-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="first-fit" src="asset-img/memory-5.png" /></a>
 </figure></p>
 <p>分配时，按空闲分区表（或空闲分区链）的先后次序，从头查找，找到符合要求的第一个分区</p>
 <div class="admonition success">
@@ -3370,7 +3368,7 @@
 </div>
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="best-fit" src="asset-img/memory-6.png" /></a>
+<a class="glightbox" href="asset-img/memory-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="best-fit" src="asset-img/memory-6.png" /></a>
 </figure></p>
 <p>按空闲分区表（或空闲分区链）的先后次序，从头查找，找到符合要求的第一个分区。就说明它是最适合的（即最佳的）</p>
 <div class="admonition danger">
@@ -3379,7 +3377,7 @@
 </div>
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="worst-fit" src="asset-img/memory-7.png" /></a>
+<a class="glightbox" href="asset-img/memory-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="worst-fit" src="asset-img/memory-7.png" /></a>
 </figure></p>
 <p>每次分配时，总是将最大的空闲区切去一部分分配给请求者，其依据是当一个很大的空闲区被切割了一部分后可能仍是一个较大的空闲区。避免了空闲区越分越小的问题</p>
 <ul>
@@ -3447,7 +3445,7 @@
 <li>
 <p>拼接/紧凑技术</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-8.png" /></a>
+<a class="glightbox" href="asset-img/memory-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-8.png" /></a>
 </figure></p>
 <ul>
 <li>
@@ -3466,7 +3464,7 @@
 <li>进行“紧凑”处理时，不需对程序进行改动，只要修改重定位寄存器的值，即程序在内存中新的起始地址就可以</li>
 </ul>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-9.png" /></a>
+<a class="glightbox" href="asset-img/memory-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-9.png" /></a>
 </figure></p>
 </li>
 </ul>
@@ -3496,7 +3494,7 @@
 <li>程序加载时，每页对应内存中的一块，这些块不必连续</li>
 </ul>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-13.png" /></a>
+<a class="glightbox" href="asset-img/memory-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-13.png" /></a>
 </figure></p>
 <ul>
 <li>
@@ -3527,7 +3525,7 @@ W&amp;=A\mod{L}
 <li>
 <p>页表</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-14.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="pageTable" src="asset-img/memory-14.png" /></a>
+<a class="glightbox" href="asset-img/memory-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pageTable" src="asset-img/memory-14.png" /></a>
 </figure></p>
 <ul>
 <li>系统为每个进程建一张页表(页号,物理块号)，其在内存的起始地址和长度记录在该进程的PCB中</li>
@@ -3544,7 +3542,7 @@ W&amp;=A\mod{L}
 <li>每执行一条指令，至少要访问内存两次。一次是到内存中访问页表；一次是形成物理地址后，到该内存单元中取指令或数据。这样，存取速度降低一倍，将会影响整个系统的使用效率</li>
 </ul>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-15.png" /></a>
+<a class="glightbox" href="asset-img/memory-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-15.png" /></a>
 </figure></p>
 </li>
 <li>
@@ -3554,7 +3552,7 @@ W&amp;=A\mod{L}
 <li>
 <p>将作业中最常用的页块号置入高速缓存，提高查表速度</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-16.png" /></a>
+<a class="glightbox" href="asset-img/memory-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-16.png" /></a>
 </figure></p>
 </li>
 <li>
@@ -3598,7 +3596,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <li>
 <p>对于两级页表，是将页表再进行分页，并离散地将各个页面分别存放在不同的物理块中，同样也要为离散分配的页表再建立一张页表，称为外层页表。</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-17.png" /></a>
+<a class="glightbox" href="asset-img/memory-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-17.png" /></a>
 </figure></p>
 </li>
 <li>
@@ -3607,7 +3605,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <li>
 <p>地址变换机构</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-18.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-18.png" /></a>
+<a class="glightbox" href="asset-img/memory-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-18.png" /></a>
 </figure></p>
 </li>
 <li>
@@ -3624,7 +3622,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <li>
 <p>每段都有自己的名字，且都是一段连续的地址空间。</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-19.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-19.png" /></a>
+<a class="glightbox" href="asset-img/memory-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-19.png" /></a>
 </figure></p>
 </li>
 <li>
@@ -3638,7 +3636,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <li>
 <p>段表</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-20.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="segmentTable" src="asset-img/memory-20.png" /></a>
+<a class="glightbox" href="asset-img/memory-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="segmentTable" src="asset-img/memory-20.png" /></a>
 </figure></p>
 <ul>
 <li>
@@ -3652,13 +3650,13 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <li>
 <p>地址变换机构</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-21.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-21.png" /></a>
+<a class="glightbox" href="asset-img/memory-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-21.png" /></a>
 </figure></p>
 </li>
 <li>
 <p>段的信息共享与保护</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-22.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-22.png" /></a>
+<a class="glightbox" href="asset-img/memory-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-22.png" /></a>
 </figure></p>
 </li>
 </ul>
@@ -3666,7 +3664,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <div class="tabbed-block">
 <p>每个作业仍按逻辑分段，但对每一段不是按单一的连续整体存放到存储器中，而是把每个段再分成若干个页面，每一段不必占据连续的主存空间，可把它按页存放在不连续的主存块中。</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-23.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-23.png" /></a>
+<a class="glightbox" href="asset-img/memory-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-23.png" /></a>
 </figure></p>
 <ul>
 <li>逻辑地址空间分段，段内分页，内存分块（页框），存储管理的分配单位是：物理块（页框）</li>
@@ -3678,7 +3676,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <li>
 <p>每个作业一张段表，每段一张页表。地址变换：先查段表，再查该段的页表。</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-24.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-24.png" /></a>
+<a class="glightbox" href="asset-img/memory-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-24.png" /></a>
 </figure></p>
 </li>
 </ul>
@@ -3759,7 +3757,7 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 <li>
 <p>地址变换机构</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/memory-25.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-25.png" /></a>
+<a class="glightbox" href="asset-img/memory-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/memory-25.png" /></a>
 </figure></p>
 <pre class="mermaid"><code>flowchart TD
     A([开始])--&gt;B{页号&gt;页表长度?}
@@ -4449,50 +4447,51 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
 
 <h2 id="__comments">评论</h2>
 <!-- Insert generated code here -->
-<script src="https://giscus.app/client.js"
-        data-repo="jasonren0403/notes"
-        data-repo-id="R_kgDOGXfwBg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
 <!-- Synchronize Giscus theme with palette -->
 <script>
-    var giscus = document.querySelector("script[src*=giscus]")
+  var giscus = document.querySelector("script[src*=giscus]");
 
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate" ? "dark" : "light"
-        giscus.setAttribute("data-theme", theme)
-    }
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
 
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-        var ref = document.querySelector("[data-md-component=palette]")
-        ref.addEventListener("change", function() {
-            var palette = __md_get("__palette")
-            if (palette && typeof palette.color === "object") {
-                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
 
-                /* Instruct Giscus to change theme */
-                var frame = document.querySelector(".giscus-frame")
-                frame.contentWindow.postMessage(
-                    { giscus: { setConfig: { theme } } },
-                    "https://giscus.app"
-                )
-            }
-        })
-    })
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
 </script>
 
                 
@@ -4702,10 +4701,10 @@ EAT = a \times \lambda +(t+\lambda )(1-a)+t
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       

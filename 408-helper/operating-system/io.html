@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
     
     
       
@@ -98,17 +98,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3163,19 +3161,19 @@
 <li>
 <p>组成
     <figure markdown>
-    <a class="glightbox" href="asset-img/io-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-2.png" /></a>
+    <a class="glightbox" href="asset-img/io-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-2.png" /></a>
     </figure></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="内存映像IO" name="__tabbed_2" type="radio" /><input id="寄存器独立编址" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="内存映像IO">内存映像I/O</label><label for="寄存器独立编址">寄存器独立编址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/io-4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-4.png" /></a>
+<a class="glightbox" href="asset-img/io-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-4.png" /></a>
 </figure></p>
 <p>在编址上不区分内存单元地址和设备控制器中的寄存器地址，当处于0~n-1范围时，是内存地址；大于等于n时，是某个控制器的寄存器地址</p>
 </div>
 <div class="tabbed-block">
 <p><figure markdown>
-<a class="glightbox" href="asset-img/io-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-3.png" /></a>
+<a class="glightbox" href="asset-img/io-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-3.png" /></a>
 </figure></p>
 <p>为实现CPU和设备控制器间的通信，为每个控制寄存器分配一个I/O端口，另外还设置一些特定的I/O指令</p>
 <div class="admonition bug">
@@ -3255,7 +3253,7 @@
     中断-..-&gt;B
     B--&gt;G[下一条指令]</code></pre>
 <p>DMA（直接存储器存取）方式的基本思想是在I/O设备和内存之间开辟直接的数据交换通路，彻底“解放”CPU。</p>
-<p><a class="glightbox" href="asset-img/io-5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="dma" src="asset-img/io-5.png" /></a></p>
+<p><a class="glightbox" href="asset-img/io-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dma" src="asset-img/io-5.png" /></a></p>
 <ul>
 <li>DMA方式的特点是：<ul>
 <li>基本单位是数据块。</li>
@@ -3317,7 +3315,7 @@
 <h3 id="IO软件层次结构">I/O软件层次结构</h3>
 <p>I/O软件通常组织成四个层次，低层实现与硬件相关操作，高层为用户提供简洁、友好和规范的接口</p>
 <figure>
-<p><a class="glightbox" href="asset-img/io-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-1.png" /></a></p>
+<p><a class="glightbox" href="asset-img/io-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-1.png" /></a></p>
 </figure>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="用户层软件" name="__tabbed_6" type="radio" /><input id="设备独立性软件" name="__tabbed_6" type="radio" /><input id="设备驱动程序" name="__tabbed_6" type="radio" /><input id="中断处理程序" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="用户层软件">用户层软件</label><label for="设备独立性软件">设备独立性软件</label><label for="设备驱动程序">设备驱动程序</label><label for="中断处理程序">中断处理程序</label></div>
 <div class="tabbed-content">
@@ -3382,7 +3380,7 @@
 </li>
 </ul>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/io-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="dbl-buf" src="asset-img/io-9.png" /></a>
+<a class="glightbox" href="asset-img/io-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dbl-buf" src="asset-img/io-9.png" /></a>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -3404,7 +3402,7 @@
 <li>在用于设备分配的数据结构中，记录了对设备或控制器进行控制所需的信息</li>
 </ul>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/io-8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="device-alloc" src="asset-img/io-8.png" /></a>
+<a class="glightbox" href="asset-img/io-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="device-alloc" src="asset-img/io-8.png" /></a>
 </figure></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:4"><input checked="checked" id="设备控制表DCT" name="__tabbed_8" type="radio" /><input id="控制器控制表COCT" name="__tabbed_8" type="radio" /><input id="通道控制表CHCT" name="__tabbed_8" type="radio" /><input id="系统设备表SDT" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="设备控制表DCT">设备控制表DCT</label><label for="控制器控制表COCT">控制器控制表COCT</label><label for="通道控制表CHCT">通道控制表CHCT</label><label for="系统设备表SDT">系统设备表SDT</label></div>
 <div class="tabbed-content">
@@ -3506,7 +3504,7 @@
 </ul>
 </div>
 <figure>
-<p><a class="glightbox" href="asset-img/io-6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="spooling" src="asset-img/io-6.png" /></a></p>
+<p><a class="glightbox" href="asset-img/io-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="spooling" src="asset-img/io-6.png" /></a></p>
 </figure>
 <ul>
 <li>SPOOLing系统主要由以下四部分组成</li>
@@ -3531,7 +3529,7 @@
 <li>
 <p>应用：共享打印机</p>
 <p><figure markdown>
-<a class="glightbox" href="asset-img/io-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="spooling-printer" src="asset-img/io-7.png" /></a>
+<a class="glightbox" href="asset-img/io-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="spooling-printer" src="asset-img/io-7.png" /></a>
 </figure></p>
 <ul>
 <li>打印机是经常用到的输出设备，属于独占设备。利用假脱机技术，可以将它改造成为一台可供多个用户共享的打印设备，从而提高设备的利用率，也方便了用户。主要分为三部分：</li>
@@ -3599,50 +3597,51 @@
 
 <h2 id="__comments">评论</h2>
 <!-- Insert generated code here -->
-<script src="https://giscus.app/client.js"
-        data-repo="jasonren0403/notes"
-        data-repo-id="R_kgDOGXfwBg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
 <!-- Synchronize Giscus theme with palette -->
 <script>
-    var giscus = document.querySelector("script[src*=giscus]")
+  var giscus = document.querySelector("script[src*=giscus]");
 
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate" ? "dark" : "light"
-        giscus.setAttribute("data-theme", theme)
-    }
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
 
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-        var ref = document.querySelector("[data-md-component=palette]")
-        ref.addEventListener("change", function() {
-            var palette = __md_get("__palette")
-            if (palette && typeof palette.color === "object") {
-                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
 
-                /* Instruct Giscus to change theme */
-                var frame = document.querySelector(".giscus-frame")
-                frame.contentWindow.postMessage(
-                    { giscus: { setConfig: { theme } } },
-                    "https://giscus.app"
-                )
-            }
-        })
-    })
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
 </script>
 
                 
@@ -3852,10 +3851,10 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       

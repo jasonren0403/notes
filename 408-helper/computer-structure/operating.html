@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
     
     
       
@@ -98,17 +98,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -4197,7 +4195,7 @@ C_i=G_i+P_iC_{i-1}(G_i=A_iB_i, P_i=A_i\oplus B_i)
 <div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="无符号数乘法" name="__tabbed_17" type="radio" /><input id="补码一位乘法" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="无符号数乘法">无符号数乘法</label><label for="补码一位乘法">补码一位乘法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/2-unsigned-mul.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/2-unsigned-mul.png" /></a></p>
+<p><a class="glightbox" href="asset-img/2-unsigned-mul.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/2-unsigned-mul.png" /></a></p>
 <ul>
 <li>乘积寄存器位P数和被乘数寄存器X、乘数寄存器Y相同，逻辑上乘积寄存器P、乘数寄存器Y和进位C是连在一起使用的（即逻辑右移时，原来的C作为现乘积寄存器的最高位，原乘积寄存器的最低位作为现乘数寄存器的最高位，原乘数寄存器的最低位舍弃）</li>
 <li>ALU主要实现加法运算，C是两个数相加可能产生的进位：若当前乘数寄存器的最低位为0，则ALU左边输入乘积寄存器，右边输入0，计算结果输出到乘积寄存器中；若当前乘数寄存器的最低位为1，则ALU左边输入乘积寄存器，右边输入被乘数寄存器，计算结果输入到乘积寄存器中</li>
@@ -4207,7 +4205,7 @@ C_i=G_i+P_iC_{i-1}(G_i=A_iB_i, P_i=A_i\oplus B_i)
 </ul>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/2-signed-mul.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/2-signed-mul.png" /></a></p>
+<p><a class="glightbox" href="asset-img/2-signed-mul.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/2-signed-mul.png" /></a></p>
 <ul>
 <li>乘积寄存器位P数和被乘数寄存器X、乘数寄存器Y相同，逻辑上乘积寄存器P、乘数寄存器Y和辅助位是连在一起使用的（即算术右移时，原乘积寄存器的最低位作为现乘数寄存器的最高位，原乘数寄存器的最低位作为现辅助位，辅助位舍弃）</li>
 <li>ALU主要实现加法运算：根据辅助位和乘数寄存器的最低位进行加/减法<ul>
@@ -4226,7 +4224,7 @@ C_i=G_i+P_iC_{i-1}(G_i=A_iB_i, P_i=A_i\oplus B_i)
 <h4 id="除法_1">除法</h4>
 <p>n位定点数的除法运算，实际上是用一个2n位的数去除以一个n位的数，得到一个n位的商，因此需要对被除数进行扩展。</p>
 <p>对于n位定点正小数，只要在被除数低位添n个0即可；对于n位定点正整数，只要在被除数的高位添n个0即可。</p>
-<p><a class="glightbox" href="asset-img/2-division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/2-division.png" /></a></p>
+<p><a class="glightbox" href="asset-img/2-division.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/2-division.png" /></a></p>
 
 
 
@@ -4480,10 +4478,10 @@ C_i=G_i+P_iC_{i-1}(G_i=A_iB_i, P_i=A_i\oplus B_i)
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
