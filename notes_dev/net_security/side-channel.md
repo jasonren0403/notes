@@ -63,7 +63,7 @@ Lamphone
 
 ![](md-img/sidechannel_2.jpg)
 
-## 传感器泄露PIN等信息
+## 传感器泄露PIN等信息[^4]
 Sensor Fusion
 
 * 用陀螺仪和加速度计测量的输入十次0852键获得结果（模拟PIN输入）
