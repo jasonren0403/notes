@@ -21,7 +21,7 @@ jobs:
       - name: Setup Python runtime
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - name: Setup build cache
         uses: actions/cache@v4
@@ -31,7 +31,7 @@ jobs:
           restore-keys: |
             jason-note-
       - name: Install Python dependencies
-        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox pillow cairosvg jieba
+        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox mkdocs-material[imaging] jieba
       - name: Install Vue code highlighter
         run: pip install vue-lexer
       - name: Setup Deployer
