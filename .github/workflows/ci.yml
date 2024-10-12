@@ -43,9 +43,7 @@ jobs:
         run: |
           git config --global user.email "40999116+jasonren0403@users.noreply.github.com"
           git config --global user.name "Jason Ren"
-      - name: Activate poetry env
-        run: poetry shell
       - name: Deploy site
         run: |
-          mkdocs gh-deploy --force
-          mkdocs --version
+          poetry run mkdocs gh-deploy --force
+          poetry mkdocs --version
