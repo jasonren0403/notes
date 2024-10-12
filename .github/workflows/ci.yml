@@ -23,6 +23,11 @@ jobs:
         with:
           python-version: '3.12'
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        name: Define a cache for the virtual environment based on the dependencies lock file
+        with:
+          key: venv-${{hashFiles('poetry.lock')}}
+          path: ./.venv
       - name: Setup build cache
         uses: actions/cache@v4
         with:
@@ -30,14 +35,16 @@ jobs:
           path: .cache
           restore-keys: |
             jason-note-
-      - name: Install Python dependencies
-        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox mkdocs-material[imaging] jieba
-      - name: Install Vue code highlighter
-        run: pip install vue-lexer
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v2
+      - name: Install dependencies
+        run: poetry install
       - name: Setup Deployer
         run: |
           git config --global user.email "40999116+jasonren0403@users.noreply.github.com"
           git config --global user.name "Jason Ren"
+      - name: Activate poetry env
+        run: poetry shell
       - name: Deploy site
         run: |
           mkdocs gh-deploy --force

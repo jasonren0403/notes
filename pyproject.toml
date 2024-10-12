@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "note-site-jason"
+version = "0.1.0"
+description = "Jason's note site."
+authors = ["Jason Ren <jasonbest@vip.qq.com>" ]
+readme = "README.md"
+repository = "https://github.com/jasonren0403/notes"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mkdocs-material = { version = "^9.5.40", extras=["imaging"] }
+mkdocs-git-revision-date-localized-plugin = "^1.2.9"
+mkdocs-glightbox = "^0.4.0"
+jieba = "^0.42.1"
+vue-lexer = "^0.0.4"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
