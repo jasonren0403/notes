@@ -696,13 +696,13 @@ reference = "aliyun"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.49"
+version = "9.5.50"
 description = "Documentation that simply works"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocs_material-9.5.49-py3-none-any.whl", hash = "sha256:c3c2d8176b18198435d3a3e119011922f3e11424074645c24019c2dcf08a360e"},
-    {file = "mkdocs_material-9.5.49.tar.gz", hash = "sha256:3671bb282b4f53a1c72e08adbe04d2481a98f85fed392530051f80ff94a9621d"},
+    {file = "mkdocs_material-9.5.50-py3-none-any.whl", hash = "sha256:f24100f234741f4d423a9d672a909d859668a4f404796be3cf035f10d6050385"},
+    {file = "mkdocs_material-9.5.50.tar.gz", hash = "sha256:ae5fe16f3d7c9ccd05bb6916a7da7420cf99a9ce5e33debd9d40403a090d5825"},
 ]
 
 [package.dependencies]
@@ -721,7 +721,7 @@ regex = ">=2022.4"
 requests = ">=2.26,<3.0"
 
 [package.extras]
-git = ["mkdocs-git-committers-plugin-2 (>=1.1,<2.0)", "mkdocs-git-revision-date-localized-plugin (>=1.2.4,<2.0)"]
+git = ["mkdocs-git-committers-plugin-2 (>=1.1,<3)", "mkdocs-git-revision-date-localized-plugin (>=1.2.4,<2.0)"]
 imaging = ["cairosvg (>=2.6,<3.0)", "pillow (>=10.2,<11.0)"]
 recommended = ["mkdocs-minify-plugin (>=0.7,<1.0)", "mkdocs-redirects (>=1.2,<2.0)", "mkdocs-rss-plugin (>=1.6,<2.0)"]
 
@@ -1084,7 +1084,7 @@ reference = "aliyun"
 [[package]]
 name = "pyyaml-env-tag"
 version = "0.1"
-description = "A custom YAML tag for referencing environment variables in YAML files. "
+description = "A custom YAML tag for referencing environment variables in YAML files."
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -1395,4 +1395,4 @@ reference = "aliyun"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a92d3cb5c571fc5d912c0637c19f766d8814ddfc03ca25b12c5a11f443b92a7d"
+content-hash = "b6d5aa7201fe8ea20ef7e7b2b8e062c8c923972d9b30c76db0828b6df6806118"
