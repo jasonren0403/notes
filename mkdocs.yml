@@ -135,6 +135,7 @@ theme:
     - navigation.prune
     - navigation.tracking
     - navigation.instant
+    - navigation.instant.progress
     - navigation.path # insiders
     - header.autohide
     - toc.integrate
@@ -150,7 +151,7 @@ theme:
   language: "zh"
 
 copyright: >-
-  copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2024</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+  copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2025</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
 
 use_directory_urls: false
 docs_dir: "notes_dev"
@@ -189,13 +190,12 @@ plugins:
       separator: '[\s\u200b\-]'
   - glightbox
   #  - typeset  # insiders
-  #  - meta  # insiders
+  - meta
   - social:
       cards: !ENV [CARDS, false]
       cards_layout_options:
-        font_family: Noto Sans SC # implicitly suggest font for social image sharing as Robot doesn't suggest Chinese font variants
-  - tags:
-      tags_file: tags.md
+        font_family: Noto Sans SC # implicitly suggest font for social image sharing as Roboto doesn't suggest Chinese font variants
+  - tags
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
