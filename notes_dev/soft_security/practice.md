@@ -1,8 +1,3 @@
----
-tags:
-  - 软件安全
-comments: true
----
 # 软件安全实践
 ## 安全生命周期
 * 软件危机
@@ -129,7 +124,7 @@ id7 --> id8(排定需求的优先次序) --> id9(需求审查)
     - 例如，利用gcc编译c或c++程序时，利用以下标记并尝试消除所有警告
 
 	```bash
-	gcc -Wall -Wpointer-arith -Wstrict-prototypes -O2 # (1)
+	gcc -Wall -Wpointer-arith -Wstrict-prototypes -O2 # (1)!
 	```
 
     1. 使用`-W-pedantic`(允许发出ANSI C标准所列的全部警告信息)或更专门的标记(如`-Wstrict-verflow=3`)可诊断可能导致边界检查错误的代数简化

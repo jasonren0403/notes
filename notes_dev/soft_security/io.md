@@ -1,8 +1,3 @@
----
-tags:
-  - 软件安全
-comments: true
----
 # 文件输入输出
 ## 文件I/O基础
 ### 文件系统
@@ -431,7 +426,7 @@ if (fd == -1) {
 		int fd;
 		int sleep_time = 100;
 		while (((fd = open(fn, O_WRONLY | O_EXCL |
-		   O_CREAT, 0)) == -1) && errno ==EEXIST)  //(1)
+		   O_CREAT, 0)) == -1) && errno ==EEXIST)  //(1)!
 		{
 			usleep(sleep_time);
 			sleep_time *= 2;
@@ -449,13 +444,13 @@ if (fd == -1) {
 
     1. 函数不会阻塞。因此，`lock()`函数必须反复调用`open()`函数，直到可以创建文件为止。这种重复有时称为忙等(busy form of waiting)或自旋锁(spinlock)。
 
-	* 实现缺陷：如果持有锁的进程调用`unlock()`失败，则文件锁将一直被保持。
-		- 修补方案：修改`lock()`函数，将锁定进程的ID(PID)写到锁文件中。
-			* 当发现一个现有的锁时，新版`lock()`将检查文件中保存的PID，并与活动进程列表进行比较。在锁定文件的进程已经终止的情况下才可以获得锁并更新锁文件以包含新的PID。
-			* 风险仍旧存在！
-				1. 终止进程的PID 有可能被重用。
-				2. 除非非常谨慎地进行实现，否则修补方案可能会包含竞争条件。
-				3. 被锁保护的共享资源可能由于进程的崩溃也受到破坏。
+- 实现缺陷：如果持有锁的进程调用`unlock()`失败，则文件锁将一直被保持。
+    - 修补方案：修改`lock()`函数，将锁定进程的ID(PID)写到锁文件中。
+        * 当发现一个现有的锁时，新版`lock()`将检查文件中保存的PID，并与活动进程列表进行比较。在锁定文件的进程已经终止的情况下才可以获得锁并更新锁文件以包含新的PID。
+        * 风险仍旧存在！
+            1. 终止进程的PID 有可能被重用。
+            2. 除非非常谨慎地进行实现，否则修补方案可能会包含竞争条件。
+            3. 被锁保护的共享资源可能由于进程的崩溃也受到破坏。
 
 ### 共享目录
 - 当两个或更多用户，或一组用户都拥有对某个目录的写权限时，共享和欺骗的潜在风险比对几个文件的共享访问情况要大得多
@@ -507,28 +502,28 @@ if (fd == -1) {
             ```c++
             struct stat orig_st;
             struct stat new_st;
-            char *file_name; /* (1) */
+            char *file_name; /* (1)! */
             int fd = open(file_name, O_WRONLY);
             if (fd == -1) {
-                /* (2) */
+                /* (2)! */
             }
-            /* (3) */
+            /* (3)! */
             if (fstat(fd, &orig_st) == -1) {
-                 /* (2) */
+                 /* (6)! */
             }
             close(fd);
             fd = -1;
             fd = open(file_name, O_RDONLY);
             if (fd == -1) {
-                /* (2) */
+                /* (7)! */
             }
             if (fstat(fd, &new_st) == -1) {
-                 /* (2) */
+                 /* (8)! */
             }
             if ((orig_st.st_dev != new_st.st_dev) || (orig_st.st_ino != new_st.st_ino)) {
-               /* (4) */
+               /* (4)! */
             }
-            /* (5) */
+            /* (5)! */
             close(fd);
             fd = -1;
             ```
@@ -538,6 +533,9 @@ if (fd == -1) {
             3. 写入文件
             4. 文件被篡改了！
             5. 从文件中读取
+            6. 处理错误
+            7. 处理错误
+            8. 处理错误
 
             !!! info
                 * 使用`open()`函数打开该文件。如果成功地打开了文件，则用`fstat()`函数把有关该文件的信息读入到`orig_st`结构。在关闭文件，然后重新打开该文件后，把有关该文件的信息读入`new_st`结构，并对`orig_st`和`new_st`中的`st_dev`和`st_ino`域进行比较，以提高识别的正确性
@@ -546,25 +544,25 @@ if (fd == -1) {
         === "检查符号链接"
 
             ```c hl_lines="8 12"
-            char *filename = /* (1) */;
-            char *userbuf = /* (2) */;
-            unsigned int userlen = /* (3) */;
+            char *filename = /* (1)! */;
+            char *userbuf = /* (2)! */;
+            unsigned int userlen = /* (3)! */;
 
             struct stat lstat_info;
             int fd;
 
             if (lstat(filename, &lstat_info) == -1) {
-                /* (4) */
+                /* (4)! */
             }
 
             if(!S_ISLNK(lstat_info.st_mode)) {
                 fd = open(filename, O_RDWR);
                 if (fd == -1) {
-                    /* (4) */
+                    /* (5)! */
                 }
             }
             if (write(fd, userbuf, userlen) < userlen) {
-                /* (4) */
+                /* (6)! */
             }
             ```
 
@@ -572,6 +570,8 @@ if (fd == -1) {
             2. 用户数据
             3. userbuf 字符串长度
             4. 处理错误
+            5. 处理错误
+            6. 处理错误
 
             !!! info
                 - 该示例使用`lstat()`函数来收集有关文件的信息，检查`st_mode`域，以确定该文件是否是一个符号链接，如果它不是一个符号链接，那么打开该文件
@@ -580,32 +580,32 @@ if (fd == -1) {
         === "检测竞争条件"
 
             ```c hl_lines="9 13 18 22-24"
-            char *filename = /* (1) */;
-            char *userbuf = /* (2) */;
-            unsigned int userlen = /* (3) */;
+            char *filename = /* (1)! */;
+            char *userbuf = /* (2)! */;
+            unsigned int userlen = /* (3)! */;
 
             struct stat lstat_info;
             struct stat fstat_info;
             int fd;
 
             if (lstat(filename, &lstat_info) == -1) {
-                /* (4) */
+                /* (4)! */
             }
 
             fd = open(filename, O_RDWR);
             if (fd == -1) {
-                /* (5) */
+                /* (5)! */
             }
 
             if (fstat(fd, &fstat_info) == -1) {
-                /* (6) */
+                /* (6)! */
             }
 
             if(lstat_info.st_mode == fstat_info.st_mode &&
                 lstat_info.st_ino == fstat_info.st_ino &&
                 lstat_info.st_dev == fstat_info.st_dev) {
                 if (write(fd, userbuf, userlen) < userlen) {
-                    /* (7) */
+                    /* (7)! */
                 }
             }
             ```

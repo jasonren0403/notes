@@ -1,8 +1,3 @@
----
-tags:
-  - 软件安全
-comments: true
----
 # 并发
 ## 多线程
 * 并发
@@ -24,10 +19,10 @@ comments: true
 		    signal(SIGINT, handler);
 		    err_msg = (char*)malloc(MAX_MSG_SIZE);
 		    if(err_msg == NULL){
-		        /* (1) */
+		        /* (1)! */
 		    }
 		    strcpy(err_msg , "No errors yet.");
-		    /* (2) */
+		    /* (2)! */
 		    return 0;
         }
 		```
@@ -81,15 +76,15 @@ comments: true
     ```c hl_lines="3 6 10"
 	#include <signal.h>
 
-	sig_atomic_t interrupted; /* (1) */
+	sig_atomic_t interrupted; /* (1)! */
 
 	void sigint_handler(int signum) {
-		interrupted = 1; /* (2) */
+		interrupted = 1; /* (2)! */
 	}
 	int main(void) {
 		signal(SIGINT, sigint_handler);
-		while (!interrupted) { /* (3) */
-		/* (4) */
+		while (!interrupted) { /* (3)! */
+		/* (4)! */
 		}
 		return 0;
 	}
@@ -151,13 +146,13 @@ comments: true
     ```c++ hl_lines="1 3 5 10"
 	int shared_lock = 0;
 	void thread_function(int id){
-		while(shared_lock)          // (1)
+		while(shared_lock)          // (1)!
 			sleep(1);
-		shared_lock = 1;            // (2)
-		shared_data = id;           // (3)
+		shared_lock = 1;            // (2)!
+		shared_data = id;           // (3)!
 		cout << "Thread id:" << id << " set shared value to " << shared_data << endl;
 		usleep(id * 100);
-		cout << "Thread id:" << id << " has shared value as " << shared_data << endl;    // (4)
+		cout << "Thread id:" << id << " has shared value as " << shared_data << endl;    // (4)!
 		shared_lock = 0;
 	}
 	int main(void){
@@ -209,7 +204,6 @@ comments: true
 ??? info "原子操作"
 	原子操作是不可分割的，一个原子操作不能被任何其他的操作中断，当正在执行原子操作时，它访问的内存，也不可以被任何其他机制改变。因此，必须在一个原子操作运行完成后，其他任何事物才能出问该操作所使用的内存。原子操作不能被划分成更小的部分。
 
-
 ### 不可变的数据结构
 * 提供线程安全的一种常用的方法是简单地防止线程修改共享数据，在本质上，即是使数据只读。保护不可改变的共享数据不需要锁。
 	- C和C++：声明一个共享对象为`const`的，或复制一个线程可能要修改的任何对象
@@ -221,7 +215,7 @@ comments: true
 
         ```c++  hl_lines="4 5 8"
 		#include <pthread.h>
-		int increment_counter(){            //(1)
+		int increment_counter(){            //(1)!
 			static int count = 0;
 			static pthread mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 			pthread_mutex_lock(&mutex);
@@ -272,7 +266,7 @@ comments: true
 	mutex *locks = NULL;
 	int thread_size;
 
-	void thread_function(int id){  //(1)
+	void thread_function(int id){  //(1)!
 		for(int i=0;i<thread_size;i++)
 			locks[i].lock();
 		shared_data = id;

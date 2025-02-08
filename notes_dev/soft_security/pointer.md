@@ -1,8 +1,3 @@
----
-tags:
-  - 软件安全
-comments: true
----
 # 指针安全
 ## 指针安全
 * 修改指针值，利用程序漏洞
@@ -13,15 +8,15 @@ comments: true
    	* BSS段：所有未初始化的全局变量
 
     ```c
-	static int GLOBAL_INIT = 1;     /* (1) */
-	static int global_uninit;        /* (2) */
+	static int GLOBAL_INIT = 1;     /* (1)! */
+	static int global_uninit;        /* (2)! */
 	void main(int argc, char **argv) {
-		int local_init = 1;                   /* (3) */
-		int local_uninit;                     /* (4) */
-		static int local_static_init = 1;  /* (5) */
-		static int local_static_uninit; /* (6) */
-		int *buff_ptr = (int *)malloc(4);  /* (7) */
-        /* (8) */
+		int local_init = 1;                   /* (3)! */
+		int local_uninit;                     /* (4)! */
+		static int local_static_init = 1;  /* (5)! */
+		static int local_static_uninit; /* (6)! */
+		int *buff_ptr = (int *)malloc(4);  /* (7)! */
+        /* (8)! */
 	}
 	```
 
@@ -50,10 +45,10 @@ comments: true
 				exit(-1);
 			}
 			static char buff[BUFFSIZE];  //在BSS段
-			static void (*funcPtr)(const char *str);    // (1)
+			static void (*funcPtr)(const char *str);    // (1)!
 			funcPtr = &good_function;
-			strncpy(buff, argv[1], strlen(argv[1])); // (2)
-			(void)(*funcPtr)(argv[2]);    // (3)
+			strncpy(buff, argv[1], strlen(argv[1])); // (2)!
+			(void)(*funcPtr)(argv[2]);    // (3)!
 			return 0;
 		}
 		```
@@ -70,8 +65,8 @@ comments: true
 			char buff[100];
 			long val = ...;
 			long *ptr = ...;
-			memcpy(buff, arg, len);     // (1)
-			*ptr = val;    // (2)
+			memcpy(buff, arg, len);  // (1)!
+			*ptr = val; // (2)!
 			...
 			return;
 		}
@@ -211,24 +206,24 @@ comments: true
 * 修改JB_PC域
 	- Linux下`jmp_buf`实现
 
-    ```c linenums="1" hl_lines="7"
-	typedef int __jmp_buf[6];
-	#define JB_BX 0
-	#define JB_SI 1
-	#define JB_DI 2
-	#define JB_BP 3
-	#define JB_SP 4
-	#define JB_PC 5          // (1)
-	#define JB_SIZE 24
+      ```c linenums="1" hl_lines="7"
+	  typedef int __jmp_buf[6];
+	  #define JB_BX 0
+	  #define JB_SI 1
+	  #define JB_DI 2
+	  #define JB_BP 3
+	  #define JB_SP 4
+	  #define JB_PC 5          // (1)!
+	  #define JB_SIZE 24
 
-	typedef struct __jmp_buf_tag {
-		__jmp_buf __jmpbuf;
-		int __mask_was_saved;
-		__sigset_t __saved_mask;
-	} jmp_buf[1]
-	```
+	  typedef struct __jmp_buf_tag {
+	  	  __jmp_buf __jmpbuf;
+		  int __mask_was_saved;
+		  __sigset_t __saved_mask;
+	  } jmp_buf[1]
+	  ```
 
-    1. 这是我们利用的目标
+      1. 这是我们利用的目标
 
 ### <a name="exception-handler"></a>异常处理
 * Windows适用

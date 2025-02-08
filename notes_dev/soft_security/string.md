@@ -1,8 +1,3 @@
----
-tags:
-  - 软件安全
-comments: true
----
 # 字符串安全
 ## 字符串
 * 包含了终端用户和软件系统交互的大部分数据
@@ -83,7 +78,7 @@ comments: true
 					strncpy(a, "0123456789abcdef", sizeof(a));
 					strncpy(b, "0123456789abcdef", sizeof(b));
 					strncpy(c, a, sizeof(c));
-					// (1)
+					// (1)!
 				}
 				```
 
@@ -126,12 +121,12 @@ comments: true
 				```c linenums="1" hl_lines="3 5 8"
 				int main(int argc, char* argv[]) {
 					char source[10];
-					strcpy(source, "0123456789");   // (1)
+					strcpy(source, "0123456789");   // (1)!
 					char *dest = (char *)malloc(strlen(source));
 					for (int i=1; i <= 11; i++) {
 						dest[i] = source[i];
 					}
-					dest[i] = '\0';      // (2)
+					dest[i] = '\0';      // (2)!
 					printf("dest = %s", dest);
 				}
 				```
@@ -145,7 +140,7 @@ comments: true
 
 				```c
 				/* 应用程序输入一个用户的email 地址，并把地址写入缓冲区  */
-				sprintf(buffer,"/bin/mail %s < /tmp/email",addr); // (1)
+				sprintf(buffer,"/bin/mail %s < /tmp/email",addr); // (1)!
 				/* 将要使用system()调用执行buffer中的数据 */
 				```
 
@@ -208,18 +203,18 @@ comments: true
         ```c title="password.c源码"
 		bool IsPasswordOK(void) {
 			 char Password[12];
-			 gets(Password);    // (1)
-			 if (!strcmp(Password,"goodpass")) return true; // (2)
-			 else return false; // (3)
+			 gets(Password);    // (1)!
+			 if (!strcmp(Password,"goodpass")) return true; // (2)!
+			 else return false; // (3)!
 		}
 
 		void main(void) {
-			bool PwStatus;              // (4)
+			bool PwStatus;              // (4)!
 			puts("Enter Password:");
-			PwStatus=IsPasswordOK();    // (5)
+			PwStatus=IsPasswordOK();    // (5)!
 			if (PwStatus == false) {
 				puts("Access denied");
-				exit(-1);              // (6)
+				exit(-1);              // (6)!
 			}
 			else puts("Access granted");
 		}
@@ -302,16 +297,16 @@ comments: true
 			safestr_t str1;
 			safestr_t str2;
 			XXL_TRY_BEGIN {
-				str1 = safestr_alloc(12, 0);  // (1)
+				str1 = safestr_alloc(12, 0);  // (1)!
 				str2 = safestr_create("hello, world\n", 0);
-				safestr_copy(&str1, str2);  // (2)
+				safestr_copy(&str1, str2);  // (2)!
 				safestr_printf(str1);
 				safestr_printf(str2);
 			}
-			XXL_CATCH (SAFESTR_ERROR_OUT_OF_MEMORY){  // (3)
+			XXL_CATCH (SAFESTR_ERROR_OUT_OF_MEMORY){  // (3)!
 				printf("safestr out of memory.\n");
 			}
-			XXL_EXCEPT {   // (4)
+			XXL_EXCEPT {   // (4)!
 				printf("string operation failed.\n");
 			}
 			XXL_TRY_END;
@@ -330,18 +325,18 @@ comments: true
 
             ```c
     		errno_t retValue;
-    		char *cstr;  // (1)
+    		char *cstr;  // (1)!
     		string_m str1 = NULL;
 
     		if (retValue = strcreate_m(&str1, "hello, world")) {
     		  fprintf(stderr, "Error %d from strcreate_m.\n", retValue);
     		}
-    		else { // (2)
+    		else { // (2)!
     		  if (retValue = getstr_m(&cstr, str1)) {
     			fprintf(stderr, "error %d from getstr_m.\n", retValue);
     		  }
     		  printf("%s\n", cstr);
-    		  free(cstr); // (3)
+    		  free(cstr); // (3)!
     		}
     		```
 

