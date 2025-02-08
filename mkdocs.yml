@@ -208,7 +208,7 @@ extra_javascript:
   - assets/javascripts/mathjax.js
   # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0/highlight.min.js
   - https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js
   - assets/javascripts/doc_addins.js
   - assets/javascripts/share.js
@@ -222,8 +222,8 @@ markdown_extensions:
   - admonition
   - toc:
       # https://github.com/squidfunk/mkdocs-material/discussions/4682
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds: {}
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {}
+      permalink: true
   - footnotes
   - attr_list
   - def_list
@@ -231,6 +231,7 @@ markdown_extensions:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
+  - pymdownx.blocks.caption
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
@@ -257,6 +258,5 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tabbed:
       alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds: {}
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {}
   - pymdownx.tilde
