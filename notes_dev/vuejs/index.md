@@ -1,8 +1,3 @@
----
-tags:
-  - Vue.js
----
-
 # 渐进式 JavaScript 框架——Vue.js[^1]
 
 ## 渐进式框架

@@ -1,8 +1,3 @@
----
-tags:
-  - Vue.js
----
-
 # 表单输入绑定[^1]
 
 ## 基本使用
@@ -30,10 +25,10 @@ tags:
 
 === "复选框"
     ```html
-    <input type="checkbox" id="checkbox" v-model="checked" /> <!-- (1) -->
+    <input type="checkbox" id="checkbox" v-model="checked" /> <!-- (1)! -->
     <label for="checkbox">{{ checked }}</label>
 
-    <!-- (2) -->
+    <!-- (2)! -->
     <div>Checked names: {{ checkedNames }}</div>
     
     <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
@@ -47,7 +42,7 @@ tags:
     ```
 
     1. 单个复选框绑定了布尔类型值
-    2. 也可以将多个复选框绑定到同一个数组或集合的值（`const checkedNames = ref([])`）
+    2. 也可以将多个复选框绑定到同一个数组或集合的值（`#!js const checkedNames = ref([])`）
 
 === "单选按钮"
     ```html
@@ -68,7 +63,7 @@ tags:
         <div>Selected: {{ selected }}</div>
         
         <select v-model="selected">
-          <option disabled value="">Please select one</option> <!-- (1) -->
+          <option disabled value="">Please select one</option> <!-- (1)! -->
           <option>A</option>
           <option>B</option>
           <option>C</option>
@@ -108,7 +103,7 @@ tags:
 ### 选择器选项
 
 ```html
-<!-- (1) -->
+<!-- (1)! -->
 <select v-model="selected">
   <!-- 内联对象字面量 -->
   <option :value="{ number: 123 }">123</option>

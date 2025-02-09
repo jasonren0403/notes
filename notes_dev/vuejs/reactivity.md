@@ -1,8 +1,3 @@
----
-tags:
-  - Vue.js
----
-
 # 响应式基础[^1]
 
 !!! tip ""
@@ -229,10 +224,12 @@ function increment() {
 
 <template>
   <button @click="increment">
-    {{ count }} <!-- 无需 .value -->
+    {{ count }} <!-- (1)! -->
   </button>
 </template>
 ```
+
+1. 无需 .value
 
 [^1]: https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html
 [^2]: https://v2.cn.vuejs.org/v2/guide/reactivity.html

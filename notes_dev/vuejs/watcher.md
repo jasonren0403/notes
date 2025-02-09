@@ -1,8 +1,3 @@
----
-tags:
-  - Vue.js
----
-
 # 侦听器[^1]
 
 响应式属性变化时，有时需要执行一些副作用，例如更改 DOM，或者根据异步操作的结果修改另一处的状态。Vue 使用监听器实现这个需求：
@@ -42,12 +37,12 @@ tags:
     })
 
     watch(
-        () => obj.a,  <!-- (1) -->
+        () => obj.a,  // (1)!
         (newValue, oldValue) =>{
             // ...
         }
     )
-    <!-- (2) -->
+    // (2)!
     watch([prop2, ()=>obj.a], ([newProp2, newObja])=>{
         // ...
     }
@@ -211,8 +206,8 @@ tags:
 侦听器往往在组件卸载时即自动停止。如果需要在组件卸载前停止侦听器，需要调用侦听器 API 返回的函数：
 
 ```js
-const unwatch = this.$watch('foo', callback) // (1)
-const unwatch = watch(source, callback) // (2)
+const unwatch = this.$watch('foo', callback) // (1)!
+const unwatch = watch(source, callback) // (2)!
 const unwatch = watchEffect(()=>{})
 // ...当该侦听器不再需要时
 unwatch()

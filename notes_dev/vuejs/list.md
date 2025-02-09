@@ -19,7 +19,7 @@ tags:
 ```html
 <!-- items=[{message: ...,}, {message: ...,}, ...] -->
 <ul>
-<li v-for="item in items"> <!-- (1) -->
+<li v-for="item in items"> <!-- (1)! --> <!-- (2)! -->
   {{ item.message }}
 </li>
 </ul>
@@ -35,7 +35,7 @@ tags:
 ```html
 <!-- myObject={a: 1, b: 2, c: 3} -->
 <ul>
-  <li v-for="value in myObject">  <!-- (1) -->
+  <li v-for="value in myObject">  <!-- (1)! -->  <!-- (2)! -->
     {{ value }}
   </li>
 </ul>

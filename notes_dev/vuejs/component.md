@@ -1,8 +1,3 @@
----
-tags:
-  - Vue.js
----
-
 # 组件[^1]
 
 组件将所构建的网页划分为独立、可重用的部分，并且可以对每个部分进行单独的思考。
@@ -39,7 +34,7 @@ tags:
         <button @click="count++">
           You clicked me {{ count }} times.
         </button>`
-      // (1) 
+      // (1)!
     }
     ```
 
@@ -307,7 +302,7 @@ props = {
 
 #### 动态插槽名
 
-```html
+```vue
 <base-layout>
   <template v-slot:[dynamicSlotName]>
     ...
@@ -324,7 +319,7 @@ props = {
 
 某些场景下，插槽的内容可能需要同时使用父组件域和子组件域内的数据。这时，可以向一个插槽的出口上传递 attributes：
 
-```html title="<MyComponent> 的模板"
+```vue title="<MyComponent> 的模板"
 <div>
   <slot :text="greetingMessage" :count="1"></slot>
 </div>
@@ -332,18 +327,18 @@ props = {
 
 接受 props 时，子组件默认插槽可以使用标签上的 `v-slot` 指令接收到插槽 props 对象：
 
-```html
+```vue
 <MyComponent v-slot="slotProps">
   {{ slotProps.text }} {{ slotProps.count }}
 </MyComponent>
-<!-- (1) -->
+<!-- (1)! -->
 ```
 
 1. 这里当然支持解构写法：`v-slot="{ text, count }"`
 
 子组件具名作用域插槽中的 props 可以作为 `v-slot` 指令的值被访问到：`v-slot:name=slotProps`
 
-```html
+```vue
 <MyComponent>
   <template #header="headerProps">
     {{ headerProps }}
@@ -361,7 +356,7 @@ props = {
 
 向上述模板传入这个 props：
 
-```html
+```vue
 <slot name="header" message="hello"></slot>
 ```
 
@@ -370,7 +365,7 @@ props = {
 !!! tip ""
     如果同时指定了具名插槽和默认插槽，需要为默认插槽使用显式的 `<template>` 标签
 
-    ```html
+    ```vue
     <template>
       <MyComponent>
         <!-- 使用显式的默认插槽 -->
@@ -389,7 +384,7 @@ props = {
 
 有的场景需要在多个组件间切换，如 Tab 界面，这是通过 Vue 的 `<component>` 元素加 `is` attribute 实现的：
 
-```html
+```vue
 <component :is="tabs[currentTab]"></component>
 ```
 

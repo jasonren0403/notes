@@ -1,8 +1,3 @@
----
-tags:
-  - Vue.js
----
-
 # 模板语法[^1]
 
 Vue 使用了基于 HTML 的模板语法，所有的 Vue 模板都是语法层面合法的 HTML。
@@ -152,9 +147,9 @@ Vue 中的指令是带有 `v-` 前缀的特殊 attribute，大多数指令的值
 可以给 `:class` 绑定一个数组来渲染多个 CSS 类：
 
 ```html 
-<div :class="[activeClass, errorClass]"></div> <!-- (1) -->
+<div :class="[activeClass, errorClass]"></div> <!-- (1)! -->
 
-<div :class="[isActive ? activeClass : '', errorClass]"></div>  <!-- (2) -->
+<div :class="[isActive ? activeClass : '', errorClass]"></div>  <!-- (2)! -->
 ```
 
 1. `{activeClass: 'active', errorClass: 'text-danger'}` 时，渲染结果为 `<div class="active text-danger"></div>`
@@ -178,12 +173,12 @@ data() {
 ```html
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 
-<div :style="{ 'font-size': fontSize + 'px' }"></div> <!-- (1) -->
-<div :style="styleObject"></div>  <!-- (2) -->
+<div :style="{ 'font-size': fontSize + 'px' }"></div> <!-- (1)! -->
+<div :style="styleObject"></div>  <!-- (2)! -->
 ```
 
 1. 也支持短横线（对应其CSS实际名称）
-2. 或者绑定到样式对象上（`styleObject = {color: 'red', fontSize: '13px'}`）
+2. 或者绑定到样式对象上（`#!js styleObject = {color: 'red', fontSize: '13px'}`）
 
 #### 绑定数组
 
@@ -202,7 +197,7 @@ data() {
 对一个样式属性可以提供多个不同前缀的值，数组仅会渲染浏览器支持的最后一个值
 
 ```html
-<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div> <!-- (1) -->
+<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div> <!-- (1)! -->
 ```
 
 1. 在支持不需要特别前缀的浏览器中，会渲染为 `display: flex`
@@ -212,7 +207,7 @@ data() {
 某些时候，需要直接访问底层的 DOM 元素，可以使用 `ref` attribute 为元素赋予一个 ID 引用
 
 ```html
-<input ref="input">
+<input ref="input" />
 ```
 
 ### 访问模板引用
@@ -324,7 +319,7 @@ data() {
     const a = 1
     const b = ref(2)
     
-    // (1)
+    // (1)!
     defineExpose({
       a,
       b

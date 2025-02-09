@@ -1,8 +1,3 @@
----
-tags:
-  - Vue.js
----
-
 # 事件处理[^1]
 
 一般使用 `v-on`（简写为`@`）指令来监听 DOM 事件。
@@ -28,12 +23,12 @@ tags:
     - 如果向内联处理器传入特殊的 `$event` 变量，或使用内联箭头函数，可以访问原始的 DOM 事件
 
         ```html
-        <!-- (1) -->
+        <!-- (1)! -->
         <button @click="warn('Form cannot be submitted yet.', $event)">
         Submit
         </button>
         
-        <!-- (2) -->
+        <!-- (2)! -->
         <button @click="(event) => warn('Form cannot be submitted yet.', event)">
         Submit
         </button>
@@ -66,19 +61,19 @@ Vue 中的事件修饰符是用 `.` 表示的指令后缀，主要包含：
 
 按键修饰符是使用 `KeyboardEvent.key` 暴露的名称作为修饰符，其命名为短横线分隔的大小写字母。常用的按键有：
 
-* `.enter`：<kbd>Enter</kbd>
-* `.tab`：<kbd>Tab</kbd>
-* `.delete`：<kbd>Delete</kbd> 和 <kbd>Backspace</kbd>
-* `.esc`：<kbd>Esc</kbd>
-* `.space`：<kbd>Space</kbd>
-* `.up`：<kbd>↑</kbd>
-* `.down`：<kbd>↓</kbd>
-* `.left`：<kbd>←</kbd>
-* `.right`：<kbd>→</kbd>
-* `.ctrl`：<kbd>Ctrl</kbd>
-* `.alt`：<kbd>Alt</kbd>
-* `.shift`：<kbd>Shift</kbd>
-* `.meta`：<kbd>Meta</kbd>（Windows 键或者 Command 键）
+* `.enter`：++enter++
+* `.tab`：++tab++
+* `.delete`：++delete++ 和 ++backspace++
+* `.esc`：++esc++
+* `.space`：++space++
+* `.up`：++arrow-up++
+* `.down`：++arrow-down++
+* `.left`：++arrow-left++
+* `.right`：++arrow-right++
+* `.ctrl`：++ctrl++
+* `.alt`：++alt++
+* `.shift`：++shift++
+* `.meta`：++meta++（Windows 键或者 Command 键）
 
 多个按键可以同时指定（如 `@keyup.alt.enter`），也可以与点击事件结合使用（如 `@click.ctrl`）
 
