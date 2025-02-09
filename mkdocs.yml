@@ -148,6 +148,7 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.view
+    - content.tooltips
   language: "zh"
 
 copyright: >-
