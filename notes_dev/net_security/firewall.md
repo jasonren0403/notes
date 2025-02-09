@@ -1,7 +1,3 @@
----
-tags:
-  - 网络安全
----
 防火墙
 ===
 ## 访问控制
@@ -204,17 +200,17 @@ tags:
 			- 作用：保护内部网络不受外部网络和周边网络的侵害，它执行大部分过滤工作。
 
 	!!! success "优点"
-		1. 入侵者需突破3个不同的设备才能入侵内部网络。
-		2. 只对外通告DMZ区的网络，保证内部网络不可见。
-		3. 内部网络用户通过堡垒主机或代理服务器访问外部网络。
+		* 入侵者需突破3个不同的设备才能入侵内部网络。
+		* 只对外通告DMZ区的网络，保证内部网络不可见。
+		* 内部网络用户通过堡垒主机或代理服务器访问外部网络。
 
 	??? info "其他结构"
-		(1) 合并“非军事区”的外部路由器和堡垒主机结构
-		(2) 合并内部路由器和堡垒主机结构
-		(3) 合并DMZ的内部路由器和外部路由器结构
-		(4) 两个堡垒主机和两个非军事区结构
-		(5) 牺牲主机结构
-		(6) 使用多台外部路由器的体系结构
+		* 合并“非军事区”的外部路由器和堡垒主机结构
+		* 合并内部路由器和堡垒主机结构
+		* 合并DMZ的内部路由器和外部路由器结构
+		* 两个堡垒主机和两个非军事区结构
+		* 牺牲主机结构
+		* 使用多台外部路由器的体系结构
 
 ## 应用实例
 ### iptables
@@ -243,10 +239,10 @@ tags:
 			* INPUT——进来的数据包应用此规则链中的策略；
 			* OUTPUT——外出的数据包应用此规则链中的策略；
 			* FORWARD——转发数据包时应用此规则链中的策略；
-			* PREROUTING— —对数据包作路由选择前应用此链中的规则；
+			* PREROUTING——对数据包作路由选择前应用此链中的规则；
 			* POSTROUTING——对数据包作路由选择后应用此链中的规则。
 
-* 命令：`iptables [-A|-I 链][-io 网卡接口][-p 协议][-s 源ip/网段][-d 目标ip/网段] [-j 操作]`
+* 命令：`#!bash iptables [-A|-I 链][-io 网卡接口][-p 协议][-s 源ip/网段][-d 目标ip/网段] [-j 操作]`
 	- `-AI` 链：针对某条链进行规则的“插入”或“添加”（影响规则生效顺序）
 		* `-A`：新增加一条规则
 		* `-I`：插入一条规则
@@ -256,10 +252,10 @@ tags:
 	- `-d` 目标IP/网段：同`-s`一样，只是这里指的是目标IP/网段
 	- `-j`后接操作，主要有接受ACCEPT，丢弃DROP和记录LOG
 * 保护例子
-	- 拒绝其他主机访问本机Telnet服务（TCP 23端口）：`iptables -A INPUT -p tcp --dport 23 -j DROP`
-	- 防御SYN Flood：`iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT`
-	- 防御ping of death拒绝服务攻击：`iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT`
-	- 防御端口扫描(Furtive port scanner)：`iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT`
+	- 拒绝其他主机访问本机Telnet服务（TCP 23端口）：`#!bash iptables -A INPUT -p tcp --dport 23 -j DROP`
+	- 防御SYN Flood：`#!bash iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT`
+	- 防御ping of death拒绝服务攻击：`#!bash iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT`
+	- 防御端口扫描(Furtive port scanner)：`#!bash iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT`
 
 	!!! warning ""
 		iptables的检测存在延迟——需要使用`--limit`和`--limit-burst`
@@ -373,7 +369,6 @@ tags:
     * 检验异常函数的有效性，不可靠会阻止其调用
 
 ### 手机权限控制
-<!-- title: 常见的android手机权限 -->
 | 值(android.permission.*) | 说明 |
 |:---:|:---:|
 | INTERNET | 访问网络 |
@@ -385,6 +380,10 @@ tags:
 | READ_SMS | 读取短信 |
 | RECEIVE_SMS | 接收短信 |
 | SEND_SMS | 发送短信 |
+
+/// caption
+常见的android手机权限
+/// 
 
 * Android的权限授予
 
@@ -398,12 +397,12 @@ tags:
 * 防火墙：保障互联互通的情况下，尽可能安全
 * 物理隔离：保证必须安全的前提下，尽可能互联互通
 	- 安全要求
-		1. 物理传导上隔断内外网
-		2. 物理辐射上隔断内外网
-		3. 物理存储上隔断内外网
+		* 物理传导上隔断内外网
+		* 物理辐射上隔断内外网
+		* 物理存储上隔断内外网
 	- 实现原理
-		1. 数据二极管技术
-		2. 存储池交换技术
+		* 数据二极管技术
+		* 存储池交换技术
 * 网络隔离技术分类
 	- 第一代隔离技术：完全的隔离
 	- 第二代隔离技术：硬件卡隔离

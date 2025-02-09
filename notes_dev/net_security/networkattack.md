@@ -1,7 +1,3 @@
----
-tags:
-  - 网络安全
----
 网络攻击
 ===
 ## 网络安全扫描
@@ -79,16 +75,16 @@ tags:
 			* 发送UDP数据包给目标机UDP端口，若及时收到“ICMP端口不可到达”，则目标端口为关闭状态
 			* 若超时也未能接收到端口不可到达ICMP信息，则表明目标端口可能处于监听状态
 
-	* 漏洞扫描
-		- 基于漏洞库的匹配法
-			* 大部分为Web漏洞
-		- 基于攻击性扫描的模拟黑客法
+- 漏洞扫描
+	- 基于漏洞库的匹配法
+		* 大部分为Web漏洞
+	- 基于攻击性扫描的模拟黑客法
 
 ### 操作系统探测
 - 目的：有针对性的评估目标机的安全性
 - 主动探测技术
 	* 标识攫取
-		- 正常交互or抓取目标机上的任意文件
+		- 正常交互或抓取目标机上的任意文件
 		- 优点：提供的大部分服务足以暴露目标机的身份；缺点：手动获取，效率低
 	* 网络协议栈特征探测
 		- ICMP、TCP报文响应分析，TCP报文延时分析
@@ -119,7 +115,7 @@ tags:
 				* 主动防御
 			- 漏洞信息发布机制
 				* 注重实时性、检测粒度、发布方式
-- 漏洞检测方法：
+- 漏洞检测方法
 	* 直接检测：使用针对漏洞特点设计的脚本或程序
 	* 推断：寻找漏洞存在的证据
 	* 带凭证的测试：将攻击者的权限提升至超级用户（目标）
@@ -132,10 +128,10 @@ tags:
             * ARP请求以广播方式进行，可随意发送ARP应答包且无需经过认证
         - VLAN中继攻击
             * 思科设备在处理特定的VLAN中继协议（VTP）数据包的发生一个未知错误，利用这个漏洞可以发送一个定制的VTP数据包给一个思科的网络设备，可以导致系统重新加载，从而引起拒绝服务攻击（DoS）。
-        - 生成树（STP）协议攻击
+        - 生成树（STP）协议[^1]攻击
 
-            ??? help "STP Protocol"
-                [详情](https://www.jianshu.com/p/bc0670d2b0d9)
+            ???+ help "STP Protocol"
+                生成树协议主要应用于计算机网络中树形拓扑结构的建立，防止网络中出现环路。
 
             * 恶意黑客把一台计算机连接到不止一个交换机，然后发送网桥ID很低的精心设计的BPDU，就可以欺骗交换机，使它以为这是根网桥，这会导致STP重新收敛(reconverge)，从而引起回路，导致网络崩溃。
 
@@ -170,7 +166,8 @@ tags:
 
 	=== "数据链路层"
 		* 增加了安全算法协商和数据加密/解密处理的功能和过程，通过密码技术保证数据机密性和完整性
-		* 局域网安全协议
+		
+        * 局域网安全协议
 			1. IEEE 802.10标准(互操作局域网/城域网安全标准)
 			    ```text
 			    802.10帧结构
@@ -289,23 +286,23 @@ tags:
 
 ### 攻击
 * 集线器环境：直接嗅探
-* 交换机环境：
-    1. 发送大量虚假MAC地址数据报（针对交换机，使交换机“降级”），占用交换机地址表资源
-        > 不适合采用静态地址映射表的交换机
-    2. ARP欺骗
+* 交换机环境
+    - 发送大量虚假MAC地址数据报（针对交换机，使交换机“降级”），占用交换机地址表资源
+        * 不适合采用静态地址映射表的交换机
+    - ARP欺骗
 	    * 主机C为了达到嗅探的目的，会向主机A和主机B分别发送ARP应答包，告诉它们IP地址为IPB的主机MAC地址为MACC，IP地址为IPA的主机MAC地址为MACC。这样，主机A和主机B的数据都流向了主机C
-    3. 修改本机MAC地址
+    - 修改本机MAC地址
 	    * 修改本地MAC地址为目标主机MAC地址来实现嗅探。只适用于动态生成地址映射表的交换机
-* 攻击溯源：
-    1. 抓包分析
+* 攻击溯源
+    - 抓包分析
 	    * ARP攻击行为方式主要有两种，一是欺骗网关，二是欺骗网内的所有主机。最终的结果是，在网关的ARP缓存表中，网内所有活动主机的MAC地址均为中毒主机的MAC地址；网内所有主机的ARP缓存表中，网关的MAC地址也成为中毒主机的MAC地址。前者保证了从网关到网内主机的数据包被发到中毒主机，后者相反，使得主机发往网关的数据包均发送到中毒主机。
 
 		!!! tip ""
 			某个IP不断发送ARP Request请求包，一般为攻击源
 
-    2. 查看两台不能上网主机的arp缓存
+    - 查看两台不能上网主机的arp缓存
 	    * 一般情况下，网内的主机只和网关通信。正常情况下，一台主机的ARP缓存中应该只有网关的MAC地址。如果有其他主机的MAC地址，说明本地主机和这台主机最后有过数据通信发生。如果某台主机既不是网关也不是服务器，但和网内的其他主机都有通信活动，且此时又是ARP攻击发作时期，那么攻击源也就是它了
-    3. tracert任意外网地址
+    - tracert任意外网地址
 	    * 中毒主机在受影响主机和网关之间，扮演了“中间人”的角色。所有本应该到达网关的数据包，由于错误的MAC地址，均被发到了中毒主机。此时，中毒主机越俎代庖，起到了缺省网关的作用
 
 		!!! tip ""
@@ -359,8 +356,8 @@ tags:
     * Windows 3.1x，Windows 95，Windows NT，Linux 2.0.32，Linux 2.1.63均容易受到攻击
 
 === "Land攻击"
-    - SYN包的源地址和目的地址设为同样地址
-    - 导致服务器向它自己的地址发送SYN-ACK消息，结果这个地址又发回ACK消息并创建一个空连接。被攻击的服务器每接收一个这样的连接都将保留，直到超时
+    * SYN包的源地址和目的地址设为同样地址
+    * 导致服务器向它自己的地址发送SYN-ACK消息，结果这个地址又发回ACK消息并创建一个空连接。被攻击的服务器每接收一个这样的连接都将保留，直到超时
 
 === "SYN洪水"
     * 每个机器都需要为半开连接分配一定的资源，资源量有限。
@@ -411,14 +408,15 @@ tags:
 
 ## Web攻击
 ### XSS(Cross Site Scripting)攻击
-=== "反射性XSS"
-    * 发生请求时，XSS代码出现在请求URL中，作为参数提交到服务器
+反射性XSS
+: 发生请求时，XSS代码出现在请求URL中，作为参数提交到服务器
 
-=== "存储型XSS"
-    * 将XSS代码发送至服务器，下次请求页面时无需带上XSS代码
+存储型XSS
+: 将XSS代码发送至服务器，下次请求页面时无需带上XSS代码
 
 ### CSRF(Cross Site Request Forgery)跨站域请求伪造
 * 伪装来自受信任用户的请求访问有权限的资源
+
 ```mermaid
 sequenceDiagram
     actor u as user
@@ -435,34 +433,41 @@ sequenceDiagram
 ### SQL注入攻击
 
 ??? info "什么是SQL和SQL注入"
-	SQL：结构化查询语言，与数据库交互，包含SELECT, INSERT, UPDATE, DELETE, CREATE, 以及DROP在内的命令几乎可以完成所有的数据库工作。
-	SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面请求的查询字符串，欺骗服务器执行恶意SQL命令。
+	* SQL：结构化查询语言，与数据库交互，包含SELECT、INSERT、UPDATE、DELETE、CREATE以及DROP在内的命令几乎可以完成所有的数据库工作。
+	* SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面请求的查询字符串，欺骗服务器执行恶意SQL命令。
 
 #### 本质
 用户输入数据作为代码执行
 #### 关键条件
-1. 用户能够控制输入
-2. 原本程序要执行的代码，拼接了用户输入的数据
+- [x] 用户能够控制输入 
+- [x] 原本程序要执行的代码，拼接了用户输入的数据
 
-!!! danger "例子"
-	sql语句如右：`select * from users where username='x' and password='y'`
-	令username = `'or 1=1 [--(mssql)或#(php)]`  password = `任意值`，可跳过用户名密码验证
+!!! example "示例"
+	```sql
+    select * from users where username='x' and password='y'
+    ```
+	令username = `'or 1=1 --`（mssql）或 `'or 1=1 #`（php），password = `<任意值>`，可跳过用户名密码验证
 
 #### 具体技巧
 * 有错误信息回显——猜测数据库后端和查询语句
-例如：参数中输入单引号`'`后，服务器返回
-	```text
-	MicrosoftJETDatabaseEngine错误‘80040e14’
-	字符串的语法错误在查询表达式’ID=49’’中。
-	/showdetail.asp,行8
-	```
-可以猜测后端为Access数据库，查询语句伪代码为`select xxx from table_X where id=$id`
+
+    !!! example "示例"
+        参数中输入单引号`'`后，服务器返回
+
+        ```text
+        MicrosoftJETDatabaseEngine错误‘80040e14’
+        字符串的语法错误在查询表达式’ID=49’’中。
+        /showdetail.asp,行8
+        ```
+    
+        可以猜测后端为Access数据库，查询语句伪代码为`#!sql select xxx from table_X where id=$id`
 
 * 关闭错误信息回显——盲注
-	!!! summary "例如"
-		例如：`http://someweb/somepage.php?id=xxx` ，猜测执行`select * from sometable where id = xxx`
+
+	!!! example "示例"
+		对于 `#!urlencoded http://someweb/somepage.php?id=xxx` ，猜测执行`#!sql select * from sometable where id = xxx`
 		
-        构造 `http://someweb/somepage.php?id=xxx and 1=2`，显示页面为空或错误页面；`http://someweb/somepage.php?id=xxx and 1=1`，正常返回，证明"and"成功执行，“id”参数存在SQL注入漏洞。
+        构造 `#!urlencoded http://someweb/somepage.php?id=xxx and 1=2`，显示页面为空或错误页面；`#!urlencoded http://someweb/somepage.php?id=xxx and 1=1`，正常返回，证明"and"成功执行，“id”参数存在SQL注入漏洞。
 
 * timing attack时间攻击
 	- 主要思路：假如返回结果的时间比平时长，说明函数被成功执行了。
@@ -492,16 +497,18 @@ sequenceDiagram
 	=== "猜版本"
 
 		```sql
-		id = 5 and substring(@@version,1,1)=4
-		/* Check if mysql's version is 4 */
+		id = 5 and substring(@@version,1,1)=4 /* (1)! */
 		```
+        
+        1. 检查 mysql 版本是不是 4 开头
 
 	=== "猜列名"
 
 		```sql
-		id = 5 union select 1,2,passwd from admin
-		/* Check if 'passwd' field in table 'admin' 's column. */
+		id = 5 union select 1,2,passwd from admin /* (1)! */
 		```
+
+        1. 检查 admin 表中是否有 passwd 字段
 
 	=== "读写文件（如果具有相应权限）"
 
@@ -513,11 +520,20 @@ sequenceDiagram
 	=== "执行命令"
 		* 可以执行 webshell 或用户自定义函数（UDF）
 
-		```
-		mysql:sys_eval() sys_exec() sys_get()
-		sql server:xp_cmdshell
-		oracle:利用java环境
-		```
+        === "mysql"
+            ```sql
+            sys_eval()
+            sys_exec()
+            sys_get()
+            ```
+
+        === "sql server"
+            ```sql
+            xp_cmdshell
+            ```
+
+        === "oracle"
+            利用java环境
 
 	=== "攻击存储过程"
 		* mssql server：`xp_cmdshell` sysadmin权限可以使用`sp_configure`重新开启
@@ -536,8 +552,8 @@ sequenceDiagram
 
 	=== "宽字符攻击"
 		* 数据库编码未经限制，若每个字符占2个字节，可以吃掉转义字符`\`，从而绕过过滤
-		    - `0x 5c → 0x bf 5c`（斜杠\ &rarr; 一个中文乱码字）
-		    - `0x 27 → 0x bf 27`（单引号' &rarr; 一个倒立问号+单引号）
+		    - `0x 5c → 0x bf 5c`（斜杠 `\` &rarr; 一个中文乱码字）
+		    - `0x 27 → 0x bf 27`（单引号 `'` &rarr; 一个倒立问号+单引号）
 		    - 转义：`0x bf5c27` 0xbf5c被解析成了一个字符，转义失效
 
 	=== "字符截断"
@@ -572,7 +588,7 @@ sequenceDiagram
 
 	* 信息采集：数据库名、数据库类型、数据库用户、数据库表名和字段名……
 		* 系统变量
-			```text
+			```urlencoded
 			http://someweb/somepage.asp?id=11' and (select count(*) from sysobjects)>0--
 			http://someweb/somepage.asp?id=11' and (select count(*) from msysobjects)>0--
 			```
@@ -654,7 +670,7 @@ sequenceDiagram
 		=== "参数过滤"
 
 			=== "vb"
-				```vb
+				```vbnet
 				If request.QueryString("id") = "" or not IsNumeric(request.QueryString("id")) Then
 					Call infoback("err param")
 				End If
@@ -666,14 +682,16 @@ sequenceDiagram
 				```
 
 			=== "java"
-				```java
-				//预编译语句，假设要查询的条件为字符d
-				String query = "select a from b where c = ?";  //用问号表示要填入sql语句的参数
+				```java title="预编译语句，假设要查询的条件为字符d"
+				String query = "select a from b where c = ?";  // (1)!
 				PreparedStatement pstmt = connection.prepareStatement(query);
 				pstmt.setString(1,d);
 				ResultSet rs = pstmt.executeQuery();
-				//攻击者无法改变sql语句的结构
+				// (2)!
 				```
+
+                1. 用问号表示要填入sql语句的参数
+                2. 攻击者无法改变sql语句的结构
 
 		=== "使用安全的存储过程"
 
@@ -704,7 +722,7 @@ sequenceDiagram
 ??? info "何谓DNS"
 	域名系统（Domain Name System，DNS)负责在域名和IP地址之间进行转换，是Internet中最重要的基础设施。
 
-* 标准：RFC1034、1035
+* 标准：RFC1034、RFC1035
 * 结构
 	- DNS系统被设计为一个联机分布式数据库系统，并采用客户服务器（C/S）方式运行。
 	- 命名结构：层次树状结构，各分量之间用点分隔
@@ -719,7 +737,7 @@ sequenceDiagram
 		```
 
 * DNS资源记录
-	* 五元组：(Domain_name,Time_to_live,Class,Type,Value)
+	* 五元组：`(Domain_name,Time_to_live,Class,Type,Value)`
 	* 常用记录类型：A（ipv4地址）、AAAA（ipv6地址）、NS（该域名所在域的权威服务器）、CNAME（当前域名的别名）、MX（接受特定域名电子邮件的服务器别名）
 	* DNS常用命令
 		- `ipconfig /all`：查看网络配置情况，包括DNS服务器IP
@@ -809,15 +827,16 @@ sequenceDiagram
 	- 隔离，DNS服务器上不应再运行其他服务
 	- 为BIND创建chroot，限制它只在指定目录下运行
 	- 隐藏BIND版本号
-		```text
-		/etc/bind/named.conf 下：
+
+		```apacheconf title="/etc/bind/named.conf"
 		options{
-			version "secret";  //这里只要不是版本号就行
+			version "secret";  // 这里只要不是版本号就行
 		}
 		```
+
 	- 请求限制
 		* DNS服务器响应任何人的任何请求是不安全的。限制DNS服务器的服务范围很重要，可以把许多入侵者拒之门外。修改BIND的配置文件/etc/named.conf，添加相应内容即可
-			```text title="/etc/bind/named.conf 下："
+			```apacheconf title="/etc/bind/named.conf"
 			options{      //或特定zone区域下
 				...
 				allow-query{
@@ -828,7 +847,7 @@ sequenceDiagram
 			```
 	- 限制区传送
 		* 默认情况下BIND的区传送是全部开放的，如果没有限制，DNS服务器允许任何人进行区传送，那么网络架构中的主机名、主机ip地址表、路由器名及路由IP表，甚至包括各主机所在的位置和硬件配置信息等情况很容易被入侵者得到。因此需要对区传送进行必要的限制
-			```text title="/etc/bind/named.conf 下："
+			```apacheconf title="/etc/bind/named.conf"
 			options{      //或特定zone区域下
 				...
 				allow-transfer{
@@ -842,7 +861,7 @@ sequenceDiagram
 			```
 	- 关闭动态更新
 		* DNS客户端IP地址或名称出现更改时，可以利用DNS服务器注册和动态更新其资源记录。虽然DNS动态更新规定了怎样的系统才允许更新一台DNS服务器中的记录，但是DNS仍然可能受到威胁，比如攻击者利用IP欺骗，伪装成DNS服务器信任的主机对系统进行更新或者删减、增加、修改资源记录
-			```text title="/etc/bind/named.conf 下："
+			```apacheconf title="/etc/bind/named.conf"
 			options{      //或特定zone区域下
 				...
 				allow-update{
@@ -857,7 +876,8 @@ sequenceDiagram
 
 * 其他加固措施
 	- 事务签名技术
-		* 分为TSIG和SIG0，前者为共享密码，相互信任时使用；后者采用非对称密码算法，非完全信任时使用
+		* TSIG 为共享密码，相互信任时使用
+        * SIG0 采用非对称密码算法，非完全信任时使用
 	- DNSSEC
 		* 意图解决DNS欺骗问题
 		* 引入了两个全新的资源记录类型：KEY和SIG，它们允许客户端和域名服务器对任何DNS数据的来源进行验证
@@ -882,32 +902,32 @@ sequenceDiagram
 
 * 基本特征
 
-	=== "可执行性"
-		即程序性，计算机病毒是一段代码（可执行程序）。
+	可执行性
+	: 即程序性，计算机病毒是一段代码（可执行程序）。
 
-    === "传染性"
-		病毒具有把自身复制到其它程序的能力。
+    传染性
+	: 病毒具有把自身复制到其它程序的能力。
 
-    === "隐蔽性"
-		计算机病毒具有隐蔽能力，其传染过程也具有隐蔽能力。
+    隐蔽性
+	: 计算机病毒具有隐蔽能力，其传染过程也具有隐蔽能力。
 
-    === "潜伏性"
-		计算机病毒往往在感染系统后，首先进入潜伏期，等待触发时机。
+    潜伏性
+	: 计算机病毒往往在感染系统后，首先进入潜伏期，等待触发时机。
 
-    === "可触发性"
-		计算机病毒在触发条件满足时会自动从潜伏期进入活动阶段。
+    可触发性
+	: 计算机病毒在触发条件满足时会自动从潜伏期进入活动阶段。
 
-    === "破坏性"
-		计算机病毒大都具有破坏性，如：占用系统资源（内存、硬盘、CPU），破坏数据等。
+    破坏性
+	: 计算机病毒大都具有破坏性，如：占用系统资源（内存、硬盘、CPU），破坏数据等。
 
-    === "寄生性"
-		计算机病毒嵌入到宿主程序中，依赖于宿主程序而生存。
+    寄生性
+	: 计算机病毒嵌入到宿主程序中，依赖于宿主程序而生存。
 
-    === "衍生性"
-		计算机病毒可以衍生出与原版本不同的变种。
+    衍生性
+	: 计算机病毒可以衍生出与原版本不同的变种。
 
-    === "诱骗性"
-		有些病毒通过一些特殊的方式，诱骗用户触发、激活病毒。
+    诱骗性
+	: 有些病毒通过一些特殊的方式，诱骗用户触发、激活病毒。
 
 * 生命周期
 	```mermaid
@@ -943,25 +963,32 @@ sequenceDiagram
 		id1(获取控制权) --> id2(寻找感染突破口) --> id3(将病毒代码放入新的宿主程序)
 		```
 	- 感染机理
-		* 引导型病毒
-			利用在开机引导时窃取中断控制权，并在计算机运行过程中监视软盘读写时机，趁机完成对软盘的引导区感染，被感染的软盘又会传染给其它计算机。
-		* 文件型病毒
-			执行被感染的可执行文件后，病毒进驻内存，监视系统运行，并查找可能被感染的文件进行感染。
-			- 寄生感染
-				* 替代法：替代磁盘引导扇区或文件中的全部或部分内容（引导区病毒）
-				* 链接法：将自身代码作为正常程序的一部分与宿主HOST链接在一起（可执行文件病毒）
-			- 无入口点感染
-				在不修改宿主原入口点的前提下，通过在宿主代码体内某处插入跳转指令来使病毒获得控制权
-			- 滋生感染
-				为被感染文件创建一个伴随文件（病毒），当用户执行被感染文件时会激活病毒
-			- 链式感染
-				完全不改动宿主程序本体，而是改动或利用与宿主程序相关的信息，将病毒程序与宿主程序链成一体，当宿主程序欲运行时，利用相关关系使病毒部分首先运行
-			- OBJ、LIB和源码感染
-				感染编译器生成的中间对象文件或库文件，或直接对源代码进行修改，在源代码文件中增加病毒的内容
+
+		引导型病毒
+		: 利用在开机引导时窃取中断控制权，并在计算机运行过程中监视软盘读写时机，趁机完成对软盘的引导区感染，被感染的软盘又会传染给其它计算机。
+		
+        文件型病毒
+		: 执行被感染的可执行文件后，病毒进驻内存，监视系统运行，并查找可能被感染的文件进行感染。
+		
+        ???+ info "感染方式"
+            寄生感染
+			: 替代磁盘引导扇区或文件中的全部或部分内容（引导区病毒），或将自身代码作为正常程序的一部分与宿主HOST链接在一起（可执行文件病毒）
+			
+            无入口点感染
+			: 在不修改宿主原入口点的前提下，通过在宿主代码体内某处插入跳转指令来使病毒获得控制权
+			
+            滋生感染
+			: 为被感染文件创建一个伴随文件（病毒），当用户执行被感染文件时会激活病毒
+			
+            链式感染
+			: 完全不改动宿主程序本体，而是改动或利用与宿主程序相关的信息，将病毒程序与宿主程序链成一体，当宿主程序欲运行时，利用相关关系使病毒部分首先运行
+			
+            OBJ、LIB和源码感染
+			: 感染编译器生成的中间对象文件或库文件，或直接对源代码进行修改，在源代码文件中增加病毒的内容
 
 	!!! note "混合感染 & 交叉感染"
-		混合感染：既感染引导扇区又感染文件
-		交叉感染：一个宿主程序上感染多种病毒
+		* 混合感染：既感染引导扇区又感染文件
+		* 交叉感染：一个宿主程序上感染多种病毒
 
 ### 木马
 
@@ -1055,6 +1082,7 @@ sequenceDiagram
 
 		??? help "何谓文件关联"
 			规定某种格式的文件用哪个程序打开，或用某个程序来打开哪些文件。
+
 			* 比如双击.txt文件，一般情况下使用Notepad.exe打开。
 
 		* 在`HKEY_CLASSES_ROOT`下可以找到扩展名所对应的标识主键名，我们主要关心的是其`Shell`子键的`open`子键，改变其`command`值就改变了它的打开方式
@@ -1122,3 +1150,5 @@ sequenceDiagram
 		* 无尺度网络模型
 			- 基于无尺度网络的传播模型更符合实际情形，因而更具有研究价值
 			- 具有增长（Growth）和偏好连接（Preferential attachment）两个特性，第一个特性表明无尺度网络可以不断地扩张，第二个特性则意味着两个节点连接能力的差异可以随着网络的扩张而增大，即“富者愈富”
+
+[^1]: https://info.support.huawei.com/info-finder/encyclopedia/zh/STP.html

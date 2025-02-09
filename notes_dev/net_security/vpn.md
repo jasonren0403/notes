@@ -1,16 +1,12 @@
----
-tags:
-  - 网络安全
----
 虚拟专用网
 ===
 ## VPN简介
 * 保证端到端的数据安全性
 
-??? bug "端到端的数据通路安全风险"
-	- 拨入段用户数据是明文传给ISP的
-	- 传输到ISP的路上，经过的所有路由器可能都会被监听
-	- 内部网可能也存在不安全的因素
+    ??? bug "端到端的数据通路安全风险"
+        - 拨入段用户数据是明文传给ISP的
+        - 传输到ISP的路上，经过的所有路由器可能都会被监听
+        - 内部网可能也存在不安全的因素
 
 * VPN：Virtual Private Network（虚拟专用网）
 	- 构成：VPN服务器 + VPN客户机 + 隧道
@@ -74,8 +70,8 @@ tags:
 
 	??? info "通过L2F接入公共IP网络的过程"
 		首先按常规方式拨号到ISP 的接入服务器（NAS），建立PPP连接；NAS 根据用户名等信息，发起第二重连接，通向HGW（家庭网关）服务器。
-		* 在这种情况下隧道的配置和建立对用户是完全透明的。
-
+		
+        * 在这种情况下隧道的配置和建立对用户是完全透明的。
 
 ### L2TP
 - L2TP，即Layer 2 Tunneling Protocol，二层通道协议
@@ -83,7 +79,6 @@ tags:
 - L2TP主要由LAC(L2TP Access Concentrator)和LNS(L2TP Network Server)构成，LAC(L2TP访问集中器)支持客户端的L2TP，它用于发起呼叫，接收呼叫和建立隧道；LNS(L2TP网络服务器)是所有隧道的终点。在传统的PPP连接中，用户拨号连接的终点是LAC，L2TP使得PPP协议的终点延伸到LNS
 - 支持多种协议，支持多个PPP链路的捆绑问题，扩展了PPP连接
 - 封装格式：IP头 + UDP头 + L2TP头 + PPP数据
-
 
 !!! summary "L2TP和PPTP的不同点"
 	PPTP | L2TP
@@ -263,14 +258,14 @@ tags:
 		* 建立ISAKMP安全联盟（IKE SA），为后面的交换提供一个安全通信信道
 		* 协商流程简述：SA交换、密钥交换、ID及验证交换
 		* 主模式和野蛮模式都支持四种不同的验证方法
-			1. 预共享密钥
-			2. DSS数字签名
-			3. RSA数字签名
-			4. 交换加密
+			- 预共享密钥
+			- DSS数字签名
+			- RSA数字签名
+			- 交换加密
 		* 主模式交换：三个步骤，交换六条消息
-			1. 策略协商交换
-			2. Diffie Hellman共享值
-			3. nonce交换 + 身份验证交换
+			- 策略协商交换
+			- Diffie Hellman共享值
+			- nonce交换 + 身份验证交换
 		* 野蛮模式交换：三个步骤，交换三条消息
 			- 协商能力受限，不提供身份保护
 				* 没有身份保护是因为密钥交换与身份认证一起进行
@@ -317,19 +312,19 @@ tags:
 ### SSL
 
 ??? info "什么是SSL"
-	Secure Socket Layer，安全套接字层，1994年Netscape开发，专门用于保护Web通讯
-	TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)
+	* Secure Socket Layer，安全套接字层，1994年Netscape开发，专门用于保护Web通讯
+	* TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)
 
 !!! info "SSL中两个重要的概念"
 
 	=== "SSL连接（connection)"
-		1. 一个连接是一个提供一种合适类型服务的传输（OSI分层的定义）
-		2. SSL的连接是点对点的关系
-		3. 连接是暂时的，每一个连接和一个会话关联
+		* 一个连接是一个提供一种合适类型服务的传输（OSI分层的定义）
+		* SSL的连接是点对点的关系
+		* 连接是暂时的，每一个连接和一个会话关联
 
 	=== "SSL会话（session）"
-		1. 一个SSL会话是在客户与服务器之间的一个关联。会话由Handshake Protocol创建。会话定义了一组可供多个连接共享的加密安全参数。
-		2. 会话用以避免为每一个连接提供新的安全参数所需昂贵的谈判代价。
+		* 一个SSL会话是在客户与服务器之间的一个关联。会话由Handshake Protocol创建。会话定义了一组可供多个连接共享的加密安全参数。
+		* 会话用以避免为每一个连接提供新的安全参数所需昂贵的谈判代价。
 
 * 为上层协议提供保密性、身份认证和数据完整性，使用TCP提供一个可靠的端到端安全服务
 * 协议分为两层
@@ -355,10 +350,10 @@ tags:
 * 结果可作如下表示
 	```c
 	struct {
-		ContentType type; // (1)
-		ProtocolVersion version; // (2)
-		uint16 length; // (3)
-		EncryptedData fragment; // (4)
+		ContentType type; // (1)!
+		ProtocolVersion version; // (2)!
+		uint16 length; // (3)!
+		EncryptedData fragment; // (4)!
 	} TLSCiphertext;
 	```
 
@@ -385,9 +380,10 @@ tags:
 
     === "ClientHello"
         客户方在下列情况下要发送ClientHello消息：
-        1. 主动请求建立一个新的会话连接；
-        2. 对服务方HelloRequest消息进行响应；
-        3. 在现有的会话连接上主动请求重新协商安全参数。
+
+        * 主动请求建立一个新的会话连接；
+        * 对服务方HelloRequest消息进行响应；
+        * 在现有的会话连接上主动请求重新协商安全参数。
 
     === "ServerHello"
         服务器方对ClientHello消息进行处理，然后回应一个响应消息。如果同意握手，则返回ServerHello消息；否则返回握手失败警告消息。
@@ -482,7 +478,7 @@ end
 	* 消息包含签名，被签名的内容包括两个随机数以及服务器参数
 - 服务器发送certificate_request消息
 	* 非匿名server可以向客户请求一个证书
-	* 包含证书类型和CAs
+	* 包含证书类型和CA列表
 - 服务器发送server_hello_done, 然后等待应答
 
 #### 第三阶段交互
@@ -549,12 +545,10 @@ end
 - SSLeay
 - Microsoft Win2k SSL implementation
 
-
 !!! summary "IPSec VPN vs SSL VPN：两种不同VPN网关架构的比较"
     * IPSec VPN网关工作在网络层，提供所有在网络层上的数据保护和透明的安全通信;
     * SSL VPN网关工作在应用层(基于HTTP协议和TCP层之间的)，从整体的安全等级来看，两者都能够提供安全的远程接入。
     * IPSec VPN网关在部署时一般放置在网络网关处，因而需要考虑网络的拓扑结构，如果增添新的设备，往往要改变网络结构。而SSL VPN网关却有所不同，它一般部署在内网中防火墙之后，可以随时根据需要，添加需要VPN网关保护的服务器，因此无需影响原有网络结构。
-
 
 ??? faq "我们为什么选择了SSL VPN"
 

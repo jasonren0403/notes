@@ -1,7 +1,3 @@
----
-tags:
-  - 网络安全
----
 侧信道攻击
 ===
 
@@ -22,7 +18,7 @@ tags:
 
 * Meltdown依靠现代处理器的乱序执行副作用来读取内核任意位置的数据，此攻击与具体操作系统无关
 
-!!! summary "一个简单的示例"
+!!! example "一个简单的示例"
     ```c
     raise_exception();
     // assume the line below is never reached

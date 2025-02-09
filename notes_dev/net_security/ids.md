@@ -1,7 +1,3 @@
----
-tags:
-  - 网络安全
----
 入侵检测（IDS）
 ===
 ## 入侵检测技术
@@ -139,8 +135,12 @@ tags:
 		* 存放各种中间和最终数据的地方
 
 * Denning模型（1987）
+    <figure markdown>
 	![IDS-Denning Model](md-img/chap6_ids01.jpg)
-	- 主体(Subjects)：在目标系统上活动的实体，如用户。
+    <figcaption>Denning 模型示意图</figcaption>
+    </figure>
+
+    - 主体(Subjects)：在目标系统上活动的实体，如用户。
 	- 对象(Objects)：指系统资源，如文件、设备、命令等。
 	- 审计记录(Audit records)：由主体、活动(主体对目标的操作)、异常条件(系统对主体的该活动的异常情况的报告)、资源使用状况(系统的资源消耗情况)和时间戳(Time-Stamp)等组成。
 	- 活动档案(Active Profile)：即系统正常行为模型，保存系统正常活动的有关信息。
@@ -172,35 +172,38 @@ tags:
 
         === "规则动作"
             * 规则的头包含了定义一个包的who，where和what信息，以及当满足规则定义的所有属性的包出现时要采取的行动。规则的第一项是"规则动作"（rule action），"规则动作"告诉snort在发现匹配规则的包时要干什么。
+  
+            ???+ tip "不同的规则动作"
 
-            === "alert"
-                使用选择的报警方法生成一个警报，然后记录（log）这个包
-
-            === "log"
-                记录这个包
-
-            === "pass"
-                丢弃（忽略）这个包
-
-            === "activate"
-                报警并且激活另一条dynamic规则
-
-            === "dynamic"
-                保持空闲直到被一条activate规则激活，被激活后就作为一条log规则执行
+                alert
+                : 使用选择的报警方法生成一个警报，然后记录（log）这个包
+    
+                log
+                : 记录这个包
+    
+                pass
+                : 丢弃（忽略）这个包
+    
+                activate
+                : 报警并且激活另一条dynamic规则
+    
+                dynamic
+                : 保持空闲直到被一条activate规则激活，被激活后就作为一条log规则执行
 
             * 你可以定义你自己的规则类型并且附加一条或者更多的输出模块给它，然后你就可以使用这些规则类型作为snort规则的一个动作
-                ```conf
-                # 创建一条规则，记录到系统日志和MySQL数据库
-                ruletype redalert
-                {
-                type alert output
-                alert_syslog: LOG_AUTH LOG_ALERT
-                output database: log, mysql, user=snort dbname=snort host=localhost
-                }
-                ```
+                
+                ???+ example "示例"
+                    ```apacheconf title="创建一条规则，记录到系统日志和MySQL数据库"
+                    ruletype redalert
+                    {
+                      type alert output
+                      alert_syslog: LOG_AUTH LOG_ALERT
+                      output database: log, mysql, user=snort dbname=snort host=localhost
+                    }
+                    ```
 
         === "协议"
-            * 规则的下一部分是协议。Snort当前分析可疑包的ip协议有四种：tcp 、udp、icmp和ip。将来可能会更多，例如ARP、IGRP、GRE、OSPF、RIP、IPX等。
+            * 规则的下一部分是协议。Snort当前分析可疑包的ip协议有四种：tcp、udp、icmp和ip。将来可能会更多，例如ARP、IGRP、GRE、OSPF、RIP、IPX等。
 
         === "IP地址"
             * 规则头的下一个部分处理一个给定规则的ip地址和端口号信息。关键字`any`可以被用来定义任何地址。Snort没有提供根据ip地址查询域名的机制。地址就是由直接的数字型ip地址和一个cidr块组成的。
