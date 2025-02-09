@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2197,7 +2197,7 @@
   
 
 
-<h1 id="物理层">物理层</h1>
+<h1 id="物理层">物理层<a class="headerlink" href="#物理层" title="Permanent link">&para;</a></h1>
 <details class="summary">
 <summary>物理层的功能</summary>
 <ol>
@@ -2205,11 +2205,11 @@
 <li>传输数据</li>
 </ol>
 </details>
-<h2 id="通信基础">通信基础</h2>
+<h2 id="通信基础">通信基础<a class="headerlink" href="#通信基础" title="Permanent link">&para;</a></h2>
 <div class="admonition cite">
 <p>物理层解决如何在连接各种计算机的传输媒体上传播数据比特流。</p>
 </div>
-<h3 id="数字通信的基本概念">数字通信的基本概念</h3>
+<h3 id="数字通信的基本概念">数字通信的基本概念<a class="headerlink" href="#数字通信的基本概念" title="Permanent link">&para;</a></h3>
 <dl>
 <dt>数据（Data)</dt>
 <dd>消息的载体，是对客观事实进行描述与记载的物理符号。在计算机网络中，数据通常可以理解为在网络中存储、处理和传输的二进制数字编码。</dd>
@@ -2254,7 +2254,7 @@
 </ul>
 </dd>
 </dl>
-<h4 id="三种通信方式">三种通信方式</h4>
+<h4 id="三种通信方式">三种通信方式<a class="headerlink" href="#三种通信方式" title="Permanent link">&para;</a></h4>
 <figure>
 <p><a class="glightbox" href="asset-img/phylayer_communication_types.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="三种通信方式：单工、半双工、全双工" src="asset-img/phylayer_communication_types.webp" /></a></p>
 <figcaption>三种通信方式：单工、半双工、全双工</figcaption>
@@ -2267,7 +2267,7 @@
 <dt>全双工</dt>
 <dd>任意一方在发送数据的同时也能接收数据，两者同步进行，使用两根传输线。</dd>
 </dl>
-<h4 id="两种数据传输方式">两种数据传输方式</h4>
+<h4 id="两种数据传输方式">两种数据传输方式<a class="headerlink" href="#两种数据传输方式" title="Permanent link">&para;</a></h4>
 <figure>
 <p><a class="glightbox" href="asset-img/phylayer_transfer_type.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="两种数据传输方式：串行传输、并行传输" src="asset-img/phylayer_transfer_type.png" /></a></p>
 <figcaption>两种数据传输方式：串行传输、并行传输</figcaption>
@@ -2282,7 +2282,7 @@
 <p class="admonition-title">总结</p>
 <p>串行传输速度慢，费用低，适合远距离传输。并行传输速度快，费用高，适合近距离传输。</p>
 </div>
-<h3 id="数字通信的理论基础">数字通信的理论基础</h3>
+<h3 id="数字通信的理论基础">数字通信的理论基础<a class="headerlink" href="#数字通信的理论基础" title="Permanent link">&para;</a></h3>
 <ol>
 <li>失真<ul>
 <li>信号在传输过程中与原有信号或标准相比发生偏差。</li>
@@ -2327,7 +2327,7 @@ dB（值）=10\log_{10}{(S/N)}
 </div>
 </li>
 </ol>
-<h3 id="编码与调制">编码与调制</h3>
+<h3 id="编码与调制">编码与调制<a class="headerlink" href="#编码与调制" title="Permanent link">&para;</a></h3>
 <figure>
 <p><a class="glightbox" href="asset-img/phylayer_communication_general.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="两台计算机的数据通信过程" src="asset-img/phylayer_communication_general.png" /></a></p>
 <figcaption>两台计算机的数据通信过程</figcaption>
@@ -2339,7 +2339,7 @@ dB（值）=10\log_{10}{(S/N)}
 <li>在不改变信号性质的前提下，仅对数字基带信号的波形进行变换，称为编码，编码后产生的信号仍为数字信号，可以在数字信道中传输</li>
 <li>将数字基带信号的范围搬移到较高频段，并转换为模拟信号，称为调制，调制后产生的信号是模拟信号，模拟信号可以在模拟信道中传输</li>
 </ul>
-<h4 id="数字数据数字信号">数字数据→数字信号</h4>
+<h4 id="数字数据数字信号">数字数据→数字信号<a class="headerlink" href="#数字数据数字信号" title="Permanent link">&para;</a></h4>
 <ol>
 <li>非归零编码NRZ<ul>
 <li>低电平表示0，高电平表示1，表示完一个码元后电压不需要回到0</li>
@@ -2359,7 +2359,7 @@ dB（值）=10\log_{10}{(S/N)}
 </ul>
 </li>
 </ol>
-<h4 id="数字数据模拟信号">数字数据→模拟信号</h4>
+<h4 id="数字数据模拟信号">数字数据→模拟信号<a class="headerlink" href="#数字数据模拟信号" title="Permanent link">&para;</a></h4>
 <p>模拟信号传输的都是在数字载波信号上完成的，与模拟信号调制为模拟信号的方法类似，可以利用调制频率、振幅和相位三种载波特性之一或组合。基本调制方法有：</p>
 <dl>
 <dt>幅移键控(Amplitude Shift Keying，ASK)</dt>
@@ -2370,7 +2370,7 @@ dB（值）=10\log_{10}{(S/N)}
 <dd>载波相位随着基带信号的变化而变化。2PSK不同的两个相位表示0和1。</dd>
 </dl>
 <p>QAM：结合ASK和PSK的调制方法。</p>
-<h4 id="模拟数据数字信号">模拟数据→数字信号</h4>
+<h4 id="模拟数据数字信号">模拟数据→数字信号<a class="headerlink" href="#模拟数据数字信号" title="Permanent link">&para;</a></h4>
 <p>模拟信号编码为数字信号最常见的就是跳冲编码调制（Pulse Code Modulation,PCM）。脉冲编码的过程为采样、量化和编码。</p>
 <dl>
 <dt>采样</dt>
@@ -2391,14 +2391,14 @@ dB（值）=10\log_{10}{(S/N)}
 </div>
 </dd>
 </dl>
-<h4 id="模拟信号模拟信号">模拟信号→模拟信号</h4>
+<h4 id="模拟信号模拟信号">模拟信号→模拟信号<a class="headerlink" href="#模拟信号模拟信号" title="Permanent link">&para;</a></h4>
 <p>由于基降信号包含许多低频信息或直流信息，而很多传输介质并不能传输这些信息，因此需要使用调制器对基带信号进行调制。</p>
 <ol>
 <li>调幅（AM）：依据传输的原始模拟数据信号变化来调整载波的振幅。</li>
 <li>调频（FM）：依据传输的原始模拟数据信号变化来调整载波的频率。</li>
 <li>调相（PM）：依据传输的原始模拟数据信号变化来调整载波的初始相位。</li>
 </ol>
-<h3 id="数据交换方式">数据交换方式</h3>
+<h3 id="数据交换方式">数据交换方式<a class="headerlink" href="#数据交换方式" title="Permanent link">&para;</a></h3>
 <div class="admonition quote">
 <p class="admonition-title">什么是数据交换</p>
 <p>数据交换（Data Switching）是指在多个数据终端设备之间，为任意两个终端设备建立数据通信临时互连通路的过程。</p>
@@ -2407,17 +2407,17 @@ dB（值）=10\log_{10}{(S/N)}
 <figcaption>电路交换、报文交换和分组交换的比较</figcaption>
 </figure></p>
 </div>
-<h4 id="电路交换Circuit-Switching">电路交换（Circuit Switching）</h4>
+<h4 id="电路交换Circuit-Switching">电路交换（Circuit Switching）<a class="headerlink" href="#电路交换Circuit-Switching" title="Permanent link">&para;</a></h4>
 <p>最典型的电路交换网络：电话网络</p>
 <p>特征：通信双方独占其使用的通信资源。</p>
 <pre class="mermaid"><code>graph LR
     A["建立连接（电路建立）"]--&gt;B["数据传输"]--&gt;C["释放连接（拆除电路）"]</code></pre>
-<h4 id="报文交换Message-Switching">报文交换（Message Switching）</h4>
+<h4 id="报文交换Message-Switching">报文交换（Message Switching）<a class="headerlink" href="#报文交换Message-Switching" title="Permanent link">&para;</a></h4>
 <p>将要发送的数据整体作为报文，如一个文件，以报文为单位进行传输。采用 <em>存储+转发</em> 的交换方式。</p>
-<h4 id="分组交换Package-Switching">分组交换（Package Switching）</h4>
+<h4 id="分组交换Package-Switching">分组交换（Package Switching）<a class="headerlink" href="#分组交换Package-Switching" title="Permanent link">&para;</a></h4>
 <p>将报文分成若干个小的分组，以分组为单位进行传输。采用 <em>存储+转发</em> 的交换方式。</p>
 <p>需要将报文拆分与重组，且每个分组需要添加分组头（存储分组的元信息）。</p>
-<h3 id="数据报与虚电路">数据报与虚电路</h3>
+<h3 id="数据报与虚电路">数据报与虚电路<a class="headerlink" href="#数据报与虚电路" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2464,14 +2464,14 @@ dB（值）=10\log_{10}{(S/N)}
 </tr>
 </tbody>
 </table>
-<h4 id="数据报方式">数据报方式</h4>
+<h4 id="数据报方式">数据报方式<a class="headerlink" href="#数据报方式" title="Permanent link">&para;</a></h4>
 <ol>
 <li>数据报为网络层提供无连接服务。</li>
 <li>同一报文的不同分组可以由不同路径通过通信子网。</li>
 <li>同一报文的不同分组到达目的节点时可能出现乱序、重复及丢失现象。</li>
 <li>每一个分组在传输过程中都必须带有目的地址和源地址。</li>
 </ol>
-<h4 id="虚电路方式">虚电路方式</h4>
+<h4 id="虚电路方式">虚电路方式<a class="headerlink" href="#虚电路方式" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>结合了电路交换和数据报方式的优点</p>
 </blockquote>
@@ -2480,12 +2480,12 @@ dB（值）=10\log_{10}{(S/N)}
 <li>一次通信的所有分组都通过虑电路顺序传送分组不需携带源地址、目的地址等信息包含虚电路号，相对数据报方式开销小，同一报文的不同分组到达目的结点时不会乱序、重复或丢失。</li>
 <li>分组通过虚电路上的每个节点时，节点只进行差错检测，不需进行路由选择。</li>
 </ol>
-<h2 id="传输介质">传输介质</h2>
+<h2 id="传输介质">传输介质<a class="headerlink" href="#传输介质" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">什么是传输介质</p>
 <p>介于发送和接收设备之间的物理通路（0层）</p>
 </div>
-<h3 id="导向型传输介质">导向型传输介质</h3>
+<h3 id="导向型传输介质">导向型传输介质<a class="headerlink" href="#导向型传输介质" title="Permanent link">&para;</a></h3>
 <div class="admonition info inline end">
 <p class="admonition-title">理解导向型传输介质</p>
 <p>电磁波被导向沿着固定媒介传播（“火车”型）</p>
@@ -2522,7 +2522,7 @@ dB（值）=10\log_{10}{(S/N)}
 </ul>
 </li>
 </ol>
-<h3 id="非导向型传输介质">非导向型传输介质</h3>
+<h3 id="非导向型传输介质">非导向型传输介质<a class="headerlink" href="#非导向型传输介质" title="Permanent link">&para;</a></h3>
 <div class="admonition info inline end">
 <p class="admonition-title">理解非导向型传输介质</p>
 <p>也称为无线通信或无限制传输，它们无需使用物理导体即可传输电磁波（“飞机”型）</p>
@@ -2545,7 +2545,7 @@ dB（值）=10\log_{10}{(S/N)}
 </ul>
 </li>
 </ol>
-<h3 id="物理层接口特性">物理层接口特性</h3>
+<h3 id="物理层接口特性">物理层接口特性<a class="headerlink" href="#物理层接口特性" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="机械特性" name="__tabbed_1" type="radio" /><input id="电气特性" name="__tabbed_1" type="radio" /><input id="功能特性" name="__tabbed_1" type="radio" /><input id="规程过程特性" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="机械特性">机械特性</label><label for="电气特性">电气特性</label><label for="功能特性">功能特性</label><label for="规程过程特性">规程/过程特性</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2562,18 +2562,18 @@ dB（值）=10\log_{10}{(S/N)}
 </div>
 </div>
 </div>
-<h2 id="物理层设备">物理层设备</h2>
+<h2 id="物理层设备">物理层设备<a class="headerlink" href="#物理层设备" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">存在原因</p>
 <p>信道中传输的信号随着距离的增加而有所衰减，中继器和集线器可以解决信号衰减问题。</p>
 </div>
-<h3 id="中继器Repeater">中继器（Repeater）</h3>
+<h3 id="中继器Repeater">中继器（Repeater）<a class="headerlink" href="#中继器Repeater" title="Permanent link">&para;</a></h3>
 <p>负责在两个节点的物理层上按位传递信息，完成信号的复制、整形和放大功能，从而延长信号传输距离。</p>
 <div class="admonition quote">
 <p class="admonition-title">5-4-3规则<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <p>在10M以太网中，网络总长度最多有5个子网段，4个中继器，最多有3个子网段可接网络设备。</p>
 </div>
-<h3 id="集线器Hub">集线器（Hub）</h3>
+<h3 id="集线器Hub">集线器（Hub）<a class="headerlink" href="#集线器Hub" title="Permanent link">&para;</a></h3>
 <p>集线器是一种多端口的中继器，它可以将多个节点的信号复制到多个端口上，从而实现多个节点的连接。</p>
 <div class="admonition note">
 <p>集线器不可分割冲突域（遇到冲突就需要退避一段时间），故实际所连于其上的设备平分带宽。</p>
@@ -2841,16 +2841,16 @@ dB（值）=10\log_{10}{(S/N)}
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

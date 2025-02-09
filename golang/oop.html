@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1323,9 +1323,9 @@
   
 
 
-<h1 id="Go-面向对象">Go 面向对象</h1>
+<h1 id="Go-面向对象">Go 面向对象<a class="headerlink" href="#Go-面向对象" title="Permanent link">&para;</a></h1>
 <p>Go 支持面向对象编程特性，以 <code>struct</code> 支持其他语言 <code>class</code> 的位置，面向接口（<code>interface</code>）编程。</p>
-<h2 id="结构体-struct">结构体 struct</h2>
+<h2 id="结构体-struct">结构体 struct<a class="headerlink" href="#结构体-struct" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="声明" name="__tabbed_1" type="radio" /><input id="使用" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="声明">声明</label><label for="使用">使用</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1351,7 +1351,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </div>
 </div>
 </div>
-<h3 id="方法结构体的行为">方法（结构体的“行为”）</h3>
+<h3 id="方法结构体的行为">方法（结构体的“行为”）<a class="headerlink" href="#方法结构体的行为" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>作用在某个数据类型上</p>
 </blockquote>
@@ -1387,7 +1387,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </ul>
 </li>
 </ul>
-<h3 id="继承">继承</h3>
+<h3 id="继承">继承<a class="headerlink" href="#继承" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="一级继承" name="__tabbed_2" type="radio" /><input id="多重继承" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="一级继承">一级继承</label><label for="多重继承">多重继承</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1426,7 +1426,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </div>
 </div>
 </div>
-<h4 id="组合">组合</h4>
+<h4 id="组合">组合<a class="headerlink" href="#组合" title="Permanent link">&para;</a></h4>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nx">age</span><span class="w"> </span><span class="kt">int</span>
@@ -1445,7 +1445,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nx">c</span><span class="p">.</span><span class="nx">Name</span><span class="w"> </span><span class="c1">// 不可访问</span>
 </span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nx">c</span><span class="p">.</span><span class="nx">A</span><span class="p">.</span><span class="nx">Name</span><span class="w"> </span><span class="c1">// 可以访问</span>
 </span></code></pre></div>
-<h4 id="匿名基本数据类型字段">匿名基本数据类型字段</h4>
+<h4 id="匿名基本数据类型字段">匿名基本数据类型字段<a class="headerlink" href="#匿名基本数据类型字段" title="Permanent link">&para;</a></h4>
 <p>一个结构体只能有一个</p>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="o">...</span>
@@ -1454,7 +1454,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="nx">C</span>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nx">c</span><span class="p">.</span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">...</span>
 </span></code></pre></div>
-<h3 id="注意事项">注意事项</h3>
+<h3 id="注意事项">注意事项<a class="headerlink" href="#注意事项" title="Permanent link">&para;</a></h3>
 <ul>
 <li>结构体所有字段在内存中是连续的</li>
 <li>结构体之间转换，需要有完全相同的字段</li>
@@ -1481,7 +1481,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </ul>
 </li>
 </ul>
-<h2 id="接口-interface">接口 interface</h2>
+<h2 id="接口-interface">接口 interface<a class="headerlink" href="#接口-interface" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>引用类型，零值为 <code>nil</code></p>
 </blockquote>
@@ -1507,7 +1507,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="o">...</span>
 </span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="多态">多态</h3>
+<h3 id="多态">多态<a class="headerlink" href="#多态" title="Permanent link">&para;</a></h3>
 <p>接口变量可以接收任意实现了该接口的实例</p>
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>     C
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>     |
@@ -1516,7 +1516,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  A:C   B:C
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>[]C 可以放A和B两种类型的实例
 </span></code></pre></div>
-<h3 id="应用">应用</h3>
+<h3 id="应用">应用<a class="headerlink" href="#应用" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>sort.Sort(data interface)</code> 方法需要传入一个实现了 <code>sort.Interface</code> 接口的类型，定义如下
     <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Interface</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
@@ -1527,7 +1527,7 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
 </span></code></pre></div></li>
 <li>类型断言 <code>b=a.(Type)</code>、<code>y,ok:=a.(Type)</code></li>
 </ul>
-<h3 id="注意事项_1">注意事项</h3>
+<h3 id="注意事项_1">注意事项<a class="headerlink" href="#注意事项_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>接口不可创建实例，但是可以指向实现该接口的自定义类型变量</li>
 <li>只要是自定义数据类型，都可以实现接口</li>
@@ -1788,16 +1788,16 @@ name.&lt;field&gt; = &lt;value&gt;</code></p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

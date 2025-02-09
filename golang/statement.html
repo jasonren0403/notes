@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1359,16 +1359,16 @@
   
 
 
-<h1 id="Go-语句流程控制">Go 语句流程控制</h1>
-<h2 id="顺序执行默认">顺序执行（默认）</h2>
+<h1 id="Go-语句流程控制">Go 语句流程控制<a class="headerlink" href="#Go-语句流程控制" title="Permanent link">&para;</a></h1>
+<h2 id="顺序执行默认">顺序执行（默认）<a class="headerlink" href="#顺序执行默认" title="Permanent link">&para;</a></h2>
 <p>无判断、无跳转，按顺序执行。</p>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">(){</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// |</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="cm">/* */</span><span class="w">                       </span><span class="c1">// ↓</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="分支控制">分支控制</h2>
-<h3 id="单分支if">单分支if</h3>
+<h2 id="分支控制">分支控制<a class="headerlink" href="#分支控制" title="Permanent link">&para;</a></h2>
+<h3 id="单分支if">单分支if<a class="headerlink" href="#单分支if" title="Permanent link">&para;</a></h3>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span><span class="w"> </span><span class="nx">条件表达式</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">执行代码块</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <ul>
@@ -1383,14 +1383,14 @@
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
 </span></code></pre></div></li>
 </ul>
-<h3 id="双分支if-else">双分支if-else</h3>
+<h3 id="双分支if-else">双分支if-else<a class="headerlink" href="#双分支if-else" title="Permanent link">&para;</a></h3>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="w"> </span><span class="nx">条件表达式</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nx">执行代码块1</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// else 不能换行</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nx">执行代码块2</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="多分支if-else-if-else">多分支if-else if-else</h3>
+<h3 id="多分支if-else-if-else">多分支if-else if-else<a class="headerlink" href="#多分支if-else-if-else" title="Permanent link">&para;</a></h3>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span><span class="w"> </span><span class="nx">条件表达式1</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">执行代码块1</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">条件表达式2</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// else if 不能换行</span>
@@ -1403,7 +1403,7 @@
 <p class="admonition-title">注意！</p>
 <p>如果条件相互重叠，只会执行最先满足的代码块。</p>
 </div>
-<h3 id="switch">switch</h3>
+<h3 id="switch">switch<a class="headerlink" href="#switch" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p>Go 语言中，无需为匹配项指定 <code>break</code>。</p>
 </div>
@@ -1441,7 +1441,7 @@
 </span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
-<h2 id="循环控制">循环控制</h2>
+<h2 id="循环控制">循环控制<a class="headerlink" href="#循环控制" title="Permanent link">&para;</a></h2>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">for</span><span class="w"> </span><span class="nx">初始化</span><span class="p">;</span><span class="nx">循环条件</span><span class="p">;</span><span class="nx">循环变量迭代</span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nx">循环操作</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
@@ -1490,27 +1490,27 @@
 </div>
 </li>
 </ul>
-<h2 id="跳转控制">跳转控制</h2>
-<h3 id="break">break</h3>
+<h2 id="跳转控制">跳转控制<a class="headerlink" href="#跳转控制" title="Permanent link">&para;</a></h2>
+<h3 id="break">break<a class="headerlink" href="#break" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>break</code> 语句用于跳出当前循环。</li>
 <li><code>break</code> 语句还可以在语句后面添加标签，表示退出某个标签对应的代码块。</li>
 </ul>
-<h3 id="continue">continue</h3>
+<h3 id="continue">continue<a class="headerlink" href="#continue" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>continue</code> 语句用于结束本次循环，继续执行下一次循环。</li>
 <li><code>continue</code> 语句还可以在语句后面添加标签，表示结束某个标签对应的循环。</li>
 </ul>
-<h3 id="goto">goto</h3>
+<h3 id="goto">goto<a class="headerlink" href="#goto" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>goto</code> 语句可以无条件地转移到过程中指定的行。</li>
 </ul>
-<h3 id="return">return</h3>
+<h3 id="return">return<a class="headerlink" href="#return" title="Permanent link">&para;</a></h3>
 <ul>
 <li>函数中使用，不再执行函数中 <code>return</code> 后面的代码</li>
 <li><code>main</code> 函数 <code>return</code> 直接终止程序</li>
 </ul>
-<h2 id="错误处理机制defer-panic-recover">错误处理机制：defer-panic-recover</h2>
+<h2 id="错误处理机制defer-panic-recover">错误处理机制：defer-panic-recover<a class="headerlink" href="#错误处理机制defer-panic-recover" title="Permanent link">&para;</a></h2>
 <p>默认情况下，发生错误触发 <code>panic</code>，程序就会退出。</p>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">(){</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">()</span><span class="w">  </span><span class="c1">// 内置函数，可以捕获到异常</span>
@@ -1520,7 +1520,7 @@
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}()</span>
 </span></code></pre></div>
-<h3 id="其它相关方法">其它相关方法</h3>
+<h3 id="其它相关方法">其它相关方法<a class="headerlink" href="#其它相关方法" title="Permanent link">&para;</a></h3>
 <ul>
 <li>自定义错误 <code>errors.New()</code></li>
 <li><code>panic()</code> 接收 <code>error</code> 类型变量，输出错误信息并退出程序</li>
@@ -1780,16 +1780,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

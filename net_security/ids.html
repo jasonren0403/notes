@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1453,8 +1453,8 @@
   
 
 
-<h1 id="入侵检测IDS">入侵检测（IDS）</h1>
-<h2 id="入侵检测技术">入侵检测技术</h2>
+<h1 id="入侵检测IDS">入侵检测（IDS）<a class="headerlink" href="#入侵检测IDS" title="Permanent link">&para;</a></h1>
+<h2 id="入侵检测技术">入侵检测技术<a class="headerlink" href="#入侵检测技术" title="Permanent link">&para;</a></h2>
 <details class="info">
 <summary>IDS的含义</summary>
 <p>入侵检测系统——Intrusion Detection System</p>
@@ -1466,7 +1466,7 @@
 <li><a href="firewall">防火墙</a>也不是绝对的安全</li>
 </ol>
 </div>
-<h3 id="概念">概念</h3>
+<h3 id="概念">概念<a class="headerlink" href="#概念" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a name="intrusion"></a> 入侵<ul>
 <li>是未经授权蓄意尝试访问信息、窜改信息，使系统不可靠或不能使用的行为。</li>
@@ -1488,7 +1488,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="入侵检测分类">入侵检测分类</h3>
+<h3 id="入侵检测分类">入侵检测分类<a class="headerlink" href="#入侵检测分类" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="原始数据的来源" name="__tabbed_1" type="radio" /><input id="检测原理" name="__tabbed_1" type="radio" /><input id="体系结构" name="__tabbed_1" type="radio" /><input id="工作方式" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="原始数据的来源">原始数据的来源</label><label for="检测原理">检测原理</label><label for="体系结构">体系结构</label><label for="工作方式">工作方式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1702,7 +1702,7 @@
 </div>
 </div>
 </div>
-<h2 id="入侵检测结构CIDF">入侵检测结构（CIDF）</h2>
+<h2 id="入侵检测结构CIDF">入侵检测结构（CIDF）<a class="headerlink" href="#入侵检测结构CIDF" title="Permanent link">&para;</a></h2>
 <details class="info">
 <summary>CIDF的含义</summary>
 <p>Common Intrusion Detection Framework，由DARPA于1997年3月开始着手制定。</p>
@@ -1739,7 +1739,10 @@
 </li>
 <li>
 <p>Denning模型（1987）
-    <a class="glightbox" href="md-img/chap6_ids01.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IDS-Denning Model" src="md-img/chap6_ids01.jpg" /></a></p>
+    <figure markdown>
+    <a class="glightbox" href="md-img/chap6_ids01.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IDS-Denning Model" src="md-img/chap6_ids01.jpg" /></a>
+    <figcaption>Denning 模型示意图</figcaption>
+    </figure></p>
 <ul>
 <li>主体(Subjects)：在目标系统上活动的实体，如用户。</li>
 <li>对象(Objects)：指系统资源，如文件、设备、命令等。</li>
@@ -1758,7 +1761,7 @@
 <li>草案：IDMEF(入侵检测消息交换格式），IDXP（入侵检测交换协议）</li>
 </ul>
 </details>
-<h2 id="入侵检测部署">入侵检测部署</h2>
+<h2 id="入侵检测部署">入侵检测部署<a class="headerlink" href="#入侵检测部署" title="Permanent link">&para;</a></h2>
 <ul>
 <li>检测器部署位置<ul>
 <li>放在边界防火墙之内</li>
@@ -1774,13 +1777,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="入侵检测实例">入侵检测实例</h2>
-<h3 id="Snort">Snort</h3>
+<h2 id="入侵检测实例">入侵检测实例<a class="headerlink" href="#入侵检测实例" title="Permanent link">&para;</a></h2>
+<h3 id="Snort">Snort<a class="headerlink" href="#Snort" title="Permanent link">&para;</a></h3>
 <ul>
 <li>典型的误用检测技术</li>
 <li>基于攻击特征匹配的原理，准确度高，误报率低，无法检测未知攻击，需要准确定义检测规则</li>
 </ul>
-<h4 id="Snort规则编写">Snort规则编写</h4>
+<h4 id="Snort规则编写">Snort规则编写<a class="headerlink" href="#Snort规则编写" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>格式</p>
@@ -1793,40 +1796,40 @@
 <ul>
 <li>规则的头包含了定义一个包的who，where和what信息，以及当满足规则定义的所有属性的包出现时要采取的行动。规则的第一项是"规则动作"（rule action），"规则动作"告诉snort在发现匹配规则的包时要干什么。</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:5"><input checked="checked" id="alert" name="__tabbed_8" type="radio" /><input id="log" name="__tabbed_8" type="radio" /><input id="pass" name="__tabbed_8" type="radio" /><input id="activate" name="__tabbed_8" type="radio" /><input id="dynamic" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="alert">alert</label><label for="log">log</label><label for="pass">pass</label><label for="activate">activate</label><label for="dynamic">dynamic</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>使用选择的报警方法生成一个警报，然后记录（log）这个包</p>
-</div>
-<div class="tabbed-block">
-<p>记录这个包</p>
-</div>
-<div class="tabbed-block">
-<p>丢弃（忽略）这个包</p>
-</div>
-<div class="tabbed-block">
-<p>报警并且激活另一条dynamic规则</p>
-</div>
-<div class="tabbed-block">
-<p>保持空闲直到被一条activate规则激活，被激活后就作为一条log规则执行</p>
-</div>
-</div>
-</div>
+<details class="tip" open="open">
+<summary>不同的规则动作</summary>
+<dl>
+<dt>alert</dt>
+<dd>使用选择的报警方法生成一个警报，然后记录（log）这个包</dd>
+<dt>log</dt>
+<dd>记录这个包</dd>
+<dt>pass</dt>
+<dd>丢弃（忽略）这个包</dd>
+<dt>activate</dt>
+<dd>报警并且激活另一条dynamic规则</dd>
+<dt>dynamic</dt>
+<dd>保持空闲直到被一条activate规则激活，被激活后就作为一条log规则执行</dd>
+</dl>
+</details>
 <ul>
-<li>你可以定义你自己的规则类型并且附加一条或者更多的输出模块给它，然后你就可以使用这些规则类型作为snort规则的一个动作
-    <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># 创建一条规则，记录到系统日志和MySQL数据库
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ruletype redalert
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>{
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>type alert output
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>alert_syslog: LOG_AUTH LOG_ALERT
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>output database: log, mysql, user=snort dbname=snort host=localhost
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>}
-</span></code></pre></div></li>
+<li>
+<p>你可以定义你自己的规则类型并且附加一条或者更多的输出模块给它，然后你就可以使用这些规则类型作为snort规则的一个动作</p>
+<details class="example" open="open">
+<summary>示例</summary>
+<div class="language-apacheconf highlight"><span class="filename">创建一条规则，记录到系统日志和MySQL数据库</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">ruletype</span><span class="w"> </span>redalert
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nb">type</span><span class="w"> </span><span class="k">alert</span><span class="w"> </span>output
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nb">alert_syslog</span>:<span class="w"> </span>LOG_AUTH<span class="w"> </span>LOG_ALERT
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nb">output</span><span class="w"> </span>database:<span class="w"> </span>log,<span class="w"> </span>mysql,<span class="w"> </span><span class="k">user</span>=snort<span class="w"> </span>dbname=snort<span class="w"> </span>host=localhost
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">}</span>
+</span></code></pre></div>
+</details>
+</li>
 </ul>
 </div>
 <div class="tabbed-block">
 <ul>
-<li>规则的下一部分是协议。Snort当前分析可疑包的ip协议有四种：tcp 、udp、icmp和ip。将来可能会更多，例如ARP、IGRP、GRE、OSPF、RIP、IPX等。</li>
+<li>规则的下一部分是协议。Snort当前分析可疑包的ip协议有四种：tcp、udp、icmp和ip。将来可能会更多，例如ARP、IGRP、GRE、OSPF、RIP、IPX等。</li>
 </ul>
 </div>
 <div class="tabbed-block">
@@ -1841,7 +1844,7 @@
 <li>端口号可以用几种方法表示，包括"any"端口、静态端口定义、范围、以及通过否定操作符。</li>
 <li>除any端口外，端口否定操作符均可用"!"表示。</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="any" name="__tabbed_9" type="radio" /><input id="静态端口定义" name="__tabbed_9" type="radio" /><input id="范围" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="any">any</label><label for="静态端口定义">静态端口定义</label><label for="范围">范围</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="any" name="__tabbed_8" type="radio" /><input id="静态端口定义" name="__tabbed_8" type="radio" /><input id="范围" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="any">any</label><label for="静态端口定义">静态端口定义</label><label for="范围">范围</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>是一个通配符，表示任何端口。</p>
@@ -1926,7 +1929,7 @@
 </li>
 <li>
 <p>规则实例</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:6"><input checked="checked" id="DoS-检测--Land" name="__tabbed_10" type="radio" /><input id="扫描检测--TCP-NULL-扫描" name="__tabbed_10" type="radio" /><input id="漏洞利用检测--SQL-注入" name="__tabbed_10" type="radio" /><input id="Web攻击检测--WEB-CGI" name="__tabbed_10" type="radio" /><input id="FTP服务攻击检测" name="__tabbed_10" type="radio" /><input id="Telnet服务攻击检测" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="DoS-检测--Land">DoS 检测 —— Land</label><label for="扫描检测--TCP-NULL-扫描">扫描检测 —— TCP NULL 扫描</label><label for="漏洞利用检测--SQL-注入">漏洞利用检测 —— SQL 注入</label><label for="Web攻击检测--WEB-CGI">Web攻击检测 —— WEB-CGI</label><label for="FTP服务攻击检测">FTP服务攻击检测</label><label for="Telnet服务攻击检测">Telnet服务攻击检测</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:6"><input checked="checked" id="DoS-检测--Land" name="__tabbed_9" type="radio" /><input id="扫描检测--TCP-NULL-扫描" name="__tabbed_9" type="radio" /><input id="漏洞利用检测--SQL-注入" name="__tabbed_9" type="radio" /><input id="Web攻击检测--WEB-CGI" name="__tabbed_9" type="radio" /><input id="FTP服务攻击检测" name="__tabbed_9" type="radio" /><input id="Telnet服务攻击检测" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="DoS-检测--Land">DoS 检测 —— Land</label><label for="扫描检测--TCP-NULL-扫描">扫描检测 —— TCP NULL 扫描</label><label for="漏洞利用检测--SQL-注入">漏洞利用检测 —— SQL 注入</label><label for="Web攻击检测--WEB-CGI">Web攻击检测 —— WEB-CGI</label><label for="FTP服务攻击检测">FTP服务攻击检测</label><label for="Telnet服务攻击检测">Telnet服务攻击检测</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2011,7 +2014,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月7日 19:02:45</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 12:23:51</span>
   </span>
 
     
@@ -2034,6 +2037,55 @@
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -2244,16 +2296,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

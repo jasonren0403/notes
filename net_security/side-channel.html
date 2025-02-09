@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1423,8 +1423,8 @@
   
 
 
-<h1 id="侧信道攻击">侧信道攻击</h1>
-<h2 id="Meltdown攻击">Meltdown攻击</h2>
+<h1 id="侧信道攻击">侧信道攻击<a class="headerlink" href="#侧信道攻击" title="Permanent link">&para;</a></h1>
+<h2 id="Meltdown攻击">Meltdown攻击<a class="headerlink" href="#Meltdown攻击" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Meltdown<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <p>叫做“熔断幽灵”。由于乱序执行导致的缓存数据偷取，可以表示为</p>
@@ -1440,7 +1440,7 @@
 <ul>
 <li>Meltdown依靠现代处理器的乱序执行副作用来读取内核任意位置的数据，此攻击与具体操作系统无关</li>
 </ul>
-<div class="admonition summary">
+<div class="admonition example">
 <p class="admonition-title">一个简单的示例</p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">raise_exception</span><span class="p">();</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// assume the line below is never reached</span>
@@ -1457,7 +1457,7 @@
 </ol>
 </li>
 </ul>
-<h3 id="缓存攻击">缓存攻击</h3>
+<h3 id="缓存攻击">缓存攻击<a class="headerlink" href="#缓存攻击" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="EvictReload型" name="__tabbed_1" type="radio" /><input id="PrimeProbe型" name="__tabbed_1" type="radio" /><input id="FlushReload型" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="EvictReload型">Evict+Reload型</label><label for="PrimeProbe型">Prime+Probe型</label><label for="FlushReload型">Flush+Reload型</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1480,20 +1480,20 @@
 </div>
 </div>
 </div>
-<h2 id="海豚攻击Dolphin-Attack">海豚攻击(Dolphin Attack)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></h2>
+<h2 id="海豚攻击Dolphin-Attack">海豚攻击(Dolphin Attack)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><a class="headerlink" href="#海豚攻击Dolphin-Attack" title="Permanent link">&para;</a></h2>
 <ul>
 <li>麦克风一般使用薄膜，通过振动响应由声波引起的气压变化</li>
 <li>利用超声频率生成目标音调，或利用已有话语录音重新剪接成目标语音，使用了调幅(AM)技术</li>
 </ul>
 <p><a class="glightbox" href="md-img/sidechannel_1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="md-img/sidechannel_1.jpg" /></a></p>
-<h2 id="光波注入音频控制系统">光波注入音频控制系统<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></h2>
+<h2 id="光波注入音频控制系统">光波注入音频控制系统<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup><a class="headerlink" href="#光波注入音频控制系统" title="Permanent link">&para;</a></h2>
 <ul>
 <li>用于攻击声控系统</li>
 </ul>
-<h2 id="从灯泡振动获取音声信息">从灯泡振动获取音声信息</h2>
+<h2 id="从灯泡振动获取音声信息">从灯泡振动获取音声信息<a class="headerlink" href="#从灯泡振动获取音声信息" title="Permanent link">&para;</a></h2>
 <p>Lamphone</p>
 <p><a class="glightbox" href="md-img/sidechannel_2.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="md-img/sidechannel_2.jpg" /></a></p>
-<h2 id="传感器泄露PIN等信息">传感器泄露PIN等信息<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></h2>
+<h2 id="传感器泄露PIN等信息">传感器泄露PIN等信息<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup><a class="headerlink" href="#传感器泄露PIN等信息" title="Permanent link">&para;</a></h2>
 <p>Sensor Fusion</p>
 <ul>
 <li>用陀螺仪和加速度计测量的输入十次0852键获得结果（模拟PIN输入）</li>
@@ -1538,7 +1538,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月20日 18:56:01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 12:23:51</span>
   </span>
 
     
@@ -1561,6 +1561,55 @@
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -1771,16 +1820,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

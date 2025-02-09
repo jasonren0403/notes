@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1415,14 +1415,14 @@
   
 
 
-<h1 id="JavaScript与DOM">JavaScript与DOM</h1>
+<h1 id="JavaScript与DOM">JavaScript与DOM<a class="headerlink" href="#JavaScript与DOM" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">DOM的必要性</p>
 <p>DOM：Document Object Model ，文档对象模型
 DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScript 赋予HTML 具备动态交互效果的能力的核心地位上，与特定编程语言相独立
 各种实现：JavaScript、Python（<code>xml.dom</code>库等）</p>
 </div>
-<h2 id="DOM">DOM</h2>
+<h2 id="DOM">DOM<a class="headerlink" href="#DOM" title="Permanent link">&para;</a></h2>
 <ul>
 <li>观点：在HTML DOM中，所有事物都是节点</li>
 <li>文档结构类似于树，但不一定使用树实现<ul>
@@ -1478,7 +1478,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </div>
 </li>
 </ul>
-<h3 id="DOM节点">DOM节点</h3>
+<h3 id="DOM节点">DOM节点<a class="headerlink" href="#DOM节点" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="元素节点" name="__tabbed_2" type="radio" /><input id="属性节点" name="__tabbed_2" type="radio" /><input id="文本节点" name="__tabbed_2" type="radio" /><input id="注释节点" name="__tabbed_2" type="radio" /><input id="文档节点" name="__tabbed_2" type="radio" /><input id="文档类型节点" name="__tabbed_2" type="radio" /><input id="文档片段节点" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="元素节点">元素节点</label><label for="属性节点">属性节点</label><label for="文本节点">文本节点</label><label for="注释节点">注释节点</label><label for="文档节点">文档节点</label><label for="文档类型节点">文档类型节点</label><label for="文档片段节点">文档片段节点</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1513,7 +1513,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </div>
 </div>
 </div>
-<h3 id="DOM树">DOM树</h3>
+<h3 id="DOM树">DOM树<a class="headerlink" href="#DOM树" title="Permanent link">&para;</a></h3>
 <ul>
 <li>浏览器提供<code>document</code>节点代表整个文档</li>
 <li>第一层节点/根节点：<code>&lt;html&gt;</code></li>
@@ -1524,11 +1524,11 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ol>
 </li>
 </ul>
-<h3 id="DOM的对象与接口">DOM的对象与接口</h3>
+<h3 id="DOM的对象与接口">DOM的对象与接口<a class="headerlink" href="#DOM的对象与接口" title="Permanent link">&para;</a></h3>
 <ul>
 <li>当浏览器解析完HTML 文档后，每个节点并非只是一个单纯的<code>Element</code> 对象，而是继承了很多属性和方法，<code>Element</code> 对象继承了<code>Node</code> 对象的所有属性和方法</li>
 </ul>
-<h4 id="Node接口">Node接口</h4>
+<h4 id="Node接口">Node接口<a class="headerlink" href="#Node接口" title="Permanent link">&para;</a></h4>
 <ul>
 <li>所有DOM对象都继承了DOM接口，拥有共同的属性和操作方法</li>
 <li>
@@ -1786,7 +1786,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h4 id="ParentNode接口"><code>ParentNode</code>接口</h4>
+<h4 id="ParentNode接口"><code>ParentNode</code>接口<a class="headerlink" href="#ParentNode接口" title="Permanent link">&para;</a></h4>
 <ul>
 <li>如果当前节点是父节点，就会继承<code>ParentNode</code>接口</li>
 <li>只有元素节点（element）、 文档节点（document）和文档片段节点（documentFragment）拥有子节点，因此只有这三类节点会继承ParentNode接口</li>
@@ -1804,7 +1804,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h4 id="ChildNode接口"><code>ChildNode</code>接口</h4>
+<h4 id="ChildNode接口"><code>ChildNode</code>接口<a class="headerlink" href="#ChildNode接口" title="Permanent link">&para;</a></h4>
 <ul>
 <li>如果一个节点有父节点，那么该节点就继承了<code>ChildNode</code>接口</li>
 <li>方法与属性<ul>
@@ -1817,7 +1817,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h4 id="DOM的主要对象">DOM的主要对象</h4>
+<h4 id="DOM的主要对象">DOM的主要对象<a class="headerlink" href="#DOM的主要对象" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>Document 节点对象，代表整个文档</p>
@@ -2183,7 +2183,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h2 id="事件">事件</h2>
+<h2 id="事件">事件<a class="headerlink" href="#事件" title="Permanent link">&para;</a></h2>
 <p>在JavaScript 中，事件往往是页面的一些动作引起的，例如当用户按下鼠标或者提交表单，甚至在页面移动鼠标时，事件都会出现。</p>
 <div class="admonition summary">
 <p class="admonition-title">JavaScript的主要事件</p>
@@ -2193,7 +2193,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 <p class="admonition-title">浏览器的事件模型</p>
 <p>通过监听函数（listener）对事件做出反应。事件发生后，浏览器监听到了这个事件，就会执行对应的监听函数。</p>
 </div>
-<h3 id="为事件绑定监听函数">为事件绑定监听函数</h3>
+<h3 id="为事件绑定监听函数">为事件绑定监听函数<a class="headerlink" href="#为事件绑定监听函数" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>在HTML 元素的 <code>on-</code> 属性中直接定义某些事件的监听代码</p>
@@ -2231,7 +2231,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </div>
 </li>
 </ol>
-<h3 id="DOM事件操作">DOM事件操作</h3>
+<h3 id="DOM事件操作">DOM事件操作<a class="headerlink" href="#DOM事件操作" title="Permanent link">&para;</a></h3>
 <ul>
 <li class="stressed">DOM 的事件操作（监听和触发），都定义在<code>EventTarget</code> 接口上</li>
 <li>三个实例方法<ul>
@@ -2273,7 +2273,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h4 id="鼠标事件">鼠标事件</h4>
+<h4 id="鼠标事件">鼠标事件<a class="headerlink" href="#鼠标事件" title="Permanent link">&para;</a></h4>
 <ul>
 <li>click：按下鼠标（通常是按下主按钮）时触发</li>
 <li>dblclick：在同一个元素上双击鼠标时触发</li>
@@ -2292,7 +2292,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </div>
 </li>
 </ul>
-<h4 id="键盘事件">键盘事件</h4>
+<h4 id="键盘事件">键盘事件<a class="headerlink" href="#键盘事件" title="Permanent link">&para;</a></h4>
 <ul>
 <li>keydown：按下键盘时触发<ul>
 <li>通过<code>event.keyCode</code>和<code>event.(alt|ctrl|shift)Key</code>来判断哪一个键被按下</li>
@@ -2301,7 +2301,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 <li>keypress：按下有值的键时触发，即按下 Ctrl、Alt、Shift、Meta这样无值的键，这个事件不会触发。对于有值的键，按下时先触发<code>keydown</code>事件，再触发这个事件</li>
 <li>keyup：松开键盘时触发该事件</li>
 </ul>
-<h4 id="表单事件">表单事件</h4>
+<h4 id="表单事件">表单事件<a class="headerlink" href="#表单事件" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>input</code>事件<ul>
 <li>当<code>&lt;input&gt;</code> 、<code>&lt;select&gt;</code> 、<code>&lt;textarea&gt;</code> 的值发生变化时触发，对于复选框（<code>&lt;input type=checkbox&gt;</code>）或单选框（<code>&lt;input type=radio&gt;</code>），用户改变选项时，也会触发这个事件。</li>
@@ -2332,12 +2332,12 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h4 id="load-事件"><code>load</code> 事件</h4>
+<h4 id="load-事件"><code>load</code> 事件<a class="headerlink" href="#load-事件" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>load</code>事件在页面或某个资源加载成功时触发。注意，页面或资源从浏览器缓存加载，并不触发<code>load</code>事件</li>
 <li>浏览网页就是一个加载各种资源的过程 ，图像（image）、样式表（stylesheet）、脚本（script）、视频（video）、音频（audio）、Ajax 请求（XMLHttpRequest）等等。这些资源和<code>document</code>对象、<code>window</code>对象都会触发<code>load</code>事件</li>
 </ul>
-<h4 id="窗口事件">窗口事件</h4>
+<h4 id="窗口事件">窗口事件<a class="headerlink" href="#窗口事件" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>scroll</code>事件在文档或文档元素滚动时连续触发，主要出现在用户拖动滚动条时<ul>
 <li>推荐使用<code>setTimeout</code>控制该事件的触发频率</li>
@@ -2345,7 +2345,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </li>
 <li><code>resize</code>事件在改变浏览器窗口大小时连续触发，主要发生在<code>window</code>对象上面</li>
 </ul>
-<h2 id="浏览器对象模型BOM">浏览器对象模型（BOM）</h2>
+<h2 id="浏览器对象模型BOM">浏览器对象模型（BOM）<a class="headerlink" href="#浏览器对象模型BOM" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p>Browser Object Model，即“访问和操作浏览器窗口的模型”，把“浏览器”当做一个“对象”来看待</p>
 </div>
@@ -2356,7 +2356,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 <ul>
 <li>BOM 提供控制浏览器行为的接口，最核心的对象是<code>window</code>对象，没有相关标准</li>
 </ul>
-<h3 id="Window对象"><code>Window</code>对象</h3>
+<h3 id="Window对象"><code>Window</code>对象<a class="headerlink" href="#Window对象" title="Permanent link">&para;</a></h3>
 <ul>
 <li>指当前的浏览器窗口</li>
 <li>窗口关系：<code>window.top</code>，<code>window.parent</code>，<code>window.self</code><ul>
@@ -2368,7 +2368,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h3 id="Navigator对象"><code>Navigator</code>对象</h3>
+<h3 id="Navigator对象"><code>Navigator</code>对象<a class="headerlink" href="#Navigator对象" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>window.navigator</code> → <code>Navigator</code>对象包含浏览器和系统信息，javascript 脚本通过这个对象了解用户的环境信息<ul>
 <li>检测浏览器：<code>navigator.userAgent</code>，<code>navigator.appName</code>，<code>navigator.appVersion</code><ul>
@@ -2382,7 +2382,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h3 id="Screen对象"><code>Screen</code>对象</h3>
+<h3 id="Screen对象"><code>Screen</code>对象<a class="headerlink" href="#Screen对象" title="Permanent link">&para;</a></h3>
 <ul>
 <li>指当前窗口所在的屏幕</li>
 <li>属性<ul>
@@ -2396,7 +2396,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h3 id="Location对象"><code>Location</code>对象</h3>
+<h3 id="Location对象"><code>Location</code>对象<a class="headerlink" href="#Location对象" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Location</code>对象是浏览器提供的原生对象，提供URL相关的信息和操作<ul>
 <li><code>window.location</code>和<code>document.location</code>都指向这个对象</li>
@@ -2429,7 +2429,7 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
 </ul>
 </li>
 </ul>
-<h3 id="History对象"><code>History</code>对象</h3>
+<h3 id="History对象"><code>History</code>对象<a class="headerlink" href="#History对象" title="Permanent link">&para;</a></h3>
 <ul>
 <li>表示当前窗口的浏览历史</li>
 <li><code>window.history</code> → <code>History</code>对象，保存了当前窗口访问过的所有页面<ul>
@@ -2752,16 +2752,16 @@ DOM提供了用于HTML和XML文档的应用程序编程接口，处在为JavaScr
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

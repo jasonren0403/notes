@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2506,9 +2506,9 @@
   
 
 
-<h1 id="中央处理器CPU">中央处理器（CPU）</h1>
-<h2 id="CPU-的功能和基本结构">CPU 的功能和基本结构</h2>
-<h3 id="CPU的功能">CPU的功能</h3>
+<h1 id="中央处理器CPU">中央处理器（CPU）<a class="headerlink" href="#中央处理器CPU" title="Permanent link">&para;</a></h1>
+<h2 id="CPU-的功能和基本结构">CPU 的功能和基本结构<a class="headerlink" href="#CPU-的功能和基本结构" title="Permanent link">&para;</a></h2>
+<h3 id="CPU的功能">CPU的功能<a class="headerlink" href="#CPU的功能" title="Permanent link">&para;</a></h3>
 <figure>
 <p><a class="glightbox" href="asset-img/5-cpu-basic-structure.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CPU的基本结构" src="asset-img/5-cpu-basic-structure.png" /></a></p>
 <figcaption>CPU的基本结构</figcaption>
@@ -2525,8 +2525,8 @@
 <dt>中断处理</dt>
 <dd>由于接收到来自外围硬件（相对于中央处理器和内存）的异步信号或来自软件的同步信号，而进行相应的硬件／软件处理。发出这样的信号称为进行中断请求（interrupt request，IRQ）。</dd>
 </dl>
-<h3 id="CPU-的基本结构">CPU 的基本结构</h3>
-<h4 id="运算器">运算器</h4>
+<h3 id="CPU-的基本结构">CPU 的基本结构<a class="headerlink" href="#CPU-的基本结构" title="Permanent link">&para;</a></h3>
+<h4 id="运算器">运算器<a class="headerlink" href="#运算器" title="Permanent link">&para;</a></h4>
 <figure>
 <p><a class="glightbox" href="asset-img/5-arithmetic-structure.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="运算器对数据进行加工" src="asset-img/5-arithmetic-structure.png" /></a></p>
 <figcaption>运算器对数据进行加工</figcaption>
@@ -2553,7 +2553,7 @@
 </div>
 </div>
 </div>
-<h4 id="控制器">控制器</h4>
+<h4 id="控制器">控制器<a class="headerlink" href="#控制器" title="Permanent link">&para;</a></h4>
 <figure>
 <p><a class="glightbox" href="asset-img/5-controller-structure.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="控制器协调并控制计算机各部件执行程序的指令序列" src="asset-img/5-controller-structure.png" /></a></p>
 <figcaption>控制器协调并控制计算机各部件执行程序的指令序列</figcaption>
@@ -2594,8 +2594,8 @@
 <p class="admonition-title">用户不可见（不可编程）的寄存器</p>
 <p>MAR、MDR、IF、暂存寄存器</p>
 </div>
-<h2 id="指令周期的数据流">指令周期的数据流</h2>
-<h3 id="指令周期">指令周期</h3>
+<h2 id="指令周期的数据流">指令周期的数据流<a class="headerlink" href="#指令周期的数据流" title="Permanent link">&para;</a></h2>
+<h3 id="指令周期">指令周期<a class="headerlink" href="#指令周期" title="Permanent link">&para;</a></h3>
 <ul>
 <li>CPU从主存种每取出并执行一条指令所需的全部时间，由若干个机器周期（CPU周期）表示，一个机器周期包含若干时钟周期（节拍/T周期/CPU时钟周期）<ul>
 <li>时钟周期是CPU操作的最基本单位。</li>
@@ -2610,7 +2610,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="指令周期流程">指令周期流程</h3>
+<h3 id="指令周期流程">指令周期流程<a class="headerlink" href="#指令周期流程" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph LR
 A["取指周期"]--&gt;B{"间址？"}--&gt;|N|C["执行周期"]
 B--&gt;|Y|D["间址周期"]--&gt;C
@@ -2620,7 +2620,7 @@ F---G["保存程序端点"]
 C---H["取操作数"]
 D---I["取有效地址"]
 A---J["取指令"]</code></pre>
-<h4 id="取指周期">取指周期</h4>
+<h4 id="取指周期">取指周期<a class="headerlink" href="#取指周期" title="Permanent link">&para;</a></h4>
 <div class="admonition abstract">
 <p>根据PC中的内容取出指令代码并存放于IR中。</p>
 </div>
@@ -2631,7 +2631,7 @@ A---J["取指令"]</code></pre>
 <li>MDR中的内容（指令）送入IR：<code>(MDR)-&gt;IR</code></li>
 <li>CU发出控制信号，形成下一条指令地址：<code>(PC)+1-&gt;PC</code></li>
 </ol>
-<h4 id="间址周期">间址周期</h4>
+<h4 id="间址周期">间址周期<a class="headerlink" href="#间址周期" title="Permanent link">&para;</a></h4>
 <div class="admonition abstract">
 <p>根据IR中指令地址码取得操作数有效地址。</p>
 </div>
@@ -2647,7 +2647,7 @@ A---J["取指令"]</code></pre>
 </details>
 </li>
 </ol>
-<h4 id="执行周期">执行周期</h4>
+<h4 id="执行周期">执行周期<a class="headerlink" href="#执行周期" title="Permanent link">&para;</a></h4>
 <div class="admonition abstract">
 <p>根据指令字的操作码和操作数进行相应的操作。</p>
 </div>
@@ -2655,7 +2655,7 @@ A---J["取指令"]</code></pre>
 <p class="admonition-title">注意</p>
 <p>执行周期的指令有很多种，无法使用统一的数据流图表示。</p>
 </div>
-<h4 id="中断周期">中断周期</h4>
+<h4 id="中断周期">中断周期<a class="headerlink" href="#中断周期" title="Permanent link">&para;</a></h4>
 <div class="admonition abstract">
 <p>保存断点，送中断向量，处理中断请求。</p>
 </div>
@@ -2669,24 +2669,24 @@ A---J["取指令"]</code></pre>
 <p class="admonition-title">tip</p>
 <p>前三步主要进行了断点的保存。</p>
 </div>
-<h3 id="指令执行方案">指令执行方案</h3>
-<h4 id="单指令周期">单指令周期</h4>
+<h3 id="指令执行方案">指令执行方案<a class="headerlink" href="#指令执行方案" title="Permanent link">&para;</a></h3>
+<h4 id="单指令周期">单指令周期<a class="headerlink" href="#单指令周期" title="Permanent link">&para;</a></h4>
 <p>对所有指令选用相同的执行时间完成，指令周期取决于执行时间最长指令的执行时间。</p>
 <ul>
 <li>串行执行，使用计数器实现</li>
 </ul>
-<h4 id="多指令周期">多指令周期</h4>
+<h4 id="多指令周期">多指令周期<a class="headerlink" href="#多指令周期" title="Permanent link">&para;</a></h4>
 <p>对不同指令选用不同的执行时间完成。</p>
 <ul>
 <li>串行执行，但需要更复杂的硬件设计。</li>
 </ul>
-<h4 id="流水线方案">流水线方案</h4>
+<h4 id="流水线方案">流水线方案<a class="headerlink" href="#流水线方案" title="Permanent link">&para;</a></h4>
 <p>在每一个时钟周期启动一条指令，尽量让多条指令同时运行，但各自处于不同的运行步骤中。</p>
 <ul>
 <li>指令之间并行执行。</li>
 </ul>
-<h2 id="数据通路的功能和基本结构">数据通路的功能和基本结构</h2>
-<h3 id="CPU内部总线方式">CPU内部总线方式</h3>
+<h2 id="数据通路的功能和基本结构">数据通路的功能和基本结构<a class="headerlink" href="#数据通路的功能和基本结构" title="Permanent link">&para;</a></h2>
+<h3 id="CPU内部总线方式">CPU内部总线方式<a class="headerlink" href="#CPU内部总线方式" title="Permanent link">&para;</a></h3>
 <p>CPU内部共同通路，同一台计算机系统的各部件共享，可以存在一条或多条。</p>
 <ul>
 <li>寄存器之间数据传送
@@ -2720,14 +2720,14 @@ A---J["取指令"]</code></pre>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>   Zout, ACCin 有效，结果 -&gt; ACC
 </span></code></pre></div></li>
 </ul>
-<h3 id="专用数据通路方式">专用数据通路方式</h3>
+<h3 id="专用数据通路方式">专用数据通路方式<a class="headerlink" href="#专用数据通路方式" title="Permanent link">&para;</a></h3>
 <p>各部件之间有一条直接通路，由控制信号控制。根据运行时数据和地址流动方向安排线路。</p>
 <figure>
 <p><a class="glightbox" href="asset-img/5-datapath.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="专用数据通路方式示意图" src="asset-img/5-datapath.png" /></a></p>
 <figcaption>注意，图中的小圆点是三态门</figcaption>
 </figure>
-<h2 id="控制器的结构和功能">控制器的结构和功能</h2>
-<h3 id="控制器的功能">控制器的功能</h3>
+<h2 id="控制器的结构和功能">控制器的结构和功能<a class="headerlink" href="#控制器的结构和功能" title="Permanent link">&para;</a></h2>
+<h3 id="控制器的功能">控制器的功能<a class="headerlink" href="#控制器的功能" title="Permanent link">&para;</a></h3>
 <figure>
 <p><a class="glightbox" href="asset-img/5-controller-io.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="控制器的输入和输出" src="asset-img/5-controller-io.png" /></a></p>
 <figcaption>控制器的输入和输出</figcaption>
@@ -2737,13 +2737,13 @@ A---J["取指令"]</code></pre>
 <li>对指令进行译码或测试，产生相应信号</li>
 <li>指挥并控制CPU、主存、输入输出设备之间的数据流动方向</li>
 </ul>
-<h3 id="控制器的结构">控制器的结构</h3>
-<h4 id="硬布线组合逻辑电路触发器实现">硬布线（组合逻辑电路+触发器实现）</h4>
+<h3 id="控制器的结构">控制器的结构<a class="headerlink" href="#控制器的结构" title="Permanent link">&para;</a></h3>
+<h4 id="硬布线组合逻辑电路触发器实现">硬布线（组合逻辑电路+触发器实现）<a class="headerlink" href="#硬布线组合逻辑电路触发器实现" title="Permanent link">&para;</a></h4>
 <figure>
 <p><a class="glightbox" href="asset-img/5-cu-yingbuxian.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="硬布线结构" src="asset-img/5-cu-yingbuxian.png" /></a></p>
 <figcaption>硬布线结构简图</figcaption>
 </figure>
-<h5 id="设计步骤">设计步骤</h5>
+<h5 id="设计步骤">设计步骤<a class="headerlink" href="#设计步骤" title="Permanent link">&para;</a></h5>
 <ol>
 <li>分析每个操作的微操作序列</li>
 <li>选择CPU控制方式<ul>
@@ -2768,7 +2768,7 @@ A---J["取指令"]</code></pre>
 </ul>
 </li>
 </ol>
-<h4 id="微程序">微程序</h4>
+<h4 id="微程序">微程序<a class="headerlink" href="#微程序" title="Permanent link">&para;</a></h4>
 <p>事先将微操作控制信号存储在专门的存储器（控制存储器）中，将每一条机器指令编写成一个微程序。</p>
 <ul>
 <li>微命令是直接作用于部件或控制门电路的控制命令，是构成控制信号序列的最小单位。</li>
@@ -2777,7 +2777,7 @@ A---J["取指令"]</code></pre>
 <li>存放微程序的存储器是控制存储器CM。也称为微程序存储器。</li>
 <li>互斥性微命令编码为不同命令，相容性微命令编码为相同命令。</li>
 </ul>
-<h5 id="微程序控制器结构">微程序控制器结构</h5>
+<h5 id="微程序控制器结构">微程序控制器结构<a class="headerlink" href="#微程序控制器结构" title="Permanent link">&para;</a></h5>
 <figure>
 <p><a class="glightbox" href="asset-img/5-micro-controller.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="微程序控制器结构" src="asset-img/5-micro-controller.png" /></a></p>
 <figcaption>微程序控制器结构</figcaption>
@@ -2837,7 +2837,7 @@ A---J["取指令"]</code></pre>
 <dt>字段间接编码</dt>
 <dd>某些微命令由另一个字段中某些微命令解释。进一步缩短了指令字长，但是并行性差。</dd>
 </dl>
-<h5 id="地址形成方式">地址形成方式</h5>
+<h5 id="地址形成方式">地址形成方式<a class="headerlink" href="#地址形成方式" title="Permanent link">&para;</a></h5>
 <ol>
 <li>下地址字段指出（断定方式）</li>
 <li>机器指令操作码字段</li>
@@ -2846,7 +2846,7 @@ A---J["取指令"]</code></pre>
 <li>测试网络</li>
 <li>由硬件产生入口地址</li>
 </ol>
-<h5 id="设计步骤_1">设计步骤</h5>
+<h5 id="设计步骤_1">设计步骤<a class="headerlink" href="#设计步骤_1" title="Permanent link">&para;</a></h5>
 <ol>
 <li>分析每个操作的微操作序列</li>
 <li>
@@ -2864,7 +2864,7 @@ A---J["取指令"]</code></pre>
 </li>
 <li>编写微指令码点</li>
 </ol>
-<h2 id="指令流水线">指令流水线</h2>
+<h2 id="指令流水线">指令流水线<a class="headerlink" href="#指令流水线" title="Permanent link">&para;</a></h2>
 <p>一条指令的执行过程可以分为多个阶段（或过程），根据计算机的不同，分法也不同。</p>
 <p>一般分为取指、分析、执行三步</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="取指" name="__tabbed_3" type="radio" /><input id="分析" name="__tabbed_3" type="radio" /><input id="执行" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="取指">取指</label><label for="分析">分析</label><label for="执行">执行</label></div>
@@ -2885,7 +2885,7 @@ A---J["取指令"]</code></pre>
 <p>也可以把每条指令的执行过程分为4个或5个阶段，分成5个阶段也是常见的做法。</p>
 </div>
 <p>以下设取指、分析、执行3个阶段的时间相等，用t表示，按以下几种执行方式分析n条指令的执行时间。</p>
-<h3 id="顺序执行方式串行执行方式">顺序执行方式（串行执行方式）</h3>
+<h3 id="顺序执行方式串行执行方式">顺序执行方式（串行执行方式）<a class="headerlink" href="#顺序执行方式串行执行方式" title="Permanent link">&para;</a></h3>
 <p>传统冯·诺伊曼机采用顺序执行方式，又称串行执行方式。总耗时 <span class="arithmatex">\(T=n\times 3t=3nt\)</span></p>
 <p><a class="glightbox" href="asset-img/5-instruction-ex-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/5-instruction-ex-1.png" /></a></p>
 <div class="admonition success">
@@ -2894,7 +2894,7 @@ A---J["取指令"]</code></pre>
 <div class="admonition failure">
 <p>执行指令速度慢，各部件利用率低</p>
 </div>
-<h3 id="一次重叠执行方式">一次重叠执行方式</h3>
+<h3 id="一次重叠执行方式">一次重叠执行方式<a class="headerlink" href="#一次重叠执行方式" title="Permanent link">&para;</a></h3>
 <p>总耗时 <span class="arithmatex">\(T=3t+(n-1)\times 2t=(2n+1)t\)</span></p>
 <p><a class="glightbox" href="asset-img/5-instruction-ex-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/5-instruction-ex-2.png" /></a></p>
 <div class="admonition success">
@@ -2903,24 +2903,24 @@ A---J["取指令"]</code></pre>
 <div class="admonition failure">
 <p>硬件开销较大，且控制过程也变得复杂</p>
 </div>
-<h3 id="二次重叠执行方式">二次重叠执行方式</h3>
+<h3 id="二次重叠执行方式">二次重叠执行方式<a class="headerlink" href="#二次重叠执行方式" title="Permanent link">&para;</a></h3>
 <p>这是一种理想的指令执行方式，处理机中同时有3条指令在执行。总耗时 <span class="arithmatex">\(T=3t+(n-1)\times t=(2+n)t\)</span></p>
 <p><a class="glightbox" href="asset-img/5-instruction-ex-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/5-instruction-ex-3.png" /></a></p>
-<h3 id="流水线表示方法">流水线表示方法</h3>
-<h4 id="指令执行过程图">指令执行过程图</h4>
+<h3 id="流水线表示方法">流水线表示方法<a class="headerlink" href="#流水线表示方法" title="Permanent link">&para;</a></h3>
+<h4 id="指令执行过程图">指令执行过程图<a class="headerlink" href="#指令执行过程图" title="Permanent link">&para;</a></h4>
 <p>主要用于分析指令执行过程以及影响流水线的因素。</p>
 <p><a class="glightbox" href="asset-img/5-flow-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/5-flow-1.png" /></a></p>
-<h4 id="时空图">时空图</h4>
+<h4 id="时空图">时空图<a class="headerlink" href="#时空图" title="Permanent link">&para;</a></h4>
 <p>主要用于分析流水线的性能。</p>
 <p><a class="glightbox" href="asset-img/5-flow-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/5-flow-2.png" /></a></p>
 <div class="admonition abstract">
 <p class="admonition-title">什么是空间</p>
 <p>不同阶段所对应的不同的硬件资源</p>
 </div>
-<h3 id="性能指标">性能指标</h3>
+<h3 id="性能指标">性能指标<a class="headerlink" href="#性能指标" title="Permanent link">&para;</a></h3>
 <p>理想情况下，流水线时空图如下：
 <a class="glightbox" href="asset-img/5-flow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/5-flow.png" /></a></p>
-<h4 id="吞吐率">吞吐率</h4>
+<h4 id="吞吐率">吞吐率<a class="headerlink" href="#吞吐率" title="Permanent link">&para;</a></h4>
 <p>吞吐率是在单位时间内流水线所完成的任务数量，即单位时间内流水线所完成的指令条数。</p>
 <p>设任务数为n，处理完成n个任务所用的时间为 <span class="arithmatex">\(T_k\)</span>，则计算流水线吞吐率（TP）最基本的公式为</p>
 <div class="arithmatex">\[
@@ -2928,7 +2928,7 @@ TP=\dfrac{n}{T_k}
 \]</div>
 <p><span class="arithmatex">\(T_k=(k+n-1)\Delta t\)</span>，实际吞吐率为 <span class="arithmatex">\(TP=\dfrac{n}{(k+n-1)\Delta t}\)</span>。当连续输入的任务 <span class="arithmatex">\(n\to \infty\)</span> 时，最大吞吐率 <span class="arithmatex">\(TP_{max}=\dfrac{1}{\delta t}\)</span></p>
 <p>一条指令执行分为k个阶段，每个阶段耗时 <span class="arithmatex">\(\Delta t\)</span>，一般取 <span class="arithmatex">\(\Delta t\)</span> 为一个时钟周期</p>
-<h4 id="加速比">加速比</h4>
+<h4 id="加速比">加速比<a class="headerlink" href="#加速比" title="Permanent link">&para;</a></h4>
 <p>完成同样一批任务，<strong>不使用流水线所用时间</strong> 与 <strong>使用流水线所用时间</strong> 之比。</p>
 <p>设 <span class="arithmatex">\(T_0\)</span> 表示不使用流水线时的执行时间，<span class="arithmatex">\(T_k\)</span> 表示使用流水线时的执行时间，则计算流水线加速比S的基本公式为</p>
 <div class="arithmatex">\[
@@ -2936,14 +2936,14 @@ S=\dfrac{T_0}{T_k}
 \]</div>
 <p>单独完成一个任务耗时为 <span class="arithmatex">\(k\Delta t\)</span>，则顺序完成n个任务耗时 <span class="arithmatex">\(T_0=nk\Delta t\)</span>，实际加速比为 <span class="arithmatex">\(S=\dfrac{kn\Delta t}{(k+n-1)\Delta t}=\dfrac{kn}{k+n-1}\)</span>。</p>
 <p>当连续输入的任务 <span class="arithmatex">\(n\to \infty\)</span> 时，最大加速比为 <span class="arithmatex">\(S_{max}=k\)</span></p>
-<h4 id="效率">效率</h4>
+<h4 id="效率">效率<a class="headerlink" href="#效率" title="Permanent link">&para;</a></h4>
 <p>流水线的设备利用率称为流水线的效率。在时空图上，定义为 <strong>完成n个任务占用的时空区有效面积</strong> 与 <strong>n个任务所用的时间与k个流水段所围成的时空区总面积</strong> 之比。一般公式为</p>
 <div class="arithmatex">\[
 E=\dfrac{T_0}{kT_k}
 \]</div>
 <p>当连续输入的任务 <span class="arithmatex">\(n\to \infty\)</span> 时，最高效率 <span class="arithmatex">\(E_{max}=1\)</span></p>
-<h3 id="影响流水线的因素">影响流水线的因素</h3>
-<h4 id="结构相关资源冲突">结构相关（资源冲突）</h4>
+<h3 id="影响流水线的因素">影响流水线的因素<a class="headerlink" href="#影响流水线的因素" title="Permanent link">&para;</a></h3>
+<h4 id="结构相关资源冲突">结构相关（资源冲突）<a class="headerlink" href="#结构相关资源冲突" title="Permanent link">&para;</a></h4>
 <p>多条指令在同一时刻争用同一资源。</p>
 <div class="admonition success">
 <p class="admonition-title">解决方案</p>
@@ -2952,7 +2952,7 @@ E=\dfrac{T_0}{kT_k}
 <li>资源重复配置</li>
 </ul>
 </div>
-<h4 id="数据相关数据冲突">数据相关（数据冲突）</h4>
+<h4 id="数据相关数据冲突">数据相关（数据冲突）<a class="headerlink" href="#数据相关数据冲突" title="Permanent link">&para;</a></h4>
 <p>在一个程序中，存在必须等待前一条指令执行完才能执行后一条指令的情况。</p>
 <div class="admonition success">
 <p class="admonition-title">解决方案</p>
@@ -2963,7 +2963,7 @@ E=\dfrac{T_0}{kT_k}
 </ul>
 </div>
 <p>类型：RAW、WAR、WAW</p>
-<h4 id="控制相关控制冲突">控制相关（控制冲突）</h4>
+<h4 id="控制相关控制冲突">控制相关（控制冲突）<a class="headerlink" href="#控制相关控制冲突" title="Permanent link">&para;</a></h4>
 <p>同时遇到转移指令和其他改变PC值的指令。</p>
 <div class="admonition success">
 <p class="admonition-title">解决方案</p>
@@ -2973,7 +2973,7 @@ E=\dfrac{T_0}{kT_k}
 <li>提高目标方向的猜准率</li>
 </ul>
 </div>
-<h3 id="流水线分类">流水线分类</h3>
+<h3 id="流水线分类">流水线分类<a class="headerlink" href="#流水线分类" title="Permanent link">&para;</a></h3>
 <ol>
 <li>流水线使用级别：部件功能级、处理机级和处理机间级流水线<ul>
 <li>部件功能级：将复杂算术逻辑组成流水线工作方式</li>
@@ -2997,7 +2997,7 @@ E=\dfrac{T_0}{kT_k}
 </ul>
 </li>
 </ol>
-<h3 id="多发技术">多发技术</h3>
+<h3 id="多发技术">多发技术<a class="headerlink" href="#多发技术" title="Permanent link">&para;</a></h3>
 <ol>
 <li>超标量技术<ul>
 <li>每个时钟周期内并发多条独立指令</li>
@@ -3014,26 +3014,26 @@ E=\dfrac{T_0}{kT_k}
 </ul>
 </li>
 </ol>
-<h2 id="多处理器">多处理器</h2>
-<h3 id="SISD">SISD</h3>
+<h2 id="多处理器">多处理器<a class="headerlink" href="#多处理器" title="Permanent link">&para;</a></h2>
+<h3 id="SISD">SISD<a class="headerlink" href="#SISD" title="Permanent link">&para;</a></h3>
 <ul>
 <li>单指令流：CPU同一时间段内只能处理一个指令序列</li>
 <li>单数据流：每一条指令只能处理特定的一两个数据</li>
 </ul>
-<h3 id="SIMD">SIMD</h3>
+<h3 id="SIMD">SIMD<a class="headerlink" href="#SIMD" title="Permanent link">&para;</a></h3>
 <ul>
 <li>单指令流：每一个时刻同样只能执行一条指令</li>
 <li>多数据流：一条指令的执行可以同时处理很多个具有相同特征的数据，对这些数据的处理都是相同的</li>
 </ul>
-<h3 id="MIMD">MIMD</h3>
+<h3 id="MIMD">MIMD<a class="headerlink" href="#MIMD" title="Permanent link">&para;</a></h3>
 <ul>
 <li>多指令流：每个处理器都有自己的指令流</li>
 <li>多数据流：一条指令的执行可以同时处理很多个具有相同特征的数据，对这些数据的处理都是相同的</li>
 <li>可以组成共享存储多处理器SMP系统或多计算机系统（分布式计算系统）</li>
 </ul>
-<h3 id="向量处理器">向量处理器</h3>
+<h3 id="向量处理器">向量处理器<a class="headerlink" href="#向量处理器" title="Permanent link">&para;</a></h3>
 <p>是面向向量型并行计算，以流水线结构为主的并行处理计算机系统</p>
-<h3 id="硬件多线程">硬件多线程</h3>
+<h3 id="硬件多线程">硬件多线程<a class="headerlink" href="#硬件多线程" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -3070,13 +3070,13 @@ E=\dfrac{T_0}{kT_k}
 </tr>
 </tbody>
 </table>
-<h3 id="多核处理器">多核处理器</h3>
+<h3 id="多核处理器">多核处理器<a class="headerlink" href="#多核处理器" title="Permanent link">&para;</a></h3>
 <p>多个处理单元集成到单个CPU中，每个处理单元称为一个核（core）</p>
 <ul>
 <li>可共用/不共用cache</li>
 <li>线程（多进程）执行，真正的多线程</li>
 </ul>
-<h3 id="共享内存多处理器">共享内存多处理器</h3>
+<h3 id="共享内存多处理器">共享内存多处理器<a class="headerlink" href="#共享内存多处理器" title="Permanent link">&para;</a></h3>
 <p>具有共享的单一物理地址空间的多处理器</p>
 
 
@@ -3333,16 +3333,16 @@ E=\dfrac{T_0}{kT_k}
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

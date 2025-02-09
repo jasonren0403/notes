@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1361,7 +1361,7 @@
   
 
 
-<h1 id="事件处理">事件处理<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></h1>
+<h1 id="事件处理">事件处理<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#事件处理" title="Permanent link">&para;</a></h1>
 <p>一般使用 <code>v-on</code>（简写为<code>@</code>）指令来监听 DOM 事件。</p>
 <ul>
 <li>
@@ -1389,12 +1389,12 @@
 </li>
 <li>
 <p>如果向内联处理器传入特殊的 <code>$event</code> 变量，或使用内联箭头函数，可以访问原始的 DOM 事件</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- (1) --&gt;</span>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- (1)! --&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;warn(&#39;Form cannot be submitted yet.&#39;, $event)&quot;</span><span class="p">&gt;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Submit
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cm">&lt;!-- (2) --&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cm">&lt;!-- (2)! --&gt;</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;(event) =&gt; warn(&#39;Form cannot be submitted yet.&#39;, event)&quot;</span><span class="p">&gt;</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Submit
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -1413,7 +1413,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="事件修饰符">事件修饰符</h2>
+<h2 id="事件修饰符">事件修饰符<a class="headerlink" href="#事件修饰符" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">意义</p>
 <p>在处理事件时，有时候我们想要阻止事件继续传播或者阻止默认行为，在方法中调用可以，但是不够优雅。事件修饰符可以让我们的方法专注于数据逻辑，而不用处理 DOM 事件细节</p>
@@ -1430,27 +1430,27 @@
 <div class="admonition tip">
 <p>修饰符使用的时候要注意顺序，且注意语义不要矛盾（如 <code>.passive</code> 和 <code>.prevent</code> 是不可混用的，<code>.prevent</code> 会被忽略且抛出警告）</p>
 </div>
-<h2 id="按键修饰符">按键修饰符</h2>
+<h2 id="按键修饰符">按键修饰符<a class="headerlink" href="#按键修饰符" title="Permanent link">&para;</a></h2>
 <p>按键修饰符是使用 <code>KeyboardEvent.key</code> 暴露的名称作为修饰符，其命名为短横线分隔的大小写字母。常用的按键有：</p>
 <ul>
-<li><code>.enter</code>：<kbd>Enter</kbd></li>
-<li><code>.tab</code>：<kbd>Tab</kbd></li>
-<li><code>.delete</code>：<kbd>Delete</kbd> 和 <kbd>Backspace</kbd></li>
-<li><code>.esc</code>：<kbd>Esc</kbd></li>
-<li><code>.space</code>：<kbd>Space</kbd></li>
-<li><code>.up</code>：<kbd>↑</kbd></li>
-<li><code>.down</code>：<kbd>↓</kbd></li>
-<li><code>.left</code>：<kbd>←</kbd></li>
-<li><code>.right</code>：<kbd>→</kbd></li>
-<li><code>.ctrl</code>：<kbd>Ctrl</kbd></li>
-<li><code>.alt</code>：<kbd>Alt</kbd></li>
-<li><code>.shift</code>：<kbd>Shift</kbd></li>
-<li><code>.meta</code>：<kbd>Meta</kbd>（Windows 键或者 Command 键）</li>
+<li><code>.enter</code>：<span class="keys"><kbd class="key-enter">Enter</kbd></span></li>
+<li><code>.tab</code>：<span class="keys"><kbd class="key-tab">Tab</kbd></span></li>
+<li><code>.delete</code>：<span class="keys"><kbd class="key-delete">Del</kbd></span> 和 <span class="keys"><kbd class="key-backspace">Backspace</kbd></span></li>
+<li><code>.esc</code>：<span class="keys"><kbd class="key-escape">Esc</kbd></span></li>
+<li><code>.space</code>：<span class="keys"><kbd class="key-space">Space</kbd></span></li>
+<li><code>.up</code>：<span class="keys"><kbd class="key-arrow-up">Up</kbd></span></li>
+<li><code>.down</code>：<span class="keys"><kbd class="key-arrow-down">Down</kbd></span></li>
+<li><code>.left</code>：<span class="keys"><kbd class="key-arrow-left">Left</kbd></span></li>
+<li><code>.right</code>：<span class="keys"><kbd class="key-arrow-right">Right</kbd></span></li>
+<li><code>.ctrl</code>：<span class="keys"><kbd class="key-control">Ctrl</kbd></span></li>
+<li><code>.alt</code>：<span class="keys"><kbd class="key-alt">Alt</kbd></span></li>
+<li><code>.shift</code>：<span class="keys"><kbd class="key-shift">Shift</kbd></span></li>
+<li><code>.meta</code>：<span class="keys"><kbd class="key-meta">Meta</kbd></span>（Windows 键或者 Command 键）</li>
 </ul>
 <p>多个按键可以同时指定（如 <code>@keyup.alt.enter</code>），也可以与点击事件结合使用（如 <code>@click.ctrl</code>）</p>
-<h3 id="exact-修饰符">exact 修饰符</h3>
+<h3 id="exact-修饰符">exact 修饰符<a class="headerlink" href="#exact-修饰符" title="Permanent link">&para;</a></h3>
 <p><code>exact</code> 修饰符允许你控制由精确的系统修饰符组合触发的事件。如果不使用 <code>exact</code> 修饰符，那么当按下 <code>ctrl</code> 或 <code>alt</code> 时，<code>@keyup.ctrl</code> 或 <code>@keyup.alt</code> 事件也会被触发。如果使用了 <code>exact</code> 修饰符，那么只有在按下 <code>ctrl</code> 或 <code>alt</code> 时才会触发 <code>@keyup.ctrl</code> 或 <code>@keyup.alt</code> 事件</p>
-<h3 id="鼠标按键修饰符">鼠标按键修饰符</h3>
+<h3 id="鼠标按键修饰符">鼠标按键修饰符<a class="headerlink" href="#鼠标按键修饰符" title="Permanent link">&para;</a></h3>
 <p>鼠标按键修饰符会限制处理函数仅相应特定鼠标按钮的点击事件，修饰符有这些：</p>
 <ul>
 <li><code>.left</code></li>
@@ -1487,7 +1487,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年7月9日 18:39:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 13:59:38</span>
   </span>
 
     
@@ -1510,6 +1510,55 @@
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -1720,16 +1769,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

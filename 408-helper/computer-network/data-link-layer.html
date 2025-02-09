@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2719,7 +2719,7 @@
   
 
 
-<h1 id="数据链路层">数据链路层</h1>
+<h1 id="数据链路层">数据链路层<a class="headerlink" href="#数据链路层" title="Permanent link">&para;</a></h1>
 <details class="summary">
 <summary>数据链路层的功能</summary>
 <ol>
@@ -2730,7 +2730,7 @@
 <li>差错控制</li>
 </ol>
 </details>
-<h2 id="基本概念">基本概念</h2>
+<h2 id="基本概念">基本概念<a class="headerlink" href="#基本概念" title="Permanent link">&para;</a></h2>
 <p>数据链路层负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。</p>
 <dl>
 <dt>结点</dt>
@@ -2742,7 +2742,7 @@
 <dt>帧</dt>
 <dd>链路层的协议数据单元，封装网络层数据报</dd>
 </dl>
-<h2 id="链路层功能">链路层功能</h2>
+<h2 id="链路层功能">链路层功能<a class="headerlink" href="#链路层功能" title="Permanent link">&para;</a></h2>
 <p>数据链路层有五大功能：</p>
 <ol>
 <li>为网络层提供服务<ul>
@@ -2756,7 +2756,7 @@
 <li>流量控制</li>
 <li>差错控制（帧错/位错）</li>
 </ol>
-<h3 id="封装为帧">封装为帧</h3>
+<h3 id="封装为帧">封装为帧<a class="headerlink" href="#封装为帧" title="Permanent link">&para;</a></h3>
 <p>将网络层的IP数据报添加头部和尾部，形成链路层数据传送单元 <em>帧</em>。接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从收到的比特流中识别帧的开始和结束。</p>
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  +--------+-----------+---------+
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  |  首部   |  数据部分  |  尾部   |
@@ -2766,7 +2766,7 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  |&lt;-          帧长             -&gt;|
 </span></code></pre></div>
 <p>帧同步：接收端能够从接收到的二进制比特流中区分出帧的起始和终止位置。</p>
-<h4 id="组帧方法">组帧方法</h4>
+<h4 id="组帧方法">组帧方法<a class="headerlink" href="#组帧方法" title="Permanent link">&para;</a></h4>
 <ul>
 <li>字符计数法</li>
 <li>字符（节）填充法</li>
@@ -2777,19 +2777,19 @@
 <p class="admonition-title">提示</p>
 <p>在“透明传输”一节中，将进一步介绍这些方法</p>
 </div>
-<h3 id="透明传输">透明传输</h3>
+<h3 id="透明传输">透明传输<a class="headerlink" href="#透明传输" title="Permanent link">&para;</a></h3>
 <p>不管所传数据是什么样的比特组合，都应当能够在链路上进行传送。当所传数据中比特组合恰好与控制信息一样时，就必须采取适当措施，使得接收方不会将这样的数据误认为是控制信息。</p>
-<h4 id="字符计数法">字符计数法</h4>
+<h4 id="字符计数法">字符计数法<a class="headerlink" href="#字符计数法" title="Permanent link">&para;</a></h4>
 <p>帧首部使用一个计数字段（第一个字节，8位）来标明帧内字符数。</p>
 <div class="admonition bug">
 <p>如果计数字段错误，则会导致该帧结束位错误，又会导致后面所有的帧都发生错误。双方失去同步。</p>
 </div>
-<h4 id="字符填充法">字符填充法</h4>
+<h4 id="字符填充法">字符填充法<a class="headerlink" href="#字符填充法" title="Permanent link">&para;</a></h4>
 <p>以<code>SOH</code>和<code>EOT</code>（均为一个字节）标记帧的开始和结束。如果帧内数据中包含<code>SOH</code>或<code>EOT</code>，则在其前面添加一个<code>ESC</code>（转义字符）。</p>
 <div class="admonition bug">
 <p>实现较复杂，兼容性差</p>
 </div>
-<h4 id="零比特填充法">零比特填充法</h4>
+<h4 id="零比特填充法">零比特填充法<a class="headerlink" href="#零比特填充法" title="Permanent link">&para;</a></h4>
 <p>首部和尾部的标志相同，均为<code>01111110</code>。</p>
 <ul>
 <li>发送时，只要发现连续的5个1，就立即填入1个0。</li>
@@ -2798,15 +2798,15 @@
 <div class="admonition success">
 <p>保证了透明传输</p>
 </div>
-<h4 id="违规编码法">违规编码法</h4>
+<h4 id="违规编码法">违规编码法<a class="headerlink" href="#违规编码法" title="Permanent link">&para;</a></h4>
 <p>曼彻斯特编码不会出现高-高或低-低的情况，因此可以利用这一特性，使用这两种组合界定帧起始/帧终止。</p>
-<h3 id="差错控制">差错控制</h3>
+<h3 id="差错控制">差错控制<a class="headerlink" href="#差错控制" title="Permanent link">&para;</a></h3>
 <p>差错总是由于噪声引起的。</p>
 <ul>
 <li>全局性：线路本身电气特性造成的热噪声，解决：提高信噪比</li>
 <li>局部性：外界特定的短暂原因造成的冲击噪声，解决：利用编码技术解决</li>
 </ul>
-<h4 id="差错的分类">差错的分类</h4>
+<h4 id="差错的分类">差错的分类<a class="headerlink" href="#差错的分类" title="Permanent link">&para;</a></h4>
 <ul>
 <li>位错：比特位出错，1变0，0变1</li>
 <li>
@@ -2830,14 +2830,14 @@
 </li>
 </ul>
 <p>数据链路层的差错控制主要强调的是 <em>比特错</em></p>
-<h4 id="检错编码">检错编码</h4>
-<h5 id="奇偶校验码">奇偶校验码</h5>
+<h4 id="检错编码">检错编码<a class="headerlink" href="#检错编码" title="Permanent link">&para;</a></h4>
+<h5 id="奇偶校验码">奇偶校验码<a class="headerlink" href="#奇偶校验码" title="Permanent link">&para;</a></h5>
 <p>使用<code>n-1</code>位信息元和<code>1</code>位校验元，在接收到数据的首位添加一个校验元，使得<code>1</code>的个数为奇数（寄校验码）或偶数（偶校验码）。</p>
 <div class="admonition info">
 <p class="admonition-title">特点</p>
 <p>只能检验出奇数个比特错误，检错能力为50%。</p>
 </div>
-<h5 id="循环冗余码CRC">循环冗余码CRC</h5>
+<h5 id="循环冗余码CRC">循环冗余码CRC<a class="headerlink" href="#循环冗余码CRC" title="Permanent link">&para;</a></h5>
 <p>计算冗余码</p>
 <ol>
 <li>加0<ul>
@@ -2851,7 +2851,7 @@
 </ol>
 <p>最终发送的数据：<code>数据||检验序列FCS</code></p>
 <p>接收端：<code>数据||检验序列FCS</code>除以多项式，余数为0，则无差错，否则有差错。无差错帧可以接收，有差错帧需要丢弃。</p>
-<h4 id="纠错编码海明码">纠错编码——海明码</h4>
+<h4 id="纠错编码海明码">纠错编码——海明码<a class="headerlink" href="#纠错编码海明码" title="Permanent link">&para;</a></h4>
 <div class="admonition abstract">
 <p class="admonition-title">工作原理</p>
 <p>“牵一发而动全身”，通过增加冗余位，使得任意一个比特的改变都会导致整个比特序列的改变。</p>
@@ -2879,7 +2879,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="流量控制与可靠传输">流量控制与可靠传输</h3>
+<h3 id="流量控制与可靠传输">流量控制与可靠传输<a class="headerlink" href="#流量控制与可靠传输" title="Permanent link">&para;</a></h3>
 <p>较高发送速度和较低接收能力不匹配，会造成传输出错。因此流量控制是非常必要的一项工作。</p>
 <table>
 <thead>
@@ -2910,11 +2910,11 @@
 <div class="admonition tip">
 <p>GBN和SR都属于 <strong>滑动窗口协议</strong>，停止-等待协议也可以看作窗口为1的滑动窗口协议。</p>
 </div>
-<h4 id="停止-等待协议">停止-等待协议</h4>
-<h5 id="无差错">无差错</h5>
+<h4 id="停止-等待协议">停止-等待协议<a class="headerlink" href="#停止-等待协议" title="Permanent link">&para;</a></h4>
+<h5 id="无差错">无差错<a class="headerlink" href="#无差错" title="Permanent link">&para;</a></h5>
 <p>每发送1个数据帧就停止并等待，因此只需使用1个bit来编号。</p>
 <p><a class="glightbox" href="asset-img/dllayer_sw_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="无差错的运行情况" src="asset-img/dllayer_sw_1.png" /></a></p>
-<h5 id="有差错">有差错</h5>
+<h5 id="有差错">有差错<a class="headerlink" href="#有差错" title="Permanent link">&para;</a></h5>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="帧丢失帧出错" name="__tabbed_2" type="radio" /><input id="ACK丢失" name="__tabbed_2" type="radio" /><input id="ACK迟到" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="帧丢失帧出错">帧丢失/帧出错</label><label for="ACK丢失">ACK丢失</label><label for="ACK迟到">ACK迟到</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2928,7 +2928,7 @@
 </div>
 </div>
 </div>
-<h5 id="性能分析">性能分析</h5>
+<h5 id="性能分析">性能分析<a class="headerlink" href="#性能分析" title="Permanent link">&para;</a></h5>
 <ul>
 <li>信道利用率：<span class="arithmatex">\((\dfrac{L/C}{T})\)</span>，T为发送周期，L为发送数据总比特量，C为发送方数据传输率<ul>
 <li>停止-等待协议的信道利用率很低，<span class="arithmatex">\(U=\dfrac{T_D}{T_D+RTT+T_A}\)</span></li>
@@ -2936,7 +2936,7 @@
 </li>
 <li>信道吞吐率=信道利用率×发送方的发送速率</li>
 </ul>
-<h4 id="后退N帧协议GBN">后退N帧协议GBN</h4>
+<h4 id="后退N帧协议GBN">后退N帧协议GBN<a class="headerlink" href="#后退N帧协议GBN" title="Permanent link">&para;</a></h4>
 <div class="admonition info">
 <p class="admonition-title">停等协议的弊端</p>
 <p>太闲了，停等协议一次只发1个帧，等到接收方回复一个确认帧，发送方才会发送新的帧。</p>
@@ -2946,13 +2946,13 @@
 <p class="admonition-title">窗口长度不能为无限</p>
 <p>n 个比特对帧编号，则发送窗口尺寸 <span class="arithmatex">\(W_T\)</span> 应满足 <span class="arithmatex">\(1\le W_T\le 2^n-1\)</span>，否则接收方无法区别新帧和旧帧。</p>
 </div>
-<h5 id="发送方处理">发送方处理</h5>
+<h5 id="发送方处理">发送方处理<a class="headerlink" href="#发送方处理" title="Permanent link">&para;</a></h5>
 <ul>
 <li>上层调用：检查窗口是否已满，若未满则发送新帧，否则等待。</li>
 <li>收到ACK：GBN是累积确认方式，表明接收方已经收到n号帧和它之前的全部帧。</li>
 <li>超时事件：一段时间内如果没有收到ACK，则重传所有已发送但未被确认的帧。</li>
 </ul>
-<h5 id="接收方处理">接收方处理</h5>
+<h5 id="接收方处理">接收方处理<a class="headerlink" href="#接收方处理" title="Permanent link">&para;</a></h5>
 <ul>
 <li>如果正确有序地收到n号帧，则发送ACK，且交付其中的数据给上层。</li>
 <li>否则，丢弃该帧，为最近按序接收的帧重新发送ACK。<ul>
@@ -2960,7 +2960,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="性能分析_1">性能分析</h5>
+<h5 id="性能分析_1">性能分析<a class="headerlink" href="#性能分析_1" title="Permanent link">&para;</a></h5>
 <ul>
 <li>因连续发送数据帧而提高了信道利用率</li>
 <li>在重传时必须把原来已经正确传送的数据帧重传，使传送效率低</li>
@@ -2974,7 +2974,7 @@
 <li>发送窗口最大 <span class="arithmatex">\(2^n-1\)</span>，接收窗口为1</li>
 </ol>
 </div>
-<h4 id="选择重传协议SR">选择重传协议SR</h4>
+<h4 id="选择重传协议SR">选择重传协议SR<a class="headerlink" href="#选择重传协议SR" title="Permanent link">&para;</a></h4>
 <div class="admonition info">
 <p>能不能只重传出错的帧？设置单个确认，设置接收窗口</p>
 </div>
@@ -2982,13 +2982,13 @@
 <p class="admonition-title">窗口长度不能为无限</p>
 <p>n 个比特对帧编号，则发送窗口和接收窗口尺寸应满足 <span class="arithmatex">\(W_T\le 2^{n-1},W_R\le 2^{n-1}\)</span>，且发送窗口最好等于接收窗口，否则接收方无法区别新帧和旧帧。</p>
 </div>
-<h5 id="发送方处理_1">发送方处理</h5>
+<h5 id="发送方处理_1">发送方处理<a class="headerlink" href="#发送方处理_1" title="Permanent link">&para;</a></h5>
 <ul>
 <li>上层调用：检查下一个可用于该帧的序号。</li>
 <li>收到ACK：窗口向前移动至未确认地址的最小序号。</li>
 <li>超时事件：每个帧都有自己的定时器，一个超时事件发生后只重传一个帧。</li>
 </ul>
-<h5 id="接收方处理_1">接收方处理</h5>
+<h5 id="接收方处理_1">接收方处理<a class="headerlink" href="#接收方处理_1" title="Permanent link">&para;</a></h5>
 <ul>
 <li>接收窗口内的帧 <strong>来者不拒</strong>。失序帧缓存，且立即向发送方发送ACK确认该帧。</li>
 <li>收集一批连续帧后交付给上层，然后向前移动滑动窗口。</li>
@@ -3002,12 +3002,12 @@
 <li>发送窗口和接收窗口最大为 <span class="arithmatex">\(2^n-1\)</span></li>
 </ol>
 </div>
-<h2 id="介质访问控制">介质访问控制</h2>
+<h2 id="介质访问控制">介质访问控制<a class="headerlink" href="#介质访问控制" title="Permanent link">&para;</a></h2>
 <div class="admonition summary">
 <p class="admonition-title">总结</p>
 <p>介质访问控制就是采用一定的措施，让两对节点之间通信不会相互干扰。</p>
 </div>
-<h3 id="传输数据使用的两种链路">传输数据使用的两种链路</h3>
+<h3 id="传输数据使用的两种链路">传输数据使用的两种链路<a class="headerlink" href="#传输数据使用的两种链路" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="点对点" name="__tabbed_3" type="radio" /><input id="广播式" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="点对点">点对点</label><label for="广播式">广播式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3018,7 +3018,7 @@
 </div>
 </div>
 </div>
-<h3 id="静态划分信道信道划分介质访问控制">静态划分信道——信道划分介质访问控制</h3>
+<h3 id="静态划分信道信道划分介质访问控制">静态划分信道——信道划分介质访问控制<a class="headerlink" href="#静态划分信道信道划分介质访问控制" title="Permanent link">&para;</a></h3>
 <div class="admonition summary">
 <p>基于多路复用技术划分资源。</p>
 </div>
@@ -3029,15 +3029,15 @@
 </ul>
 </div>
 <p><a class="glightbox" href="asset-img/multiplexing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="多路复用" src="asset-img/multiplexing.png" /></a></p>
-<h4 id="频分多路复用FDM">频分多路复用FDM</h4>
+<h4 id="频分多路复用FDM">频分多路复用FDM<a class="headerlink" href="#频分多路复用FDM" title="Permanent link">&para;</a></h4>
 <p>各用户占用不同的带宽资源（频率带宽Hz），用户在分配到一定频带后，在通信过程中自始至终占用这个频带。
 <a class="glightbox" href="asset-img/FDM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="频分多路复用示意图" src="asset-img/FDM.png" /></a></p>
-<h4 id="时分多路复用TDM">时分多路复用TDM</h4>
+<h4 id="时分多路复用TDM">时分多路复用TDM<a class="headerlink" href="#时分多路复用TDM" title="Permanent link">&para;</a></h4>
 <p>将时间划分为一段段等长的时分复用帧（TDM帧），每个用户在每个TDM帧中占用固定序号的时隙。
 <a class="glightbox" href="asset-img/TDM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="时分多路复用示意图" src="asset-img/TDM.png" /></a></p>
-<h4 id="波分多路复用WDM">波分多路复用WDM</h4>
+<h4 id="波分多路复用WDM">波分多路复用WDM<a class="headerlink" href="#波分多路复用WDM" title="Permanent link">&para;</a></h4>
 <p>波分多路复用是光的频分复用，在光纤中传输各种不同波长（频率）的光信号。</p>
-<h4 id="码分多路复用CDM">码分多路复用CDM</h4>
+<h4 id="码分多路复用CDM">码分多路复用CDM<a class="headerlink" href="#码分多路复用CDM" title="Permanent link">&para;</a></h4>
 <p>每个用户分配一个唯一的m bit码片序列，0用<code>-1</code>表示，1用<code>+1</code>表示。</p>
 <ul>
 <li>编码信号为原始数据与码片序列的点积。如发送比特1（+1），则发送自己的m bit码片序列；如发送比特0（-1），则发送自己的m bit码片序列的反码。</li>
@@ -3049,11 +3049,11 @@
 <li>分离：合并数据与源站规格化内积</li>
 </ul>
 </div>
-<h3 id="动态划分信道">动态划分信道</h3>
+<h3 id="动态划分信道">动态划分信道<a class="headerlink" href="#动态划分信道" title="Permanent link">&para;</a></h3>
 <div class="admonition summary">
 <p>信道并非在用户通信时固定分配给用户。又称多点接入。</p>
 </div>
-<h4 id="随机访问介质控制">随机访问介质控制</h4>
+<h4 id="随机访问介质控制">随机访问介质控制<a class="headerlink" href="#随机访问介质控制" title="Permanent link">&para;</a></h4>
 <div class="admonition summary">
 <p>用户根据随机意愿发送信息，发送信息时，可以独占信道带宽。</p>
 </div>
@@ -3063,7 +3063,7 @@
 <li>网络负载轻时，共享信道效率高，单个站点可使用全部信道带宽。</li>
 </ul>
 </div>
-<h5 id="ALOHA协议不听就说">ALOHA协议（不听就说）</h5>
+<h5 id="ALOHA协议不听就说">ALOHA协议（不听就说）<a class="headerlink" href="#ALOHA协议不听就说" title="Permanent link">&para;</a></h5>
 <ul>
 <li>纯ALOHA协议：想发就发<ul>
 <li>每个站点可在任意时间发送数据，不关心信道是否被占用</li>
@@ -3077,7 +3077,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="CSMA协议先听再说">CSMA协议（先听再说）</h5>
+<h5 id="CSMA协议先听再说">CSMA协议（先听再说）<a class="headerlink" href="#CSMA协议先听再说" title="Permanent link">&para;</a></h5>
 <div class="admonition summary">
 <p class="admonition-title">协议思想</p>
 <p>发送帧之前，监听信道。</p>
@@ -3123,7 +3123,7 @@
 </div>
 </div>
 </div>
-<h5 id="CSMACA协议先听再说边听边说">CSMA/CA协议（先听再说，边听边说）</h5>
+<h5 id="CSMACA协议先听再说边听边说">CSMA/CA协议（先听再说，边听边说）<a class="headerlink" href="#CSMACA协议先听再说边听边说" title="Permanent link">&para;</a></h5>
 <div class="admonition summary">
 <p>CA(Collision Avoidance)：碰撞避免</p>
 </div>
@@ -3140,7 +3140,7 @@
 <li>接收端接收到数据后，使用CRC校验数据是否正确，如果数据正确，则响应ACK帧</li>
 <li>发送方接受到ACK后，进行下一帧发送；如果没有收到，则一直重传，直到规定次数位置（二进制指数退避算法）</li>
 </ul>
-<h5 id="CSMACD协议先听再说边听边说">CSMA/CD协议（先听再说，边听边说）</h5>
+<h5 id="CSMACD协议先听再说边听边说">CSMA/CD协议（先听再说，边听边说）<a class="headerlink" href="#CSMACD协议先听再说边听边说" title="Permanent link">&para;</a></h5>
 <div class="admonition summary">
 <p>CD(Collision Detection)：碰撞检测</p>
 </div>
@@ -3177,11 +3177,11 @@
 \]</div>
 <p>以太网的最短帧长为64B。</p>
 </details>
-<h4 id="轮询访问介质访问控制">轮询访问介质访问控制</h4>
+<h4 id="轮询访问介质访问控制">轮询访问介质访问控制<a class="headerlink" href="#轮询访问介质访问控制" title="Permanent link">&para;</a></h4>
 <div class="admonition summary">
 <p>既不产生冲突，又占用全部带宽。</p>
 </div>
-<h5 id="轮询协议">轮询协议</h5>
+<h5 id="轮询协议">轮询协议<a class="headerlink" href="#轮询协议" title="Permanent link">&para;</a></h5>
 <p>主结点轮流邀请从属节点是否发送数据。</p>
 <div class="admonition success">
 <p>每一次只允许一台主机发送数据，不会产生冲突</p>
@@ -3189,7 +3189,7 @@
 <div class="admonition fail">
 <p>轮询开销，等待延迟，单点故障</p>
 </div>
-<h5 id="令牌传递协议">令牌传递协议</h5>
+<h5 id="令牌传递协议">令牌传递协议<a class="headerlink" href="#令牌传递协议" title="Permanent link">&para;</a></h5>
 <p>每个结点在一定时间内拥有发送数据的权利（令牌）。应用于令牌环网（物理星型逻辑环形）。</p>
 <div class="admonition info">
 <p class="admonition-title">令牌</p>
@@ -3201,10 +3201,10 @@
 <div class="admonition fail">
 <p>令牌开销，等待延迟，单点故障</p>
 </div>
-<h2 id="局域网">局域网</h2>
-<h3 id="基本概念_1">基本概念</h3>
+<h2 id="局域网">局域网<a class="headerlink" href="#局域网" title="Permanent link">&para;</a></h2>
+<h3 id="基本概念_1">基本概念<a class="headerlink" href="#基本概念_1" title="Permanent link">&para;</a></h3>
 <p>局域网（Local Area Network，LAN）是指在某一区域内由多台计算机互联成的计算机组，使用广播信道。</p>
-<h4 id="特点">特点</h4>
+<h4 id="特点">特点<a class="headerlink" href="#特点" title="Permanent link">&para;</a></h4>
 <ul>
 <li>覆盖地理范围小</li>
 <li>使用专门传输介质联网，数据传输速率高（10Mb/s~10Gb/s）</li>
@@ -3212,7 +3212,7 @@
 <li>各站为平等关系，共享传输信道</li>
 <li>多采用分布式控制和广播式通信，能进行广播和组播</li>
 </ul>
-<h4 id="主要要素">主要要素</h4>
+<h4 id="主要要素">主要要素<a class="headerlink" href="#主要要素" title="Permanent link">&para;</a></h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="网络拓扑" name="__tabbed_5" type="radio" /><input id="传输介质" name="__tabbed_5" type="radio" /><input id="介质访问控制方法" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="网络拓扑">网络拓扑</label><label for="传输介质">传输介质</label><label for="介质访问控制方法">介质访问控制方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3266,7 +3266,7 @@
 </div>
 </div>
 </div>
-<h4 id="局域网分类">局域网分类</h4>
+<h4 id="局域网分类">局域网分类<a class="headerlink" href="#局域网分类" title="Permanent link">&para;</a></h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:5"><input checked="checked" id="以太网_1" name="__tabbed_9" type="radio" /><input id="令牌环网" name="__tabbed_9" type="radio" /><input id="FDDI网" name="__tabbed_9" type="radio" /><input id="ATM网" name="__tabbed_9" type="radio" /><input id="无线局域网_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="以太网_1">以太网</label><label for="令牌环网">令牌环网</label><label for="FDDI网">FDDI网</label><label for="ATM网">ATM网</label><label for="无线局域网_2">无线局域网</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3286,7 +3286,7 @@
 </div>
 </div>
 </div>
-<h4 id="IEEE-802标准">IEEE 802标准</h4>
+<h4 id="IEEE-802标准">IEEE 802标准<a class="headerlink" href="#IEEE-802标准" title="Permanent link">&para;</a></h4>
 <p>IEEE 802标准是IEEE组织制定的一系列标准，用于定义局域网的物理层、数据链路层和网络层的通信协议。</p>
 <ul>
 <li>MAC子层和LLC子层<ul>
@@ -3297,16 +3297,16 @@
 </li>
 </ul>
 <p><a class="glightbox" href="asset-img/dllayer_llc-and-mac.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MAC与LLC子层在OSI中的位置" src="asset-img/dllayer_llc-and-mac.png" /></a></p>
-<h3 id="以太网">以太网</h3>
+<h3 id="以太网">以太网<a class="headerlink" href="#以太网" title="Permanent link">&para;</a></h3>
 <p>以太网（Ethernet）是由Xerox公司创建并由Xerox、Intel和DEC公司联合开发的基带总线局域网规范，使用CSMA/CD技术。</p>
-<h4 id="特点_1">特点</h4>
+<h4 id="特点_1">特点<a class="headerlink" href="#特点_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>造价低廉</li>
 <li>应用最广泛</li>
 <li>组网简单</li>
 <li>满足网络速率要求</li>
 </ul>
-<h4 id="标准">标准</h4>
+<h4 id="标准">标准<a class="headerlink" href="#标准" title="Permanent link">&para;</a></h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="DIX-Ethernet-V2" name="__tabbed_10" type="radio" /><input id="IEEE-8023" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="DIX-Ethernet-V2">DIX Ethernet V2</label><label for="IEEE-8023">IEEE 802.3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3317,7 +3317,7 @@
 </div>
 </div>
 </div>
-<h4 id="服务">服务</h4>
+<h4 id="服务">服务<a class="headerlink" href="#服务" title="Permanent link">&para;</a></h4>
 <p>以太网提供无连接，不可靠服务</p>
 <dl>
 <dt>无连接</dt>
@@ -3328,7 +3328,7 @@
 <div class="admonition note">
 <p>以太网只实现无差错接受，不实现可靠传输</p>
 </div>
-<h4 id="10Base-T以太网">10Base-T以太网</h4>
+<h4 id="10Base-T以太网">10Base-T以太网<a class="headerlink" href="#10Base-T以太网" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Base：基带信号</li>
 <li>10：速率10Mb/s</li>
@@ -3337,12 +3337,12 @@
 <li>采用曼彻斯特编码</li>
 <li>采用CSMA/CD协议</li>
 </ul>
-<h4 id="适配器和MAC地址">适配器和MAC地址</h4>
+<h4 id="适配器和MAC地址">适配器和MAC地址<a class="headerlink" href="#适配器和MAC地址" title="Permanent link">&para;</a></h4>
 <p>计算机通过通信适配器与外界局域网连接。适配器上的ROM存储器中包含了计算机硬件地址MAC地址。</p>
 <ul>
 <li>MAC地址是全球唯一的48位二进制地址，前24位代表厂家，后24位厂家自行指定，使用6个十六进制数表示。</li>
 </ul>
-<h4 id="以太网MAC帧格式V2">以太网MAC帧格式（V2）</h4>
+<h4 id="以太网MAC帧格式V2">以太网MAC帧格式（V2）<a class="headerlink" href="#以太网MAC帧格式V2" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>               6        6      2       46~1500         4
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>           +--------+--------+----+------------------+----+
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>           | 目的地址| 源地址  |类型 |     数据          |FCS |       MAC层
@@ -3356,7 +3356,7 @@
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>|    前同步码 7B         |  定界符1B |
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>+-----------------------+----------+
 </span></code></pre></div>
-<h4 id="高速以太网">高速以太网</h4>
+<h4 id="高速以太网">高速以太网<a class="headerlink" href="#高速以太网" title="Permanent link">&para;</a></h4>
 <div class="admonition abstract">
 <p>速率不小于100Mb/s的以太网称为高速以太网</p>
 </div>
@@ -3373,9 +3373,9 @@
 </div>
 </div>
 </div>
-<h3 id="无线局域网">无线局域网</h3>
+<h3 id="无线局域网">无线局域网<a class="headerlink" href="#无线局域网" title="Permanent link">&para;</a></h3>
 <p>无线局域网（Wireless LAN，WLAN）是指利用无线电波传输数据的局域网。</p>
-<h4 id="IEEE80211标准">IEEE802.11标准</h4>
+<h4 id="IEEE80211标准">IEEE802.11标准<a class="headerlink" href="#IEEE80211标准" title="Permanent link">&para;</a></h4>
 <p>IEE802.11是无线局域网通用的标准，它是由IEEE所定义的无线网络通信的标准。</p>
 <ul>
 <li>
@@ -3447,7 +3447,7 @@
 </table>
 </li>
 </ul>
-<h4 id="无线局域网的分类">无线局域网的分类</h4>
+<h4 id="无线局域网的分类">无线局域网的分类<a class="headerlink" href="#无线局域网的分类" title="Permanent link">&para;</a></h4>
 <ul>
 <li>有固定基础设施的无线局域网<ul>
 <li>服务集标识符也就是我们平常所说的”Wifi名称“</li>
@@ -3455,10 +3455,10 @@
 </li>
 <li>无固定基础设施无线局域网的自组织网络</li>
 </ul>
-<h2 id="广域网">广域网</h2>
-<h3 id="基本概念_2">基本概念</h3>
+<h2 id="广域网">广域网<a class="headerlink" href="#广域网" title="Permanent link">&para;</a></h2>
+<h3 id="基本概念_2">基本概念<a class="headerlink" href="#基本概念_2" title="Permanent link">&para;</a></h3>
 <p>广域网（Wide Area Network，WAN）是指覆盖范围较大的网络，一般指跨越城市、省、国家的网络。其通信子网使用分组交换技术。</p>
-<h3 id="PPP协议">PPP协议</h3>
+<h3 id="PPP协议">PPP协议<a class="headerlink" href="#PPP协议" title="Permanent link">&para;</a></h3>
 <p>点对点协议PPP是目前使用最广泛的数据链路层协议，用户使用拨号电话接入因特网时一般都使用PPP协议。只支持全双工链路。</p>
 <ul>
 <li>应满足<ul>
@@ -3482,13 +3482,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="三个组成部分">三个组成部分</h3>
+<h3 id="三个组成部分">三个组成部分<a class="headerlink" href="#三个组成部分" title="Permanent link">&para;</a></h3>
 <ul>
 <li>一个将IP数据报封装到串行链路的方法</li>
 <li>链路控制协议LCP：建立并维护数据链路连接，身份验证</li>
 <li>网络控制协议NCP：每个不同的网络层协议需要一个相应的NCP来配置，为网络层协议建立和配置逻辑连接</li>
 </ul>
-<h3 id="PPP帧格式">PPP帧格式</h3>
+<h3 id="PPP帧格式">PPP帧格式<a class="headerlink" href="#PPP帧格式" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>帧格式以字节为单位，传输的数据都是整数个字节，因此PPP协议面向字节</p>
 </blockquote>
@@ -3498,8 +3498,8 @@
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>+----+----+----+---------+----------------------+------------+-----+
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  1    1    1      2            &lt;=1500B               2         1
 </span></code></pre></div>
-<h2 id="链路层设备">链路层设备</h2>
-<h3 id="集线器">集线器</h3>
+<h2 id="链路层设备">链路层设备<a class="headerlink" href="#链路层设备" title="Permanent link">&para;</a></h2>
+<h3 id="集线器">集线器<a class="headerlink" href="#集线器" title="Permanent link">&para;</a></h3>
 <p>物理层通过集线器扩展以太网的两种方法</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="光纤" name="__tabbed_12" type="radio" /><input id="通过主干集线器" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="光纤">光纤</label><label for="通过主干集线器">通过主干集线器</label></div>
 <div class="tabbed-content">
@@ -3515,7 +3515,7 @@
 </div>
 </div>
 </div>
-<h3 id="网桥交换机">网桥&amp;交换机</h3>
+<h3 id="网桥交换机">网桥&amp;交换机<a class="headerlink" href="#网桥交换机" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p>为了解决主干集线器方式的冲突大、效率低问题，出现了网桥（交换机的前身）和交换机</p>
 </div>
@@ -3529,12 +3529,12 @@
 <li>可互连不同物理层</li>
 </ul>
 </div>
-<h4 id="网桥的分类">网桥的分类</h4>
-<h5 id="透明网桥">透明网桥</h5>
+<h4 id="网桥的分类">网桥的分类<a class="headerlink" href="#网桥的分类" title="Permanent link">&para;</a></h4>
+<h5 id="透明网桥">透明网桥<a class="headerlink" href="#透明网桥" title="Permanent link">&para;</a></h5>
 <p>通过自学习来构建转发表。每一个通过网桥的数据包都会被记录下网桥收到数据时数据对应的地址和网桥自己的接口，通过许许多多的数据包的构造的缓存，网桥就可以知道哪个数据包在哪个接口，以后如果要穿数据包就知道要往哪个接口发送数据包了。</p>
-<h5 id="源路由网桥">源路由网桥</h5>
+<h5 id="源路由网桥">源路由网桥<a class="headerlink" href="#源路由网桥" title="Permanent link">&para;</a></h5>
 <p>在发送时，直接将最佳路径放到帧首部。那么网桥如何获得最佳路径？通过广播方式想目标地址发送广播，此时可能会经过不同路由产生不同的路径，目标地址收到后再将每一条路径都发一个响应帧给网桥，网桥经过对比就知道哪个接口最快了。</p>
-<h4 id="以太网交换机">以太网交换机</h4>
+<h4 id="以太网交换机">以太网交换机<a class="headerlink" href="#以太网交换机" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>随着技术的发展，网桥的接口越来越多，就变成了以太网交换机。</p>
 </blockquote>
@@ -3842,16 +3842,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

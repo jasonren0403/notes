@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1544,7 +1544,7 @@
   
 
 
-<h1 id="模板语法">模板语法<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></h1>
+<h1 id="模板语法">模板语法<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#模板语法" title="Permanent link">&para;</a></h1>
 <p>Vue 使用了基于 HTML 的模板语法，所有的 Vue 模板都是语法层面合法的 HTML。</p>
 <div class="admonition tip">
 <p>也可通过 JSX 支持直接手写渲染函数（<code>h()</code>）来创建虚拟节点（vnode）</p>
@@ -1559,12 +1559,12 @@
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<h2 id="文本插值">文本插值</h2>
+<h2 id="文本插值">文本插值<a class="headerlink" href="#文本插值" title="Permanent link">&para;</a></h2>
 <p>最基本的数据绑定形式是使用“Mustache”语法（双大括号）的文本插值：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>信息：{{ msg }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p><code>{{ msg }}</code> 将会替换为相应组件实例中 <code>msg</code> 属性的值，当 <code>msg</code> 属性更改时它也会同步更新</p>
-<h3 id="插入原始-HTML">插入原始 HTML</h3>
+<h3 id="插入原始-HTML">插入原始 HTML<a class="headerlink" href="#插入原始-HTML" title="Permanent link">&para;</a></h3>
 <p>双大括号会将数据解释为普通文本，如果有插入 HTML 的需求，应使用 <code>v-html</code> 指令：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using text interpolation: {{ rawHtml }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using v-html directive: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-html</span><span class="o">=</span><span class="s">&quot;rawHtml&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -1572,7 +1572,7 @@
 <div class="admonition warning">
 <p>尽量不要使用 <code>v-html</code> 来渲染动态 HTML，仅在内容可控时使用，否则容易导致 XSS 攻击</p>
 </div>
-<h3 id="Attribute-绑定">Attribute 绑定</h3>
+<h3 id="Attribute-绑定">Attribute 绑定<a class="headerlink" href="#Attribute-绑定" title="Permanent link">&para;</a></h3>
 <p>在 HTML 标签中绑定属性的做法是 <code>v-bind</code> 指令：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-bind:id</span><span class="o">=</span><span class="s">&quot;dynamicId&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm">&lt;!-- 或 --&gt;</span>
@@ -1583,7 +1583,7 @@
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">:disabled</span><span class="o">=</span><span class="s">&quot;isButtonDisabled&quot;</span><span class="p">&gt;</span>一个按钮<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>当 <code>isButtonDisabled</code> 为真值或空字符串时，元素会包含 <code>disabled</code> 属性，其他情况下该属性将被忽略</p>
-<h3 id="使用-JavaScript-表达式">使用 JavaScript 表达式</h3>
+<h3 id="使用-JavaScript-表达式">使用 JavaScript 表达式<a class="headerlink" href="#使用-JavaScript-表达式" title="Permanent link">&para;</a></h3>
 <p>Vue 在数据绑定中支持所有的 JavaScript 表达式，例如：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>{{ number + 1 }}
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>{{ ok ? &#39;YES&#39; : &#39;NO&#39; }}
@@ -1602,7 +1602,7 @@
 <p class="admonition-title">仅支持表达式</p>
 <p>每个绑定只支持单一表达式，不支持语句和流控制</p>
 </div>
-<h2 id="指令Directive">指令（Directive）</h2>
+<h2 id="指令Directive">指令（Directive）<a class="headerlink" href="#指令Directive" title="Permanent link">&para;</a></h2>
 <p>Vue 中的指令是带有 <code>v-</code> 前缀的特殊 attribute，大多数指令的值都预期是单个 JavaScript 表达式。指令的作用是当表达式的值改变时，将产生的影响响应式地作用于 DOM 中。</p>
 <p>指令的参数是在指令名称以冒号形式表示的</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;seen&quot;</span><span class="p">&gt;</span>现在你可以看到我了<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -1613,7 +1613,7 @@
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">v-on:click</span><span class="o">=</span><span class="s">&quot;doSomething&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;doSomething&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h3 id="动态参数">动态参数</h3>
+<h3 id="动态参数">动态参数<a class="headerlink" href="#动态参数" title="Permanent link">&para;</a></h3>
 <p>该动态参数上的表达式的结果将作为参数传入指令中，其需要包含在一对方括号中，例如：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">&lt;!-- 指令动态参数 --&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">v-bind:</span><span class="err">[</span><span class="na">attributeName</span><span class="err">]=&quot;</span><span class="na">url</span><span class="err">&quot;</span><span class="p">&gt;</span> ... <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
@@ -1623,14 +1623,14 @@
 <div class="admonition tip">
 <p>如果动态参数表达式需要使用空格和引号，则应该使用计算属性替代</p>
 </div>
-<h2 id="修饰符Modifier">修饰符（Modifier）</h2>
+<h2 id="修饰符Modifier">修饰符（Modifier）<a class="headerlink" href="#修饰符Modifier" title="Permanent link">&para;</a></h2>
 <p>修饰符是以点开头的特殊后缀，表明指令应该以特殊方式绑定，以下是一个修饰符的例子：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="err">@</span><span class="na">submit</span><span class="err">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">&quot;onSubmit&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h2 id="类class与样式style绑定">类（class）与样式（style）绑定<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></h2>
+<h2 id="类class与样式style绑定">类（class）与样式（style）绑定<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><a class="headerlink" href="#类class与样式style绑定" title="Permanent link">&para;</a></h2>
 <p>数据绑定的常见需求是操作元素的 CSS <code>class</code> 列表和内联样式，Vue 也为 <code>class</code> 和 <code>style</code> 的 <code>v-bind</code> 用法提供了增强。除了字符串以外，表达式的值也可以是对象或数组</p>
-<h3 id="类绑定">类绑定</h3>
-<h4 id="绑定对象">绑定对象</h4>
+<h3 id="类绑定">类绑定<a class="headerlink" href="#类绑定" title="Permanent link">&para;</a></h3>
+<h4 id="绑定对象">绑定对象<a class="headerlink" href="#绑定对象" title="Permanent link">&para;</a></h4>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:class</span><span class="o">=</span><span class="s">&quot;{ active: isActive }&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="cm">&lt;!-- 也可以与普通 class 共存 --&gt;</span>
@@ -1641,18 +1641,18 @@
 <ol>
 <li><code>{isActive: true, hasError: false}</code> 时，该元素最终 <code>class</code> 为 <code>static active</code>，当 <code>isActive</code> 或 <code>hasError</code> 改变时，class 列表会随之更新</li>
 </ol>
-<h4 id="绑定数组">绑定数组</h4>
+<h4 id="绑定数组">绑定数组<a class="headerlink" href="#绑定数组" title="Permanent link">&para;</a></h4>
 <p>可以给 <code>:class</code> 绑定一个数组来渲染多个 CSS 类：</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:class</span><span class="o">=</span><span class="s">&quot;[activeClass, errorClass]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:class</span><span class="o">=</span><span class="s">&quot;[activeClass, errorClass]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1)! --&gt;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:class</span><span class="o">=</span><span class="s">&quot;[isActive ? activeClass : &#39;&#39;, errorClass]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- (2) --&gt;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:class</span><span class="o">=</span><span class="s">&quot;[isActive ? activeClass : &#39;&#39;, errorClass]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- (2)! --&gt;</span>
 </span></code></pre></div>
 <ol>
 <li><code>{activeClass: 'active', errorClass: 'text-danger'}</code> 时，渲染结果为 <code>&lt;div class="active text-danger"&gt;&lt;/div&gt;</code></li>
 <li>有条件的渲染某个 class，可以使用三元表达式，本句意味着当 <code>isActive</code> 为真值时，<code>activeClass</code> 存在，而 <code>errorClass</code> 总是存在</li>
 </ol>
-<h3 id="内联样式绑定">内联样式绑定</h3>
-<h4 id="绑定对象_1">绑定对象</h4>
+<h3 id="内联样式绑定">内联样式绑定<a class="headerlink" href="#内联样式绑定" title="Permanent link">&para;</a></h3>
+<h4 id="绑定对象_1">绑定对象<a class="headerlink" href="#绑定对象_1" title="Permanent link">&para;</a></h4>
 <p><code>:style</code> 绑定的 JavaScript 对象值对应了 HTML 元素的 <code>style</code> 属性，其中的 CSS 属性名可以使用驼峰或短横线分隔式命名</p>
 <div class="language-js highlight"><span class="filename">JavaScript</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nx">data</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
@@ -1663,31 +1663,31 @@
 </span></code></pre></div>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;{ color: activeColor, fontSize: fontSize + &#39;px&#39; }&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;{ &#39;font-size&#39;: fontSize + &#39;px&#39; }&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;styleObject&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- (2) --&gt;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;{ &#39;font-size&#39;: fontSize + &#39;px&#39; }&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1)! --&gt;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;styleObject&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- (2)! --&gt;</span>
 </span></code></pre></div>
 <ol>
 <li>也支持短横线（对应其CSS实际名称）</li>
-<li>或者绑定到样式对象上（<code>styleObject = {color: 'red', fontSize: '13px'}</code>）</li>
+<li>或者绑定到样式对象上（<code class="language-js highlight"><span class="nx">styleObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">fontSize</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;13px&#39;</span><span class="p">}</span></code>）</li>
 </ol>
-<h4 id="绑定数组_1">绑定数组</h4>
+<h4 id="绑定数组_1">绑定数组<a class="headerlink" href="#绑定数组_1" title="Permanent link">&para;</a></h4>
 <p>这些对象会被合并后渲染到同一元素上</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;[baseStyles, overridingStyles]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h4 id="自动前缀">自动前缀</h4>
+<h4 id="自动前缀">自动前缀<a class="headerlink" href="#自动前缀" title="Permanent link">&para;</a></h4>
 <p>遇到需要使用浏览器特殊前缀的 CSS 属性时，Vue 会自动侦测并添加相应的前缀</p>
-<h4 id="样式多值">样式多值</h4>
+<h4 id="样式多值">样式多值<a class="headerlink" href="#样式多值" title="Permanent link">&para;</a></h4>
 <p>对一个样式属性可以提供多个不同前缀的值，数组仅会渲染浏览器支持的最后一个值</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;{ display: [&#39;-webkit-box&#39;, &#39;-ms-flexbox&#39;, &#39;flex&#39;] }&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">:style</span><span class="o">=</span><span class="s">&quot;{ display: [&#39;-webkit-box&#39;, &#39;-ms-flexbox&#39;, &#39;flex&#39;] }&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1)! --&gt;</span>
 </span></code></pre></div>
 <ol>
 <li>在支持不需要特别前缀的浏览器中，会渲染为 <code>display: flex</code></li>
 </ol>
-<h2 id="模板引用">模板引用<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></h2>
+<h2 id="模板引用">模板引用<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup><a class="headerlink" href="#模板引用" title="Permanent link">&para;</a></h2>
 <p>某些时候，需要直接访问底层的 DOM 元素，可以使用 <code>ref</code> attribute 为元素赋予一个 ID 引用</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">ref</span><span class="o">=</span><span class="s">&quot;input&quot;</span><span class="p">&gt;</span>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">ref</span><span class="o">=</span><span class="s">&quot;input&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
-<h3 id="访问模板引用">访问模板引用</h3>
+<h3 id="访问模板引用">访问模板引用<a class="headerlink" href="#访问模板引用" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p>必须在组件挂载（mounted）后，才可以访问到模板引用。</p>
 </div>
@@ -1739,17 +1739,17 @@
 </div>
 </div>
 </div>
-<h3 id="v-for-中的-ref">v-for 中的 ref</h3>
+<h3 id="v-for-中的-ref">v-for 中的 ref<a class="headerlink" href="#v-for-中的-ref" title="Permanent link">&para;</a></h3>
 <p><code>v-for</code> 的引用中，包含的值是一个数组，在元素被挂载后包含对应整个列表的所有元素。</p>
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
 <p>ref 数组与源数组不一定相同</p>
 </div>
-<h3 id="函数模板引用">函数模板引用</h3>
+<h3 id="函数模板引用">函数模板引用<a class="headerlink" href="#函数模板引用" title="Permanent link">&para;</a></h3>
 <p>每次组件更新时会调用这个函数，其第一个参数为元素引用；卸载的时候，函数也会调用一次，此时参数为 <code>null</code>。</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">:ref</span><span class="o">=</span><span class="s">&quot;(el) =&gt; { /* 将 el 赋值给一个数据属性或 ref 变量 */ }&quot;</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h3 id="组件上的-ref">组件上的 ref</h3>
+<h3 id="组件上的-ref">组件上的 ref<a class="headerlink" href="#组件上的-ref" title="Permanent link">&para;</a></h3>
 <p>当 <code>ref</code> 用于一个组件时，引用指向的是组件实例。</p>
 <p>最好使用 <code>expose</code> 限制对子组件实例的访问。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="选项式-API_1" name="__tabbed_2" type="radio" /><input id="组合式-API_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="选项式-API_1">选项式 API</label><label for="组合式-API_1">组合式 API</label></div>
@@ -1783,7 +1783,7 @@
 </span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
 </span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
 </span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1">// (1)</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1">// (1)!</span>
 </span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="nx">defineExpose</span><span class="p">({</span>
 </span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="nx">a</span><span class="p">,</span>
 </span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">  </span><span class="nx">b</span>
@@ -1832,7 +1832,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年7月9日 18:39:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 13:59:38</span>
   </span>
 
     
@@ -1855,6 +1855,55 @@
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -2065,16 +2114,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

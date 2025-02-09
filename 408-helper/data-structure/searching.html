@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2026,7 +2026,7 @@
   
 
 
-<h1 id="查找">查找</h1>
+<h1 id="查找">查找<a class="headerlink" href="#查找" title="Permanent link">&para;</a></h1>
 <table>
 <thead>
 <tr>
@@ -2063,7 +2063,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="概念">概念</h2>
+<h2 id="概念">概念<a class="headerlink" href="#概念" title="Permanent link">&para;</a></h2>
 <p>根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素。若表中存在这样的一个元素，则称查找是成功的，此时查找的结
 果为给出整个数据元素的信息，或指示该数据元素在查找表中的位置；若表中不存在这样的元素，则称查找不成功。</p>
 <ul>
@@ -2165,7 +2165,7 @@
 </div>
 </div>
 </details>
-<h2 id="顺序查找法">顺序查找法</h2>
+<h2 id="顺序查找法">顺序查找法<a class="headerlink" href="#顺序查找法" title="Permanent link">&para;</a></h2>
 <p>从表中最后一个记录开始，逐个进行记录的关键字和给定值的比较，若某个记录的关键字和给定值比较相等，则查找成功，找到所查记录；反之，若直至第一个记录，其关键字和给定值比较都不等，则表明表中没有所查记录， 查找不成功</p>
 <ul>
 <li>
@@ -2211,7 +2211,7 @@ ASL_{失败} = \sum_{i = 1}^{n} P_jC_j &amp;= \sum_{j = 1}^{n} \frac{1}{n+1}(l_j
 </div>
 </li>
 </ul>
-<h2 id="折半查找法">折半查找法</h2>
+<h2 id="折半查找法">折半查找法<a class="headerlink" href="#折半查找法" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>二分查找</p>
@@ -2244,7 +2244,7 @@ ASL_{成功} = \sum_{i = 1}^{n} P_iC_i &amp;= \frac{1}{n} \sum_{j = 1}^{h} j \ti
 </div>
 </li>
 </ul>
-<h2 id="分块查找法">分块查找法</h2>
+<h2 id="分块查找法">分块查找法<a class="headerlink" href="#分块查找法" title="Permanent link">&para;</a></h2>
 <p>索引顺序查找是顺序查找的一种改进方法，通过建立“索引表”，对每个子表建立“索引项”来实现。</p>
 <ul>
 <li>索引项包括<ul>
@@ -2267,7 +2267,7 @@ ASL_{成功}=L_i+L_s=
 \end{align}
 \]</div>
 </div>
-<h2 id="B树和B树">B树和B+树</h2>
+<h2 id="B树和B树">B树和B+树<a class="headerlink" href="#B树和B树" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="B-树" name="__tabbed_2" type="radio" /><input id="B树" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="B-树">B-树</label><label for="B树">B+树</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2365,12 +2365,12 @@ ASL_{成功}=L_i+L_s=
 </div>
 </div>
 </div>
-<h2 id="散列表">散列表</h2>
+<h2 id="散列表">散列表<a class="headerlink" href="#散列表" title="Permanent link">&para;</a></h2>
 <p>在记录的存储位置和它的关键字之间建立一个确定的对应关系 <span class="arithmatex">\(f\)</span> ，使每个关键字和结构中一个惟一的存储位置相对应。因而在查找时，只要根据这个对应关系 <span class="arithmatex">\(f\)</span> 找到给定值 <span class="arithmatex">\(K\)</span> 的像 <span class="arithmatex">\(f(K)\)</span> 。若结构中存在关键字和 <span class="arithmatex">\(K\)</span> 相等的记录，则必定在 <span class="arithmatex">\(f(K)\)</span> 的存储位置上。在此，我们称这个对应关系 <span class="arithmatex">\(f\)</span> 为哈希(Hash)函数，按这个思想建立的表为哈希表。</p>
 <ul>
 <li>若关键字不同而函数值相同，则称这两个关键字（对于该哈希函数而言）为“同义词”，并称这种现象为“冲突”。</li>
 </ul>
-<h3 id="哈希函数的构造方法">哈希函数的构造方法</h3>
+<h3 id="哈希函数的构造方法">哈希函数的构造方法<a class="headerlink" href="#哈希函数的构造方法" title="Permanent link">&para;</a></h3>
 <div class="admonition summary">
 <p class="admonition-title">构造要求</p>
 <ol>
@@ -2422,7 +2422,7 @@ H(k)=random(k)
 </div>
 </div>
 </div>
-<h3 id="处理冲突的方法">处理冲突的方法</h3>
+<h3 id="处理冲突的方法">处理冲突的方法<a class="headerlink" href="#处理冲突的方法" title="Permanent link">&para;</a></h3>
 <p>为产生冲突的地址寻找下一个哈希地址</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="开放定址法" name="__tabbed_6" type="radio" /><input id="拉链法" name="__tabbed_6" type="radio" /><input id="建立一个公共溢出区" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="开放定址法">开放定址法</label><label for="拉链法">拉链法</label><label for="建立一个公共溢出区">建立一个公共溢出区</label></div>
 <div class="tabbed-content">
@@ -2471,7 +2471,7 @@ d_i = 伪随机序列
 <li>若不等，则依据建表时设定的处理冲突的方法寻找“下一个”地址，直至哈希表的某个位置为“空”或者表中所填记录的关键字等于给定值为止（该地址恰为新的记录的插入位置）</li>
 </ol>
 </div>
-<h3 id="哈希表的查找效率">哈希表的查找效率</h3>
+<h3 id="哈希表的查找效率">哈希表的查找效率<a class="headerlink" href="#哈希表的查找效率" title="Permanent link">&para;</a></h3>
 <p>一般情况下，在哈希函数为“均匀”的前提下，哈希表的平均查找长度仅取决于处理冲突的方法和哈希表的装填因子</p>
 <p>其中，装填因子定义为 <span class="arithmatex">\(\alpha =\frac{表中记录数n}{哈希表的表长m}\)</span></p>
 
@@ -2778,16 +2778,16 @@ d_i = 伪随机序列
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

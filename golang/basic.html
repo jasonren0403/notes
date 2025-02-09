@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1428,9 +1428,9 @@
   
 
 
-<h1 id="Go-语言基础">Go 语言基础</h1>
-<h2 id="Go-程序基本结构">Go 程序基本结构</h2>
-<h3 id="包声明">包声明</h3>
+<h1 id="Go-语言基础">Go 语言基础<a class="headerlink" href="#Go-语言基础" title="Permanent link">&para;</a></h1>
+<h2 id="Go-程序基本结构">Go 程序基本结构<a class="headerlink" href="#Go-程序基本结构" title="Permanent link">&para;</a></h2>
+<h3 id="包声明">包声明<a class="headerlink" href="#包声明" title="Permanent link">&para;</a></h3>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">xxx</span>
 </span></code></pre></div>
 <div class="admonition summary">
@@ -1440,21 +1440,21 @@
 <li>不要冲突标准库</li>
 </ul>
 </div>
-<h3 id="包导入">包导入</h3>
+<h3 id="包导入">包导入<a class="headerlink" href="#包导入" title="Permanent link">&para;</a></h3>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;pkgName&quot;</span>
 </span></code></pre></div>
 <ul>
 <li>使用（公开）函数：先导入，调用时 <code>pkgName.funcName</code></li>
 <li>Go 标准库 API 存放在 <code>go/src/.../xxx.go</code> 中</li>
 </ul>
-<h3 id="程序主体">程序主体</h3>
+<h3 id="程序主体">程序主体<a class="headerlink" href="#程序主体" title="Permanent link">&para;</a></h3>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">(){}</span>
 </span></code></pre></div>
 <ul>
 <li><code>func</code> 为关键字，函数声明</li>
 <li>转义字符：<code>\t</code>、<code>\n</code>、<code>\r</code>、<code>\\</code>、<code>\"</code> 等</li>
 </ul>
-<h4 id="注释">注释</h4>
+<h4 id="注释">注释<a class="headerlink" href="#注释" title="Permanent link">&para;</a></h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="行注释" name="__tabbed_1" type="radio" /><input id="块注释多行注释" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="行注释">行注释</label><label for="块注释多行注释">块注释（多行注释）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1470,7 +1470,7 @@
 </div>
 </div>
 </div>
-<h4 id="变量">变量</h4>
+<h4 id="变量">变量<a class="headerlink" href="#变量" title="Permanent link">&para;</a></h4>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
 </span></code></pre></div>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="指定类型" name="__tabbed_2" type="radio" /><input id="类型推导" name="__tabbed_2" type="radio" /><input id="省略var" name="__tabbed_2" type="radio" /><input id="多变量声明" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="指定类型">指定类型</label><label for="类型推导">类型推导</label><label for="省略var">省略var</label><label for="多变量声明">多变量声明</label></div>
@@ -1520,7 +1520,7 @@ var i int = 10
 <li>大括号成对出现，缺一不可</li>
 </ol>
 </div>
-<h2 id="Go-控制台命令">Go 控制台命令</h2>
+<h2 id="Go-控制台命令">Go 控制台命令<a class="headerlink" href="#Go-控制台命令" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph LR
 A--&gt;|go build|B[可执行文件] --&gt;|运行| D[结果]
 A-..-&gt;|go run|D</code></pre>
@@ -1539,8 +1539,8 @@ A-..-&gt;|go run|D</code></pre>
 </ul>
 </li>
 </ul>
-<h2 id="Go-数据类型">Go 数据类型</h2>
-<h3 id="基本数据类型">基本数据类型</h3>
+<h2 id="Go-数据类型">Go 数据类型<a class="headerlink" href="#Go-数据类型" title="Permanent link">&para;</a></h2>
+<h3 id="基本数据类型">基本数据类型<a class="headerlink" href="#基本数据类型" title="Permanent link">&para;</a></h3>
 <div class="admonition summary">
 <p class="admonition-title">基本类型默认值</p>
 <table>
@@ -1573,7 +1573,7 @@ A-..-&gt;|go run|D</code></pre>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nx">unsafe</span><span class="p">.</span><span class="nx">Sizeof</span><span class="p">(</span><span class="kd">var</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<h4 id="数值">数值</h4>
+<h4 id="数值">数值<a class="headerlink" href="#数值" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>int</code><ul>
 <li><code>uintx</code>（x=8，16，32，64）无符号整型，x为占用字节数</li>
@@ -1584,7 +1584,7 @@ A-..-&gt;|go run|D</code></pre>
 <li><code>float</code>：<code>float32</code>、<code>float64</code>（默认），浮点型，支持科学计数法<code>a.e(E)B=a*10^B</code></li>
 <li><code>complex</code>：<code>complex64</code>、<code>complex128</code>，复数</li>
 </ul>
-<h4 id="字符">字符</h4>
+<h4 id="字符">字符<a class="headerlink" href="#字符" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>使用<code>byte</code>保存单个字符</p>
 </blockquote>
@@ -1598,9 +1598,9 @@ A-..-&gt;|go run|D</code></pre>
 </span></code></pre></div></li>
 <li>Go 语言的字符是utf-8编码</li>
 </ul>
-<h4 id="布尔bool">布尔bool</h4>
+<h4 id="布尔bool">布尔bool<a class="headerlink" href="#布尔bool" title="Permanent link">&para;</a></h4>
 <p>用于流程控制 <code>if</code>、<code>for</code> 等</p>
-<h4 id="字符串string">字符串string</h4>
+<h4 id="字符串string">字符串string<a class="headerlink" href="#字符串string" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Go 字符串由字节组成，一旦赋值就不可变</li>
 <li>字符串的两种表示形式<ol>
@@ -1648,7 +1648,7 @@ A-..-&gt;|go run|D</code></pre>
 </ul>
 </li>
 </ul>
-<h4 id="基本数据类型转换">基本数据类型转换</h4>
+<h4 id="基本数据类型转换">基本数据类型转换<a class="headerlink" href="#基本数据类型转换" title="Permanent link">&para;</a></h4>
 <ul>
 <li>显式转换 <code>var &lt;varname&gt; &lt;type2&gt; = &lt;type2&gt; (var1)</code></li>
 <li>转化为字符串<ul>
@@ -1691,7 +1691,7 @@ A-..-&gt;|go run|D</code></pre>
 </div>
 </li>
 </ul>
-<h3 id="派生复杂数据类型">派生/复杂数据类型</h3>
+<h3 id="派生复杂数据类型">派生/复杂数据类型<a class="headerlink" href="#派生复杂数据类型" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p class="admonition-title">引用类型</p>
 <p>指针、切片、映射、管道、接口称为引用类型</p>
@@ -1851,20 +1851,20 @@ A-..-&gt;|go run|D</code></pre>
 <li><a href="oop.html#接口-interface">接口</a></li>
 <li>管道</li>
 </ul>
-<h3 id="自定义数据类型">自定义数据类型</h3>
+<h3 id="自定义数据类型">自定义数据类型<a class="headerlink" href="#自定义数据类型" title="Permanent link">&para;</a></h3>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">mySum</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="kt">int</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nx">mySum</span><span class="p">()</span>
 </span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1">// 然而，Go 认为 mySum 和 func 是两种类型，需要强制转换</span>
 </span></code></pre></div>
 <p>Go 支持自定义数据类型 <code>type &lt;别名&gt; &lt;数据类型&gt;</code>，相当于C的 <code>typedef</code></p>
-<h2 id="Go-标识符">Go 标识符</h2>
+<h2 id="Go-标识符">Go 标识符<a class="headerlink" href="#Go-标识符" title="Permanent link">&para;</a></h2>
 <ul>
 <li>可以使用 26 个英文字母大小写、0-9、下划线</li>
 <li>变量名、函数名、常量名一般使用驼峰法</li>
 <li>首字母大写是公开的（可从 GoPath 导入包名和变量名），小写是私有的（在本包使用）</li>
 </ul>
-<h2 id="Go-运算符">Go 运算符</h2>
+<h2 id="Go-运算符">Go 运算符<a class="headerlink" href="#Go-运算符" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p>自增、自减只能独立使用</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="错误" name="__tabbed_4" type="radio" /><input id="正确" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="错误">错误❌</label><label for="正确">正确✔</label></div>
@@ -1914,7 +1914,7 @@ A-..-&gt;|go run|D</code></pre>
 </ul>
 </li>
 </ul>
-<h2 id="输入与输出">输入与输出</h2>
+<h2 id="输入与输出">输入与输出<a class="headerlink" href="#输入与输出" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>主要使用 <code>fmt</code> 包</p>
 </blockquote>
@@ -1926,7 +1926,7 @@ A-..-&gt;|go run|D</code></pre>
 </li>
 <li><code>fmt.Println()</code>：输出后换行</li>
 </ul>
-<h2 id="时间与日期">时间与日期</h2>
+<h2 id="时间与日期">时间与日期<a class="headerlink" href="#时间与日期" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>主要使用 <code>time</code> 包</p>
 </blockquote>
@@ -1945,7 +1945,7 @@ A-..-&gt;|go run|D</code></pre>
 </ul>
 </li>
 </ul>
-<h2 id="文件操作">文件操作</h2>
+<h2 id="文件操作">文件操作<a class="headerlink" href="#文件操作" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><code>os.File</code> 结构体表示文件</p>
 </blockquote>
@@ -2254,16 +2254,16 @@ A-..-&gt;|go run|D</code></pre>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

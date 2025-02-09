@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2092,11 +2092,11 @@
   
 
 
-<h1 id="图">图</h1>
+<h1 id="图">图<a class="headerlink" href="#图" title="Permanent link">&para;</a></h1>
 <div class="admonition summary">
 <p>在图形结构中，结点之间的关系可以是任意的，图中任意两个数据元素之间都可能相关</p>
 </div>
-<h2 id="定义">定义</h2>
+<h2 id="定义">定义<a class="headerlink" href="#定义" title="Permanent link">&para;</a></h2>
 <p>图由一个顶点集和边集构成，通常写作：<span class="arithmatex">\(Graph=(V,E)\)</span> 。由于空的图在实际应用中没有意义，因此一般不讨论空的图，即V是顶点的有穷非空集合，而E是两个顶点之间的关系的集合。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="无向图" name="__tabbed_1" type="radio" /><input id="有向图" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="无向图">无向图</label><label for="有向图">有向图</label></div>
 <div class="tabbed-content">
@@ -2216,7 +2216,7 @@ E_1 &amp;= \{(A,B),(A,C),(A,E),(B,C),(C,D),(C,E),(D,E)\}
 </ul>
 </li>
 </ul>
-<h2 id="ADT类型定义">ADT类型定义</h2>
+<h2 id="ADT类型定义">ADT类型定义<a class="headerlink" href="#ADT类型定义" title="Permanent link">&para;</a></h2>
 <ul>
 <li>数据对象 V是具有相同特性的数据元素的集合，称为顶点集</li>
 <li>
@@ -2317,8 +2317,8 @@ E &amp; = \{\langle v,w\rangle| v, w \in V且P(v,w)，\langle v,w\rangle 表示�
 </div>
 </li>
 </ul>
-<h2 id="存储结构">存储结构</h2>
-<h3 id="邻接矩阵">邻接矩阵</h3>
+<h2 id="存储结构">存储结构<a class="headerlink" href="#存储结构" title="Permanent link">&para;</a></h2>
+<h3 id="邻接矩阵">邻接矩阵<a class="headerlink" href="#邻接矩阵" title="Permanent link">&para;</a></h3>
 <p>假设图中顶点数为n，则图的邻接矩阵 <span class="arithmatex">\(A(i,j)_{n \times n}\)</span> 定义为</p>
 <div class="arithmatex">\[
 \begin{align}
@@ -2358,7 +2358,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 <li>无向图的邻接矩阵为对称矩阵。每一行中“1”的个数恰为该顶点的“度”。</li>
 <li>空间复杂度 <span class="arithmatex">\(O(n^2)\)</span> ，适用于稠密图</li>
 </ul>
-<h3 id="邻接表">邻接表</h3>
+<h3 id="邻接表">邻接表<a class="headerlink" href="#邻接表" title="Permanent link">&para;</a></h3>
 <p>类似于树的孩子链表，将和同一顶点“相邻接”的所有邻接点链接在一个单链表中，单链表的头指针则和顶点信息一起存储在一个一维数组中。</p>
 <ul>
 <li>表结点由三个域组成：邻接点域、链域、数据域，头结点：数据域、链域</li>
@@ -2396,7 +2396,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </li>
 <li>适用于稀疏图</li>
 </ul>
-<h3 id="十字链表">十字链表</h3>
+<h3 id="十字链表">十字链表<a class="headerlink" href="#十字链表" title="Permanent link">&para;</a></h3>
 <p>十字链表是有向图的另一种链式存储结构，目的是将在有向图的邻接表和逆邻接表中两次出现的同一条弧用一个结点表示。</p>
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    ___________________________
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    |data | firstin | firstout |    顶点结点
@@ -2423,7 +2423,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 <ul>
 <li>十字链表 = 邻接表 + 逆邻接表</li>
 </ul>
-<h3 id="邻接多重表">邻接多重表</h3>
+<h3 id="邻接多重表">邻接多重表<a class="headerlink" href="#邻接多重表" title="Permanent link">&para;</a></h3>
 <p>若将无向图中表示同一条边的两个结点合在一起，将得到无向图的另一种表示方法--邻接多重表。</p>
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>    __________________
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    |data | firstedge |    顶点结点
@@ -2447,9 +2447,9 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">vexnum</span><span class="p">,</span><span class="n">arcnum</span><span class="p">;</span>
 </span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span><span class="n">AMLGraph</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="图的遍历">图的遍历</h2>
+<h2 id="图的遍历">图的遍历<a class="headerlink" href="#图的遍历" title="Permanent link">&para;</a></h2>
 <p>图的 “遍历” 是按照某种搜索方法对图中的每个顶点都进行一次访问且仅进行一次访问。</p>
-<h3 id="深度优先搜索">深度优先搜索</h3>
+<h3 id="深度优先搜索">深度优先搜索<a class="headerlink" href="#深度优先搜索" title="Permanent link">&para;</a></h3>
 <ul>
 <li>首先访问出发点<code>v</code>，并将其标记为已访问过</li>
 <li>然后依次从<code>v</code>出发搜索<code>v</code>的每个邻接点<code>w</code>。若<code>w</code>未曾访问过，则以<code>w</code>为新的出发点继续进行深度优先遍历，直至图中所有和源点<code>v</code>有路径相通的顶点均已被访问为止。</li>
@@ -2479,7 +2479,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </ul>
 </li>
 </ul>
-<h3 id="广度优先搜索">广度优先搜索</h3>
+<h3 id="广度优先搜索">广度优先搜索<a class="headerlink" href="#广度优先搜索" title="Permanent link">&para;</a></h3>
 <div class="admonition summary">
 <p>换句话说，广度优先搜索就是以v为起始点，由近至远，依次访问和v有路径相通且最短路径长度为 1,2,... 的顶点</p>
 </div>
@@ -2524,8 +2524,8 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </ul>
 </li>
 </ul>
-<h2 id="图的基本应用">图的基本应用</h2>
-<h3 id="最小生成树MST">最小生成树(MST)</h3>
+<h2 id="图的基本应用">图的基本应用<a class="headerlink" href="#图的基本应用" title="Permanent link">&para;</a></h2>
+<h3 id="最小生成树MST">最小生成树(MST)<a class="headerlink" href="#最小生成树MST" title="Permanent link">&para;</a></h3>
 <p>生成树中边的权值（代价）之和最小的树</p>
 <ul>
 <li>普里姆(Prim)算法和克鲁斯卡尔(Kruskal) 算法是两个利用MST性质构造最小生成树的算法<ul>
@@ -2787,7 +2787,7 @@ W_{ij} &amp;V_i与V_j之间有弧或边存在\\
 </div>
 </div>
 </div>
-<h3 id="最短路径">最短路径</h3>
+<h3 id="最短路径">最短路径<a class="headerlink" href="#最短路径" title="Permanent link">&para;</a></h3>
 <p>对于网来说，两个顶点之间的路径长度是路径中 “弧的权值之和”。当两个顶点之间存在多条路径时，必然存在一条 “最短路径”。</p>
 <ul>
 <li>
@@ -2868,7 +2868,7 @@ path[i]=
 </ul>
 </li>
 </ul>
-<h3 id="拓扑排序有向无环图DAG">拓扑排序(有向无环图DAG)</h3>
+<h3 id="拓扑排序有向无环图DAG">拓扑排序(有向无环图DAG)<a class="headerlink" href="#拓扑排序有向无环图DAG" title="Permanent link">&para;</a></h3>
 <p>对于任何有向图而言，其拓扑排序为其所有结点的一个线性排序（对于同一个有向图而言可能存在多个这样的结点排序）。该排序满足这样的条件——对于图中的任意两个结点u和v，若存在一条有向边从u指向v，则在拓扑排序中u一定出现在v前面。</p>
 <ul>
 <li>AOV网：<span class="arithmatex">\(\langle v_i,v_j \rangle\)</span> 表示活动 <span class="arithmatex">\(v_i\)</span> 先于 <span class="arithmatex">\(v_j\)</span> 进行</li>
@@ -2879,7 +2879,7 @@ path[i]=
 </ol>
 </li>
 </ul>
-<h3 id="关键路径AOE网">关键路径(AOE网)</h3>
+<h3 id="关键路径AOE网">关键路径(AOE网)<a class="headerlink" href="#关键路径AOE网" title="Permanent link">&para;</a></h3>
 <p><figure markdown>
 <a class="glightbox" href="asset-img/tree-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="aoe" src="asset-img/tree-28.png" /></a>
 </figure></p>
@@ -3228,16 +3228,16 @@ min\{V_e(k)-w(v_j,v_k)\}&amp;,其他情况
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

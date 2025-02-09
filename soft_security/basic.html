@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1335,8 +1335,8 @@
   
 
 
-<h1 id="软件安全软件基础">软件安全——软件基础</h1>
-<h2 id="冯诺依曼体系">冯诺依曼体系</h2>
+<h1 id="软件安全软件基础">软件安全——软件基础<a class="headerlink" href="#软件安全软件基础" title="Permanent link">&para;</a></h1>
+<h2 id="冯诺依曼体系">冯诺依曼体系<a class="headerlink" href="#冯诺依曼体系" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>---
 title: 以存储器为中心的冯诺依曼结构
 ---
@@ -1359,7 +1359,7 @@ graph LR
 <li>程序和数据以二进制形式存储</li>
 <li>输入、存储、表示</li>
 </ul>
-<h2 id="计算机启动">计算机启动</h2>
+<h2 id="计算机启动">计算机启动<a class="headerlink" href="#计算机启动" title="Permanent link">&para;</a></h2>
 <div class="admonition summary">
 <p>前提：BIOS → 内存</p>
 </div>
@@ -1404,7 +1404,7 @@ id1(系统初始化 /etc/rc.d/rc.sysinit) --&gt; id2(启动服务 /etc/rc.d/rcX.
 </div>
 </li>
 </ul>
-<h2 id="Win32存储">Win32存储</h2>
+<h2 id="Win32存储">Win32存储<a class="headerlink" href="#Win32存储" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>存储体系示意图</p>
@@ -1444,7 +1444,7 @@ id1(系统初始化 /etc/rc.d/rc.sysinit) --&gt; id2(启动服务 /etc/rc.d/rcX.
 <p class="admonition-title">虚拟内存</p>
 <p>通常，在用户模式下，我们用调试器看到的地址都是虚拟内存；虽然每个进程都“相信”自己拥有4GB的空间，但实际上它们运行时真正能用到的空间根本没有那么多。</p>
 </div>
-<h2 id="PEPortable-Executable文件">PE(Portable Executable)文件</h2>
+<h2 id="PEPortable-Executable文件">PE(Portable Executable)文件<a class="headerlink" href="#PEPortable-Executable文件" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Win32平台下可执行文件遵守的数据格式，<code>*.exe</code>、<code>*.dll</code>都是典型的PE文件</li>
 <li>
@@ -1487,7 +1487,7 @@ id1(系统初始化 /etc/rc.d/rc.sysinit) --&gt; id2(启动服务 /etc/rc.d/rcX.
 </ul>
 </li>
 </ul>
-<h2 id="进程空间分区">进程空间分区</h2>
+<h2 id="进程空间分区">进程空间分区<a class="headerlink" href="#进程空间分区" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>内存的四个部分及用途</p>
@@ -1510,7 +1510,7 @@ id1(系统初始化 /etc/rc.d/rc.sysinit) --&gt; id2(启动服务 /etc/rc.d/rcX.
 </ul>
 </li>
 </ul>
-<h3 id="系统栈工作">系统栈工作</h3>
+<h3 id="系统栈工作">系统栈工作<a class="headerlink" href="#系统栈工作" title="Permanent link">&para;</a></h3>
 <p>例子：
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">funcb</span><span class="p">()</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
@@ -1580,9 +1580,9 @@ A["系统栈栈顶为当前正在执行的main函数栈帧"]--&gt;B["为配合fu
 </li>
 <li>
 <p>栈帧调整</p>
-<div class="language-asm highlight"><span class="filename">GAS</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span><span class="w"> </span><span class="c1"># (1)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ebp</span><span class="p">,</span><span class="no">esp</span><span class="w"> </span><span class="c1"># (2)</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nf">sub</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">xxx</span><span class="w"> </span><span class="c1"># (3)</span>
+<div class="language-asm highlight"><span class="filename">GAS</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span><span class="w"> </span><span class="c1"># (1)!</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ebp</span><span class="p">,</span><span class="no">esp</span><span class="w"> </span><span class="c1"># (2)!</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nf">sub</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">xxx</span><span class="w"> </span><span class="c1"># (3)!</span>
 </span></code></pre></div>
 <ol>
 <li>保存当前栈帧的状态值，以备后面恢复本栈帧时使用</li>
@@ -1594,20 +1594,20 @@ A["系统栈栈顶为当前正在执行的main函数栈帧"]--&gt;B["为配合fu
 </li>
 <li>
 <p><code>_stdcall</code>调用约定指令序列</p>
-<div class="language-asm highlight"><span class="filename">GAS</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nf">push</span><span class="w"> </span><span class="no">param3</span><span class="w">  </span><span class="c1"># (1)</span>
+<div class="language-asm highlight"><span class="filename">GAS</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nf">push</span><span class="w"> </span><span class="no">param3</span><span class="w">  </span><span class="c1"># (1)!</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nf">push</span><span class="w"> </span><span class="no">param2</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nf">push</span><span class="w"> </span><span class="no">param1</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nf">call</span><span class="w"> </span><span class="err">函数地址</span><span class="w">  </span><span class="c1"># (2)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span><span class="w"> </span><span class="c1"># (3)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ebp</span><span class="p">,</span><span class="no">esp</span><span class="w"> </span><span class="c1"># (4)</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nf">sub</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">xxx</span><span class="w"> </span><span class="c1"># (5)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nf">call</span><span class="w"> </span><span class="err">函数地址</span><span class="w">  </span><span class="c1"># (2)!</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span><span class="w"> </span><span class="c1"># (3)!</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ebp</span><span class="p">,</span><span class="no">esp</span><span class="w"> </span><span class="c1"># (4)!</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nf">sub</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">xxx</span><span class="w"> </span><span class="c1"># (5)!</span>
 </span></code></pre></div>
 <ol>
 <li>假设该函数有三个参数，从右向左依次入栈</li>
-<li><code>call</code>指令将同时完成两项工作<ol>
+<li><code>call</code>指令将同时完成两项工作<ul>
 <li>向栈中压入当前指令在内存中的位置，即保存返回地址</li>
 <li>跳转到所调用函数的入口地址函数入口处</li>
-</ol>
+</ul>
 </li>
 <li>保存旧栈帧的底部</li>
 <li>设置新栈帧的底部(栈帧切换)</li>
@@ -1616,17 +1616,17 @@ A["系统栈栈顶为当前正在执行的main函数栈帧"]--&gt;B["为配合fu
 </li>
 <li>
 <p>函数返回(Win32，C语言为例)</p>
-<div class="language-asm highlight"><span class="filename">GAS</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nf">add</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">xxx</span><span class="w">  </span><span class="c1"># (1)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nf">pop</span><span class="w"> </span><span class="no">ebp</span><span class="w">   </span><span class="c1"># (2)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nf">retn</span><span class="w">      </span><span class="c1"># (3)</span>
+<div class="language-asm highlight"><span class="filename">GAS</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nf">add</span><span class="w"> </span><span class="no">esp</span><span class="p">,</span><span class="no">xxx</span><span class="w">  </span><span class="c1"># (1)!</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nf">pop</span><span class="w"> </span><span class="no">ebp</span><span class="w">   </span><span class="c1"># (2)!</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nf">retn</span><span class="w">      </span><span class="c1"># (3)!</span>
 </span></code></pre></div>
 <ol>
 <li>回收栈顶</li>
 <li>将上一个栈帧底部位置恢复到ebp</li>
-<li>这条指令有两个功能<ol>
+<li>这条指令有两个功能<ul>
 <li>弹出当前栈顶元素，即弹出栈帧中的返回地址。至此，栈帧恢复工作完成。</li>
 <li>让处理器跳转到弹出的返回地址，恢复调用前的代码区</li>
-</ol>
+</ul>
 </li>
 </ol>
 </li>
@@ -1653,7 +1653,7 @@ A["系统栈栈顶为当前正在执行的main函数栈帧"]--&gt;B["为配合fu
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年5月15日 22:02:57</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月8日 23:30:41</span>
   </span>
 
     
@@ -1935,16 +1935,16 @@ A["系统栈栈顶为当前正在执行的main函数栈帧"]--&gt;B["为配合fu
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

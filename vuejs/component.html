@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1470,9 +1470,9 @@
   
 
 
-<h1 id="组件">组件<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></h1>
+<h1 id="组件">组件<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#组件" title="Permanent link">&para;</a></h1>
 <p>组件将所构建的网页划分为独立、可重用的部分，并且可以对每个部分进行单独的思考。</p>
-<h2 id="定义组件">定义组件</h2>
+<h2 id="定义组件">定义组件<a class="headerlink" href="#定义组件" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="使用构建步骤" name="__tabbed_1" type="radio" /><input id="不使用构建步骤" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="使用构建步骤">使用构建步骤</label><label for="不使用构建步骤">不使用构建步骤</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1501,7 +1501,7 @@
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="sb">    &lt;button @click=&quot;count++&quot;&gt;</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="sb">      You clicked me {{ count }} times.</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="sb">    &lt;/button&gt;`</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="c1">// (1) </span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="c1">// (1)!</span>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
@@ -1510,9 +1510,9 @@
 </div>
 </div>
 </div>
-<h2 id="使用组件">使用组件</h2>
+<h2 id="使用组件">使用组件<a class="headerlink" href="#使用组件" title="Permanent link">&para;</a></h2>
 <p>要使用子组件，可以直接通过 <code>import</code> 语句来导入，如果是选项式 API，需要在 <code>components</code> 选项中注册它。</p>
-<h3 id="组件注册">组件注册<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></h3>
+<h3 id="组件注册">组件注册<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><a class="headerlink" href="#组件注册" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="全局注册" name="__tabbed_2" type="radio" /><input id="局部注册" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="全局注册">全局注册</label><label for="局部注册">局部注册</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1551,9 +1551,9 @@
 </div>
 </div>
 </div>
-<h3 id="组件名称">组件名称</h3>
+<h3 id="组件名称">组件名称<a class="headerlink" href="#组件名称" title="Permanent link">&para;</a></h3>
 <p>为了方便，Vue 支持将使用短横线连字符（kebab-case）命名解析为帕斯卡（PascalCase）命名，这意味着以 <code>MyComponent</code> 命名的组件，可以通过 <code>&lt;MyComponent&gt;</code> 或 <code>&lt;my-component&gt;</code> 引用。</p>
-<h3 id="传递-props">传递 props</h3>
+<h3 id="传递-props">传递 props<a class="headerlink" href="#传递-props" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p>props 传递属于单向数据流，子组件不应修改父组件传递的 props，否则会在控制台中产生警告。</p>
 </div>
@@ -1611,7 +1611,7 @@
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span><span class="o">&gt;</span><span class="p">()</span>
 </span></code></pre></div>
 <p>也可以使用没有参数的 <code>v-bind</code>，在传入的时候等价于绑定了其中所有的 prop。</p>
-<h4 id="prop-校验">prop 校验</h4>
+<h4 id="prop-校验">prop 校验<a class="headerlink" href="#prop-校验" title="Permanent link">&para;</a></h4>
 <p>Vue 组件可以声明对传入的 props 的校验要求，可通过带有 props 校验选项的对象提供验证规则。</p>
 <div class="language-js highlight"><span class="filename">校验对象</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nx">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nx">propA</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span><span class="w"> </span><span class="c1">// (1)</span>
@@ -1650,7 +1650,7 @@
 <li>自定义类型校验函数</li>
 <li>函数类型的默认值是一个用来作为默认值的函数</li>
 </ol>
-<h4 id="运行时类型检查">运行时类型检查</h4>
+<h4 id="运行时类型检查">运行时类型检查<a class="headerlink" href="#运行时类型检查" title="Permanent link">&para;</a></h4>
 <p>校验选项的 <code>type</code> 可以是下列原生构造函数中的一个：</p>
 <ul>
 <li><code>String</code></li>
@@ -1663,7 +1663,7 @@
 <li><code>Symbol</code></li>
 </ul>
 <p>也可以是自定义的类或构造函数，Vue 会通过 <code>instanceof</code> 检查类型是否匹配</p>
-<h4 id="Boolean-转换">Boolean 转换</h4>
+<h4 id="Boolean-转换">Boolean 转换<a class="headerlink" href="#Boolean-转换" title="Permanent link">&para;</a></h4>
 <p>如果一个 prop 被声明为 <code>Boolean</code> 类型，则该组件可以这样使用：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">&lt;!-- 等同于传入 :disabled=&quot;true&quot; --&gt;</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="na">disabled</span> <span class="p">/&gt;</span>
@@ -1671,7 +1671,7 @@
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="cm">&lt;!-- 等同于传入 :disabled=&quot;false&quot; --&gt;</span>
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
-<h3 id="监听事件">监听事件</h3>
+<h3 id="监听事件">监听事件<a class="headerlink" href="#监听事件" title="Permanent link">&para;</a></h3>
 <p>子组件可以通过 <code>emit</code> 方式来向父组件发送消息，父组件可以通过 <code>v-on</code> 监听子组件的消息。</p>
 <ul>
 <li>在选项式 API 中，可以通过 <code>emits</code> 选项声明需要抛出的事件</li>
@@ -1680,7 +1680,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="通过插槽分配内容">通过插槽分配内容</h3>
+<h3 id="通过插槽分配内容">通过插槽分配内容<a class="headerlink" href="#通过插槽分配内容" title="Permanent link">&para;</a></h3>
 <ul>
 <li>要向组件中传递内容，可以使用 Vue 的自定义 <code>&lt;slot&gt;</code> 元素实现。它标示了父元素提供的插槽内容将在哪里被渲染。</li>
 <li>插槽内容可以是任意合法的模板内容，不局限于文本。</li>
@@ -1702,7 +1702,7 @@
 </div>
 </div>
 </div>
-<h4 id="具名插槽">具名插槽</h4>
+<h4 id="具名插槽">具名插槽<a class="headerlink" href="#具名插槽" title="Permanent link">&para;</a></h4>
 <ul>
 <li>一个组件中可以包含多个插槽出口，可以通过 <code>name</code> attribute 来定义额外的插槽，用于给各个插槽分配唯一 ID：</li>
 <li>
@@ -1740,8 +1740,8 @@
 </ol>
 </li>
 </ul>
-<h4 id="动态插槽名">动态插槽名</h4>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">base-layout</span><span class="p">&gt;</span>
+<h4 id="动态插槽名">动态插槽名<a class="headerlink" href="#动态插槽名" title="Permanent link">&para;</a></h4>
+<div class="language-vue highlight"><span class="filename">Vue</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">base-layout</span><span class="p">&gt;</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-slot:</span><span class="err">[</span><span class="na">dynamicSlotName</span><span class="err">]</span><span class="p">&gt;</span>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    ...
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
@@ -1752,47 +1752,47 @@
 </span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="p">&lt;/</span><span class="nt">base-layout</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h4 id="作用域插槽">作用域插槽</h4>
+<h4 id="作用域插槽">作用域插槽<a class="headerlink" href="#作用域插槽" title="Permanent link">&para;</a></h4>
 <p>某些场景下，插槽的内容可能需要同时使用父组件域和子组件域内的数据。这时，可以向一个插槽的出口上传递 attributes：</p>
-<div class="language-html highlight"><span class="filename"><MyComponent> 的模板</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">:text</span><span class="o">=</span><span class="s">&quot;greetingMessage&quot;</span> <span class="na">:count</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+<div class="language-vue highlight"><span class="filename"><MyComponent> 的模板</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  <span class="p">&lt;</span><span class="nt">slot</span> <span class="p">:</span><span class="na">text</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">greetingMessage</span><span class="s">&quot;</span> <span class="p">:</span><span class="na">count</span><span class="o">=</span><span class="s">&quot;</span><span class="mf">1</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>接受 props 时，子组件默认插槽可以使用标签上的 <code>v-slot</code> 指令接收到插槽 props 对象：</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="na">v-slot</span><span class="o">=</span><span class="s">&quot;slotProps&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  {{ slotProps.text }} {{ slotProps.count }}
+<div class="language-vue highlight"><span class="filename">Vue</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="na">v-slot</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">slotProps</span><span class="s">&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  <span class="cp">{{</span><span class="w"> </span><span class="nx">slotProps</span><span class="p">.</span><span class="nx">text</span><span class="w"> </span><span class="cp">}}</span> <span class="cp">{{</span><span class="w"> </span><span class="nx">slotProps</span><span class="p">.</span><span class="nx">count</span><span class="w"> </span><span class="cp">}}</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">&lt;/</span><span class="nt">MyComponent</span><span class="p">&gt;</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="cm">&lt;!-- (1) --&gt;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="cm">&lt;!-- (1)! --&gt;</span>
 </span></code></pre></div>
 <ol>
 <li>这里当然支持解构写法：<code>v-slot="{ text, count }"</code></li>
 </ol>
 <p>子组件具名作用域插槽中的 props 可以作为 <code>v-slot</code> 指令的值被访问到：<code>v-slot:name=slotProps</code></p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">&lt;</span><span class="nt">MyComponent</span><span class="p">&gt;</span>
+<div class="language-vue highlight"><span class="filename">Vue</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">&lt;</span><span class="nt">MyComponent</span><span class="p">&gt;</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>  <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">header</span><span class="o">=</span><span class="s">&quot;headerProps&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    {{ headerProps }}
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="cp">{{</span><span class="w"> </span><span class="nx">headerProps</span><span class="w"> </span><span class="cp">}}</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>  <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">default</span><span class="o">=</span><span class="s">&quot;defaultProps&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    {{ defaultProps }}
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    <span class="cp">{{</span><span class="w"> </span><span class="nx">defaultProps</span><span class="w"> </span><span class="cp">}}</span>
 </span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
 </span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>  <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">footer</span><span class="o">=</span><span class="s">&quot;footerProps&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    {{ footerProps }}
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    <span class="cp">{{</span><span class="w"> </span><span class="nx">footerProps</span><span class="w"> </span><span class="cp">}}</span>
 </span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="p">&lt;/</span><span class="nt">MyComponent</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>向上述模板传入这个 props：</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;header&quot;</span> <span class="na">message</span><span class="o">=</span><span class="s">&quot;hello&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+<div class="language-vue highlight"><span class="filename">Vue</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;header&quot;</span> <span class="na">message</span><span class="o">=</span><span class="s">&quot;hello&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>在 headerProps 中会接收到 <code>{ message: 'hello' }</code>（<code>name</code> 是 Vue 保留的 attribute，不会作为 props 传递给插槽）</p>
 <div class="admonition tip">
 <p>如果同时指定了具名插槽和默认插槽，需要为默认插槽使用显式的 <code>&lt;template&gt;</code> 标签</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<div class="language-vue highlight"><span class="filename">Vue</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>  <span class="p">&lt;</span><span class="nt">MyComponent</span><span class="p">&gt;</span>
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="cm">&lt;!-- 使用显式的默认插槽 --&gt;</span>
 </span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">default</span><span class="o">=</span><span class="s">&quot;{ message }&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ message }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
 </span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">footer</span><span class="p">&gt;</span>
@@ -1802,9 +1802,9 @@
 </span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </span></code></pre></div>
 </div>
-<h3 id="动态组件">动态组件</h3>
+<h3 id="动态组件">动态组件<a class="headerlink" href="#动态组件" title="Permanent link">&para;</a></h3>
 <p>有的场景需要在多个组件间切换，如 Tab 界面，这是通过 Vue 的 <code>&lt;component&gt;</code> 元素加 <code>is</code> attribute 实现的：</p>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">&lt;</span><span class="nt">component</span> <span class="na">:is</span><span class="o">=</span><span class="s">&quot;tabs[currentTab]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">component</span><span class="p">&gt;</span>
+<div class="language-vue highlight"><span class="filename">Vue</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">&lt;</span><span class="nt">component</span> <span class="p">:</span><span class="na">is</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">tabs</span><span class="p">[</span><span class="nx">currentTab</span><span class="p">]</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">component</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>被传给 <code>:is</code> 的值可以是：</p>
 <ul>
@@ -1812,7 +1812,7 @@
 <li>导入的组件对象</li>
 </ul>
 <p>当使用 <code>:is</code> 在多个组件间切换时，被切换的组件会被卸载。如果需要保持“存活”状态，则需要使用 <code>&lt;KeepAlive&gt;</code> 组件。</p>
-<h2 id="DOM-模板解析注意事项">DOM 模板解析注意事项</h2>
+<h2 id="DOM-模板解析注意事项">DOM 模板解析注意事项<a class="headerlink" href="#DOM-模板解析注意事项" title="Permanent link">&para;</a></h2>
 <ul>
 <li>HTML 标签和属性名称是不分大小写的。在 DOM 中书写模板时，需要使用 kebab-case 形式，并显式地关闭组件的标签。</li>
 <li>某些 HTML 元素对于放在其中的元素类型有限制，在使用此类限制元素的组件时会出现问题，这时需要使用 <code>is</code> attribute，并使用前缀 <code>vue:</code>，避免与原生的自定义内置元素混淆。</li>
@@ -1850,7 +1850,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年7月9日 18:39:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 13:59:38</span>
   </span>
 
     
@@ -1873,6 +1873,55 @@
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -2067,16 +2116,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

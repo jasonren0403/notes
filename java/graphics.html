@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1359,24 +1359,24 @@
   
 
 
-<h1 id="Java-图形程序设计">Java 图形程序设计</h1>
+<h1 id="Java-图形程序设计">Java 图形程序设计<a class="headerlink" href="#Java-图形程序设计" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Java 中图形用户界面的最基本组成是组件</li>
 <li>组件要放置在容器中才可以显示</li>
 </ul>
-<h2 id="两种基本-GUI-程序设计类库">两种基本 GUI 程序设计类库</h2>
+<h2 id="两种基本-GUI-程序设计类库">两种基本 GUI 程序设计类库<a class="headerlink" href="#两种基本-GUI-程序设计类库" title="Permanent link">&para;</a></h2>
 <dl>
 <dt>AWT（抽象窗口工具箱）</dt>
 <dd>Java 1.0 时出现，基本的 GUI 程序设计类库。基于”对等体“支持</dd>
 <dt>Swing</dt>
 <dd>Java 1.2 时作为标准库的一部分。提供了更强大的用户界面组件</dd>
 </dl>
-<h2 id="框架frame">框架（frame）</h2>
+<h2 id="框架frame">框架（frame）<a class="headerlink" href="#框架frame" title="Permanent link">&para;</a></h2>
 <p>顶层窗口被称为框架。Swing 使用 JFrame 类表示框架。AWT 使用 Frame 类表示框架。</p>
 <div class="admonition info">
 <p>JFrame 是少数不绘制在画布上的 Swing 组件之一。</p>
 </div>
-<h3 id="JFrame-的使用">JFrame 的使用</h3>
+<h3 id="JFrame-的使用">JFrame 的使用<a class="headerlink" href="#JFrame-的使用" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p>Swing 组件必须在事件分配线程中进行配置</p>
 <div class="language-java highlight"><span class="filename">Java</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleFrameTest</span><span class="p">{</span>
@@ -1416,7 +1416,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="在组件中显示信息">在组件中显示信息</h2>
+<h2 id="在组件中显示信息">在组件中显示信息<a class="headerlink" href="#在组件中显示信息" title="Permanent link">&para;</a></h2>
 <ul>
 <li>将组件添加至窗格：<code>frame.add(Component c);</code><ul>
 <li>定义一个扩展 <code>JComponent</code> 的类</li>
@@ -1436,7 +1436,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="处理-2D-图形">处理 2D 图形</h2>
+<h2 id="处理-2D-图形">处理 2D 图形<a class="headerlink" href="#处理-2D-图形" title="Permanent link">&para;</a></h2>
 <p>若所用版本支持 Java 2D，<code>paintComponent</code> 可以获得一个 <code>Graphics2D</code> 类对象（需要先进行类型转换）。</p>
 <div class="language-java highlight"><span class="filename">Java</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Graphics2D</span><span class="w"> </span><span class="n">g2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="w"> </span><span class="n">g</span><span class="p">;</span>
 </span></code></pre></div>
@@ -1456,13 +1456,13 @@ classDiagram
 <div class="admonition info">
 <p>其中，每一个2D类都有Float和Double两个静态内部类</p>
 </div>
-<h2 id="使用颜色">使用颜色</h2>
-<h3 id="javaawtColor-类">java.awt.Color 类</h3>
+<h2 id="使用颜色">使用颜色<a class="headerlink" href="#使用颜色" title="Permanent link">&para;</a></h2>
+<h3 id="javaawtColor-类">java.awt.Color 类<a class="headerlink" href="#javaawtColor-类" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Color(int r, int g, int b)</code>：使用 RGB 值创建颜色</li>
 <li>13 种预定义常量：<code>Color.BLACK</code>、<code>Color.BLUE</code>、<code>Color.CYAN</code>、<code>Color.DARK_GRAY</code>、<code>Color.GRAY</code>、<code>Color.GREEN</code>、<code>Color.LIGHT_GRAY</code>、<code>Color.MAGENTA</code>、<code>Color.ORANGE</code>、<code>Color.PINK</code>、<code>Color.RED</code>、<code>Color.WHITE</code>、<code>Color.YELLOW</code></li>
 </ul>
-<h3 id="绘制操作">绘制操作</h3>
+<h3 id="绘制操作">绘制操作<a class="headerlink" href="#绘制操作" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Graphics2D 类：<code>setPaint(Paint p)</code><ul>
 <li>为后续绘制操作（<code>fill()</code>、<code>drawString()</code> 等）选择颜色</li>
@@ -1470,17 +1470,17 @@ classDiagram
 </li>
 <li>Graphics 类：<code>setColor(Color c)</code></li>
 </ul>
-<h3 id="设置组件颜色">设置组件颜色</h3>
+<h3 id="设置组件颜色">设置组件颜色<a class="headerlink" href="#设置组件颜色" title="Permanent link">&para;</a></h3>
 <ul>
 <li>前景色：<code>setForeground(Color c)</code></li>
 <li>背景色：<code>setBackground(Color c)</code></li>
 </ul>
-<h3 id="填充图形">填充图形</h3>
+<h3 id="填充图形">填充图形<a class="headerlink" href="#填充图形" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>fill(Shape s)</code>：使用当前颜料填充图形</li>
 </ul>
-<h2 id="设置字体">设置字体</h2>
-<h3 id="javaawtFont-类">java.awt.Font 类</h3>
+<h2 id="设置字体">设置字体<a class="headerlink" href="#设置字体" title="Permanent link">&para;</a></h2>
+<h3 id="javaawtFont-类">java.awt.Font 类<a class="headerlink" href="#javaawtFont-类" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Font(String name, int style, int size)</code>：创建字体<ul>
 <li><code>name</code>：字体名称</li>
@@ -1514,14 +1514,14 @@ classDiagram
 <li>DialogInput</li>
 </ul>
 </div>
-<h3 id="字符串位置">字符串位置</h3>
+<h3 id="字符串位置">字符串位置<a class="headerlink" href="#字符串位置" title="Permanent link">&para;</a></h3>
 <div class="language-java highlight"><span class="filename">Java</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">FontRenderContext</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g2</span><span class="p">.</span><span class="na">getFontRenderContext</span><span class="p">();</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">Rectangle2D</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">font</span><span class="p">.</span><span class="na">getStringBounds</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">);</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">stringWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">getWidth</span><span class="p">();</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kt">double</span><span class="w"> </span><span class="n">stringHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">double</span><span class="w"> </span><span class="n">ascent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">bounds</span><span class="p">.</span><span class="na">getY</span><span class="p">();</span>
 </span></code></pre></div>
-<h2 id="显示图像">显示图像</h2>
+<h2 id="显示图像">显示图像<a class="headerlink" href="#显示图像" title="Permanent link">&para;</a></h2>
 <ul>
 <li>表示图像文件的类：<code>java.awt.Image</code></li>
 <li>读图像：<code>Image image = new ImageIcon(filename).getImage();</code></li>
@@ -1787,16 +1787,16 @@ classDiagram
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

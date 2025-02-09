@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1305,8 +1305,8 @@
   
 
 
-<h1 id="Go-函数">Go 函数</h1>
-<h2 id="函数定义">函数定义</h2>
+<h1 id="Go-函数">Go 函数<a class="headerlink" href="#Go-函数" title="Permanent link">&para;</a></h1>
+<h2 id="函数定义">函数定义<a class="headerlink" href="#函数定义" title="Permanent link">&para;</a></h2>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">函数名</span><span class="p">(</span><span class="nx">形参列表</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">返回值列表</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nx">函数体</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
@@ -1315,7 +1315,7 @@
 <li>函数分为自定义函数和系统函数</li>
 <li>形参列表中，每一项的格式为：<code>参数名 参数类型</code></li>
 </ul>
-<h3 id="init-函数">init 函数</h3>
+<h3 id="init-函数">init 函数<a class="headerlink" href="#init-函数" title="Permanent link">&para;</a></h3>
 <p>在 <code>main()</code> 执行前先执行，通常完成初始化工作</p>
 <div class="admonition info">
 <ul>
@@ -1324,7 +1324,7 @@
 A[全局变量定义] --&gt; C["init()"] --&gt; B["main()"]</code></pre></li>
 </ul>
 </div>
-<h3 id="匿名函数">匿名函数</h3>
+<h3 id="匿名函数">匿名函数<a class="headerlink" href="#匿名函数" title="Permanent link">&para;</a></h3>
 <div class="admonition summary">
 <p class="admonition-title">意义</p>
 <p>某个函数只希望调用一次</p>
@@ -1336,7 +1336,7 @@ A[全局变量定义] --&gt; C["init()"] --&gt; B["main()"]</code></pre></li>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">&lt;</span><span class="kd">var</span><span class="p">&gt;(</span><span class="nx">实参</span><span class="p">)</span><span class="w"> </span><span class="c1">// 注意，var不是函数名</span>
 </span></code></pre></div></li>
 </ul>
-<h4 id="全局匿名函数">全局匿名函数</h4>
+<h4 id="全局匿名函数">全局匿名函数<a class="headerlink" href="#全局匿名函数" title="Permanent link">&para;</a></h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="声明" name="__tabbed_1" type="radio" /><input id="调用" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="声明">声明</label><label for="调用">调用</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1353,7 +1353,7 @@ A[全局变量定义] --&gt; C["init()"] --&gt; B["main()"]</code></pre></li>
 </div>
 </div>
 </div>
-<h3 id="闭包">闭包</h3>
+<h3 id="闭包">闭包<a class="headerlink" href="#闭包" title="Permanent link">&para;</a></h3>
 <p>函数+相关引用环境</p>
 <div class="language-go highlight"><span class="filename">Go</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">xx</span><span class="p">()</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">形参</span><span class="p">)</span><span class="w"> </span><span class="nx">返回值</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="cm">/* ... 引用 */</span>
@@ -1363,7 +1363,7 @@ A[全局变量定义] --&gt; C["init()"] --&gt; B["main()"]</code></pre></li>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="注意事项">注意事项</h3>
+<h3 id="注意事项">注意事项<a class="headerlink" href="#注意事项" title="Permanent link">&para;</a></h3>
 <ul>
 <li>函数中的变量是局部的，函数外不生效</li>
 <li>基本数据类型和数组默认为值传递，函数内修改不影响外部<ul>
@@ -1383,7 +1383,7 @@ A[全局变量定义] --&gt; C["init()"] --&gt; B["main()"]</code></pre></li>
 </ul>
 </li>
 </ul>
-<h2 id="包">包</h2>
+<h2 id="包">包<a class="headerlink" href="#包" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">包的意义</p>
 <ol>
@@ -1435,7 +1435,7 @@ A[全局变量定义] --&gt; C["init()"] --&gt; B["main()"]</code></pre></li>
 </div>
 </div>
 </div>
-<h3 id="注意事项_1">注意事项</h3>
+<h3 id="注意事项_1">注意事项<a class="headerlink" href="#注意事项_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>同一包下不可定义相同函数</li>
 <li>编译成可执行程序，需声明包名为 <code>main</code>，编译需要在 <code>main</code> 包下</li>
@@ -1695,16 +1695,16 @@ A[全局变量定义] --&gt; C["init()"] --&gt; B["main()"]</code></pre></li>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

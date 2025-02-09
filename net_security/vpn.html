@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1564,11 +1564,11 @@
   
 
 
-<h1 id="虚拟专用网">虚拟专用网</h1>
-<h2 id="VPN简介">VPN简介</h2>
+<h1 id="虚拟专用网">虚拟专用网<a class="headerlink" href="#虚拟专用网" title="Permanent link">&para;</a></h1>
+<h2 id="VPN简介">VPN简介<a class="headerlink" href="#VPN简介" title="Permanent link">&para;</a></h2>
 <ul>
-<li>保证端到端的数据安全性</li>
-</ul>
+<li>
+<p>保证端到端的数据安全性</p>
 <details class="bug">
 <summary>端到端的数据通路安全风险</summary>
 <ul>
@@ -1577,8 +1577,10 @@
 <li>内部网可能也存在不安全的因素</li>
 </ul>
 </details>
+</li>
+<li>
+<p>VPN：Virtual Private Network（虚拟专用网）</p>
 <ul>
-<li>VPN：Virtual Private Network（虚拟专用网）<ul>
 <li>构成：VPN服务器 + VPN客户机 + 隧道</li>
 <li>应用：合作伙伴、远程访问、分支机构</li>
 </ul>
@@ -1647,8 +1649,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="链路层安全">链路层安全</h2>
-<h3 id="PPTP">PPTP</h3>
+<h2 id="链路层安全">链路层安全<a class="headerlink" href="#链路层安全" title="Permanent link">&para;</a></h2>
+<h3 id="PPTP">PPTP<a class="headerlink" href="#PPTP" title="Permanent link">&para;</a></h3>
 <ul>
 <li>PPTP，即Point to Point Tunneling Protocol，点对点通道协议，由微软公司提出</li>
 <li>将PPP分组通过IP网络封装传输</li>
@@ -1664,19 +1666,21 @@
 </ul>
 </li>
 </ul>
-<h3 id="L2F">L2F</h3>
+<h3 id="L2F">L2F<a class="headerlink" href="#L2F" title="Permanent link">&para;</a></h3>
 <ul>
 <li>L2F，即Layer 2 Forwarding，二层转发协议，由Cisco公司提出</li>
 <li>
 <p>可以在多种介质下，建立多协议的安全虚拟专用网</p>
 <details class="info">
 <summary>通过L2F接入公共IP网络的过程</summary>
-<p>首先按常规方式拨号到ISP 的接入服务器（NAS），建立PPP连接；NAS 根据用户名等信息，发起第二重连接，通向HGW（家庭网关）服务器。
-* 在这种情况下隧道的配置和建立对用户是完全透明的。</p>
+<p>首先按常规方式拨号到ISP 的接入服务器（NAS），建立PPP连接；NAS 根据用户名等信息，发起第二重连接，通向HGW（家庭网关）服务器。</p>
+<ul>
+<li>在这种情况下隧道的配置和建立对用户是完全透明的。</li>
+</ul>
 </details>
 </li>
 </ul>
-<h3 id="L2TP">L2TP</h3>
+<h3 id="L2TP">L2TP<a class="headerlink" href="#L2TP" title="Permanent link">&para;</a></h3>
 <ul>
 <li>L2TP，即Layer 2 Tunneling Protocol，二层通道协议</li>
 <li>结合了L2F和PPTP的优点， 可以让用户从客户端或访问服务器端发起VPN 连接</li>
@@ -1714,8 +1718,8 @@
 </table>
 <p>注：L2TP或PPTP与IPSEC共同使用时，可以由IPSEC提供隧道验证</p>
 </div>
-<h2 id="网络层安全">网络层安全</h2>
-<h3 id="IPSec">IPSec</h3>
+<h2 id="网络层安全">网络层安全<a class="headerlink" href="#网络层安全" title="Permanent link">&para;</a></h2>
+<h3 id="IPSec">IPSec<a class="headerlink" href="#IPSec" title="Permanent link">&para;</a></h3>
 <ul>
 <li>基于IPSec的VPN解决方案<ul>
 <li>网络层是可能实现端到端安全通信的最低层，它为所有应用层数据提供透明的安全保护，用户无需修改应用层协议</li>
@@ -1888,7 +1892,7 @@
 </ol>
 </li>
 </ul>
-<h3 id="IKE">IKE</h3>
+<h3 id="IKE">IKE<a class="headerlink" href="#IKE" title="Permanent link">&para;</a></h3>
 <details class="info">
 <summary>何为IKE</summary>
 <p>Internet Key Exchange，互联网密钥交换</p>
@@ -1943,18 +1947,18 @@
 <ul>
 <li>建立ISAKMP安全联盟（IKE SA），为后面的交换提供一个安全通信信道</li>
 <li>协商流程简述：SA交换、密钥交换、ID及验证交换</li>
-<li>主模式和野蛮模式都支持四种不同的验证方法<ol>
+<li>主模式和野蛮模式都支持四种不同的验证方法<ul>
 <li>预共享密钥</li>
 <li>DSS数字签名</li>
 <li>RSA数字签名</li>
 <li>交换加密</li>
-</ol>
+</ul>
 </li>
-<li>主模式交换：三个步骤，交换六条消息<ol>
+<li>主模式交换：三个步骤，交换六条消息<ul>
 <li>策略协商交换</li>
 <li>Diffie Hellman共享值</li>
 <li>nonce交换 + 身份验证交换</li>
-</ol>
+</ul>
 </li>
 <li>野蛮模式交换：三个步骤，交换三条消息<ul>
 <li>协商能力受限，不提供身份保护<ul>
@@ -2023,29 +2027,31 @@ B^a \mod p = g ^{ab} \mod p = A^b \mod p
 </details>
 </li>
 </ul>
-<h2 id="传输层安全">传输层安全</h2>
-<h3 id="SSL">SSL</h3>
+<h2 id="传输层安全">传输层安全<a class="headerlink" href="#传输层安全" title="Permanent link">&para;</a></h2>
+<h3 id="SSL">SSL<a class="headerlink" href="#SSL" title="Permanent link">&para;</a></h3>
 <details class="info">
 <summary>什么是SSL</summary>
-<p>Secure Socket Layer，安全套接字层，1994年Netscape开发，专门用于保护Web通讯
-TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)</p>
+<ul>
+<li>Secure Socket Layer，安全套接字层，1994年Netscape开发，专门用于保护Web通讯</li>
+<li>TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)</li>
+</ul>
 </details>
 <div class="admonition info">
 <p class="admonition-title">SSL中两个重要的概念</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="SSL连接connection" name="__tabbed_1" type="radio" /><input id="SSL会话session" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="SSL连接connection">SSL连接（connection)</label><label for="SSL会话session">SSL会话（session）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<ol>
+<ul>
 <li>一个连接是一个提供一种合适类型服务的传输（OSI分层的定义）</li>
 <li>SSL的连接是点对点的关系</li>
 <li>连接是暂时的，每一个连接和一个会话关联</li>
-</ol>
+</ul>
 </div>
 <div class="tabbed-block">
-<ol>
+<ul>
 <li>一个SSL会话是在客户与服务器之间的一个关联。会话由Handshake Protocol创建。会话定义了一组可供多个连接共享的加密安全参数。</li>
 <li>会话用以避免为每一个连接提供新的安全参数所需昂贵的谈判代价。</li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
@@ -2069,7 +2075,7 @@ TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)</p>
 </div>
 </li>
 </ul>
-<h4 id="SSL记录层协议">SSL记录层协议</h4>
+<h4 id="SSL记录层协议">SSL记录层协议<a class="headerlink" href="#SSL记录层协议" title="Permanent link">&para;</a></h4>
 <ul>
 <li>第一步，fragmentation<ul>
 <li>上层消息的数据被分片成 <span class="arithmatex">\(2^{14}\)</span> 字节大小的块，或者更小</li>
@@ -2091,10 +2097,10 @@ TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)</p>
 <li>
 <p>结果可作如下表示
     <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">ContentType</span><span class="w"> </span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">ProtocolVersion</span><span class="w"> </span><span class="n">version</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">EncryptedData</span><span class="w"> </span><span class="n">fragment</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">ContentType</span><span class="w"> </span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)!</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">ProtocolVersion</span><span class="w"> </span><span class="n">version</span><span class="p">;</span><span class="w"> </span><span class="c1">// (2)!</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3)!</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">EncryptedData</span><span class="w"> </span><span class="n">fragment</span><span class="p">;</span><span class="w"> </span><span class="c1">// (4)!</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span><span class="w"> </span><span class="n">TLSCiphertext</span><span class="p">;</span>
 </span></code></pre></div></p>
 <ol>
@@ -2105,7 +2111,7 @@ TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)</p>
 </ol>
 </li>
 </ul>
-<h4 id="SSL高层协议">SSL高层协议</h4>
+<h4 id="SSL高层协议">SSL高层协议<a class="headerlink" href="#SSL高层协议" title="Permanent link">&para;</a></h4>
 <ul>
 <li>密码变化协议(Change Cipher Spec Protocol)<ul>
 <li>它位于TLS记录协议之上，它用到了TLS记录协议的处理过程</li>
@@ -2133,10 +2139,12 @@ TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)</p>
 <p>服务器可以在任何时候发送HelloRequest 消息，要求客户方重新开始协商过程。客户方在收到该消息后使用ClientHello消息进行响应，同意重新开始协商过程</p>
 </div>
 <div class="tabbed-block">
-<p>客户方在下列情况下要发送ClientHello消息：
-1. 主动请求建立一个新的会话连接；
-2. 对服务方HelloRequest消息进行响应；
-3. 在现有的会话连接上主动请求重新协商安全参数。</p>
+<p>客户方在下列情况下要发送ClientHello消息：</p>
+<ul>
+<li>主动请求建立一个新的会话连接；</li>
+<li>对服务方HelloRequest消息进行响应；</li>
+<li>在现有的会话连接上主动请求重新协商安全参数。</li>
+</ul>
 </div>
 <div class="tabbed-block">
 <p>服务器方对ClientHello消息进行处理，然后回应一个响应消息。如果同意握手，则返回ServerHello消息；否则返回握手失败警告消息。</p>
@@ -2145,7 +2153,7 @@ TLS 1.0(Transport Layer Security, 也被称为SSL 3.1)</p>
 </div>
 </li>
 </ul>
-<h3 id="SSL密钥交换">SSL密钥交换</h3>
+<h3 id="SSL密钥交换">SSL密钥交换<a class="headerlink" href="#SSL密钥交换" title="Permanent link">&para;</a></h3>
 <ul>
 <li>功能<ul>
 <li>客户和服务器之间相互认证</li>
@@ -2201,7 +2209,7 @@ end</code></pre></li>
 </ul>
 </li>
 </ul>
-<h4 id="第一阶段交互">第一阶段交互</h4>
+<h4 id="第一阶段交互">第一阶段交互<a class="headerlink" href="#第一阶段交互" title="Permanent link">&para;</a></h4>
 <pre class="mermaid"><code>sequenceDiagram
 participant c as SSLClient
 participant s as SSLServer
@@ -2222,7 +2230,7 @@ s-&gt;&gt;c:ServerHello</code></pre>
 </ul>
 </li>
 </ul>
-<h4 id="第二阶段交互">第二阶段交互</h4>
+<h4 id="第二阶段交互">第二阶段交互<a class="headerlink" href="#第二阶段交互" title="Permanent link">&para;</a></h4>
 <pre class="mermaid"><code>sequenceDiagram
 participant c as SSLClient
 participant s as SSLServer
@@ -2247,12 +2255,12 @@ end</code></pre>
 </li>
 <li>服务器发送certificate_request消息<ul>
 <li>非匿名server可以向客户请求一个证书</li>
-<li>包含证书类型和CAs</li>
+<li>包含证书类型和CA列表</li>
 </ul>
 </li>
 <li>服务器发送server_hello_done, 然后等待应答</li>
 </ul>
-<h4 id="第三阶段交互">第三阶段交互</h4>
+<h4 id="第三阶段交互">第三阶段交互<a class="headerlink" href="#第三阶段交互" title="Permanent link">&para;</a></h4>
 <pre class="mermaid"><code>sequenceDiagram
 participant c as SSLClient
 participant s as SSLServer
@@ -2269,7 +2277,7 @@ end</code></pre>
 <li>然后客户发送client_key_exchange消息，消息的内容取决于密钥交换的类型</li>
 <li>最后，客户发送一个certificate_verify消息，其中包含一个签名，对从第一条消息以来的所有握手消息的HMAC值(用master_secret)进行签名</li>
 </ul>
-<h4 id="第四阶段交互">第四阶段交互</h4>
+<h4 id="第四阶段交互">第四阶段交互<a class="headerlink" href="#第四阶段交互" title="Permanent link">&para;</a></h4>
 <pre class="mermaid"><code>sequenceDiagram
 participant c as SSLClient
 participant s as SSLServer
@@ -2289,7 +2297,7 @@ end</code></pre>
 <li>服务器同样发送change_cipher_spec消息和finished消息。</li>
 <li>握手过程完成，客户和服务器可以交换应用层数据</li>
 </ul>
-<h3 id="SSL安全性分析">SSL安全性分析</h3>
+<h3 id="SSL安全性分析">SSL安全性分析<a class="headerlink" href="#SSL安全性分析" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="信息泄露" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="信息泄露">信息泄露</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2310,7 +2318,7 @@ Note over u,s: 这里可能会暴露敏感信息
 </div>
 </div>
 </div>
-<h3 id="实现">实现</h3>
+<h3 id="实现">实现<a class="headerlink" href="#实现" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://www.openssl.org/source/">OpenSSL</a><ul>
 <li>实现了SSL2、3，TLS1.0</li>
@@ -2365,7 +2373,7 @@ Note over u,s: 这里可能会暴露敏感信息
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年5月15日 22:02:57</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 12:23:51</span>
   </span>
 
     
@@ -2388,6 +2396,55 @@ Note over u,s: 这里可能会暴露敏感信息
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -2598,16 +2655,16 @@ Note over u,s: 这里可能会暴露敏感信息
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

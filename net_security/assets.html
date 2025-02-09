@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1462,14 +1462,18 @@
   
 
 
-<h1 id="网络安全概述">网络安全概述</h1>
-<h2 id="资产保护">资产保护</h2>
+<h1 id="网络安全概述">网络安全概述<a class="headerlink" href="#网络安全概述" title="Permanent link">&para;</a></h1>
+<h2 id="资产保护">资产保护<a class="headerlink" href="#资产保护" title="Permanent link">&para;</a></h2>
 <ul>
 <li>资产类型<ul>
-<li>物理资源
-    物理资源是具有物理形态的资产</li>
-<li>知识资源
-    知识资源可以是任何信息的形式，并在组织的事务处理中起一定的作用</li>
+<li>物理资源<ul>
+<li>物理资源是具有物理形态的资产</li>
+</ul>
+</li>
+<li>知识资源<ul>
+<li>知识资源可以是任何信息的形式，并在组织的事务处理中起一定的作用</li>
+</ul>
+</li>
 <li>时间资源</li>
 <li>信誉资源</li>
 </ul>
@@ -1490,8 +1494,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="信息安全模型">信息安全模型</h2>
-<h3 id="信息保障IA阶段--IATFFramework-纵深防御策略DiD">信息保障(IA)阶段 → IATF(Framework) 纵深防御策略(DiD)</h3>
+<h2 id="信息安全模型">信息安全模型<a class="headerlink" href="#信息安全模型" title="Permanent link">&para;</a></h2>
+<h3 id="信息保障IA阶段--IATFFramework-纵深防御策略DiD">信息保障(IA)阶段 → IATF(Framework) 纵深防御策略(DiD)<a class="headerlink" href="#信息保障IA阶段--IATFFramework-纵深防御策略DiD" title="Permanent link">&para;</a></h3>
 <ul>
 <li>20世纪90年代由美国国防部提出（PDD63）</li>
 <li>定义：通过确保信息和信息系统的可用性、完整性、可控性、保密性和不可否认性来保护信息系统的信息作战行动，包括综合利用保护、探测和反应能力以恢复系统的功能</li>
@@ -1515,11 +1519,11 @@
 </div>
 </div>
 </div>
-<h4 id="CGS20美国国家安全体系黄金标准">CGS2.0（《美国国家安全体系黄金标准》）</h4>
+<h4 id="CGS20美国国家安全体系黄金标准">CGS2.0（《美国国家安全体系黄金标准》）<a class="headerlink" href="#CGS20美国国家安全体系黄金标准" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Govern Protect Detect Respond&amp;Recover</li>
 </ul>
-<h2 id="攻击类型">攻击类型</h2>
+<h2 id="攻击类型">攻击类型<a class="headerlink" href="#攻击类型" title="Permanent link">&para;</a></h2>
 <ul>
 <li>安全属性<ul>
 <li>阻断 ~ 针对可用性</li>
@@ -1537,92 +1541,66 @@
 </div>
 <div class="tabbed-block">
 <p>强调检测，并从破坏中恢复。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="伪装" name="__tabbed_3" type="radio" /><input id="回答" name="__tabbed_3" type="radio" /><input id="修改报文" name="__tabbed_3" type="radio" /><input id="拒绝服务" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="伪装">伪装</label><label for="回答">回答</label><label for="修改报文">修改报文</label><label for="拒绝服务">拒绝服务</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>伪装是一个实体假装成另一个实体。伪装攻击往往连同另一类主动攻击一起进行</p>
-</div>
-<div class="tabbed-block">
-<p>回答攻击包含数据单元的被动捕获，随之再重传这些数据，从而产生一个非授权的效果</p>
-</div>
-<div class="tabbed-block">
-<p>修改报文攻击意味着合法报文的某些部分已被修改，或者报文的延迟和重新排序，从而产生非授权的效果</p>
-</div>
-<div class="tabbed-block">
-<p>拒绝服务攻击是阻止或禁止通信设施的正常使用和管理。这种攻击可能针对专门的目标(如安全审计服务)，抑制所有报文直接送到目的站；也可能破坏整个网络，使网络不可用或网络超负荷，从而降低网络性能</p>
-</div>
-</div>
-</div>
+<dl>
+<dt>伪装</dt>
+<dd>一个实体假装成另一个实体。伪装攻击往往连同另一类主动攻击一起进行</dd>
+<dt>回答</dt>
+<dd>回答攻击包含数据单元的被动捕获，随之再重传这些数据，从而产生一个非授权的效果</dd>
+<dt>修改报文</dt>
+<dd>修改报文攻击意味着合法报文的某些部分已被修改，或者报文的延迟和重新排序，从而产生非授权的效果</dd>
+<dt>拒绝服务</dt>
+<dd>拒绝服务攻击是阻止或禁止通信设施的正常使用和管理。这种攻击可能针对专门的目标(如安全审计服务)，抑制所有报文直接送到目的站；也可能破坏整个网络，使网络不可用或网络超负荷，从而降低网络性能</dd>
+</dl>
 </div>
 </div>
 </div>
 </li>
 <li>
 <p>访问攻击（机密性攻击）</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="窥探" name="__tabbed_4" type="radio" /><input id="窃听" name="__tabbed_4" type="radio" /><input id="截获" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="窥探">窥探</label><label for="窃听">窃听</label><label for="截获">截获</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>查信息文件，发现某些攻击者感兴趣的信息。攻击者试图打开计算机系统的文件，直到找到所需信息</p>
-</div>
-<div class="tabbed-block">
-<p>偷听他人的对话，为了得到非授权的信息访问，攻击者必须将自己放在一个信息通过的地方，一般采用电子的窃听方式</p>
-</div>
-<div class="tabbed-block">
-<p>攻击者截获信息是通过将自己插入信息通过的通路，且在信息到达目的地前能事先捕获这些信息</p>
-</div>
-</div>
-</div>
+<dl>
+<dt>窥探</dt>
+<dd>查信息文件，发现某些攻击者感兴趣的信息。攻击者试图打开计算机系统的文件，直到找到所需信息</dd>
+<dt>窃听</dt>
+<dd>偷听他人的对话，为了得到非授权的信息访问，攻击者必须将自己放在一个信息通过的地方，一般采用电子的窃听方式</dd>
+<dt>截获</dt>
+<dd>攻击者截获信息是通过将自己插入信息通过的通路，且在信息到达目的地前能事先捕获这些信息</dd>
+</dl>
 </li>
 <li>
 <p>篡改攻击（完整性攻击）</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="改变" name="__tabbed_5" type="radio" /><input id="插入" name="__tabbed_5" type="radio" /><input id="删除" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="改变">改变</label><label for="插入">插入</label><label for="删除">删除</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>改变已有的信息</p>
-</div>
-<div class="tabbed-block">
-<p>插入信息可以改变历史的信息</p>
-</div>
-<div class="tabbed-block">
-<p>将已有的信息去除</p>
-</div>
-</div>
-</div>
+<dl>
+<dt>改变</dt>
+<dd>改变已有的信息</dd>
+<dt>插入</dt>
+<dd>插入信息可以改变历史的信息</dd>
+<dt>删除</dt>
+<dd>将已有的信息去除</dd>
+</dl>
 </li>
 <li>
 <p>拒绝服务攻击（DoS，Denial of Service）（可用性攻击）</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="拒绝访问信息" name="__tabbed_6" type="radio" /><input id="拒绝访问应用" name="__tabbed_6" type="radio" /><input id="拒绝访问系统" name="__tabbed_6" type="radio" /><input id="拒绝访问通信" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="拒绝访问信息">拒绝访问信息</label><label for="拒绝访问应用">拒绝访问应用</label><label for="拒绝访问系统">拒绝访问系统</label><label for="拒绝访问通信">拒绝访问通信</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>使信息不可用，信息被破坏或者将信息改变成不可使用状态，也可能信息仍存在，但已经被移到不可访问的位置</p>
-</div>
-<div class="tabbed-block">
-<p>目标是操纵或显示信息的应用。通常对正在运行应用程序的计算机系统进行攻击，使应用程序不可用而不能完成任务</p>
-</div>
-<div class="tabbed-block">
-<p>通常是使系统宕机，使运行在该计算机系统上的所有应用无法运行，使存储在该计算机系统上的所有信息不可用</p>
-</div>
-<div class="tabbed-block">
-<p>是针对通信的一种攻击，已有很多年历史。这类攻击可能用切断通信电缆、干扰无线电通信以及用过量的通信负载来淹没网络</p>
-</div>
-</div>
-</div>
+<dl>
+<dt>拒绝访问信息</dt>
+<dd>使信息不可用，信息被破坏或者将信息改变成不可使用状态，也可能信息仍存在，但已经被移到不可访问的位置</dd>
+<dt>拒绝访问应用</dt>
+<dd>目标是操纵或显示信息的应用。通常对正在运行应用程序的计算机系统进行攻击，使应用程序不可用而不能完成任务</dd>
+<dt>拒绝访问系统</dt>
+<dd>通常是使系统宕机，使运行在该计算机系统上的所有应用无法运行，使存储在该计算机系统上的所有信息不可用</dd>
+<dt>拒绝访问通信</dt>
+<dd>是针对通信的一种攻击，已有很多年历史。这类攻击可能用切断通信电缆、干扰无线电通信以及用过量的通信负载来淹没网络</dd>
+</dl>
 </li>
 <li>
 <p>否认攻击（可审性攻击）</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="假冒" name="__tabbed_7" type="radio" /><input id="否认" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="假冒">假冒</label><label for="否认">否认</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>攻击者企图装扮或假冒别人和别的系统</p>
-</div>
-<div class="tabbed-block">
-<p>抵赖曾经登录和处理的事件</p>
-</div>
-</div>
-</div>
+<dl>
+<dt>假冒</dt>
+<dd>攻击者企图装扮或假冒别人和别的系统</dd>
+<dt>否认</dt>
+<dd>抵赖曾经登录和处理的事件</dd>
+</dl>
 </li>
 </ul>
-<h3 id="网络攻击分类">网络攻击分类</h3>
+<h3 id="网络攻击分类">网络攻击分类<a class="headerlink" href="#网络攻击分类" title="Permanent link">&para;</a></h3>
 <ul>
 <li>分类原则：确定性、完备性、互斥性、可重现性、可用性、适应性、原子性<ul>
 <li>经验术语：[Icove]，[Cohen]</li>
@@ -1632,8 +1610,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="网络信息安全服务">网络信息安全服务</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:4"><input checked="checked" id="机密性服务" name="__tabbed_8" type="radio" /><input id="完整性服务" name="__tabbed_8" type="radio" /><input id="可用性服务" name="__tabbed_8" type="radio" /><input id="可审性服务" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="机密性服务">机密性服务</label><label for="完整性服务">完整性服务</label><label for="可用性服务">可用性服务</label><label for="可审性服务">可审性服务</label></div>
+<h2 id="网络信息安全服务">网络信息安全服务<a class="headerlink" href="#网络信息安全服务" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="机密性服务" name="__tabbed_3" type="radio" /><input id="完整性服务" name="__tabbed_3" type="radio" /><input id="可用性服务" name="__tabbed_3" type="radio" /><input id="可审性服务" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="机密性服务">机密性服务</label><label for="完整性服务">完整性服务</label><label for="可用性服务">可用性服务</label><label for="可审性服务">可审性服务</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>提供信息的保密性</p>
@@ -1677,7 +1655,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="网络安全评估">网络安全评估</h2>
+<h2 id="网络安全评估">网络安全评估<a class="headerlink" href="#网络安全评估" title="Permanent link">&para;</a></h2>
 <ul>
 <li>TCSEC 可信计算机系统评估准则（橘皮书）<ul>
 <li>4类7级：D、C1、C2、B1、B2、B3、A1</li>
@@ -1691,14 +1669,16 @@
 <p>E0级（没有任何保证）到E6级（形式化的验证）七个安全等级</p>
 <details class="info">
 <summary>ITSEC中定义的七个安全等级</summary>
-<p>这7个安全等级分别是：
-1. E0级：该级别表示不充分的安全保证。
-2. E1级：该级别必须有一个安全目标和一个对产品或系统的体系结构设计的非形式化的描述，还需要有功能测试，以表明是否达到安全目标。
-3. E2级：除了E1级的要求外，还必须对详细的设计有非形式化描述。另外，功能测试的证据必须被评估，必须有配置控制系统和认可的分配过程。
-4. E3级：除了E2级的要求外，不仅要评估与安全机制相对应的源代码和硬件设计图，还要评估测试这些机制的证据。
-5. E4级：除了E3级的要求外，必须有支持安全目标的安全策略的基本形式模型。用半形式说明安全加强功能、体系结构和详细的设计。
-6. E5级：除了E4级的要求外，在详细的设计和源代码或硬件设计图之间有紧密的对应关系。
-7. E6级：除了E5级的要求外，必须正式说明安全加强功能和体系结构设计，使其与安全策略的基本形式模型一致。</p>
+<p>这7个安全等级分别是：</p>
+<ol>
+<li>E0级：该级别表示不充分的安全保证。</li>
+<li>E1级：该级别必须有一个安全目标和一个对产品或系统的体系结构设计的非形式化的描述，还需要有功能测试，以表明是否达到安全目标。</li>
+<li>E2级：除了E1级的要求外，还必须对详细的设计有非形式化描述。另外，功能测试的证据必须被评估，必须有配置控制系统和认可的分配过程。</li>
+<li>E3级：除了E2级的要求外，不仅要评估与安全机制相对应的源代码和硬件设计图，还要评估测试这些机制的证据。</li>
+<li>E4级：除了E3级的要求外，必须有支持安全目标的安全策略的基本形式模型。用半形式说明安全加强功能、体系结构和详细的设计。</li>
+<li>E5级：除了E4级的要求外，在详细的设计和源代码或硬件设计图之间有紧密的对应关系。</li>
+<li>E6级：除了E5级的要求外，必须正式说明安全加强功能和体系结构设计，使其与安全策略的基本形式模型一致。</li>
+</ol>
 </details>
 </li>
 <li>
@@ -1720,13 +1700,15 @@
 <p>规定了7个评估保证级：EAL1~EAL7</p>
 <details class="info">
 <summary>CC中定义的七个评估保证级</summary>
-<p>EAL1 功能测试
-EAL2 结构测试
-EAL3 系统测试和检查
-EAL4 系统设计、测试和复查
-EAL5 半形式化设计和测试
-EAL6 半形式化验证的设计和测试
-EAL7 形式化验证的设计和测试</p>
+<ul>
+<li>EAL1 功能测试</li>
+<li>EAL2 结构测试</li>
+<li>EAL3 系统测试和检查</li>
+<li>EAL4 系统设计、测试和复查</li>
+<li>EAL5 半形式化设计和测试</li>
+<li>EAL6 半形式化验证的设计和测试</li>
+<li>EAL7 形式化验证的设计和测试</li>
+</ul>
 </details>
 </li>
 </ul>
@@ -1761,21 +1743,31 @@ EAL7 形式化验证的设计和测试</p>
 <ol>
 <li>风险评估<ul>
 <li>从风险管理的角度，运用科学的方法和手段，系统地分析网络与信息系统所面临的威胁及其存在的脆弱性，评估安全事件一旦发生可能造成的危害程度，提出有针对性的防御威胁的防护对策和整改措施，以防范和化解信息安全风险，或者将风险控制在可接受的水平，从而最大限度地保障网络和信息安全</li>
-<li>常用方法：
-    （1）基于知识的分析方法
-        通过多种渠道采集信息，与特定“最佳惯例”比较，是一种“经验方法”
-    （2）基于模型的分析方法
-    （3）定量分析
-        事件发生的可能性，威胁事件可能引起的损失
-    （4）定性分析
-        操作容易，但有一定主观性</li>
-<li>工具：
-    （1）调查问卷
-    （2）检查列表
-    （3）人员访谈
-    （4）漏洞扫描器
-    （5）渗透测试
-    （6）目前常见的自动化风险评估工具：COBRA、CRAMM、ASSET、CORA等</li>
+<li>常用方法<ul>
+<li>基于知识的分析方法<ul>
+<li>通过多种渠道采集信息，与特定“最佳惯例”比较，是一种“经验方法”</li>
+</ul>
+</li>
+<li>基于模型的分析方法</li>
+<li>定量分析<ul>
+<li>事件发生的可能性，威胁事件可能引起的损失</li>
+</ul>
+</li>
+<li>定性分析<ul>
+<li>操作容易，但有一定主观性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>工具<ul>
+<li>调查问卷</li>
+<li>检查列表</li>
+<li>人员访谈</li>
+<li>漏洞扫描器</li>
+<li>渗透测试</li>
+<li>目前常见的自动化风险评估工具：COBRA、CRAMM、ASSET、CORA等</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>生存性评估<ul>
@@ -1784,14 +1776,14 @@ EAL7 形式化验证的设计和测试</p>
 </ul>
 </li>
 <li>
-<p>网络安全态势评估
-    从检测数据的角度评估当前网络信息系统面临的安全威胁状况
-    <pre class="mermaid"><code>flowchart LR
+<p>网络安全态势评估</p>
+<p>从检测数据的角度评估当前网络信息系统面临的安全威胁状况</p>
+<pre class="mermaid"><code>flowchart LR
 A[攻击检测] --&gt;B[数据挖掘]
 A--&gt;C[数据融合]
 B --&gt; C
 C --&gt;D[可视化]
-D--&gt;E(人工评估)</code></pre></p>
+D--&gt;E(人工评估)</code></pre>
 <ul>
 <li>攻击检测，是指传统入侵检测，也包括漏洞扫描和系统、应用系统日志审计等，它们向上级模块提供攻击数据。</li>
 <li>数据融合，是指利用入侵检测得到的攻击信息来进行数据融合进而获得安全态势知识的过程。</li>
@@ -1800,21 +1792,29 @@ D--&gt;E(人工评估)</code></pre></p>
 </ul>
 </li>
 <li>
-<p>网络攻击效果评估
-    从攻击效果角度评估信息系统的安全性和网络攻击的能力</p>
+<p>网络攻击效果评估</p>
+<ul>
+<li>从攻击效果角度评估信息系统的安全性和网络攻击的能力</li>
+</ul>
 </li>
-<li>安全测评
-    通过选择公认的信息技术产品或信息系统的安全认证标准，如美国的TCSEC、ISO/IEC 15408(CC)、我国的GB17859-1999等，给出信息系统的安全性认证等级。</li>
-<li>信息安全工程能力评估
-    系统安全工程能力成熟度模型(System Security Engineering Capability Maturity Model ，简称SSE-CMM)，将信息安全看成一项系统工程，通过系统生命周期内一系列过程来保证安全，并从低到高定义了6个能力成熟级别， 来评价组织机构的系统安全工程能力。</li>
-<li>信息系统审计
-    信息系统审计，又称IT审计(IT Audit)，通常根据公认的标准或指导规范实施与否及其实施程度，来评估信息系统和相关资源的安全性、有效性、效率、完整性等。</li>
+<li>安全测评<ul>
+<li>通过选择公认的信息技术产品或信息系统的安全认证标准，如美国的TCSEC、ISO/IEC 15408(CC)、我国的GB17859-1999等，给出信息系统的安全性认证等级。</li>
+</ul>
+</li>
+<li>信息安全工程能力评估<ul>
+<li>系统安全工程能力成熟度模型(System Security Engineering Capability Maturity Model ，简称SSE-CMM)，将信息安全看成一项系统工程，通过系统生命周期内一系列过程来保证安全，并从低到高定义了6个能力成熟级别， 来评价组织机构的系统安全工程能力。</li>
+</ul>
+</li>
+<li>信息系统审计<ul>
+<li>信息系统审计，又称IT审计(IT Audit)，通常根据公认的标准或指导规范实施与否及其实施程度，来评估信息系统和相关资源的安全性、有效性、效率、完整性等。</li>
+</ul>
+</li>
 </ol>
 </li>
 </ul>
-<h2 id="网络安全标准">网络安全标准</h2>
+<h2 id="网络安全标准">网络安全标准<a class="headerlink" href="#网络安全标准" title="Permanent link">&para;</a></h2>
 <ul>
-<li>组织：ISO、IEC、ITU、IETF</li>
+<li>组织：ISO<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>、IEC<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>、ITU<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>、IETF<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 <li>分类：<ol>
 <li>互操作标准
     加密标准，安全传输标准，传输层加密标准(SSL)，安全电子邮件标准(S-MIME)，安全电子交易标准(SET)，通用脆弱性描述标准(CVE)</li>
@@ -1842,6 +1842,23 @@ D--&gt;E(人工评估)</code></pre></p>
 </ol>
 </li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.iso.org/home.html">https://www.iso.org/home.html</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.iec.ch/">https://www.iec.ch/</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.itu.int/en/Pages/default.aspx">https://www.itu.int/en/Pages/default.aspx</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://www.ietf.org/">https://www.ietf.org/</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
@@ -1864,7 +1881,7 @@ D--&gt;E(人工评估)</code></pre></p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年5月15日 22:02:57</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 12:23:51</span>
   </span>
 
     
@@ -1887,6 +1904,55 @@ D--&gt;E(人工评估)</code></pre></p>
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -2097,16 +2163,16 @@ D--&gt;E(人工评估)</code></pre></p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

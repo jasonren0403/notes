@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1174,8 +1174,8 @@
   
 
 
-<h1 id="Java-概述">Java 概述</h1>
-<h2 id="产生">产生</h2>
+<h1 id="Java-概述">Java 概述<a class="headerlink" href="#Java-概述" title="Permanent link">&para;</a></h1>
+<h2 id="产生">产生<a class="headerlink" href="#产生" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>JavaOne：全世界Java开发者的舞台</p>
 </blockquote>
@@ -1186,7 +1186,7 @@
 <li>1996年，Javasoft分公司，发展Java</li>
 </ul>
 <p>……</p>
-<h2 id="设计目标">设计目标</h2>
+<h2 id="设计目标">设计目标<a class="headerlink" href="#设计目标" title="Permanent link">&para;</a></h2>
 <ul>
 <li>100%面向对象</li>
 <li>提供程序运行的解释环境</li>
@@ -1194,7 +1194,7 @@
 <li>动态下载程序代码机制</li>
 <li>安全性——代码检验机制</li>
 </ul>
-<h2 id="实现机制">实现机制</h2>
+<h2 id="实现机制">实现机制<a class="headerlink" href="#实现机制" title="Permanent link">&para;</a></h2>
 <div class="admonition summary">
 <p class="admonition-title">三种平台</p>
 <ul>
@@ -1203,7 +1203,7 @@
 <li>J2ME，嵌入计算</li>
 </ul>
 </div>
-<h3 id="Java虚拟机">Java虚拟机</h3>
+<h3 id="Java虚拟机">Java虚拟机<a class="headerlink" href="#Java虚拟机" title="Permanent link">&para;</a></h3>
 <p>针对不同软硬件平台做专门实现</p>
 <p><a class="glightbox" href="md-img/java-1-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="md-img/java-1-1.png" /></a></p>
 <pre class="mermaid"><code>flowchart LR
@@ -1211,15 +1211,15 @@
     B --&gt; C["字节码文件&lt;br&gt;（&lt;code&gt;.class&lt;/code&gt;文件）"]
     C --&gt; D[解释器1]
     C --&gt; E[解释器2]</code></pre>
-<h3 id="无用内存收集">无用内存收集</h3>
+<h3 id="无用内存收集">无用内存收集<a class="headerlink" href="#无用内存收集" title="Permanent link">&para;</a></h3>
 <p>系统级线程控制</p>
-<h3 id="代码安全性检查">代码安全性检查</h3>
+<h3 id="代码安全性检查">代码安全性检查<a class="headerlink" href="#代码安全性检查" title="Permanent link">&para;</a></h3>
 <ul>
 <li>虚拟机“沙箱”运行，不允许程序访问所限制内存空间之外的内存和数据</li>
 <li>applet不可访问客户端文件系统</li>
 <li>字节码执行过程中会有类文件规范检查过程，类文件是否包含非法操作也会被检查</li>
 </ul>
-<h2 id="建立-Java-开发环境">建立 Java 开发环境</h2>
+<h2 id="建立-Java-开发环境">建立 Java 开发环境<a class="headerlink" href="#建立-Java-开发环境" title="Permanent link">&para;</a></h2>
 <ol>
 <li>安装 Java Development Kit(JDK)</li>
 <li>安装帮助文档</li>
@@ -1231,7 +1231,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="Java-程序分类">Java 程序分类</h3>
+<h3 id="Java-程序分类">Java 程序分类<a class="headerlink" href="#Java-程序分类" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Application</p>
@@ -1272,22 +1272,22 @@
 </div>
 </li>
 </ul>
-<h2 id="Java-程序的基本结构">Java 程序的基本结构</h2>
+<h2 id="Java-程序的基本结构">Java 程序的基本结构<a class="headerlink" href="#Java-程序的基本结构" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>从开头到结尾：0或1个 <code>package</code> 语句，若干 <code>import</code> 语句，类定义（public 类0或1个，其他若干），接口定义（若干）</p>
 </blockquote>
 <div class="admonition warning">
 <p><code>.java</code> 文件如果包含一个 public 类，则必须以该类名命名。</p>
 </div>
-<h3 id="package-语句">package 语句</h3>
+<h3 id="package-语句">package 语句<a class="headerlink" href="#package-语句" title="Permanent link">&para;</a></h3>
 <p>package 语句用于管理 <code>.class</code> 文件，把 <code>.class</code> 文件放入指定目录</p>
 <p>用法：<code>javac -d &lt;指定目录&gt;</code></p>
-<h3 id="import-语句">import 语句</h3>
+<h3 id="import-语句">import 语句<a class="headerlink" href="#import-语句" title="Permanent link">&para;</a></h3>
 <ul>
 <li>可以声明类、包</li>
 <li>引用类、包时，将沿 classpath 寻找相应的 <code>.class</code> 文件</li>
 </ul>
-<h3 id="Java-编码规范建议">Java 编码规范（建议）</h3>
+<h3 id="Java-编码规范建议">Java 编码规范（建议）<a class="headerlink" href="#Java-编码规范建议" title="Permanent link">&para;</a></h3>
 <ul>
 <li>包名：全小写的名词，中间由点分隔。如 <code>java.awt.event</code></li>
 <li>类名：首字母大写，若由多个单词组成类名，则每个单词首字母也要大写。如 <code>class HelloWorldApp</code></li>
@@ -1296,7 +1296,7 @@
 <li>变量名：全小写，一般为名词。如 <code>length</code></li>
 <li>常量名：基本数据类型的常量名为全大写。多个单词构成，下划线隔开。如 <code>int YEAR</code>、<code>int WEEK_OF_MONTH</code>。对象类型大小写混合，由大写字母分割单词</li>
 </ul>
-<h3 id="注释">注释</h3>
+<h3 id="注释">注释<a class="headerlink" href="#注释" title="Permanent link">&para;</a></h3>
 <ul>
 <li>单行注释：<code>//</code></li>
 <li>多行注释：<code>/* */</code></li>
@@ -1561,16 +1561,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

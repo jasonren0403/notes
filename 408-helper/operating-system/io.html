@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2023,7 +2023,7 @@
   
 
 
-<h1 id="输入输出IO管理">输入输出(I/O)管理</h1>
+<h1 id="输入输出IO管理">输入输出(I/O)管理<a class="headerlink" href="#输入输出IO管理" title="Permanent link">&para;</a></h1>
 <details class="summary" open="open">
 <summary>I/O系统的基本功能</summary>
 <ol>
@@ -2035,7 +2035,7 @@
 <li>错误处理</li>
 </ol>
 </details>
-<h2 id="IO管理简述">I/O管理简述</h2>
+<h2 id="IO管理简述">I/O管理简述<a class="headerlink" href="#IO管理简述" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>I/O设备与I/O控制器</p>
@@ -2138,7 +2138,7 @@
 </div>
 </li>
 </ul>
-<h3 id="IO控制方式">I/O控制方式</h3>
+<h3 id="IO控制方式">I/O控制方式<a class="headerlink" href="#IO控制方式" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="程序直接控制方式轮询" name="__tabbed_4" type="radio" /><input id="中断驱动方式" name="__tabbed_4" type="radio" /><input id="DMA方式" name="__tabbed_4" type="radio" /><input id="通道控制方式" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="程序直接控制方式轮询">程序直接控制方式：轮询</label><label for="中断驱动方式">中断驱动方式</label><label for="DMA方式">DMA方式</label><label for="通道控制方式">通道控制方式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2246,7 +2246,7 @@
 </div>
 </div>
 </div>
-<h3 id="IO软件层次结构">I/O软件层次结构</h3>
+<h3 id="IO软件层次结构">I/O软件层次结构<a class="headerlink" href="#IO软件层次结构" title="Permanent link">&para;</a></h3>
 <p>I/O软件通常组织成四个层次，低层实现与硬件相关操作，高层为用户提供简洁、友好和规范的接口</p>
 <figure>
 <p><a class="glightbox" href="asset-img/io-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="asset-img/io-1.png" /></a></p>
@@ -2267,8 +2267,8 @@
 </div>
 </div>
 </div>
-<h2 id="IO核心子系统">I/O核心子系统</h2>
-<h3 id="IO调度">I/O调度</h3>
+<h2 id="IO核心子系统">I/O核心子系统<a class="headerlink" href="#IO核心子系统" title="Permanent link">&para;</a></h2>
+<h3 id="IO调度">I/O调度<a class="headerlink" href="#IO调度" title="Permanent link">&para;</a></h3>
 <ul>
 <li>用某种算法确定一个好的顺序来处理各个I/O请求</li>
 </ul>
@@ -2279,7 +2279,7 @@
 <li>而Linux中IO调度的电梯算法有好几种，一个叫做AS(Anticipatory)，一个叫做 CFQ(Complete Fairness Queueing)，一个叫做deadline，还有一个叫做noop(No Operation)。具体使用哪种算法我们可以在启动的时候通过内核参数<code>elevator</code>来指定。</li>
 </ul>
 </details>
-<h3 id="高速缓存与内存组成的缓冲区">高速缓存与（内存组成的）缓冲区</h3>
+<h3 id="高速缓存与内存组成的缓冲区">高速缓存与（内存组成的）缓冲区<a class="headerlink" href="#高速缓存与内存组成的缓冲区" title="Permanent link">&para;</a></h3>
 <p>缓冲区是一个存储区域，它可以由专门的硬件寄存器组成，但由于硬件的成本比较高，容量也比较小，一般仅用在对速度要求非常高的场合，一般情况下，更多利用内存作为缓冲区。</p>
 <details class="summary" open="open">
 <summary>引入缓冲区的原因</summary>
@@ -2328,7 +2328,7 @@
 </div>
 </div>
 </div>
-<h3 id="设备分配与回收">设备分配与回收</h3>
+<h3 id="设备分配与回收">设备分配与回收<a class="headerlink" href="#设备分配与回收" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>设备分配中的数据结构</p>
@@ -2418,7 +2418,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="假脱机技术SPOOLing">假脱机技术（SPOOLing）</h3>
+<h3 id="假脱机技术SPOOLing">假脱机技术（SPOOLing）<a class="headerlink" href="#假脱机技术SPOOLing" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p>SPOOLing是Simultaneous Peripheral Operation On-Line （即外部设备联机并行操作）的缩写</p>
 </div>
@@ -2787,16 +2787,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

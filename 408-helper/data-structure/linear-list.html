@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2032,8 +2032,8 @@
   
 
 
-<h1 id="线性表">线性表</h1>
-<h2 id="定义">定义</h2>
+<h1 id="线性表">线性表<a class="headerlink" href="#线性表" title="Permanent link">&para;</a></h1>
+<h2 id="定义">定义<a class="headerlink" href="#定义" title="Permanent link">&para;</a></h2>
 <p>由 <span class="arithmatex">\(n(n≧0)\)</span> 个数据元素(结点) <span class="arithmatex">\(a_1,a_2,...,a_n\)</span> 组成的有限序列，记作</p>
 <div class="arithmatex">\[
 (a_1,a_2,..a_n)
@@ -2043,13 +2043,13 @@
 <li><span class="arithmatex">\(n=0\)</span> 时称为空表</li>
 <li><span class="arithmatex">\(a\)</span> 的下标 <span class="arithmatex">\(i\)</span> 称为 <span class="arithmatex">\(a_i\)</span> 在线性表中的位序</li>
 </ul>
-<h2 id="性质">性质</h2>
+<h2 id="性质">性质<a class="headerlink" href="#性质" title="Permanent link">&para;</a></h2>
 <ul>
 <li>在非空的线性表， 有且仅有一个开始结点 <span class="arithmatex">\(a_1\)</span> ，它没有直接前趋，而仅有一个直接后继 <span class="arithmatex">\(a_2\)</span></li>
 <li>有且仅有一个终端结点 <span class="arithmatex">\(a_n\)</span> ，它没有直接后继，而仅有一个直接前趋 <span class="arithmatex">\(a_{n-1}\)</span></li>
 <li>其余的内部结点 <span class="arithmatex">\(a_i(2 \leq i \leq n-1)\)</span> 都有且仅有一个直接前趋 <span class="arithmatex">\(a_{i-1}\)</span> 和一个直接后继 <span class="arithmatex">\(a_{i+1}\)</span></li>
 </ul>
-<h2 id="ADT类型定义">ADT类型定义</h2>
+<h2 id="ADT类型定义">ADT类型定义<a class="headerlink" href="#ADT类型定义" title="Permanent link">&para;</a></h2>
 <ul>
 <li>数据对象 <span class="arithmatex">\(D=\{a_i|a_i \in ElemSet, i=1,2,...,n, n \ge 0 \}\)</span></li>
 <li>数据关系 <span class="arithmatex">\(R1=\{\left \langle a_{i-1},a_i\right \rangle|a_{i-1},a_i \in D, i=2,...,n \}\)</span></li>
@@ -2145,8 +2145,8 @@
 </div>
 </li>
 </ul>
-<h2 id="存储结构">存储结构</h2>
-<h3 id="顺序表">顺序表</h3>
+<h2 id="存储结构">存储结构<a class="headerlink" href="#存储结构" title="Permanent link">&para;</a></h2>
+<h3 id="顺序表">顺序表<a class="headerlink" href="#顺序表" title="Permanent link">&para;</a></h3>
 <figure>
 <p><a class="glightbox" href="asset-img/linear-list-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="顺序表" src="asset-img/linear-list-1.png" /></a></p>
 <figcaption>连续存储的顺序表</figcaption>
@@ -2318,7 +2318,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </div>
 </li>
 </ul>
-<h3 id="链表">链表</h3>
+<h3 id="链表">链表<a class="headerlink" href="#链表" title="Permanent link">&para;</a></h3>
 <figure>
 <p><a class="glightbox" href="asset-img/linear-list-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="单链表" loading="lazy" src="asset-img/linear-list-2.png" /></a>
 <a class="glightbox" href="asset-img/linear-list-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="带头结点的单链表" loading="lazy" src="asset-img/linear-list-3.png" /></a></p>
@@ -2628,7 +2628,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </div>
 </li>
 </ul>
-<h4 id="静态链表">静态链表</h4>
+<h4 id="静态链表">静态链表<a class="headerlink" href="#静态链表" title="Permanent link">&para;</a></h4>
 <ul>
 <li>用数组描述的链表结构，数组的第零分量表示头结点，每个结点的指针域表示下一结点在数组中的相对位置</li>
 <li>结构表示
@@ -2639,7 +2639,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 </span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="p">}</span><span class="n">elem</span><span class="p">,</span><span class="n">SLinkList</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span>
 </span></code></pre></div></li>
 </ul>
-<h4 id="循环链表">循环链表</h4>
+<h4 id="循环链表">循环链表<a class="headerlink" href="#循环链表" title="Permanent link">&para;</a></h4>
 <figure>
 <p><a class="glightbox" href="asset-img/linear-list-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="循环列表" loading="lazy" src="asset-img/linear-list-4.png" /></a></p>
 <figcaption>循环链表</figcaption>
@@ -2654,7 +2654,7 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
 <li>是否为循环单链表的尾结点：<code>p-&gt;next==L</code></li>
 </ul>
 </div>
-<h4 id="双链表">双链表</h4>
+<h4 id="双链表">双链表<a class="headerlink" href="#双链表" title="Permanent link">&para;</a></h4>
 <figure>
 <p><a class="glightbox" href="asset-img/linear-list-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="双链表" loading="lazy" src="asset-img/linear-list-5.png" /></a></p>
 <figcaption>双链表</figcaption>
@@ -3043,16 +3043,16 @@ LOC(a_i) = LOC(a_1) + (i-1) \times C
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

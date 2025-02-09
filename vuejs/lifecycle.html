@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1433,7 +1433,7 @@
   
 
 
-<h1 id="生命周期">生命周期<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></h1>
+<h1 id="生命周期">生命周期<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#生命周期" title="Permanent link">&para;</a></h1>
 <p>每个 Vue 组件实例在创建时都需要经历一系列的初始化步骤，比如设置数据监听、编译模板、挂载实例到 DOM、以及在数据改变时更新 DOM。在此过程中，会运行被称为生命周期钩子的函数，让开发者有机会在特定阶段运行自己的代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="选项式-API" name="__tabbed_1" type="radio" /><input id="组合式-API" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="选项式-API">选项式 API</label><label for="组合式-API">组合式 API</label></div>
 <div class="tabbed-content">
@@ -1459,15 +1459,12 @@
 </div>
 </div>
 </div>
-<h2 id="生命周期图示">生命周期图示</h2>
+<h2 id="生命周期图示">生命周期图示<a class="headerlink" href="#生命周期图示" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p>本段待更新</p>
 </div>
-<h2 id="主要生命周期">主要生命周期</h2>
-<div class="admonition info">
-<p>本段参考<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>、<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
-</div>
-<h3 id="beforeCreate">beforeCreate</h3>
+<h2 id="主要生命周期">主要生命周期<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup><a class="headerlink" href="#主要生命周期" title="Permanent link">&para;</a></h2>
+<h3 id="beforeCreate">beforeCreate<a class="headerlink" href="#beforeCreate" title="Permanent link">&para;</a></h3>
 <p>在组件实例初始化完成之后立即调用。此时组件的属性如 <code>data</code>、<code>methods</code> 等还未初始化。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="选项式-API_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="选项式-API_1">选项式 API</label></div>
 <div class="tabbed-content">
@@ -1481,7 +1478,7 @@
 </div>
 </div>
 </div>
-<h3 id="created">created</h3>
+<h3 id="created">created<a class="headerlink" href="#created" title="Permanent link">&para;</a></h3>
 <p>在组件实例处理完所有与状态相关的选项后调用。此时响应数据、计算属性、方法和侦听器已经设置完成，但是 <code>$el</code> 不可用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="选项式-API_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="选项式-API_2">选项式 API</label></div>
 <div class="tabbed-content">
@@ -1495,7 +1492,7 @@
 </div>
 </div>
 </div>
-<h3 id="beforeMount">beforeMount</h3>
+<h3 id="beforeMount">beforeMount<a class="headerlink" href="#beforeMount" title="Permanent link">&para;</a></h3>
 <p>在组件被挂载前调用。组件已经完成了响应式状态设置。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="选项式-API_3" name="__tabbed_4" type="radio" /><input id="组合式-API_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="选项式-API_3">选项式 API</label><label for="组合式-API_1">组合式 API</label></div>
 <div class="tabbed-content">
@@ -1522,7 +1519,7 @@
 <div class="admonition tip">
 <p>这个钩子在服务端渲染时不会调用。</p>
 </div>
-<h3 id="mounted">mounted</h3>
+<h3 id="mounted">mounted<a class="headerlink" href="#mounted" title="Permanent link">&para;</a></h3>
 <p>在组件被挂载之后调用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="选项式-API_4" name="__tabbed_5" type="radio" /><input id="组合式-API_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="选项式-API_4">选项式 API</label><label for="组合式-API_2">组合式 API</label></div>
 <div class="tabbed-content">
@@ -1549,7 +1546,7 @@
 <div class="admonition tip">
 <p>这个钩子在服务端渲染时不会调用。</p>
 </div>
-<h3 id="beforeUpdate">beforeUpdate</h3>
+<h3 id="beforeUpdate">beforeUpdate<a class="headerlink" href="#beforeUpdate" title="Permanent link">&para;</a></h3>
 <p>在组件即将因为一个响应式状态变更而更新其 DOM 树前调用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="选项式-API_5" name="__tabbed_6" type="radio" /><input id="组合式-API_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="选项式-API_5">选项式 API</label><label for="组合式-API_3">组合式 API</label></div>
 <div class="tabbed-content">
@@ -1576,7 +1573,7 @@
 <div class="admonition tip">
 <p>这个钩子在服务端渲染时不会调用。</p>
 </div>
-<h3 id="updated">updated</h3>
+<h3 id="updated">updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h3>
 <p>在组件因为一个响应式状态变更而更新其 DOM 树之后调用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="选项式-API_6" name="__tabbed_7" type="radio" /><input id="组合式-API_4" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="选项式-API_6">选项式 API</label><label for="组合式-API_4">组合式 API</label></div>
 <div class="tabbed-content">
@@ -1606,7 +1603,7 @@
 <div class="admonition warning">
 <p>不要在这个钩子内更改组件的状态，可能会导致更新循环。</p>
 </div>
-<h3 id="beforeUnmount">beforeUnmount</h3>
+<h3 id="beforeUnmount">beforeUnmount<a class="headerlink" href="#beforeUnmount" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p>在 Vue 2 中，它被称为 <code>beforeDestroy</code>。</p>
 </div>
@@ -1636,7 +1633,7 @@
 <div class="admonition tip">
 <p>这个钩子在服务端渲染时不会调用。</p>
 </div>
-<h3 id="unmounted">unmounted</h3>
+<h3 id="unmounted">unmounted<a class="headerlink" href="#unmounted" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p>在 Vue 2 中，它被称为 <code>destroyed</code>。</p>
 </div>
@@ -1666,7 +1663,7 @@
 <div class="admonition tip">
 <p>这个钩子在服务端渲染时不会调用。</p>
 </div>
-<h3 id="activated">activated</h3>
+<h3 id="activated">activated<a class="headerlink" href="#activated" title="Permanent link">&para;</a></h3>
 <p>在组件被激活（<code>&lt;KeepAlive&gt;</code> 缓存树一部分被插入至 DOM）时调用。可用于在组件激活时获取数据。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="选项式-API_9" name="__tabbed_10" type="radio" /><input id="组合式-API_7" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="选项式-API_9">选项式 API</label><label for="组合式-API_7">组合式 API</label></div>
 <div class="tabbed-content">
@@ -1693,7 +1690,7 @@
 <div class="admonition tip">
 <p>这个钩子在服务端渲染时不会调用。</p>
 </div>
-<h3 id="deactivated">deactivated</h3>
+<h3 id="deactivated">deactivated<a class="headerlink" href="#deactivated" title="Permanent link">&para;</a></h3>
 <p>若组件实例是 <code>&lt;KeepAlive&gt;</code> 缓存树的一部分，当组件从 DOM 中被移除时调用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="选项式-API_10" name="__tabbed_11" type="radio" /><input id="组合式-API_8" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="选项式-API_10">选项式 API</label><label for="组合式-API_8">组合式 API</label></div>
 <div class="tabbed-content">
@@ -1756,7 +1753,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年7月9日 18:39:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 13:59:38</span>
   </span>
 
     
@@ -1779,6 +1776,55 @@
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -1989,16 +2035,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

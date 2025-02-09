@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1281,7 +1281,7 @@
   
 
 
-<h1 id="协程">协程</h1>
+<h1 id="协程">协程<a class="headerlink" href="#协程" title="Permanent link">&para;</a></h1>
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>            +---------+
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>go 主线程 ---|  go协程  | --&gt; 独立栈
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>            |  go协程  | --&gt; 独立栈
@@ -1292,14 +1292,14 @@
 <li>以主线程结束为准。</li>
 <li>开启协程 <code>go &lt;func&gt;()</code></li>
 </ul>
-<h2 id="调度模型">调度模型</h2>
+<h2 id="调度模型">调度模型<a class="headerlink" href="#调度模型" title="Permanent link">&para;</a></h2>
 <p>goroutine调度模型：MPG模式</p>
 <ul>
 <li>M：操作系统线程（物理级）</li>
 <li>P：协程执行所需上下文</li>
 <li>G：协程</li>
 </ul>
-<h2 id="常用函数">常用函数</h2>
+<h2 id="常用函数">常用函数<a class="headerlink" href="#常用函数" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>主要使用 <code>runtime</code> 包</p>
 </blockquote>
@@ -1307,16 +1307,16 @@
 <li><code>runtime.GOMAXPROCS(n)</code>：设置最大CPU核数，go1.8后无需设置，默认多核运行</li>
 <li><code>runtime.NumCPU()</code>：获取CPU核数</li>
 </ul>
-<h3 id="注意事项">注意事项</h3>
+<h3 id="注意事项">注意事项<a class="headerlink" href="#注意事项" title="Permanent link">&para;</a></h3>
 <ul>
 <li>小心协程并发竞争问题！在build时加 <code>-race</code> 参数可以观察竞争问题。</li>
 </ul>
-<h2 id="goroutine通讯">goroutine通讯</h2>
+<h2 id="goroutine通讯">goroutine通讯<a class="headerlink" href="#goroutine通讯" title="Permanent link">&para;</a></h2>
 <ul>
 <li>写时加全局锁</li>
 <li>channel（管道）数据类型</li>
 </ul>
-<h3 id="管道channel">管道channel</h3>
+<h3 id="管道channel">管道channel<a class="headerlink" href="#管道channel" title="Permanent link">&para;</a></h3>
 <ul>
 <li>声明 <code>var &lt;Name&gt; chan &lt;variType&gt;</code>，初始化（make）后才可使用，是个指针</li>
 <li>写入 <code>&lt;chan&gt; &lt;- &lt;value&gt;</code>，value为字面量或变量<ul>
@@ -1336,7 +1336,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="注意事项_1">注意事项</h3>
+<h3 id="注意事项_1">注意事项<a class="headerlink" href="#注意事项_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>遍历管道要使用for-range，遍历前不关闭管道会死锁（deadlock）</li>
 <li>
@@ -1627,16 +1627,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

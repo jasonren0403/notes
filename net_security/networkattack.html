@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1690,8 +1690,8 @@
   
 
 
-<h1 id="网络攻击">网络攻击</h1>
-<h2 id="网络安全扫描">网络安全扫描</h2>
+<h1 id="网络攻击">网络攻击<a class="headerlink" href="#网络攻击" title="Permanent link">&para;</a></h1>
+<h2 id="网络安全扫描">网络安全扫描<a class="headerlink" href="#网络安全扫描" title="Permanent link">&para;</a></h2>
 <ul>
 <li>网络安全扫描是对计算机网络系统进行相关的安全检测，进而找出安全隐患和漏洞。</li>
 <li>发现目标主机或网络 → 搜集目标信息</li>
@@ -1738,7 +1738,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="端口扫描">端口扫描</h3>
+<h3 id="端口扫描">端口扫描<a class="headerlink" href="#端口扫描" title="Permanent link">&para;</a></h3>
 <ul>
 <li>原理：向目标主机的TCP/IP服务端口发送探测数据包，并记录目标主机的响应，通过分析响应来判断服务端口是打开还是关闭，即可得知端口提供的服务或信息<ul>
 <li>分类：全连接扫描、半连接扫描、秘密扫描</li>
@@ -1840,8 +1840,10 @@
 </div>
 </div>
 </div>
+</li>
+<li>
+<p>漏洞扫描</p>
 <ul>
-<li>漏洞扫描<ul>
 <li>基于漏洞库的匹配法<ul>
 <li>大部分为Web漏洞</li>
 </ul>
@@ -1850,14 +1852,12 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<h3 id="操作系统探测">操作系统探测</h3>
+<h3 id="操作系统探测">操作系统探测<a class="headerlink" href="#操作系统探测" title="Permanent link">&para;</a></h3>
 <ul>
 <li>目的：有针对性的评估目标机的安全性</li>
 <li>主动探测技术<ul>
 <li>标识攫取<ul>
-<li>正常交互or抓取目标机上的任意文件</li>
+<li>正常交互或抓取目标机上的任意文件</li>
 <li>优点：提供的大部分服务足以暴露目标机的身份；缺点：手动获取，效率低</li>
 </ul>
 </li>
@@ -1879,7 +1879,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="漏洞检测">漏洞检测</h3>
+<h3 id="漏洞检测">漏洞检测<a class="headerlink" href="#漏洞检测" title="Permanent link">&para;</a></h3>
 <ul>
 <li>安全漏洞<ul>
 <li>又称“脆弱性(vulnerability)”</li>
@@ -1915,14 +1915,14 @@
 </li>
 </ul>
 </li>
-<li>漏洞检测方法：<ul>
+<li>漏洞检测方法<ul>
 <li>直接检测：使用针对漏洞特点设计的脚本或程序</li>
 <li>推断：寻找漏洞存在的证据</li>
 <li>带凭证的测试：将攻击者的权限提升至超级用户（目标）</li>
 </ul>
 </li>
 </ul>
-<h3 id="网络协议安全">网络协议安全</h3>
+<h3 id="网络协议安全">网络协议安全<a class="headerlink" href="#网络协议安全" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>一些协议本身存在漏洞，这些漏洞是无法通过修改来弥补的。</p>
@@ -1939,10 +1939,10 @@
 </ul>
 </li>
 <li>
-<p>生成树（STP）协议攻击</p>
-<details class="help">
+<p>生成树（STP）协议<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>攻击</p>
+<details class="help" open="open">
 <summary>STP Protocol</summary>
-<p><a href="https://www.jianshu.com/p/bc0670d2b0d9">详情</a></p>
+<p>生成树协议主要应用于计算机网络中树形拓扑结构的建立，防止网络中出现环路。</p>
 </details>
 <ul>
 <li>恶意黑客把一台计算机连接到不止一个交换机，然后发送网桥ID很低的精心设计的BPDU，就可以欺骗交换机，使它以为这是根网桥，这会导致STP重新收敛(reconverge)，从而引起回路，导致网络崩溃。</li>
@@ -1998,10 +1998,14 @@ c -x s: ACK</code></pre></li>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
-<li>增加了安全算法协商和数据加密/解密处理的功能和过程，通过密码技术保证数据机密性和完整性</li>
 <li>
+<p>增加了安全算法协商和数据加密/解密处理的功能和过程，通过密码技术保证数据机密性和完整性</p>
+</li>
+<li>
+<p>局域网安全协议</p>
 <ol>
-<li>IEEE 802.10标准(互操作局域网/城域网安全标准)
+<li>
+<p>IEEE 802.10标准(互操作局域网/城域网安全标准)
     <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>802.10帧结构
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> ---------------------------------------------
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>|  Clear Header(CH)    | Protected Header(PH)|
@@ -2017,11 +2021,11 @@ c -x s: ACK</code></pre></li>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>不可否认性：PH中的源地址字段可防止其他节点冒充源节点
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>完整性：ICV（用于数据完整性检查，以防止未经许可对内部数据的修改）
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>机密性：加密（可对PH和ICV之间的数据进行加密）
-</span></code></pre></div></li>
-</ol>
-<p>局域网安全协议</p>
-<ol>
-<li>在LAN中，每种MAC帧都设有一帧校验序列（FCS）字段，用于对MAC帧的正确性和完整性检查。通常采用CRC校验，每种MAC协议本身具有一定的数据完整性检查能力</li>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>在LAN中，每种MAC帧都设有一帧校验序列（FCS）字段，用于对MAC帧的正确性和完整性检查。通常采用CRC校验，每种MAC协议本身具有一定的数据完整性检查能力</p>
+</li>
 <li>应用：SAID用于标识数据流所属VLAN<ul>
 <li>但这时数据帧是不定长的，引起了兼容性问题</li>
 </ul>
@@ -2144,8 +2148,8 @@ c -x s: ACK</code></pre></li>
 </div>
 </li>
 </ul>
-<h2 id="ARP攻击"><a id="arp-attack"></a>ARP攻击</h2>
-<h3 id="嗅探技术">嗅探技术</h3>
+<h2 id="ARP攻击"><a id="arp-attack"></a>ARP攻击<a class="headerlink" href="#ARP攻击" title="Permanent link">&para;</a></h2>
+<h3 id="嗅探技术">嗅探技术<a class="headerlink" href="#嗅探技术" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>网卡的四种接收工作模式：广播、多播、直接、混杂</p>
@@ -2173,12 +2177,14 @@ c -x s: ACK</code></pre></li>
 </ul>
 </li>
 </ul>
-<h3 id="攻击">攻击</h3>
+<h3 id="攻击">攻击<a class="headerlink" href="#攻击" title="Permanent link">&para;</a></h3>
 <ul>
 <li>集线器环境：直接嗅探</li>
-<li>交换机环境：<ol>
-<li>发送大量虚假MAC地址数据报（针对交换机，使交换机“降级”），占用交换机地址表资源
-    &gt; 不适合采用静态地址映射表的交换机</li>
+<li>交换机环境<ul>
+<li>发送大量虚假MAC地址数据报（针对交换机，使交换机“降级”），占用交换机地址表资源<ul>
+<li>不适合采用静态地址映射表的交换机</li>
+</ul>
+</li>
 <li>ARP欺骗<ul>
 <li>主机C为了达到嗅探的目的，会向主机A和主机B分别发送ARP应答包，告诉它们IP地址为IPB的主机MAC地址为MACC，IP地址为IPA的主机MAC地址为MACC。这样，主机A和主机B的数据都流向了主机C</li>
 </ul>
@@ -2187,11 +2193,11 @@ c -x s: ACK</code></pre></li>
 <li>修改本地MAC地址为目标主机MAC地址来实现嗅探。只适用于动态生成地址映射表的交换机</li>
 </ul>
 </li>
-</ol>
+</ul>
 </li>
 <li>
-<p>攻击溯源：</p>
-<ol>
+<p>攻击溯源</p>
+<ul>
 <li>
 <p>抓包分析</p>
 <ul>
@@ -2216,7 +2222,7 @@ c -x s: ACK</code></pre></li>
 <p>看第一跳IP（与缺省网关不同）</p>
 </div>
 </li>
-</ol>
+</ul>
 </li>
 <li>
 <p>防御方法：（针对ARP欺骗）</p>
@@ -2247,12 +2253,12 @@ c -x s: ACK</code></pre></li>
 </div>
 </li>
 </ul>
-<h2 id="拒绝服务Denial-of-Service攻击">拒绝服务(Denial of Service)攻击</h2>
+<h2 id="拒绝服务Denial-of-Service攻击">拒绝服务(Denial of Service)攻击<a class="headerlink" href="#拒绝服务Denial-of-Service攻击" title="Permanent link">&para;</a></h2>
 <div class="admonition summary">
 <p class="admonition-title">DoS的目标</p>
 <p>使目标计算机或网络无法提供正常的服务</p>
 </div>
-<h3 id="典型的拒绝服务攻击">典型的拒绝服务攻击</h3>
+<h3 id="典型的拒绝服务攻击">典型的拒绝服务攻击<a class="headerlink" href="#典型的拒绝服务攻击" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:7"><input checked="checked" id="ping-of-death" name="__tabbed_5" type="radio" /><input id="Teardrop" name="__tabbed_5" type="radio" /><input id="Land攻击" name="__tabbed_5" type="radio" /><input id="SYN洪水" name="__tabbed_5" type="radio" /><input id="Smurf" name="__tabbed_5" type="radio" /><input id="HTTP洪水" name="__tabbed_5" type="radio" /><input id="传统DoS的升级" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="ping-of-death">ping of death</label><label for="Teardrop">Teardrop</label><label for="Land攻击">Land攻击</label><label for="SYN洪水">SYN洪水</label><label for="Smurf">Smurf</label><label for="HTTP洪水">HTTP洪水</label><label for="传统DoS的升级">传统DoS的升级</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2331,7 +2337,7 @@ c -x s: ACK</code></pre></li>
 </div>
 </div>
 </div>
-<h3 id="攻击检测">攻击检测</h3>
+<h3 id="攻击检测">攻击检测<a class="headerlink" href="#攻击检测" title="Permanent link">&para;</a></h3>
 <ul>
 <li>按检测模式分类的检测方法<ul>
 <li>基于误用的DDoS检测：找特征<ul>
@@ -2365,25 +2371,18 @@ c -x s: ACK</code></pre></li>
 </ul>
 </li>
 </ul>
-<h2 id="Web攻击">Web攻击</h2>
-<h3 id="XSSCross-Site-Scripting攻击">XSS(Cross Site Scripting)攻击</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="反射性XSS" name="__tabbed_7" type="radio" /><input id="存储型XSS" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="反射性XSS">反射性XSS</label><label for="存储型XSS">存储型XSS</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<h2 id="Web攻击">Web攻击<a class="headerlink" href="#Web攻击" title="Permanent link">&para;</a></h2>
+<h3 id="XSSCross-Site-Scripting攻击">XSS(Cross Site Scripting)攻击<a class="headerlink" href="#XSSCross-Site-Scripting攻击" title="Permanent link">&para;</a></h3>
+<dl>
+<dt>反射性XSS</dt>
+<dd>发生请求时，XSS代码出现在请求URL中，作为参数提交到服务器</dd>
+<dt>存储型XSS</dt>
+<dd>将XSS代码发送至服务器，下次请求页面时无需带上XSS代码</dd>
+</dl>
+<h3 id="CSRFCross-Site-Request-Forgery跨站域请求伪造">CSRF(Cross Site Request Forgery)跨站域请求伪造<a class="headerlink" href="#CSRFCross-Site-Request-Forgery跨站域请求伪造" title="Permanent link">&para;</a></h3>
 <ul>
-<li>发生请求时，XSS代码出现在请求URL中，作为参数提交到服务器</li>
+<li>伪装来自受信任用户的请求访问有权限的资源</li>
 </ul>
-</div>
-<div class="tabbed-block">
-<ul>
-<li>将XSS代码发送至服务器，下次请求页面时无需带上XSS代码</li>
-</ul>
-</div>
-</div>
-</div>
-<h3 id="CSRFCross-Site-Request-Forgery跨站域请求伪造">CSRF(Cross Site Request Forgery)跨站域请求伪造</h3>
-<ul>
-<li>伪装来自受信任用户的请求访问有权限的资源
 <pre class="mermaid"><code>sequenceDiagram
     actor u as user
     participant a as trusted_web
@@ -2393,62 +2392,68 @@ c -x s: ACK</code></pre></li>
     u-&gt;&gt;b: access hacked web(B) without logging out from trusted web(A)
     b-&gt;&gt;u: request an access to trusted web(A)
     u-&gt;&gt;a: access trusted web(A) with cookie(Ua) from step 2
-    Note over a: Trusted web(A) cannot distinguish whether the request come from a normal user or hacked user</code></pre></li>
-</ul>
-<h3 id="SQL注入攻击">SQL注入攻击</h3>
+    Note over a: Trusted web(A) cannot distinguish whether the request come from a normal user or hacked user</code></pre>
+<h3 id="SQL注入攻击">SQL注入攻击<a class="headerlink" href="#SQL注入攻击" title="Permanent link">&para;</a></h3>
 <details class="info">
 <summary>什么是SQL和SQL注入</summary>
-<p>SQL：结构化查询语言，与数据库交互，包含SELECT, INSERT, UPDATE, DELETE, CREATE, 以及DROP在内的命令几乎可以完成所有的数据库工作。
-SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面请求的查询字符串，欺骗服务器执行恶意SQL命令。</p>
+<ul>
+<li>SQL：结构化查询语言，与数据库交互，包含SELECT、INSERT、UPDATE、DELETE、CREATE以及DROP在内的命令几乎可以完成所有的数据库工作。</li>
+<li>SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面请求的查询字符串，欺骗服务器执行恶意SQL命令。</li>
+</ul>
 </details>
-<h4 id="本质">本质</h4>
+<h4 id="本质">本质<a class="headerlink" href="#本质" title="Permanent link">&para;</a></h4>
 <p>用户输入数据作为代码执行</p>
-<h4 id="关键条件">关键条件</h4>
-<ol>
-<li>用户能够控制输入</li>
-<li>原本程序要执行的代码，拼接了用户输入的数据</li>
-</ol>
-<div class="admonition danger">
-<p class="admonition-title">例子</p>
-<p>sql语句如右：<code>select * from users where username='x' and password='y'</code>
-令username = <code>'or 1=1 [--(mssql)或#(php)]</code>  password = <code>任意值</code>，可跳过用户名密码验证</p>
+<h4 id="关键条件">关键条件<a class="headerlink" href="#关键条件" title="Permanent link">&para;</a></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 用户能够控制输入 </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 原本程序要执行的代码，拼接了用户输入的数据</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<p><div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">password</span><span class="o">=</span><span class="s1">&#39;y&#39;</span>
+</span></code></pre></div>
+令username = <code>'or 1=1 --</code>（mssql）或 <code>'or 1=1 #</code>（php），password = <code>&lt;任意值&gt;</code>，可跳过用户名密码验证</p>
 </div>
-<h4 id="具体技巧">具体技巧</h4>
+<h4 id="具体技巧">具体技巧<a class="headerlink" href="#具体技巧" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
-<p>有错误信息回显——猜测数据库后端和查询语句
-例如：参数中输入单引号<code>'</code>后，服务器返回
-    <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>MicrosoftJETDatabaseEngine错误‘80040e14’
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>字符串的语法错误在查询表达式’ID=49’’中。
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>/showdetail.asp,行8
+<p>有错误信息回显——猜测数据库后端和查询语句</p>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<p>参数中输入单引号<code>'</code>后，服务器返回</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>MicrosoftJETDatabaseEngine错误‘80040e14’
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>字符串的语法错误在查询表达式’ID=49’’中。
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>/showdetail.asp,行8
 </span></code></pre></div>
-可以猜测后端为Access数据库，查询语句伪代码为<code>select xxx from table_X where id=$id</code></p>
+<p>可以猜测后端为Access数据库，查询语句伪代码为<code class="language-sql highlight"><span class="k">select</span><span class="w"> </span><span class="n">xxx</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">table_X</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="err">$</span><span class="n">id</span></code></p>
+</div>
 </li>
 <li>
-<p>关闭错误信息回显——盲注
-    !!! summary "例如"
-        例如：<code>http://someweb/somepage.php?id=xxx</code> ，猜测执行<code>select * from sometable where id = xxx</code></p>
-<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code>构造 `http://someweb/somepage.php?id=xxx and 1=2`，显示页面为空或错误页面；`http://someweb/somepage.php?id=xxx and 1=1`，正常返回，证明&quot;and&quot;成功执行，“id”参数存在SQL注入漏洞。
-</code></pre></div>
+<p>关闭错误信息回显——盲注</p>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<p>对于 <code class="language-urlencoded highlight"><span class="nt">http://someweb/somepage.php?id</span><span class="o">=</span><span class="s">xxx</span></code> ，猜测执行<code class="language-sql highlight"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sometable</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xxx</span></code></p>
+<p>构造 <code class="language-urlencoded highlight"><span class="nt">http://someweb/somepage.php?id</span><span class="o">=</span><span class="s">xxx and 1</span><span class="o">=</span><span class="s">2</span></code>，显示页面为空或错误页面；<code class="language-urlencoded highlight"><span class="nt">http://someweb/somepage.php?id</span><span class="o">=</span><span class="s">xxx and 1</span><span class="o">=</span><span class="s">1</span></code>，正常返回，证明"and"成功执行，“id”参数存在SQL注入漏洞。</p>
+</div>
 </li>
 <li>
 <p>timing attack时间攻击</p>
 <ul>
 <li>主要思路：假如返回结果的时间比平时长，说明函数被成功执行了。</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="mysql" name="__tabbed_8" type="radio" /><input id="PostgreSQL" name="__tabbed_8" type="radio" /><input id="MSSQL" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="mysql">mysql</label><label for="PostgreSQL">PostgreSQL</label><label for="MSSQL">MSSQL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="mysql" name="__tabbed_7" type="radio" /><input id="PostgreSQL" name="__tabbed_7" type="radio" /><input id="MSSQL" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="mysql">mysql</label><label for="PostgreSQL">PostgreSQL</label><label for="MSSQL">MSSQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">benchmark</span><span class="p">(</span><span class="k">count</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">benchmark</span><span class="p">(</span><span class="k">count</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">PG_SLEEP</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">GENERATE_SERIES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span>
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">PG_SLEEP</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">GENERATE_SERIES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">WAITFOR</span><span class="w"> </span><span class="n">DELAY</span><span class="w"> </span><span class="s1">&#39;0:0:5&#39;</span>
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">WAITFOR</span><span class="w"> </span><span class="n">DELAY</span><span class="w"> </span><span class="s1">&#39;0:0:5&#39;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2459,53 +2464,70 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </li>
 <li>
 <p>其他技巧</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:7"><input checked="checked" id="猜版本" name="__tabbed_9" type="radio" /><input id="猜列名" name="__tabbed_9" type="radio" /><input id="读写文件如果具有相应权限" name="__tabbed_9" type="radio" /><input id="执行命令" name="__tabbed_9" type="radio" /><input id="攻击存储过程" name="__tabbed_9" type="radio" /><input id="宽字符攻击" name="__tabbed_9" type="radio" /><input id="字符截断" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="猜版本">猜版本</label><label for="猜列名">猜列名</label><label for="读写文件如果具有相应权限">读写文件（如果具有相应权限）</label><label for="执行命令">执行命令</label><label for="攻击存储过程">攻击存储过程</label><label for="宽字符攻击">宽字符攻击</label><label for="字符截断">字符截断</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:7"><input checked="checked" id="猜版本" name="__tabbed_8" type="radio" /><input id="猜列名" name="__tabbed_8" type="radio" /><input id="读写文件如果具有相应权限" name="__tabbed_8" type="radio" /><input id="执行命令" name="__tabbed_8" type="radio" /><input id="攻击存储过程" name="__tabbed_8" type="radio" /><input id="宽字符攻击" name="__tabbed_8" type="radio" /><input id="字符截断" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="猜版本">猜版本</label><label for="猜列名">猜列名</label><label for="读写文件如果具有相应权限">读写文件（如果具有相应权限）</label><label for="执行命令">执行命令</label><label for="攻击存储过程">攻击存储过程</label><label for="宽字符攻击">宽字符攻击</label><label for="字符截断">字符截断</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">substring</span><span class="p">(</span><span class="o">@@</span><span class="k">version</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="mi">4</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cm">/* Check if mysql&#39;s version is 4 */</span>
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">substring</span><span class="p">(</span><span class="o">@@</span><span class="k">version</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="mi">4</span><span class="w"> </span><span class="cm">/* (1)! */</span>
 </span></code></pre></div>
+<ol>
+<li>检查 mysql 版本是不是 4 开头</li>
+</ol>
 </div>
 <div class="tabbed-block">
-<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">union</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">passwd</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">admin</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cm">/* Check if &#39;passwd&#39; field in table &#39;admin&#39; &#39;s column. */</span>
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">union</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">passwd</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">admin</span><span class="w"> </span><span class="cm">/* (1)! */</span>
 </span></code></pre></div>
+<ol>
+<li>检查 admin 表中是否有 passwd 字段</li>
+</ol>
 </div>
 <div class="tabbed-block">
-<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* mysql */</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">load_file</span><span class="p">()</span><span class="err">，</span><span class="k">select</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">dumpfile</span>
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/* mysql */</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">load_file</span><span class="p">()</span><span class="err">，</span><span class="k">select</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">dumpfile</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
 <ul>
 <li>可以执行 webshell 或用户自定义函数（UDF）</li>
 </ul>
-<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mysql:sys_eval() sys_exec() sys_get()
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sql server:xp_cmdshell
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>oracle:利用java环境
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="mysql_1" name="__tabbed_9" type="radio" /><input id="sql-server" name="__tabbed_9" type="radio" /><input id="oracle" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="mysql_1">mysql</label><label for="sql-server">sql server</label><label for="oracle">oracle</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">sys_eval</span><span class="p">()</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">sys_exec</span><span class="p">()</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">sys_get</span><span class="p">()</span>
 </span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">xp_cmdshell</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>利用java环境</p>
+</div>
+</div>
+</div>
 </div>
 <div class="tabbed-block">
 <ul>
 <li>mssql server：<code>xp_cmdshell</code> sysadmin权限可以使用<code>sp_configure</code>重新开启</li>
 <li>除此之外，<code>xp_regread</code> <code>xp_regaddmultistring</code> <code>xp_regdeletekey</code> <code>xp_regdeletevalue</code> <code>xp_regenumkeys</code> <code>xp_regenumvalues</code>可以操作注册表。还有很多别的API可以完成更多操作</li>
 <li>存储过程注入
-    <div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">procedure</span><span class="w"> </span><span class="n">get_item</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="n">item_cv</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="n">ItmCurTyp</span><span class="p">,</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">usr</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">,</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">itm</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">)</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">is</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="k">open</span><span class="w"> </span><span class="n">itm_cv</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39; SELECT * FROM items WHERE &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;owner = &#39;&#39;&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">usr</span><span class="w"> </span><span class="o">||</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="s1">&#39; AND itemname = &#39;&#39;&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">itm</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;&#39;</span><span class="p">;</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">end</span><span class="w"> </span><span class="n">get_item</span><span class="p">;</span>
+    <div class="language-sql highlight"><span class="filename">SQL</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">procedure</span><span class="w"> </span><span class="n">get_item</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">item_cv</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="n">ItmCurTyp</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">usr</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">itm</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">varchar2</span><span class="p">)</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">is</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="k">open</span><span class="w"> </span><span class="n">itm_cv</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39; SELECT * FROM items WHERE &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;owner = &#39;&#39;&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">usr</span><span class="w"> </span><span class="o">||</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="s1">&#39; AND itemname = &#39;&#39;&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">itm</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;&#39;</span><span class="p">;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="k">end</span><span class="w"> </span><span class="n">get_item</span><span class="p">;</span>
 </span></code></pre></div></li>
 </ul>
 </div>
 <div class="tabbed-block">
 <ul>
 <li>数据库编码未经限制，若每个字符占2个字节，可以吃掉转义字符<code>\</code>，从而绕过过滤<ul>
-<li><code>0x 5c → 0x bf 5c</code>（斜杠 &rarr; 一个中文乱码字）</li>
-<li><code>0x 27 → 0x bf 27</code>（单引号' &rarr; 一个倒立问号+单引号）</li>
+<li><code>0x 5c → 0x bf 5c</code>（斜杠 <code>\</code> &rarr; 一个中文乱码字）</li>
+<li><code>0x 27 → 0x bf 27</code>（单引号 <code>'</code> &rarr; 一个倒立问号+单引号）</li>
 <li>转义：<code>0x bf5c27</code> 0xbf5c被解析成了一个字符，转义失效</li>
 </ul>
 </li>
@@ -2521,7 +2543,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </div>
 </li>
 </ul>
-<h4 id="SQL注入过程">SQL注入过程</h4>
+<h4 id="SQL注入过程">SQL注入过程<a class="headerlink" href="#SQL注入过程" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>注入点查询</p>
@@ -2575,8 +2597,8 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <ul>
 <li>
 <p>系统变量
-    <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>http://someweb/somepage.asp?id=11&#39; and (select count(*) from sysobjects)&gt;0--
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>http://someweb/somepage.asp?id=11&#39; and (select count(*) from msysobjects)&gt;0--
+    <div class="language-urlencoded highlight"><span class="filename">Urlencoded</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">http://someweb/somepage.asp?id</span><span class="o">=</span><span class="s">11&#39; and (select count(*) from sysobjects)&gt;0--</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="s">http://someweb/somepage.asp?id</span><span class="o">=</span><span class="s">11&#39; and (select count(*) from msysobjects)&gt;0--</span>
 </span></code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">意义</p>
@@ -2589,13 +2611,13 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </li>
 <li>
 <p>其他语句：（<code>%20</code> → 空格，<code>%3E</code> → 大于号<code>&gt;</code>）
-    <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>url + &#39;%20and%20@@version%3E1--    数据库软件版本
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>url + &#39;%20and%20db_name()%3E0--    当前数据库名
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>url + &#39;%20and%20@@servername%3E0-- 服务器名
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>url + &#39;%20and%20host_name()%3E0--  主机名
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>url + &#39;%20and%20system_user%3E0--  系统用户
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>url + &#39;%20and%20user%3E0--         当前用户
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>......
+    <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>url + &#39;%20and%20@@version%3E1--    数据库软件版本
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>url + &#39;%20and%20db_name()%3E0--    当前数据库名
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>url + &#39;%20and%20@@servername%3E0-- 服务器名
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>url + &#39;%20and%20host_name()%3E0--  主机名
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>url + &#39;%20and%20system_user%3E0--  系统用户
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>url + &#39;%20and%20user%3E0--         当前用户
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>......
 </span></code></pre></div></p>
 </li>
 <li>软件工具采集：Pangolin</li>
@@ -2623,7 +2645,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h4 id="SQL攻击防范">SQL攻击防范</h4>
+<h4 id="SQL攻击防范">SQL攻击防范<a class="headerlink" href="#SQL攻击防范" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>服务器安全</p>
@@ -2693,23 +2715,26 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="vb" name="__tabbed_14" type="radio" /><input id="php" name="__tabbed_14" type="radio" /><input id="java" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="vb">vb</label><label for="php">php</label><label for="java">java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>If request.QueryString(&quot;id&quot;) = &quot;&quot; or not IsNumeric(request.QueryString(&quot;id&quot;)) Then
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    Call infoback(&quot;err param&quot;)
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>End If
+<div class="language-vbnet highlight"><span class="filename">VB.net</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">If</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">IsNumeric</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">))</span><span class="w"> </span><span class="k">Then</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="k">Call</span><span class="w"> </span><span class="n">infoback</span><span class="p">(</span><span class="s">&quot;err param&quot;</span><span class="p">)</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="x">mysql_real_escape_string(string,conn)</span>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="x">mysql_real_escape_string(string,conn)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-java highlight"><span class="filename">Java</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">//预编译语句，假设要查询的条件为字符d</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">String</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;select a from b where c = ?&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">//用问号表示要填入sql语句的参数</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">pstmt</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pstmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span>
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1">//攻击者无法改变sql语句的结构</span>
+<div class="language-java highlight"><span class="filename">预编译语句，假设要查询的条件为字符d</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">String</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;select a from b where c = ?&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// (1)!</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">pstmt</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pstmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1">// (2)!</span>
 </span></code></pre></div>
+<ol>
+<li>用问号表示要填入sql语句的参数</li>
+<li>攻击者无法改变sql语句的结构</li>
+</ol>
 </div>
 </div>
 </div>
@@ -2718,9 +2743,9 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <div class="tabbed-set tabbed-alternate" data-tabs="15:1"><input checked="checked" id="java_1" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="java_1">java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-java highlight"><span class="filename">Java</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">CallableStatement</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareCall</span><span class="p">(</span><span class="s">&quot;{call sp_getAccountBalance(?)}&quot;</span><span class="p">);</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">cs</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">custname</span><span class="p">);</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span>
+<div class="language-java highlight"><span class="filename">Java</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">CallableStatement</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareCall</span><span class="p">(</span><span class="s">&quot;{call sp_getAccountBalance(?)}&quot;</span><span class="p">);</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">cs</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">custname</span><span class="p">);</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2730,11 +2755,11 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <div class="tabbed-set tabbed-alternate" data-tabs="16:1"><input checked="checked" id="php_1" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="php_1">php</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="x">/* 1.settype(var,typename) */</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="x">settype($offset, &#39;integer&#39;);</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="x">$query = &quot;SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;&quot;;</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="x">/* 2.sprintf()中的%d */</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="x">$query = sprintf(&quot;SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET %d;&quot;,$offset);</span>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="x">/* 1.settype(var,typename) */</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="x">settype($offset, &#39;integer&#39;);</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="x">$query = &quot;SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;&quot;;</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="x">/* 2.sprintf()中的%d */</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="x">$query = sprintf(&quot;SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET %d;&quot;,$offset);</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2753,13 +2778,13 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </div>
 </li>
 </ul>
-<h2 id="DNS威胁与防范">DNS威胁与防范</h2>
+<h2 id="DNS威胁与防范">DNS威胁与防范<a class="headerlink" href="#DNS威胁与防范" title="Permanent link">&para;</a></h2>
 <details class="info">
 <summary>何谓DNS</summary>
 <p>域名系统（Domain Name System，DNS)负责在域名和IP地址之间进行转换，是Internet中最重要的基础设施。</p>
 </details>
 <ul>
-<li>标准：RFC1034、1035</li>
+<li>标准：RFC1034、RFC1035</li>
 <li>
 <p>结构</p>
 <ul>
@@ -2768,16 +2793,16 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 <div class="admonition info">
 <p>早期域名必须以英文句号 <code>.</code> 结尾才能解析，现在这个点可以自动补上</p>
-<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>http://www.wikipedia.org.
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>        ↑               ↑
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    提供www服务      注意这个点！
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>http://www.wikipedia.org.
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>        ↑               ↑
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    提供www服务      注意这个点！
 </span></code></pre></div>
 </div>
 </li>
 <li>
 <p>DNS资源记录</p>
 <ul>
-<li>五元组：(Domain_name,Time_to_live,Class,Type,Value)</li>
+<li>五元组：<code>(Domain_name,Time_to_live,Class,Type,Value)</code></li>
 <li>常用记录类型：A（ipv4地址）、AAAA（ipv6地址）、NS（该域名所在域的权威服务器）、CNAME（当前域名的别名）、MX（接受特定域名电子邮件的服务器别名）</li>
 <li>DNS常用命令<ul>
 <li><code>ipconfig /all</code>：查看网络配置情况，包括DNS服务器IP</li>
@@ -2793,7 +2818,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h3 id="DNS工作流程递归查询-vs-迭代查询">DNS工作流程：递归查询 vs 迭代查询</h3>
+<h3 id="DNS工作流程递归查询-vs-迭代查询">DNS工作流程：递归查询 vs 迭代查询<a class="headerlink" href="#DNS工作流程递归查询-vs-迭代查询" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p><code>dig</code>工具可以了解解析过程</p>
 </div>
@@ -2813,7 +2838,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </div>
 </div>
 </div>
-<h3 id="DNS协议">DNS协议</h3>
+<h3 id="DNS协议">DNS协议<a class="headerlink" href="#DNS协议" title="Permanent link">&para;</a></h3>
 <ul>
 <li>工作在应用层</li>
 <li>TCP和UDP均可以使用，端口号为53<ul>
@@ -2822,8 +2847,8 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h3 id="安全威胁和防范"><a id="dns-attack"></a>安全威胁和防范</h3>
-<h4 id="安全威胁">安全威胁</h4>
+<h3 id="安全威胁和防范"><a id="dns-attack"></a>安全威胁和防范<a class="headerlink" href="#安全威胁和防范" title="Permanent link">&para;</a></h3>
+<h4 id="安全威胁">安全威胁<a class="headerlink" href="#安全威胁" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>安全缺陷</p>
@@ -2905,7 +2930,7 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h4 id="安全防范">安全防范</h4>
+<h4 id="安全防范">安全防范<a class="headerlink" href="#安全防范" title="Permanent link">&para;</a></h4>
 <ul>
 <li>选择安全的BIND版本<ul>
 <li>根据调查，V9版本的BIND是最安全的</li>
@@ -2916,51 +2941,54 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <ul>
 <li>隔离，DNS服务器上不应再运行其他服务</li>
 <li>为BIND创建chroot，限制它只在指定目录下运行</li>
-<li>隐藏BIND版本号
-    <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>/etc/bind/named.conf 下：
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>options{
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    version &quot;secret&quot;;  //这里只要不是版本号就行
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>}
-</span></code></pre></div></li>
-<li>请求限制<ul>
+<li>
+<p>隐藏BIND版本号</p>
+<div class="language-apacheconf highlight"><span class="filename">/etc/bind/named.conf</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">options</span>{
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="nb">version</span><span class="w"> </span><span class="s2">&quot;secret&quot;</span>;<span class="w">  </span>//<span class="w"> </span>这里只要不是版本号就行
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="err">}</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>请求限制</p>
+<ul>
 <li>DNS服务器响应任何人的任何请求是不安全的。限制DNS服务器的服务范围很重要，可以把许多入侵者拒之门外。修改BIND的配置文件/etc/named.conf，添加相应内容即可
-    <div class="language-text highlight"><span class="filename">/etc/bind/named.conf 下：</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>options{      //或特定zone区域下
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    ...
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    allow-query{
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        &lt;address-match-list&gt;  //指定允许域名查询的主机列表
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    };
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    ...
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>}
+    <div class="language-apacheconf highlight"><span class="filename">/etc/bind/named.conf</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">options</span>{<span class="w">      </span>//或特定zone区域下
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span>...
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="nb">allow</span>-query{
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">        </span><span class="nt">&lt;address-match-list&gt;</span><span class="w">  </span><span class="err">//指定允许域名查询的主机列表</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="err">};</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span>...
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="err">}</span>
 </span></code></pre></div></li>
 </ul>
 </li>
 <li>限制区传送<ul>
 <li>默认情况下BIND的区传送是全部开放的，如果没有限制，DNS服务器允许任何人进行区传送，那么网络架构中的主机名、主机ip地址表、路由器名及路由IP表，甚至包括各主机所在的位置和硬件配置信息等情况很容易被入侵者得到。因此需要对区传送进行必要的限制
-    <div class="language-text highlight"><span class="filename">/etc/bind/named.conf 下：</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>options{      //或特定zone区域下
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    ...
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    allow-transfer{
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>        &lt;address-match-list&gt;  //指定允许区域记录传输的主机列表
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    };
-</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    blackhole{
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        &lt;address-match-list&gt;  //指定不接受哪些服务器的区域传输请求的主机列表
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    };
-</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    ...
-</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>}
+    <div class="language-apacheconf highlight"><span class="filename">/etc/bind/named.conf</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">options</span>{<span class="w">      </span>//或特定zone区域下
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span>...
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="nb">allow</span>-transfer{
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">        </span><span class="nt">&lt;address-match-list&gt;</span><span class="w">  </span><span class="err">//指定允许区域记录传输的主机列表</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">    </span><span class="err">};</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">    </span><span class="nb">blackhole</span>{
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">        </span><span class="nt">&lt;address-match-list&gt;</span><span class="w">  </span><span class="err">//指定不接受哪些服务器的区域传输请求的主机列表</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">    </span><span class="err">};</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">    </span>...
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="err">}</span>
 </span></code></pre></div></li>
 </ul>
 </li>
 <li>关闭动态更新<ul>
 <li>DNS客户端IP地址或名称出现更改时，可以利用DNS服务器注册和动态更新其资源记录。虽然DNS动态更新规定了怎样的系统才允许更新一台DNS服务器中的记录，但是DNS仍然可能受到威胁，比如攻击者利用IP欺骗，伪装成DNS服务器信任的主机对系统进行更新或者删减、增加、修改资源记录
-    <div class="language-text highlight"><span class="filename">/etc/bind/named.conf 下：</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>options{      //或特定zone区域下
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    ...
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    allow-update{
-</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>        &lt;address-match-list&gt;  //指定允许动态更新的主机列表
-</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    };
-</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    allow-update-forwarding{
-</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>        &lt;address-match-list&gt;  //辅DNS上做这个设置，指定允许转发动态更新的主机列表
-</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>    };
-</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    ...
-</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>}
+    <div class="language-apacheconf highlight"><span class="filename">/etc/bind/named.conf</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">options</span>{<span class="w">      </span>//或特定zone区域下
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span>...
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="nb">allow</span>-update{
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">        </span><span class="nt">&lt;address-match-list&gt;</span><span class="w">  </span><span class="err">//指定允许动态更新的主机列表</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">    </span><span class="err">};</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="w">    </span><span class="nb">allow</span>-update-forwarding{
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="w">        </span><span class="nt">&lt;address-match-list&gt;</span><span class="w">  </span><span class="err">//辅</span><span class="nb">DNS上做这个设置</span>，指定允许转发动态更新的主机列表
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="w">    </span><span class="err">};</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="w">    </span>...
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="err">}</span>
 </span></code></pre></div></li>
 </ul>
 </li>
@@ -2970,7 +2998,8 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <p>其他加固措施</p>
 <ul>
 <li>事务签名技术<ul>
-<li>分为TSIG和SIG0，前者为共享密码，相互信任时使用；后者采用非对称密码算法，非完全信任时使用</li>
+<li>TSIG 为共享密码，相互信任时使用</li>
+<li>SIG0 采用非对称密码算法，非完全信任时使用</li>
 </ul>
 </li>
 <li>DNSSEC<ul>
@@ -2992,12 +3021,12 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 </ul>
 </li>
 </ul>
-<h2 id="恶意代码">恶意代码</h2>
+<h2 id="恶意代码">恶意代码<a class="headerlink" href="#恶意代码" title="Permanent link">&para;</a></h2>
 <div class="admonition summary">
 <p class="admonition-title">什么是恶意代码</p>
 <p>未经授权，在信息系统中安装、执行并达到不正当目的的程序。</p>
 </div>
-<h3 id="病毒">病毒</h3>
+<h3 id="病毒">病毒<a class="headerlink" href="#病毒" title="Permanent link">&para;</a></h3>
 <p>感染性、潜伏性、破坏性 → 借生物学意义</p>
 <div class="admonition quote">
 <p class="admonition-title">计算机病毒定义</p>
@@ -3006,37 +3035,26 @@ SQL注入攻击：把SQL命令插入到web表单递交或输入域名或页面�
 <ul>
 <li>
 <p>基本特征</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="19:9"><input checked="checked" id="可执行性" name="__tabbed_19" type="radio" /><input id="传染性" name="__tabbed_19" type="radio" /><input id="隐蔽性" name="__tabbed_19" type="radio" /><input id="潜伏性" name="__tabbed_19" type="radio" /><input id="可触发性" name="__tabbed_19" type="radio" /><input id="破坏性" name="__tabbed_19" type="radio" /><input id="寄生性" name="__tabbed_19" type="radio" /><input id="衍生性" name="__tabbed_19" type="radio" /><input id="诱骗性" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="可执行性">可执行性</label><label for="传染性">传染性</label><label for="隐蔽性">隐蔽性</label><label for="潜伏性">潜伏性</label><label for="可触发性">可触发性</label><label for="破坏性">破坏性</label><label for="寄生性">寄生性</label><label for="衍生性">衍生性</label><label for="诱骗性">诱骗性</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>即程序性，计算机病毒是一段代码（可执行程序）。</p>
-</div>
-<div class="tabbed-block">
-<p>病毒具有把自身复制到其它程序的能力。</p>
-</div>
-<div class="tabbed-block">
-<p>计算机病毒具有隐蔽能力，其传染过程也具有隐蔽能力。</p>
-</div>
-<div class="tabbed-block">
-<p>计算机病毒往往在感染系统后，首先进入潜伏期，等待触发时机。</p>
-</div>
-<div class="tabbed-block">
-<p>计算机病毒在触发条件满足时会自动从潜伏期进入活动阶段。</p>
-</div>
-<div class="tabbed-block">
-<p>计算机病毒大都具有破坏性，如：占用系统资源（内存、硬盘、CPU），破坏数据等。</p>
-</div>
-<div class="tabbed-block">
-<p>计算机病毒嵌入到宿主程序中，依赖于宿主程序而生存。</p>
-</div>
-<div class="tabbed-block">
-<p>计算机病毒可以衍生出与原版本不同的变种。</p>
-</div>
-<div class="tabbed-block">
-<p>有些病毒通过一些特殊的方式，诱骗用户触发、激活病毒。</p>
-</div>
-</div>
-</div>
+<dl>
+<dt>可执行性</dt>
+<dd>即程序性，计算机病毒是一段代码（可执行程序）。</dd>
+<dt>传染性</dt>
+<dd>病毒具有把自身复制到其它程序的能力。</dd>
+<dt>隐蔽性</dt>
+<dd>计算机病毒具有隐蔽能力，其传染过程也具有隐蔽能力。</dd>
+<dt>潜伏性</dt>
+<dd>计算机病毒往往在感染系统后，首先进入潜伏期，等待触发时机。</dd>
+<dt>可触发性</dt>
+<dd>计算机病毒在触发条件满足时会自动从潜伏期进入活动阶段。</dd>
+<dt>破坏性</dt>
+<dd>计算机病毒大都具有破坏性，如：占用系统资源（内存、硬盘、CPU），破坏数据等。</dd>
+<dt>寄生性</dt>
+<dd>计算机病毒嵌入到宿主程序中，依赖于宿主程序而生存。</dd>
+<dt>衍生性</dt>
+<dd>计算机病毒可以衍生出与原版本不同的变种。</dd>
+<dt>诱骗性</dt>
+<dd>有些病毒通过一些特殊的方式，诱骗用户触发、激活病毒。</dd>
+</dl>
 </li>
 <li>
 <p>生命周期
@@ -3081,37 +3099,41 @@ a(开发期) --&gt; b(传染期) --&gt; c(潜伏期) --&gt; d(发作期) --&gt; 
 <li>感染过程
     <pre class="mermaid"><code>flowchart LR
 id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代码放入新的宿主程序)</code></pre></li>
-<li>感染机理<ul>
-<li>引导型病毒
-    利用在开机引导时窃取中断控制权，并在计算机运行过程中监视软盘读写时机，趁机完成对软盘的引导区感染，被感染的软盘又会传染给其它计算机。</li>
-<li>文件型病毒
-    执行被感染的可执行文件后，病毒进驻内存，监视系统运行，并查找可能被感染的文件进行感染。<ul>
-<li>寄生感染<ul>
-<li>替代法：替代磁盘引导扇区或文件中的全部或部分内容（引导区病毒）</li>
-<li>链接法：将自身代码作为正常程序的一部分与宿主HOST链接在一起（可执行文件病毒）</li>
-</ul>
-</li>
-<li>无入口点感染
-    在不修改宿主原入口点的前提下，通过在宿主代码体内某处插入跳转指令来使病毒获得控制权</li>
-<li>滋生感染
-    为被感染文件创建一个伴随文件（病毒），当用户执行被感染文件时会激活病毒</li>
-<li>链式感染
-    完全不改动宿主程序本体，而是改动或利用与宿主程序相关的信息，将病毒程序与宿主程序链成一体，当宿主程序欲运行时，利用相关关系使病毒部分首先运行</li>
-<li>OBJ、LIB和源码感染
-    感染编译器生成的中间对象文件或库文件，或直接对源代码进行修改，在源代码文件中增加病毒的内容</li>
-</ul>
-</li>
-</ul>
+<li>
+<p>感染机理</p>
+<dl>
+<dt>引导型病毒</dt>
+<dd>利用在开机引导时窃取中断控制权，并在计算机运行过程中监视软盘读写时机，趁机完成对软盘的引导区感染，被感染的软盘又会传染给其它计算机。</dd>
+<dt>文件型病毒</dt>
+<dd>执行被感染的可执行文件后，病毒进驻内存，监视系统运行，并查找可能被感染的文件进行感染。</dd>
+</dl>
+<details class="info" open="open">
+<summary>感染方式</summary>
+<dl>
+<dt>寄生感染</dt>
+<dd>替代磁盘引导扇区或文件中的全部或部分内容（引导区病毒），或将自身代码作为正常程序的一部分与宿主HOST链接在一起（可执行文件病毒）</dd>
+<dt>无入口点感染</dt>
+<dd>在不修改宿主原入口点的前提下，通过在宿主代码体内某处插入跳转指令来使病毒获得控制权</dd>
+<dt>滋生感染</dt>
+<dd>为被感染文件创建一个伴随文件（病毒），当用户执行被感染文件时会激活病毒</dd>
+<dt>链式感染</dt>
+<dd>完全不改动宿主程序本体，而是改动或利用与宿主程序相关的信息，将病毒程序与宿主程序链成一体，当宿主程序欲运行时，利用相关关系使病毒部分首先运行</dd>
+<dt>OBJ、LIB和源码感染</dt>
+<dd>感染编译器生成的中间对象文件或库文件，或直接对源代码进行修改，在源代码文件中增加病毒的内容</dd>
+</dl>
+</details>
 </li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">混合感染 &amp; 交叉感染</p>
-<p>混合感染：既感染引导扇区又感染文件
-交叉感染：一个宿主程序上感染多种病毒</p>
+<ul>
+<li>混合感染：既感染引导扇区又感染文件</li>
+<li>交叉感染：一个宿主程序上感染多种病毒</li>
+</ul>
 </div>
 </li>
 </ul>
-<h3 id="木马">木马</h3>
+<h3 id="木马">木马<a class="headerlink" href="#木马" title="Permanent link">&para;</a></h3>
 <div class="admonition quote">
 <p class="admonition-title">什么是木马[RFC 1244]</p>
 <p>特洛伊木马程序是这样一种程序，它提供了一些有用的，或仅仅是有意思的功能。但是通常要做一些用户不希望的事，诸如在你不了解的情况下拷贝文件或窃取你的密码</p>
@@ -3124,7 +3146,7 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </li>
 <li>与病毒的最大区别：自我复制不是它的功能所在，或者根本不具有复制性</li>
 </ul>
-<h3 id="蠕虫">蠕虫</h3>
+<h3 id="蠕虫">蠕虫<a class="headerlink" href="#蠕虫" title="Permanent link">&para;</a></h3>
 <div class="admonition quote">
 <p class="admonition-title">蠕虫的定义</p>
 <p>“蠕虫可以独立运行，并且自动复制自身并传播到另一台主机。”——Spaford</p>
@@ -3244,7 +3266,7 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </tbody>
 </table>
 </div>
-<h3 id="恶意代码技术">恶意代码技术</h3>
+<h3 id="恶意代码技术">恶意代码技术<a class="headerlink" href="#恶意代码技术" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>启动</p>
@@ -3307,8 +3329,10 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 <p>通过文件关联启动</p>
 <details class="help">
 <summary>何谓文件关联</summary>
-<p>规定某种格式的文件用哪个程序打开，或用某个程序来打开哪些文件。
-* 比如双击.txt文件，一般情况下使用Notepad.exe打开。</p>
+<p>规定某种格式的文件用哪个程序打开，或用某个程序来打开哪些文件。</p>
+<ul>
+<li>比如双击.txt文件，一般情况下使用Notepad.exe打开。</li>
+</ul>
 </details>
 <ul>
 <li>在<code>HKEY_CLASSES_ROOT</code>下可以找到扩展名所对应的标识主键名，我们主要关心的是其<code>Shell</code>子键的<code>open</code>子键，改变其<code>command</code>值就改变了它的打开方式</li>
@@ -3436,6 +3460,14 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 </ul>
 </li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://info.support.huawei.com/info-finder/encyclopedia/zh/STP.html">https://info.support.huawei.com/info-finder/encyclopedia/zh/STP.html</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
@@ -3458,7 +3490,7 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年5月15日 22:02:57</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 12:23:51</span>
   </span>
 
     
@@ -3481,6 +3513,55 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -3691,16 +3772,16 @@ id1(获取控制权) --&gt; id2(寻找感染突破口) --&gt; id3(将病毒代�
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

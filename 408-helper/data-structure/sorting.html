@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2107,7 +2107,7 @@
   
 
 
-<h1 id="排序">排序</h1>
+<h1 id="排序">排序<a class="headerlink" href="#排序" title="Permanent link">&para;</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">排序算法总结</p>
 <table>
@@ -2210,15 +2210,15 @@
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span><span class="w"> </span><span class="n">SqList</span><span class="err">；</span><span class="w"> </span><span class="c1">// 顺序表类型</span>
 </span></code></pre></div></p>
 </div>
-<h2 id="概念">概念</h2>
+<h2 id="概念">概念<a class="headerlink" href="#概念" title="Permanent link">&para;</a></h2>
 <p>排序(Sorting)是计算机程序设计中的一种重要操作，它的功能是将一个数据元素(或记录)的任意序列，重新排列成一个按关键字有序递增或递减的序列。</p>
 <ul>
 <li>内部排序：排序期间元素均在内存中</li>
 <li>外部排序：排序期间元素不断在内、外存之间移动</li>
 <li>稳定性：假设 <span class="arithmatex">\(K_i=K_j(1 \le i \le n, 1 \le j \le n, i \neq j)\)</span> ，且排序前后 <span class="arithmatex">\(R_i\)</span>，<span class="arithmatex">\(R_j\)</span> 相对顺序不变，则算法是稳定的，否则称排序算法不是稳定的</li>
 </ul>
-<h2 id="插入排序">插入排序</h2>
-<h3 id="直接插入排序">直接插入排序</h3>
+<h2 id="插入排序">插入排序<a class="headerlink" href="#插入排序" title="Permanent link">&para;</a></h2>
+<h3 id="直接插入排序">直接插入排序<a class="headerlink" href="#直接插入排序" title="Permanent link">&para;</a></h3>
 <p>将一个记录插入到已排好序的有序表中，从而得到一个新的、记录数增1的有序表。</p>
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    __________________________________________
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    | 有序序列L[1...i-1]|  |无序序列L[i+1...n] |
@@ -2247,7 +2247,7 @@
 </span></code></pre></div>
 </li>
 </ul>
-<h3 id="折半插入排序">折半插入排序</h3>
+<h3 id="折半插入排序">折半插入排序<a class="headerlink" href="#折半插入排序" title="Permanent link">&para;</a></h3>
 <p>由于插入排序的基本思想是在一个有序序列中插入一个新的记录，则可以利用“折半查找”查询插入位置，由此得到的插入排序算法为“折半插入排序”。</p>
 <div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">BInsertSort</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
@@ -2269,7 +2269,7 @@
 </span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="希尔排序缩小增量排序">希尔排序(缩小增量排序)</h2>
+<h2 id="希尔排序缩小增量排序">希尔排序(缩小增量排序)<a class="headerlink" href="#希尔排序缩小增量排序" title="Permanent link">&para;</a></h2>
 <p>先对待排序列进行“宏观调整”，待序列中的记录“基本有序(在序列中的各个关键字之前，只存在少量关键字比它大的记录)”时再进行直接插入排序</p>
 <div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ShellInsert</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">dk</span><span class="p">){</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">dk</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
@@ -2285,8 +2285,8 @@
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="n">t</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="n">ShellInsert</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">dlta</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span><span class="w"> </span><span class="c1">//一趟增量为 dlta[k] 的插入排序</span>
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="交换排序">交换排序</h2>
-<h3 id="冒泡排序">冒泡排序</h3>
+<h2 id="交换排序">交换排序<a class="headerlink" href="#交换排序" title="Permanent link">&para;</a></h2>
+<h3 id="冒泡排序">冒泡排序<a class="headerlink" href="#冒泡排序" title="Permanent link">&para;</a></h3>
 <p>依次比较相邻两个记录的关键字，若和所期望的相反，则交换这两个记录</p>
 <div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">BubbleSort</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="mi">-1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
@@ -2300,7 +2300,7 @@
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="快速排序">快速排序</h3>
+<h3 id="快速排序">快速排序<a class="headerlink" href="#快速排序" title="Permanent link">&para;</a></h3>
 <p>通过一趟排序将待排记录分割成独立的两部分，其中一部分记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录继续进行排序 ，以达到整个序列有序。</p>
 <ul>
 <li>
@@ -2335,9 +2335,9 @@
 </span></code></pre></div>
 </li>
 </ul>
-<h2 id="选择排序">选择排序</h2>
+<h2 id="选择排序">选择排序<a class="headerlink" href="#选择排序" title="Permanent link">&para;</a></h2>
 <p>每一趟从后面n-i+1个元素中选取一个关键字最小（大）的元素，作为有序序列的第i个元素。</p>
-<h3 id="直接选择排序">直接选择排序</h3>
+<h3 id="直接选择排序">直接选择排序<a class="headerlink" href="#直接选择排序" title="Permanent link">&para;</a></h3>
 <p>在后 n-i+1 个记录中选出关键字最小的记录，并将它和第 i 个记录进行互换。</p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SelectSort</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
@@ -2349,7 +2349,7 @@
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="堆排序">堆排序</h3>
+<h3 id="堆排序">堆排序<a class="headerlink" href="#堆排序" title="Permanent link">&para;</a></h3>
 <p>若含n个元素的序列 <span class="arithmatex">\(\{k_1 ,k_2 ,\cdots ,k_n \}\)</span> 满足下列关系则称作“小顶堆” 或“大顶堆” 。“堆顶” 元素为序列中的“最小值”或“最大值”。利用堆的特性进行的排序方法即为“堆排序”。</p>
 <div class="arithmatex">\[
 \begin{align}
@@ -2423,12 +2423,12 @@ k_i \ge k_{2i+1}
 </span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="归并排序">归并排序</h2>
+<h2 id="归并排序">归并排序<a class="headerlink" href="#归并排序" title="Permanent link">&para;</a></h2>
 <p>将两个或两个以上的记录有序序列归并为一个有序序列。</p>
 <ul>
 <li>只含一个记录的序列显然是个有序序列，经过“逐趟归并”使整个序列中的有序子序列的长度逐趟增大，直至整个记录序列为有序序列止</li>
 </ul>
-<h3 id="2-路归并排序">2-路归并排序</h3>
+<h3 id="2-路归并排序">2-路归并排序<a class="headerlink" href="#2-路归并排序" title="Permanent link">&para;</a></h3>
 <p>将两个相邻的有序子序列“归并”为一个有序序列。</p>
 <p><a class="glightbox" href="asset-img/sort-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="merge-sort-2" src="asset-img/sort-4.png" /></a></p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Merge</span><span class="p">(</span><span class="n">ElemType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">)</span>
@@ -2453,7 +2453,7 @@ k_i \ge k_{2i+1}
 </span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="基数排序">基数排序</h2>
+<h2 id="基数排序">基数排序<a class="headerlink" href="#基数排序" title="Permanent link">&para;</a></h2>
 <p>借助“多关键字排序”的思想，实现“单关键字排序”的算法。</p>
 <ul>
 <li>假设含有 n 个记录的序列为：<span class="arithmatex">\(\{R_1,R_2, \cdots ,R_n \}\)</span> ，每个记录 <span class="arithmatex">\(R_i\)</span> 中含有d个关键字 ，则称该记录序列对关键字有序是指：对于序列中任意两个记录 <span class="arithmatex">\(R_i\)</span> 和 <span class="arithmatex">\(R_j\)</span> <span class="arithmatex">\((1≤i&lt;j≤n）\)</span> 都满足下列有序关系，其中 <span class="arithmatex">\(K_0\)</span> 被称作最主位关键字，<span class="arithmatex">\(K_{d-1}\)</span> 被称作最次位关键字。</li>
@@ -2474,13 +2474,13 @@ k_i \ge k_{2i+1}
 </ul>
 </li>
 </ul>
-<h2 id="内部排序算法比较">内部排序算法比较</h2>
+<h2 id="内部排序算法比较">内部排序算法比较<a class="headerlink" href="#内部排序算法比较" title="Permanent link">&para;</a></h2>
 <ul>
 <li>n较小时，选择直接插入、简单排序；n较大，选择快速排序、堆排序、归并排序；n很大，且关键字位数少且可以分解，选择基数排序</li>
 <li>对于基本有序的序列，选择插入或冒泡排序</li>
 <li>记录的元素较大，可选择链式存储</li>
 </ul>
-<h2 id="外部排序">外部排序</h2>
+<h2 id="外部排序">外部排序<a class="headerlink" href="#外部排序" title="Permanent link">&para;</a></h2>
 <p>当待排序的文件比内存的可使用容量还大时，文件无法一次性放到内存中进行排序，需要借助于外部存储器（例如硬盘、U盘、光盘），这时就需要用到外部排序算法来解决。</p>
 <ul>
 <li>一般过程<ol>
@@ -2849,16 +2849,16 @@ k_i \ge k_{2i+1}
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

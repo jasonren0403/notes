@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1445,8 +1445,8 @@
   
 
 
-<h1 id="表单输入绑定">表单输入绑定<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></h1>
-<h2 id="基本使用">基本使用</h2>
+<h1 id="表单输入绑定">表单输入绑定<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#表单输入绑定" title="Permanent link">&para;</a></h1>
+<h2 id="基本使用">基本使用<a class="headerlink" href="#基本使用" title="Permanent link">&para;</a></h2>
 <p>前端处理表单时，需要将表单输入框中的内容同步给 JavaScript 中相应的变量，这个过程就是表单输入绑定。</p>
 <p>这里，主要使用 <code>v-model</code> 指令来实现表单输入绑定。<code>v-model</code> 总会将 Vue 实例的数据作为数据来源，应当在组件的 <code>data</code> 选项或响应式系统 API 中声明该值。</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;text&quot;</span><span class="p">&gt;</span>
@@ -1465,10 +1465,10 @@
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;checked&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;checked&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- (1)! --&gt;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span><span class="p">&gt;</span>{{ checked }}<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cm">&lt;!-- (2) --&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cm">&lt;!-- (2)! --&gt;</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Checked names: {{ checkedNames }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;jack&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Jack&quot;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;checkedNames&quot;</span><span class="p">&gt;</span>
@@ -1482,7 +1482,7 @@
 </span></code></pre></div>
 <ol>
 <li>单个复选框绑定了布尔类型值</li>
-<li>也可以将多个复选框绑定到同一个数组或集合的值（<code>const checkedNames = ref([])</code>）</li>
+<li>也可以将多个复选框绑定到同一个数组或集合的值（<code class="language-js highlight"><span class="kd">const</span><span class="w"> </span><span class="nx">checkedNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">([])</span></code>）</li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -1503,7 +1503,7 @@
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Selected: {{ selected }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">&lt;</span><span class="nt">select</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;selected&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">disabled</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Please select one<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">disabled</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Please select one<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1)! --&gt;</span>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  <span class="p">&lt;</span><span class="nt">option</span><span class="p">&gt;</span>A<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  <span class="p">&lt;</span><span class="nt">option</span><span class="p">&gt;</span>B<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  <span class="p">&lt;</span><span class="nt">option</span><span class="p">&gt;</span>C<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
@@ -1528,17 +1528,17 @@
 </div>
 </div>
 </div>
-<h2 id="值绑定">值绑定</h2>
+<h2 id="值绑定">值绑定<a class="headerlink" href="#值绑定" title="Permanent link">&para;</a></h2>
 <p>对于单选按钮、复选框及选择框的选项，<code>v-model</code> 绑定的值通常为字符串或布尔值，但有时需要将该值绑定到当前组件实例的动态数据，这可以使用 <code>v-bind</code> 来实现。</p>
-<h3 id="复选框">复选框</h3>
+<h3 id="复选框">复选框<a class="headerlink" href="#复选框" title="Permanent link">&para;</a></h3>
 <p><code>true-value</code> 和 <code>false-value</code> 仅支持和 <code>v-model</code> 配套使用，在选中时，会设为 <code>true-value</code> 的值，取消的时候会设为 <code>false-value</code> 的值。</p>
-<h3 id="单选按钮">单选按钮</h3>
+<h3 id="单选按钮">单选按钮<a class="headerlink" href="#单选按钮" title="Permanent link">&para;</a></h3>
 <p>这时可以使用 <code>:value</code>，如下例，<code>pick</code> 的值会被设置为 <code>first</code> 或 <code>second</code>，取决于哪个单选按钮被选中。</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;pick&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">&quot;first&quot;</span> <span class="p">/&gt;</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;pick&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">&quot;second&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
-<h3 id="选择器选项">选择器选项</h3>
-<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">&lt;!-- (1) --&gt;</span>
+<h3 id="选择器选项">选择器选项<a class="headerlink" href="#选择器选项" title="Permanent link">&para;</a></h3>
+<div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">&lt;!-- (1)! --&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">&lt;</span><span class="nt">select</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;selected&quot;</span><span class="p">&gt;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  <span class="cm">&lt;!-- 内联对象字面量 --&gt;</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">:value</span><span class="o">=</span><span class="s">&quot;{ number: 123 }&quot;</span><span class="p">&gt;</span>123<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
@@ -1547,15 +1547,15 @@
 <ol>
 <li>如果选中了 123，那么 <code>selected</code> 会被设为 <code>{ number: 123 }</code></li>
 </ol>
-<h2 id="修饰符">修饰符</h2>
-<h3 id="lazy">.lazy</h3>
+<h2 id="修饰符">修饰符<a class="headerlink" href="#修饰符" title="Permanent link">&para;</a></h2>
+<h3 id="lazy">.lazy<a class="headerlink" href="#lazy" title="Permanent link">&para;</a></h3>
 <p>令 <code>v-model</code> 在 <code>change</code> 事件后更新数据，而不是 <code>input</code> 事件。</p>
-<h3 id="number">.number</h3>
+<h3 id="number">.number<a class="headerlink" href="#number" title="Permanent link">&para;</a></h3>
 <p>自动将用户输入转换为数字类型。如果这个值无法被 <code>parseFloat()</code> 解析，则会返回原始值。</p>
 <p>在 <code>&lt;input type="number"&gt;</code> 中，<code>.number</code> 自动有效。</p>
-<h3 id="trim">.trim</h3>
+<h3 id="trim">.trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h3>
 <p>自动过滤用户输入的首尾空白字符。</p>
-<h2 id="组件中的-v-model">组件中的 v-model</h2>
+<h2 id="组件中的-v-model">组件中的 v-model<a class="headerlink" href="#组件中的-v-model" title="Permanent link">&para;</a></h2>
 <p>前面的 <code>&lt;input&gt;</code> 例子中，表面上的代码是 <code>&lt;input v-model="searchText" /&gt;</code>，内部编译器会展开为下面的等价形式：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">input</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  <span class="na">:value</span><span class="o">=</span><span class="s">&quot;searchText&quot;</span>
@@ -1587,7 +1587,7 @@
 </li>
 </ul>
 <p>单个组件实例上可以创建多个 <code>v-model</code> 双向绑定，每个 <code>v-model</code> 都会同步不同的 prop。</p>
-<h3 id="v-model-的参数"><code>v-model</code> 的参数</h3>
+<h3 id="v-model-的参数"><code>v-model</code> 的参数<a class="headerlink" href="#v-model-的参数" title="Permanent link">&para;</a></h3>
 <p>默认情况下，<code>v-model</code> 在组件上都是使用 <code>modelValue</code> 作为 prop，并以 <code>update:modelValue</code> 作为对应事件名。</p>
 <p>可以通过给 <code>v-model</code> 指定参数更改这些名字：</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="na">v-model:title</span><span class="o">=</span><span class="s">&quot;bookTitle&quot;</span> <span class="p">/&gt;</span>
@@ -1605,7 +1605,7 @@
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>  <span class="p">/&gt;</span>
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h3 id="处理-v-model-修饰符">处理 <code>v-model</code> 修饰符</h3>
+<h3 id="处理-v-model-修饰符">处理 <code>v-model</code> 修饰符<a class="headerlink" href="#处理-v-model-修饰符" title="Permanent link">&para;</a></h3>
 <p>除了内置修饰符，也可以自定义组件上的 <code>v-model</code> 修饰符。主要使用 <code>modelModifiers</code> prop。</p>
 <div class="language-html highlight"><span class="filename">HTML</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="na">v-model</span><span class="err">.</span><span class="na">capitalize</span><span class="o">=</span><span class="s">&quot;bookTitle&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
@@ -1662,7 +1662,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年7月9日 18:39:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月9日 13:59:38</span>
   </span>
 
     
@@ -1685,6 +1685,55 @@
 
 
 
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated code here -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jasonren0403/notes"
+  data-repo-id="R_kgDOGXfwBg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app",
+        );
+      }
+    });
+  });
+</script>
 
                 
               </article>
@@ -1895,16 +1944,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

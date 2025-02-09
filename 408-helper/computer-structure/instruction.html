@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2097,20 +2097,20 @@
   
 
 
-<h1 id="指令系统">指令系统</h1>
-<h2 id="指令系统的基本概念">指令系统的基本概念</h2>
+<h1 id="指令系统">指令系统<a class="headerlink" href="#指令系统" title="Permanent link">&para;</a></h1>
+<h2 id="指令系统的基本概念">指令系统的基本概念<a class="headerlink" href="#指令系统的基本概念" title="Permanent link">&para;</a></h2>
 <div class="admonition summary">
 <p>一台计算机中所有机器指令的集合，称为这台计算机的指令系统。</p>
 </div>
 <p>计算机的程序是由一系列机器指令组成的。</p>
-<h2 id="指令格式">指令格式</h2>
+<h2 id="指令格式">指令格式<a class="headerlink" href="#指令格式" title="Permanent link">&para;</a></h2>
 <p>指令格式通常由操作码字段和地址码字段组成。</p>
-<h3 id="操作码OP">操作码OP</h3>
+<h3 id="操作码OP">操作码OP<a class="headerlink" href="#操作码OP" title="Permanent link">&para;</a></h3>
 <p>操作码表征指令的操作特性和功能。</p>
 <ul>
 <li>操作码字段位数取决于计算机指令系统的规模。</li>
 </ul>
-<h3 id="地址码A">地址码A</h3>
+<h3 id="地址码A">地址码A<a class="headerlink" href="#地址码A" title="Permanent link">&para;</a></h3>
 <p>地址码指定参与操作的操作数的地址。</p>
 <ul>
 <li>
@@ -2147,7 +2147,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="定长操作码指令格式">定长操作码指令格式</h3>
+<h3 id="定长操作码指令格式">定长操作码指令格式<a class="headerlink" href="#定长操作码指令格式" title="Permanent link">&para;</a></h3>
 <p>在指令字的最高位部分分配固定的若干位表示操作码。若操作码n位，可以表示 <span class="arithmatex">\(2^n\)</span> 条指令</p>
 <div class="admonition success">
 <p>简化了计算机硬件设计，提高了指令译码和识别速度</p>
@@ -2155,7 +2155,7 @@
 <div class="admonition danger">
 <p>留给表示操作数地址的位数有限</p>
 </div>
-<h3 id="扩展操作码指令格式">扩展操作码指令格式</h3>
+<h3 id="扩展操作码指令格式">扩展操作码指令格式<a class="headerlink" href="#扩展操作码指令格式" title="Permanent link">&para;</a></h3>
 <p>全部指令的操作码字段位数不固定，且分散在指令字的不同位置上</p>
 <div class="admonition success">
 <p>指令字长有限的前提下仍保持比较丰富的指令种类</p>
@@ -2163,24 +2163,24 @@
 <div class="admonition danger">
 <p>增加了指令译码和分析的难度，使控制器设计复杂化</p>
 </div>
-<h2 id="寻址方式">寻址方式</h2>
-<h3 id="指令的寻址方式">指令的寻址方式</h3>
-<h4 id="顺序寻址">顺序寻址</h4>
+<h2 id="寻址方式">寻址方式<a class="headerlink" href="#寻址方式" title="Permanent link">&para;</a></h2>
+<h3 id="指令的寻址方式">指令的寻址方式<a class="headerlink" href="#指令的寻址方式" title="Permanent link">&para;</a></h3>
+<h4 id="顺序寻址">顺序寻址<a class="headerlink" href="#顺序寻址" title="Permanent link">&para;</a></h4>
 <p>执行一段程序时，通常是一条指令接一条指令的顺序进行，称为顺序寻址。为此，需要使用程序计数器PC来计数指令的顺序号。</p>
-<h4 id="跳跃寻址">跳跃寻址</h4>
+<h4 id="跳跃寻址">跳跃寻址<a class="headerlink" href="#跳跃寻址" title="Permanent link">&para;</a></h4>
 <p>当程序转移执行的顺序时，指令寻址采用跳跃寻址，此时下条指令的地址码由本指令给出。</p>
-<h3 id="操作数的寻址方式">操作数的寻址方式</h3>
+<h3 id="操作数的寻址方式">操作数的寻址方式<a class="headerlink" href="#操作数的寻址方式" title="Permanent link">&para;</a></h3>
 <p>形成操作数有效地址的方法称为寻址方式。
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+----------+----------+----------+
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|  操作码   | 寻址特征   | 形式地址  |
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+----------+----------+----------+
 </span></code></pre></div></p>
-<h4 id="有效地址">有效地址</h4>
+<h4 id="有效地址">有效地址<a class="headerlink" href="#有效地址" title="Permanent link">&para;</a></h4>
 <ul>
 <li>形式地址A：”偏移量“，指令中给出的操作数地址</li>
 <li>有效地址EA：操作数的真实地址</li>
 </ul>
-<h4 id="常见寻址方式">常见寻址方式</h4>
+<h4 id="常见寻址方式">常见寻址方式<a class="headerlink" href="#常见寻址方式" title="Permanent link">&para;</a></h4>
 <!-- todo 示意图 -->
 
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="立即寻址" name="__tabbed_2" type="radio" /><input id="直接寻址" name="__tabbed_2" type="radio" /><input id="隐含寻址" name="__tabbed_2" type="radio" /><input id="间接寻址" name="__tabbed_2" type="radio" /><input id="寄存器寻址" name="__tabbed_2" type="radio" /><input id="寄存器间接寻址" name="__tabbed_2" type="radio" /><input id="堆栈寻址" name="__tabbed_2" type="radio" /><input id="偏移寻址" name="__tabbed_2" type="radio" /><input id="块寻址" name="__tabbed_2" type="radio" /><input id="段寻址" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="立即寻址">立即寻址</label><label for="直接寻址">直接寻址</label><label for="隐含寻址">隐含寻址</label><label for="间接寻址">间接寻址</label><label for="寄存器寻址">寄存器寻址</label><label for="寄存器间接寻址">寄存器间接寻址</label><label for="堆栈寻址">堆栈寻址</label><label for="偏移寻址">偏移寻址</label><label for="块寻址">块寻址</label><label for="段寻址">段寻址</label></div>
@@ -2258,13 +2258,13 @@
 </div>
 </div>
 </div>
-<h2 id="CISC和RISC的基本概念">CISC和RISC的基本概念</h2>
-<h3 id="CISC">CISC</h3>
+<h2 id="CISC和RISC的基本概念">CISC和RISC的基本概念<a class="headerlink" href="#CISC和RISC的基本概念" title="Permanent link">&para;</a></h2>
+<h3 id="CISC">CISC<a class="headerlink" href="#CISC" title="Permanent link">&para;</a></h3>
 <p>复杂指令计算机系统称为CISC，复杂庞大，字长不固定，通用寄存器较少，绝大多数采用微程序控制，难以编译优化</p>
 <div class="admonition tip">
 <p>X86架构的CPU是CISC</p>
 </div>
-<h3 id="RISC">RISC</h3>
+<h3 id="RISC">RISC<a class="headerlink" href="#RISC" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>最常使用的简单指令仅占指令总数的20%，但在程序中出现的频率高达80%</p>
 </blockquote>
@@ -2527,16 +2527,16 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       

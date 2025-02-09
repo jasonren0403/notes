@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1314,7 +1314,7 @@
   
 
 
-<h1 id="事件处理">事件处理</h1>
+<h1 id="事件处理">事件处理<a class="headerlink" href="#事件处理" title="Permanent link">&para;</a></h1>
 <pre class="mermaid"><code>---
 title: 事件处理机制概要
 ---
@@ -1335,7 +1335,7 @@ classDiagram
     class 监听器接口{
         ActionListener
     }</code></pre>
-<h2 id="事件处理基础">事件处理基础</h2>
+<h2 id="事件处理基础">事件处理基础<a class="headerlink" href="#事件处理基础" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>注册监听器对象：<code>void addXXXListener(XXXListener listener)</code></p>
@@ -1381,7 +1381,7 @@ classDiagram
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
-<h3 id="捕获窗口window事件">捕获窗口（window）事件</h3>
+<h3 id="捕获窗口window事件">捕获窗口（window）事件<a class="headerlink" href="#捕获窗口window事件" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>classDiagram
     EventListener &lt;|-- WindowListener
     class WindowListener{
@@ -1404,15 +1404,15 @@ classDiagram
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">);</span>
 </span></code></pre></div>
-<h2 id="AWT-的语义事件和低级事件">AWT 的语义事件和低级事件</h2>
+<h2 id="AWT-的语义事件和低级事件">AWT 的语义事件和低级事件<a class="headerlink" href="#AWT-的语义事件和低级事件" title="Permanent link">&para;</a></h2>
 <dl>
 <dt>语义事件</dt>
 <dd>表达用户动作（如 <code>ActionEvent</code>）</dd>
 <dt>低级事件</dt>
 <dd>形成语义事件的事件（如 <code>MouseEvent</code>）</dd>
 </dl>
-<h2 id="动作">动作</h2>
-<h3 id="Action-接口">Action 接口</h3>
+<h2 id="动作">动作<a class="headerlink" href="#动作" title="Permanent link">&para;</a></h2>
+<h3 id="Action-接口">Action 接口<a class="headerlink" href="#Action-接口" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p>不想实现所有方法，可以继承 <code>AbstractAction</code> 类</p>
 </div>
@@ -1440,7 +1440,7 @@ classDiagram
 </li>
 <li>利用一个实现了 <code>Action</code> 接口的对象，可以实例化按钮、菜单项等</li>
 </ul>
-<h3 id="动作与击键关联">动作与击键关联</h3>
+<h3 id="动作与击键关联">动作与击键关联<a class="headerlink" href="#动作与击键关联" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart LR
     KeyStroke &lt;-- InputMap --&gt; Object &lt;-- ActionMap --&gt; Action</code></pre>
 <div class="language-java highlight"><span class="filename">Java</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">KeyStroke</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="s">&quot;&lt;key&gt;&quot;</span><span class="p">);</span>
@@ -1450,7 +1450,7 @@ classDiagram
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">ActionMap</span><span class="w"> </span><span class="n">amap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">panel</span><span class="p">.</span><span class="na">getActionMap</span><span class="p">();</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">amap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;Red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">redAction</span><span class="p">);</span>
 </span></code></pre></div>
-<h3 id="键盘事件">键盘事件</h3>
+<h3 id="键盘事件">键盘事件<a class="headerlink" href="#键盘事件" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p>存在相应的适配器类 <code>KeyAdapter</code></p>
 </div>
@@ -1471,7 +1471,7 @@ classDiagram
 <li>判断是否按下相应键：<code>isShiftDown()</code>、<code>isControlDown()</code>、<code>isAltDown()</code></li>
 <li>得到实际字符：<code>getKeyChar()</code></li>
 </ul>
-<h3 id="鼠标事件">鼠标事件</h3>
+<h3 id="鼠标事件">鼠标事件<a class="headerlink" href="#鼠标事件" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p>存在相应的适配器类 <code>MouseAdapter</code> 和 <code>MouseMotionAdapter</code></p>
 </div>
@@ -1495,7 +1495,7 @@ classDiagram
         mouseMoved(MouseEvent e) void
     }</code></pre>
 <p>常用方法：<code>getX()</code>、<code>getY()</code>、<code>getPoint()</code>、<code>getClickCount()</code></p>
-<h4 id="设置光标">设置光标</h4>
+<h4 id="设置光标">设置光标<a class="headerlink" href="#设置光标" title="Permanent link">&para;</a></h4>
 <ul>
 <li>java.awt.Component：<code>setCursor(Cursor cursor)</code></li>
 <li>java.awt.Cursor<ul>
@@ -1770,16 +1770,16 @@ classDiagram
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.prune", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.path", "header.autohide", "toc.integrate", "toc.follow", "announce.dismiss", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../assets/javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       
