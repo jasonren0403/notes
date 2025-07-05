@@ -58,7 +58,7 @@ button {
 </style>
 ```
 
-## Vue 2 和 Vue 3 的区别 <span class="md-tags">面试常问！</span>
+## Vue 2 和 Vue 3 的区别 <span class="md-tag">面试常问！</span>
 
 ### 性能
 
