@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="zh" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -103,7 +100,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -127,28 +124,29 @@
     
     
   
-<meta property="og:type" content="website" />
-<meta property="og:title" content="格式化输出 - Jason的笔记小屋" />
-<meta property="og:description" content="信息安全、前端相关笔记存放处" />
-<meta property="og:image" content="https://note.jason0743.space/assets/images/social/soft_security/string-format.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://note.jason0743.space/soft_security/string-format.html" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="格式化输出 - Jason的笔记小屋" />
-<meta property="twitter:description" content="信息安全、前端相关笔记存放处" />
-<meta property="twitter:image" content="https://note.jason0743.space/assets/images/social/soft_security/string-format.png" />
- <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="格式化输出 - Jason的笔记小屋">
+<meta property="og:description" content="信息安全、前端相关笔记存放处">
+<meta property="og:image" content="https://note.jason0743.space/assets/images/social/soft_security/string-format.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://note.jason0743.space/soft_security/string-format.html">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="格式化输出 - Jason的笔记小屋">
+<meta property="twitter:description" content="信息安全、前端相关笔记存放处">
+<meta property="twitter:image" content="https://note.jason0743.space/assets/images/social/soft_security/string-format.png">
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -186,12 +184,12 @@
     <a href="../index.html" title="Jason的笔记小屋" class="md-header__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -216,30 +214,30 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至亮色模式"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="切换至亮色模式" type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="切换至亮色模式" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至暗色模式"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="切换至暗色模式" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="切换至暗色模式" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至亮色模式"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="切换至亮色模式" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="切换至亮色模式" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
       </label>
     
   
@@ -255,7 +253,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -264,20 +262,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="查找">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -303,7 +301,7 @@
         <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
   </div>
   <div class="md-source__repository">
     jasonren0403/notes
@@ -511,7 +509,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -527,7 +525,7 @@
     <a href="../index.html" title="Jason的笔记小屋" class="md-nav__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 
     </a>
     Jason的笔记小屋
@@ -537,7 +535,7 @@
       <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
   </div>
   <div class="md-source__repository">
     jasonren0403/notes
@@ -959,11 +957,11 @@
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          格式化字符串<sup ><a class="footnote-ref" href="#fn:1">1</a></sup>
-        </span>
+          格式化字符串<sup></sup></span></span></a><a class="footnote-ref" href="#fn:1">1</a>
+        
       
-    </span>
-  </a>
+    
+  
   
 </li>
       
@@ -1585,7 +1583,7 @@
   
 
 
-  <nav class="md-path" aria-label="导航栏" >
+  <nav class="md-path" aria-label="导航栏">
     <ol class="md-path__list">
       
         
@@ -1630,7 +1628,7 @@
                 
                   
 
-  <nav class="md-tags" >
+  <nav class="md-tags">
     
       
       
@@ -1648,7 +1646,7 @@
   
     <a href="https://github.com/jasonren0403/notes/edit/main/notes_dev/soft_security/string-format.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
@@ -1657,21 +1655,21 @@
     
     <a href="https://github.com/jasonren0403/notes/raw/main/notes_dev/soft_security/string-format.md" title="查看本页的源代码" class="md-content__button md-icon">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="格式化字符串">格式化字符串<a class="headerlink" href="#格式化字符串" title="Permanent link">&para;</a></h1>
+<h1 id="格式化字符串">格式化字符串<a class="headerlink" href="#格式化字符串" title="Permanent link">¶</a></h1>
 <p>格式化输出：参数由一个格式字符串和可变数目的参数构成</p>
 <p>从一个例子入手：
-<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</p><div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos=" 3 "></span></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">usage</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pname</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">     </span><span class="kt">char</span><span class="w"> </span><span class="n">usageStr</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><a href="#__codelineno-0-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">     </span><span class="n">snprintf</span><span class="p">(</span><span class="n">usageStr</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll"><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">            </span><span class="s">&quot;Usage: %s &lt;target&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll"><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">            </span><span class="s">"Usage: %s &lt;target&gt;</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
 </span></span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><a href="#__codelineno-0-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">            </span><span class="n">pname</span><span class="p">);</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><a href="#__codelineno-0-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">     </span><span class="n">printf</span><span class="p">(</span><span class="n">usageStr</span><span class="p">);</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span>
@@ -1682,15 +1680,15 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><a href="#__codelineno-0-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><a href="#__codelineno-0-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><a href="#__codelineno-0-17"><span class="linenos" data-linenos="17 "></span></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div><p></p>
 <details class="info">
 <summary>变参函数</summary>
 <p>可变参数函数又称参数个数可变函数(也简称变参函数)，即函数参数数目可变。可以通过ANSI-C &amp; UNIX System V 两种系统实现</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="stdargs" name="__tabbed_1" type="radio" /><input id="varargs" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="stdargs">stdargs</label><label for="varargs">varargs</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="stdargs" name="__tabbed_1" type="radio"><input id="varargs" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="stdargs">stdargs</label><label for="varargs">varargs</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>stdargs是ANSI C标准，通过一个部分参数列表跟一个省略号来声明，例如<code>int average(int first, ...)</code>
-    <div class="language-c highlight"><span class="filename">使用stdargs实现average函数</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="p">{</span>
+    </p><div class="language-c highlight"><span class="filename">使用stdargs实现average函数</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">   </span><span class="kt">va_list</span><span class="w"> </span><span class="n">marker</span><span class="p">;</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">   </span><span class="n">va_start</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">);</span>
@@ -1702,11 +1700,11 @@
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">   </span><span class="n">va_end</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">   </span><span class="k">return</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w"> </span><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div><p></p>
 </div>
 <div class="tabbed-block">
 <p>varargs运行在Unix System V，使用定义于<code>varargs.h</code>中的宏，例如<code>int average(va_list) va_dcl</code>
-    <div class="language-c highlight"><span class="filename">使用varargs实现average函数</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">va_alist</span><span class="p">)</span><span class="w"> </span><span class="n">va_dcl</span><span class="w"> </span><span class="p">{</span>
+    </p><div class="language-c highlight"><span class="filename">使用varargs实现average函数</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">va_alist</span><span class="p">)</span><span class="w"> </span><span class="n">va_dcl</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">va_list</span><span class="w"> </span><span class="n">marker</span><span class="p">;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">va_start</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span>
@@ -1717,7 +1715,7 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">va_end</span><span class="p">(</span><span class="n">marker</span><span class="p">);</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w"> </span><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div><p></p>
 </div>
 </div>
 </div>
@@ -1762,11 +1760,11 @@
 </table>
 <p>注：functionname代表输出函数名，number代表其参数的字节数</p>
 </div>
-<h2 id="格式化输出函数">格式化输出函数<a class="headerlink" href="#格式化输出函数" title="Permanent link">&para;</a></h2>
+<h2 id="格式化输出函数">格式化输出函数<a class="headerlink" href="#格式化输出函数" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p>前四个函数还有带"v"（如<code>vprintf()</code>）的版本，它们的功能完全相同，参数区别仅仅在于带了一个<code>va_list</code>类型的参数</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="fprintf和printf" name="__tabbed_2" type="radio" /><input id="sprintf和snprintf" name="__tabbed_2" type="radio" /><input id="syslog" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="fprintf和printf"><code>fprintf()</code>和<code>printf()</code></label><label for="sprintf和snprintf"><code>sprintf()</code>和<code>snprintf()</code></label><label for="syslog"><code>syslog()</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="fprintf和printf" name="__tabbed_2" type="radio"><input id="sprintf和snprintf" name="__tabbed_2" type="radio"><input id="syslog" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="fprintf和printf"><code>fprintf()</code>和<code>printf()</code></label><label for="sprintf和snprintf"><code>sprintf()</code>和<code>snprintf()</code></label><label for="syslog"><code>syslog()</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1791,7 +1789,7 @@
 </div>
 </div>
 </div>
-<h2 id="格式化字符串_1">格式化字符串<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#格式化字符串_1" title="Permanent link">&para;</a></h2>
+<h2 id="格式化字符串_1">格式化字符串<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#格式化字符串_1" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p>由普通字符和转换规范构成的序列</p>
@@ -1803,10 +1801,10 @@
 <p class="admonition-title">转换规范构成</p>
 <p>一个格式化字符串转换规范符合这个式子：<code>%[flags] [width] [.precision] [{length-modifier}] conversion-specifier.</code>
 例如<code>%-10.8ld</code>：将一个long int型的参数按照十进制格式打印，在一个最小宽度为10个字符的域中保持最少8位左对齐
-<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>% -     10     .8         l                d
+</p><div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>% -     10     .8         l                d
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  ↓     ↓       ↓         ↓                ↓
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>flags  width precision length-modifier conversion-specifier
-</span></code></pre></div></p>
+</span></code></pre></div><p></p>
 </div>
 </li>
 <li>
@@ -1823,7 +1821,7 @@
 <li>指定输出字符的最小个数的十进制非负整数。如果输出的字符个数比指定的宽度小，就用空白字符补足</li>
 <li>
 <p>如果使用星号（*）来指定宽度，则宽度将由参数列表中的一个int型的值提供</p>
-<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%0*d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)!</span>
+<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%0*d"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span></code></pre></div>
 <ol>
 <li>输出<code>00003</code></li>
@@ -1838,7 +1836,7 @@
 <li>可能会引起输出的截断或浮点值的舍入</li>
 <li>
 <p>如果精度域是一个星号（*），那么它的值就由参数列表中的一个int参数提供</p>
-<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.*f&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14159265</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)!</span>
+<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%.*f"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14159265</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span></code></pre></div>
 <ol>
 <li>输出 <code>3.142</code></li>
@@ -1853,18 +1851,18 @@
 </ul>
 </li>
 </ul>
-<h2 id="漏洞利用">漏洞利用<a class="headerlink" href="#漏洞利用" title="Permanent link">&para;</a></h2>
-<h3 id="缓冲区溢出">缓冲区溢出<a class="headerlink" href="#缓冲区溢出" title="Permanent link">&para;</a></h3>
+<h2 id="漏洞利用">漏洞利用<a class="headerlink" href="#漏洞利用" title="Permanent link">¶</a></h2>
+<h3 id="缓冲区溢出">缓冲区溢出<a class="headerlink" href="#缓冲区溢出" title="Permanent link">¶</a></h3>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">&quot;Wrong command: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">user</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)!</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">"Wrong command: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">user</span><span class="p">);</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span></code></pre></div>
 <ol>
 <li>当<code>user</code>大于512-16(<code>"Wrong command: "</code>)-1字节时，就会越界写</li>
 </ol>
-<h3 id="可伸展的缓冲区">可伸展的缓冲区<a class="headerlink" href="#可伸展的缓冲区" title="Permanent link">&para;</a></h3>
+<h3 id="可伸展的缓冲区">可伸展的缓冲区<a class="headerlink" href="#可伸展的缓冲区" title="Permanent link">¶</a></h3>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">outbuf</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="hll"><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">&quot;ERR Wrong command: %.400s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="hll"><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">"ERR Wrong command: %.400s"</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
 </span></span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">//目前没有问题，因为转换说明符%.400s限制了只能写入400字节</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">outbuf</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1">//user = %497d\x3c\xd3\xff\xbf&lt;nops&gt;&lt;shellcode&gt;，包含百分号%，497 = 512 - 16 - 1</span>
@@ -1877,12 +1875,12 @@
 </ul>
 </li>
 </ul>
-<h3 id="输出流printf">输出流（<code>printf()</code>）<a class="headerlink" href="#输出流printf" title="Permanent link">&para;</a></h3>
+<h3 id="输出流printf">输出流（<code>printf()</code>）<a class="headerlink" href="#输出流printf" title="Permanent link">¶</a></h3>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="程序崩溃" name="__tabbed_3" type="radio" /><input id="查看栈内容" name="__tabbed_3" type="radio" /><input id="查看内存内容" name="__tabbed_3" type="radio" /><input id="覆写内存" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="程序崩溃">程序崩溃</label><label for="查看栈内容">查看栈内容</label><label for="查看内存内容">查看内存内容</label><label for="覆写内存">覆写内存</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="程序崩溃" name="__tabbed_3" type="radio"><input id="查看栈内容" name="__tabbed_3" type="radio"><input id="查看内存内容" name="__tabbed_3" type="radio"><input id="覆写内存" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="程序崩溃">程序崩溃</label><label for="查看栈内容">查看栈内容</label><label for="查看内存内容">查看内存内容</label><label for="覆写内存">覆写内存</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1898,18 +1896,18 @@
 <li>参数以逆序压入栈中</li>
 <li>
 <p>参数在内存中出现的顺序与在<code>printf()</code>调用时出现的顺序是一致的
-    <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+    </p><div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="hll"><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="s">&quot;%08x.%08x.%08x.%08x&quot;</span><span class="p">);</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="hll"><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="s">"%08x.%08x.%08x.%08x"</span><span class="p">);</span>
 </span></span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1)!</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">format</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2)!</span>
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div><p></p>
 <ol>
 <li>将输出 <code>00000001.00000002.00000003.00132588</code></li>
 <li>将输出 <code>00132588.00132580.7ffdf000.cccccccc</code></li>
 </ol>
-<p><a class="glightbox" href="md-img/20191202_03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="md-img/20191202_03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="md-img/20191202_03.png" data-desc-position="bottom"><img alt="" src="md-img/20191202_03.png"></a></p>
 </li>
 <li>
 <p>紧邻参数之后的内存中包含有调用函数的自动变量，后者包括format字符数组0x2e253038的内容</p>
@@ -1935,8 +1933,8 @@
 <div class="admonition example">
 <p class="admonition-title">示例</p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="hll"><span class="n">strcpy</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="s">&quot;%08x.%08x.%08x.%s&quot;</span><span class="p">);</span>
-</span></span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">//strcpy(format,&quot;%s&quot;);  //format = &quot;addr[%x...%x]%s&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="hll"><span class="n">strcpy</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="s">"%08x.%08x.%08x.%s"</span><span class="p">);</span>
+</span></span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">//strcpy(format,"%s");  //format = "addr[%x...%x]%s"</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">printf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">//printf(format);</span>
 </span></code></pre></div>
@@ -1957,8 +1955,8 @@
 <li>
 <p>格式化符<code>%n</code>：到<code>%n</code>位置已经输出的字符总数</p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello%n</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)!</span>
-</span></span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\xdc\xf5\x42\x01</span><span class="s">%08x.%08x.%08x%n&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)!</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">"hello%n</span><span class="se">\n</span><span class="s">"</span><span class="p">,(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)!</span>
+</span></span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\xdc\xf5\x42\x01</span><span class="s">%08x.%08x.%08x%n"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)!</span>
 </span></span></code></pre></div>
 <ol>
 <li>在此之后，i = <code>5</code>，在 <code>%n</code> 之前我们已经写入了 5 个字符（<code>"hello"</code>）。</li>
@@ -1975,8 +1973,8 @@
 </li>
 </ul>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10u%n&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)!</span>
-</span></span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%100u%n&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)!</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">"%10u%n"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)!</span>
+</span></span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="hll"><span class="n">printf</span><span class="p">(</span><span class="s">"%100u%n"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)!</span>
 </span></span></code></pre></div>
 <ol>
 <li>i = <code>10</code></li>
@@ -1988,13 +1986,13 @@
 <ul>
 <li>
 <p>大多数CISC中：写入四个字节 → 递增地址 → 再写入四个字节 ...</p>
-<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%16u%n%16u%n%32u%n%64u%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%16u%n%16u%n%32u%n%64u%n"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1">//计数器没有被重置，所以第一个%16u%n写入16，第二个%16u%n写32字节，以此类推</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1">//或者...</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%16u%n&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%32u%n&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%64u%n&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%128u%n&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%16u%n"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%32u%n"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%64u%n"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">printf</span><span class="p">(</span><span class="s">"%128u%n"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
 </span></code></pre></div>
 <ul>
 <li>也可以在地址递减时，从高位内存写到低位内存</li>
@@ -2013,7 +2011,7 @@
 </span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a><a href="#__codelineno-14-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a><a href="#__codelineno-14-10"><span class="linenos" data-linenos="10 "></span></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_byte</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a><a href="#__codelineno-14-11"><span class="linenos" data-linenos="11 "></span></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="hll"><a href="#__codelineno-14-12"><span class="linenos" data-linenos="12 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%%du%%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="hll"><a href="#__codelineno-14-12"><span class="linenos" data-linenos="12 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span></span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a><a href="#__codelineno-14-13"><span class="linenos" data-linenos="13 "></span></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
 </span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14"></a><a href="#__codelineno-14-14"><span class="linenos" data-linenos="14 "></span></a>
 </span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15"></a><a href="#__codelineno-14-15"><span class="linenos" data-linenos="15 "></span></a><span class="c1">// second byte</span>
@@ -2022,7 +2020,7 @@
 </span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18"></a><a href="#__codelineno-14-18"><span class="linenos" data-linenos="18 "></span></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19"></a><a href="#__codelineno-14-19"><span class="linenos" data-linenos="19 "></span></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_byte</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20"></a><a href="#__codelineno-14-20"><span class="linenos" data-linenos="20 "></span></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="hll"><a href="#__codelineno-14-21"><span class="linenos" data-linenos="21 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%%du%%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="hll"><a href="#__codelineno-14-21"><span class="linenos" data-linenos="21 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span></span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22"></a><a href="#__codelineno-14-22"><span class="linenos" data-linenos="22 "></span></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
 </span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23"></a><a href="#__codelineno-14-23"><span class="linenos" data-linenos="23 "></span></a>
 </span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24"></a><a href="#__codelineno-14-24"><span class="linenos" data-linenos="24 "></span></a><span class="c1">// third byte</span>
@@ -2031,7 +2029,7 @@
 </span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27"></a><a href="#__codelineno-14-27"><span class="linenos" data-linenos="27 "></span></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28"></a><a href="#__codelineno-14-28"><span class="linenos" data-linenos="28 "></span></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_byte</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29"></a><a href="#__codelineno-14-29"><span class="linenos" data-linenos="29 "></span></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
-</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30"></a><span class="hll"><a href="#__codelineno-14-30"><span class="linenos" data-linenos="30 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%%du%%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30"></a><span class="hll"><a href="#__codelineno-14-30"><span class="linenos" data-linenos="30 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span></span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31"></a><a href="#__codelineno-14-31"><span class="linenos" data-linenos="31 "></span></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
 </span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32"></a><a href="#__codelineno-14-32"><span class="linenos" data-linenos="32 "></span></a>
 </span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33"></a><a href="#__codelineno-14-33"><span class="linenos" data-linenos="33 "></span></a><span class="c1">// fourth byte</span>
@@ -2040,7 +2038,7 @@
 </span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36"></a><a href="#__codelineno-14-36"><span class="linenos" data-linenos="36 "></span></a><span class="n">already_written</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37"></a><a href="#__codelineno-14-37"><span class="linenos" data-linenos="37 "></span></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_byte</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
 </span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38"></a><a href="#__codelineno-14-38"><span class="linenos" data-linenos="38 "></span></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x100</span><span class="p">;</span>
-</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39"></a><span class="hll"><a href="#__codelineno-14-39"><span class="linenos" data-linenos="39 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%%du%%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39"></a><span class="hll"><a href="#__codelineno-14-39"><span class="linenos" data-linenos="39 "></span></a><span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span></span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40"></a><a href="#__codelineno-14-40"><span class="linenos" data-linenos="40 "></span></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
 </span></code></pre></div>
 <ol>
@@ -2051,18 +2049,18 @@
 </li>
 <li>
 <p>覆写内存</p>
-<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">exploit</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x90\x90\x90</span><span class="s">...</span><span class="se">\x90</span><span class="s">&quot;</span><span class="p">;</span>
+<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">exploit</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\x90\x90\x90</span><span class="s">...</span><span class="se">\x90</span><span class="s">"</span><span class="p">;</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">strcpy</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">//(1)!</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xdc\xf5\x42\x01</span><span class="s">&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">//(2)!</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xdd\xf5\x42\x01</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xde\xf5\x42\x01</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xdf\xf5\x42\x01</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">strcpy</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">"</span><span class="p">);</span><span class="w">  </span><span class="c1">//(1)!</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xdc\xf5\x42\x01</span><span class="s">"</span><span class="p">);</span><span class="w">  </span><span class="c1">//(2)!</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xdd\xf5\x42\x01</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xde\xf5\x42\x01</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xdf\xf5\x42\x01</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">61</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">   </span><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%x&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">//(3)!</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">   </span><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"%x"</span><span class="p">);</span><span class="w"> </span><span class="c1">//(3)!</span>
 </span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="p">}</span>
 </span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="cm">/* code to write address goes here */</span>
 </span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="n">printf</span><span class="p">(</span><span class="n">format</span><span class="p">);</span>
@@ -2079,14 +2077,14 @@
 </div>
 </div>
 </div>
-<h3 id="国际化">国际化<a class="headerlink" href="#国际化" title="Permanent link">&para;</a></h3>
+<h3 id="国际化">国际化<a class="headerlink" href="#国际化" title="Permanent link">¶</a></h3>
 <ul>
 <li>格式字符串和消息文本通常被移动到由程序在运行时打开的外部目录或文件中<ul>
 <li>攻击者可以通过修改这些文件的内容从而改动程序的格式和字符串的值</li>
 </ul>
 </li>
 </ul>
-<h3 id="栈随机化">栈随机化<a class="headerlink" href="#栈随机化" title="Permanent link">&para;</a></h3>
+<h3 id="栈随机化">栈随机化<a class="headerlink" href="#栈随机化" title="Permanent link">¶</a></h3>
 <ul>
 <li>在Linux下，栈的起始地址为<code>0xC0000000</code>并且朝低内存方向增长<ul>
 <li>随机化通过向栈中插入随机的间隙实现</li>
@@ -2114,22 +2112,22 @@
 </li>
 <li>
 <p>Linux利用若干例</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="例1" name="__tabbed_4" type="radio" /><input id="例2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="例1">例1</label><label for="例2">例2</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="例1" name="__tabbed_4" type="radio"><input id="例2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="例1">例1</label><label for="例2">例2</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-c highlight"><span class="filename">Linux 利用一例</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
 </span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x90\x09\x09\x09\x09\x09</span><span class="s">/bin/sh&quot;</span><span class="p">;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">shellcode</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\x90\x09\x09\x09\x09\x09</span><span class="s">/bin/sh"</span><span class="p">;</span>
 </span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">format_str</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xb4\x9b\x04\x08</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)!</span>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xcc\xcc\xcc\xcc</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\xb6\x9b\x04\x08</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)!</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xaa\xaa\xaa\xaa</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xb4\x9b\x04\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">//(1)!</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xcc\xcc\xcc\xcc</span><span class="s">"</span><span class="p">);</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\xb6\x9b\x04\x08</span><span class="s">"</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)!</span>
 </span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%x&quot;</span><span class="p">);</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="s">"%x"</span><span class="p">);</span>
 </span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">    </span><span class="cm">/* code to write address goes here */</span>
 </span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
@@ -2156,7 +2154,7 @@
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
 </span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
 </span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
-</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%%du%%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">);</span>
 </span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
 </span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="c1">// last word</span>
@@ -2166,7 +2164,7 @@
 </span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
 </span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
 </span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
-</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%%du%%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%%du%%n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
@@ -2174,7 +2172,7 @@
 </div>
 </li>
 </ul>
-<h3 id="直接存取参数">直接存取参数<a class="headerlink" href="#直接存取参数" title="Permanent link">&para;</a></h3>
+<h3 id="直接存取参数">直接存取参数<a class="headerlink" href="#直接存取参数" title="Permanent link">¶</a></h3>
 <ul>
 <li>数字式：<code>%n$</code>、<code>*m$</code>；非数字式：<code>%</code>、<code>*</code></li>
 <li>Single UNIX规范[IEEE 04]允许转换被应用于参数列表中的格式之后的第n个参数上，而不是应用到下一个未使用的参数上。</li>
@@ -2189,11 +2187,11 @@
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">printf</span><span class="p">(</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="hll"><span class="w">      </span><span class="s">&quot;%4$5u%3$n%5$5u%2$n%6$5u%1$n</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//(1)!</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="hll"><span class="w">      </span><span class="s">"%4$5u%3$n%5$5u%2$n%6$5u%1$n</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w">  </span><span class="c1">//(1)!</span>
 </span></span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="hll"><span class="w">      </span><span class="o">&amp;</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span>
 </span></span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="p">);</span><span class="w">          </span><span class="c1">//(2)!</span>
 </span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
-</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i = %d, j = %d, k = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"> </span><span class="c1">//(3)!</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="n">printf</span><span class="p">(</span><span class="s">"i = %d, j = %d, k = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"> </span><span class="c1">//(3)!</span>
 </span></code></pre></div>
 <ol>
 <li><code>%4$5u</code> 取第四个参数（这里是常数<code>5</code>），将输出格式化为无符号的十进制整数，宽度为<code>5</code>；<code>%3$n</code> 将当前输出计数器的值（<code>5</code>）写到第三个参数(<code>&amp;i</code>)所指定的地址；以此类推</li>
@@ -2215,7 +2213,7 @@
 </span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>
 </span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
 </span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="hll"><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%4$%du%%5$n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="hll"><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%4$%du%%5$n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span></span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">);</span>
 </span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>
 </span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="c1">// last word</span>
@@ -2225,13 +2223,13 @@
 </span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>
 </span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="n">width_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">write_word</span><span class="o">-</span><span class="n">already_written</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
 </span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width_field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">width_field</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x10000</span><span class="p">;</span>
-</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="hll"><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%%6$%du%%7$n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="hll"><span class="n">sprintf</span><span class="p">(</span><span class="n">convert_spec</span><span class="p">,</span><span class="w"> </span><span class="s">"%%6$%du%%7$n"</span><span class="p">,</span><span class="w"> </span><span class="n">width_field</span><span class="p">);</span>
 </span></span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="n">strcat</span><span class="p">(</span><span class="n">format_str</span><span class="p">,</span><span class="w"> </span><span class="n">convert_spec</span><span class="p">)</span>
 </span></code></pre></div>
 </li>
 </ul>
-<h2 id="缓解策略">缓解策略<a class="headerlink" href="#缓解策略" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="动态格式字符串" name="__tabbed_5" type="radio" /><input id="限制字节写入" name="__tabbed_5" type="radio" /><input id="使用更安全版本的格式化输出库函数" name="__tabbed_5" type="radio" /><input id="测试" name="__tabbed_5" type="radio" /><input id="GNU-C编译器选项" name="__tabbed_5" type="radio" /><input id="词法分析" name="__tabbed_5" type="radio" /><input id="静态污点分析" name="__tabbed_5" type="radio" /><input id="调整变参函数的实现" name="__tabbed_5" type="radio" /><input id="Exec-Shield" name="__tabbed_5" type="radio" /><input id="FormatGuard" name="__tabbed_5" type="radio" /><input id="Libsafe" name="__tabbed_5" type="radio" /><input id="静态二进制分析" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="动态格式字符串">动态格式字符串</label><label for="限制字节写入">限制字节写入</label><label for="使用更安全版本的格式化输出库函数">使用更安全版本的格式化输出库函数</label><label for="测试">测试</label><label for="GNU-C编译器选项">GNU C编译器选项</label><label for="词法分析">词法分析</label><label for="静态污点分析">静态污点分析</label><label for="调整变参函数的实现">调整变参函数的实现</label><label for="Exec-Shield">Exec Shield</label><label for="FormatGuard">FormatGuard</label><label for="Libsafe">Libsafe</label><label for="静态二进制分析">静态二进制分析</label></div>
+<h2 id="缓解策略">缓解策略<a class="headerlink" href="#缓解策略" title="Permanent link">¶</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="动态格式字符串" name="__tabbed_5" type="radio"><input id="限制字节写入" name="__tabbed_5" type="radio"><input id="使用更安全版本的格式化输出库函数" name="__tabbed_5" type="radio"><input id="测试" name="__tabbed_5" type="radio"><input id="GNU-C编译器选项" name="__tabbed_5" type="radio"><input id="词法分析" name="__tabbed_5" type="radio"><input id="静态污点分析" name="__tabbed_5" type="radio"><input id="调整变参函数的实现" name="__tabbed_5" type="radio"><input id="Exec-Shield" name="__tabbed_5" type="radio"><input id="FormatGuard" name="__tabbed_5" type="radio"><input id="Libsafe" name="__tabbed_5" type="radio"><input id="静态二进制分析" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="动态格式字符串">动态格式字符串</label><label for="限制字节写入">限制字节写入</label><label for="使用更安全版本的格式化输出库函数">使用更安全版本的格式化输出库函数</label><label for="测试">测试</label><label for="GNU-C编译器选项">GNU C编译器选项</label><label for="词法分析">词法分析</label><label for="静态污点分析">静态污点分析</label><label for="调整变参函数的实现">调整变参函数的实现</label><label for="Exec-Shield">Exec Shield</label><label for="FormatGuard">FormatGuard</label><label for="Libsafe">Libsafe</label><label for="静态二进制分析">静态二进制分析</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -2239,16 +2237,16 @@
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;%d * %d = &quot;</span><span class="p">;</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"%d * %d = "</span><span class="p">;</span>
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
 </span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 </span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
 </span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;hex&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0x%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="s">"hex"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"0x%x</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">    </span><span class="k">else</span><span class="p">{</span>
-</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">        </span><span class="n">strcat</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
 </span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
@@ -2278,7 +2276,7 @@
 <li>标准I/O流：<code>cin</code>、<code>cout</code>和<code>cerr</code></li>
 <li>
 <p>安全地打开文件</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="iostream安全" name="__tabbed_6" type="radio" /><input id="stdio不安全" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="iostream安全"><code>iostream</code>(安全)</label><label for="stdio不安全"><code>stdio</code>(不安全)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="iostream安全" name="__tabbed_6" type="radio"><input id="stdio不安全" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="iostream安全"><code>iostream</code>(安全)</label><label for="stdio不安全"><code>stdio</code>(不安全)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-c++ highlight"><span class="filename">iostream</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="hll"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -2290,7 +2288,7 @@
 </span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">filename</span><span class="p">;</span>
 </span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span><span class="n">ifs</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
 </span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ifs</span><span class="p">.</span><span class="n">fail</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">        </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error opening &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">        </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Error opening "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
 </span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">    </span><span class="n">ifs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
@@ -2303,10 +2301,10 @@
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">filename</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
 </span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">;</span>
 </span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="n">fscanf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">    </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"> </span><span class="cm">/* read only */</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="n">fscanf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span><span class="w"> </span><span class="s">"%s"</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">    </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">);</span><span class="w"> </span><span class="cm">/* read only */</span>
 </span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">        </span><span class="n">sprintf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Error opening file %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">        </span><span class="n">sprintf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="s">"Error opening file %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
 </span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">);</span>
 </span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
 </span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span><span class="p">}</span>
@@ -2327,7 +2325,7 @@
 </ul>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="-Wformat" name="__tabbed_7" type="radio" /><input id="Wformat-nonliteral" name="__tabbed_7" type="radio" /><input id="Wformat-security" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="-Wformat"><code>-Wformat</code></label><label for="Wformat-nonliteral"><code>Wformat-nonliteral</code></label><label for="Wformat-security"><code>Wformat-security</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="-Wformat" name="__tabbed_7" type="radio"><input id="Wformat-nonliteral" name="__tabbed_7" type="radio"><input id="Wformat-security" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="-Wformat"><code>-Wformat</code></label><label for="Wformat-nonliteral"><code>Wformat-nonliteral</code></label><label for="Wformat-security"><code>Wformat-security</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2371,9 +2369,9 @@
 <li>Shankar描述了一个用于检测C程序中的格式字符串安全漏洞的系统，该系统使用了一个基于约束的类型推断引擎</li>
 <li>
 <p>使用污点修饰符<code>tainted</code>，例如有下列标注：
-    <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">tainted</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">getchar</span><span class="p">();</span>
+    </p><div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">tainted</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">getchar</span><span class="p">();</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">tainted</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-</span></code></pre></div></p>
+</span></code></pre></div><p></p>
 <ul>
 <li>则<code>getchar()</code>的返回值和程序的命令行参数都被标记为污点并作为污点值对待</li>
 <li>任何污点类型的表达式被用作了格式字符串，则用户将会被警告程序中存在潜在的漏洞</li>
@@ -2427,7 +2425,7 @@
 </div>
 </div>
 </div>
-<h2 id="漏洞实例">漏洞实例<a class="headerlink" href="#漏洞实例" title="Permanent link">&para;</a></h2>
+<h2 id="漏洞实例">漏洞实例<a class="headerlink" href="#漏洞实例" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p>Wu-ftpd(<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0573">CVE-2000-0573</a>)</p>
@@ -2438,8 +2436,8 @@
 <div class="language-c highlight"><span class="filename">duh.c</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">   </span><span class="n">seteuid</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">   </span><span class="n">setegid</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">   </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/cp /bin/sh ./sh&quot;</span><span class="p">);</span>
-</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">   </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/chmod 6755 ./sh&quot;</span><span class="p">);</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">   </span><span class="n">system</span><span class="p">(</span><span class="s">"/bin/cp /bin/sh ./sh"</span><span class="p">);</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">   </span><span class="n">system</span><span class="p">(</span><span class="s">"/bin/chmod 6755 ./sh"</span><span class="p">);</span>
 </span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$<span class="w"> </span>make<span class="w"> </span>duh
@@ -2454,7 +2452,7 @@
 </span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="c1"># (3)!</span>
 </span></code></pre></div>
 <ol>
-<li>如果存在漏洞，则会输出 'uid=0, gid=0, euid=<yourid>, egid=<your-gids>'</li>
+<li>如果存在漏洞，则会输出 'uid=0, gid=0, euid=<yourid>, egid=<your-gids>'</your-gids></yourid></li>
 <li>前述<code>duh.c</code>文件</li>
 <li>原来可能不够权限运行shell，现在权限提升了，可以运行了</li>
 </ol>
@@ -2469,10 +2467,10 @@
 </li>
 </ul>
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:1">
-<p>转换规范的参考资料：<a href="https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=vs-2019">https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=vs-2019</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>转换规范的参考资料：<a href="https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=vs-2019">https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=vs-2019</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>
@@ -2496,7 +2494,7 @@
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="最后更新">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
     <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年2月8日 23:30:41 CST">2025年2月8日 23:30:41</span>
   </span>
@@ -2506,7 +2504,7 @@
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="创建日期">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
     <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2021年11月4日 16:44:46 CST">2021年11月4日 16:44:46</span>
   </span>
@@ -2524,23 +2522,7 @@
 
 <h2 id="__comments">评论</h2>
 <!-- Insert generated code here -->
-<script
-  src="https://giscus.app/client.js"
-  data-repo="jasonren0403/notes"
-  data-repo-id="R_kgDOGXfwBg"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOGXfwBs4CQ0RQ"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="preferred_color_scheme"
-  data-lang="zh-CN"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+<script src="https://giscus.app/client.js" data-repo="jasonren0403/notes" data-repo-id="R_kgDOGXfwBg" data-category="Announcements" data-category-id="DIC_kwDOGXfwBs4CQ0RQ" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
 <!-- Synchronize Giscus theme with palette -->
 <script>
   var giscus = document.querySelector("script[src*=giscus]");
@@ -2583,7 +2565,7 @@
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   回到页面顶部
 </button>
         
@@ -2593,13 +2575,13 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
           <a href="integer-security.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 整数安全">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -2624,7 +2606,7 @@
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -2636,7 +2618,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2025</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+      copyright © (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2025</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
     </div>
   
   
@@ -2654,8 +2636,8 @@
     
     
     
-    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason&#39;s Github" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason's Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"></path></svg>
     </a>
   
     
@@ -2663,7 +2645,7 @@
     
     
     <a href="https://x.com/theRealRev270" target="_blank" rel="noopener" title="J.R on X(former Twitter)" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"></path></svg>
     </a>
   
     
@@ -2671,7 +2653,7 @@
     
     
     <a href="https://www.facebook.com/renjason1999" target="_blank" rel="noopener" title="My facebook page" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
     </a>
   
     
@@ -2679,7 +2661,7 @@
     
     
     <a href="https://discord.gg/s33UBWEPxb" target="_blank" rel="noopener" title="Join to my discussion(discord)" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"></path></svg>
     </a>
   
     
@@ -2692,7 +2674,7 @@
       
     
     <a href="https://tea.codes/@jasonpro_114" target="_blank" rel="noopener me" title="tea.codes" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"></path></svg>
     </a>
   
 </div>
@@ -2721,7 +2703,7 @@
 
 <h4>Cookie 约定</h4>
 <p>嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的<a href="https://www.jason0743.space/#/privacy" target="_blank">网站</a>。</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
+<input class="md-toggle" type="checkbox" id="__settings">
 <div class="md-consent__settings">
   <ul class="task-list">
     
@@ -2805,7 +2787,7 @@
         <script src="../assets/javascripts/share.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

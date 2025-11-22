@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="zh" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -103,7 +100,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -127,28 +124,29 @@
     
     
   
-<meta property="og:type" content="website" />
-<meta property="og:title" content="树 - Jason的笔记小屋" />
-<meta property="og:description" content="信息安全、前端相关笔记存放处" />
-<meta property="og:image" content="https://note.jason0743.space/assets/images/social/408-helper/data-structure/tree.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://note.jason0743.space/408-helper/data-structure/tree.html" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="树 - Jason的笔记小屋" />
-<meta property="twitter:description" content="信息安全、前端相关笔记存放处" />
-<meta property="twitter:image" content="https://note.jason0743.space/assets/images/social/408-helper/data-structure/tree.png" />
- <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="树 - Jason的笔记小屋">
+<meta property="og:description" content="信息安全、前端相关笔记存放处">
+<meta property="og:image" content="https://note.jason0743.space/assets/images/social/408-helper/data-structure/tree.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://note.jason0743.space/408-helper/data-structure/tree.html">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="树 - Jason的笔记小屋">
+<meta property="twitter:description" content="信息安全、前端相关笔记存放处">
+<meta property="twitter:image" content="https://note.jason0743.space/assets/images/social/408-helper/data-structure/tree.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -186,12 +184,12 @@
     <a href="../../index.html" title="Jason的笔记小屋" class="md-header__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -216,30 +214,30 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至亮色模式"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="切换至亮色模式" type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="切换至亮色模式" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至暗色模式"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="切换至暗色模式" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="切换至暗色模式" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至亮色模式"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="切换至亮色模式" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="切换至亮色模式" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
       </label>
     
   
@@ -255,7 +253,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -264,20 +262,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="查找">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -303,7 +301,7 @@
         <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
   </div>
   <div class="md-source__repository">
     jasonren0403/notes
@@ -511,7 +509,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -527,7 +525,7 @@
     <a href="../../index.html" title="Jason的笔记小屋" class="md-nav__button md-logo" aria-label="Jason的笔记小屋" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
 
     </a>
     Jason的笔记小屋
@@ -537,7 +535,7 @@
       <a href="https://github.com/jasonren0403/notes" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
   </div>
   <div class="md-source__repository">
     jasonren0403/notes
@@ -1100,7 +1098,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2051,7 +2049,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2279,7 +2277,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2546,7 +2544,7 @@
   
 
 
-  <nav class="md-path" aria-label="导航栏" >
+  <nav class="md-path" aria-label="导航栏">
     <ol class="md-path__list">
       
         
@@ -2609,7 +2607,7 @@
                 
                   
 
-  <nav class="md-tags" >
+  <nav class="md-tags">
     
       
       
@@ -2637,7 +2635,7 @@
   
     <a href="https://github.com/jasonren0403/notes/edit/main/notes_dev/408-helper/data-structure/tree.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
@@ -2646,16 +2644,16 @@
     
     <a href="https://github.com/jasonren0403/notes/raw/main/notes_dev/408-helper/data-structure/tree.md" title="查看本页的源代码" class="md-content__button md-icon">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="树与二叉树">树与二叉树<a class="headerlink" href="#树与二叉树" title="Permanent link">&para;</a></h1>
+<h1 id="树与二叉树">树与二叉树<a class="headerlink" href="#树与二叉树" title="Permanent link">¶</a></h1>
 <div class="admonition summary">
 <p>树形结构是一类重要的非线性结构。树型结构是结点之间有分支，并且具有层次关系的结构。</p>
 </div>
-<h2 id="树的基本概念">树的基本概念<a class="headerlink" href="#树的基本概念" title="Permanent link">&para;</a></h2>
+<h2 id="树的基本概念">树的基本概念<a class="headerlink" href="#树的基本概念" title="Permanent link">¶</a></h2>
 <ul>
 <li>树是具有n个节点的有限集合T，它满足：<ol>
 <li>有且只有一个称为“根(root)”的结点</li>
@@ -2668,7 +2666,7 @@
 <li>如果子树之间映射客观存在次序关系，则为“有序树”，否则为“无序树”。</li>
 <li>
 <p>度</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="结点的度" name="__tabbed_1" type="radio" /><input id="树的度" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="结点的度">结点的度</label><label for="树的度">树的度</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="结点的度" name="__tabbed_1" type="radio"><input id="树的度" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="结点的度">结点的度</label><label for="树的度">树的度</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>其分支的个数定义为“结点的度”，如果该值大于0，即为“分支结点”，否则为“叶子结点”。</p>
@@ -2697,7 +2695,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="ADT类型定义">ADT类型定义<a class="headerlink" href="#ADT类型定义" title="Permanent link">&para;</a></h3>
+<h3 id="ADT类型定义">ADT类型定义<a class="headerlink" href="#ADT类型定义" title="Permanent link">¶</a></h3>
 <ul>
 <li>数据对象 D是具有相同特性的数据元素的集合。</li>
 <li>数据关系 若D为空集，则称为空树；若D中仅含一个数据元素，则关系R为空集；否则 R={H}：<ol>
@@ -2707,7 +2705,7 @@
 </li>
 <li>
 <p>基本操作</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="结构建立与销毁" name="__tabbed_2" type="radio" /><input id="查找" name="__tabbed_2" type="radio" /><input id="添加及删除数据" name="__tabbed_2" type="radio" /><input id="遍历" name="__tabbed_2" type="radio" /><input id="其他" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="结构建立与销毁">结构建立与销毁</label><label for="查找">查找</label><label for="添加及删除数据">添加及删除数据</label><label for="遍历">遍历</label><label for="其他">其他</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="结构建立与销毁" name="__tabbed_2" type="radio"><input id="查找" name="__tabbed_2" type="radio"><input id="添加及删除数据" name="__tabbed_2" type="radio"><input id="遍历" name="__tabbed_2" type="radio"><input id="其他" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="结构建立与销毁">结构建立与销毁</label><label for="查找">查找</label><label for="添加及删除数据">添加及删除数据</label><label for="遍历">遍历</label><label for="其他">其他</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2807,7 +2805,7 @@
 </div>
 </li>
 </ul>
-<h2 id="二叉树">二叉树<a class="headerlink" href="#二叉树" title="Permanent link">&para;</a></h2>
+<h2 id="二叉树">二叉树<a class="headerlink" href="#二叉树" title="Permanent link">¶</a></h2>
 <div class="admonition summary">
 <p>二叉树是由n(n&gt;=0)个结点的有限集合构成，此集合或者为空集，或者由一个根结点及两棵互不相交的左、右子树组成，并且左右子树都是二叉树。</p>
 </div>
@@ -2818,7 +2816,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="ADT类型定义_1">ADT类型定义<a class="headerlink" href="#ADT类型定义_1" title="Permanent link">&para;</a></h3>
+<h3 id="ADT类型定义_1">ADT类型定义<a class="headerlink" href="#ADT类型定义_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>数据对象 D 是具有相同特性的数据元素的集合</li>
 <li>数据关系 若 D 为空集，称 BinaryTree 为空二叉树；若D为非空集合，则关系 R={H}：<ol>
@@ -2828,7 +2826,7 @@
 </li>
 <li>
 <p>基本操作</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="结构建立与销毁_1" name="__tabbed_3" type="radio" /><input id="添加及删除数据_1" name="__tabbed_3" type="radio" /><input id="查找_1" name="__tabbed_3" type="radio" /><input id="遍历_1" name="__tabbed_3" type="radio" /><input id="其他_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="结构建立与销毁_1">结构建立与销毁</label><label for="添加及删除数据_1">添加及删除数据</label><label for="查找_1">查找</label><label for="遍历_1">遍历</label><label for="其他_1">其他</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="结构建立与销毁_1" name="__tabbed_3" type="radio"><input id="添加及删除数据_1" name="__tabbed_3" type="radio"><input id="查找_1" name="__tabbed_3" type="radio"><input id="遍历_1" name="__tabbed_3" type="radio"><input id="其他_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="结构建立与销毁_1">结构建立与销毁</label><label for="添加及删除数据_1">添加及删除数据</label><label for="查找_1">查找</label><label for="遍历_1">遍历</label><label for="其他_1">其他</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -2953,7 +2951,7 @@
 </div>
 </li>
 </ul>
-<h3 id="性质">性质<a class="headerlink" href="#性质" title="Permanent link">&para;</a></h3>
+<h3 id="性质">性质<a class="headerlink" href="#性质" title="Permanent link">¶</a></h3>
 <ul>
 <li>在二叉树的第 <span class="arithmatex">\(i\)</span> 层上至多有 <span class="arithmatex">\(2^{i-1}\)</span> 个结点( <span class="arithmatex">\(i \ge 1\)</span> )</li>
 <li>深度为 <span class="arithmatex">\(k\)</span> 的二叉树至多有 <span class="arithmatex">\(2^k-1\)</span> 个结点( <span class="arithmatex">\(k \ge 1\)</span> )</li>
@@ -2984,16 +2982,16 @@ n_0 &amp;=n_2 +1
 </details>
 </li>
 </ul>
-<h3 id="满二叉树">满二叉树<a class="headerlink" href="#满二叉树" title="Permanent link">&para;</a></h3>
+<h3 id="满二叉树">满二叉树<a class="headerlink" href="#满二叉树" title="Permanent link">¶</a></h3>
 <p>深度为 <span class="arithmatex">\(k\)</span> ，且含有 <span class="arithmatex">\(2^k-1\)</span>个结点的二叉树。</p>
 <figure>
-<p><a class="glightbox" href="asset-img/tree-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="满二叉树" src="asset-img/tree-1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-1.png" data-desc-position="bottom"><img alt="满二叉树" src="asset-img/tree-1.png"></a></p>
 <figcaption>一棵有7个结点的满二叉树</figcaption>
 </figure>
-<h3 id="完全二叉树">完全二叉树<a class="headerlink" href="#完全二叉树" title="Permanent link">&para;</a></h3>
+<h3 id="完全二叉树">完全二叉树<a class="headerlink" href="#完全二叉树" title="Permanent link">¶</a></h3>
 <p>如果深度为k、有n个结点的二叉树中，当且仅当其每一个结点能够与深度为k的顺序编号的满二叉树从1 到n标号的结点相对应，则称这样的二叉树为完全二叉树。</p>
 <figure>
-<p><a class="glightbox" href="asset-img/tree-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="完全二叉树" src="asset-img/tree-2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-2.png" data-desc-position="bottom"><img alt="完全二叉树" src="asset-img/tree-2.png"></a></p>
 <figcaption>一棵有6个结点的完全二叉树</figcaption>
 </figure>
 <ul>
@@ -3023,8 +3021,8 @@ n_0 &amp;=n_2 +1
 </ul>
 </li>
 </ul>
-<h3 id="存储结构">存储结构<a class="headerlink" href="#存储结构" title="Permanent link">&para;</a></h3>
-<h4 id="顺序存储">顺序存储<a class="headerlink" href="#顺序存储" title="Permanent link">&para;</a></h4>
+<h3 id="存储结构">存储结构<a class="headerlink" href="#存储结构" title="Permanent link">¶</a></h3>
+<h4 id="顺序存储">顺序存储<a class="headerlink" href="#顺序存储" title="Permanent link">¶</a></h4>
 <p>按照自上而下、自左至右的顺序，遍历完全二叉树上的结点元素，
 并顺次存储在一维数组中。一般用于存储完全二叉树</p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define MAX_TREE_SIZE 100</span>
@@ -3044,9 +3042,9 @@ n_0 &amp;=n_2 +1
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  1 2 3 4 5 6
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  a b c d 0 e
 </span></code></pre></div>
-<h4 id="链式存储">链式存储<a class="headerlink" href="#链式存储" title="Permanent link">&para;</a></h4>
+<h4 id="链式存储">链式存储<a class="headerlink" href="#链式存储" title="Permanent link">¶</a></h4>
 <p>二叉树的常用存储结构是链表</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="二叉链表" name="__tabbed_4" type="radio" /><input id="三叉链表" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="二叉链表">二叉链表</label><label for="三叉链表">三叉链表</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="二叉链表" name="__tabbed_4" type="radio"><input id="三叉链表" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="二叉链表">二叉链表</label><label for="三叉链表">三叉链表</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">BiTNode</span><span class="w"> </span><span class="p">{</span>
@@ -3065,9 +3063,9 @@ n_0 &amp;=n_2 +1
 </div>
 </div>
 </div>
-<h3 id="遍历二叉树">遍历二叉树<a class="headerlink" href="#遍历二叉树" title="Permanent link">&para;</a></h3>
+<h3 id="遍历二叉树">遍历二叉树<a class="headerlink" href="#遍历二叉树" title="Permanent link">¶</a></h3>
 <p>遍历二叉树的问题，就是说如何按某条搜索路径巡访树中的每一个结点，使得每一个结点均被访问一次，而且仅被访问一次。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="先序遍历" name="__tabbed_5" type="radio" /><input id="中序遍历" name="__tabbed_5" type="radio" /><input id="后序遍历" name="__tabbed_5" type="radio" /><input id="层次遍历" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="先序遍历">先序遍历</label><label for="中序遍历">中序遍历</label><label for="后序遍历">后序遍历</label><label for="层次遍历">层次遍历</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="先序遍历" name="__tabbed_5" type="radio"><input id="中序遍历" name="__tabbed_5" type="radio"><input id="后序遍历" name="__tabbed_5" type="radio"><input id="层次遍历" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="先序遍历">先序遍历</label><label for="中序遍历">中序遍历</label><label for="后序遍历">后序遍历</label><label for="层次遍历">层次遍历</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="admonition summary">
@@ -3087,7 +3085,7 @@ n_0 &amp;=n_2 +1
 <div class="admonition summary">
 <p>若二叉树为空，则空操作；否则（1）中序遍历左子树；（2）访问根结点；（3）中序遍历右子树。</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="递归算法" name="__tabbed_6" type="radio" /><input id="非递归算法" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="递归算法">递归算法</label><label for="非递归算法">非递归算法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="递归算法" name="__tabbed_6" type="radio"><input id="非递归算法" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="递归算法">递归算法</label><label for="非递归算法">非递归算法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Inorder</span><span class="p">(</span><span class="n">BiTree</span><span class="w"> </span><span class="n">T</span><span class="p">)</span>
@@ -3156,17 +3154,17 @@ n_0 &amp;=n_2 +1
 </div>
 </div>
 </div>
-<h3 id="线索二叉树">线索二叉树<a class="headerlink" href="#线索二叉树" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="先序线索树" name="__tabbed_7" type="radio" /><input id="中序线索树" name="__tabbed_7" type="radio" /><input id="后序线索树" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="先序线索树">先序线索树</label><label for="中序线索树">中序线索树</label><label for="后序线索树">后序线索树</label></div>
+<h3 id="线索二叉树">线索二叉树<a class="headerlink" href="#线索二叉树" title="Permanent link">¶</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="先序线索树" name="__tabbed_7" type="radio"><input id="中序线索树" name="__tabbed_7" type="radio"><input id="后序线索树" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="先序线索树">先序线索树</label><label for="中序线索树">中序线索树</label><label for="后序线索树">后序线索树</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/tree-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="先序线索树" src="asset-img/tree-3.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-3.png" data-desc-position="bottom"><img alt="先序线索树" src="asset-img/tree-3.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/tree-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="中序线索树" src="asset-img/tree-4.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-4.png" data-desc-position="bottom"><img alt="中序线索树" src="asset-img/tree-4.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="asset-img/tree-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="后序线索树" src="asset-img/tree-5.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-5.png" data-desc-position="bottom"><img alt="后序线索树" src="asset-img/tree-5.png"></a></p>
 </div>
 </div>
 </div>
@@ -3224,7 +3222,7 @@ n_0 &amp;=n_2 +1
 </span></code></pre></div>
 </li>
 </ul>
-<h2 id="树与森林">树与森林<a class="headerlink" href="#树与森林" title="Permanent link">&para;</a></h2>
+<h2 id="树与森林">树与森林<a class="headerlink" href="#树与森林" title="Permanent link">¶</a></h2>
 <ul>
 <li>定义森林为 m(m≥0) 棵互不相交的树的集合。则对树中每个结点而言，其子树的集合即为森林</li>
 <li>
@@ -3235,10 +3233,10 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </li>
 </ul>
 <figure>
-<p><a class="glightbox" href="asset-img/tree-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="example-tree" src="asset-img/tree-6.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-6.png" data-desc-position="bottom"><img alt="example-tree" src="asset-img/tree-6.png"></a></p>
 <figcaption>某树的可能结构</figcaption>
 </figure>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="双亲表示法" name="__tabbed_8" type="radio" /><input id="孩子表示法" name="__tabbed_8" type="radio" /><input id="孩子兄弟表示法" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="双亲表示法">双亲表示法</label><label for="孩子表示法">孩子表示法</label><label for="孩子兄弟表示法">孩子兄弟表示法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="双亲表示法" name="__tabbed_8" type="radio"><input id="孩子表示法" name="__tabbed_8" type="radio"><input id="孩子兄弟表示法" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="双亲表示法">双亲表示法</label><label for="孩子表示法">孩子表示法</label><label for="孩子兄弟表示法">孩子兄弟表示法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>假设以一组连续空间存储树的结点，同时在每个结点中附设一个指示器指示其双亲结点在链表中的位置，其形式说明如下：</p>
@@ -3344,7 +3342,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">}</span><span class="w"> </span><span class="n">CTree</span><span class="p">;</span>
 </span></code></pre></div>
 <p>上述例子可以表示为</p>
-<p><a class="glightbox" href="asset-img/tree-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="example-1" src="asset-img/tree-8.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-8.png" data-desc-position="bottom"><img alt="example-1" src="asset-img/tree-8.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p>树中每个结点都设有两个指针，firstchild 指向该结点的“第一个”子树根结点，nextsibling 指向它的“下一个”兄弟结点。（二叉链表）</p>
@@ -3354,21 +3352,21 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">}</span><span class="w"> </span><span class="n">CSNode</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">CSTree</span><span class="p">;</span>
 </span></code></pre></div>
 <p>上述例子可以表示为</p>
-<p><a class="glightbox" href="asset-img/tree-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="example-1" src="asset-img/tree-9.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-9.png" data-desc-position="bottom"><img alt="example-1" src="asset-img/tree-9.png"></a></p>
 </div>
 </div>
 </div>
-<h3 id="树与二叉树的转换">树与二叉树的转换<a class="headerlink" href="#树与二叉树的转换" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:1"><input checked="checked" id="树二叉树" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="树二叉树">树→二叉树</label></div>
+<h3 id="树与二叉树的转换">树与二叉树的转换<a class="headerlink" href="#树与二叉树的转换" title="Permanent link">¶</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:1"><input checked="checked" id="树二叉树" name="__tabbed_9" type="radio"><div class="tabbed-labels"><label for="树二叉树">树→二叉树</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>每个结点左指针指向它的第一个孩子结点，右指针指向它在树中相邻的兄弟结点。</p>
-<p><a class="glightbox" href="asset-img/tree-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="tree-2-bitree" src="asset-img/tree-11.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-11.png" data-desc-position="bottom"><img alt="tree-2-bitree" src="asset-img/tree-11.png"></a></p>
 </div>
 </div>
 </div>
-<h3 id="森林与二叉树的转换">森林与二叉树的转换<a class="headerlink" href="#森林与二叉树的转换" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="森林二叉树" name="__tabbed_10" type="radio" /><input id="二叉树森林" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="森林二叉树">森林→二叉树</label><label for="二叉树森林">二叉树→森林</label></div>
+<h3 id="森林与二叉树的转换">森林与二叉树的转换<a class="headerlink" href="#森林与二叉树的转换" title="Permanent link">¶</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="森林二叉树" name="__tabbed_10" type="radio"><input id="二叉树森林" name="__tabbed_10" type="radio"><div class="tabbed-labels"><label for="森林二叉树">森林→二叉树</label><label for="二叉树森林">二叉树→森林</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -3390,10 +3388,10 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </div>
 </div>
 </div>
-<h3 id="树和森林的遍历">树和森林的遍历<a class="headerlink" href="#树和森林的遍历" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="asset-img/tree-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="example-tree" src="asset-img/tree-6.png" /></a></p>
-<p><a class="glightbox" href="asset-img/tree-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="example-forest" src="asset-img/tree-10.png" /></a></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:4"><input checked="checked" id="先根遍历树" name="__tabbed_11" type="radio" /><input id="后根遍历树" name="__tabbed_11" type="radio" /><input id="先序遍历森林" name="__tabbed_11" type="radio" /><input id="中序遍历森林" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="先根遍历树">先根遍历树</label><label for="后根遍历树">后根遍历树</label><label for="先序遍历森林">先序遍历森林</label><label for="中序遍历森林">中序遍历森林</label></div>
+<h3 id="树和森林的遍历">树和森林的遍历<a class="headerlink" href="#树和森林的遍历" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-6.png" data-desc-position="bottom"><img alt="example-tree" src="asset-img/tree-6.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-10.png" data-desc-position="bottom"><img alt="example-forest" src="asset-img/tree-10.png"></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:4"><input checked="checked" id="先根遍历树" name="__tabbed_11" type="radio"><input id="后根遍历树" name="__tabbed_11" type="radio"><input id="先序遍历森林" name="__tabbed_11" type="radio"><input id="中序遍历森林" name="__tabbed_11" type="radio"><div class="tabbed-labels"><label for="先根遍历树">先根遍历树</label><label for="后根遍历树">后根遍历树</label><label for="先序遍历森林">先序遍历森林</label><label for="中序遍历森林">中序遍历森林</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>若树不空，则先访问根结点，然后依次从左到右先根遍历根的各棵子树。</p>
@@ -3419,10 +3417,10 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <li>树的后根遍历，即森林的中序遍历可对应到二叉树的中序遍历</li>
 </ul>
 </div>
-<h2 id="树与二叉树的应用">树与二叉树的应用<a class="headerlink" href="#树与二叉树的应用" title="Permanent link">&para;</a></h2>
-<h3 id="并查集">并查集<a class="headerlink" href="#并查集" title="Permanent link">&para;</a></h3>
+<h2 id="树与二叉树的应用">树与二叉树的应用<a class="headerlink" href="#树与二叉树的应用" title="Permanent link">¶</a></h2>
+<h3 id="并查集">并查集<a class="headerlink" href="#并查集" title="Permanent link">¶</a></h3>
 <p>并查集是一种树形的数据结构，用于处理一些不交集的合并及查询问题</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="初始化" name="__tabbed_12" type="radio" /><input id="查操作" name="__tabbed_12" type="radio" /><input id="并操作" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="初始化">初始化</label><label for="查操作">查操作</label><label for="并操作">并操作</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="初始化" name="__tabbed_12" type="radio"><input id="查操作" name="__tabbed_12" type="radio"><input id="并操作" name="__tabbed_12" type="radio"><div class="tabbed-labels"><label for="初始化">初始化</label><label for="查操作">查操作</label><label for="并操作">并操作</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">makeSet</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3453,7 +3451,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </div>
 </div>
 </div>
-<h3 id="二叉排序树BST">二叉排序树(BST)<a class="headerlink" href="#二叉排序树BST" title="Permanent link">&para;</a></h3>
+<h3 id="二叉排序树BST">二叉排序树(BST)<a class="headerlink" href="#二叉排序树BST" title="Permanent link">¶</a></h3>
 <ul>
 <li>性质<ul>
 <li>若它的左子树不空，则左子树上所有节点的值均小于它的根节点的值。</li>
@@ -3464,11 +3462,11 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </ul>
 <div class="admonition tip">
 <p>以下，定义二叉排序树结构为
-<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">BST_Node</span><span class="w"> </span><span class="p">{</span>
+</p><div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">BST_Node</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="n">ElemType</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">BST_Node</span><span class="w"> </span><span class="o">*</span><span class="n">lchild</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">rchild</span><span class="p">;</span>
 </span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">}</span><span class="n">BSTNode</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">BSTPointer</span><span class="p">;</span>
-</span></code></pre></div></p>
+</span></code></pre></div><p></p>
 </div>
 <ul>
 <li>
@@ -3522,7 +3520,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <ul>
 <li>
 <p>分为三种情况</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="是叶子结点" name="__tabbed_13" type="radio" /><input id="有一个子结点" name="__tabbed_13" type="radio" /><input id="有两个子结点" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="是叶子结点">是叶子结点</label><label for="有一个子结点">有一个子结点</label><label for="有两个子结点">有两个子结点</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="是叶子结点" name="__tabbed_13" type="radio"><input id="有一个子结点" name="__tabbed_13" type="radio"><input id="有两个子结点" name="__tabbed_13" type="radio"><div class="tabbed-labels"><label for="是叶子结点">是叶子结点</label><label for="有一个子结点">有一个子结点</label><label for="有两个子结点">有两个子结点</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>直接删除，原BST不受影响</p>
@@ -3539,13 +3537,13 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </ul>
 </li>
 </ul>
-<h3 id="平衡二叉树AVL">平衡二叉树(AVL)<a class="headerlink" href="#平衡二叉树AVL" title="Permanent link">&para;</a></h3>
+<h3 id="平衡二叉树AVL">平衡二叉树(AVL)<a class="headerlink" href="#平衡二叉树AVL" title="Permanent link">¶</a></h3>
 <p>定义：它或者是一颗空树，或者具有以下性质的二叉排序树</p>
 <ul>
 <li>它的左子树和右子树的深度之差(平衡因子)的绝对值不超过1</li>
 <li>它的左子树和右子树都是一颗平衡二叉树。</li>
 </ul>
-<h4 id="AVL树的平衡调整">AVL树的平衡调整<a class="headerlink" href="#AVL树的平衡调整" title="Permanent link">&para;</a></h4>
+<h4 id="AVL树的平衡调整">AVL树的平衡调整<a class="headerlink" href="#AVL树的平衡调整" title="Permanent link">¶</a></h4>
 <div class="admonition tip">
 <p>统一约定AVL树的结构为</p>
 <div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span>
@@ -3557,7 +3555,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 </span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="14:4"><input checked="checked" id="LL型调整" name="__tabbed_14" type="radio" /><input id="RR型调整" name="__tabbed_14" type="radio" /><input id="LR型调整" name="__tabbed_14" type="radio" /><input id="RL型调整" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="LL型调整">LL型调整</label><label for="RR型调整">RR型调整</label><label for="LR型调整">LR型调整</label><label for="RL型调整">RL型调整</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:4"><input checked="checked" id="LL型调整" name="__tabbed_14" type="radio"><input id="RR型调整" name="__tabbed_14" type="radio"><input id="LR型调整" name="__tabbed_14" type="radio"><input id="RL型调整" name="__tabbed_14" type="radio"><div class="tabbed-labels"><label for="LL型调整">LL型调整</label><label for="RR型调整">RR型调整</label><label for="LR型调整">LR型调整</label><label for="RL型调整">RL型调整</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>由于在A的左孩子B的左子树BL(不一定为空)中插入结点(图中阴影部分所示)而导致不平衡(h表示子树的深度)。（双右旋）调整方法如下：</p>
@@ -3566,7 +3564,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <li>将原来的根结点A降为B的右孩子</li>
 <li>各子树按大小关系连接(BL和AR不变，BR调整为A的左子树)。</li>
 </ol>
-<p><a class="glightbox" href="asset-img/tree-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ll" src="asset-img/tree-13.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-13.png" data-desc-position="bottom"><img alt="ll" src="asset-img/tree-13.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p>由于在A的右孩子B的右子树BR(不一定为空)中插入结点(图中阴影部分所示)而导致不平衡(h 表示子树的深度)。（双左旋）调整方法如下：</p>
@@ -3575,7 +3573,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <li>将原来的根结点A降为B的左孩子</li>
 <li>各子树按大小关系连接(AL和BR不变，BL调整为A的右子树)。</li>
 </ol>
-<p><a class="glightbox" href="asset-img/tree-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rr" src="asset-img/tree-14.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-14.png" data-desc-position="bottom"><img alt="rr" src="asset-img/tree-14.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p>由于在A的左孩子B的右子树(根结点为C，不一定为空)中插入结点(图中两个阴影部分之一)而导致不平衡(h表示子树的深度)。（先左旋再右旋）调整方法如下：</p>
@@ -3584,7 +3582,7 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <li>将原来的根结点A降为C的右孩子</li>
 <li>各子树按大小关系连接(BL和AR不变，CL和CR分别调整为B的右子树和A的左子树)。</li>
 </ol>
-<p><a class="glightbox" href="asset-img/tree-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="lr" src="asset-img/tree-15.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-15.png" data-desc-position="bottom"><img alt="lr" src="asset-img/tree-15.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p>由于在A的右孩子B的左子树(根结点为C，不一定为空)中插入结点(图中两个阴影部分之一)而导致不平衡(h表示子树的深度)。（先右旋再左旋）调整方法如下：</p>
@@ -3593,11 +3591,11 @@ RF=\{\left \langle root，r_i\right \rangle | i=1,2,\cdots ,m, m\gt 0\}
 <li>将原来的根结点A降为C的左孩子</li>
 <li>各子树按大小关系连接(AL和BR不变，CL和CR分别调整为A的右子树和B的左子树)。</li>
 </ol>
-<p><a class="glightbox" href="asset-img/tree-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rl" src="asset-img/tree-16.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="asset-img/tree-16.png" data-desc-position="bottom"><img alt="rl" src="asset-img/tree-16.png"></a></p>
 </div>
 </div>
 </div>
-<h3 id="哈夫曼树">哈夫曼树<a class="headerlink" href="#哈夫曼树" title="Permanent link">&para;</a></h3>
+<h3 id="哈夫曼树">哈夫曼树<a class="headerlink" href="#哈夫曼树" title="Permanent link">¶</a></h3>
 <div class="admonition tip">
 <p>WPL，是树中所有叶结点的带权路径长度之和</p>
 <div class="arithmatex">\[
@@ -3635,7 +3633,7 @@ WPL = \sum_{i=0}^nW_iL_i
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="最后更新">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
     <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2023年4月28日 00:05:12 CST">2023年4月28日 00:05:12</span>
   </span>
@@ -3645,7 +3643,7 @@ WPL = \sum_{i=0}^nW_iL_i
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="创建日期">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
     <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2021年11月4日 16:44:46 CST">2021年11月4日 16:44:46</span>
   </span>
@@ -3673,7 +3671,7 @@ WPL = \sum_{i=0}^nW_iL_i
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   回到页面顶部
 </button>
         
@@ -3683,13 +3681,13 @@ WPL = \sum_{i=0}^nW_iL_i
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
           <a href="string.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 字符串">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -3714,7 +3712,7 @@ WPL = \sum_{i=0}^nW_iL_i
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -3726,7 +3724,7 @@ WPL = \sum_{i=0}^nW_iL_i
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      copyright &copy; (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2025</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
+      copyright © (<a href="https://www.jason0743.space" target="_blank">Jason Ren 2019-2025</a>) . All rights reserved，<a href="#__consent">在这里改变 Cookie 设置</a>
     </div>
   
   
@@ -3744,8 +3742,8 @@ WPL = \sum_{i=0}^nW_iL_i
     
     
     
-    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason&#39;s Github" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    <a href="https://github.com/jasonren0403" target="_blank" rel="noopener" title="Jason's Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"></path></svg>
     </a>
   
     
@@ -3753,7 +3751,7 @@ WPL = \sum_{i=0}^nW_iL_i
     
     
     <a href="https://x.com/theRealRev270" target="_blank" rel="noopener" title="J.R on X(former Twitter)" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"></path></svg>
     </a>
   
     
@@ -3761,7 +3759,7 @@ WPL = \sum_{i=0}^nW_iL_i
     
     
     <a href="https://www.facebook.com/renjason1999" target="_blank" rel="noopener" title="My facebook page" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
     </a>
   
     
@@ -3769,7 +3767,7 @@ WPL = \sum_{i=0}^nW_iL_i
     
     
     <a href="https://discord.gg/s33UBWEPxb" target="_blank" rel="noopener" title="Join to my discussion(discord)" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"></path></svg>
     </a>
   
     
@@ -3782,7 +3780,7 @@ WPL = \sum_{i=0}^nW_iL_i
       
     
     <a href="https://tea.codes/@jasonpro_114" target="_blank" rel="noopener me" title="tea.codes" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"></path></svg>
     </a>
   
 </div>
@@ -3811,7 +3809,7 @@ WPL = \sum_{i=0}^nW_iL_i
 
 <h4>Cookie 约定</h4>
 <p>嗨，欢迎光临JasonRen的笔记小站！此站将使用 Cookie 优化您的体验。关于 Cookie 的具体约定，请访问我的<a href="https://www.jason0743.space/#/privacy" target="_blank">网站</a>。</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
+<input class="md-toggle" type="checkbox" id="__settings">
 <div class="md-consent__settings">
   <ul class="task-list">
     
@@ -3895,7 +3893,7 @@ WPL = \sum_{i=0}^nW_iL_i
         <script src="../../assets/javascripts/share.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
