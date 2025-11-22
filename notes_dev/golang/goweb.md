@@ -1,9 +1,3 @@
----
-tags:
-    - 编程语言
-    - Go
----
-
 # Go 网络编程
 
 ## Golang Socket

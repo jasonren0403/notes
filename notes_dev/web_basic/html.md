@@ -1,6 +1,7 @@
 ---
 tags:
     - Web前端基础
+    - HTML5
 comments: true
 ---
 
@@ -454,4 +455,4 @@ html5的文档声明为`<!DOCTYPE html>` 必须位于第一行
     - label：设置标签
         > `input id="xx"` 要对应于 `label for="xx"`
 
-[^1]:本章节参考资料主要来源于MDN开发网：https://developer.mozilla.org/zh-CN/docs/Learn/HTML/ 由Mozilla贡献者基于[CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)及以上版本发布的“HTML——构建Web” 结合相关文字和课件共同整理
+[^1]:本章节参考资料主要来源于[MDN 开发网](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content)，由Mozilla贡献者基于[CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)及以上版本发布的“HTML——构建Web” 结合相关文字和课件共同整理

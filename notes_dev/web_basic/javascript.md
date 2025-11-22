@@ -1,6 +1,7 @@
 ---
 tags:
     - Web前端基础
+    - JavaScript
 comments: true
 ---
 
@@ -18,8 +19,8 @@ comments: true
         	所有的声明语句都会被提升到代码的头部（这与JavaScript<a href="#how-javascript-compiles">解析代码的方式</a>有关）
 
         	```javascript
-        	console.log(a); // (1)
-        	var a=1;// (2)
+        	console.log(a); // (1)!
+        	var a=1;// (2)!
         	```
 
         	1. `a` 在这里还没有被赋值
@@ -31,7 +32,7 @@ comments: true
         	由于历史原因，JavaScript也可以支持HTML代码的注释，但仅仅支持单行注释！
         	```javascript
         		var a = 1;<!--a = 4-->
-        		a // (1)
+        		a // (1)!
         	```
 
         	1. 输出 `1`
@@ -42,12 +43,12 @@ comments: true
         === "null也是一个对象？"
         	怎么解释这个输出结果呢？
         	```javascript
-        	typeof null // (1)
+        	typeof null // (1)!
         	```
 
         	1. 输出 "object"
 
-        	这是JavaScript的历史原因造成的。JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑`null`，只把它当作`object`的一种特殊值。后来`null`独立出来，作为一种单独的数据类型，为了兼容以前的代码，`typeof null`返回`object`就没法改变了
+        	> 这是JavaScript的历史原因造成的。JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑`null`，只把它当作`object`的一种特殊值。后来`null`独立出来，作为一种单独的数据类型，为了兼容以前的代码，`typeof null`返回`object`就没法改变了
 
         === "有关`null`和`undefined`"
         	1. 在`if`语句中，`null`和`undefined`都会自动转为`false`，相等运算符（`==`）会报告两者相等。
@@ -57,8 +58,8 @@ comments: true
         === "浮点数"
         	浮点数不是精确的值，所以涉及小数的比较和运算要特别小心！
         	```javascript
-        	0.1 + 0.2   // (1)
-        	0.3 / 0.2   // (2)
+        	0.1 + 0.2   // (1)!
+        	0.3 / 0.2   // (2)!
         	```
 
         	1. 输出 `0.3000000000000004`
@@ -116,9 +117,9 @@ comments: true
 	* JavaScript是动态类型语言
     	```javascript
     	var a = 1;
-        typeof a; // (1)
+        typeof a; // (1)!
         a = 'hello';
-    	typeof a; // (2)
+    	typeof a; // (2)!
     	```
 
         1. 'number'
@@ -128,8 +129,8 @@ comments: true
 
     	```javascript
     	var b;
-    	b  // (1)
-    	x  // (2)
+    	b  // (1)!
+    	x  // (2)!
     	```
 
         1. undefined
@@ -141,10 +142,10 @@ comments: true
 	  	    	变量在程序中有效的范围，例如
 
 			    ```javascript
-			    var a;          // (1)
+			    var a;          // (1)!
 			    function foo(){
 				    a = "bar";
-				    var b = "c";   // (2)
+				    var b = "c";   // (2)!
 				    console.log(a + b);
 			    }
 			    ```
@@ -165,16 +166,16 @@ comments: true
         !!! warning "const不可修改？"
         	```javascript
         	const person = {
-        		name : 'jiuke',
-        		sex : '男'
+        		name: 'jiuke',
+        		sex: '男'
         	}
         	person.name = 'test'
-        	console.log(person.name)  // (1)
+        	console.log(person.name)  // (1)!
         	```
 
             1. 为什么这里会输出"test"？
 
-			对象是引用类型的，person中保存的仅是对象的指针，这就意味着，`const`仅保证指针不发生改变，修改对象的属性不会改变对象的指针，所以是被允许的。也就是说`const`定义的引用类型只要指针不发生改变，其他的不论如何改变都是允许的。
+			> 对象是引用类型的，person中保存的仅是对象的指针，这就意味着，`const`仅保证指针不发生改变，修改对象的属性不会改变对象的指针，所以是被允许的。也就是说`const`定义的引用类型只要指针不发生改变，其他的不论如何改变都是允许的。
 
 -   标识符（identifier）
 
@@ -194,13 +195,13 @@ comments: true
 
 	=== "单行注释"
         ```javascript
-        //this is a single line comment
+        // 这是单行注释
         ```
 
 	=== "多行注释"
         ```javascript
         /*
-            this is a multi line comment
+            这是多行注释
         */
         ```
 
@@ -278,37 +279,34 @@ comments: true
 !!! info ""
 	可以使用`typeof`运算符获得除了 `null` 以外的任何原始类型（string、number、bigint、boolean、undefined、symbol）的值的类型
 
-=== "数值(Number)"
-    包括整数和小数
+数值(Number)
+: 包括整数和小数
 
-=== "大整数(bigint)"
-	以 `n` 结尾的任意精度的整数
+大整数(bigint)
+: 以 `n` 结尾的任意精度的整数
 
-=== "字符串(string)"
-    文本
+字符串(string)
+: 文本
 
-=== "布尔值(boolean)"
-    - 只有`true`和`false`两种值
-    - 返回布尔值
-        * 前置逻辑运算符：`!`
-        * 相等比较符：`!==`,`===`,`!=`,`==`
-        * 比较运算符：`>=`,`>`,`<=`,`<`
+布尔值(boolean)
+: 只有`true`和`false`两种值
 
-=== "undefined"
-    * 变量定义了，但是没有赋值
-	* 定义了函数，应该提供的参数没有传值进去，或者没有返回值
-	* 对象的某属性没有赋值
+undefined
+: 变量定义了，但是没有赋值；定义了函数，应该提供的参数没有传值进去，或者没有返回值； 对象的某属性没有赋值
 
-=== "null"
-    * 作为函数的参数，表示该函数的参数为空
-	* 作为对象原型链的终点
+null
+: 作为函数的参数，表示该函数的参数为空；作为对象原型链的终点
 
-=== "symbol"
-	创建唯一的标识符，每个从 `Symbol()` 返回的 symbol 值都是唯一的
+symbol
+: 创建唯一的标识符，每个从 `Symbol()` 返回的 symbol 值都是唯一的
 
-=== "object"
-    * 各种值组成的集合
-	* 又可分为object（狭义）、array、function
+object
+: 各种值组成的集合，又可分为object（狭义）、array、function
+
+!!! info "返回布尔值" 
+    * 前置逻辑运算符：`!`
+    * 相等比较符：`!==`,`===`,`!=`,`==`
+    * 比较运算符：`>=`,`>`,`<=`,`<`
 
 #### 数值
 
@@ -319,7 +317,7 @@ comments: true
     Number.MAX_VALUE;
     Number.MIN_VALUE;
     /* ECMAScript 6 Standard */
-    Number.isSafeInteger(); // (1)
+    Number.isSafeInteger(); // (1)!
     Number.MAX_SAFE_INTEGER;
     Number.MIN_SAFE_INTEGER;
     ```
@@ -395,11 +393,11 @@ comments: true
     -   可以在JavaScript程序中直接用来表示字符
 
         ```javascript
-        var foo = "a";
-        foo; // (1)
+        const foo = "a";
+        foo; // (1)!
         ```
 
-        1. 也会输出字符"a"
+        1. 也会输出字符 `"a"`
 
 -   Base64相关方法
 
@@ -407,7 +405,7 @@ comments: true
     -   `atob()`：Base64编码转换为原来的值
 
     !!! tip "非ASCII字符（如中文）怎么base64？[^3]" 
-        - 请在中间插入一个转码环节（如`encodeURIComponent()`），再使用这两个方法
+        - 在中间插入一个转码环节（如`encodeURIComponent()`），再使用这两个方法
         - 或使用 `TypedArray` 重写这两种方法
 
 #### 对象
@@ -421,7 +419,7 @@ comments: true
 
     *   整个对象用花括号括起来
 
-        ```javascript title="一个例子"
+        ```javascript
         const obj = {
             foo: "hello",
             bar: "world",
@@ -442,7 +440,8 @@ comments: true
                 return 2 * x;
             },
         };
-        const val = obj.p(1); //now val = 2
+        const val = obj.p(1);
+        val; // 2
         ```
         -   如果属性的值还是对象，就可以形成链式引用
     -   属性可以动态创建
@@ -498,7 +497,7 @@ comments: true
 
     ```javascript
     with (object) {
-        // (1)
+        // (1)!
     }
     ```
 
@@ -513,9 +512,12 @@ comments: true
     -   `function` 命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数，函数体放在大括号里面
         ```javascript
         function fun_name(arguments) {
-            //function body
+            // (1)!
         }
         ```
+        
+        1. 函数体
+
 -   函数表达式：`var var_name = function [fun_name](arguments){};`
     -   不加`fun_name`，函数为匿名函数
     -   加上`fun_name`，函数名仅在函数体内部有效
@@ -582,7 +584,7 @@ comments: true
 				}
 
 				var a = A();
-				a(); // (1)
+				a(); // (1)!
 				```
 
                 1. 输出`i = 2`
@@ -599,11 +601,11 @@ comments: true
 				  return function() { console.log(num++); }
 				}
 				var a = A();
-				a(); // (1)
-				a(); // (2)
+				a(); // (1)!
+				a(); // (2)!
 
-                var b = A(); // (3)
-                b(); // (4)
+                var b = A(); // (3)!
+                b(); // (4)!
 
                 ```
 
@@ -630,18 +632,18 @@ comments: true
 					}
 
 					A();
-					fun1();   // (1)
+					fun1();   // (1)!
 					fun2();
 					fun2();
-					fun1();    // (2)
+					fun1();    // (2)!
 					fun3();
-					fun1();   // (3)
+					fun1();   // (3)!
 
 					var old = fun1;
 
 					A();
-					fun1();   // (4)
-					old();   // (5)
+					fun1();   // (4)!
+					old();   // (5)!
 					```
 
                     1. 42
@@ -1058,13 +1060,13 @@ comments: true
 
         ```javascript
         try{
-            tryCode // (1)
+            tryCode // (1)!
         }
         catch(err){
-            catchCode // (2)
+            catchCode // (2)!
         }
         finally{
-            finallyCode // (3)
+            finallyCode // (3)!
         }
         ```
 
@@ -1081,18 +1083,18 @@ comments: true
                 throw('bug');
             }catch(e){
                 console.log(1);
-                return true;    // (1)
-                console.log(2); // (2)
+                return true;    // (1)!
+                console.log(2); // (2)!
             }finally{
                 console.log(3);
-                return false;   // (3)
-                console.log(4); // (4)
+                return false;   // (3)!
+                console.log(4); // (4)!
             }
-            console.log(5);     // (5)
+            console.log(5);     // (5)!
         }
 
-        var result = f(); // (6)
-        result  // (7)
+        var result = f(); // (6)!
+        result  // (7)!
         ```
 
         1. 原本会延迟到`finally`代码块结束再执行
@@ -1149,9 +1151,9 @@ comments: true
 				 URI 由组件分隔符分割的组件序列组成，一般形式如
 
                  ```html
-                 <scheme> <!-- (1) -->
-                   ://<authority> <!-- (2) -->
-                      <path>?<query> <!-- (3) -->
+                 <scheme> <!-- (1)! -->
+                   ://<authority> <!-- (2)! -->
+                      <path>?<query> <!-- (3)! -->
                  ```
 
                  1. scheme 表示协议，比如http，ftp
@@ -1181,7 +1183,7 @@ comments: true
         - JavaScript 的 `Number` 类型为双精度IEEE754 64位浮点类型，能够准确表示的整数范围在`-2^53~2^53`之间。
         - 静态属性：`Number.MAX_VALUE`、`Number.MIN_VALUE`、`Number.NaN`等
         - 静态方法
-            * 是否为`NaN`：`Number.isNaN()`
+            * 是否为`NaN`：`#!javascript Number.isNaN()`
             * 是否为有限数：`Number.isFinite()`
             * 是否类型为`Number`且为整数：`Number.isInteger()`
             * 是否为安全表示的整数：`Number.isSafeInteger()`
@@ -1416,4 +1418,4 @@ comments: true
 [^1]: 具体请参考提案[ECMA 262](https://262.ecma-international.org/13.0/#sec-keywords-and-reserved-words)
 [^2]: 本部分参考https://www.cnblogs.com/wind-lanyan/p/6080160.html 和课件pdf共同整理
 [^3]: https://developer.mozilla.org/zh-CN/docs/Glossary/Base64
-*[严格模式]: ECMAScript 5中采用限制性Javascript变体的模式，在脚本所有语句之前需要放置特定语句'use strict'
+*[严格模式]: ECMAScript 5中采用限制性Javascript变体的模式，在脚本所有语句之前需要放置特定语句 `'use strict'`

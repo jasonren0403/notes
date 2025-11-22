@@ -1,6 +1,7 @@
 ---
 tags:
     - Web前端基础
+    - CSS
 comments: true
 ---
 
@@ -95,10 +96,11 @@ comments: true
         选中所有元素名和选择器名匹配的元素（不区分大小写）
 
         ```css
-        div/* (1) */ {/* css样式 */}
+        div/* (1)! */ { /* (2)! */ }
         ```
 
-        1. 元素符号（即`<div>`标签本身名称）
+        1. 元素符号（即 `<div>` 标签本身名称）
+        2. css样式
 
 - 直接选择class或id
 
@@ -110,20 +112,22 @@ comments: true
         * 标识网页元素的唯一身份
 
             ```css
-            #first /* (1) */ { /* css样式 */}
+            #first /* (1)! */ { /* (2)! */ }
             ```
 
-            1. 井号`#`是id选择器符号，选择了`id=first`的元素
+            1. 井号 `#` 是id选择器符号，选择了 `id=first` 的元素
+            2. css样式
 
     === "class属性"
 
         * 元素的分类（“标签”）
 
             ```css
-    		.first /* (1) */ { /* css样式 */}
+    		.first /* (1)! */ { /* (2)! */ }
       		```
 
-            1. 点号`.` 是class选择器符号，选择了`class=first`的元素
+            1. 点号 `.` 是类选择器符号，选择了 `class=first` 的元素
+            2. css样式
 
     !!! info ""
         可以为同一页面的不同元素设置相同的`class`，但是只能设置一个`id`
@@ -280,7 +284,9 @@ comments: true
 ??? faq "例子"
 
     ```css
-    #main li.important strong{color:red;} /* (1) */
+    #main li.important strong{
+      color:red;
+    } /* (1)! */
     ```
 
     1. 含义：将`id`为`main`的`li`标签下所有`important`类的`strong`标签的内容设为红色。
@@ -338,7 +344,7 @@ comments: true
 			* 可通过包含以逗号分隔的多个阴影值，将多个阴影应用于同一文本
 
     === "颜色"
-		- 语法：`color:颜色值;`
+		- 语法：`color:颜色值;`<a id="color"></a>
 		- 用途：选中元素前景内容的颜色
 		- <a id="color-values"></a>值
 			* 十六进制颜色：#RRGGBB，RR是红色，GG是绿色，BB是蓝色。所有值必须介于0和FF之间。
@@ -464,7 +470,7 @@ comments: true
 
 	!!! attention "注意"
 		1. 请使用合理的背景颜色和文本颜色搭配，这样可以提高文本的可读性。
-		2. 与 [`color`](#color)属性的区别：文本和背景
+		2. 与 [`color`](#颜色)属性的区别：文本和背景
 
 * <a id="bg-image"></a>background-image
 	- 语法：`background-image:url("背景图像路径");`
@@ -480,8 +486,12 @@ comments: true
 	- 属性值
 		* 关键字
 			```css
-			param1 [param2] /* param=top|left|center|right|bottom 若没有param2，则其值为center */
+			param1 [param2] /* (1)! */
 			```
+
+            1. param=`top|left|center|right|bottom`
+                * 若没有param2，则其值为center
+
 		* 百分比（`水平 垂直`）
             - 左上角为0% 0%，右下角为100% 100%
 			- 若仅规定了一个值，则另一个值是50%
@@ -675,8 +685,8 @@ comments: true
 		* 默认从左到右排列，占据需要的位置
 		* 指定位置需要通过包裹它的元素设置，或设定其`display`属性为`display:block;`
 		* `overflow`：溢出元素内容区如何处理
-			- 属性值：`visible（默认值）|hidden|scroll|auto`
-				* `visible`：内容不会被修剪，呈现在元素框之外
+			- 属性值：`visible|hidden|scroll|auto`
+				* `visible`（默认值）：内容不会被修剪，呈现在元素框之外
 				* `hidden`：内容会被修剪，超出内容不可见
 				* `scroll`：浏览器显示滚动条以查看溢出内容
 				* `auto`：如果内容被修剪，就显示滚动条（由浏览器决定）
@@ -759,5 +769,5 @@ comments: true
         ??? tip "去除inline-block元素间距"
             设置父元素`font-size`为0。
 
-[^1]:本章节参考资料主要来源于MDN开发网：https://developer.mozilla.org/zh-CN/docs/Learn/CSS/ 由Mozilla贡献者基于[CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)及以上版本发布的“CSS——设计Web” 结合相关文字和课件共同整理
+[^1]:本章节参考资料主要来源于[MDN 开发网](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics)，由Mozilla贡献者基于[CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)及以上版本发布的“CSS——设计Web” 结合相关文字和课件共同整理
 [^2]:所有继承信息详见 https://www.w3.org/TR/CSS21/propidx.html

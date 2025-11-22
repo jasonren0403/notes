@@ -125,6 +125,13 @@ theme:
   icon:
     logo: material/cloud
     repo: fontawesome/brands/github
+    tag:
+      html: fontawesome/brands/html5
+      js: fontawesome/brands/js
+      css: fontawesome/brands/css3
+      java: fontawesome/brands/java
+      go: fontawesome/brands/golang
+      vue: fontawesome/brands/vuejs
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -136,7 +143,7 @@ theme:
     - navigation.tracking
     - navigation.instant
     - navigation.instant.progress
-    - navigation.path # insiders
+    - navigation.path
     - header.autohide
     - toc.integrate
     - toc.follow
@@ -144,10 +151,13 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
-    - content.code.annotate
-    - content.code.copy
     - content.action.edit
     - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.footnote.tooltips
+    - content.tabs.link
     - content.tooltips
   language: "zh"
 
@@ -162,6 +172,13 @@ repo_name: jasonren0403/notes
 edit_uri: edit/main/notes_dev/
 extra:
   comments: true
+  tags:
+    HTML5: html
+    JavaScript: js
+    CSS: css
+    Java: java
+    Go: go
+    Vue.js: vue
   ## uncomment before publish ##
   analytics:
     provider: google
@@ -190,7 +207,9 @@ plugins:
   - search:
       separator: '[\s\u200b\-]'
   - glightbox
-  #  - typeset  # insiders
+  - typeset
+  - optimize:
+      enabled: !ENV [CI, false]
   - meta
   - social:
       cards: !ENV [CARDS, false]
