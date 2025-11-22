@@ -32,6 +32,13 @@ jobs:
         run: uv self version
       - name: Install dependencies
         run: uv sync --locked --all-extras
+      # https://squidfunk.github.io/mkdocs-material/plugins/requirements/image-processing
+      # image processing dependencies
+      - name: Install pngquant
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pngquant
+          pngquant --version
       - name: Setup Deployer
         run: |
           git config --global user.email "40999116+jasonren0403@users.noreply.github.com"
